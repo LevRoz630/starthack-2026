@@ -110,6 +110,44 @@ client file ──> fact engine (deterministic) ──> briefing facts + sources
 - **The card and the call share one fact set** — nothing is built twice. The card
   follows the agent's transcript events to highlight each fact as it is spoken.
 
+## Services (tested 2026-09-18)
+
+From the [Tech Goodies](https://startglobal1920.notion.site/Tech-Goodies-3bf4da13be32804f84d2c8938a4c1407)
+page, keys claimed via the [Keymaker](https://keymaker.ai-weeks.ch/). Keys live in
+`.env` (`ELEVENLABS_KEY`, `SWISSCOM_KEY`, `SUPERTEXT_API_KEY`), which is gitignored.
+
+| Service | Use | Measured |
+| --- | --- | --- |
+| **Apertus 1.5 70B** (Swisscom) | Main LLM: phrases the facts | ~0.15 s to first streamed byte, ~1.6 s for a 3-sentence briefing |
+| **OpenAI** ($50 credit) | Fallback LLM | Not claimed yet — redeem the credit link into an org |
+| **ElevenLabs** | Call agent, TTS | Flash v2.5: 0.17 s to first audio. Multilingual v2: 3.1 s — too slow for the call |
+| **Supertext** | Translation, incl. Swiss German dialects | ~1.7 s per sentence |
+
+**Apertus is the main LLM because the data stays in Switzerland.** Banks can't send
+client data to US-hosted models; "the briefing is written by a Swiss model on Swisscom"
+is our answer to "how does this reach production". Put the LLM behind one interface
+with OpenAI as fallback.
+
+**Apertus needs guardrails.** On a test briefing it addressed the client ("your
+portfolio") instead of the advisor, and invented a cause ("may have amplified losses").
+Strict prompt, plus a check that every number in its output is in the fact set —
+otherwise fall back to a template.
+
+**Supertext request quirks** (differ from their docs):
+
+- `text` must be a list: `"text": ["..."]`.
+- Targets need a region: `de-CH`, `fr-CH`, not `de`, `fr`. Dialects:
+  `gsw-u-sd-chzh` (Zurich), `gsw-u-sd-chbe` (Bern). Full list: `GET /v1/features`.
+- Auth header: `Authorization: Supertext-Auth-Key <key>`.
+- It translated "equity share" as *Eigenkapitalanteil* (company equity) instead of
+  *Aktienanteil*. Use its glossary for finance terms.
+
+**Swiss German option.** Supertext → Zurich German → ElevenLabs Flash with
+`language_code: "de"` produces audio (no Swiss German voice exists; it is a German voice
+reading dialect text). If a native speaker says it sounds right, a briefing in
+Züritüütsch is a strong stage moment for a Swiss jury. If not, stay with standard
+German and French.
+
 ## Build order
 
 1. Fact engine + source tracking over `clients.json` / `reference.json`.
@@ -120,7 +158,7 @@ client file ──> fact engine (deterministic) ──> briefing facts + sources
 5. Follow-up questions via client tools (covers the chatbot bonus).
 6. Stretch, pick at most two: rehearsal mode (agent plays the client and pushes back),
    suitability objection ("that fund breaches her ESG exclusion"), German/French
-   switching, post-meeting voice note → CRM note and follow-up email, ex-custody PDF
+   switching or a Swiss German briefing, post-meeting voice note → CRM note and follow-up email, ex-custody PDF
    import.
 7. Optional upgrade, only with time and a juror who agrees at the booth: a real phone
    call to their phone via a Twilio number imported into ElevenLabs.
@@ -129,6 +167,10 @@ client file ──> fact engine (deterministic) ──> briefing facts + sources
 
 - [ ] ElevenLabs key works (Growing Business tier, 5.4M chars/month). Conversational AI
       is available; browser calls need no phone number.
+- [ ] Swisscom guide says "Authorization Bearer expires in 60 minutes" — re-test the key
+      an hour after first use; if it expires, the server has to refresh it.
+- [ ] Claim the OpenAI credit for the fallback LLM.
+- [ ] Have a native speaker judge the Swiss German TTS sample.
 - [ ] **Audio routing is the biggest risk.** Speakerphone into a handheld mic sounds bad
       and the agent can hear itself through the venue speakers and cut itself off.
       Plan: the advisor wears earbuds on the phone; the laptop joins the same session
