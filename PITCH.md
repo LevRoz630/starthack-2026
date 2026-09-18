@@ -13,7 +13,7 @@ Friday 9am–12am** — that is the window to collect names and roles.
 
 ## Recon (Friday, at the booths)
 
-- [ ] Get the names and exact job titles of everyone staffing our case's booth.
+- [ ] Get the names and exact job titles of everyone staffing the UNRISKOMEGA booth.
 - [ ] Ask which of them sits on the jury — booth staff and jury are not always the same people.
 - [ ] Look each one up on LinkedIn: engineer, product, risk/compliance, or exec? That decides how much of the pitch is architecture vs. outcome.
 - [ ] Ask directly: "if this worked, whose problem does it solve inside your company?" Their answer is the first slide.
@@ -23,22 +23,19 @@ Friday 9am–12am** — that is the window to collect names and roles.
 ## Shaping the pitch
 
 - [ ] Write the one-sentence claim before anything else. If it needs a second sentence, it is not sharp enough.
-- [ ] Decide the demo order: the brief (Viseca) asks for clean transaction → intervention → human control. Lead with whichever moment lands hardest.
+- [ ] Decide the demo order: lead with whichever moment lands hardest, not with setup.
 - [ ] Build the pitch around one live failure that our system survives, not a feature tour.
 - [ ] Prepare the "how does this reach production" answer — both partners are vendors and will ask.
 - [ ] Prepare the honest limitation slide. Volunteering it beats having the jury find it.
 - [ ] Make one visual that a non-expert in the participant vote understands in three seconds.
 
-## Case-specific angles
+## What this partner cares about
 
-**If Viseca:** audience is payments and fraud prevention. They care about latency,
-behaviour when the model fails, explainability of a decline to a customer, and
-integration into the existing "one" app. Show the prompt-injection scenario
-being declined with a readable audit trail.
-
-**If UNRISKOMEGA:** audience is wealth-advisory software. They care about advisor
-productivity, suitability and compliance, and whether the numbers are actually
-right. Show a suitability violation caught on real data from their pack.
+Wealth-advisory software. Advisor productivity, suitability and compliance, and
+whether the numbers are actually right. The advisor dashboard in their own
+screenshots shows 114 rule violations, 21 warnings and 215 pending advisories for
+a single advisor — triage is the visible pain. Show a suitability problem caught
+on their own data.
 
 ## Dry run
 

@@ -2,17 +2,22 @@
 
 Team **Look Mom I am Quant** — START Hack Tour St. Gallen 2026.
 
-Working copy of the official event rules, kept here so they can be read and diffed without opening Notion.
+Case: **UNRISKOMEGA** — [github.com/START-Hack/unriskomega-2026](https://github.com/START-Hack/unriskomega-2026).
 
-- [RULES.md](RULES.md) — the Hacker Guidebook, converted to markdown.
+- [RULES.md](RULES.md) — the official Hacker Guidebook, converted to markdown.
+- [PITCH.md](PITCH.md) — pitch prep todos.
 
-Source: <https://startglobal1920.notion.site/Hacker-Guidebook-START-Hack-Tour-St-Gallen-3b84da13be328082a75fc33a4a0eb9c5> (fetched 2026-09-18). Notion is authoritative; this copy is a snapshot.
+Guidebook source: <https://startglobal1920.notion.site/Hacker-Guidebook-START-Hack-Tour-St-Gallen-3b84da13be328082a75fc33a4a0eb9c5> (fetched 2026-09-18). Notion is authoritative; this copy is a snapshot.
 
-## Cases
+## What the case ships
 
-The guidebook says the cases are not yet on GitHub. That is out of date — two case repos are public under the [START-Hack](https://github.com/START-Hack) org as of 2026-09-18:
+Data only — no brief, no judging criteria, no partner contacts. Those come on site.
 
-- [viseca-2026](https://github.com/START-Hack/viseca-2026) — challenge brief with judging criteria, sandbox API and data contract, synthetic offline data pack.
-- [unriskomega-2026](https://github.com/START-Hack/unriskomega-2026) — wealth advisory portfolio data (47 client bundles), reference UI screenshots, plus a side challenge built on ten Q4 2025 client report PDFs.
+| | |
+| --- | --- |
+| `core-case/portfolio-data/clients.json` | 47 clients, 57 portfolios, 703 security positions, 206 proposals, 1274 transactions, 180 suitability violations, 153 client notes |
+| `core-case/portfolio-data/reference.json` | 504 securities, 48101 fund look-through rows, 54 suitability rules, risk/ESG profiles, 16 strategic asset allocations |
+| `core-case/GUI-screenshots/` | The current advisor, client, and portfolio dashboards |
+| `side-challenge/` | Ten 8-page German quarterly client reports (Q4 2025), from a separate fictional bank — not joinable to `clients.json` |
 
-The guidebook itself contains no case list, no judging criteria and no prize information — those live in the case repos and the Hack App.
+Three further client-data files arrive later for the live presentation, so the solution has to accept new files of the same shape rather than hardcoding the one we have.
