@@ -192,3 +192,7 @@ p { margin: 0; }
 .live { margin: 0; flex: 1; min-width: 0; color: var(--muted); font-style: italic; font-size: var(--size-s); overflow-wrap: anywhere; }
 .live.final { color: var(--ink); font-style: normal; }
 .live.error { color: var(--red); font-style: normal; }
+
+.tag.error { background: var(--red); color: #fff; }
+.demo-status { margin: 8px 0 0; font-size: 14px; color: var(--muted, #6b6b73); }
+.demo-status[hidden] { display: none; }

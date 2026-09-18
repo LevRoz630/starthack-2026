@@ -84,3 +84,13 @@ Data only — no brief, no judging criteria, no partner contacts. Those came at 
 | `side-challenge/` | Ten 8-page German quarterly client reports (Q4 2025), from a separate fictional bank — not joinable to `clients.json` |
 
 Three further client-data files arrive later for the live presentation, so the solution has to accept new files of the same shape rather than hardcoding the one we have.
+
+## Demo pipelines
+
+Both run through the same listener (speech-to-text → answer cards on the phone).
+
+- **Live:** a real call via Twilio (`/twilio/voice`, `/twilio/media`; setup steps in `backend/listener.py`) or the phone's microphone (Listen button in the call screen, `/listen`).
+- **Recorded:** `data/demo/golf.json` scripts the client's side of the golf-video call. Its lines are voiced by ElevenLabs once (`python -m backend.demo prepare golf`) and replayed in real time through the real speech-to-text. On the phone (`/phone/?demo=CASE-043`): **Play recorded call**, then tap Answer. Every run is saved to `data/demo/runs/golf-latest.json`.
+- **Replay offline:** pushes the saved run again with its original timing and no network — the fallback if the venue network fails.
+
+Approving the follow-up email or call note sends it through Gmail when `.env` has `SMTP_USER`, `SMTP_PASSWORD` (a Gmail app password) and `EMAIL_TO`; otherwise it lands in `data/outbox/`.

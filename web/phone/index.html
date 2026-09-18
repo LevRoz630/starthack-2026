@@ -29,6 +29,9 @@
           <span class="tag sim" id="market-sim" hidden>SIMULATED</span>
         </p>
         <button class="btn secondary" id="demo-call" type="button" hidden>Simulate call</button>
+        <button class="btn secondary" id="demo-recorded" type="button" hidden>Play recorded call</button>
+        <button class="btn secondary" id="demo-replay" type="button" hidden>Replay offline</button>
+        <p class="demo-status" id="demo-status" hidden></p>
       </div>
     </section>
 
@@ -106,6 +109,7 @@
   </main>
 
   <audio id="ringtone" src="ringtone.mp3" loop preload="auto"></audio>
+  <audio id="caller-voice" preload="auto"></audio>
   <script type="module" src="app.js"></script>
 </body>
 </html>

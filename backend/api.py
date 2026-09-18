@@ -20,6 +20,10 @@ Endpoints (JSON unless noted):
     GET  /profile/{ref}                the client's profile (temperament, wants, cash needs), each with its note
     GET  /call/{ref}/audio             the call briefing spoken (audio/mpeg, ElevenLabs Flash, cached)
     GET  /briefing/{ref}/audio         the 60-second briefing spoken
+    POST /followup/send                {"client", "kind": "email"|"note", "body"}: send the approved draft (Gmail)
+    POST /call/answered                the phone's Answer button (lets a recorded demo call proceed)
+    GET  /demo/scripts                 recorded demo scripts, whether a saved run exists, email mode
+    POST /demo/run                     {"script": "golf", "mode": "pipeline"|"replay"}; POST /demo/stop
     WS   /ws                           pushes {"type": "incoming_call" | "market" | "transcript" | "answer" |
                                        "listening" | "listening_stopped" | "listener_error", ...} events
     POST /twilio/voice                 Twilio webhook: push the briefing, answer with TwiML that plays the
@@ -45,12 +49,12 @@ from starlette.applications import Starlette
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 from starlette.concurrency import run_in_threadpool
-from starlette.responses import JSONResponse, Response
+from starlette.responses import FileResponse, JSONResponse, Response
 from starlette.routing import Mount, Route, WebSocketRoute
 from starlette.staticfiles import StaticFiles
 from starlette.websockets import WebSocketDisconnect
 
-from . import briefing, callmode, excustody, listener, profiles, voice
+from . import briefing, callmode, demo, excustody, listener, mailer, profiles, voice
 from .data import ROOT, load
 from .facts import client_name, compute, risk_profile
 from .market import MarketState, load_scenario, scenarios
@@ -66,6 +70,9 @@ class State:
         self.market = MarketState()
         self.phrased = {}           # ref -> briefing phrased by the LLM
         self.pending = set()        # refs being phrased right now
+        self.demo_task = None       # the recorded demo call in progress, if any
+        self.demo_answered = asyncio.Event()
+        self.demo_stop = asyncio.Event()
         self.sockets = set()
         self.use_llm = os.getenv('BRIEFING_LLM', '1') != '0'
         self.pool = ThreadPoolExecutor(max_workers=4)
@@ -358,6 +365,90 @@ async def transcribe(request):
     return JSONResponse(out)
 
 
+async def call_answered(request):
+    """The phone's Answer button: lets a recorded demo call start talking."""
+    state.demo_answered.set()
+    return JSONResponse({'ok': True})
+
+
+async def send_followup(request):
+    """Send the advisor-approved follow-up email or call note (Gmail, or data/outbox/ without settings)."""
+    data = await body(request)
+    if data is None or data.get('kind') not in ('email', 'note') or not (data.get('body') or '').strip():
+        return error(400, 'expected {"client": ref, "kind": "email" | "note", "body": "...", "subject"?}')
+    client, err = client_or_404(data.get('client'))
+    if err:
+        return err
+    if len(data['body']) > 20000:
+        return error(413, 'body too long')
+    name = client_name(client)
+    subject = (data.get('subject') or '').strip() or (
+        f'Follow-up to our call today, {name}' if data['kind'] == 'email' else f'Call note: {name} ({client["ClientRef"]})')
+    try:
+        result = await run_in_threadpool(mailer.send, subject, data['body'])
+    except Exception as e:  # tell the advisor it did not go out; never a 500
+        return error(502, f'email not sent: {type(e).__name__}: {e}')
+    await state.broadcast({'type': 'email_sent', 'client': client['ClientRef'], 'kind': data['kind'], **result})
+    return JSONResponse({'kind': data['kind'], 'subject': subject, **result})
+
+
+def _demo_running():
+    return state.demo_task is not None and not state.demo_task.done()
+
+
+def _set_market(name):
+    state.market = load_scenario(name)
+    return market_json()
+
+
+async def demo_scripts(request):
+    runs = {name: (demo.RUNS_DIR / f'{name}-latest.json').is_file() for name in demo.scripts()}
+    return JSONResponse({'scripts': demo.scripts(), 'replayable': runs, 'running': _demo_running(),
+                         'email': 'gmail' if mailer.configured() else 'outbox'})
+
+
+async def demo_run(request):
+    """{"script": "golf", "mode": "pipeline" | "replay"}: a recorded call through the real
+    listener, or a saved run pushed again with no network."""
+    data = await body(request) or {}
+    name, mode = data.get('script') or 'golf', data.get('mode') or 'pipeline'
+    if name not in demo.scripts():
+        return error(404, f'unknown script {name}; known: {", ".join(demo.scripts())}')
+    if mode not in ('pipeline', 'replay'):
+        return error(400, 'mode must be "pipeline" or "replay"')
+    if mode == 'replay' and not (demo.RUNS_DIR / f'{name}-latest.json').is_file():
+        return error(409, 'no saved run yet: run the pipeline once first')
+    if _demo_running():
+        return error(409, 'a demo call is already running; POST /demo/stop first')
+    state.demo_stop.clear()
+    if mode == 'pipeline':
+        coro = demo.run(
+            name, broadcast=state.broadcast,
+            ring=lambda ref: callmode.build_call(state.store, ref, state.market),
+            make_session=lambda ref, on_event: listener.Session(
+                ref, on_event, lambda text: answer(state.store.clients[ref], text), fmt='pcm_16000', source='recorded'),
+            set_market=_set_market, answered=state.demo_answered, stop=state.demo_stop,
+            audio_url=lambda path: f'/demo/audio/{path.name}')
+    else:
+        coro = demo.replay(name, broadcast=state.broadcast, answered=state.demo_answered, stop=state.demo_stop)
+    state.demo_task = asyncio.create_task(coro)
+    return JSONResponse({'started': name, 'mode': mode})
+
+
+async def demo_stop(request):
+    state.demo_stop.set()
+    state.demo_answered.set()   # release a run still waiting for Answer
+    return JSONResponse({'stopping': _demo_running()})
+
+
+async def demo_audio(request):
+    name = request.path_params['name']
+    path = demo.AUDIO_DIR / name
+    if not re.fullmatch(r'[0-9a-f]{20}\.mp3', name) or not path.is_file():
+        return error(404, 'no such audio')
+    return FileResponse(path, media_type='audio/mpeg')
+
+
 async def websocket(ws):
     await ws.accept()
     state.sockets.add(ws)
@@ -484,6 +575,12 @@ app = Starlette(
         Route('/twilio/voice', twilio_voice, methods=['POST']),
         WebSocketRoute('/twilio/media', twilio_media),
         WebSocketRoute('/listen', listen),
+        Route('/call/answered', call_answered, methods=['POST']),
+        Route('/followup/send', send_followup, methods=['POST']),
+        Route('/demo/scripts', demo_scripts),
+        Route('/demo/run', demo_run, methods=['POST']),
+        Route('/demo/stop', demo_stop, methods=['POST']),
+        Route('/demo/audio/{name}', demo_audio),
         Mount('/phone', StaticFiles(directory=PHONE_APP, html=True), name='phone'),
     ],
     middleware=[Middleware(CORSMiddleware, allow_origins=['*'], allow_methods=['*'], allow_headers=['*'])],

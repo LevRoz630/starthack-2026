@@ -146,6 +146,7 @@ function stopRingtone() {
 
 function answer() {
   stopRingtone();
+  fetch(`${API}/call/answered`, { method: 'POST' }).catch(() => {});
   const b = state.briefing;
   const reason = (bySlot(b).reason || [])[0];
   $('[data-reason-line]').textContent = reason ? reason.text : '';
@@ -307,8 +308,8 @@ function showLive(text, kind) {
 // Events from the listener (either source) for the client on the line.
 function onListenerEvent(event) {
   if (!state.briefing || event.client !== state.briefing.client) return;
-  if (event.type === 'listening' && event.source === 'twilio') { state.line = 'twilio'; setListenButton('twilio'); }
-  if (event.type === 'listening_stopped' && event.source === 'twilio') { state.line = null; setListenButton(mic.ws ? 'mic' : null); }
+  if (event.type === 'listening' && event.source !== 'browser') { state.line = 'twilio'; setListenButton('twilio'); }
+  if (event.type === 'listening_stopped' && event.source !== 'browser') { state.line = null; setListenButton(mic.ws ? 'mic' : null); }
   if (event.type === 'listener_error') showLive(`Listener: ${event.error}`, 'error');
   if (state.screen !== 'call') return;
   if (event.type === 'transcript') showLive(event.text, event.final ? 'final' : '');
@@ -324,6 +325,7 @@ function onListenerEvent(event) {
 
 function endCall() {
   stopListening();
+  $('#caller-voice').pause();
   clearInterval(state.timer);
   const duration = state.callStarted ? clock(Date.now() - state.callStarted) : '0:00';
   $('#note-body').textContent = callNote(duration);
@@ -371,10 +373,28 @@ function followUpEmail() {
   ].join('\n');
 }
 
-function approve(kind) {
-  state.approved[kind] = true;
-  $(`[data-approved="${kind}"]`).hidden = false;
-  $(`[data-approve="${kind}"]`).disabled = true;
+async function approve(kind) {
+  const btn = $(`[data-approve="${kind}"]`);
+  const tag = $(`[data-approved="${kind}"]`);
+  btn.disabled = true;
+  tag.hidden = false;
+  tag.classList.remove('error');
+  tag.textContent = 'Sending…';
+  try {
+    const resp = await fetch(`${API}/followup/send`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ client: state.briefing.client, kind, body: $(kind === 'email' ? '#email-body' : '#note-body').textContent }),
+    });
+    const result = await resp.json();
+    if (!resp.ok) throw new Error(result.error || resp.status);
+    state.approved[kind] = true;
+    tag.textContent = result.sent ? `Sent to ${result.to}` : 'Saved to outbox (email not set up)';
+  } catch (err) {
+    tag.textContent = `Not sent: ${err.message}`;
+    tag.classList.add('error');
+    btn.disabled = false;
+  }
 }
 
 // --- market + connection ------------------------------------------------------
@@ -410,6 +430,15 @@ function connect() {
     if (['transcript', 'answer', 'listening', 'listening_stopped', 'listener_error'].includes(event.type)) {
       onListenerEvent(event);
     }
+    if (event.type === 'demo_audio' && state.screen === 'call' && state.briefing && event.client === state.briefing.client) {
+      const voice = $('#caller-voice');
+      voice.src = `${API}${event.url}`;
+      voice.play().catch(() => {});
+    }
+    if (event.type === 'call_ended' && state.screen === 'call' && state.briefing && event.client === state.briefing.client) {
+      endCall();
+    }
+    if (event.type === 'demo_started' || event.type === 'demo_finished') demoStatus(event);
   });
   ws.addEventListener('close', retry);
   ws.addEventListener('error', () => ws.close());
@@ -448,6 +477,36 @@ if (DEMO_CLIENT) {
       });
     } catch { setConn('closed', 'Offline'); }
   });
+}
+
+function demoStatus(event) {
+  const status = $('#demo-status');
+  status.hidden = false;
+  status.textContent = event.type === 'demo_started' ? `Recorded call "${event.script}" running`
+    : `Recorded call finished (${event.result})`;
+}
+
+async function runDemo(mode) {
+  const status = $('#demo-status');
+  status.hidden = false;
+  status.textContent = mode === 'replay' ? 'Replaying the saved call…' : 'Preparing the recorded call…';
+  try {
+    const resp = await fetch(`${API}/demo/run`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ script: params.get('script') || 'golf', mode }),
+    });
+    const result = await resp.json();
+    if (!resp.ok) status.textContent = result.error || 'Could not start';
+  } catch { status.textContent = 'Offline'; }
+}
+
+if (DEMO_CLIENT) {
+  for (const [id, mode] of [['#demo-recorded', 'pipeline'], ['#demo-replay', 'replay']]) {
+    const b = $(id);
+    b.hidden = false;
+    b.addEventListener('click', () => runDemo(mode));
+  }
 }
 
 fetch(`${API}/market/state`).then((r) => r.json()).then(setMarket).catch(() => {});
