@@ -20,7 +20,12 @@ Endpoints (JSON unless noted):
     GET  /profile/{ref}                the client's profile (temperament, wants, cash needs), each with its note
     GET  /call/{ref}/audio             the call briefing spoken (audio/mpeg, ElevenLabs Flash, cached)
     GET  /briefing/{ref}/audio         the 60-second briefing spoken
-    WS   /ws                           pushes {"type": "incoming_call" | "market", ...} events
+    WS   /ws                           pushes {"type": "incoming_call" | "market" | "transcript" | "answer" |
+                                       "listening" | "listening_stopped" | "listener_error", ...} events
+    POST /twilio/voice                 Twilio webhook: push the briefing, answer with TwiML that plays the
+                                       recording notice, streams the caller's audio to us and dials ADVISOR_NUMBER
+    WS   /twilio/media                 Twilio Media Streams (mu-law 8 kHz) -> live transcript + answers on /ws
+    WS   /listen?client=REF            browser microphone (16 kHz PCM16 frames) -> live transcript + answers on /ws
     GET  /phone/                       the advisor phone app (web/phone)
 
 External custody clients EXT-01..EXT-10 (from the side-challenge PDFs) are loaded at startup.
@@ -28,6 +33,7 @@ Environment: DEMO_SCENARIO preloads a scenario; BRIEFING_LLM=0 turns off Apertus
 """
 
 import asyncio
+import base64
 import json
 import os
 import re
@@ -44,7 +50,7 @@ from starlette.routing import Mount, Route, WebSocketRoute
 from starlette.staticfiles import StaticFiles
 from starlette.websockets import WebSocketDisconnect
 
-from . import briefing, callmode, excustody, profiles, voice
+from . import briefing, callmode, excustody, listener, profiles, voice
 from .data import ROOT, load
 from .facts import client_name, compute, risk_profile
 from .market import MarketState, load_scenario, scenarios
@@ -363,6 +369,89 @@ async def websocket(ws):
         state.sockets.discard(ws)
 
 
+def _ws_base(scope_owner):
+    """wss://host of this server as the caller sees it, honouring tunnel headers."""
+    headers = scope_owner.headers
+    proto = (headers.get('x-forwarded-proto') or scope_owner.url.scheme).split(',')[0].strip()
+    host = (headers.get('x-forwarded-host') or headers.get('host') or scope_owner.url.netloc).split(',')[0].strip()
+    return f'{"wss" if proto in ("https", "wss") else "ws"}://{host}'
+
+
+async def twilio_voice(request):
+    """Twilio's incoming-call webhook. The phone rings with the briefing before the advisor's line does."""
+    data = await body(request) or {}
+    number = normalise_number(data.get('From') or data.get('from'))
+    ref = data.get('client') or state.phonebook.get(number)
+    advisor = os.getenv('ADVISOR_NUMBER')
+    if ref in state.store.clients:
+        b = callmode.build_call(state.store, ref, state.market)
+        await state.broadcast({'type': 'incoming_call', 'from': number, 'call_sid': data.get('CallSid'),
+                               'briefing': b})
+        xml = listener.twiml(f'{_ws_base(request)}/twilio/media', ref, advisor)
+    else:
+        xml = listener.twiml(None, None, advisor)
+    return Response(xml, media_type='application/xml')
+
+
+def _session(ref, client, fmt, source):
+    return listener.Session(ref, state.broadcast, lambda text: answer(client, text), fmt=fmt, source=source)
+
+
+async def twilio_media(ws):
+    """Twilio Media Streams: only the caller's (inbound) track goes to speech-to-text."""
+    await ws.accept()
+    session = None
+    try:
+        while True:
+            msg = listener.parse_twilio(await ws.receive_text())
+            if msg['event'] == 'start' and session is None:
+                client = state.store.clients.get(msg.get('client'))
+                if client is not None:
+                    session = _session(msg['client'], client, 'ulaw_8000', 'twilio')
+                    await session.start()
+            elif msg['event'] == 'media' and session and msg.get('track', 'inbound') == 'inbound':
+                await session.send_audio(msg['audio'])
+            elif msg['event'] == 'stop':
+                break
+    except WebSocketDisconnect:
+        pass
+    finally:
+        if session:
+            await session.close()
+
+
+async def listen(ws):
+    """The phone page's microphone: binary 16 kHz PCM16 frames, or JSON {"audio_base_64": ...}."""
+    await ws.accept()
+    ref = ws.query_params.get('client')
+    client = state.store.clients.get(ref)
+    if client is None:
+        await ws.close(code=4404)
+        return
+    session = _session(ref, client, 'pcm_16000', 'browser')
+    await session.start()
+    try:
+        while True:
+            message = await ws.receive()
+            if message['type'] == 'websocket.disconnect':
+                break
+            if message.get('bytes'):
+                await session.send_audio(message['bytes'])
+            elif message.get('text'):
+                try:
+                    data = json.loads(message['text'])
+                except json.JSONDecodeError:
+                    continue
+                if data.get('type') == 'stop':
+                    break
+                if data.get('audio_base_64'):
+                    await session.send_audio(base64.b64decode(data['audio_base_64']))
+    except WebSocketDisconnect:
+        pass
+    finally:
+        await session.close()
+
+
 @asynccontextmanager
 async def lifespan(app):
     global state
@@ -392,6 +481,9 @@ app = Starlette(
         Route('/call/{ref}/audio', call_audio),
         Route('/briefing/{ref}/audio', briefing_audio),
         WebSocketRoute('/ws', websocket),
+        Route('/twilio/voice', twilio_voice, methods=['POST']),
+        WebSocketRoute('/twilio/media', twilio_media),
+        WebSocketRoute('/listen', listen),
         Mount('/phone', StaticFiles(directory=PHONE_APP, html=True), name='phone'),
     ],
     middleware=[Middleware(CORSMiddleware, allow_origins=['*'], allow_methods=['*'], allow_headers=['*'])],
