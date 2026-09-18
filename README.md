@@ -19,6 +19,27 @@ python -m backend.briefing CASE-038 --json     # everything, incl. all facts and
 python -m pytest tests                          # offline, no API calls
 ```
 
+API — what the dashboard and the phone talk to:
+
+```
+DEMO_SCENARIO=tech-selloff uvicorn backend.api:app --port 8000
+```
+
+| Endpoint | What |
+| --- | --- |
+| `GET /clients`, `POST /clients` | list; upload a clients.json-shaped file (multipart `file`) — the jury's test client |
+| `GET /briefing/{ref}` | the 60-second briefing; `phrasing: pending` until Apertus has phrased it in the background |
+| `GET /market/scenarios`, `GET /market/state` | scenarios; current moves |
+| `POST /market/events` | `{"scenario": "tech-selloff"}` or `{"ticks": [...]}` — re-ranks and pushes to `/ws` |
+| `GET /callers` | who the move hit hardest, with their likely reason to call |
+| `GET /call/{ref}` | the incoming-call briefing |
+| `POST /call/incoming` | `{"from": "+41..."}` (JSON or Twilio form) or `{"client": ref}` — pushes the briefing to `/ws` |
+| `POST /ask` | `{"client", "question"}` → the facts that answer it, with sources |
+| `WS /ws` | events: `hello`, `market`, `incoming_call` |
+
+Caller numbers map to clients in `data/phonebook.json` (gitignored; copy `data/phonebook.example.json`).
+`BRIEFING_LLM=0` turns Apertus off.
+
 Call mode — the briefing when a client calls during a market move:
 
 ```

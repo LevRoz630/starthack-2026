@@ -1,0 +1,4 @@
+{
+  "_about": "Copy to data/phonebook.json (gitignored) and put the numbers that will call in the demo. Keys are caller numbers in E.164, values are ClientRefs.",
+  "+41790000000": "CASE-043"
+}

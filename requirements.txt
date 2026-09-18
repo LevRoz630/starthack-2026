@@ -1,3 +1,7 @@
 requests
 python-dotenv
 pytest
+starlette
+uvicorn
+python-multipart
+httpx
