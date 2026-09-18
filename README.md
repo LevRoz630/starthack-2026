@@ -5,7 +5,6 @@ Team **Look Mom I am Quant** — START Hack Tour St. Gallen 2026.
 Case: **UNRISKOMEGA** — [github.com/START-Hack/unriskomega-2026](https://github.com/START-Hack/unriskomega-2026).
 
 - [docs/PLAN.md](docs/PLAN.md) — the case brief from the kickoff slides, and what we are building.
-- [docs/PITCH.md](docs/PITCH.md) — pitch prep todos.
 - [docs/JUDGES.md](docs/JUDGES.md) — partner contacts from the kickoff.
 - [docs/screenshots.md](docs/screenshots.md) — what the URO Advisor UI screenshots show.
 - [docs/RULES.md](docs/RULES.md) — the official Hacker Guidebook, converted to markdown.
