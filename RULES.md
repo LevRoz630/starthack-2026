@@ -336,6 +336,20 @@ The **Hack App** is your central tool during the hackathon. Everything importa
 # Schedule
 
 ![Schedule_SHTSG_2026.jpg](attachment:a673737e-5730-4a41-a4c1-4e5b3d53ce0b:Schedule_SHTSG_2026.jpg)
+
+Transcribed from the image above:
+
+| Friday 18th | | Saturday 19th | |
+| --- | --- | --- | --- |
+| Doors open | 16:00 | Breakfast | 9:00–10:00 |
+| Opening ceremony | 17:30–18:15 | Partner slot | 9:00–12:00 |
+| Case presentations | 18:15–18:45 | Mentor slot | 10:00–12:00 |
+| Matchmaking | 18:45–20:00 | Lunch | 12:00–14:00 |
+| Hacking starts | 20:00 | Submission | 15:00 |
+| Dinner | 19:00–21:00 | Pitching to partners | 15:15–17:15 |
+| | | Grand finale | 17:30–18:30 |
+
+Build time is 20:00 Friday to the 15:00 Saturday submission — 19 hours.
 ### Rules to Follow
 # Code of Conduct
 
@@ -390,7 +404,643 @@ For those of you who are planning on getting some hours of sleep during the even
 
 Otherwise, you are free to book accommodation in the city of St. Gallen at your own expense:
 
-‣
+## Hotel Recommendations in St. Gallen for 2026
+
+### 🙋‍♂️ Why this Page Exists
+
+---
+
+> If you are still looking for a place to sleep during START Summit x Hack 2026, this page gives you some inspiration for your stay.
+
+---
+
+#### Hotels rated by Stars
+#### 2 Stars ⭐⭐
+- Hotel am Spisertor
+  - single room: from 134 CHF
+  - 1.4 km to the Olma halls
+  - Moosbruggstrasse 1, 9000 St. Gallen
+  - [https://www.spisertor.ch](https://www.spisertor.ch/)
+- Hotel Elite Garni
+  - single room: from 75 CHF upwards
+  - double room: from 105 CHF upwards
+  - 1.3 km to the Olma halls
+  - Metzgergasse 9, 9000 St. Gallen
+  - [https://www.hotel-elite.ch](https://www.hotel-elite.ch/)
+- Hotel Weisses Kreuz
+  - single room: from 70 CHF upwards
+  - double room: from 95 CHF upwards
+  - 1.3 km to the Olma halls
+  - Engelgasse 9, 9000 St. Gallen
+  - [https://www.weisseskreuz-sg.ch](https://www.weisseskreuz-sg.ch/)
+- Hotel Sporting
+  - prices depending on the dates, offer needs to be requested via the website
+  - 5.4 km to the Olma halls
+  - Straubenzellstrasse 19, 9014 St. Gallen
+  - [https://www.hotel-sporting.ch](https://www.hotel-sporting.ch/)
+- Touch Bed City Apartments
+  - Room Single Low Budget: from 65 CHF
+  - Note that rooms are only offered with common bathroom
+  - Budget Studio (privat bathroom): from 90 CHF upwards
+  - 1.8 km to the Olma halls
+  - Mühlensteg 10a, 9000 St. Gallen
+  - [https://touchbed.ch](https://touchbed.ch/)
+- St. Gallen Youth Hotels
+  - single room: from 80 CHF upwards
+  - in 6 bed room: from 44 CHF upwards
+  - Books out quite fast
+  - 1.4 km to the Olma halls
+  - Jüchstrasse 25, 9000 St. Gallen
+  - [https://www.youthhostel.ch/de/hostels/st-gallen/](https://www.youthhostel.ch/de/hostels/st-gallen/)
+
+#### 3 Stars ⭐⭐⭐
+- Militärkantine
+  - Standard: from 174 CHF upwards
+  - 3 km to the Olma halls
+  - Kreuzbleichweg 2, 9000 St. Gallen
+  - [https://www.militaerkantine.ch/en/sleeping/](https://www.militaerkantine.ch/en/sleeping/)
+- Hotel Metropol
+  - single room: CHF 125 – CHF 175
+  - double room (2 persons): CHF 170 – CHF 220
+  - 1.8 km to the Olma halls
+  - Bahnhofplatz 3, 9000 St. Gallen
+  - [https://www.hotel-metropol.ch](https://www.hotel-metropol.ch/)
+- Hotel Newstar
+  - single room: from 135 CHF upwards
+  - double room (2 persons): from 190 CHF upwards
+  - 6.8 km to the Olma halls
+  - Breitfeldstrasse 9, 9015 St. Gallen
+  - [https://newstar.ch/en/](https://newstar.ch/en/)
+- Hotel Dom
+  - single room: 135 CHF
+  - double room (2 persons): 165 CHF
+  - 2.4 km to the Olma halls
+  - Webergasse 22, 9000 St. Gallen
+  - [https://hoteldom.ch/en/rooms/rooms-overview](https://hoteldom.ch/en/rooms/rooms-overview)
+- Hotel Eastside
+  - double room: from 170 CHF upwards
+  - 2.2 km to the Olma halls
+  - Langgasse 151, 9008 St. Gallen
+  - [https://www.hoteleastside.ch/de/home.htm](https://www.hoteleastside.ch/de/home.htm)
+- Hotel One66
+  - double room (2 persons): from 140 CHF upwards
+  - 7.1 km to the Olma halls
+  - Alte Bildstrasse 6, 9015 St. Gallen
+  - [https://www.hotel-one66.ch/en/zimmer](https://www.hotel-one66.ch/en/zimmer)
+- B&B Hotel St. Gallen
+  - double room: from 100 CHF upwards
+  - 850 m to the Olma halls
+  - Heiligkreuzstrasse 1, 9008 St. Gallen
+  - [https://www.hotel-bb.com/de/hotel/st-gallen](https://www.hotel-bb.com/de/hotel/st-gallen)
+
+#### 4 Stars ⭐⭐⭐⭐
+- Hotel Einstein
+  - double room: from 280 CHF upwards
+  - 2 km to the Olma halls
+  - Berneggstrasse 2, 9000 St. Gallen
+  - [https://www.einstein.ch/de/](https://www.einstein.ch/en/)
+- Hotel Oberwaid
+  - double room: from 195 CHF upwards
+  - 3.7 km to the Olma halls
+  - Rorschacherstr. 311, 9016 St. Gallen
+  - [https://oberwaid.ch/hotel/wohnen-wohlfuhlen/zimmer-suiten](https://oberwaid.ch/hotel/wohnen-wohlfuhlen/zimmer-suiten)
+- Hotel Säntispark
+  - double room: from 167 CHF upwards
+  - 7.8 km to the Olma halls
+  - Wiesenbachstrasse 5, 9030 Abtwil St. Gallen
+  - [https://hotel-saentispark.ch](https://hotel-saentispark.ch/)
+- Sorell Hotel City Weissenstein
+  - double room: from 170 CHF upwards
+  - 2.5 km to the Olma halls
+  - Davidstrasse 21, 9000 St. Gallen
+  - [https://sorellhotels.com/de/city-weissenstein/stgallen](https://sorellhotels.com/de/city-weissenstein/stgallen)
+- Hotel Walhalla
+  - Double room: from 150 CHF upwards
+  - 1.9 km to the Olma halls
+  - Poststrasse 27, 9001 St. Gallen
+  - [https://hotelwalhalla.ch](https://hotelwalhalla.ch/)
+- Radisson Blu
+  - Double room: from 180 CHF upwards
+  - 700 m to the Olma halls
+  - St. Jakob-Strasse 55, 9000 St. Gallen
+  - [https://www.radissonhotels.com/de-de/hotels/radisson-blu-st-gallen](https://www.radissonhotels.com/de-de/hotels/radisson-blu-st-gallen)
+- Tailormade Hotel LEO St.Gallen
+  - Currently booked on Summit days, may be subject to change
+  - Double room: from 300 CHF upwards
+  - Grünbergstrasse 6, 9000 St. Gallen
+  - 2.4km to Olma Halls
+  - [https://www.tailormade-hotels.com/en/leo/](https://www.tailormade-hotels.com/en/leo/)
+
+*Disclaimer: Prices were calculated with per person per night unless it was mentioned
+*Disclaimer: Prices may vary on booking date and availability
+
+#### Hotels rated by Distance to the Event Location
+#### Walking distance (< 20 min)🚶🏼
+- Hotel am Spisertor
+  - ⭐⭐
+  - 1.4 km to the Olma halls (20 min walk or 5 min bus ride)
+  - Moosbruggstrasse 1, 9000 St. Gallen
+- Hotel Elite Garni
+  - ⭐⭐
+  - 1.3 km to the Olma halls (18 min walk or 7 min bus ride)
+  - Metzgergasse 9, 9000 St. Gallen
+- Hotel Weisses Kreuz
+  - ⭐⭐
+  - 1.3 km to the Olma halls (16 min walk or 7 min bus ride)
+  - Engelgasse 9, 9000 St. Gallen
+- B&B Hotel St. Gallen
+  - ⭐⭐⭐
+  - 850 m to the Olma halls (9 min walk or 2 min bus ride)
+  - Heiligkreuzstrasse 1, 9008 St. Gallen
+- Radisson Blu
+  - ⭐⭐⭐⭐
+  - 700 m to the Olma halls (5 min walk)
+  - St. Jakob-Strasse 55, 9000 St. Gallen
+
+#### Very short bus ride (5- 10 min) 🚎
+- Touch Bed City Apartments
+  - 1.8 km to the Olma halls (25 min walk or 10 min bus ride)
+  - Mühlensteg 10a, 9000 St. Gallen
+- Militärkantine
+  - ⭐⭐⭐
+  - 3 km to the Olma halls (10 min bus ride)
+  - Kreuzbleichweg 2, 9000 St. Gallen
+- Hotel Dom
+  - ⭐⭐⭐
+  - 2.4 km to the Olma halls (23 min walk or 6 min bus ride)
+  - Webergasse 22, 9000 St. Gallen
+- Hotel Metropol
+  - ⭐⭐⭐
+  - 1.8 km to the Olma halls (25 min walk or 6 min bus ride)
+  - Bahnhofplatz 3, 9000 St. Gallen
+- Hotel Eastside
+  - ⭐⭐⭐
+  - 2.2 km to the Olma halls (25 min walk or 10 min bus ride)
+  - Langgasse 151, 9008 St. Gallen
+- Hotel Einstein
+  - ⭐⭐⭐⭐
+  - 2 km to the Olma halls (25 min walk or 10 min bus ride)
+  - Berneggstrasse 2, 9000 St. Gallen
+- Sorell Hotel City Weissenstein
+  - ⭐⭐⭐⭐
+  - 2.5 km to the Olma halls (10 min bus ride)
+  - Davidstrasse 21, 9000 St. Gallen
+- Hotel Walhalla
+  - ⭐⭐⭐⭐
+  - 1.9 km to the Olma halls (20 min walk or 7 min bus ride)
+  - Poststrasse 27, 9001 St. Gallen
+- St. Gallen Youth Hostel
+  - ⭐⭐
+  - 1.4 km to the Olma halls (20 min walk)
+  - Jüchstrasse 25, 9000 St. Gallen
+
+#### Short bus ride (10-30 min) 🚌
+- Hotel Sporting
+  - ⭐⭐
+  - 5.4 km to the Olma halls (30 min bus ride)
+  - Straubenzellstrasse 19, 9014 St. Gallen
+- Hotel Newstar
+  - ⭐⭐⭐
+  - 6.8 km to the Olma halls (20 min bus ride)
+  - Breitfeldstrasse 9, 9015 St. Gallen
+- Hotel One66
+  - ⭐⭐⭐s
+  - 7.1 km to the Olma halls (27 min bus ride)
+  - Alte Bildstrasse 6, 9015 St. Gallen
+- Hotel Säntispark
+  - ⭐⭐⭐⭐
+  - 7.8 km to the Olma halls (30 min bus ride)
+  - Wiesenbachstrasse 5, 9030 Abtwil St. Gallen
+- Hotel Oberwaid
+  - ⭐⭐⭐⭐
+  - 3.7 km to the Olma halls (25 min bus ride)
+  - Rorschacherstr. 311, 9016 St. Gallen
+
+## Hotels in St. Gallen for Students
+
+> If you were not able to get a free accommodation, this is your guide for cheap places to sleep during START Summit 2022!
+You can also check out [this page ](/4097c20dd7294f66aca6a1b1d31de5d8)for some rather expensive hotel recommendations.
+## Rated by stars
+#### 2 Star Hotels ⭐⭐
+- Hotel am Spisertor
+  - ⭐⭐
+  - simple
+  - 122-160 CHF
+  - 1.2km to the event venue (15min walk)
+  - Moosbruggstrasse 1, 9000 St. Gallen
+  - close to the oldtown
+  - [https://www.spisertor.ch](https://www.spisertor.ch/)
+- Hotel Vadian
+  - ⭐⭐
+  - 1.4km to the event venue (17min walk)
+  - ca. 133 CHF
+  - Gallusstrasse 36, 9000 St. Gallen
+  - [http://vadian-garni.st-gallen-hotels.com/de/](http://vadian-garni.st-gallen-hotels.com/de/)
+- Hotel Elite
+  - ⭐⭐
+  - 950m (12min walk)
+  - 122-175 CHF
+  - Metzgergasse 9-11, 9000 St. Gallen
+  - [https://www.hotel-elite.ch](https://www.hotel-elite.ch/)
+- Hotel Weisses Kreuz
+  - ⭐⭐
+  - 1km (12min walk)
+  - 70-110 CHF
+  - Engelgasse 9, 9000 St. Gallen
+  - [https://www.weisseskreuz-sg.ch](https://www.weisseskreuz-sg.ch/)
+- Hotel Sporting
+  - ⭐⭐
+  - [4](http://4.km)km to the event venue
+  - prices depending on the dates
+  - Straubenzellstrasse 19, 9014 St. Gallen
+  - [https://www.hotel-sporting.ch](https://www.hotel-sporting.ch/)
+#### Apartments
+- TouchBed City Apartments
+  - apartments and studios
+  - From 90 CHF per night
+  - 1.5km to the event location (15min walk)
+  - Mühlensteg 10a, 9000 St. Gallen
+  - Next to old town
+  - [https://touchbed.ch/](https://touchbed.ch/)
+- EH Apartments
+  - Luxe apartments
+  - from 100 CHF per night
+  - 2 Locations
+    - Lehnstrasse 11: 30min. bus ride
+    - Felsenstrasse 99: 2.5km, 25min. walk
+- City Lodge
+  - Basic room with shared kitchen
+  - At the edge of old town
+  - From 86 CHF
+  - 1.2km to location venue (15min walk)
+  - Torstrasse 9, 9000 St. Gallen
+  - [https://de.citylodge-stgallen.ch/](https://de.citylodge-stgallen.ch/)
+- Yellow Inn
+  - Private room
+  - 100m from venue (2min walk)
+  - 60 CHF
+  - Langgasse 3a, 9000 St. Gallen
+  - [https://ch.hotels.com/ho1296134144/?q-check-in=2022-03-23&q-check-out=2022-03-24&q-rooms=1&q-room-0-adults=2&q-room-0-children=0](https://ch.hotels.com/ho1296134144/?q-check-in=2022-03-23&q-check-out=2022-03-24&q-rooms=1&q-room-0-adults=2&q-room-0-children=0)
+- Locapart
+  - Multiple locations
+  - [https://locapart.ch/](https://locapart.ch/)
+- Airbnb
+  You can find many good apartments
+or private rooms on Airbnb
+  [https://www.airbnb.ch/](https://www.airbnb.ch/)
+#### Youth ho(s)tels
+- St. Gallen Youth Hotels
+  - 1.4km to the event location (18min walk)
+  - from 72 CHF
+  - [https://www.youthhostel.ch/de/hostels/st-gallen/](https://www.youthhostel.ch/de/hostels/st-gallen/)
+
+## Rated by distance to the event location
+#### Walking distance (< 20min)🚶🏼
+- TouchBed City Apartments
+  - apartments and studios
+  - From 90 CHF per night
+  - 1.5km to the event location (15min walk)
+  - Mühlensteg 10a, 9000 St. Gallen
+  - Next to old town
+  - [https://touchbed.ch/](https://touchbed.ch/)
+- Hotel Elite
+  - ⭐⭐
+  - 950m (12min walk)
+  - 122-175 CHF
+  - Metzgergasse 9-11, 9000 St. Gallen
+  - [https://www.hotel-elite.ch](https://www.hotel-elite.ch/)
+- City Lodge
+  - Basic room with shared kitchen
+  - At the edge of old town
+  - From 86 CHF
+  - 1.2km to location venue (15min walk)
+  - Torstrasse 9, 9000 St. Gallen
+  - [https://de.citylodge-stgallen.ch/](https://de.citylodge-stgallen.ch/)
+- Hotel Weisses Kreuz
+  - ⭐⭐
+  - 1km (12min walk)
+  - 70-110 CHF
+  - Engelgasse 9, 9000 St. Gallen
+  - [https://www.weisseskreuz-sg.ch](https://www.weisseskreuz-sg.ch/)
+- Yellow Inn
+  - Private room
+  - 100m from venue (2min walk)
+  - 60 CHF
+  - Langgasse 3a, 9000 St. Gallen
+  - [https://ch.hotels.com/ho1296134144/?q-check-in=2022-03-23&q-check-out=2022-03-24&q-rooms=1&q-room-0-adults=2&q-room-0-children=0](https://ch.hotels.com/ho1296134144/?q-check-in=2022-03-23&q-check-out=2022-03-24&q-rooms=1&q-room-0-adults=2&q-room-0-children=0)
+- Hotel am Spisertor
+  - ⭐⭐
+  - simple
+  - 122-160 CHF
+  - 1.2km to the event venue (15min walk)
+  - Moosbruggstrasse 1, 9000 St. Gallen
+  - close to the oldtown
+  - [https://www.spisertor.ch](https://www.spisertor.ch/)
+- St.Gallen Youth Hostel
+  - 1.4km to the event location (18min walk)
+  - from 72 CHF
+  - [https://www.youthhostel.ch/de/hostels/st-gallen/](https://www.youthhostel.ch/de/hostels/st-gallen/)
+- Locapart
+  - Multiple locations
+  - [https://locapart.ch/](https://locapart.ch/)
+- Airbnb
+  You can find many good apartments
+or private rooms on Airbnb
+  [https://www.airbnb.ch/](https://www.airbnb.ch/)
+#### Very short bus ride (5 min)🚎
+- Hotel Vadian
+  - ⭐⭐
+  - 1.4km to the event venue (17min walk)
+  - ca. 133 CHF
+  - Gallusstrasse 36, 9000 St. Gallen
+  - [http://vadian-garni.st-gallen-hotels.com/de/](http://vadian-garni.st-gallen-hotels.com/de/)
+- EH Apartments
+  - Luxe apartments
+  - from 100 CHF per night
+  - 2 Locations
+    - Lehnstrasse 11: 30min. bus ride
+    - Felsenstrasse 99: 2.5km, 25min. walk
+- Airbnb
+  You can find many good apartments
+or private rooms on Airbnb
+  [https://www.airbnb.ch/](https://www.airbnb.ch/)
+#### Short bus ride (10-15 min) 🚌
+- Hotel Sporting
+  - ⭐⭐
+  - [4](http://4.km)km to the event venue
+  - prices depending on the dates
+  - Straubenzellstrasse 19, 9014 St. Gallen
+  - [https://www.hotel-sporting.ch](https://www.hotel-sporting.ch/)
+- Airbnb
+  You can find many good apartments
+or private rooms on Airbnb
+  [https://www.airbnb.ch/](https://www.airbnb.ch/)
+*Disclaimer: Prices may vary on booking date and availability
+
+## Hotels in St. Gallen
+
+> If you are still looking for a place to sleep during START Summit 2022, this is your guide.
+## Rated by stars
+#### 2 Stars ⭐⭐
+- Hotel am Spisertor
+  - ⭐⭐
+  - simple
+  - 122-160 CHF
+  - 1.2km to the event venue (15min walk)
+  - Moosbruggstrasse 1, 9000 St. Gallen
+  - close to the oldtown
+  - [https://www.spisertor.ch](https://www.spisertor.ch/)
+- Hotel Vadian
+  - ⭐⭐
+  - 1.4km to the event venue (17min walk)
+  - ca. 133 CHF
+  - Gallusstrasse 36, 9000 St. Gallen
+  - [http://vadian-garni.st-gallen-hotels.com/de/](http://vadian-garni.st-gallen-hotels.com/de/)
+- Hotel Elite
+  - ⭐⭐
+  - 950m (12min walk)
+  - 122-175 CHF
+  - Metzgergasse 9-11, 9000 St. Gallen
+  - [https://www.hotel-elite.ch](https://www.hotel-elite.ch/)
+- Hotel Weisses Kreuz
+  - ⭐⭐
+  - 1km (12min walk)
+  - 70-110 CHF
+  - Engelgasse 9, 9000 St. Gallen
+  - [https://www.weisseskreuz-sg.ch](https://www.weisseskreuz-sg.ch/)
+- Hotel Sporting
+  - ⭐⭐
+  - [4](http://4.km)km to the event venue
+  - prices depending on the dates
+  - Straubenzellstrasse 19, 9014 St. Gallen
+  - [https://www.hotel-sporting.ch](https://www.hotel-sporting.ch/)
+- Touch Bed City Apartments
+  - 1.6km to the event location (19min walk)
+  - 92 CHF
+  - [https://www.eh-apartments.ch/?gclid=Cj0KCQiAoY-PBhCNARIsABcz772unqNcQYSaMbLkARc-v9lHHe9SMQZMpWQCNqG_hMqSz4aF-CiM_TUaAqDoEALw_wcB](https://www.eh-apartments.ch/?gclid=Cj0KCQiAoY-PBhCNARIsABcz772unqNcQYSaMbLkARc-v9lHHe9SMQZMpWQCNqG_hMqSz4aF-CiM_TUaAqDoEALw_wcB)
+- St.Gallen Youth Hotels
+  - 1.4km to the event location (18min walk)
+  - from 72 CHF
+  - [https://www.youthhostel.ch/de/hostels/st-gallen/](https://www.youthhostel.ch/de/hostels/st-gallen/)
+#### 3 Stars ⭐⭐⭐
+- Hotel Gallo
+  - ⭐⭐⭐
+  - 190m to the event venue
+  - around 170 CHF
+  - St. Jakob-Strasse 62, 9000 St. Gallen
+  - [https://st.gallen-bodensee.ch/StGallenPortal/ukv/house/TDS00020010471107004](https://st.gallen-bodensee.ch/StGallenPortal/ukv/house/TDS00020010471107004)
+- Militärkantine
+  - ⭐⭐⭐
+  - 2.2km to the event location (28min walk)
+  - from 139 CHF upwards
+  - Kreuzbleichweg 2, 9000 St. Gallen
+  - [https://www.militaerkantine.ch/de/microsites/schlafen/](https://www.militaerkantine.ch/de/microsites/schlafen/)
+- Hotel Metropol
+  - ⭐⭐⭐
+  - 1.5km to the event location (19min walk)
+  - 125 CHF to 260 CHF
+  - Bahnhofplatz 3, 9000 St. Gallen
+  - right next to the train station
+  - [https://www.hotel-metropol.ch](https://www.hotel-metropol.ch/)
+- Hotel Newstar
+  - ⭐⭐⭐
+  - from 170 CHF upwards
+  - 6.4km to the event location
+  - Breitfeldstrasse 9, 9015 St. Gallen
+  - [http://newstar-swiss-quality.st-gallen-hotels.com/en/](http://newstar-swiss-quality.st-gallen-hotels.com/en/)
+- Hotel Dom
+  - ⭐⭐⭐
+  - from 145 CHF upwards
+  - Webergasse 22, 9000 St. Gallen
+  - 1.4km to the event location (17min walk)
+  - [https://hoteldom.ch/zimmer/zimmer-uebersicht](https://hoteldom.ch/zimmer/zimmer-uebersicht)
+- Hotel Eastside
+  - ⭐⭐⭐
+  - from 135 CHF upwards
+  - Langgasse 151, 9008 St. Gallen
+  - 2.2km to the event location (28min walk)
+  - [https://www.hoteleastside.ch/de/home.htm](https://www.hoteleastside.ch/de/home.htm)
+- Sorell Hotel City Weissenstein
+  - ⭐⭐⭐
+  - 211 CHF
+  - 1.8km to the event location (22min walk)
+  - Davidstrasse 21, 9000 St. Gallen
+  - [https://sorellhotels.com/de/city-weissenstein/stgallen](https://sorellhotels.com/de/city-weissenstein/stgallen)
+- Hotel One66
+  - ⭐⭐⭐
+  - from 144 CHF upwards
+  - 6.6km to the event location
+  - Alte Bildstrasse 6, 9015 St. Gallen
+  - [https://www.hotel-one66.ch/de/](https://www.hotel-one66.ch/de/)
+- B&B Hotel St. Gallen
+  - ⭐⭐⭐
+  - from 90 CHF upwards
+  - 1.1km (15min walk)
+  - Heiligkreuzstrasse 1, 9008 St. Gallen
+  - [https://www.hotel-bb.com/de/hotel/st-gallen](https://www.hotel-bb.com/de/hotel/st-gallen)
+#### 4 Stars ⭐⭐⭐⭐
+- Einstein
+  - ⭐⭐⭐⭐
+  - from 293 CHF upwards
+  - Berneggstrasse 2. 9000 St. Gallen
+  - 1.5km to the event location (19min walk)
+  - [https://www.einstein.ch/de/](https://www.einstein.ch/de/)
+- Hotel Säntispark
+  - ⭐⭐⭐⭐
+  - from 245 CHF upwards
+  - Wiesenbachstrasse 5, 9030 Abtwil St. Gallen
+  - 6.4km to the event location
+  - [https://hotel-saentispark.ch](https://hotel-saentispark.ch/)
+- Hotel Oberwaid
+  - ⭐⭐⭐⭐
+  - from 200 CHF upwards
+  - Rorschacherstr. 311, 9016 St. Gallen
+  - 4.1km to the event location
+  - [https://oberwaid.ch/hotel/wohnen-wohlfuhlen/zimmer-suiten](https://oberwaid.ch/hotel/wohnen-wohlfuhlen/zimmer-suiten)
+- Radisson Blu
+  - ⭐⭐⭐⭐
+  - from 240 CHF upwards
+  - St. Jakob-Strasse 55, 9000 St. Gallen
+  - 250m to the event location
+  - [https://www.radissonhotels.com/de-de/hotels/radisson-blu-st-gallen](https://www.radissonhotels.com/de-de/hotels/radisson-blu-st-gallen)
+- Hotel Walhalla
+  - ⭐⭐⭐⭐
+  - from 230 CHF upwards
+  - Poststrasse 27, 9001 St. Gallen
+  - 1.4km (18min walk)
+  - [https://hotelwalhalla.ch](https://hotelwalhalla.ch/)
+
+## Rated by distance to the event location
+#### Walking distance (< 15min)🚶🏼
+- Hotel Gallo
+  - ⭐⭐⭐
+  - 190m to the event venue
+  - around 170 CHF
+  - St. Jakob-Strasse 62, 9000 St. Gallen
+  - [https://st.gallen-bodensee.ch/StGallenPortal/ukv/house/TDS00020010471107004](https://st.gallen-bodensee.ch/StGallenPortal/ukv/house/TDS00020010471107004)
+- Radisson Blu
+  - ⭐⭐⭐⭐
+  - from 240 CHF upwards
+  - St. Jakob-Strasse 55, 9000 St. Gallen
+  - 250m to the event location
+  - [https://www.radissonhotels.com/de-de/hotels/radisson-blu-st-gallen](https://www.radissonhotels.com/de-de/hotels/radisson-blu-st-gallen)
+- Hotel Elite
+  - ⭐⭐
+  - 950m (12min walk)
+  - 122-175 CHF
+  - Metzgergasse 9-11, 9000 St. Gallen
+  - [https://www.hotel-elite.ch](https://www.hotel-elite.ch/)
+- Hotel Weisses Kreuz
+  - ⭐⭐
+  - 1km (12min walk)
+  - 70-110 CHF
+  - Engelgasse 9, 9000 St. Gallen
+  - [https://www.weisseskreuz-sg.ch](https://www.weisseskreuz-sg.ch/)
+- B&B Hotel St. Gallen
+  - ⭐⭐⭐
+  - from 90 CHF upwards
+  - 1.1km (15min walk)
+  - Heiligkreuzstrasse 1, 9008 St. Gallen
+  - [https://www.hotel-bb.com/de/hotel/st-gallen](https://www.hotel-bb.com/de/hotel/st-gallen)
+- Hotel am Spisertor
+  - ⭐⭐
+  - simple
+  - 122-160 CHF
+  - 1.2km to the event venue (15min walk)
+  - Moosbruggstrasse 1, 9000 St. Gallen
+  - close to the oldtown
+  - [https://www.spisertor.ch](https://www.spisertor.ch/)
+
+#### Very short bus ride (5 min)🚎
+- Hotel Vadian
+  - ⭐⭐
+  - 1.4km to the event venue (17min walk)
+  - ca. 133 CHF
+  - Gallusstrasse 36, 9000 St. Gallen
+  - [http://vadian-garni.st-gallen-hotels.com/de/](http://vadian-garni.st-gallen-hotels.com/de/)
+- St.Gallen Youth Hostel
+  - 1.4km to the event location (18min walk)
+  - from 72 CHF
+  - [https://www.youthhostel.ch/de/hostels/st-gallen/](https://www.youthhostel.ch/de/hostels/st-gallen/)
+- Hotel Walhalla
+  - ⭐⭐⭐⭐
+  - from 230 CHF upwards
+  - Poststrasse 27, 9001 St. Gallen
+  - 1.4km (18min walk)
+  - [https://hotelwalhalla.ch](https://hotelwalhalla.ch/)
+- Hotel Dom
+  - ⭐⭐⭐
+  - from 145 CHF upwards
+  - Webergasse 22, 9000 St. Gallen
+  - 1.4km to the event location (17min walk)
+  - [https://hoteldom.ch/zimmer/zimmer-uebersicht](https://hoteldom.ch/zimmer/zimmer-uebersicht)
+- Hotel Metropol
+  - ⭐⭐⭐
+  - 1.5km to the event location (19min walk)
+  - 125 CHF to 260 CHF
+  - Bahnhofplatz 3, 9000 St. Gallen
+  - right next to the train station
+  - [https://www.hotel-metropol.ch](https://www.hotel-metropol.ch/)
+  - Touch Bed City Apartments
+    - 1.6km to the event location (19min walk)
+    - 92 CHF
+    - [https://www.eh-apartments.ch/?gclid=Cj0KCQiAoY-PBhCNARIsABcz772unqNcQYSaMbLkARc-v9lHHe9SMQZMpWQCNqG_hMqSz4aF-CiM_TUaAqDoEALw_wcB](https://www.eh-apartments.ch/?gclid=Cj0KCQiAoY-PBhCNARIsABcz772unqNcQYSaMbLkARc-v9lHHe9SMQZMpWQCNqG_hMqSz4aF-CiM_TUaAqDoEALw_wcB)
+- Einstein
+  - ⭐⭐⭐⭐
+  - from 293 CHF upwards
+  - Berneggstrasse 2. 9000 St. Gallen
+  - 1.5km to the event location (19min walk)
+  - [https://www.einstein.ch/de/](https://www.einstein.ch/de/)
+- Sorell Hotel City Weissenstein
+  - ⭐⭐⭐
+  - 211 CHF
+  - 1.8km to the event location (22min walk)
+  - Davidstrasse 21, 9000 St. Gallen
+  - [https://sorellhotels.com/de/city-weissenstein/stgallen](https://sorellhotels.com/de/city-weissenstein/stgallen)
+- Hotel Eastside
+  - ⭐⭐⭐
+  - from 135 CHF upwards
+  - Langgasse 151, 9008 St. Gallen
+  - 2.2km to the event location (28min walk)
+  - [https://www.hoteleastside.ch/de/home.htm](https://www.hoteleastside.ch/de/home.htm)
+- Militärkantine
+  - ⭐⭐⭐
+  - 2.2km to the event location (28min walk)
+  - from 139 CHF upwards
+  - Kreuzbleichweg 2, 9000 St. Gallen
+  - [https://www.militaerkantine.ch/de/microsites/schlafen/](https://www.militaerkantine.ch/de/microsites/schlafen/)
+#### Short bus ride (10-15 min) 🚌
+- Hotel Sporting
+  - ⭐⭐
+  - [4](http://4.km)km to the event venue
+  - prices depending on the dates
+  - Straubenzellstrasse 19, 9014 St. Gallen
+  - [https://www.hotel-sporting.ch](https://www.hotel-sporting.ch/)
+- Hotel Oberwaid
+  - ⭐⭐⭐⭐
+  - from 200 CHF upwards
+  - Rorschacherstr. 311, 9016 St. Gallen
+  - 4.1km to the event location
+  - [https://oberwaid.ch/hotel/wohnen-wohlfuhlen/zimmer-suiten](https://oberwaid.ch/hotel/wohnen-wohlfuhlen/zimmer-suiten)
+- Hotel Säntispark
+  - ⭐⭐⭐⭐
+  - from 245 CHF upwards
+  - Wiesenbachstrasse 5, 9030 Abtwil St. Gallen
+  - 6.4km to the event location
+  - [https://hotel-saentispark.ch](https://hotel-saentispark.ch/)
+- Hotel Newstar
+  - ⭐⭐⭐
+  - from 170 CHF upwards
+  - 6.4km to the event location
+  - Breitfeldstrasse 9, 9015 St. Gallen
+  - [http://newstar-swiss-quality.st-gallen-hotels.com/en/](http://newstar-swiss-quality.st-gallen-hotels.com/en/)
+- Hotel One66
+  - ⭐⭐⭐
+  - from 144 CHF upwards
+  - 6.6km to the event location
+  - Alte Bildstrasse 6, 9015 St. Gallen
+  - [https://www.hotel-one66.ch/de/](https://www.hotel-one66.ch/de/)
+*Disclaimer: Prices may vary on booking date and availability
 Please note that we will provide accommodation at the venue.
 ### Communication
 # Communication Channels
