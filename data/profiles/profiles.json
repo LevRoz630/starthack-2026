@@ -1,0 +1,1187 @@
+{
+ "CASE-001": {
+  "client": "CASE-001",
+  "hash": "b21f904f944c5f23",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.41,
+  "temperament": "calm",
+  "wants": "detailed",
+  "liquidity_needs": [
+   "Prefers to keep a cash reserve on hand for unexpected medical expenses"
+  ],
+  "contact_preferences": [],
+  "angles": [
+   "long_term"
+  ],
+  "evidence": {
+   "temperament": [
+    "Extremely patient investor; unconcerned by short-term volatility, takes the long view."
+   ],
+   "wants": [
+    "Gives thoughtful, almost philosophical answers when discussing risk tolerance."
+   ]
+  },
+  "interests": [],
+  "age": 50,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": true,
+  "profile_assessed": "2023-11-06",
+  "profile_age_years": 2.9
+ },
+ "CASE-002": {
+  "client": "CASE-002",
+  "hash": "315d9d7fcb3c2839",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.39,
+  "temperament": "calm",
+  "wants": "detailed",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [
+   "no_rush"
+  ],
+  "evidence": {
+   "temperament": [
+    "Mentioned a possible change of address next year; account details to be confirmed then."
+   ],
+   "wants": [
+    "Mentioned a possible change of address next year; account details to be confirmed then."
+   ]
+  },
+  "interests": [
+   "Great Britain",
+   "Switzerland",
+   "Telecommunication Services"
+  ],
+  "age": 28,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": false,
+  "profile_assessed": "2022-07-31",
+  "profile_age_years": 4.1
+ },
+ "CASE-003": {
+  "client": "CASE-003",
+  "hash": "a4bc8ad6dbef365a",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.16,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [
+   "Plans to retire in the next two years, increasing liquidity needs expected"
+  ],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Health Care"
+  ],
+  "age": 38,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": false,
+  "profile_assessed": "2022-09-28",
+  "profile_age_years": 4.0
+ },
+ "CASE-004": {
+  "client": "CASE-004",
+  "hash": "7f9f687a4def2353",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.02,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [
+   "Prefers to keep a cash reserve on hand for unexpected medical expenses",
+   "Plans to retire in the next two years, increasing liquidity needs expected"
+  ],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Japan"
+  ],
+  "age": 40,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": false,
+  "profile_assessed": "2026-08-12",
+  "profile_age_years": 0.1
+ },
+ "CASE-005": {
+  "client": "CASE-005",
+  "hash": "77ea91eb4ae4b0d7",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.29,
+  "temperament": "calm",
+  "wants": "short",
+  "liquidity_needs": [],
+  "contact_preferences": [
+   "Would like a follow-up call before any changes to the standing order"
+  ],
+  "angles": [
+   "follow_up"
+  ],
+  "evidence": {
+   "temperament": [
+    "Also manages a family member's portfolio under a power of attorney."
+   ],
+   "wants": [
+    "Would like a follow-up call before any changes to the standing order."
+   ]
+  },
+  "interests": [
+   "Asia/Pacific (ex Japan)"
+  ],
+  "age": 31,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": true,
+  "profile_assessed": "2025-02-15",
+  "profile_age_years": 1.6
+ },
+ "CASE-006": {
+  "client": "CASE-006",
+  "hash": "5fa6797d0bbd6dd3",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 0.98,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [
+   "Prefers email communication, hard to reach by phone"
+  ],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Great Britain",
+   "Real Estate"
+  ],
+  "age": 98,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": false,
+  "profile_assessed": "2022-09-05",
+  "profile_age_years": 4.0
+ },
+ "CASE-007": {
+  "client": "CASE-007",
+  "hash": "07e43fde45abc528",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.1,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [
+   "Planning to buy a property, possible liquidity need within the next 12 months"
+  ],
+  "contact_preferences": [
+   "Hard to reach during the day, best contacted after 6pm"
+  ],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Latin America",
+   "Rest of Europe",
+   "Telecommunication Services"
+  ],
+  "age": 35,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": true,
+  "profile_assessed": "2022-07-31",
+  "profile_age_years": 4.1
+ },
+ "CASE-008": {
+  "client": "CASE-008",
+  "hash": "698b9cf85a2603e9",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 0.97,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [],
+  "age": 26,
+  "risk_profile": "Investor profile 7",
+  "esg_preference": true,
+  "profile_assessed": "2026-08-15",
+  "profile_age_years": 0.1
+ },
+ "CASE-009": {
+  "client": "CASE-009",
+  "hash": "898949a6125a4b5a",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 0.98,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Global"
+  ],
+  "age": 76,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": false,
+  "profile_assessed": "2022-09-05",
+  "profile_age_years": 4.0
+ },
+ "CASE-010": {
+  "client": "CASE-010",
+  "hash": "5db2809d844d5b69",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.21,
+  "temperament": "calm",
+  "wants": "detailed",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [
+   "long_term"
+  ],
+  "evidence": {
+   "temperament": [
+    "Comfortable with higher volatility given a long time horizon."
+   ],
+   "wants": [
+    "Wants as high a weighting of sustainable funds as possible at the next rebalancing."
+   ]
+  },
+  "interests": [
+   "Asia/Pacific (ex Japan)",
+   "Consumer Discretionary",
+   "Rest of Europe"
+  ],
+  "age": 93,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": true,
+  "profile_assessed": "2022-10-12",
+  "profile_age_years": 3.9
+ },
+ "CASE-011": {
+  "client": "CASE-011",
+  "hash": "40b93713cf85cf4a",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.18,
+  "temperament": "unknown",
+  "wants": "detailed",
+  "liquidity_needs": [
+   "Prefers to keep a cash reserve on hand for unexpected medical expenses"
+  ],
+  "contact_preferences": [
+   "Prefers email communication, hard to reach by phone"
+  ],
+  "angles": [],
+  "evidence": {
+   "wants": [
+    "Asked for more detail on transaction fees at the next meeting."
+   ]
+  },
+  "interests": [],
+  "age": 101,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": false,
+  "profile_assessed": "2022-09-05",
+  "profile_age_years": 4.0
+ },
+ "CASE-012": {
+  "client": "CASE-012",
+  "hash": "52bcef29de66127e",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 2.37,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [
+   "Needs approximately CHF 15,000 in liquid funds for the Q1 tax payment"
+  ],
+  "contact_preferences": [],
+  "angles": [
+   "cash_need"
+  ],
+  "evidence": {},
+  "interests": [
+   "Utilities"
+  ],
+  "age": null,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": false,
+  "profile_assessed": "2022-07-31",
+  "profile_age_years": 4.1
+ },
+ "CASE-013": {
+  "client": "CASE-013",
+  "hash": "72ac888d876ac16c",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.04,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Consumer Discretionary"
+  ],
+  "age": 33,
+  "risk_profile": "Investor profile 4",
+  "esg_preference": false,
+  "profile_assessed": "2022-10-01",
+  "profile_age_years": 4.0
+ },
+ "CASE-014": {
+  "client": "CASE-014",
+  "hash": "2decf5db1befa4a5",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.02,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [
+   "Prefers not to be contacted during business hours on weekdays"
+  ],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Financials",
+   "Real Estate",
+   "Switzerland"
+  ],
+  "age": 54,
+  "risk_profile": "Investor profile 4",
+  "esg_preference": false,
+  "profile_assessed": "2022-10-01",
+  "profile_age_years": 4.0
+ },
+ "CASE-015": {
+  "client": "CASE-015",
+  "hash": "2a555b91e7a1294d",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.12,
+  "temperament": "anxious",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [
+   "Prefers not to be contacted during business hours on weekdays"
+  ],
+  "angles": [],
+  "evidence": {
+   "temperament": [
+    "Very risk-averse since the last market downturn, prefers defensive positioning."
+   ]
+  },
+  "interests": [],
+  "age": 29,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": true,
+  "profile_assessed": "2022-09-05",
+  "profile_age_years": 4.0
+ },
+ "CASE-016": {
+  "client": "CASE-016",
+  "hash": "3402596708788730",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.21,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [
+   "Needs approximately CHF 15,000 in liquid funds for the Q1 tax payment"
+  ],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Latin America"
+  ],
+  "age": 18,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": true,
+  "profile_assessed": "2022-10-05",
+  "profile_age_years": 4.0
+ },
+ "CASE-017": {
+  "client": "CASE-017",
+  "hash": "f04ec110694f640e",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.05,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Global",
+   "Japan"
+  ],
+  "age": 74,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": false,
+  "profile_assessed": "2023-10-08",
+  "profile_age_years": 2.9
+ },
+ "CASE-018": {
+  "client": "CASE-018",
+  "hash": "4fdd03309e373f4c",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 0.96,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Asia/Pacific (ex Japan)",
+   "Health Care",
+   "Latin America"
+  ],
+  "age": null,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": false,
+  "profile_assessed": "2022-07-31",
+  "profile_age_years": 4.1
+ },
+ "CASE-019": {
+  "client": "CASE-019",
+  "hash": "449096c70c0f372a",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.03,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [
+   "Prefers to keep a cash reserve on hand for unexpected medical expenses"
+  ],
+  "contact_preferences": [
+   "Hard to reach during the day, best contacted after 6pm"
+  ],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Consumer Staples",
+   "Japan",
+   "North America"
+  ],
+  "age": 62,
+  "risk_profile": "Investor profile 7",
+  "esg_preference": false,
+  "profile_assessed": "2023-08-20",
+  "profile_age_years": 3.1
+ },
+ "CASE-020": {
+  "client": "CASE-020",
+  "hash": "bd5d72cba6843fe6",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.03,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Health Care",
+   "Rest of Europe"
+  ],
+  "age": 88,
+  "risk_profile": "Investor profile 4",
+  "esg_preference": false,
+  "profile_assessed": "2022-07-31",
+  "profile_age_years": 4.1
+ },
+ "CASE-021": {
+  "client": "CASE-021",
+  "hash": "933d24c21a864407",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 0.99,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [
+   "Would like a follow-up call before any changes to the standing order"
+  ],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Consumer Staples",
+   "Financials"
+  ],
+  "age": 57,
+  "risk_profile": "Investor profile 3",
+  "esg_preference": false,
+  "profile_assessed": "2022-10-05",
+  "profile_age_years": 4.0
+ },
+ "CASE-022": {
+  "client": "CASE-022",
+  "hash": "2cacde8b971e2165",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.62,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [
+   "Expects an inheritance in the coming years, strategy to be reviewed at that point"
+  ],
+  "contact_preferences": [],
+  "angles": [
+   "cash_need"
+  ],
+  "evidence": {},
+  "interests": [
+   "Utilities"
+  ],
+  "age": null,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": false,
+  "profile_assessed": "2023-08-12",
+  "profile_age_years": 3.1
+ },
+ "CASE-023": {
+  "client": "CASE-023",
+  "hash": "51a96cd993b3a4c2",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.21,
+  "temperament": "calm",
+  "wants": "short",
+  "liquidity_needs": [
+   "Mentioned wanting to keep a small reserve on hand at all times, 'just in case'"
+  ],
+  "contact_preferences": [],
+  "angles": [
+   "no_rush"
+  ],
+  "evidence": {
+   "temperament": [
+    "Comfortable with high concentration risk and significant volatility, including in digital assets."
+   ],
+   "wants": [
+    "Long-time small holder, self-directed; came from a long journey through several other banks before consolidating here."
+   ]
+  },
+  "interests": [],
+  "age": 44,
+  "risk_profile": "Investor profile 7",
+  "esg_preference": false,
+  "profile_assessed": "2025-11-03",
+  "profile_age_years": 0.9
+ },
+ "CASE-024": {
+  "client": "CASE-024",
+  "hash": "744490c372940840",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.26,
+  "temperament": "calm",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [
+   "long_term"
+  ],
+  "evidence": {
+   "temperament": [
+    "Comfortable with higher volatility given a long time horizon."
+   ]
+  },
+  "interests": [
+   "Industrials",
+   "Materials"
+  ],
+  "age": 61,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": true,
+  "profile_assessed": "2026-06-20",
+  "profile_age_years": 0.2
+ },
+ "CASE-025": {
+  "client": "CASE-025",
+  "hash": "cd1c3289a79625eb",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.36,
+  "temperament": "calm",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {
+   "temperament": [
+    "Risk profile discussed again after the market downturn, client keeps current classification."
+   ]
+  },
+  "interests": [
+   "Global",
+   "Telecommunication Services"
+  ],
+  "age": 54,
+  "risk_profile": "Investor profile 7",
+  "esg_preference": false,
+  "profile_assessed": "2022-09-05",
+  "profile_age_years": 4.0
+ },
+ "CASE-026": {
+  "client": "CASE-026",
+  "hash": "5da25fbcc5b0ece2",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.41,
+  "temperament": "unknown",
+  "wants": "detailed",
+  "liquidity_needs": [],
+  "contact_preferences": [
+   "Prefers semi-annual phone contact, no unannounced visits"
+  ],
+  "angles": [
+   "no_rush",
+   "long_term"
+  ],
+  "evidence": {
+   "wants": [
+    "Requested a comparison against the benchmark at the next review."
+   ]
+  },
+  "interests": [],
+  "age": 86,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": false,
+  "profile_assessed": "2023-05-22",
+  "profile_age_years": 3.3
+ },
+ "CASE-027": {
+  "client": "CASE-027",
+  "hash": "daf66ec0e22d4aac",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.92,
+  "temperament": "calm",
+  "wants": "detailed",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [
+   "long_term"
+  ],
+  "evidence": {
+   "temperament": [
+    "Comfortable with a long time horizon; not concerned by short-term volatility in thematic growth positions."
+   ],
+   "wants": [
+    "Asked for more detail on how private spaceflight and aerospace exposure could be expanded further."
+   ]
+  },
+  "interests": [
+   "Consumer Discretionary",
+   "Industrials"
+  ],
+  "age": 91,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": true,
+  "profile_assessed": "2022-10-01",
+  "profile_age_years": 4.0
+ },
+ "CASE-028": {
+  "client": "CASE-028",
+  "hash": "c869aae4be5d1fa2",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.18,
+  "temperament": "unknown",
+  "wants": "detailed",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {
+   "wants": [
+    "Appreciates a detailed written summary after every meeting."
+   ]
+  },
+  "interests": [
+   "Great Britain",
+   "Latin America"
+  ],
+  "age": 70,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": false,
+  "profile_assessed": "2022-09-28",
+  "profile_age_years": 4.0
+ },
+ "CASE-029": {
+  "client": "CASE-029",
+  "hash": "31edc6db4b478ea4",
+  "source": "keywords",
+  "fallback_reason": "evidence for wants points at no note: [None]",
+  "seconds": 1.27,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [
+   "Plans to retire in the next two years, increasing liquidity needs expected"
+  ],
+  "contact_preferences": [],
+  "angles": [
+   "cash_need"
+  ],
+  "evidence": {},
+  "interests": [
+   "Energy",
+   "Health Care",
+   "North America"
+  ],
+  "age": 68,
+  "risk_profile": "no risk profile",
+  "esg_preference": false,
+  "profile_assessed": null,
+  "profile_age_years": null
+ },
+ "CASE-030": {
+  "client": "CASE-030",
+  "hash": "3e43737d5fee4f5d",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.47,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [],
+  "age": 50,
+  "risk_profile": "no risk profile",
+  "esg_preference": false,
+  "profile_assessed": null,
+  "profile_age_years": null
+ },
+ "CASE-031": {
+  "client": "CASE-031",
+  "hash": "96c769461d597046",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.88,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [
+   "Prefers email communication, hard to reach by phone"
+  ],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Rest of Europe",
+   "Switzerland"
+  ],
+  "age": 90,
+  "risk_profile": "no risk profile",
+  "esg_preference": true,
+  "profile_assessed": null,
+  "profile_age_years": null
+ },
+ "CASE-032": {
+  "client": "CASE-032",
+  "hash": "39e1f557d4f52d16",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.81,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Consumer Staples",
+   "Global",
+   "Japan"
+  ],
+  "age": 82,
+  "risk_profile": "no risk profile",
+  "esg_preference": true,
+  "profile_assessed": null,
+  "profile_age_years": null
+ },
+ "CASE-033": {
+  "client": "CASE-033",
+  "hash": "a9e780530f2ba3fc",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.4,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Energy",
+   "Information Technology",
+   "Real Estate"
+  ],
+  "age": 88,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": false,
+  "profile_assessed": "2025-04-02",
+  "profile_age_years": 1.5
+ },
+ "CASE-034": {
+  "client": "CASE-034",
+  "hash": "2c5051ff151cc329",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 2.39,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [
+   "Prefers semi-annual phone contact, no unannounced visits"
+  ],
+  "angles": [],
+  "evidence": {},
+  "interests": [],
+  "age": 75,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": false,
+  "profile_assessed": "2023-11-21",
+  "profile_age_years": 2.8
+ },
+ "CASE-035": {
+  "client": "CASE-035",
+  "hash": "c68aeb29dde62577",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 2.15,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [
+   "Prefers email communication, hard to reach by phone",
+   "Prefers semi-annual phone contact, no unannounced visits"
+  ],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Consumer Staples",
+   "Financials"
+  ],
+  "age": 33,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": false,
+  "profile_assessed": "2024-04-20",
+  "profile_age_years": 2.4
+ },
+ "CASE-036": {
+  "client": "CASE-036",
+  "hash": "9398840e9eab248f",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.35,
+  "temperament": "unknown",
+  "wants": "short",
+  "liquidity_needs": [],
+  "contact_preferences": [
+   "Prefers semi-annual phone contact, no unannounced visits"
+  ],
+  "angles": [],
+  "evidence": {
+   "wants": [
+    "Prefers semi-annual phone contact, no unannounced visits."
+   ]
+  },
+  "interests": [
+   "Asia/Pacific (ex Japan)",
+   "Financials",
+   "Utilities"
+  ],
+  "age": 64,
+  "risk_profile": "Investor profile 7",
+  "esg_preference": true,
+  "profile_assessed": "2024-09-30",
+  "profile_age_years": 2.0
+ },
+ "CASE-037": {
+  "client": "CASE-037",
+  "hash": "bb9806bac968c5f7",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.24,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [
+   "Would like a follow-up call before any changes to the standing order"
+  ],
+  "angles": [],
+  "evidence": {},
+  "interests": [],
+  "age": 62,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": true,
+  "profile_assessed": "2024-10-22",
+  "profile_age_years": 1.9
+ },
+ "CASE-038": {
+  "client": "CASE-038",
+  "hash": "ae06099358124fd1",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.14,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [],
+  "age": 29,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": false,
+  "profile_assessed": "2025-02-07",
+  "profile_age_years": 1.6
+ },
+ "CASE-039": {
+  "client": "CASE-039",
+  "hash": "71626b546343aa67",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 2.0,
+  "temperament": "unknown",
+  "wants": "detailed",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {
+   "wants": [
+    "Appreciates a detailed written summary after every meeting."
+   ]
+  },
+  "interests": [
+   "Financials",
+   "Health Care"
+  ],
+  "age": 45,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": false,
+  "profile_assessed": "2025-11-10",
+  "profile_age_years": 0.9
+ },
+ "CASE-040": {
+  "client": "CASE-040",
+  "hash": "11c3d57f74b3c50f",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.92,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [
+   "Hard to reach during the day, best contacted after 6pm"
+  ],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Consumer Discretionary",
+   "Financials",
+   "Materials"
+  ],
+  "age": 77,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": false,
+  "profile_assessed": "2025-08-06",
+  "profile_age_years": 1.1
+ },
+ "CASE-041": {
+  "client": "CASE-041",
+  "hash": "721db2e78b7f1f84",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.87,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Rest of Europe"
+  ],
+  "age": null,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": false,
+  "profile_assessed": "2025-09-17",
+  "profile_age_years": 1.0
+ },
+ "CASE-042": {
+  "client": "CASE-042",
+  "hash": "1a0c9c4f4ff6301d",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.39,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [
+   "Prefers to keep a cash reserve on hand for unexpected medical expenses"
+  ],
+  "contact_preferences": [],
+  "angles": [
+   "cash_need"
+  ],
+  "evidence": {},
+  "interests": [
+   "Rest of Europe"
+  ],
+  "age": 62,
+  "risk_profile": "Investor profile 4",
+  "esg_preference": false,
+  "profile_assessed": "2025-11-23",
+  "profile_age_years": 0.8
+ },
+ "CASE-043": {
+  "client": "CASE-043",
+  "hash": "5b2e56805de4581e",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.38,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [],
+  "angles": [],
+  "evidence": {},
+  "interests": [
+   "Consumer Discretionary",
+   "Japan",
+   "Telecommunication Services"
+  ],
+  "age": 16,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": false,
+  "profile_assessed": "2026-01-04",
+  "profile_age_years": 0.7
+ },
+ "CASE-044": {
+  "client": "CASE-044",
+  "hash": "fcd02217992aef97",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.24,
+  "temperament": "unknown",
+  "wants": "detailed",
+  "liquidity_needs": [
+   "Prefers to keep a cash reserve on hand for unexpected medical expenses"
+  ],
+  "contact_preferences": [
+   "Prefers not to be contacted during business hours on weekdays"
+  ],
+  "angles": [
+   "no_rush"
+  ],
+  "evidence": {
+   "wants": [
+    "Asked for more detail on transaction fees at the next meeting."
+   ]
+  },
+  "interests": [],
+  "age": 77,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": true,
+  "profile_assessed": "2026-03-30",
+  "profile_age_years": 0.5
+ },
+ "CASE-045": {
+  "client": "CASE-045",
+  "hash": "7850f37dea150f68",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.18,
+  "temperament": "unknown",
+  "wants": "short",
+  "liquidity_needs": [],
+  "contact_preferences": [
+   "Values discretion; prefers minimal written correspondence about portfolio specifics"
+  ],
+  "angles": [
+   "acknowledge"
+  ],
+  "evidence": {
+   "wants": [
+    "Values discretion; prefers minimal written correspondence about portfolio specifics."
+   ]
+  },
+  "interests": [
+   "Financials",
+   "Industrials",
+   "Materials",
+   "North America"
+  ],
+  "age": 92,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": true,
+  "profile_assessed": "2026-08-22",
+  "profile_age_years": 0.1
+ },
+ "CASE-046": {
+  "client": "CASE-046",
+  "hash": "acedbaabcacede71",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.13,
+  "temperament": "unknown",
+  "wants": "unknown",
+  "liquidity_needs": [],
+  "contact_preferences": [
+   "Prefers not to be contacted during business hours on weekdays"
+  ],
+  "angles": [],
+  "evidence": {},
+  "interests": [],
+  "age": 91,
+  "risk_profile": "Investor profile 5",
+  "esg_preference": true,
+  "profile_assessed": "2026-08-22",
+  "profile_age_years": 0.1
+ },
+ "CASE-047": {
+  "client": "CASE-047",
+  "hash": "a16d20f9d5ba04f4",
+  "source": "apertus",
+  "fallback_reason": null,
+  "seconds": 1.22,
+  "temperament": "calm",
+  "wants": "unknown",
+  "liquidity_needs": [
+   "Prefers to keep a cash reserve on hand for unexpected medical expenses"
+  ],
+  "contact_preferences": [],
+  "angles": [
+   "cash_need",
+   "long_term"
+  ],
+  "evidence": {
+   "temperament": [
+    "Comfortable with higher volatility given a long time horizon."
+   ]
+  },
+  "interests": [
+   "Health Care"
+  ],
+  "age": 84,
+  "risk_profile": "Investor profile 6",
+  "esg_preference": true,
+  "profile_assessed": "2026-06-30",
+  "profile_age_years": 0.2
+ }
+}
