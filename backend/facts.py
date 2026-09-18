@@ -70,7 +70,7 @@ def client_name(client):
 def short_name(name):
     """A security name an advisor can say out loud: the fund after the last
     " - " separator, without share-type prefixes and class markers."""
-    name = (name or '').strip()
+    name = ' '.join((name or '').split())
     if ' - ' in name:
         name = name.rsplit(' - ', 1)[1]
     return NAME_PREFIX.sub('', name).strip() or name

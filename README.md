@@ -19,6 +19,19 @@ python -m backend.briefing CASE-038 --json     # everything, incl. all facts and
 python -m pytest tests                          # offline, no API calls
 ```
 
+Call mode — the briefing when a client calls during a market move:
+
+```
+python -m backend.callmode CASE-043 --scenario tech-selloff   # the golf-video client
+python -m backend.callmode --rank --scenario tech-selloff     # who the move hit hardest
+python -m backend.yahoo                                        # snapshot real moves to data/scenarios/live-<date>.json
+```
+
+- `backend/market.py` — Bloomberg-shaped ticks → market state; `impact()` applies moves to every holding (funds through look-through, hedged share classes get no currency move, unmapped holdings reported as not modelled).
+- `backend/callmode.py` — caller, likely reason for the call, ranked impact, what held up, playbook talking points, one open issue.
+- `data/scenarios/` — `tech-selloff` and `chf-spike` are **simulated**; `live-*` are real Yahoo snapshots.
+- `data/playbook.json` — the talking points and when each applies. Edit freely; tests keep numbers and banned phrases out.
+
 - `backend/data.py` — loads `clients.json` + `reference.json`; extra client files via `--clients-file`.
 - `backend/facts.py` — the fact engine: every sentence the briefing may say, computed in code, with its source.
 - `backend/phrasing.py` — picks the top facts per slot, has the LLM rephrase them, and rejects any sentence with an added number, cause, severity word or altered rule name / note.

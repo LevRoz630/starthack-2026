@@ -1,0 +1,31 @@
+{
+  "name": "chf-spike",
+  "description": "SIMULATED. The franc jumps against all majors; Swiss exporters fall, bonds and gold hold.",
+  "simulated": true,
+  "as_of": "2026-09-19T15:30:00+02:00",
+  "ticks": [
+    {"ticker": "USDCHF Curncy", "field": "CHG_PCT_1D", "value": -2.5},
+    {"ticker": "EURCHF Curncy", "field": "CHG_PCT_1D", "value": -2.1},
+    {"ticker": "GBPCHF Curncy", "field": "CHG_PCT_1D", "value": -2.3},
+    {"ticker": "S5INDU Index", "field": "CHG_PCT_1D", "value": -1.5},
+    {"ticker": "S5HLTH Index", "field": "CHG_PCT_1D", "value": -1.0},
+    {"ticker": "S5CONS Index", "field": "CHG_PCT_1D", "value": -0.8},
+    {"ticker": "S5FINL Index", "field": "CHG_PCT_1D", "value": -0.6},
+    {"ticker": "S5INFT Index", "field": "CHG_PCT_1D", "value": -0.4},
+    {"ticker": "S5MATR Index", "field": "CHG_PCT_1D", "value": -0.7},
+    {"ticker": "S5COND Index", "field": "CHG_PCT_1D", "value": -0.9},
+    {"ticker": "S5TELS Index", "field": "CHG_PCT_1D", "value": -0.2},
+    {"ticker": "S5UTIL Index", "field": "CHG_PCT_1D", "value": 0.1},
+    {"ticker": "S5RLST Index", "field": "CHG_PCT_1D", "value": 0.0},
+    {"ticker": "S5ENRS Index", "field": "CHG_PCT_1D", "value": -0.3},
+    {"ticker": "XAU Curncy", "field": "CHG_PCT_1D", "value": 0.6},
+    {"ticker": "SBR14T Index", "field": "CHG_PCT_1D", "value": 0.4},
+    {"ticker": "LEGATRUU Index", "field": "CHG_PCT_1D", "value": 0.1},
+    {"ticker": "SMI Index", "field": "CHG_PCT_1D", "value": -1.8},
+    {"ticker": "VSMI Index", "field": "PX_LAST", "value": 19.5}
+  ],
+  "headlines": [
+    {"text": "Simulated: Franc surges to record against the euro", "dimension": "fx", "bucket": "EUR"},
+    {"text": "Simulated: Swiss exporters slide on strong franc", "dimension": "industry", "bucket": "Industrials"}
+  ]
+}
