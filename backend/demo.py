@@ -105,12 +105,15 @@ class Recorder:
         if not event.get('type', '').startswith('_'):
             await self.broadcast(event)
 
-    def save(self, name, meta):
+    def save(self, name, meta, complete=True):
+        """Keep every run; only a completed call replaces <name>-latest.json, the offline replay."""
         RUNS_DIR.mkdir(parents=True, exist_ok=True)
         data = {**meta, 'saved_at': time.strftime('%Y-%m-%dT%H:%M:%S'), 'events': self.events}
-        for path in (RUNS_DIR / f'{name}-latest.json', RUNS_DIR / f'{name}-{time.strftime("%Y%m%d-%H%M%S")}.json'):
+        stamped = RUNS_DIR / f'{name}-{time.strftime("%Y%m%d-%H%M%S")}.json'
+        paths = [stamped, RUNS_DIR / f'{name}-latest.json'] if complete else [stamped]
+        for path in paths:
             path.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding='utf-8')
-        return RUNS_DIR / f'{name}-latest.json'
+        return paths[-1]
 
 
 async def _stream(session, data, stop):
@@ -149,7 +152,7 @@ async def run(name, *, broadcast, ring, make_session, set_market, answered, stop
         await asyncio.wait_for(answered.wait(), script.get('ring_timeout', 45))
     except asyncio.TimeoutError:
         await rec({'type': 'demo_finished', 'client': ref, 'result': 'not answered'})
-        return rec.save(name, {'script': name, 'client': ref})
+        return rec.save(name, {'script': name, 'client': ref}, complete=False)
     await rec({'type': '_answered', 'client': ref})
 
     session = make_session(ref, rec)
@@ -167,7 +170,8 @@ async def run(name, *, broadcast, ring, make_session, set_market, answered, stop
     await asyncio.sleep(script.get('hangup_after', 2.0))
     await rec({'type': 'call_ended', 'client': ref, 'demo': name})
     await rec({'type': 'demo_finished', 'client': ref, 'result': 'stopped' if stop.is_set() else 'done'})
-    return rec.save(name, {'script': name, 'client': ref, 'scenario': script.get('scenario')})
+    return rec.save(name, {'script': name, 'client': ref, 'scenario': script.get('scenario')},
+                    complete=not stop.is_set())
 
 
 async def replay(name, *, broadcast, answered, stop, answer_timeout=120):

@@ -140,3 +140,18 @@ def test_recorded_run_and_offline_replay(monkeypatch, tmp_path):
         assert all(e['replayed'] for e in replayed)
 
     asyncio.run(scenario())
+
+
+def test_unanswered_run_does_not_replace_the_saved_replay(monkeypatch, tmp_path):
+    script = {'client': 'CASE-043', 'client_voice': 'v', 'ring_timeout': 0.05, 'lines': []}
+    monkeypatch.setattr(demo, 'load_script', lambda name: script)
+    monkeypatch.setattr(demo, 'prepare', lambda s: [])
+    monkeypatch.setattr(demo, 'RUNS_DIR', tmp_path)
+    (tmp_path / 'golf-latest.json').write_text('{"events": []}', encoding='utf-8')
+
+    async def broadcast(e):
+        pass
+
+    asyncio.run(demo.run('golf', broadcast=broadcast, ring=lambda ref: {}, make_session=None,
+                         set_market=None, answered=asyncio.Event(), stop=asyncio.Event(), audio_url=str))
+    assert (tmp_path / 'golf-latest.json').read_text(encoding='utf-8') == '{"events": []}'
