@@ -5,6 +5,7 @@ may only contain numbers that appear in those facts, and must not use banned
 phrasing; any sentence that fails is replaced by the cited facts' own text.
 """
 
+import hashlib
 import json
 import re
 from dataclasses import dataclass, field
@@ -22,6 +23,9 @@ BANNED = re.compile(r"worry|guarantee|will (?:recover|rebound)|promise|\byour (?
                     re.IGNORECASE)
 # Words that add severity or causality; allowed only when the cited facts use them.
 LOADED = ('critical', 'urgent', 'severe', 'alarming', 'significant', 'major', 'due to', 'because', 'caused', 'driven by')
+# Qualifiers a fact carries to stay honest. If a cited fact has one, the sentence
+# must keep it word for word — dropping it overstates what we measured.
+CAVEATS = ('value change including deposits and withdrawals',)
 
 SYSTEM = """You write a spoken pre-call briefing for a Swiss private-banking relationship manager about one of their clients.
 
@@ -29,6 +33,8 @@ Rules:
 - Speak to the advisor. Refer to the client in the third person, by name.
 - Use only the facts given. Add no causes, explanations, forecasts or advice beyond the listed actions.
 - Copy every number exactly as written in the facts. Never compute or add numbers.
+- A band and a target are different things. Keep them apart: "Liquidity is at 100.0%, outside its 0.0%-60.0% band; the target is 3.0%." Never fold one into the other, and never write a band "of" a single number.
+- Keep any qualifying clause word for word, in particular "value change including deposits and withdrawals". Dropping it overstates the figure.
 - One or two short sentences per section, at most 160 words in total. No markdown.
 - Keep security names short, as given.
 
@@ -79,6 +85,9 @@ def check(sentence, by_id):
     missing = [q for f in cited for q in QUOTED.findall(f.text) if q.lower() not in sentence.text.lower()]
     if missing:
         return f'changes quoted text: {missing[0]}'
+    dropped = [c for c in CAVEATS if c in source_text and c not in sentence.text.lower()]
+    if dropped:
+        return f'drops caveat: {dropped[0]}'
     return None
 
 
@@ -102,11 +111,24 @@ def _parse(raw, by_id):
     return out
 
 
+# Phrasing is deterministic in the facts, so it is worth keeping. Cleared by tests.
+_CACHE = {}
+
+
+def cache_key(chosen):
+    """Identity of a briefing: the facts picked to be spoken, in order."""
+    parts = [f'{f.id}|{f.text}' for slot in SLOTS for f in chosen[slot]]
+    return hashlib.sha256('\n'.join(parts).encode('utf-8')).hexdigest()
+
+
 def phrase(chosen, use_llm=True):
     """Return (sentences, provider, rejected) where rejected lists (sentence, reason)."""
     fallback = template(chosen)
     if not use_llm:
         return fallback, 'template', []
+    key = cache_key(chosen)
+    if key in _CACHE:
+        return _CACHE[key]
     by_id = {f.id: f for slot in SLOTS for f in chosen[slot]}
     prompt = '\n'.join(f'Section "{slot}":\n' + '\n'.join(f'  [{f.id}] {f.text}' for f in chosen[slot])
                        for slot in SLOTS if chosen[slot])
@@ -129,4 +151,5 @@ def phrase(chosen, use_llm=True):
     out.extend(Sentence(f.slot, f.text, [f.id]) for f in (by_id[i] for i in by_id) if f.id not in covered)
     order = {slot: n for n, slot in enumerate(SLOTS)}
     out.sort(key=lambda s: order.get(s.slot, len(SLOTS)))
-    return out, provider, rejected
+    _CACHE[key] = (out, provider, rejected)
+    return _CACHE[key]
