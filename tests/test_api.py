@@ -71,3 +71,36 @@ def test_phone_app_is_served(client):
     r = client.get('/phone/')
     assert r.status_code == 200 and 'app.js' in r.text
     assert client.get('/phone/app.js').status_code == 200
+
+
+def test_external_custody_clients_are_loaded(client):
+    refs = {r['client'] for r in client.get('/clients').json()}
+    assert {'EXT-01', 'EXT-10'} <= refs
+    assert client.get('/briefing/EXT-01').status_code == 200
+
+
+def test_profile_endpoint(client):
+    p = client.get('/profile/CASE-001').json()
+    assert p['temperament'] in ('calm', 'patient', 'anxious', 'detail-oriented', 'unknown')
+    assert client.get('/profile/NOPE').status_code == 404
+
+
+def test_audio_and_transcribe_without_network(client, monkeypatch):
+    from backend import voice
+    monkeypatch.setattr(voice, 'speak', lambda text, **kw: (b'ID3fake', 0.1))
+    r = client.get('/call/CASE-043/audio')
+    assert r.status_code == 200 and r.headers['content-type'] == 'audio/mpeg'
+    assert client.get('/briefing/CASE-043/audio').status_code == 200
+    monkeypatch.setattr(voice, 'transcribe', lambda audio, **kw: ('How much have I lost on tech?', 0.4))
+    client.post('/market/events', json={'scenario': 'tech-selloff'})
+    r = client.post('/transcribe', files={'file': ('q.mp3', b'fake', 'audio/mpeg')}, data={'client': 'CASE-043'}).json()
+    assert r['text'].startswith('How much') and r['found']
+
+
+def test_voice_failure_degrades_to_503(client, monkeypatch):
+    from backend import voice
+
+    def boom(*a, **kw):
+        raise RuntimeError('no network')
+    monkeypatch.setattr(voice, 'speak', boom)
+    assert client.get('/call/CASE-043/audio').status_code == 503

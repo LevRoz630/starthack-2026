@@ -37,6 +37,18 @@ DEMO_SCENARIO=tech-selloff uvicorn backend.api:app --port 8000
 | `POST /ask` | `{"client", "question"}` → the facts that answer it, with sources |
 | `WS /ws` | events: `hello`, `market`, `incoming_call` |
 
+Also: `POST /transcribe` (audio → text → answers, ElevenLabs Scribe), `GET /profile/{ref}`,
+`GET /call/{ref}/audio` and `GET /briefing/{ref}/audio` (spoken, ElevenLabs Flash).
+
+More modules:
+
+- `backend/outlook.py` — real news (10 feeds) and verbatim bank house views, matched to the client's largest exposures. `python -m backend.outlook refresh`.
+- `backend/translate.py` — Supertext with a cache; `data/translations/rules-en.json` has every suitability rule in English.
+- `backend/profiles.py` — Apertus reads each client's notes once into a validated profile (`data/profiles/profiles.json`).
+- `backend/voice.py` — ElevenLabs speech (Flash) and transcription (Scribe; realtime URL for the call listener).
+- `backend/excustody.py` — the ten side-challenge custody PDFs as clients EXT-01..EXT-10 (bonus case), reconciled to the statements.
+- `python -m backend.report` — every client's briefings in English, with sources, in `docs/verification/briefings-en.md`.
+
 Caller numbers map to clients in `data/phonebook.json` (gitignored; copy `data/phonebook.example.json`).
 `BRIEFING_LLM=0` turns Apertus off.
 

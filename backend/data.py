@@ -37,6 +37,9 @@ class Store:
     saas: dict = field(default_factory=dict)          # Id -> SAA
     risk_profiles: dict = field(default_factory=dict)  # Id -> profile
     rules: dict = field(default_factory=dict)         # RuleCode -> rule
+    recommended: list = field(default_factory=list)   # SecurityIds on the exported recommendation list
+    esg_profiles: dict = field(default_factory=dict)  # Id -> ESG profile
+    strategies: dict = field(default_factory=dict)    # Id -> strategy
 
     def add_clients(self, path):
         """Add every client in a clients.json-shaped file; later files win on ClientRef."""
@@ -61,6 +64,9 @@ def load(client_paths=None, reference_path=None):
     store.saas = {s['Id']: s for s in items(ref, 'StrategicAssetAllocations')}
     store.risk_profiles = {p['Id']: p for p in items(ref, 'RiskProfiles')}
     store.rules = {r['RuleCode']: r for r in items(ref, 'SuitabilityRules')}
+    store.recommended = [s['SecurityId'] for lst in items(ref, 'RecommendationLists') for s in items(lst, 'Securities')]
+    store.esg_profiles = {e['Id']: e for e in items(ref, 'EsgProfiles')}
+    store.strategies = {s['Id']: s for s in items(ref, 'Strategies')}
     for path in client_paths or [DATA_DIR / 'clients.json']:
         store.add_clients(path)
     return store

@@ -5,16 +5,15 @@ where it came from, and a weight for ranking within its slot. The LLM only
 rephrases these sentences; it never sees raw data.
 """
 
-import json
 import re
 from collections import defaultdict
 from dataclasses import dataclass
 from datetime import date
 from functools import lru_cache
 
-from .data import DATA_DIR, items, portfolios
+from .data import items, portfolios
 
-SLOTS = ('who', 'development', 'health', 'watch', 'actions')
+SLOTS = ('who', 'development', 'health', 'watch', 'outlook', 'actions')
 
 # Fund look-through rows and security master data name some industries differently.
 INDUSTRY_ALIASES = {
@@ -112,16 +111,23 @@ def names(ns, limit=2):
     return shown + (f' and {len(ns) - limit} more' if len(ns) > limit else '')
 
 
+def _reference(store):
+    """Reference collections beyond the core indexes: recommendation list, ESG profiles, strategies."""
+    return {'recommended': store.recommended, 'esg': store.esg_profiles, 'strategies': store.strategies}
+
+
 @lru_cache(maxsize=1)
-def _reference():
-    """Reference collections the Store does not index: recommendation list, ESG profiles, strategies."""
-    with open(DATA_DIR / 'reference.json', encoding='utf-8') as f:
-        ref = json.load(f)
-    return {
-        'recommended': [s['SecurityId'] for lst in items(ref, 'RecommendationLists') for s in items(lst, 'Securities')],
-        'esg': {e['Id']: e for e in items(ref, 'EsgProfiles')},
-        'strategies': {s['Id']: s for s in items(ref, 'Strategies')},
-    }
+def _outlook_sources():
+    """News snapshot and house views, read once per process."""
+    from .outlook import cio, latest_news
+    return latest_news(), cio()
+
+
+def _outlook(exp):
+    from .outlook import outlook_facts
+    news, views = _outlook_sources()
+    for f in outlook_facts(exp['industry'], exp['total'], limit=1, news=news, views=views):
+        yield Fact(f['id'], 'outlook', f['text'], f['source'], f['weight'])
 
 
 def _bands(p, store):
@@ -338,7 +344,7 @@ def _health_extra(client, store, violations):
                        f'reference.json Securities.PRC vs RiskProfiles.MaxPRC; clients.json {ref} positions',
                        share * 2)
 
-    esg = _reference()['esg'].get(client.get('EsgProfileId'), {})
+    esg = _reference(store)['esg'].get(client.get('EsgProfileId'), {})
     if client.get('EsgProfileName') == 'Yes' and esg.get('MinimumPositionLevel') is not None:
         floor, minimum = esg['MinimumPositionLevel'], esg.get('MinimumLevel', esg['MinimumPositionLevel'])
         scored = [(sp, sec, a) for sp, sec, a in held if sec.get('SustainabilityScore') is not None]
@@ -363,7 +369,7 @@ def _health_extra(client, store, violations):
                        f'MinimumLevel / MinimumPositionLevel; clients.json {ref} positions',
                        sum(below.values()) / total * 2 + (0.5 if average < minimum else 0))
 
-    strategies = _reference()['strategies']
+    strategies = _reference(store)['strategies']
     has_vol_rule = any('volatil' in (v.get('RuleCode') or '').lower() for v in violations)
     for p in portfolios(client):
         strategy = strategies.get(p.get('StrategyId'), {})
@@ -445,7 +451,7 @@ def _candidates(client, store):
     category = max(under)[1] if under else 'Shares'
     held = {sp.get('SecurityId') for sp, _, _ in _holdings(client, store)}
     ccy = client.get('ReportingCurrency') or 'CHF'
-    pool = [store.securities[i] for i in _reference()['recommended'] if i in store.securities and i not in held]
+    pool = [store.securities[i] for i in _reference(store)['recommended'] if i in store.securities and i not in held]
     pool = [s for s in pool if s.get('SAA_AssetClassName') == category]
     pool.sort(key=lambda s: (s.get('Currency') != ccy, -(s.get('SustainabilityScore') or 0), s.get('Name') or ''))
     picks = list(dict.fromkeys(short_name(s.get('Name')) for s in pool))[:2]
@@ -563,5 +569,5 @@ def compute(client, store, as_of=None):
     ccy = client.get('ReportingCurrency') or 'CHF'
     exp = exposures(client, store)
     return [*_who(client, store, ccy), *_development(client), *_health(client, store, as_of),
-            *_watch(client, store, exp, ccy), *_watch_extra(client, store),
+            *_watch(client, store, exp, ccy), *_watch_extra(client, store), *_outlook(exp),
             *_actions(client, as_of, ccy), *_candidates(client, store)]

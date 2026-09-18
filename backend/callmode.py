@@ -19,6 +19,7 @@ from .data import DATA_DIR, ROOT, items, load, portfolios
 from .facts import (Fact, client_name, compute, day, fmt_day, money, pct, short_name,
                     signed_pct)
 from .market import MarketState, impact, label, load_scenario
+from . import profiles
 
 CALL_SLOTS = ('caller', 'reason', 'digest', 'holding', 'talk', 'issue')
 PLAYBOOK = ROOT / 'data' / 'playbook.json'
@@ -34,6 +35,17 @@ PATIENT_WORDS = ('patient', 'long view', 'long-term', 'unconcerned')
 MIN_SHARE = 0.005     # topics under 0.5% of the book are not worth a sentence
 MIN_CHANGE = 0.003    # nor moves under 0.3%
 MARKET_REASON = 0.005  # a book move of 0.5% or more makes the market a likely reason to call
+
+
+_PROFILES = None
+
+
+def profile_of(client):
+    """The Apertus-built profile from data/profiles/, or a keyword profile if the notes changed."""
+    global _PROFILES
+    if _PROFILES is None:
+        _PROFILES = profiles.load_cache()
+    return profiles.get(client, _PROFILES)
 
 
 def signed_money(x, ccy):
@@ -159,17 +171,19 @@ def _holding(client, hit, market):
                    f'{market.source("fx", "USD")}', 0.5)
 
 
-def _talk(client, hit, top_reason, held_up):
+def _talk(client, hit, top_reason, held_up, profile):
     with open(PLAYBOOK, encoding='utf-8') as f:
         angles = json.load(f)['angles']
     market_hit = abs(hit['impact']) / (hit['total'] or 1) >= MARKET_REASON
+    temperament = profile.get('temperament')
     conditions = {
         'always': True,
-        'anxious': _has_note(client, ANXIOUS_WORDS),
+        'anxious': temperament == 'anxious' or _has_note(client, ANXIOUS_WORDS),
         'withdrawal': bool(top_reason and 'withdrawal' in top_reason.text),
         'held_up': held_up and market_hit,
-        'long_term': market_hit and (_has_note(client, PATIENT_WORDS) or
-                                     (client.get('RiskProfileName') or '').endswith(('5', '6', '7'))),
+        'long_term': market_hit and (temperament in ('calm', 'patient') or 'long_term' in profile.get('angles', [])
+                                     or _has_note(client, PATIENT_WORDS)
+                                     or (client.get('RiskProfileName') or '').endswith(('5', '6', '7'))),
         'market': market_hit,
     }
     chosen = [a for a in angles if conditions.get(a['when'])][:2]
@@ -186,17 +200,30 @@ def call_facts(client, store, market, as_of=None):
     name = client_name(client)
     details = who.text[len(name):].lstrip(', ') if who.text.startswith(name) else who.text
     out = [Fact('caller', 'caller', f'{name} is calling: {details}', who.source, 1.0)]
-    temperament = next((n for n in _notes(client)
-                        if any(w in (n.get('Note') or '').lower() for w in TEMPERAMENT_WORDS)), None)
-    if temperament:
-        out.append(Fact('caller.profile', 'caller', f'Profile note: "{temperament["Note"].strip()}"',
-                        f'clients.json {client["ClientRef"]}: ClientNotes', 0.9))
+    ref = client['ClientRef']
+    profile = profile_of(client)
+    traits = [f'{profile["temperament"]} temperament' if profile.get('temperament') not in (None, 'unknown') else '',
+              f'wants it {profile["wants"]}' if profile.get('wants') not in (None, 'unknown') else '']
+    evidence = next((q for key in ('temperament', 'wants') for q in profile.get('evidence', {}).get(key, [])), None)
+    if any(traits) and evidence:
+        out.append(Fact('caller.profile', 'caller',
+                        f'Profile: {", ".join(t for t in traits if t)}. From the notes: "{evidence.strip()}"',
+                        f'data/profiles/profiles.json {ref} ({profile.get("source")}) from clients.json ClientNotes', 0.9))
+    else:
+        note = next((n for n in _notes(client)
+                     if any(w in (n.get('Note') or '').lower() for w in TEMPERAMENT_WORDS)), None)
+        if note:
+            out.append(Fact('caller.profile', 'caller', f'Profile note: "{note["Note"].strip()}"',
+                            f'clients.json {ref}: ClientNotes', 0.9))
+    for i, pref in enumerate(profile.get('contact_preferences', [])[:1]):
+        out.append(Fact(f'caller.contact.{i}', 'caller', f'Contact preference: "{pref.strip()}"',
+                        f'data/profiles/profiles.json {ref} from clients.json ClientNotes', 0.8))
     why = reasons(client, store, hit, as_of)
     out += why
     digest = list(_digest(client, hit, market))
     holding = list(_holding(client, hit, market)) if digest else []
     out += digest + holding
-    out += _talk(client, hit, why[0] if why else None, bool(holding))
+    out += _talk(client, hit, why[0] if why else None, bool(holding), profile)
     issues = sorted((f for f in base if f.slot == 'health'), key=lambda f: -f.weight)
     if issues:
         out.append(Fact('issue', 'issue', f'Open issue: {issues[0].text}', issues[0].source, issues[0].weight))

@@ -14,7 +14,7 @@ from .facts import SLOTS
 from .llm import LLMUnavailable, chat
 
 # How many facts per slot make it into the spoken briefing; the rest go on the card.
-SPOKEN = {'who': 1, 'development': 1, 'health': 2, 'watch': 2, 'actions': 2}
+SPOKEN = {'who': 1, 'development': 1, 'health': 2, 'watch': 2, 'outlook': 1, 'actions': 2}
 
 NUMBER = re.compile(r'\d+(?:[.,]\d+)?')
 QUOTED = re.compile(r'"([^"]+)"')

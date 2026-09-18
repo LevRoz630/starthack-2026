@@ -13,6 +13,7 @@ from pathlib import Path
 
 from .callmode import build_call
 from .data import ROOT, load
+from .excustody import load_external
 from .facts import SLOTS, client_name, compute, money, risk_profile
 from .market import load_scenario
 from .phrasing import select
@@ -20,7 +21,7 @@ from .phrasing import select
 OUT = ROOT / 'docs' / 'verification' / 'briefings-en.md'
 
 SLOT_TITLES = {'who': 'Who', 'development': 'Development', 'health': 'Health check', 'watch': 'Watch',
-               'actions': 'Next best actions'}
+               'outlook': 'Outlook', 'actions': 'Next best actions'}
 
 
 def client_section(store, ref, market, as_of):
@@ -60,6 +61,7 @@ def main(argv=None):
     args = parser.parse_args(argv)
 
     store = load()
+    load_external(store)
     market = load_scenario(args.scenario)
     head = [
         '# Briefings for every client (English, for verification)', '',
@@ -70,7 +72,8 @@ def main(argv=None):
         'the client number and the sentence.', '',
         'German display names are translated: *Anlageprofil n* → *Investor profile n* (the data\'s own '
         'English strategy name), portfolio names such as *Konto / Depot* → *Account / Custody*. Suitability '
-        'rule names are the data\'s own English `RuleCode`s.', '',
+        'rule names are the data\'s own English `RuleCode`s. EXT-01 to EXT-10 are the external custody '
+        'statements read from `data/side-challenge/` (no risk profile, targets or notes, so fewer facts).', '',
         '**Contents:** ' + ' · '.join(f'[{ref}](#{ref.lower()}--{client_name(store.clients[ref]).lower().replace(" ", "-")})'
                                        for ref in sorted(store.clients)), '',
     ]

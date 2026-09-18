@@ -16,9 +16,14 @@ Endpoints (JSON unless noted):
     POST /call/incoming                {"from": "+41..."} or {"client": ref}; Twilio form posts work too.
                                        Pushes the call briefing to every /ws subscriber.
     POST /ask                          {"client": ref, "question": "..."}: the facts that answer it
+    POST /transcribe                   multipart "file" (audio) [+ "client"]: text via ElevenLabs Scribe, plus answers
+    GET  /profile/{ref}                the client's profile (temperament, wants, cash needs), each with its note
+    GET  /call/{ref}/audio             the call briefing spoken (audio/mpeg, ElevenLabs Flash, cached)
+    GET  /briefing/{ref}/audio         the 60-second briefing spoken
     WS   /ws                           pushes {"type": "incoming_call" | "market", ...} events
     GET  /phone/                       the advisor phone app (web/phone)
 
+External custody clients EXT-01..EXT-10 (from the side-challenge PDFs) are loaded at startup.
 Environment: DEMO_SCENARIO preloads a scenario; BRIEFING_LLM=0 turns off Apertus phrasing.
 """
 
@@ -33,12 +38,13 @@ from contextlib import asynccontextmanager
 from starlette.applications import Starlette
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
-from starlette.responses import JSONResponse
+from starlette.concurrency import run_in_threadpool
+from starlette.responses import JSONResponse, Response
 from starlette.routing import Mount, Route, WebSocketRoute
 from starlette.staticfiles import StaticFiles
 from starlette.websockets import WebSocketDisconnect
 
-from . import briefing, callmode
+from . import briefing, callmode, excustody, profiles, voice
 from .data import ROOT, load
 from .facts import client_name, compute, risk_profile
 from .market import MarketState, load_scenario, scenarios
@@ -50,6 +56,7 @@ PHONE_APP = ROOT / 'web' / 'phone'
 class State:
     def __init__(self):
         self.store = load()
+        excustody.load_external(self.store)   # EXT-01..10, read from the side-challenge custody PDFs
         self.market = MarketState()
         self.phrased = {}           # ref -> briefing phrased by the LLM
         self.pending = set()        # refs being phrased right now
@@ -270,9 +277,15 @@ async def ask(request):
     client, err = client_or_404(data['client'])
     if err:
         return err
+    return JSONResponse({'client': data['client'], 'question': data['question'],
+                         **answer(client, data['question'])})
+
+
+def answer(client, question):
+    """The facts that best match a question: {'answers': [...], 'found': bool}. Never new text."""
     facts, _ = callmode.call_facts(client, state.store, state.market)
     facts += [f for f in compute(client, state.store) if f.slot != 'who']
-    words = [w for w in WORD.findall(data['question'].lower()) if w not in STOP]
+    words = [w for w in WORD.findall(question.lower()) if w not in STOP]
     terms = {SYNONYMS.get(w, w) for w in words}
     scored = []
     for f in facts:
@@ -288,8 +301,55 @@ async def ask(request):
             answers.append({'text': f.text, 'source': f.source, 'fact': f.id})
         if len(answers) == 2:
             break
-    return JSONResponse({'client': data['client'], 'question': data['question'], 'answers': answers,
-                         'found': bool(answers)})
+    return {'answers': answers, 'found': bool(answers)}
+
+
+async def get_profile(request):
+    client, err = client_or_404(request.path_params['ref'])
+    return err or JSONResponse(profiles.get(client))
+
+
+async def _audio(sentences):
+    try:
+        audio, _ = await run_in_threadpool(voice.speak, voice.briefing_script(sentences))
+    except Exception as e:  # no key, no network: the card still works without the voice
+        return error(503, f'voice unavailable: {type(e).__name__}')
+    return Response(audio, media_type='audio/mpeg')
+
+
+async def call_audio(request):
+    ref = request.path_params['ref']
+    _, err = client_or_404(ref)
+    return err or await _audio(callmode.build_call(state.store, ref, state.market)['sentences'])
+
+
+async def briefing_audio(request):
+    ref = request.path_params['ref']
+    _, err = client_or_404(ref)
+    if err:
+        return err
+    b = state.phrased.get(ref) or briefing.build(state.store, ref, use_llm=False)
+    return await _audio(b['sentences'])
+
+
+async def transcribe(request):
+    """Audio of the client's question (multipart "file", optional "client") -> text, and the facts that answer it."""
+    form = await request.form()
+    upload = form.get('file')
+    if upload is None or isinstance(upload, str):
+        return error(400, 'expected a multipart field "file" with audio')
+    try:
+        text, seconds = await run_in_threadpool(voice.transcribe, await upload.read(), filename=upload.filename or 'audio')
+    except Exception as e:
+        return error(503, f'transcription unavailable: {type(e).__name__}')
+    out = {'text': text, 'seconds': round(seconds, 2)}
+    ref = form.get('client')
+    if ref:
+        client, err = client_or_404(ref)
+        if err:
+            return err
+        out.update(client=ref, **answer(client, text))
+    return JSONResponse(out)
 
 
 async def websocket(ws):
@@ -327,6 +387,10 @@ app = Starlette(
         Route('/call/incoming', incoming_call, methods=['POST']),
         Route('/call/{ref}', get_call),
         Route('/ask', ask, methods=['POST']),
+        Route('/transcribe', transcribe, methods=['POST']),
+        Route('/profile/{ref}', get_profile),
+        Route('/call/{ref}/audio', call_audio),
+        Route('/briefing/{ref}/audio', briefing_audio),
         WebSocketRoute('/ws', websocket),
         Mount('/phone', StaticFiles(directory=PHONE_APP, html=True), name='phone'),
     ],
