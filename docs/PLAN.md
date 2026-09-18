@@ -125,26 +125,6 @@ client file ──> fact engine (deterministic) ──> briefing facts + sources
 7. Optional upgrade, only with time and a juror who agrees at the booth: a real phone
    call to their phone via a Twilio number imported into ElevenLabs.
 
-## Submission
-
-Due 15:00 in the Hack App, by the team leader: title, description, GitHub link,
-demo video, ZIP, thumbnail. The video is the one that takes real time — it is
-budgeted above, not left to the last ten minutes.
-
-## Robustness
-
-25% of the score, and the test client is unseen.
-
-- Hold five clients out of `clients.json` as our own unseen test file. Never load
-  them during development.
-- Every field is absent-not-null; whole reference collections can be missing. The
-  engine returns a shorter briefing, never an error.
-- Malformed or unreadable file → the card says so plainly and the call does not ring.
-- Before designing the Outlook slot, spend ten minutes checking whether the news
-  feeds actually return anything for these ISINs. 226 of 504 securities are
-  investment funds. If coverage is thin, Outlook carries a house-view line or is
-  dropped.
-
 ## Setup and risks
 
 - [ ] ElevenLabs key works (Growing Business tier, 5.4M chars/month). Conversational AI
