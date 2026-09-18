@@ -7,8 +7,8 @@ those case winners go to the **participant vote**. The pitch has to convince a
 domain expert first and a room of tired hackers second.
 
 We have no names yet. The guidebook names only START Hack organizers (Vanda
-Alexeeva, Luis Haftendorn, Noé Szynalski, Tristan Arni); neither case repo names
-anyone from Viseca or UNRISKOMEGA. Partners are at their booths **Floor 3,
+Alexeeva, Luis Haftendorn, Noé Szynalski, Tristan Arni); the case repo names
+nobody from UNRISKOMEGA. Partners are at their booths **Floor 3,
 Friday 9am–12am** — that is the window to collect names and roles.
 
 ## Recon (Friday, at the booths)
