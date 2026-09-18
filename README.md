@@ -9,6 +9,21 @@ Case: **UNRISKOMEGA** — [github.com/START-Hack/unriskomega-2026](https://githu
 - [docs/screenshots.md](docs/screenshots.md) — what the URO Advisor UI screenshots show.
 - [docs/RULES.md](docs/RULES.md) — the official Hacker Guidebook, converted to markdown.
 
+## Run the briefing
+
+```
+pip install -r requirements.txt
+python -m backend.briefing CASE-038            # phrased by Apertus (SWISSCOM_KEY in .env)
+python -m backend.briefing CASE-038 --no-llm   # fact sentences only, no API call
+python -m backend.briefing CASE-038 --json     # everything, incl. all facts and sources
+python -m pytest tests                          # offline, no API calls
+```
+
+- `backend/data.py` — loads `clients.json` + `reference.json`; extra client files via `--clients-file`.
+- `backend/facts.py` — the fact engine: every sentence the briefing may say, computed in code, with its source.
+- `backend/phrasing.py` — picks the top facts per slot, has the LLM rephrase them, and rejects any sentence with an added number, cause, severity word or altered rule name / note.
+- `backend/llm.py` — Apertus on Swisscom first, OpenAI (`OPENAI_API_KEY`) as fallback.
+
 Guidebook source: <https://startglobal1920.notion.site/Hacker-Guidebook-START-Hack-Tour-St-Gallen-3b84da13be328082a75fc33a4a0eb9c5> (fetched 2026-09-18). Notion is authoritative; this copy is a snapshot.
 
 ## What the case ships
