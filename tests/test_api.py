@@ -65,3 +65,9 @@ def test_upload_adds_a_test_client_and_rejects_junk(client):
     assert client.get('/call/TEST-001').status_code == 200
     assert client.post('/clients', content=b'not json').status_code == 400
     assert client.post('/clients', json=[{'no': 'ref'}]).status_code == 400
+
+
+def test_phone_app_is_served(client):
+    r = client.get('/phone/')
+    assert r.status_code == 200 and 'app.js' in r.text
+    assert client.get('/phone/app.js').status_code == 200

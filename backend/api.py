@@ -17,6 +17,7 @@ Endpoints (JSON unless noted):
                                        Pushes the call briefing to every /ws subscriber.
     POST /ask                          {"client": ref, "question": "..."}: the facts that answer it
     WS   /ws                           pushes {"type": "incoming_call" | "market", ...} events
+    GET  /phone/                       the advisor phone app (web/phone)
 
 Environment: DEMO_SCENARIO preloads a scenario; BRIEFING_LLM=0 turns off Apertus phrasing.
 """
@@ -33,7 +34,8 @@ from starlette.applications import Starlette
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import JSONResponse
-from starlette.routing import Route, WebSocketRoute
+from starlette.routing import Mount, Route, WebSocketRoute
+from starlette.staticfiles import StaticFiles
 from starlette.websockets import WebSocketDisconnect
 
 from . import briefing, callmode
@@ -42,6 +44,7 @@ from .facts import client_name, compute
 from .market import MarketState, load_scenario, scenarios
 
 PHONEBOOK = ROOT / 'data' / 'phonebook.json'
+PHONE_APP = ROOT / 'web' / 'phone'
 
 
 class State:
@@ -325,6 +328,7 @@ app = Starlette(
         Route('/call/{ref}', get_call),
         Route('/ask', ask, methods=['POST']),
         WebSocketRoute('/ws', websocket),
+        Mount('/phone', StaticFiles(directory=PHONE_APP, html=True), name='phone'),
     ],
     middleware=[Middleware(CORSMiddleware, allow_origins=['*'], allow_methods=['*'], allow_headers=['*'])],
     lifespan=lifespan,

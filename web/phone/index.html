@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#5499E4">
+  <title>Advisor Phone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="bar">
+    <span class="brand">UNRISKOMEGA</span>
+    <span class="conn" id="conn" data-state="connecting" aria-live="polite">
+      <span class="dot" aria-hidden="true"></span><span id="conn-label">Connecting</span>
+    </span>
+  </header>
+
+  <main>
+    <!-- 1. Idle -->
+    <section class="screen" id="screen-idle" data-screen="idle">
+      <div class="card idle">
+        <p class="eyebrow">Advisor phone</p>
+        <h1>Waiting for calls</h1>
+        <p class="market">
+          Market: <span id="market-name">none</span>
+          <span class="tag sim" id="market-sim" hidden>SIMULATED</span>
+        </p>
+        <button class="btn secondary" id="demo-call" type="button" hidden>Simulate call</button>
+      </div>
+    </section>
+
+    <!-- 2. Ringing -->
+    <section class="screen" id="screen-ringing" data-screen="ringing" hidden>
+      <div class="caller">
+        <p class="eyebrow">Incoming call <span class="tag sim" data-sim hidden>SIMULATED</span></p>
+        <h1 data-caller-name></h1>
+        <p class="ref" data-caller-ref></p>
+      </div>
+      <div class="brief" data-brief></div>
+      <div class="actions sticky">
+        <button class="btn decline" id="decline" type="button">Decline</button>
+        <button class="btn answer" id="answer" type="button">Answer</button>
+      </div>
+    </section>
+
+    <!-- 3. In call -->
+    <section class="screen" id="screen-call" data-screen="call" hidden>
+      <div class="caller compact">
+        <div>
+          <h1 data-caller-name></h1>
+          <p class="ref"><span data-caller-ref></span> <span class="tag sim" data-sim hidden>SIMULATED</span></p>
+        </div>
+        <span class="timer" id="timer">0:00</span>
+      </div>
+      <p class="reason-line" data-reason-line></p>
+      <p class="impact-line" data-impact-line></p>
+
+      <form class="ask" id="ask-form" autocomplete="off">
+        <label for="ask-input" class="eyebrow">Client asks</label>
+        <div class="ask-row">
+          <input id="ask-input" name="question" type="text" placeholder="e.g. How much did I lose on tech?" required>
+          <button class="btn primary" type="submit">Ask</button>
+        </div>
+      </form>
+      <ol class="answers" id="answers" aria-live="polite"></ol>
+
+      <details class="card more">
+        <summary>Full briefing</summary>
+        <div class="brief" data-brief></div>
+      </details>
+
+      <div class="actions sticky">
+        <button class="btn decline wide" id="end-call" type="button">End call</button>
+      </div>
+    </section>
+
+    <!-- 4. After call -->
+    <section class="screen" id="screen-after" data-screen="after" hidden>
+      <div class="card draft">
+        <div class="draft-head">
+          <h2>Call note</h2>
+          <span class="tag" data-approved="note" hidden>Approved</span>
+        </div>
+        <pre class="draft-body" id="note-body"></pre>
+        <button class="btn primary wide" type="button" data-approve="note">Approve note</button>
+      </div>
+      <div class="card draft">
+        <div class="draft-head">
+          <h2>Follow-up email</h2>
+          <span class="tag" data-approved="email" hidden>Approved</span>
+        </div>
+        <pre class="draft-body" id="email-body"></pre>
+        <button class="btn primary wide" type="button" data-approve="email">Approve email</button>
+      </div>
+      <div class="actions">
+        <button class="btn secondary wide" id="done" type="button">Done</button>
+      </div>
+    </section>
+  </main>
+
+  <audio id="ringtone" src="ringtone.mp3" loop preload="auto"></audio>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
