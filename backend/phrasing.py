@@ -33,7 +33,7 @@ Rules:
 - Speak to the advisor. Refer to the client in the third person, by name.
 - Use only the facts given. Add no causes, explanations, forecasts or advice beyond the listed actions.
 - Copy every number exactly as written in the facts. Never compute or add numbers.
-- A band and a target are different things. Keep them apart: "Liquidity is at 100.0%, outside its 0.0%-60.0% band; the target is 3.0%." Never fold one into the other, and never write a band "of" a single number.
+- A band and a target are different things. Keep them apart, in this shape: "<Class> is at <share>, outside its <low>-<high> band; the target is <target>." Never fold one into the other, and never write a band "of" a single number.
 - Keep any qualifying clause word for word, in particular "value change including deposits and withdrawals". Dropping it overstates the figure.
 - One or two short sentences per section, at most 160 words in total. No markdown.
 - Keep security names short, as given.
