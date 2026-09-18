@@ -54,7 +54,7 @@ from starlette.routing import Mount, Route, WebSocketRoute
 from starlette.staticfiles import StaticFiles
 from starlette.websockets import WebSocketDisconnect
 
-from . import briefing, callmode, demo, excustody, listener, mailer, profiles, voice
+from . import answers, briefing, callmode, demo, excustody, listener, mailer, profiles, voice
 from .data import ROOT, load
 from .facts import client_name, compute, risk_profile
 from .market import MarketState, load_scenario, scenarios
@@ -267,21 +267,6 @@ async def incoming_call(request):
     return JSONResponse(b)
 
 
-# Everyday words a client uses, mapped to the words our facts use.
-SYNONYMS = {
-    'tech': 'information technology', 'technology': 'information technology',
-    'lost': 'about', 'lose': 'about', 'loss': 'about', 'down': 'about', 'much': 'about',
-    'dollar': 'dollar', 'usd': 'dollar', 'euro': 'euro', 'franc': 'franc', 'currency': 'dollar',
-    'gold': 'gold', 'bonds': 'bonds', 'bond': 'bonds', 'cash': 'cash', 'risk': 'volatility',
-    'rules': 'suitability', 'compliance': 'suitability', 'hedged': 'hedged', 'hedge': 'hedged',
-    'safe': 'holding', 'held': 'holding', 'performance': 'value', 'year': '12 months',
-    'pharma': 'health care', 'health': 'health care', 'banks': 'financials', 'crypto': 'bitcoin',
-}
-WORD = re.compile(r"[a-z]+")
-STOP = {'the', 'a', 'an', 'my', 'i', 'is', 'are', 'was', 'what', 'how', 'did', 'do', 'on', 'in', 'of', 'to',
-        'have', 'has', 'me', 'we', 'you', 'and', 'or', 'about', 'today', 'with', 'for', 'it\'s', 'there'}
-
-
 async def ask(request):
     """Answer a client's question with the facts that match it best, never with new text."""
     data = await body(request)
@@ -295,26 +280,10 @@ async def ask(request):
 
 
 def answer(client, question):
-    """The facts that best match a question: {'answers': [...], 'found': bool}. Never new text."""
+    """The facts that best answer a question (backend/answers.py). Never new text."""
     facts, _ = callmode.call_facts(client, state.store, state.market)
     facts += [f for f in compute(client, state.store) if f.slot != 'who']
-    words = [w for w in WORD.findall(question.lower()) if w not in STOP]
-    terms = {SYNONYMS.get(w, w) for w in words}
-    scored = []
-    for f in facts:
-        text = f.text.lower()
-        score = sum(2 if ' ' in t else 1 for t in terms if t in text)
-        if score:
-            scored.append((score, f.slot in ('digest', 'holding', 'reason'), f))
-    scored.sort(key=lambda s: (-s[0], not s[1]))
-    seen, answers = set(), []
-    for _, _, f in scored:
-        if f.id not in seen:
-            seen.add(f.id)
-            answers.append({'text': f.text, 'source': f.source, 'fact': f.id})
-        if len(answers) == 2:
-            break
-    return {'answers': answers, 'found': bool(answers)}
+    return answers.answer(facts, question, use_llm=state.use_llm)
 
 
 async def get_profile(request):

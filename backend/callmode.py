@@ -148,6 +148,16 @@ def _digest(client, hit, market):
                    f'clients.json {ref} holdings without a mapped market move', 0.0)
 
 
+def _headlines(hit, market):
+    """The feed's headlines on what this client was hit by: the 'what happened' behind the numbers."""
+    hit_buckets = {(t.dimension, t.bucket) for t in hit['topics'].values() if t.impact < 0}
+    kind = 'simulated feed' if market.simulated else 'market feed'
+    for i, h in enumerate(market.headlines):
+        if (h.get('dimension'), h.get('bucket')) in hit_buckets and h.get('text'):
+            yield Fact(f'news.{i}', 'digest', f'Behind the move: "{h["text"]}"',
+                       f'{kind} "{market.name}" headline', 0.001)
+
+
 def _holding(client, hit, market):
     ref = client['ClientRef']
     total = hit['total'] or 1
@@ -220,7 +230,7 @@ def call_facts(client, store, market, as_of=None):
                         f'data/profiles/profiles.json {ref} from clients.json ClientNotes', 0.8))
     why = reasons(client, store, hit, as_of)
     out += why
-    digest = list(_digest(client, hit, market))
+    digest = list(_digest(client, hit, market)) + list(_headlines(hit, market))
     holding = list(_holding(client, hit, market)) if digest else []
     out += digest + holding
     out += _talk(client, hit, why[0] if why else None, bool(holding), profile)
