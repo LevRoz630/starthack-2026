@@ -13,27 +13,18 @@ Without SMTP_USER, SMTP_PASSWORD and EMAIL_TO the message is written to data/out
 instead, so the demo never breaks on a missing password.
 """
 
-import os
 import smtplib
 import time
 from email.message import EmailMessage
 from email.utils import formatdate, make_msgid
 
-from dotenv import load_dotenv
-
-from .data import ROOT
-
-load_dotenv(ROOT / '.env')
+from .data import ROOT, env
 
 OUTBOX = ROOT / 'data' / 'outbox'
 
 
-def _env(name, default=''):
-    return (os.getenv(name) or default).strip().strip('"\'')
-
-
 def configured():
-    return all(_env(k) for k in ('SMTP_USER', 'SMTP_PASSWORD', 'EMAIL_TO'))
+    return all(env(k) for k in ('SMTP_USER', 'SMTP_PASSWORD', 'EMAIL_TO'))
 
 
 def masked(address):
@@ -45,8 +36,8 @@ def masked(address):
 def build(subject, body, to=None):
     msg = EmailMessage()
     msg['Subject'] = subject
-    msg['From'] = _env('EMAIL_FROM') or _env('SMTP_USER') or 'advisor-copilot@localhost'
-    msg['To'] = to or _env('EMAIL_TO') or 'outbox@localhost'
+    msg['From'] = env('EMAIL_FROM') or env('SMTP_USER') or 'advisor-copilot@localhost'
+    msg['To'] = to or env('EMAIL_TO') or 'outbox@localhost'
     msg['Date'] = formatdate(localtime=True)
     msg['Message-ID'] = make_msgid(domain='advisor-copilot')
     msg.set_content(body)
@@ -65,8 +56,8 @@ def send(subject, body, to=None, timeout=20):
         path = OUTBOX / f'{time.strftime("%Y%m%d-%H%M%S")}-{abs(hash(subject)) % 10000:04d}.eml'
         path.write_bytes(bytes(msg))
         return {'sent': False, 'outbox': str(path.relative_to(ROOT))}
-    with smtplib.SMTP(_env('SMTP_HOST', 'smtp.gmail.com'), int(_env('SMTP_PORT', '587')), timeout=timeout) as smtp:
+    with smtplib.SMTP(env('SMTP_HOST', 'smtp.gmail.com'), int(env('SMTP_PORT', '587')), timeout=timeout) as smtp:
         smtp.starttls()
-        smtp.login(_env('SMTP_USER'), _env('SMTP_PASSWORD'))
+        smtp.login(env('SMTP_USER'), env('SMTP_PASSWORD'))
         smtp.send_message(msg)
     return {'sent': True, 'to': masked(msg['To'])}

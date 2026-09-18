@@ -8,15 +8,11 @@ sha256(source|target|text), so reruns and tests cost nothing and work offline.
 
 import hashlib
 import json
-import os
 import sys
 
 import requests
-from dotenv import load_dotenv
 
-from .data import DATA_DIR, ROOT, items
-
-load_dotenv(ROOT / '.env')
+from .data import DATA_DIR, ROOT, env, items
 
 URL = 'https://api.supertext.com/v1/translate/ai/text'
 DIR = ROOT / 'data' / 'translations'
@@ -63,7 +59,7 @@ def _save_cache(cache):
 
 
 def _request(texts, source, target):
-    key = (os.getenv('SUPERTEXT_API_KEY') or '').strip().strip('"\'')
+    key = env('SUPERTEXT_API_KEY')
     if not key:
         raise TranslationUnavailable('SUPERTEXT_API_KEY is not set')
     body = {'source_lang': source, 'target_lang': target, 'text': texts}

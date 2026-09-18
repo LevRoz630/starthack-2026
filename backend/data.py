@@ -5,11 +5,21 @@ The export mixes absent keys with explicit nulls, so every read goes through
 """
 
 import json
+import os
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / 'data' / 'core-case' / 'portfolio-data'
+
+load_dotenv(ROOT / '.env')
+
+
+def env(name, default=''):
+    """An environment variable (e.g. from .env), quotes and surrounding whitespace stripped."""
+    return (os.getenv(name) or default).strip().strip('"\'')
 
 
 def items(obj, key):

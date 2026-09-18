@@ -23,11 +23,8 @@ import sys
 import time
 
 import requests
-from dotenv import load_dotenv
 
-from .data import ROOT
-
-load_dotenv(ROOT / '.env')
+from .data import ROOT, env
 
 API = 'https://api.elevenlabs.io/v1'
 CACHE_DIR = ROOT / 'data' / 'voice-cache'
@@ -36,11 +33,6 @@ DEFAULT_VOICE = 'Xb7hH8MSUJpSbSDYk0k2'
 DEFAULT_VOICE_NAME = 'Alice - Clear, Engaging Educator'
 FAST_MODEL = 'eleven_flash_v2_5'
 STT_MODEL = 'scribe_v1'
-# Streaming speech-to-text for the call listener (tested: full transcript ~0.1 s after speech ends).
-# Send {"message_type": "input_audio_chunk", "audio_base_64": <16 kHz PCM>, "sample_rate": 16000,
-# "commit": false} every ~100 ms; receive partial_transcript / committed_transcript messages.
-REALTIME_URL = ('wss://api.elevenlabs.io/v1/speech-to-text/realtime'
-                '?model_id=scribe_v2_realtime&audio_format=pcm_16000&commit_strategy=vad')
 
 CURRENCY_WORDS = {'CHF': 'francs', 'EUR': 'euros', 'USD': 'dollars', 'GBP': 'pounds'}
 SCALE_WORDS = {'k': ' thousand', 'm': ' million', '': ''}
@@ -54,7 +46,7 @@ class VoiceUnavailable(RuntimeError):
 
 
 def _key():
-    key = (os.getenv('ELEVENLABS_KEY') or '').strip().strip('"\'')
+    key = env('ELEVENLABS_KEY')
     if not key:
         raise VoiceUnavailable('ELEVENLABS_KEY is not set')
     return key

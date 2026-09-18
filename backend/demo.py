@@ -26,16 +26,12 @@ backend/listener.py.
 import asyncio
 import hashlib
 import json
-import os
 import sys
 import time
 
 import requests
-from dotenv import load_dotenv
 
-from .data import ROOT
-
-load_dotenv(ROOT / '.env')
+from .data import ROOT, env
 
 DEMO_DIR = ROOT / 'data' / 'demo'
 AUDIO_DIR = DEMO_DIR / 'audio'
@@ -58,10 +54,6 @@ def load_script(name):
         return json.load(f)
 
 
-def _key():
-    return (os.getenv('ELEVENLABS_KEY') or '').strip().strip('"\'')
-
-
 def audio_path(voice, fmt, text):
     digest = hashlib.sha256(f'{TTS_MODEL}|{voice}|{fmt}|{text}'.encode('utf-8')).hexdigest()[:20]
     return AUDIO_DIR / f'{digest}.{"pcm" if fmt.startswith("pcm") else "mp3"}'
@@ -73,7 +65,7 @@ def tts(text, voice, fmt):
     if path.exists():
         return path
     resp = requests.post(TTS_URL.format(voice=voice), params={'output_format': fmt},
-                         headers={'xi-api-key': _key(), 'Content-Type': 'application/json'},
+                         headers={'xi-api-key': env('ELEVENLABS_KEY'), 'Content-Type': 'application/json'},
                          data=json.dumps({'model_id': TTS_MODEL, 'text': text}).encode('utf-8'), timeout=60)
     resp.raise_for_status()
     AUDIO_DIR.mkdir(parents=True, exist_ok=True)

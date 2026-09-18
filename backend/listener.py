@@ -29,17 +29,13 @@ Going live with Twilio:
 import asyncio
 import base64
 import json
-import os
 import re
 import time
 from xml.sax.saxutils import escape, quoteattr
 
 import websockets
-from dotenv import load_dotenv
 
-from .data import ROOT
-
-load_dotenv(ROOT / '.env')
+from .data import env
 
 STT_URL = ('wss://api.elevenlabs.io/v1/speech-to-text/realtime?model_id=scribe_v2_realtime'
            '&audio_format={fmt}&commit_strategy=vad&vad_silence_threshold_secs=0.5')
@@ -166,7 +162,7 @@ class Session:
         self.answer = answer
         self.fmt = fmt
         self.source = source
-        self.key = key or (os.getenv('ELEVENLABS_KEY') or '').strip().strip('"\'')
+        self.key = key or env('ELEVENLABS_KEY')
         self.connect = connect or connect_stt
         self.open_timeout = open_timeout
         self.ws = None
