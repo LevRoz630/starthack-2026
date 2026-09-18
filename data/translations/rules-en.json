@@ -1,0 +1,308 @@
+{
+  "Anlagevorschlag ohne Auftraggeber": {
+    "rule_de": "Für diesen Anlagevorschlag wurde kein Auftraggeber ausgewählt.",
+    "rule_en": "No client was selected for this investment proposal.",
+    "violation_de": "Für diesen Anlagevorschlag wurde kein Auftraggeber ausgewählt.",
+    "violation_en": "No client was selected for this investment proposal."
+  },
+  "Cluster risk of a single financial instrument": {
+    "rule_de": "Für Privatkunden mit Finanzdienstleistung Umfassende Anlageberatung oder trx basierte Anlageberatung muss Einzeltitel Anteil < x% sein (x variiert mit Instrument Typ)",
+    "rule_en": "For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be single title share < x% (x varies with instrument type)",
+    "violation_de": "Für Privatkunden mit Finanzdienstleistung Umfassende Anlageberatung oder trx basierte Anlageberatung muss Einzeltitel Anteil < x% sein (x variiert mit Instrument Typ)",
+    "violation_en": "For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be single title share < x% (x varies with instrument type)"
+  },
+  "Compliance with maximum volatility": {
+    "rule_de": "Für Privatkunden mit Finanzdienstleistung Umfassende Anlageberatung oder Vermögensverwaltung muss PF Vola < max Kundenprofil Vola sein.",
+    "rule_en": "For retail clients with financial services Comprehensive investment advisory or discretionary mandate must be PF Vola < max client profile Vola.",
+    "violation_de": "Für Privatkunden mit Finanzdienstleistung Umfassende Anlageberatung oder Vermögensverwaltung muss PF Vola < max Kundenprofil Vola sein.",
+    "violation_en": "For retail clients with financial services Comprehensive investment advisory or discretionary mandate must be PF Vola < max client profile Vola."
+  },
+  "Foreign currency cluster risk EUR": {
+    "rule_de": "Für Privatkunden soll EUR Anteil < 9% sein.",
+    "rule_en": "For private customers, the EUR share should be < 9%.",
+    "violation_de": "Für Privatkunden soll EUR Anteil < 9% sein.",
+    "violation_en": "For private customers, the EUR share should be < 9%."
+  },
+  "Foreign currency cluster risk USD": {
+    "rule_de": "Für Privatkunden soll USD Anteil < 35.5% sein.",
+    "rule_en": "For private customers, the USD share should be < 35.5%.",
+    "violation_de": "Für Privatkunden soll USD Anteil < 35.5% sein.",
+    "violation_en": "For private customers, the USD share should be < 35.5%."
+  },
+  "Foreign currency exposure exceeds 50%": {
+    "rule_de": "Der gesamte Fremdwährungsanteil im Portfolio ist grösser als 50%",
+    "rule_en": "The entire foreign currency share in the portfolio is greater than 50%",
+    "violation_de": "Der gesamte Fremdwährungsanteil im Portfolio ist grösser als 50%",
+    "violation_en": "The entire foreign currency share in the portfolio is greater than 50%"
+  },
+  "Knowledge of portfolio funds and mixed funds": {
+    "rule_de": "Für Privatkunden mit Finanzdienstleistung Umfassende Anlageberatung oder trx basierte Anlageberatung muss K&E vorhanden sein.",
+    "rule_en": "For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be available from K&E.",
+    "violation_de": "Für Privatkunden mit Finanzdienstleistung Umfassende Anlageberatung oder trx basierte Anlageberatung muss K&E vorhanden sein.",
+    "violation_en": "For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be available from K&E."
+  },
+  "Knowledge of structured products": {
+    "rule_de": "Für Privatkunden mit Finanzdienstleistung Umfassende Anlageberatung oder trx basierte Anlageberatung muss K&E vorhanden sein.",
+    "rule_en": "For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be available from K&E.",
+    "violation_de": "Für Privatkunden mit Finanzdienstleistung Umfassende Anlageberatung oder trx basierte Anlageberatung muss K&E vorhanden sein.",
+    "violation_en": "For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be available from K&E."
+  },
+  "Maximum limit liquidity": {
+    "rule_de": "Maximale Limite Liquidität",
+    "rule_en": "Maximum liquidity limits",
+    "violation_de": "Maximale Limite Liquidität",
+    "violation_en": "Maximum liquidity limits"
+  },
+  "Minimum limit fixed income": {
+    "rule_de": "Minimale Limite Zinswerte",
+    "rule_en": "Minimum limits interest rates",
+    "violation_de": "Minimale Limite Zinswerte",
+    "violation_en": "Minimum limits interest rates"
+  },
+  "Minimum limit shares": {
+    "rule_de": "Minimale Limite Aktien",
+    "rule_en": "Minimum Limit Stocks",
+    "violation_de": "Minimale Limite Aktien",
+    "violation_en": "Minimum Limit Stocks"
+  },
+  "No structured products": {
+    "rule_de": "Eine Regelverletzung wird angezeigt, wenn das Portfolio Strukturierte Produkte enthält.",
+    "rule_en": "A rule violation is reported when the portfolio contains structured products."
+  },
+  "Overweight in the equity region \"North America\"": {
+    "rule_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Nordamerika\"",
+    "rule_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the ‘North America’ equity region",
+    "violation_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Nordamerika\"",
+    "violation_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the ‘North America’ equity region"
+  },
+  "Overweight in the equity region \"Rest of Europe\"": {
+    "rule_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Übriges Europa\"",
+    "rule_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the ‘Rest of Europe’ equity region",
+    "violation_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Übriges Europa\"",
+    "violation_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the ‘Rest of Europe’ equity region"
+  },
+  "Overweight in the equity region \"Switzerland\"": {
+    "rule_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Grossbritannien\"",
+    "rule_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the UK equity region",
+    "violation_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Schweiz\"",
+    "violation_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the ‘Switzerland’ equity region"
+  },
+  "Overweight in the equity sector \"Consumer Discretionary\"": {
+    "rule_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Nicht-Basiskonsumgüter\"",
+    "rule_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the non-basic consumer goods equity sector",
+    "violation_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Nicht-Basiskonsumgüter\"",
+    "violation_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the non-basic consumer goods equity sector"
+  },
+  "Overweight in the equity sector \"Energy\"": {
+    "rule_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Energie\"",
+    "rule_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the Energy equity sector",
+    "violation_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Energie\"",
+    "violation_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the Energy equity sector"
+  },
+  "Overweight in the equity sector \"Financials\"": {
+    "rule_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Finanzwesen\"",
+    "rule_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the Financials equity sector",
+    "violation_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Finanzwesen\"",
+    "violation_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the Financials equity sector"
+  },
+  "Overweight in the equity sector \"Health Care\"": {
+    "rule_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Gesundheitswesen\"",
+    "rule_en": "Overweight (+/- 5% of the SAA target for the Healthcare sector)",
+    "violation_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Gesundheitswesen\"",
+    "violation_en": "Overweight (+/- 5% of the SAA target for the Healthcare sector)"
+  },
+  "Overweight in the equity sector \"Industrials\"": {
+    "rule_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Industrie\"",
+    "rule_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the ‘Industrials’ equity sector",
+    "violation_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Industrie\"",
+    "violation_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the ‘Industrials’ equity sector"
+  },
+  "Overweight in the equity sector \"Information Technology\"": {
+    "rule_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Informationstechnologie\"",
+    "rule_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the Information Technology sector",
+    "violation_de": "Übergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Informationstechnologie\"",
+    "violation_en": "Overweight (+/- 5% of the benchmark’s SAA target) in the Information Technology sector"
+  },
+  "Share is not part of the investment universe for individual shares and therefore not monitored.": {
+    "note": "no description in the data; the rule code is the only text"
+  },
+  "Significant overweight in the equity region \"Great Britain\"": {
+    "rule_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Grossbritannien\"",
+    "rule_en": "Significant overweight (+/- 10% of the SAA target for the UK equity region)"
+  },
+  "Significant overweight in the equity region \"Japan\"": {
+    "rule_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Japan\"",
+    "rule_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Japan’ equity region",
+    "violation_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Japan\"",
+    "violation_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Japan’ equity region"
+  },
+  "Significant overweight in the equity region \"North America\"": {
+    "rule_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Nordamerika\"",
+    "rule_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘North America’ equity region",
+    "violation_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Nordamerika\"",
+    "violation_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘North America’ equity region"
+  },
+  "Significant overweight in the equity region \"Rest of Europe\"": {
+    "rule_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Übriges Europa\"",
+    "rule_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Rest of Europe’ equity region",
+    "violation_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Übriges Europa\"",
+    "violation_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Rest of Europe’ equity region"
+  },
+  "Significant overweight in the equity region \"Switzerland\"": {
+    "rule_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Schweiz\"",
+    "rule_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Switzerland’ equity region",
+    "violation_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Schweiz\"",
+    "violation_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Switzerland’ equity region"
+  },
+  "Significant overweight in the equity sector \"Communication Services\"": {
+    "rule_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Kommunikationsdienstleister\"",
+    "rule_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Communication Services’ equity sector",
+    "violation_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Kommunikationsdienstleister\"",
+    "violation_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Communication Services’ equity sector"
+  },
+  "Significant overweight in the equity sector \"Consumer Discretionary\"": {
+    "rule_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Nicht-Basiskonsumgüter\"",
+    "rule_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the non-staple consumer goods equity sector",
+    "violation_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Nicht-Basiskonsumgüter\"",
+    "violation_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the non-staple consumer goods equity sector"
+  },
+  "Significant overweight in the equity sector \"Financials\"": {
+    "rule_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Finanzwesen\"",
+    "rule_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Financials’ equity sector",
+    "violation_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Finanzwesen\"",
+    "violation_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Financials’ equity sector"
+  },
+  "Significant overweight in the equity sector \"Health Care\"": {
+    "rule_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Gesundheitswesen\"",
+    "rule_en": "Significant overweight (+/- 10% of the SAA target for the Healthcare sector)",
+    "violation_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Gesundheitswesen\"",
+    "violation_en": "Significant overweight (+/- 10% of the SAA target for the Healthcare sector)"
+  },
+  "Significant overweight in the equity sector \"Industrials\"": {
+    "rule_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Industrie\"",
+    "rule_en": "Significant overweight (+/- 10% of the SAA target for the ‘Industry’ equity sector)",
+    "violation_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Industrie\"",
+    "violation_en": "Significant overweight (+/- 10% of the SAA target for the ‘Industry’ equity sector)"
+  },
+  "Significant overweight in the equity sector \"Information Technology\"": {
+    "rule_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Informationstechnologie\"",
+    "rule_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the Information Technology sector",
+    "violation_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Informationstechnologie\"",
+    "violation_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the Information Technology sector"
+  },
+  "Significant overweight in the equity sector \"Materials\"": {
+    "rule_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \" Roh-, Hilfs- & Betriebsstoffe\"",
+    "rule_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Raw, auxiliary and operating materials’ equity sector",
+    "violation_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \" Roh-, Hilfs- & Betriebsstoffe\"",
+    "violation_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Raw, auxiliary and operating materials’ equity sector"
+  },
+  "Significant overweight in the equity sector \"Utilities\"": {
+    "rule_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Versorgungsbetriebe\"",
+    "rule_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the Utilities sector",
+    "violation_de": "Starkes Übergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Versorgungsbetriebe\"",
+    "violation_en": "Significant overweight (+/- 10% of the benchmark’s SAA target) in the Utilities sector"
+  },
+  "Significant underweight in the equity region \"North America\"": {
+    "rule_de": "Starkes Untergewicht (+/- 10% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Nordamerika\"",
+    "rule_en": "Significant underweight (+/- 10% of the SAA target for the ‘North America’ equity region)",
+    "violation_de": "Starkes Untergewicht (+/- 10% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Nordamerika\"",
+    "violation_en": "Significant underweight (+/- 10% of the SAA target for the ‘North America’ equity region)"
+  },
+  "Significant underweight in the equity region \"Switzerland\"": {
+    "rule_de": "Starkes Untergewicht (+/- 10% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Schweiz\"",
+    "rule_en": "Significant underweight (+/- 10% of the benchmark’s SAA target) in the ‘Switzerland’ equity region",
+    "violation_de": "Starkes Untergewicht (+/- 10% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Schweiz\"",
+    "violation_en": "Significant underweight (+/- 10% of the benchmark’s SAA target) in the ‘Switzerland’ equity region"
+  },
+  "Significant underweight in the equity sector \"Consumer Staples\"": {
+    "rule_de": "Starkes Untergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Basiskonsumgüter\"",
+    "rule_en": "Significant underweight (+/- 10% of the benchmark’s SAA target) in the ‘Basic Consumer Goods’ equity sector",
+    "violation_de": "Starkes Untergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Basiskonsumgüter\"",
+    "violation_en": "Significant underweight (+/- 10% of the benchmark’s SAA target) in the ‘Basic Consumer Goods’ equity sector"
+  },
+  "Significant underweight in the equity sector \"Financials\"": {
+    "rule_de": "Starkes Untergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Finanzwesen\"",
+    "rule_en": "Significant underweight (+/- 10% of the SAA target for the benchmark) in the ‘Financials’ equity sector",
+    "violation_de": "Starkes Untergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Finanzwesen\"",
+    "violation_en": "Significant underweight (+/- 10% of the SAA target for the benchmark) in the ‘Financials’ equity sector"
+  },
+  "Significant underweight in the equity sector \"Health Care\"": {
+    "rule_de": "Starkes Untergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Gesundheitswesen\"",
+    "rule_en": "Significant underweight (+/- 10% of the SAA target for the Healthcare sector)",
+    "violation_de": "Starkes Untergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Gesundheitswesen\"",
+    "violation_en": "Significant underweight (+/- 10% of the SAA target for the Healthcare sector)"
+  },
+  "Significant underweight in the equity sector \"Information Technology\"": {
+    "rule_de": "Starkes Untergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Informationstechnologie\"",
+    "rule_en": "Significant underweight (+/- 10% of the benchmark’s SAA target) in the Information Technology sector",
+    "violation_de": "Starkes Untergewicht (+/- 10% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Informationstechnologie\"",
+    "violation_en": "Significant underweight (+/- 10% of the benchmark’s SAA target) in the Information Technology sector"
+  },
+  "Sustainable investments only": {
+    "rule_de": "Eine Regelverletzung wird angezeigt, wenn Positionen, die nicht auf der Empfehlungsliste Nachhaltigkeit sind, im Portfolio enthalten sind.",
+    "rule_en": "A rule violation is flagged when positions that are not on the Sustainability Recommendation List are included in the portfolio."
+  },
+  "Underweight in the equity region \"Asia/Pacific (ex Japan)\"": {
+    "rule_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Asien/Pazifik (ex Japan)\"",
+    "rule_en": "Underweight (+/- 5% of the benchmark’s SAA target) in the ‘Asia/Pacific (ex Japan)’ equity region",
+    "violation_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Asien/Pazifik (ex Japan)\"",
+    "violation_en": "Underweight (+/- 5% of the benchmark’s SAA target) in the ‘Asia/Pacific (ex Japan)’ equity region"
+  },
+  "Underweight in the equity region \"North America\"": {
+    "rule_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Nordamerika\"",
+    "rule_en": "Underweight (+/- 5% of the SAA target for the ‘North America’ equity region)",
+    "violation_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Nordamerika\"",
+    "violation_en": "Underweight (+/- 5% of the SAA target for the ‘North America’ equity region)"
+  },
+  "Underweight in the equity region \"Switzerland\"": {
+    "rule_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Schweiz\"",
+    "rule_en": "Underweight (+/- 5% of the benchmark’s SAA target) in the ‘Switzerland’ equity region",
+    "violation_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) in der Aktienregion \"Schweiz\"",
+    "violation_en": "Underweight (+/- 5% of the benchmark’s SAA target) in the ‘Switzerland’ equity region"
+  },
+  "Underweight in the equity sector \"Consumer Discretionary\"": {
+    "rule_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Nicht-Basiskonsumgüter\"",
+    "rule_en": "Underweight (+/- 5% of the benchmark’s SAA target) in the non-basic consumer goods equity sector",
+    "violation_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Nicht-Basiskonsumgüter\"",
+    "violation_en": "Underweight (+/- 5% of the benchmark’s SAA target) in the non-basic consumer goods equity sector"
+  },
+  "Underweight in the equity sector \"Consumer Staples\"": {
+    "rule_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Basiskonsumgüter\"",
+    "rule_en": "Underweight (+/- 5% of the benchmark’s SAA target) in the Basic Consumer Goods equity sector",
+    "violation_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Basiskonsumgüter\"",
+    "violation_en": "Underweight (+/- 5% of the benchmark’s SAA target) in the Basic Consumer Goods equity sector"
+  },
+  "Underweight in the equity sector \"Financials\"": {
+    "rule_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Finanzwesen\"",
+    "rule_en": "Underweight (+/- 5% of the SAA target for the ‘Financials’ equity sector)",
+    "violation_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Finanzwesen\"",
+    "violation_en": "Underweight (+/- 5% of the SAA target for the ‘Financials’ equity sector)"
+  },
+  "Underweight in the equity sector \"Health Care\"": {
+    "rule_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Gesundheitswesen\"",
+    "rule_en": "Underweight (+/- 5% of the SAA target for the Healthcare sector)",
+    "violation_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Gesundheitswesen\"",
+    "violation_en": "Underweight (+/- 5% of the SAA target for the Healthcare sector)"
+  },
+  "Underweight in the equity sector \"Industrials\"": {
+    "rule_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Industrie\"",
+    "rule_en": "Underweight (+/- 5% of the SAA target for the ‘Industry’ equity sector)",
+    "violation_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Industrie\"",
+    "violation_en": "Underweight (+/- 5% of the SAA target for the ‘Industry’ equity sector)"
+  },
+  "Underweight in the equity sector \"Materials\"": {
+    "rule_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Roh-, Hilfs- & Betriebsstoffe\"",
+    "rule_en": "Underweight (+/- 5% of the benchmark’s SAA target) in the ‘Raw, Auxiliary & Operating Materials’ equity sector",
+    "violation_de": "Untergewicht (+/- 5% zum SAA-Sollwert der Benchmark) im Aktiensektor \"Roh-, Hilfs- & Betriebsstoffe\"",
+    "violation_en": "Underweight (+/- 5% of the benchmark’s SAA target) in the ‘Raw, Auxiliary & Operating Materials’ equity sector"
+  },
+  "Volatility range exceeded (portfolio risk too high)": {
+    "rule_de": "Für Privatkunden mit Finanzdienstleistung Umfassende Anlageberatung oder Vermögensverwaltung muss PF Vola < max SAA Vola sein.",
+    "rule_en": "For retail clients with financial services Comprehensive investment advisory or discretionary mandate must be PF Vola < max SAA Vola.",
+    "violation_de": "Für Privatkunden mit Finanzdienstleistung Umfassende Anlageberatung oder Vermögensverwaltung muss PF Vola < max SAA Vola sein.",
+    "violation_en": "For retail clients with financial services Comprehensive investment advisory or discretionary mandate must be PF Vola < max SAA Vola."
+  },
+  "Volatility range undershot (portfolio risk too low)": {
+    "note": "no description in the data; the rule code is the only text"
+  }
+}

@@ -1,0 +1,221 @@
+{
+ "fetched_at": "2026-09-18T22:39:48+00:00",
+ "sources": [
+  {
+   "name": "Pictet Asset Management",
+   "url": "https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook",
+   "label": "Barometer, Sep 2026",
+   "ok": true,
+   "doc": "075804045d97",
+   "count": 6
+  },
+  {
+   "name": "Vontobel",
+   "url": "https://www.vontobel.com/en-ch/insights/monthly-cio-update-september-2026-adding-weight/",
+   "label": "Monthly CIO Update, Sep 2026",
+   "ok": true,
+   "doc": "8aacb14a285b",
+   "count": 2
+  },
+  {
+   "name": "BlackRock Investment Institute",
+   "url": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/outlook",
+   "label": "2026 outlook, Q4 update",
+   "ok": true,
+   "doc": "9e45b3a1a304",
+   "count": 2
+  },
+  {
+   "name": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "ok": true,
+   "doc": "bbdc4d11dacb",
+   "count": 6
+  }
+ ],
+ "items": [
+  {
+   "id": "469b77ee4303",
+   "source": "Pictet Asset Management",
+   "url": "https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook",
+   "label": "Barometer, Sep 2026",
+   "doc": "075804045d97",
+   "text": "The main argument for maintaining our overweight stance on stocks comes down to corporate profitability.",
+   "tags": [
+    "Equities"
+   ]
+  },
+  {
+   "id": "777938bd697c",
+   "source": "Pictet Asset Management",
+   "url": "https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook",
+   "label": "Barometer, Sep 2026",
+   "doc": "075804045d97",
+   "text": "That means maintaining an overweight position in technology stocks.",
+   "tags": [
+    "Information Technology"
+   ]
+  },
+  {
+   "id": "cb5b8326c0ba",
+   "source": "Pictet Asset Management",
+   "url": "https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook",
+   "label": "Barometer, Sep 2026",
+   "doc": "075804045d97",
+   "text": "The AI-driven capex boom, and the need for infrastructure to support it, should support the outlook for industrials, another sector on which we have an overweight stance.",
+   "tags": [
+    "Industrials"
+   ]
+  },
+  {
+   "id": "e3f7c2dd0dd7",
+   "source": "Pictet Asset Management",
+   "url": "https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook",
+   "label": "Barometer, Sep 2026",
+   "doc": "075804045d97",
+   "text": "Although the sector retains defensive characteristics, higher long-term yields mean utilities’ status as a bond proxy and their reliable dividend payments are less attractive.",
+   "tags": [
+    "Bonds"
+   ]
+  },
+  {
+   "id": "b36c54b31a44",
+   "source": "Pictet Asset Management",
+   "url": "https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook",
+   "label": "Barometer, Sep 2026",
+   "doc": "075804045d97",
+   "text": "We therefore downgrade utilities to neutral.",
+   "tags": [
+    "Utilities"
+   ]
+  },
+  {
+   "id": "bf9c3fafbb7d",
+   "source": "Pictet Asset Management",
+   "url": "https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook",
+   "label": "Barometer, Sep 2026",
+   "doc": "075804045d97",
+   "text": "Regionally, our preference is for emerging-market stocks (excluding China), which continue to benefit from strong global trade flows, elevated commodity prices, favourable growth dynamics, and extensive exposure to the AI theme.",
+   "tags": [
+    "Emerging markets"
+   ]
+  },
+  {
+   "id": "986eaa5be357",
+   "source": "Vontobel",
+   "url": "https://www.vontobel.com/en-ch/insights/monthly-cio-update-september-2026-adding-weight/",
+   "label": "Monthly CIO Update, Sep 2026",
+   "doc": "8aacb14a285b",
+   "text": "We remain positive on equities, with a preference for emerging-market stocks, especially in Asia, where exposure to AI investment is a positive, in our view.",
+   "tags": [
+    "Equities",
+    "Emerging markets"
+   ]
+  },
+  {
+   "id": "b115e67dd7f0",
+   "source": "Vontobel",
+   "url": "https://www.vontobel.com/en-ch/insights/monthly-cio-update-september-2026-adding-weight/",
+   "label": "Monthly CIO Update, Sep 2026",
+   "doc": "8aacb14a285b",
+   "text": "This is one of the reasons why we’ve upgraded gold to overweight.",
+   "tags": [
+    "Gold"
+   ]
+  },
+  {
+   "id": "7cf80c6f9f46",
+   "source": "BlackRock Investment Institute",
+   "url": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/outlook",
+   "label": "2026 outlook, Q4 update",
+   "doc": "9e45b3a1a304",
+   "text": "We stay constructive on risk but are increasingly selective, favoring AI bottlenecks, shorter-term bonds and opportunities beyond asset class labels.",
+   "tags": [
+    "Information Technology",
+    "Bonds"
+   ]
+  },
+  {
+   "id": "f4db56ec67fd",
+   "source": "BlackRock Investment Institute",
+   "url": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/outlook",
+   "label": "2026 outlook, Q4 update",
+   "doc": "9e45b3a1a304",
+   "text": "We stay overweight U.S. equities and upgrade emerging market stocks to overweight but stay focused on opportunities driven by bottlenecks.",
+   "tags": [
+    "Equities",
+    "Emerging markets"
+   ]
+  },
+  {
+   "id": "ed4332e6adc8",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "The bond yield outlook and renewed momentum in the AI theme are supportive of our Overweight view on US and Asia ex-Japan equities.",
+   "tags": [
+    "Information Technology",
+    "Equities"
+   ]
+  },
+  {
+   "id": "18973767769e",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "We reinstate our Overweight stance on gold as USD weakness resumes.",
+   "tags": [
+    "Gold",
+    "USD"
+   ]
+  },
+  {
+   "id": "95a50c0c5a0e",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "Continue to favour corporate and EM bonds over G3 government bonds.",
+   "tags": [
+    "Bonds"
+   ]
+  },
+  {
+   "id": "32794df2ee16",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "Financial sector an attractive route to broadening exposure.",
+   "tags": [
+    "Financials"
+   ]
+  },
+  {
+   "id": "6b3646a052c7",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "Fiscal expansion is lifting domestic demand and benefiting the industrial sector, while higher-for-longer rates favour the banking sector.",
+   "tags": [
+    "Industrials"
+   ]
+  },
+  {
+   "id": "838834ab18f5",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery.",
+   "tags": [
+    "Consumer Staples",
+    "Real Estate"
+   ]
+  }
+ ]
+}

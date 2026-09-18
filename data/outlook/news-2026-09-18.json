@@ -1,0 +1,4239 @@
+{
+ "fetched_at": "2026-09-18T22:39:21+00:00",
+ "sources": [
+  {
+   "name": "finews.ch",
+   "url": "https://www.finews.ch/news?format=feed&type=rss",
+   "lang": "de",
+   "ok": true,
+   "count": 15
+  },
+  {
+   "name": "finews.com",
+   "url": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "lang": "en",
+   "ok": true,
+   "count": 19
+  },
+  {
+   "name": "NZZ Wirtschaft",
+   "url": "https://www.nzz.ch/wirtschaft.rss",
+   "lang": "de",
+   "ok": true,
+   "count": 33
+  },
+  {
+   "name": "NZZ Finanzen",
+   "url": "https://www.nzz.ch/finanzen.rss",
+   "lang": "de",
+   "ok": true,
+   "count": 21
+  },
+  {
+   "name": "SRF Wirtschaft",
+   "url": "https://www.srf.ch/news/bnf/rss/1926",
+   "lang": "de",
+   "ok": true,
+   "count": 60
+  },
+  {
+   "name": "CNBC Markets",
+   "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "lang": "en",
+   "ok": true,
+   "count": 30
+  },
+  {
+   "name": "CNBC Finance",
+   "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "lang": "en",
+   "ok": true,
+   "count": 30
+  },
+  {
+   "name": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/news/rssindex",
+   "lang": "en",
+   "ok": true,
+   "count": 49
+  },
+  {
+   "name": "MarketWatch",
+   "url": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "lang": "en",
+   "ok": true,
+   "count": 30
+  },
+  {
+   "name": "Financial Times",
+   "url": "https://www.ft.com/markets?format=rss",
+   "lang": "en",
+   "ok": true,
+   "count": 25
+  }
+ ],
+ "items": [
+  {
+   "id": "399a3fc8ead1",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "Can Europe really do without active management?",
+   "link": "https://www.finews.ch/news/finanzplatz/73642-aktives-management-europa-finanzielle-souveraenitaet-maxime-carmignac",
+   "published": "2026-09-17T09:37+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "Kann Europa wirklich auf aktives Management verzichten?",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "f0ec5d1d4a8a",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "Zuger Kantonalbank appoints new investment chief",
+   "link": "https://www.finews.ch/news/banken/73654-zuger-kantonalbank-alexander-hunziker-cio-anlagechef",
+   "published": "2026-09-18T09:28+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "Zuger Kantonalbank ernennt neuen Anlagechef",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "9d7fac1fbce8",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "Aquila-CIO: ‘The bond market is what worries me the most’",
+   "link": "https://www.finews.ch/news/banken/73649-aquila-silvano-marchesi-anleihenmarkt-us-schulden-ki-gold",
+   "published": "2026-09-18T02:37+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "Aquila-CIO: «Der Anleihenmarkt bereitet mir am meisten Sorgen»",
+   "tags": [
+    "Bonds"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "c76b6819fc63",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "Peter Giger: ‘The later the crisis comes, the more painful it will be.’",
+   "link": "https://www.finews.ch/news/versicherungen/73645-peter-giger-zurich-risiken-krise-ki-cyber-podcast",
+   "published": "2026-09-17T10:16+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "Peter Giger: «Je später die Krise kommt, desto schmerzhafter wird sie»",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "d00d0baec066",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "Kick-off of the first Investment Strategy Contest at SIX",
+   "link": "https://www.finews.ch/news/finanzplatz/73626-investment-strategy-contest-six-finanzmuseum-iconomix-boersenspiel-lernende-virtualalpha",
+   "published": "2026-09-16T07:09+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "Kick-off des ersten Investment Strategy Contest an der SIX",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "4b0766b43719",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "UBS President Kelleher: ‘We can live with that’",
+   "link": "https://www.finews.ch/news/banken/73650-bankiertag-2026-giorgio-pradelli-neuer-praesident-schweizerische-bankiervereinigung-sbvg-abschied-marcel-rohner",
+   "published": "2026-09-18T04:55+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "UBS-Präsident Kelleher: «Wir können damit leben»",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "7c704a17412d",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "GZO: Infracore responds and improves the offer on",
+   "link": "https://www.finews.ch/news/finanzplatz/73646-gzo-spital-wetzikon-infracore-thurmed-angebot-kapitalmarkt-salesandleaseback-gregorgreber-clearway-sachwalter-glaeubigerbrief",
+   "published": "2026-09-17T11:56+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "GZO: Infracore reagiert und bessert das Angebot auf",
+   "tags": [
+    "Real Estate"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "ab3b9c70348c",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "Prominent US asset manager joins UBS capital debate",
+   "link": "https://www.finews.ch/news/banken/73647-pimco-ubs-kapitaldebatte-at1-cet1-grossbankenregulierung",
+   "published": "2026-09-17T15:54+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "Prominenter US-Asset Manager schaltet sich in die UBS-Kapitaldebatte ein",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "665d461c4e2f",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "Stijn Vander Straeten: ‘We will see courses above $100,000 again in 2027’",
+   "link": "https://www.finews.ch/news/finanzplatz/73637-stijn-vander-straeten-cryptofinance-bitcoin-etp-micar-blackrock-verwahrung-kryptobranche-deutscheboerse-stablecoins-cbdc",
+   "published": "2026-09-16T13:06+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "Stijn Vander Straeten: «Wir werden 2027 wieder Kurse über 100'000 Dollar sehen»",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "540a1036bb03",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "Helvetia Baloise is speeding up the integration process",
+   "link": "https://www.finews.ch/news/versicherungen/73640-helvetia-baloise-integration-operatives-geschaeft-ki-rechtliche-fusion-finma-transformation-matthias-henni-fabian-rupprecht",
+   "published": "2026-09-17T06:42+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "Helvetia Baloise drückt bei der Integration aufs Tempo",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "01d242934ead",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "Helvetia Baloise earns CHF 632 million in operating profit – IFRS profit significantly lower",
+   "link": "https://www.finews.ch/news/versicherungen/73639-helvetia-baloise-halbjahresergebnis-2026-synergien-integration",
+   "published": "2026-09-17T03:15+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "Helvetia Baloise verdient operativ 632 Millionen Franken – IFRS-Gewinn deutlich tiefer",
+   "tags": [
+    "CHF"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "837761cbe2dd",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "Hailstorm: Insured damages of almost one billion francs",
+   "link": "https://www.finews.ch/news/versicherungen/73638-hagelschlag-versicherte-schaeden-fast-eine-milliarde-franken",
+   "published": "2026-09-17T02:22+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "Hagelschlag: Versicherte Schäden von fast einer Milliarde Franken",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "0ca11a313038",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "Anke Richter: ‘The market doesn’t yet know how to price data centres’",
+   "link": "https://www.finews.ch/news/finanzplatz/73624-anke-richter-isp-group-interview-rechenzentren-anleihen-bewertung",
+   "published": "2026-09-16T04:07+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "Anke Richter: «Markt weiss noch nicht, wie man Datacenter bepreist»",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "8a6912bd4ca1",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "Change in the management of Suva",
+   "link": "https://www.finews.ch/news/versicherungen/73636-suva-fabio-fierloni-schadenmanagement-geschaeftsleitung",
+   "published": "2026-09-16T12:37+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "Wechsel in der Geschäftsleitung der Suva",
+   "tags": [
+    "Health Care"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "a50b46577522",
+   "source": "finews.ch",
+   "lang": "de",
+   "title": "ZKB Private Banking: New formation in the top segment",
+   "link": "https://www.finews.ch/news/banken/73635-zkb-private-banking-key-clients-roland-wamister-victor-tusch-bruno-ammann",
+   "published": "2026-09-16T11:41+00:00",
+   "feed": "https://www.finews.ch/news?format=feed&type=rss",
+   "title_de": "Private Banking der ZKB: Neue Formation im obersten Segment",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "08a6e16d1d68",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Can Europe Really Afford to Give Up on Active Management?",
+   "link": "https://www.finews.com/news/english-news/73643-can-europe-afford-to-give-up-active-management-maxime-carmignac-passive-investing",
+   "published": "2026-09-17T09:37+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "e8f3ed697b25",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Pimco Weighs In on Switzerland’s Bank Capital Debate",
+   "link": "https://www.finews.com/news/english-news/73648-pimco-ubs-swiss-bank-capital-debate-at1-cet1",
+   "published": "2026-09-17T15:54+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "86ab2eed4742",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Swiss Bankers Day: Rohner Exits, Pradelli Takes Over",
+   "link": "https://www.finews.com/news/english-news/73651-marcel-rohner-giorgio-pradelli-swiss-bankers-association-bankers-day-2026-competitiveness-regulation",
+   "published": "2026-09-18T04:55+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "f0a2e4b162d8",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Helvetia Baloise Profit Hit by Write-Down",
+   "link": "https://www.finews.com/news/english-news/73644-helvetia-baloise-halbjahresergebnis-2026-synergien-integration-2",
+   "published": "2026-09-17T03:15+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "d712d8c79d98",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Anke Richter: «The market doesn't know yet how to price data centers»",
+   "link": "https://www.finews.com/news/english-news/73625-anke-richter-isp-group-interview-data-center-bonds-valuation",
+   "published": "2026-09-16T04:07+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "0c8ec4a9b577",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "IWC Swaps the Lightning Bolt for a Fifty",
+   "link": "https://www.finews.com/news/english-news/73634-iwc-schaffhausen-ingenieur-automatic-limited-edition-50th-anniversary-gerald-genta-evelyne-alexia",
+   "published": "2026-09-16T10:03+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "ee59049ee726",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Michael Schütze: «For my Family, the Pursuit of Happiness»",
+   "link": "https://www.finews.com/news/english-news/73629-michael-schuetze-meine-familie-ist-fuer-mich-the-pursuit-of-happiness-2",
+   "published": "2026-09-16T07:20+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "6500ce394dc3",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Revolut Wants to Become a Swiss Bank",
+   "link": "https://www.finews.com/news/english-news/73632-revolut-schweiz-banklizenz-finma-neobank-expansion-2",
+   "published": "2026-09-16T07:14+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "42a4530a6f62",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Castelfalfi: A Billionaire's Bet on Tuscany's Forgotten Countryside",
+   "link": "https://www.finews.com/news/english-news/73620-castelfalfi-a-billionaire-s-bet-on-tuscany-s-forgotten-countryside",
+   "published": "2026-09-15T07:42+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Real Estate"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "b27d88715937",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Changing of the Guard at Migros Bank",
+   "link": "https://www.finews.com/news/english-news/73631-coo-migrosbank-clemens-eckert-swisscom-2",
+   "published": "2026-09-16T03:16+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "c0aac1522b88",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "J.P. Morgan Wants to Keep Gaining Market Share in Switzerland",
+   "link": "https://www.finews.com/news/english-news/73579-jp-morgan-switzerland-market-share-reinout-boettcher-hiring-mid-market",
+   "published": "2026-09-11T02:39+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "88a2a3346830",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "«Swiss Wealth Managers Need Direct Access to Asia»",
+   "link": "https://www.finews.com/news/english-news/73414-dbs-swiss-eams-family-offices-asia-singapore-rudiger-von-wedel",
+   "published": "2026-08-31T04:50+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "e35a3a7bccab",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Sanctions: The Endgame for Cuba's Cigars",
+   "link": "https://www.finews.com/news/english-news/73610-habanos-sa-sanctions-chen-zhi-cuban-cigars-5th-avenue-altabana-madrid-ofac",
+   "published": "2026-09-12T08:18+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Raw materials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "f1261f3cb44b",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Age is just a (reversible) number: Meet the longevity scientist retro-aging humans",
+   "link": "https://www.finews.com/news/english-news/73606-stopping-aging-key-to-preventing-almost-every-major-age-related-disease-ozempic-may-prove-to-be-a-powerful-drug-for-extending-healthy-life-longevity-investors-conference-gstaad-2026-scientist-nir-barzilai",
+   "published": "2026-09-14T07:36+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Health Care"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "1f68abbbb4ec",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Banks Already Have a Quantum Problem",
+   "link": "https://www.finews.com/news/english-news/73519-banks-quantum-problem-q-day-post-quantum-cryptography-cybersecurity",
+   "published": "2026-09-07T08:29+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "3a8f665dff97",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Why Do Pension Funds Hold Bonds in Their Portfolios?",
+   "link": "https://www.finews.com/news/english-news/73591-pension-funds-bonds-hansruedi-scherer-portfolio-management-asset-allocation-hedging-diversification-alm-issuer-risk-equity-risk",
+   "published": "2026-09-07T04:34+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Bonds"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "2d79031bd2cf",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Bank Employees’ Association Calls for 2.5 Percent Pay Increase",
+   "link": "https://www.finews.com/news/english-news/73589-sbpv-pay-increase-2026-inflation",
+   "published": "2026-09-11T09:29+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "c1b5a56118cc",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Major Restructuring at Bitcoin Suisse – One in Two Jobs in Zug at Risk",
+   "link": "https://www.finews.com/news/english-news/73585-bitcoin-suisse-restructuring-zug-job-cuts-abroad-wealth-management",
+   "published": "2026-09-11T05:13+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "1ddf961b80a5",
+   "source": "finews.com",
+   "lang": "en",
+   "title": "Economiesuisse: Major Reshuffle in Financial-Sector Representation",
+   "link": "https://www.finews.com/news/english-news/73587-economiesuisse-tag-der-wirtschaft-giorgio-pradelli-markus-ronner-verband-schweizerischer-vermoegensverwalter-2",
+   "published": "2026-09-11T06:15+00:00",
+   "feed": "https://www.finews.com/news/english-news?format=feed&type=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "8555acb5e8c1",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Glencore suspends employee who oversaw deals with controversial trader Radiant",
+   "link": "https://www.nzz.ch/wirtschaft/glencore-suspendiert-mitarbeiter-der-die-deals-mit-dem-kontroversen-haendler-radiant-betreute-ld.10024410",
+   "published": "2026-09-18T14:44+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Glencore suspendiert Mitarbeiter, der die Deals mit dem kontroversen Händler Radiant betreute",
+   "tags": [
+    "Raw materials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "bea31536ce0c",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Putin puts Nestle’s Russian business under receivership – Bern Federal Council expresses concern",
+   "link": "https://www.nzz.ch/wirtschaft/putin-stellt-nestles-russland-geschaeft-unter-zwangsverwaltung-bundesbern-zeigt-sich-besorgt-ld.10024413",
+   "published": "2026-09-18T14:38+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Putin stellt Nestlés Russland-Geschäft unter Zwangsverwaltung – Bundesbern zeigt sich besorgt",
+   "tags": [
+    "Consumer Staples"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "885267e0ad09",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "NEWS IN BRIEF – Economy: Volkswagen expects deep losses for 2026 +++ Bank of Japan raises key interest rate to highest level in 31 years",
+   "link": "https://www.nzz.ch/wirtschaft/wirtschaft-swiss-nimmt-fluege-nach-dubai-ende-oktober-wieder-auf-ld.10022278",
+   "published": "2026-09-18T16:04+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "KURZMELDUNGEN - Wirtschaft: Volkswagen erwartet für 2026 tiefen Gewinn +++ Bank of Japan erhöht Leitzins auf höchsten Stand seit 31 Jahren",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "161f5e193c63",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "After customer data theft, Revolut extortionists demand $3 million",
+   "link": "https://www.nzz.ch/wirtschaft/nach-der-entwendung-von-kundendaten-fordern-erpresser-von-revolut-3-millionen-dollar-ld.10024390",
+   "published": "2026-09-18T11:25+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Nach der Entwendung von Kundendaten fordern Erpresser von Revolut 3 Millionen Dollar",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "7c568c096911",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Warren Buffett also steps down as chairman of the board of Berkshire Hathaway",
+   "link": "https://www.nzz.ch/wirtschaft/warren-buffett-tritt-auch-als-verwaltungsratspraesident-von-berkshire-hathaway-zurueck-ld.10024451",
+   "published": "2026-09-18T11:08+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Warren Buffett tritt auch als Verwaltungsratspräsident von Berkshire Hathaway zurück",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "474558126ca8",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Nestlé’s business in Russia under receivership – the move could jeopardise food security",
+   "link": "https://www.nzz.ch/wirtschaft/nestle-geschaeft-in-russland-unter-zwangsverwaltung-der-schritt-koennte-die-versorgungssicherheit-gefaehrden-ld.10020128",
+   "published": "2026-09-18T07:21+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Nestlé-Geschäft in Russland unter Zwangsverwaltung – der Schritt könnte die Versorgungssicherheit gefährden",
+   "tags": [
+    "Consumer Staples"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "4e495bcbdf3e",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Fight for electricity and water: A Swiss world leader reveals the great paradox of the rise of AI",
+   "link": "https://www.nzz.ch/wirtschaft/datenzentren-auch-effizientere-ki-braucht-mehr-strom-und-wasser-ld.10023506",
+   "published": "2026-09-18T03:31+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Kampf um Strom und Wasser: Ein Schweizer Weltmarktführer zeigt das grosse Paradox beim Siegeszug von KI",
+   "tags": [
+    "Information Technology",
+    "Utilities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "f43eff4d0565",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "The Basel trade fair organiser MCH is struggling with the crisis in Dubai",
+   "link": "https://www.nzz.ch/wirtschaft/iran-krieg-belastet-mch-group-und-kongressgeschaeft-in-dubai-ld.10024199",
+   "published": "2026-09-18T03:30+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Dem Basler Messebetreiber MCH macht die Krise in Dubai zu schaffen",
+   "tags": [
+    "Industrials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "6270aacfec36",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "INTERVIEW – Germany’s oldest automotive supplier is now making parts for combat drones. The CEO says: ‘Defence is a different world.’",
+   "link": "https://www.nzz.ch/wirtschaft/deutschlands-traditionsreichster-automobilzulieferer-baut-jetzt-teile-fuer-kampfdrohnen-der-ceo-sagt-verteidigung-ist-eine-andere-welt-ld.10018306",
+   "published": "2026-09-18T03:30+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "INTERVIEW - Deutschlands traditionsreichster Automobilzulieferer baut jetzt Teile für Kampfdrohnen. Der CEO sagt: «Verteidigung ist eine andere Welt»",
+   "tags": [
+    "Industrials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "4e63dcf3e11b",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "How much capital does UBS need? As politicians run out of time to answer, bankers take all the time in the world",
+   "link": "https://www.nzz.ch/wirtschaft/wie-viel-kapital-braucht-die-ubs-waehrend-den-politikern-die-zeit-fuer-die-abstimmung-fehlt-nehmen-sich-die-banker-alle-zeit-der-welt-ld.10024279",
+   "published": "2026-09-17T17:56+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Wie viel Kapital braucht die UBS? Während den Politikern die Zeit für eine Antwort ausgeht, nehmen sich die Banker alle Zeit der Welt",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "e380f75675e0",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Helene Budliger shaped the customs negotiations with the USA – what happens next?",
+   "link": "https://www.nzz.ch/wirtschaft/helene-budliger-hat-die-zollverhandlungen-mit-den-usa-gepraegt-wie-geht-es-nun-weiter-ld.10024207",
+   "published": "2026-09-17T15:22+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Helene Budliger hat die Zollverhandlungen mit den USA geprägt – wie geht es nun weiter?",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "d8fcaf9a8455",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Social networks: Children should be children again, says EU Commission President Ursula von der Leyen",
+   "link": "https://www.nzz.ch/wirtschaft/soziale-netzwerke-kinder-sollen-wieder-kinder-sein-sagt-die-eu-kommissionspraesidentin-ursula-von-der-leyen-ld.10024244",
+   "published": "2026-09-17T14:07+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Soziale Netzwerke: Kinder sollten wieder Kinder sein, sagt die EU-Kommissions-Präsidentin Ursula von der Leyen",
+   "tags": [
+    "Communication Services"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "c88ec6e398e4",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Should real estate companies be expropriated? Berlin debates solutions to the housing crisis",
+   "link": "https://www.nzz.ch/wirtschaft/immobilienkonzerne-enteignen-berlin-streitet-ueber-loesungen-fuer-die-wohnungsnot-ld.10022697",
+   "published": "2026-09-17T04:00+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Immobilienkonzerne enteignen? Berlin streitet über Lösungen für die Wohnungsnot",
+   "tags": [
+    "Real Estate"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "9f030f77b6a2",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "INTERVIEW – The fear of powerful AI agents is growing. The expert warns of the consequences for the stock market: ‘They can put the central banks in a tight spot.’",
+   "link": "https://www.nzz.ch/wirtschaft/die-neuen-herren-der-finanzmaerkte-ki-agenten-koennen-die-notenbanken-in-die-enge-treiben-sagt-der-princeton-professor-markus-brunnermeier-ld.10023040",
+   "published": "2026-09-13T03:30+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "INTERVIEW - Die Furcht vor übermächtigen KI-Agenten wächst. Der Experte warnt vor den Folgen für die Börse: «Sie können die Notenbanken in die Enge treiben»",
+   "tags": [
+    "Information Technology",
+    "Financials",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "bcfb234bbda8",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Berlin instead of Bülach, Dubai instead of Dübendorf, Mumbai instead of Männedorf: The eerie expansion of the state bank ZKB",
+   "link": "https://www.nzz.ch/wirtschaft/berlin-statt-buelach-dubai-statt-duebendorf-mumbai-statt-maennedorf-die-unheimliche-expansion-der-staatsbank-zkb-ld.10022933",
+   "published": "2026-09-13T03:30+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Berlin statt Bülach, Dubai statt Dübendorf, Mumbai statt Männedorf: Die unheimliche Expansion der Staatsbank ZKB",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "5d58752506ee",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Many millionaires will be envious: Rolex discovers the power of the one-off piece",
+   "link": "https://www.nzz.ch/wirtschaft/da-wird-so-mancher-millionaer-neidisch-rolex-entdeckt-die-macht-des-einzelstuecks-ld.10023197",
+   "published": "2026-09-12T06:00+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Da wird so mancher Millionär neidisch: Rolex entdeckt die Macht des Einzelstücks",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "345cb9ce05a7",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "DATA ANALYSIS – The AfD triumphs in Saxony-Anhalt – and proves that everyone else has completely misjudged them",
+   "link": "https://www.nzz.ch/wirtschaft/die-afd-triumphiert-in-sachsen-anhalt-und-beweist-dass-alle-anderen-sie-voellig-falsch-eingeschaetzt-haben-ld.10022702",
+   "published": "2026-09-08T08:46+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "DATENANALYSE - Die AfD triumphiert in Sachsen-Anhalt – und beweist, dass alle anderen sie völlig falsch eingeschätzt haben",
+   "tags": [
+    "Emerging markets"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "d2f2790b3bd7",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Apple was once the best stock in the world. Can the new CEO bring it back to the top – perhaps with a new iPhone?",
+   "link": "https://www.nzz.ch/wirtschaft/apple-war-die-beste-aktie-der-welt-kann-sie-der-neue-ceo-wieder-an-die-spitze-bringen-ld.10022763",
+   "published": "2026-09-09T03:30+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Apple war einmal die beste Aktie der Welt. Kann sie der neue CEO wieder an die Spitze bringen – etwa mit einem neuen iPhone?",
+   "tags": [
+    "Information Technology",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "7e6dae08f35f",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Showdown at VW: This is how the power centre of Europe’s largest industrial conglomerate works",
+   "link": "https://www.nzz.ch/wirtschaft/showdown-bei-vw-so-funktioniert-die-machtzentrale-des-groessten-industriekonzerns-in-europa-ld.10018376",
+   "published": "2026-09-03T14:41+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Showdown bei VW: So funktioniert die Machtzentrale des grössten Industriekonzerns in Europa",
+   "tags": [
+    "Industrials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "72e86efe728f",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "The 180 Million Euro Coup: How Apfelkiste Conquered Switzerland Despite Galaxus and Temu",
+   "link": "https://www.nzz.ch/wirtschaft/der-180-millionen-coup-wie-apfelkiste-die-schweiz-trotz-galaxus-und-temu-erobert-hat-ld.10020151",
+   "published": "2026-08-26T03:30+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Der 180-Millionen-Coup: Wie Apfelkiste die Schweiz trotz Galaxus und Temu erobert hat",
+   "tags": [
+    "EUR"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "20443bae421a",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "First showdown in the UBS capital issue: Why AT1 bonds could torpedo the compromise proposal of the Council of States",
+   "link": "https://www.nzz.ch/wirtschaft/erster-showdown-in-der-ubs-kapitalfrage-warum-at1-anleihen-den-kompromissvorschlag-des-staenderats-torpedieren-koennten-ld.10023861",
+   "published": "2026-09-17T03:30+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Erster Showdown in der UBS-Kapitalfrage: Warum AT1-Anleihen den Kompromissvorschlag des Ständerats torpedieren könnten",
+   "tags": [
+    "Financials",
+    "Bonds"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "405a89dba363",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Switzerland’s top banker wants to be silent again",
+   "link": "https://www.nzz.ch/wirtschaft/der-oberste-banker-der-schweiz-will-wieder-schweigen-ld.10023757",
+   "published": "2026-09-17T03:30+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Der oberste Banker der Schweiz will wieder schweigen",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "97fad14966c0",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "LATEST DEVELOPMENTS – Trade dispute: Trump threatens EU with higher tariffs and trade stop if planned alliance with Canada goes ahead",
+   "link": "https://www.nzz.ch/wirtschaft/trump-und-zoelle-aktuelle-news-und-hintergruende-ld.1869433",
+   "published": "2026-09-17T02:47+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "DIE NEUESTEN ENTWICKLUNGEN - Handelsstreit: Trump droht EU mit höheren Zöllen und Handelsstopp bei geplanter Allianz mit Kanada",
+   "tags": [
+    "USD",
+    "EUR"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "3542a2112f09",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "The Fed intensifies the fight against inflation and raises the key interest rate for the first time in three years",
+   "link": "https://www.nzz.ch/wirtschaft/das-fed-verschaerft-den-kampf-gegen-die-inflation-und-erhoeht-erstmals-seit-drei-jahren-den-leitzins-ld.10023962",
+   "published": "2026-09-16T19:34+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Das Fed verschärft den Kampf gegen die Inflation und erhöht erstmals seit drei Jahren den Leitzins",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "c52ebf182c7f",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Federal President Parmelin loses his most important official: Seco chief Helene Budliger is stepping down",
+   "link": "https://www.nzz.ch/wirtschaft/seco-chefin-helene-budliger-tritt-ab-ld.10024044",
+   "published": "2026-09-16T13:07+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Bundespräsident Parmelin verliert seine wichtigste Beamtin: Die Seco-Chefin Helene Budliger tritt ab",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "643fe58a4164",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "The OECD is shaking up Swiss rental law",
+   "link": "https://www.nzz.ch/wirtschaft/die-oecd-ruettelt-am-schweizer-mietrecht-ld.10023923",
+   "published": "2026-09-16T11:34+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Die OECD rüttelt am Schweizer Mietrecht",
+   "tags": [
+    "Real Estate"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "f40c66f92bdf",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "More Trump, more Putin – or both? That’s how the AfD wants to resolve its dispute over the right foreign policy",
+   "link": "https://www.nzz.ch/deutschland/politik/mehr-trump-mehr-putin-oder-beides-so-will-die-afd-ihren-streit-ueber-die-richtige-aussenpolitik-loesen-ld.10024090",
+   "published": "2026-09-18T03:30+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Mehr Trump, mehr Putin – oder beides? So will die AfD ihren Streit über die richtige Aussenpolitik lösen",
+   "tags": [
+    "Emerging markets"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "9ae81aee960f",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "The Iran War has changed the world order",
+   "link": "https://www.nzz.ch/pro/der-iran-krieg-wird-fuer-trump-zum-problem-ld.10023983",
+   "published": "2026-09-18T03:30+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Der Iran-Krieg hat die Weltordnung verändert",
+   "tags": [
+    "Energy"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "e153f4d0a8a8",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "GUEST COMMENTARY – The less powerful states have a strong ally: the laws of economics",
+   "link": "https://www.nzz.ch/meinung/die-weniger-maechtigen-staaten-haben-einen-starken-verbuendeten-die-oekonomischen-gesetze-ld.10020585",
+   "published": "2026-09-18T03:25+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "GASTKOMMENTAR - Die weniger mächtigen Staaten haben einen starken Verbündeten: die ökonomischen Gesetze",
+   "tags": [
+    "Emerging markets"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "8f910fe05b4f",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "INTERACTIVE – Russia is setting fires in Europe. Are the provocations a prelude to a major attack?",
+   "link": "https://www.nzz.ch/international/unsere-interaktive-karte-zeigt-wo-und-wie-russland-in-europa-zuendelt-ld.10022752",
+   "published": "2026-09-17T13:30+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "INTERAKTIV - Russland zündelt in Europa. Sind die Provokationen die Vorbereitung für einen grossen Angriff?",
+   "tags": [
+    "Emerging markets"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "5961a70d2f63",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "COMMENTARY – Canada and the EU: A romance that could quickly turn sour",
+   "link": "https://www.nzz.ch/meinung/kanada-und-die-eu-aus-dem-flirt-koennte-rasch-eine-enttaeuschte-liebe-werden-ld.10024274",
+   "published": "2026-09-17T13:00+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "KOMMENTAR - Kanada und die EU: Aus dem Flirt könnte rasch eine enttäuschte Liebe werden",
+   "tags": [
+    "Emerging markets"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "e7e485558753",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "‘Switzerland does not have to join an alliance. Pragmatic cooperation, however, makes sense,’ says the British ambassador to Switzerland.",
+   "link": "https://www.nzz.ch/schweiz/die-schweiz-muss-keinem-buendnis-beitreten-eine-pragmatische-zusammenarbeit-ist-aber-sinnvoll-sagt-der-britische-botschafter-in-der-schweiz-ld.10023586",
+   "published": "2026-09-17T05:37+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "«Die Schweiz muss keinem Bündnis beitreten. Eine pragmatische Zusammenarbeit ist aber sinnvoll», sagt der britische Botschafter in der Schweiz",
+   "tags": [
+    "USD",
+    "EUR",
+    "CHF"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "994360cd9913",
+   "source": "NZZ Wirtschaft",
+   "lang": "de",
+   "title": "Germany gets the first F-35 – but even the best fighter jet won’t decide the air war of the future",
+   "link": "https://www.nzz.ch/pro/deutschland-bekommt-den-ersten-f-35-aber-selbst-der-beste-kampfjet-entscheidet-nicht-den-luftkrieg-der-zukunft-ld.10023781",
+   "published": "2026-09-17T03:30+00:00",
+   "feed": "https://www.nzz.ch/wirtschaft.rss",
+   "title_de": "Deutschland bekommt den ersten F-35 – aber selbst der beste Kampfjet entscheidet nicht den Luftkrieg der Zukunft",
+   "tags": [
+    "Industrials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "0ba62db3aca9",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "Gold price on a roller coaster: After the record high came the crash – and now high government debt has pushed it up again",
+   "link": "https://www.nzz.ch/finanzen/goldpreis-2026-edelmetall-stabilisiert-sich-nach-einbruch-und-rekordhoch-ld.10022806",
+   "published": "2026-09-09T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Der Goldpreis auf Achterbahnfahrt: Nach dem Rekordhoch kam der Einbruch – und nun haben ihn die hohen Staatsschulden wieder nach oben getrieben",
+   "tags": [
+    "Gold"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "47a4b710d8a1",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "Real estate stocks: why the quiet winners on the stock market are losing momentum",
+   "link": "https://www.nzz.ch/finanzen/immobilienaktien-die-stillen-gewinner-an-der-boerse-ld.10022276",
+   "published": "2026-09-07T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Immobilienaktien: warum die stillen Gewinner an der Börse an Tempo verlieren",
+   "tags": [
+    "Real Estate",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "86b752aaf31b",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "The stock market in September starts off shaky: seven developments that are making financial markets nervous",
+   "link": "https://www.nzz.ch/finanzen/ausverkauf-bei-staatsanleihen-die-gruende-fuer-die-boersen-unruhe-sind-hartnaeckig-ld.10022036",
+   "published": "2026-09-02T14:02+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Der September an der Börse beginnt unruhig: sieben Entwicklungen, die die Finanzmärkte nervös machen",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "f57884696596",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "Pension or capital: How to avoid risks and bad advice when retiring",
+   "link": "https://www.nzz.ch/finanzen/rente-oder-kapital-so-vermeiden-sie-fehlentscheidungen-bei-der-pensionierung-ld.10021795",
+   "published": "2026-09-02T08:54+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Rente oder Kapital: So vermeidet man Risiken und Fehlberatungen bei der Pensionierung",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "60883a91e66f",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "The US debt burden is heavy, and the Treasury Department is intervening in the market for government bonds. ‘There is a risk of a loss of confidence,’ says an investment expert.",
+   "link": "https://www.nzz.ch/finanzen/der-schuldenberg-der-usa-drueckt-massiv-das-finanzministerium-interveniert-am-markt-fuer-staatsanleihen-es-droht-ein-vertrauensverlust-sagt-ein-anlageexperte-ld.10020291",
+   "published": "2026-08-20T16:00+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Die Schuldenlast der USA drückt massiv, das Finanzministerium interveniert am Markt für Staatsanleihen. «Es droht ein Vertrauensverlust», sagt ein Anlageexperte",
+   "tags": [
+    "Bonds"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "4a2865cdf864",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "High government debt is in the spotlight in the financial markets. The illusion of cheap money is over, says a bond expert",
+   "link": "https://www.nzz.ch/finanzen/die-hohen-staatsschulden-ruecken-an-den-finanzmaerkten-in-den-fokus-die-illusion-des-billigen-geldes-sei-vorbei-sagt-der-anleihen-experte-ld.10020133",
+   "published": "2026-08-19T14:22+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Die hohen Staatsschulden rücken an den Finanzmärkten in den Fokus. Die Illusion des billigen Geldes sei vorbei, sagt ein Anleihenexperte",
+   "tags": [
+    "Bonds"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "20adfad66e7d",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "Buying cryptocurrencies is easy these days. But which of the tens of thousands of tokens are actually worth investing in?",
+   "link": "https://www.nzz.ch/wirtschaft/kryptowaehrungen-zu-kaufen-ist-heute-ganz-einfach-nur-welche-unter-den-zehntausenden-von-token-sind-ueberhaupt-eine-anlage-wert-ld.10005232",
+   "published": "2026-05-04T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Kryptowährungen zu kaufen, ist heute ganz einfach. Nur, welche unter den Zehntausenden von Token sind überhaupt eine Anlage wert?",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "935741805928",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "The eleven most important points of inheritance and succession – and why emotions often run high when planning for the future",
+   "link": "https://www.nzz.ch/finanzen/erben-und-vererben-11-tipps-zu-fehlern-und-vermeidung-von-streit-ueber-nachlass-ld.10006352",
+   "published": "2026-05-09T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Die elf wichtigsten Punkte beim Erben und Vererben – und wieso bei der Nachlassplanung oft die Emotionen hochkochen",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "f680ae49b341",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "How investors should deal with losses – and why emotions have no place in the matter",
+   "link": "https://www.nzz.ch/finanzen/wie-anleger-mit-verlusten-umgehen-sollen-und-warum-emotionen-bei-dem-thema-keinen-platz-haben-ld.10007023",
+   "published": "2026-05-18T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Wie Anleger mit Verlusten umgehen sollen – und warum Emotionen bei dem Thema keinen Platz haben",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "eb5b46df124c",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "Real estate instead of savings account: Why individuals buy apartments and focus on renting",
+   "link": "https://www.nzz.ch/wirtschaft/immobilien-statt-sparkonto-warum-privatpersonen-wohnungen-kaufen-und-auf-vermietung-setzen-ld.10004364",
+   "published": "2026-04-25T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Immobilien statt Sparkonto: Warum Privatpersonen Wohnungen kaufen und auf Vermietung setzen",
+   "tags": [
+    "Real Estate"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "d1fefd3c2524",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "When love breaks down: How couples avoid financial disaster",
+   "link": "https://www.nzz.ch/finanzen/wenn-die-liebe-zerbricht-so-vermeiden-paare-das-finanzielle-desaster-ld.10008134",
+   "published": "2026-05-23T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Wenn die Liebe zerbricht: So vermeiden Paare das finanzielle Desaster",
+   "tags": [
+    "Consumer Staples"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "ad04cce0ccf6",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "Investment scammers on social media are becoming increasingly brazen: How to recognise suspicious offers for stocks, financial products and cryptocurrencies",
+   "link": "https://www.nzz.ch/finanzen/gefaelschte-promi-werbung-so-schuetzt-man-sich-vor-anlagebetrug-auf-social-media-ld.10019641",
+   "published": "2026-08-16T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Anlagebetrüger auf Social Media agieren immer dreister: Wie man fragwürdige Angebote zu Aktien, Finanzprodukten und Kryptowährungen erkennt",
+   "tags": [
+    "Communication Services",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "8d65bab1537b",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "These are the biggest cost traps when investing money in Switzerland – and how to avoid them",
+   "link": "https://www.nzz.ch/finanzen/groesste-kostenfallen-bei-geldanlagen-in-der-schweiz-so-vermeiden-sie-sie-ld.10019339",
+   "published": "2026-08-14T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Das sind die grössten Kostenfallen bei der Geldanlage in der Schweiz – und so kann man sie vermeiden",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "4eabdeb55b60",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "Buy art like the super-rich – a Swiss company makes it possible",
+   "link": "https://www.nzz.ch/finanzen/kunst-kaufen-wie-die-superreichen-eine-schweizer-firma-macht-s-moeglich-ld.10017471",
+   "published": "2026-08-10T05:52+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Kunst kaufen wie die Superreichen – eine Schweizer Firma macht’s möglich",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "d51f463506a9",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "‘Things are going well in the US’: Despite disappointing stock performance, Amrizé CEO Jan Jenisch defends the split from Holcim",
+   "link": "https://www.nzz.ch/finanzen/amrize-trotz-enttaeuschender-aktie-verteidigt-jan-jenisch-abspaltung-von-holcim-ld.10018614",
+   "published": "2026-08-08T03:31+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "«In den USA geht die Post ab»: Trotz enttäuschender Aktie verteidigt der Amrize-Chef Jan Jenisch die Abspaltung von Holcim",
+   "tags": [
+    "Raw materials",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "13ef16cde199",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "As you win, so you lose: The child prodigy Leopold Aschenbrenner makes big bets on AI – and loses billions",
+   "link": "https://www.nzz.ch/finanzen/wie-gewonnen-so-zerronnen-das-wunderkind-leopold-aschenbrenner-schliesst-grosse-wetten-auf-ki-ab-und-verliert-milliarden-ld.10017719",
+   "published": "2026-08-02T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Wie gewonnen, so zerronnen: Das Wunderkind Leopold Aschenbrenner schliesst grosse Wetten auf KI ab – und verliert Milliarden",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "ce7a1a6b0b71",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "Financial historian Jim Grant sees gold as a response to the bloated monetary system: ‘Unbacked money is just a fad.’",
+   "link": "https://www.nzz.ch/finanzen/gold-als-antwort-finanzexperte-jim-grant-erwartet-ende-des-ungedeckten-geldes-ld.10016415",
+   "published": "2026-07-26T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Finanzhistoriker Jim Grant sieht Gold als Antwort auf das aufgeblähte Geldsystem: «Ungedecktes Geld ist nur eine Modeerscheinung»",
+   "tags": [
+    "Gold"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "62811adf4dc8",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "Concerns about high new debt at Amazon, Microsoft, Oracle: ‘Will the giant AI investments ever pay off?’ ask critical investors",
+   "link": "https://www.nzz.ch/finanzen/amazon-microsoft-oracle-co-zweifel-an-milliarden-investitionen-in-ki-ld.10015353",
+   "published": "2026-07-20T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Sorgen über hohe neue Schulden bei Amazon, Microsoft, Oracle: «Werden sich die gigantischen KI-Investitionen jemals rechnen?», fragen kritische Investoren",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "eed3029e31fa",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "A summer stock market crash would be no surprise: Investors need to know these seasonal phenomena",
+   "link": "https://www.nzz.ch/finanzen/ein-sommer-crash-an-der-boerse-waere-keine-ueberraschung-diese-saisonalen-phaenomene-muessen-anleger-kennen-ld.10013138",
+   "published": "2026-07-18T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Ein Sommer-Crash an der Börse wäre keine Überraschung: Diese saisonalen Phänomene müssen Anleger kennen",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "47618b54387a",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "What happens to pension when you lose your job? The five most important questions and answers",
+   "link": "https://www.nzz.ch/finanzen/jobverlust-und-altersvorsorge-die-5-wichtigsten-fragen-zum-sichern-der-rente-ld.10014975",
+   "published": "2026-07-13T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Was passiert bei einem Jobverlust mit der Vorsorge? Die fünf wichtigsten Fragen und Antworten",
+   "tags": [
+    "Health Care"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "6510e0610955",
+   "source": "NZZ Finanzen",
+   "lang": "de",
+   "title": "A victim of federal involvement? Why Swisscom is dropping out of the second league of the stock market",
+   "link": "https://www.nzz.ch/finanzen/ein-opfer-der-bundesbeteiligung-warum-swisscom-in-die-zweite-boersenliga-absteigt-ld.10014904",
+   "published": "2026-07-11T03:30+00:00",
+   "feed": "https://www.nzz.ch/finanzen.rss",
+   "title_de": "Ein Opfer der Bundesbeteiligung? Warum die Swisscom in die zweite Börsenliga absteigt",
+   "tags": [
+    "Communication Services",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "658387694bbb",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "High fuel prices – KOF economist: ‘Relaxation for diesel is likely to take longer’",
+   "link": "https://www.srf.ch/news/wirtschaft/hohe-treibstoffpreise-kof-oekonom-beim-diesel-duerfte-die-entspannung-laenger-dauern",
+   "published": "2026-09-18T17:26+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Hohe Treibstoffpreise – KOF-Ökonom: «Beim Diesel dürfte die Entspannung länger dauern»",
+   "tags": [
+    "Energy"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "014f5acd8dd3",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Layoffs also in Aargau – Vitamin producer DSM-Firmenich cuts 230 jobs",
+   "link": "https://www.srf.ch/news/wirtschaft/stellenabbau-auch-im-aargau-vitaminproduzent-dsm-firmenich-streicht-230-jobs",
+   "published": "2026-09-18T16:48+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Stellenabbau auch im Aargau – Vitaminproduzent DSM-Firmenich streicht 230 Jobs",
+   "tags": [
+    "Industrials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "191895695532",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Berkshire Hathaway – Star investor Warren Buffett steps down from CEO post at 96",
+   "link": "https://www.srf.ch/news/international/berkshire-hathaway-star-investor-warren-buffett-gibt-mit-96-jahren-chefposten-ab",
+   "published": "2026-09-18T11:58+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Berkshire Hathaway – Star-Investor Warren Buffett gibt mit 96 Jahren Chefposten ab",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "4e818400e7ab",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Data theft at online bank – Hacker attack on Revolut affects many Swiss customers",
+   "link": "https://www.srf.ch/news/international/datenklau-bei-online-bank-hackerangriff-auf-revolut-trifft-viele-schweizer-bankkunden",
+   "published": "2026-09-18T10:32+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Datenklau bei Online-Bank – Hackerangriff auf Revolut trifft viele Schweizer Bankkunden",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "d4eaae42d833",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "A litre costs 2.41 francs – Diesel price reaches record high in Switzerland",
+   "link": "https://www.srf.ch/news/schweiz/ein-liter-kostet-2-41-franken-dieselpreis-erreicht-in-der-schweiz-rekordhoch",
+   "published": "2026-09-18T07:04+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Ein Liter kostet 2.41 Franken – Dieselpreis erreicht in der Schweiz Rekordhoch",
+   "tags": [
+    "Energy"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "a9da0219e24d",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Nestlé business in Russia – Nestlé business under receivership: Why is Putin doing this?",
+   "link": "https://www.srf.ch/news/international/nestle-geschaeft-in-russland-nestle-geschaeft-unter-zwangsverwaltung-warum-macht-putin-das",
+   "published": "2026-09-18T13:46+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Nestlé-Geschäft in Russland – Nestlé-Geschäft unter Zwangsverwaltung: Warum macht Putin das?",
+   "tags": [
+    "Consumer Staples"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "2462a7a9ff59",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Inequality in Switzerland – Study shows: The richest pay the least taxes relatively",
+   "link": "https://www.srf.ch/news/wirtschaft/ungleichheit-in-der-schweiz-studie-zeigt-die-reichsten-zahlen-relativ-am-wenigsten-steuern",
+   "published": "2026-09-18T12:42+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Ungleichheit in der Schweiz – Studie zeigt: Die Reichsten zahlen relativ am wenigsten Steuern",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "6d2c177c2111",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Artificial Intelligence – Open AI reveals more incidents: Security concerns are growing",
+   "link": "https://www.srf.ch/news/wirtschaft/kuenstliche-intelligenz-open-ai-enthuellt-weitere-vorfaelle-sicherheitsbedenken-wachsen",
+   "published": "2026-09-17T10:49+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Künstliche Intelligenz – Open-AI enthüllt weitere Vorfälle: Sicherheitsbedenken wachsen",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "75f57f9b54db",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "After the US interest rate hike – Painful consequences, especially for the USA",
+   "link": "https://www.srf.ch/news/wirtschaft/nach-der-us-leitzins-erhoehung-schmerzhafte-folgen-vor-allem-fuer-die-usa",
+   "published": "2026-09-17T09:03+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Nach der US-Leitzins-Erhöhung – Schmerzhafte Folgen vor allem für die USA",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "3f143c812c86",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "GDP forecast – Federal Government significantly increases growth forecast",
+   "link": "https://www.srf.ch/news/wirtschaft/bip-prognose-bund-erhoeht-wachstumsprognose-deutlich",
+   "published": "2026-09-17T07:23+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "BIP-Prognose – Bund erhöht Wachstumsprognose deutlich",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "f170cb018e8a",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Tax privilege for hotels – Why the booming tourism industry has been receiving crisis aid since 1996",
+   "link": "https://www.srf.ch/news/wirtschaft/steuerprivileg-hotellerie-wieso-die-boom-branche-tourismus-seit-1996-krisenhilfe-erhaelt",
+   "published": "2026-09-17T08:58+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Steuerprivileg Hotellerie – Wieso die Boom-Branche Tourismus seit 1996 Krisenhilfe erhält",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "308fcc01282b",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Fight against inflation – US Federal Reserve takes a step back from Trump",
+   "link": "https://www.srf.ch/news/wirtschaft/kampf-gegen-inflation-us-notenbank-fed-geht-auf-distanz-zu-trump",
+   "published": "2026-09-16T20:04+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Kampf gegen Inflation – US-Notenbank Fed geht auf Distanz zu Trump",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "c5b7400ad816",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Higher interest rates in the US – US central bank raises key interest rates by 0.25 percentage points",
+   "link": "https://www.srf.ch/news/international/hoehere-zinsen-in-den-usa-us-notenbank-hebt-leitzinsen-um-0-25-prozentpunkte-an",
+   "published": "2026-09-16T22:09+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Höhere Zinsen in den USA – US-Notenbank hebt Leitzinsen um 0.25 Prozentpunkte an",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "321fcf89bf34",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Bank regulation – UBS kerfuffle: Political tug-of-war like 15 years ago",
+   "link": "https://www.srf.ch/news/wirtschaft/bankenregulierung-hickhack-zu-ubs-politisches-tauziehen-wie-vor-15-jahren",
+   "published": "2026-09-16T17:21+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Bankenregulierung – Hickhack zu UBS: Politisches Tauziehen wie vor 15 Jahren",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "7a6738cb8b1b",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Neobank market leader Revolut wants a banking licence: an attack on the Swiss banking hub?",
+   "link": "https://www.srf.ch/news/wirtschaft/marktfuehrer-beim-neobanking-revolut-will-banklizenz-angriff-auf-den-schweizer-bankenplatz",
+   "published": "2026-09-16T14:44+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Marktführer beim Neobanking – Revolut will Banklizenz: Angriff auf den Schweizer Bankenplatz?",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "016f45be4b2b",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Key role in customs dispute – ‘Attention, Federal Councillor’: Seco chief Helene Budliger steps down",
+   "link": "https://www.srf.ch/news/schweiz/schluesselrolle-im-zollstreit-achte-bundesraetin-seco-chefin-helene-budliger-tritt-zurueck",
+   "published": "2026-09-16T16:32+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Schlüsselrolle im Zollstreit – «Achte Bundesrätin»: Seco-Chefin Helene Budliger tritt zurück",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "4a9a16418edd",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Finma reviews application – Revolut applies for banking licence in Switzerland",
+   "link": "https://www.srf.ch/news/wirtschaft/finma-prueft-antrag-revolut-beantragt-banklizenz-in-der-schweiz",
+   "published": "2026-09-16T06:19+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Finma prüft Antrag – Revolut beantragt Banklizenz in der Schweiz",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "3151b4699182",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Bank regulation – FDP senators want to return the question of own funds to the Federal Council",
+   "link": "https://www.srf.ch/news/schweiz/bankenregulierung-fdp-staenderaete-wollen-eigenmittelfrage-an-bundesrat-zurueckgeben",
+   "published": "2026-09-15T18:37+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Bankenregulierung – FDP-Ständeräte wollen Eigenmittelfrage an Bundesrat zurückgeben",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "88e43e1b9b72",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Care financing – Who will pay for the care of tomorrow",
+   "link": "https://www.srf.ch/news/wirtschaft/pflegefinanzierung-wer-die-pflege-von-morgen-bezahlt",
+   "published": "2026-09-15T09:01+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Pflegefinanzierung – Wer die Pflege von morgen bezahlt",
+   "tags": [
+    "Health Care"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "3721f1f733a5",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Struggling for Free Trade Agreements – Whether the farmer tactic with Mercosur will also work at the ballot box is an open question",
+   "link": "https://www.srf.ch/news/wirtschaft/ringen-um-freihandelsabkommen-ob-bauern-taktik-zu-mercosur-auch-an-urne-aufgeht-ist-offen",
+   "published": "2026-09-15T04:54+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Ringen um Freihandelsabkommen – Ob Bauern-Taktik zu Mercosur auch an Urne aufgeht, ist offen",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "83f3ef842d1c",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "New overnight train connection – On the vintage train from Aarau to Brussels",
+   "link": "https://www.srf.ch/news/wirtschaft/neue-nachtzug-verbindung-im-vintage-zug-von-aarau-nach-bruessel",
+   "published": "2026-09-15T10:35+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Neue Nachtzug-Verbindung – Im Vintage-Zug von Aarau nach Brüssel",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "e371eb02e108",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Half a billion for farmers – Council of States wants to save Mercosur agreement – at a costly compromise",
+   "link": "https://www.srf.ch/news/wirtschaft/halbe-milliarde-fuer-bauern-staenderat-will-mercosur-abkommen-retten-mit-teurem-kompromiss",
+   "published": "2026-09-14T17:02+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Halbe Milliarde für Bauern – Ständerat will Mercosur-Abkommen retten – mit teurem Kompromiss",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "7810669eeeea",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "On a personal note – SRF will reduce 38 full-time positions by 2027",
+   "link": "https://www.srf.ch/news/wirtschaft/in-eigener-sache-srf-baut-38-vollzeitstellen-bis-2027-ab",
+   "published": "2026-09-14T12:12+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "In eigener Sache – SRF baut 38 Vollzeitstellen bis 2027 ab",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "4ceb4fb34c17",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "High debt burden – Air Baltic files for creditor protection in the US",
+   "link": "https://www.srf.ch/news/wirtschaft/hohe-schuldenlast-air-baltic-beantragt-in-den-usa-glaeubigerschutz",
+   "published": "2026-09-14T07:28+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Hohe Schuldenlast – Air Baltic beantragt in den USA Gläubigerschutz",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "f61c115aa9e2",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Sale of the garden furniture division – French court orders Calida to pay damages",
+   "link": "https://www.srf.ch/news/wirtschaft/verkauf-der-gartenmoebelsparte-franzoesisches-gericht-verurteilt-calida-zu-schadenersatz",
+   "published": "2026-09-14T06:50+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Verkauf der Gartenmöbelsparte – Französisches Gericht verurteilt Calida zu Schadenersatz",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "31d5de52458e",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Empty tanks – heating oil prices soaring: industry warns of surge in orders",
+   "link": "https://www.srf.ch/news/dialog/leere-tanks-heizoelpreis-auf-hoehenflug-branche-warnt-vor-bestellansturm",
+   "published": "2026-09-14T04:29+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Leere Tanks – Heizölpreis auf Höhenflug: Branche warnt vor Bestellansturm",
+   "tags": [
+    "Energy"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "a3af93d5899e",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Safety over speed – Why the Anthropic CEO wants to slow down AI development",
+   "link": "https://www.srf.ch/news/wirtschaft/sicherheit-statt-tempo-warum-der-anthropic-chef-die-ki-entwicklung-bremsen-will",
+   "published": "2026-09-14T05:57+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Sicherheit statt Tempo – Warum der Anthropic-Chef die KI-Entwicklung bremsen will",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "0f24391332ed",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Artificial intelligence – OpenAI postpones IPO due to security concerns",
+   "link": "https://www.srf.ch/news/wirtschaft/kuenstliche-intelligenz-openai-verschiebt-boersengang-wegen-sicherheitsbedenken",
+   "published": "2026-09-13T05:11+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Künstliche Intelligenz – OpenAI verschiebt Börsengang wegen Sicherheitsbedenken",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "0840c792f82b",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "LIV Golf bankrupt – collapse in the noble sport of golf – Saudi Arabia pulls the plug",
+   "link": "https://www.srf.ch/news/wirtschaft/liv-golf-insolvent-pleite-im-noblen-golfsport-saudi-arabien-zieht-den-stecker",
+   "published": "2026-09-12T05:56+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "LIV Golf insolvent – Pleite im noblen Golfsport – Saudi-Arabien zieht den Stecker",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "df5f9376bbc0",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Conflicts in the Middle East – Oil market becomes even more complicated",
+   "link": "https://www.srf.ch/news/wirtschaft/konflikte-im-nahen-osten-erdoelmarkt-verkompliziert-sich-weiter",
+   "published": "2026-09-11T06:58+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Konflikte im Nahen Osten – Erdölmarkt verkompliziert sich weiter",
+   "tags": [
+    "Energy"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "849fc3fef9b3",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "President Silvan Wildhaber – Between nappies and textiles – the new man at Economiesuisse",
+   "link": "https://www.srf.ch/news/wirtschaft/praesident-silvan-wildhaber-zwischen-windeln-und-textilien-der-neue-mann-von-economiesuisse",
+   "published": "2026-09-11T03:44+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Präsident Silvan Wildhaber – Zwischen Windeln und Textilien – der neue Mann von Economiesuisse",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "513ef82f15fd",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Industry Report – Despite Export Strength: Medical Technology Companies Send Warning Signals",
+   "link": "https://www.srf.ch/news/wirtschaft/branchenbericht-trotz-exportstaerke-medizintechnik-firmen-senden-warnsignale",
+   "published": "2026-09-10T19:08+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Branchenbericht – Trotz Exportstärke: Medizintechnik-Firmen senden Warnsignale",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "508b40c34691",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Clinical trials – New drugs are increasingly being tested in Asia",
+   "link": "https://www.srf.ch/news/wirtschaft/klinische-studien-neue-medikamente-werden-vermehrt-in-asien-getestet",
+   "published": "2026-09-10T18:29+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Klinische Studien – Neue Medikamente werden vermehrt in Asien getestet",
+   "tags": [
+    "Health Care"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "563f5ad1239c",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "General wage increase – Trade union federation demands 2.5% more pay from 2027",
+   "link": "https://www.srf.ch/news/schweiz/generelle-lohnerhoehung-gewerkschaftsbund-fordert-2-5-prozent-mehr-lohn-ab-2027",
+   "published": "2026-09-10T16:21+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Generelle Lohnerhöhung – Gewerkschaftsbund fordert 2.5 Prozent mehr Lohn ab 2027",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "8f8495280b52",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Train stations in Europe – The worst train stations are in Germany – it’s going wrong",
+   "link": "https://www.srf.ch/news/wirtschaft/bahnhoefe-in-europa-die-schlechtesten-bahnhoefe-sind-in-deutschland-das-laeuft-schief",
+   "published": "2026-09-10T16:00+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Bahnhöfe in Europa – Die schlechtesten Bahnhöfe sind in Deutschland – das läuft schief",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "5996e0f227a2",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Second time this year – ECB raises key interest rate to 2.5 percent",
+   "link": "https://www.srf.ch/news/wirtschaft/zweites-mal-in-diesem-jahr-ezb-erhoeht-leitzins-auf-2-5-prozent",
+   "published": "2026-09-10T12:39+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Zweites Mal in diesem Jahr – EZB erhöht Leitzins auf 2.5 Prozent",
+   "tags": [
+    "EUR"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "0b15a5e0ba3e",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Apartment hunting remains difficult – vacancy rate falls below 1% for the first time in 2026",
+   "link": "https://www.srf.ch/news/schweiz/wohnungssuche-bleibt-schwierig-leerwohnungsziffer-sinkt-2026-erstmals-unter-1-prozent",
+   "published": "2026-09-10T12:10+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Wohnungssuche bleibt schwierig – Leerwohnungsziffer sinkt 2026 erstmals unter 1 Prozent",
+   "tags": [
+    "Real Estate"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "80b902f8ae55",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Ringier pulls the plug – Goodbye ‘SoBli’: Some things just take time to get used to",
+   "link": "https://www.srf.ch/news/schweiz/ringier-zieht-reissleine-adieu-sobli-an-manche-dinge-muss-man-sich-erst-noch-gewoehnen",
+   "published": "2026-09-10T07:09+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Ringier zieht Reissleine – Adieu «SoBli»: An manche Dinge muss man sich erst noch gewöhnen",
+   "tags": [
+    "Communication Services"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "2751c5f38f24",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "New iPhone Duo – Will it work? Apple folds the iPhone",
+   "link": "https://www.srf.ch/news/wirtschaft/neues-iphone-duo-ob-das-klappt-apple-faltet-das-iphone",
+   "published": "2026-09-10T05:49+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Neues iPhone Duo – Ob das klappt? Apple faltet das iPhone",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "c1775c16224b",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "New EU Innovation Act – Swiss economic space remains excluded",
+   "link": "https://www.srf.ch/news/wirtschaft/neues-eu-innovationsgesetz-schweizer-wirtschaftsplatz-bleibt-aussen-vor",
+   "published": "2026-09-10T04:00+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Neues EU-Innovationsgesetz – Schweizer Wirtschaftsplatz bleibt aussen vor",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "b0caf9e6fd87",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Rising oil prices – ‘Gasoline is cheaper today than it was in the 80s’",
+   "link": "https://www.srf.ch/news/wirtschaft/steigender-oelpreis-benzin-ist-heute-guenstiger-als-noch-in-den-80er-jahren",
+   "published": "2026-09-10T03:58+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Steigender Ölpreis – «Benzin ist heute günstiger als noch in den 80er-Jahren»",
+   "tags": [
+    "Energy"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "d3e94bc7bb01",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Clarity in the pension jungle – Capital benefit instead of pension: This is how you avoid a rude awakening",
+   "link": "https://www.srf.ch/news/wirtschaft/durchblick-im-rentendschungel-kapitalbezug-statt-rente-so-vermeiden-sie-ein-boeses-erwachen",
+   "published": "2026-09-09T14:16+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Durchblick im Rentendschungel – Kapitalbezug statt Rente: So vermeiden Sie ein böses Erwachen",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "92fefb01fa63",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Up to 580 jobs at risk – Zimmer Biomet plans job cuts in Winterthur",
+   "link": "https://www.srf.ch/news/wirtschaft/bis-zu-580-stellen-bedroht-zimmer-biomet-plant-jobabbau-in-winterthur-1",
+   "published": "2026-09-09T16:39+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Bis zu 580 Stellen bedroht – Zimmer Biomet plant Jobabbau in Winterthur",
+   "tags": [
+    "Industrials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "afb05b689748",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Heavy losses – Novartis loses around 24 billion francs in market value",
+   "link": "https://www.srf.ch/news/wirtschaft/herbe-verluste-novartis-verliert-rund-24-milliarden-franken-an-boersenwert",
+   "published": "2026-09-09T04:17+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Herbe Verluste – Novartis verliert rund 24 Milliarden Franken an Börsenwert",
+   "tags": [
+    "Health Care"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "b55b2dba0e87",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Wind turbines for SMEs – Axpo hopes for SMEs in the expansion of wind power",
+   "link": "https://www.srf.ch/news/wirtschaft/windraeder-fuer-kmu-axpo-hofft-auf-kmu-beim-ausbau-der-windkraft",
+   "published": "2026-09-09T03:59+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Windräder für KMU – Axpo hofft auf KMU beim Ausbau der Windkraft",
+   "tags": [
+    "Utilities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "7e85f690359c",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Pension fund money – capital benefits instead of pension: the risk of overconfidence",
+   "link": "https://www.srf.ch/news/wirtschaft/pensionskassengeld-kapitalbezuege-statt-rente-das-risiko-der-selbstueberschaetzung",
+   "published": "2026-09-09T03:54+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Pensionskassengeld – Kapitalbezüge statt Rente: Das Risiko der Selbstüberschätzung",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "ac0470397b96",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Electricity price and supply – ‘We do not see any signs of supply shortages’",
+   "link": "https://www.srf.ch/news/wirtschaft/strompreis-und-versorgung-wir-erkennen-keine-signale-fuer-eine-angebotsknappheit",
+   "published": "2026-09-08T15:46+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Strompreis und Versorgung – «Wir erkennen keine Signale für eine Angebotsknappheit»",
+   "tags": [
+    "Utilities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "b5576ef77e5b",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Electricity tariffs Switzerland 2027 – Electricity prices will fall slightly in 2027 – also in your municipality?",
+   "link": "https://www.srf.ch/news/schweiz/stromtarife-schweiz-2027-die-strompreise-sinken-2027-leicht-auch-in-ihrer-gemeinde",
+   "published": "2026-09-08T09:00+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Stromtarife Schweiz 2027 – Die Strompreise sinken 2027 leicht – auch in Ihrer Gemeinde?",
+   "tags": [
+    "Utilities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "8ad98d9b242e",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Due to increasing cost pressure, BLS will reduce around 40 full-time positions by the end of 2030",
+   "link": "https://www.srf.ch/news/wirtschaft/wegen-zunehmenden-kostendruck-bls-baut-bis-ende-2030-rund-40-vollzeitstellen-ab",
+   "published": "2026-09-08T08:57+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Wegen zunehmenden Kostendruck – BLS baut bis Ende 2030 rund 40 Vollzeitstellen ab",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "aea6f193de33",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Competitive travel market – Ebookers exit: Hoteliers and customers need to reorient themselves",
+   "link": "https://www.srf.ch/news/wirtschaft/umkaempfter-reisemarkt-ebookers-aus-hoteliers-und-kunden-muessen-sich-neu-orientieren",
+   "published": "2026-09-08T05:12+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Umkämpfter Reisemarkt – Ebookers-Aus: Hoteliers und Kunden müssen sich neu orientieren",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "46fcd862f188",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Economics – Why Switzerland has such low interest rates",
+   "link": "https://www.srf.ch/news/wirtschaft/volkswirtschaft-warum-die-schweiz-so-tiefe-zinsen-hat",
+   "published": "2026-09-08T04:29+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Volkswirtschaft – Warum die Schweiz so tiefe Zinsen hat",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "c6724da4c13d",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "AfD’s economic programme – Klaus Wellershoff: ‘It’s absurd, utopian, even indecent’",
+   "link": "https://www.srf.ch/news/wirtschaft/wirtschaftsprogramm-der-afd-klaus-wellershoff-es-ist-absurd-utopisch-sogar-unanstaendig",
+   "published": "2026-09-07T17:37+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Wirtschaftsprogramm der AfD – Klaus Wellershoff: «Es ist absurd, utopisch, sogar unanständig»",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "6ab2e047447e",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Swiss electricity prices – electricity industry considering new pricing models",
+   "link": "https://www.srf.ch/news/wirtschaft/schweizer-strompreise-elektrizitaetsbranche-ueberlegt-sich-neue-preismodelle",
+   "published": "2026-09-07T11:33+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Schweizer Strompreise – Elektrizitätsbranche überlegt sich neue Preismodelle",
+   "tags": [
+    "Utilities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "8b44e6ddf804",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Dog waste bin – Why the Robidog waste bin is increasingly being replaced in rural areas",
+   "link": "https://www.srf.ch/news/wirtschaft/abfalleimer-fuer-hundekot-weshalb-abfalleimer-robidog-zunehmend-aufs-land-verdraengt-wird",
+   "published": "2026-09-07T03:50+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Abfalleimer für Hundekot – Weshalb Abfalleimer Robidog zunehmend aufs Land verdrängt wird",
+   "tags": [
+    "Consumer Staples"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "0467d9e8dfc4",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Career choice with short video – Association wants to make career choice easier with short videos and livestream",
+   "link": "https://www.srf.ch/news/wirtschaft/berufswahl-mit-kurzvideo-verein-will-mit-kurzvideos-und-livestream-berufswahl-erleichtern",
+   "published": "2026-09-07T03:47+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Berufswahl mit Kurzvideo – Verein will mit Kurzvideos und Livestream Berufswahl erleichtern",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "e7814ae3ee21",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Recreational traffic at its limit – From car to public transport: How can Swiss roads be relieved?",
+   "link": "https://www.srf.ch/news/wirtschaft/freizeitverkehr-am-limit-vom-auto-in-den-oev-wie-lassen-sich-schweizer-strassen-entlasten",
+   "published": "2026-09-05T12:02+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Freizeitverkehr am Limit – Vom Auto in den ÖV: Wie lassen sich Schweizer Strassen entlasten?",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "466149537679",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "VW under pressure – car expert: ‘The company needs to catch up’",
+   "link": "https://www.srf.ch/news/wirtschaft/vw-unter-druck-autoexperte-der-konzern-muss-aufholen",
+   "published": "2026-09-04T13:43+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "VW unter Druck – Autoexperte: «Der Konzern muss aufholen»",
+   "tags": [
+    "Industrials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "636d80a5f27b",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Harvest in Transition – The Hot Summer Causes Fruit Harvest to Stumble – 6 Facts",
+   "link": "https://www.srf.ch/radio-srf-1/ernte-im-wandel-der-hitzesommer-bringt-die-obsternte-ins-straucheln-6-fakten",
+   "published": "2026-09-04T06:14+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Ernte im Wandel – Der Hitzesommer bringt die Obsternte ins Straucheln – 6 Fakten",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "3e3a312b6d40",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "Volkswagen’s cost-cutting plan – Volkswagen: 50,000 jobs to go – four plants at risk",
+   "link": "https://www.srf.ch/news/wirtschaft/sparplan-bei-volkswagen-volkswagen-50-000-stellen-fallen-weg-vier-werke-auf-der-kippe",
+   "published": "2026-09-04T04:53+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Sparplan bei Volkswagen – Volkswagen: 50'000 Stellen fallen weg – vier Werke auf der Kippe",
+   "tags": [
+    "Industrials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "f92c8dfbcc5c",
+   "source": "SRF Wirtschaft",
+   "lang": "de",
+   "title": "What matters in applications – This is the question the Coop CEO asks in job interviews",
+   "link": "https://www.srf.ch/news/wirtschaft/was-bei-bewerbungen-zaehlt-diese-frage-stellt-der-coop-chef-bei-bewerbungsgespraechen",
+   "published": "2026-09-03T04:15+00:00",
+   "feed": "https://www.srf.ch/news/bnf/rss/1926",
+   "title_de": "Was bei Bewerbungen zählt – Diese Frage stellt der Coop-Chef bei Bewerbungsgesprächen",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "c7573a46b5d3",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Why Japan’s markets flipped the usual script after central bank rate hike",
+   "link": "https://www.cnbc.com/2026/09/18/japan-rate-hike-stocks-rise-bond-yields-yen-fall.html",
+   "published": "2026-09-18T07:40+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "280ec1a85ed0",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Bank of England defies Fed’s rate-hike lead, leaving rates unchanged",
+   "link": "https://www.cnbc.com/2026/09/17/bank-of-england-interest-rate-decision-fed-rate-hike-uk-inflation.html",
+   "published": "2026-09-17T12:27+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Financials",
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "f9e90965eba1",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "'Science fiction': Transport companies — the backbone of economy — are sounding alarm on fuel prices",
+   "link": "https://www.cnbc.com/2026/09/16/transport-economy-diesel-prices-iran.html",
+   "published": "2026-09-16T20:22+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Energy"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "2ff53d9dd5df",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Consumers hit by one-two punch of oil and rates from Iran war. The estimated bill is $1,700 per household",
+   "link": "https://www.cnbc.com/2026/09/16/oil-prices-treasury-yields-consumers-iran.html",
+   "published": "2026-09-16T17:32+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Energy"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "6f182b566a3f",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "UK inflation jumps to 3.1% as energy costs soar",
+   "link": "https://www.cnbc.com/2026/09/16/uk-august-inflation-energy-gasoline.html",
+   "published": "2026-09-17T07:36+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "8df8302b68c8",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Indonesia's new finance minister faces an uphill battle on fiscal credibility",
+   "link": "https://www.cnbc.com/2026/09/16/indonesia-finance-minister-msci-prabowo-.html",
+   "published": "2026-09-16T01:53+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Emerging markets"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "96d0b4cce58e",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Why de-dollarization discussions are more talk, less action",
+   "link": "https://www.cnbc.com/2026/09/16/de-dollarization-brics-china-russia-trump.html",
+   "published": "2026-09-15T23:28+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "858286a35aab",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Counting the votes: Warsh faces a tough battle as the Fed girds for expected interest rate hike",
+   "link": "https://www.cnbc.com/2026/09/14/counting-the-votes-warsh-faces-tough-battle-as-fed-girds-for-expected-rate-hike.html",
+   "published": "2026-09-14T19:47+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "72d094022dd9",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Inflation is outpacing wage growth again, squeezing Americans’ paychecks",
+   "link": "https://www.cnbc.com/2026/09/12/inflation-is-outpacing-wage-growth-again-squeezing-americans-paychecks.html",
+   "published": "2026-09-12T12:49+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Consumer Staples"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "712a1092c16b",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Consumer outlook plunges in September as inflation outlook worsens",
+   "link": "https://www.cnbc.com/2026/09/11/consumer-outlook-plunges-in-september-as-inflation-outlook-worsens.html",
+   "published": "2026-09-11T16:53+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "43f452c40603",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Record U.S. cyclosporiasis outbreak is over, CDC says",
+   "link": "https://www.cnbc.com/2026/09/11/cdc-record-cyclosporiasis-outbreak-over.html",
+   "published": "2026-09-11T15:36+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Health Care"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "27a7e9786555",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Inflation persisted in August, potentially locking in a Fed interest rate hike",
+   "link": "https://www.cnbc.com/2026/09/11/cpi-inflation-report-august-2026.html",
+   "published": "2026-09-11T13:46+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "a88325d5c959",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Friday's CPI inflation report is even more important than usual. Here's what to expect",
+   "link": "https://www.cnbc.com/2026/09/10/fridays-cpi-inflation-report-is-even-more-important-than-usual-heres-what-to-expect.html",
+   "published": "2026-09-10T19:18+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "56be53891751",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "The likelihood of a Fed interest rate hike next week just got a lot higher",
+   "link": "https://www.cnbc.com/2026/09/10/the-likelihood-of-a-fed-interest-rate-hike-next-week-just-got-a-lot-higher.html",
+   "published": "2026-09-10T16:55+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "65c3eebc1989",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Wholesale prices rose 0.4% in August, as expected",
+   "link": "https://www.cnbc.com/2026/09/10/ppi-inflation-report-august-2026.html",
+   "published": "2026-09-10T13:23+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Raw materials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "afbc4e7b4419",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "U.S. reveals import ban on slew of Canadian goods as trade war escalates",
+   "link": "https://www.cnbc.com/2026/09/09/us-canada-trade-war-import-ban.html",
+   "published": "2026-09-09T16:17+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Raw materials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "16fe8cb1df7b",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Why the Fed's interest rate call could come down to a few hundredths of a percentage point",
+   "link": "https://www.cnbc.com/2026/09/08/federal-reserves-rate-call-could-hang-on-a-tiny-fraction.html",
+   "published": "2026-09-09T11:22+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "9cae3e058ae1",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Canada's retaliatory tariffs worth CA$27.6 billion take effect as trade rift with U.S. deepens",
+   "link": "https://www.cnbc.com/2026/09/08/canada-retaliatory-tariffs.html",
+   "published": "2026-09-08T17:11+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Raw materials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "17af138b9041",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "China's imports in August miss estimates as calls for rebalancing trade grow",
+   "link": "https://www.cnbc.com/2026/09/08/china-exports-imports-august-trade-rebalance-demand-surplus-.html",
+   "published": "2026-09-08T04:45+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Raw materials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "30d03e3d4b19",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Japan's foreign reserves drop by a record $80 billion in August following yen intervention",
+   "link": "https://www.cnbc.com/2026/09/07/japan-foreign-reserves-yen-intervention.html",
+   "published": "2026-09-08T14:15+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "EUR",
+    "CHF"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "f5b7815a05a8",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Trump turns up the heat on Warsh as Fed rate hike looms",
+   "link": "https://www.cnbc.com/2026/09/05/trump-warsh-fed-september-rate-hike.html",
+   "published": "2026-09-05T19:12+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "b395f86856c4",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "From ‘mystery vacations’ to hostels, budget travelers get thrifty as prices rise",
+   "link": "https://www.cnbc.com/2026/09/05/budget-travel-vacation-costs.html",
+   "published": "2026-09-05T23:55+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "bffb6af1b88b",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Women accounted for almost all of job gains in August. Here's why",
+   "link": "https://www.cnbc.com/2026/09/04/jobs-report-women-payrolls.html",
+   "published": "2026-09-04T18:27+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "4c6c287ca5ea",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "U.S. payrolls rose 162,000 in August, much more than expected; unemployment rate at 4.1%",
+   "link": "https://www.cnbc.com/2026/09/04/jobs-report-august-2026.html",
+   "published": "2026-09-04T17:16+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "78b42e6269b1",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "The big business of personal protection: How private security became a $50 billion industry",
+   "link": "https://www.cnbc.com/2026/09/04/private-security-spending-crime-allied-universal.html",
+   "published": "2026-09-04T14:15+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Industrials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "92202d8966f2",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "The big August jobs report is due out Friday. Here's what to expect for what has been a jobless summer",
+   "link": "https://www.cnbc.com/2026/09/03/august-2026-jobs-report-payrolls.html",
+   "published": "2026-09-03T19:38+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "2681cdfc8170",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Fed Governor Waller indicates he will support holding rates steady at September meeting",
+   "link": "https://www.cnbc.com/2026/09/03/fed-governor-waller-indicates-he-will-support-holding-rates-steady-at-september-meeting.html",
+   "published": "2026-09-03T14:06+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "297260fb9259",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "'Danger zone of extreme weather': UN warns of supersized El Niño set to hit global economy and markets",
+   "link": "https://www.cnbc.com/2026/09/03/supersized-el-nino-un-economy.html",
+   "published": "2026-09-03T12:25+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Emerging markets"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "6f1eb204bf6a",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "South Korea's semiconductor exports just tripled year-over-year. Is it too much of a good thing?",
+   "link": "https://www.cnbc.com/2026/09/03/south-korea-semiconductor-exports-surging-concerns.html",
+   "published": "2026-09-03T01:11+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "76f59e2f6c75",
+   "source": "CNBC Markets",
+   "lang": "en",
+   "title": "Private payrolls rose by 38,000 in August, less than expected, ADP reports",
+   "link": "https://www.cnbc.com/2026/09/02/private-payrolls-rose-by-38000-in-august-fewer-than-expected-adp-reports.html",
+   "published": "2026-09-02T14:30+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "7805b683c26b",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Three words from Kevin Warsh have Wall Street wondering how far the Fed will go with rate hikes",
+   "link": "https://www.cnbc.com/2026/09/18/three-words-from-kevin-warsh-have-wall-street-wondering-how-far-the-fed-will-go-with-rate-hikes.html",
+   "published": "2026-09-18T18:28+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Equities",
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "982ee6cd2489",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Stocks making the biggest moves premarket: Netflix, Nucor, Xenon Pharmaceuticals & more",
+   "link": "https://www.cnbc.com/2026/09/18/stocks-making-the-biggest-moves-premarket-nflx-nue-xene.html",
+   "published": "2026-09-18T11:48+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Health Care",
+    "Communication Services",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "042b687ba7c2",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Warren Buffett steps down as chairman of Berkshire Hathaway: 'Father Time always wins'",
+   "link": "https://www.cnbc.com/2026/09/18/buffett-stepping-down-as-berkshire-chairman.html",
+   "published": "2026-09-18T12:04+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "2fe1db34af91",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Securitize jumps after regulators greenlight some tokenized U.S. stock trading",
+   "link": "https://www.cnbc.com/2026/09/17/securitize-jumps-after-regulators-greenlight-tokenized-us-stocks.html",
+   "published": "2026-09-17T17:59+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "655d1ff54593",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Stocks making the biggest moves midday: Workday, Generac, Vital Farms, Vicor, Tower Semi & more",
+   "link": "https://www.cnbc.com/2026/09/17/stocks-making-the-biggest-moves-premarket-wday-gnrc-vicr-tsem-vitl.html",
+   "published": "2026-09-17T17:58+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "746644f3706b",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "A Chinese AI company just connected its model to Wall Street's leading data providers",
+   "link": "https://www.cnbc.com/2026/09/17/china-moonshot-kimi-financial-services.html",
+   "published": "2026-09-18T08:41+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Information Technology",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "cfb389fa2cca",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Stocks making the biggest moves premarket: Generac, Lennar, Nike & more",
+   "link": "https://www.cnbc.com/2026/09/17/stocks-making-the-biggest-moves-premarket-gnrc-len-nke.html",
+   "published": "2026-09-17T11:54+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "e5e6087e01b8",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "OpenAI and Anthropic are making 10 times more revenue than all Chinese AI models combined, research group Rhodium says",
+   "link": "https://www.cnbc.com/2026/09/17/chinas-ai-models-make-only-10percent-of-us-leaders-revenue-rhodium.html",
+   "published": "2026-09-17T09:00+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "26ba9f6962c4",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Here are five key takeaways from Wednesday's Fed rate hike",
+   "link": "https://www.cnbc.com/2026/09/16/here-are-five-key-takeaways-from-wednesdays-fed-rate-hike.html",
+   "published": "2026-09-16T21:23+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "cafcd6328048",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Here is what changed in the new Fed statement under Warsh",
+   "link": "https://www.cnbc.com/2026/09/16/september-fed-statement-redline.html",
+   "published": "2026-09-16T18:18+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "84fa4b3051a4",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Fed approves interest rate hike, signals one more to come this year",
+   "link": "https://www.cnbc.com/2026/09/16/fed-rate-decision-september-2026.html",
+   "published": "2026-09-16T21:07+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "f2df1f187e90",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Senate is still a toss-up, but Democrats now have slight edge, prediction market traders think",
+   "link": "https://www.cnbc.com/2026/09/16/prediction-markets-say-democrats-are-slightly-favored-to-win-senate.html",
+   "published": "2026-09-16T16:26+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "badb387fdad0",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Stocks making the biggest moves premarket: SK Hynix, J.B. Hunt, Expedia & more",
+   "link": "https://www.cnbc.com/2026/09/16/stocks-making-the-biggest-moves-premarket-skhy-jbht-expe-more.html",
+   "published": "2026-09-16T11:44+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "a5844566a3c5",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "China's AI leaders keep quiet despite U.S. 'publicity' on tech risks",
+   "link": "https://www.cnbc.com/2026/09/16/chinas-ai-leaders-keep-quiet-despite-us-publicity-on-tech-risks.html",
+   "published": "2026-09-16T04:01+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "288daefa41ec",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Stocks making the biggest moves midday: Skyworks Solutions, Axon, Dave & Buster's, Revvity & more",
+   "link": "https://www.cnbc.com/2026/09/15/stocks-making-the-biggest-moves-midday-swks-axon-play-rvty.html",
+   "published": "2026-09-15T17:55+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "cc1a975b5e6b",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Stocks making the biggest moves premarket: Dave & Buster's, Enova, Etsy & more",
+   "link": "https://www.cnbc.com/2026/09/15/stocks-making-the-biggest-moves-premarket-play-enva-etsy.html",
+   "published": "2026-09-15T11:36+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "f12efff129f4",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "China's August retail sales miss forecast while investment slump deepens, piling pressure on Beijing",
+   "link": "https://www.cnbc.com/2026/09/15/china-august-retail-sales-industrial-output-investment-exports-.html",
+   "published": "2026-09-15T09:46+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "1970309eae18",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Bank of America expects third-quarter investment banking fees to fall more than 10%; shares slide",
+   "link": "https://www.cnbc.com/2026/09/14/bank-of-america-bac-q3-investment-banking-fees.html",
+   "published": "2026-09-14T20:34+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Financials",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "62cdd0a7620f",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Warsh's credibility is on the line this week as Trump policies put pressure on Fed to hike",
+   "link": "https://www.cnbc.com/2026/09/14/warshs-credibility-is-on-the-line-this-week-as-trump-policies-put-pressure-on-fed-to-hike.html",
+   "published": "2026-09-14T20:49+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "406893bf36f3",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Stocks making the biggest moves midday: Zscaler, CrowdStrike, Marvell Technology, Rum Group & more",
+   "link": "https://www.cnbc.com/2026/09/14/stocks-making-the-biggest-moves-midday-zs-crwd-mrvl-rum.html",
+   "published": "2026-09-14T18:32+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Information Technology",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "8f7ac927345c",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Prediction market traders think gas prices will hit new highs for the year",
+   "link": "https://www.cnbc.com/2026/09/14/prediction-markets-traders-think-gas-prices-will-hit-new-highs-in-2026.html",
+   "published": "2026-09-14T15:49+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Energy"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "8b7d02d46ec6",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Stocks making the biggest moves premarket: Intel, Marvell, CrowdStrike & more",
+   "link": "https://www.cnbc.com/2026/09/14/stocks-making-the-biggest-moves-premarket-intc-mrvl-crwd.html",
+   "published": "2026-09-14T12:36+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "b6925fa3bc59",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "China says AI CEOs' call for a slowdown is 'fear mongering'",
+   "link": "https://www.cnbc.com/2026/09/14/china-ai-slowdown-us-tech-ceos.html",
+   "published": "2026-09-14T20:56+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "349b02fe4287",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Prediction markets are becoming more professionalized, but also harder to beat",
+   "link": "https://www.cnbc.com/2026/09/14/prediction-markets-efficient-win-lose-beat.html",
+   "published": "2026-09-14T01:37+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Bonds"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "5f21a99a585a",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Goldman picks China healthcare stocks for a post-AI trade",
+   "link": "https://www.cnbc.com/2026/09/13/goldman-picks-china-healthcare-stocks-for-a-post-ai-trade.html",
+   "published": "2026-09-13T11:54+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Information Technology",
+    "Health Care",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "25f28b117e80",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "NFL and midterm elections set up prediction markets for a critical fall season",
+   "link": "https://www.cnbc.com/2026/09/13/nfl-and-midterms-mark-key-fall-season-for-prediction-markets.html",
+   "published": "2026-09-14T12:16+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Bonds"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "94b63439d882",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Stocks making the biggest moves midday: Dell, Skyworks Solutions, GameStop & more",
+   "link": "https://www.cnbc.com/2026/09/11/stocks-making-the-biggest-moves-midday-dell-swks-gme.html",
+   "published": "2026-09-11T21:51+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "8c54757305a2",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "Stocks making the biggest moves premarket: GameStop, Oracle, Adobe, RH & more",
+   "link": "https://www.cnbc.com/2026/09/11/stocks-making-the-biggest-moves-premarket-gme-orcl-adbe-rh.html",
+   "published": "2026-09-11T11:25+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "3aa7239e0d3f",
+   "source": "CNBC Finance",
+   "lang": "en",
+   "title": "A Chinese humanoid startup flips 'distillation' claim on OpenAI as it releases a new robotics model",
+   "link": "https://www.cnbc.com/2026/09/11/chinese-humanoid-robot-startup-distillation-claim-openai.html",
+   "published": "2026-09-11T06:02+00:00",
+   "feed": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "d8c2be5ed689",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Meta Stock Climbs On Muse AI Excitement. Here's The Next Potential Catalyst.",
+   "link": "https://www.investors.com/news/technology/meta-stock-connect-2026-preview-muse-ai/?src=A00220&yptr=yahoo",
+   "published": "2026-09-17T15:14+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Information Technology",
+    "Communication Services",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "825f5cc4f48d",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Stocks Push Higher on Lower Crude Prices and Bond Yields",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/stocks-push-higher-lower-crude-151213645.html",
+   "published": "2026-09-17T15:12+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Energy",
+    "Equities",
+    "Bonds"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "ebdffc92f47d",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Worker Tensions in Taiwan Are Rising at Micron. What This Means for MU Stock.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/worker-tensions-taiwan-rising-micron-151005678.html",
+   "published": "2026-09-17T15:10+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "a63cb75dd97f",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Make This Trade Now That the Fed Has Hiked Rates",
+   "link": "https://finance.yahoo.com/markets/currencies/articles/trade-now-fed-hiked-rates-151754223.html",
+   "published": "2026-09-17T15:17+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "fffb2b7300bb",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "How TikTok is Reshaping the Perfume Business",
+   "link": "https://finance.yahoo.com/video/tiktok-reshaping-perfume-business-151422894.html",
+   "published": "2026-09-17T15:14+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "1916a809e093",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Wall Street May Have Overpriced the Fed Rate Hike’s Impact on Citigroup Stock Spreads",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/wall-street-may-overpriced-fed-150657658.html",
+   "published": "2026-09-17T15:06+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Equities",
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "c5de9f5d6df9",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Is Huntington Bancshares Stock Underperforming the S&P 500?",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/huntington-bancshares-stock-underperforming-p-150310108.html",
+   "published": "2026-09-17T15:03+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "603de1366243",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Second-chance car loans: What they are and how to get one",
+   "link": "https://finance.yahoo.com/markets/currencies/articles/second-chance-car-loans-one-210834465.html",
+   "published": "2026-09-17T15:02+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "fe97766e90d4",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "VinFast (VFS)-Backed Taxi Firm GSM Plots a US and European Push ahead of its Hong Kong IPO",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/vinfast-vfs-backed-taxi-firm-150001467.html",
+   "published": "2026-09-17T15:00+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "853e50feb56f",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Gunnison Copper CEO on $8m Nuton deal; permitting on track at Johnson Camp",
+   "link": "https://finance.yahoo.com/video/gunnison-copper-ceo-8m-nuton-151241022.html",
+   "published": "2026-09-17T15:12+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Raw materials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "1c45de19e333",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Novartis (NVS) and Ionis (IONS)’ Big Cholesterol Bet Comes Up Short in Late-Stage Trial",
+   "link": "https://finance.yahoo.com/healthcare/articles/novartis-nvs-ionis-ions-big-152119015.html",
+   "published": "2026-09-17T15:21+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Health Care"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "1d2de393e98f",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Talen Energy (TLN) Gains as Regulatory Progress Enhances Data Center Framework",
+   "link": "https://finance.yahoo.com/energy/articles/talen-energy-tln-gains-regulatory-145925718.html",
+   "published": "2026-09-17T14:59+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "1229f4130772",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Ryanair (RYAAY) Slashes its Winter Flight Plans to Dodge a Costly Oil Spike",
+   "link": "https://finance.yahoo.com/energy/articles/ryanair-ryaay-slashes-winter-flight-145505604.html",
+   "published": "2026-09-17T14:55+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Energy"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "cf7a7cef4145",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Should I buy a new or used car? Here’s how to decide",
+   "link": "https://finance.yahoo.com/deals-and-buying-guides/articles/buy-used-car-181444914.html",
+   "published": "2026-09-17T14:53+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "4222bbda6679",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Interest rate increase ‘likely’, warns Bank of England",
+   "link": "https://finance.yahoo.com/economy/policy/articles/interest-rate-increase-likely-warns-151236076.html",
+   "published": "2026-09-17T15:12+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "0a2b082babbb",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Broadcom CEO Hock Tan Says He Isn’t Worried – ‘No, Not in the Least’ – About AVGO as AI Extinction Fears Rattle Stocks",
+   "link": "https://finance.yahoo.com/technology/ai/articles/broadcom-ceo-hock-tan-says-145433255.html",
+   "published": "2026-09-17T14:54+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Information Technology",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "5b15e48e5487",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "What’s the average car loan length?",
+   "link": "https://finance.yahoo.com/markets/options/articles/long-car-loan-163621954.html",
+   "published": "2026-09-17T14:50+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "39468ba441e2",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Average auto loan interest rates by credit score in 2026",
+   "link": "https://finance.yahoo.com/news/average-car-loan-interest-rates-212521067.html",
+   "published": "2026-09-17T15:26+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Bonds"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "cb3fb67c79a2",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Starbucks (SBUX) Wins Big in Court, but One Finding Still Sticks",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/starbucks-sbux-wins-big-court-144721274.html",
+   "published": "2026-09-17T14:47+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "ce7853e3190a",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "AI is supercharging money scams. Here’s how to protect yourself from fraud",
+   "link": "https://finance.yahoo.com/technology/ai/articles/ai-supercharging-money-scams-protect-151556292.html",
+   "published": "2026-09-17T15:15+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "1c75253c1112",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Strong Execution Strengthens Macerich (MAC) in Q2",
+   "link": "https://finance.yahoo.com/real-estate/articles/strong-execution-strengthens-macerich-mac-144814109.html",
+   "published": "2026-09-17T14:48+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Real Estate"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "5471d7e55e58",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Boeing (BA)’s $8.4 Billion Supplier Buyback Keeps Turning Up New Costs",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/boeing-ba-8-4-billion-144356015.html",
+   "published": "2026-09-17T14:43+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Industrials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "3676abc3e7a3",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "How Is PTC Inc.'s Stock Performance Compared to Other Tech-Software Stocks?",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/ptc-inc-stock-performance-compared-144340989.html",
+   "published": "2026-09-17T14:43+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Information Technology",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "25848de4b523",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Crude Prices Fall as Saudi Arabia Seeks to Restore East-West Pipeline",
+   "link": "https://finance.yahoo.com/energy/articles/crude-prices-fall-saudi-arabia-153112109.html",
+   "published": "2026-09-17T15:31+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Energy"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "18ecab854e5d",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Snowflake Vs.MongoDB: Choose This One for The Rest of 2026",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/snowflake-vs-mongodb-choose-one-151544158.html",
+   "published": "2026-09-17T15:15+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "b8ff65565e6a",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Nike (NKE) Is Down 40% YTD: Will the Turnaround Strategy Work?",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/nike-nke-down-40-ytd-153250563.html",
+   "published": "2026-09-17T15:32+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "7324d0c90ae3",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "How Is Warner Bros. Discovery's Stock Performance Compared to Other Entertainment Stocks",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/warner-bros-discoverys-stock-performance-144029291.html",
+   "published": "2026-09-17T14:40+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "3a750deacd47",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "I Sold Micron Before Q2 Earnings and It Fell 23%. Here’s Why I'm Buying Before the Next Report.",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/sold-micron-q2-earnings-fell-143843816.html",
+   "published": "2026-09-17T14:38+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "24cdd8d672cd",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Southwest (LUV) Finally Joins the Lounge Business it Long Rejected",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/southwest-luv-finally-joins-lounge-143820941.html",
+   "published": "2026-09-17T14:38+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "b30f7b002bfa",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Michael Burry Disclosed Put Options Worth an Estimated $1.1 Billion Against Nvidia and Palantir Before Closing His Hedge Fund. Was That Bearish Bet Ahead of Its Time?",
+   "link": "https://finance.yahoo.com/markets/options/articles/michael-burry-disclosed-put-options-151000579.html",
+   "published": "2026-09-17T15:10+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "5b18e25cc981",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Truckload carriers: Capacity exodus growing, not slowing",
+   "link": "https://finance.yahoo.com/economy/policy/articles/truckload-carriers-capacity-exodus-growing-143616028.html",
+   "published": "2026-09-17T14:36+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Industrials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "d5d101672952",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Can I settle my medical bills? A guide to debt settlement.",
+   "link": "https://finance.yahoo.com/personal-finance/personal-loans/article/settle-medical-bills-a-guide-to-debt-settlement-111100958.html",
+   "published": "2026-09-17T11:11+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Health Care"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "b1d021e2ca42",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Medicare changes coming in 2027: What to know before open enrollment",
+   "link": "https://finance.yahoo.com/personal-finance/investing/article/medicare-changes-coming-in-2027-what-to-know-before-open-enrollment-175500182.html",
+   "published": "2026-09-17T17:55+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Health Care"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "58fe741c0476",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Mortgage preapproval vs. prequalification: Which should you choose?",
+   "link": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-preapproval-vs-prequalification-182927362.html",
+   "published": "2026-09-17T18:29+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Real Estate"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "89d92eec136b",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "ETF Outflows Clash With Crypto Traders’ Ethereum Conviction",
+   "link": "https://finance.yahoo.com/markets/crypto/articles/etf-outflows-clash-crypto-traders-150858417.html",
+   "published": "2026-09-17T15:08+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Bonds"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "69f035181dd2",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "How to open a savings account for a child",
+   "link": "https://finance.yahoo.com/personal-finance/banking/article/how-to-open-a-savings-account-for-a-child-211118938.html",
+   "published": "2024-09-26T21:11+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "9ceb61026e9c",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "When will mortgage rates go down? For now, rates are following the Fed",
+   "link": "https://finance.yahoo.com/personal-finance/mortgages/article/when-will-mortgage-rates-go-down-for-now-rates-are-following-the-fed-190610094.html",
+   "published": "2025-04-22T19:06+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Real Estate",
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "a761c9165c8c",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "$10,000 in a high-yield savings account or $10,000 in a CD: Which one will earn more in one year?",
+   "link": "https://finance.yahoo.com/personal-finance/banking/article/10000-high-yield-savings-account-vs-cd-earnings-one-year-211941165.html",
+   "published": "2026-09-17T21:19+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Bonds"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "63b3c2982b60",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "How to compare credit cards before you apply",
+   "link": "https://finance.yahoo.com/personal-finance/credit-cards/article/how-to-compare-credit-cards-213141307.html",
+   "published": "2026-09-17T21:31+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Bonds"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "356f3d4bee56",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Adaptive raises $30m in funding for agentic construction accounting",
+   "link": "https://finance.yahoo.com/small-business/articles/adaptive-raises-30m-funding-agentic-150902252.html",
+   "published": "2026-09-17T15:09+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "4081da5c3e99",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "What is the Federal Reserve?",
+   "link": "https://finance.yahoo.com/personal-finance/mortgages/article/what-is-the-federal-reserve-205012702.html",
+   "published": "2024-04-22T20:50+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "3511354806e0",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "A look at the federal funds rate over the past 50 years: How has it changed?",
+   "link": "https://finance.yahoo.com/personal-finance/banking/article/historical-fed-interest-rates-200947944.html",
+   "published": "2024-07-11T20:09+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "4dac33dcbcb3",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Mortgage rate predictions for the next five years: A new data-powered forecast through 2031",
+   "link": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-rate-predictions-for-the-next-five-years-a-new-data-powered-forecast-through-2031-195826935.html",
+   "published": "2025-08-18T19:58+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Real Estate"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "a52d7d7b0e15",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Understanding the Fed's rate decisions: Do we want high or low interest rates​?",
+   "link": "https://finance.yahoo.com/personal-finance/banking/article/do-we-want-high-or-low-interest-rates-223031516.html",
+   "published": "2024-12-27T22:30+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "a8437aba2c46",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "Did NetApp Borrow Its Record Quarter From The Rest Of The Year?",
+   "link": "https://finance.yahoo.com/markets/stocks/articles/did-netapp-borrow-record-quarter-150855033.html",
+   "published": "2026-09-17T15:08+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "1f601deabe28",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "How the Federal Reserve rate hike shapes consumer loans",
+   "link": "https://finance.yahoo.com/personal-finance/personal-loans/article/federal-reserve-loan-rates-190719060.html",
+   "published": "2025-09-16T19:07+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "7d42f7b73da5",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "The best credit cards for Airbnb rentals (2026): Earn points and cash back for your stay",
+   "link": "https://finance.yahoo.com/personal-finance/credit-cards/article/best-credit-card-for-airbnb-rentals-183212147.html",
+   "published": "2025-04-14T18:32+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Bonds"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "e2feedc4821d",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "How the Federal Reserve's rate hike impacts student loan interest rates",
+   "link": "https://finance.yahoo.com/personal-finance/student-loans/article/federal-reserve-student-loan-rates-223344566.html",
+   "published": "2024-01-26T22:33+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "c18c487df559",
+   "source": "Yahoo Finance",
+   "lang": "en",
+   "title": "What a Fed rate hike means for your bank accounts, loans, credit cards, and investments",
+   "link": "https://finance.yahoo.com/personal-finance/banking/article/what-a-fed-rate-hike-means-for-your-bank-accounts-loans-credit-cards-and-investments-220526102.html",
+   "published": "2024-12-17T22:05+00:00",
+   "feed": "https://finance.yahoo.com/news/rssindex",
+   "tags": [
+    "Financials",
+    "Bonds",
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "551e28915b95",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Jobless claims fall to lowest level since mid-May",
+   "link": "https://www.marketwatch.com/story/jobless-claims-fall-to-lowest-level-since-mid-may-bda58e3b?mod=mw_rss_marketpulse",
+   "published": "2025-07-03T12:36+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "8a4881ff5c95",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Jobless claims stay low in latest week",
+   "link": "https://www.marketwatch.com/story/jobless-claims-stay-low-in-latest-week-27b4b50b?mod=mw_rss_marketpulse",
+   "published": "2025-02-13T13:33+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "eb3cae0ebca5",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Consumer credit growth soars in December",
+   "link": "https://www.marketwatch.com/story/consumer-credit-growth-soars-in-december-d405d18e?mod=mw_rss_marketpulse",
+   "published": "2025-02-07T20:26+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Bonds"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "79400fb77306",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "U.S. productivity slows down in fourth quarter while unit labor costs accelerate",
+   "link": "https://www.marketwatch.com/story/u-s-productivity-slows-down-in-fourth-quarter-while-unit-labor-costs-accelerate-3c2b9092?mod=mw_rss_marketpulse",
+   "published": "2025-02-06T13:34+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Industrials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "99cfd03fdf86",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Beyond to buy rights to Buy Buy Baby brand and reunite it with Bed Bath & Beyond",
+   "link": "https://www.marketwatch.com/story/beyond-to-buy-rights-to-buy-buy-baby-brand-and-reunite-it-with-bed-bath-beyond-4383c6be?mod=mw_rss_marketpulse",
+   "published": "2025-02-03T13:46+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "44fd6ca8c6b9",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Trump asks Supreme Court to pause TikTok ban",
+   "link": "https://www.marketwatch.com/story/trump-asks-supreme-court-to-pause-tiktok-ban-2b724ae6?mod=mw_rss_marketpulse",
+   "published": "2024-12-28T00:32+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Communication Services"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "795bb5af0b36",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Amazon says it had best-ever Thanksgiving Holiday week with record sales and number of items sold",
+   "link": "https://www.marketwatch.com/story/amazon-says-it-had-best-ever-thanksgiving-holiday-week-with-record-sales-and-number-of-items-sold-786e0143?mod=mw_rss_marketpulse",
+   "published": "2024-12-03T14:05+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "ac95b8210847",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "U.S. stock futures and bond yields drop on reports Putin has updated nuclear doctrine",
+   "link": "https://www.marketwatch.com/story/u-s-stock-futures-and-bond-yields-drop-on-reports-putin-has-updated-nuclear-doctrine-4b9792c4?mod=mw_rss_marketpulse",
+   "published": "2024-11-19T08:55+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Equities",
+    "Bonds"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "876867a33d5b",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Charter Communications announces buyout deal for Liberty Broadband at terms above its previous proposal",
+   "link": "https://www.marketwatch.com/story/charter-communications-announces-buyout-deal-for-liberty-broadband-at-terms-above-its-previous-proposal-552f7acd?mod=mw_rss_marketpulse",
+   "published": "2024-11-13T13:52+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Communication Services"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "edf619eab7c4",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "General Motors unveils new all-electric Cadillac called the Vistiq with 300-mile range",
+   "link": "https://www.marketwatch.com/story/general-motors-unveils-new-all-electric-cadillac-called-the-vistiq-with-300-mile-range-c16fb8a6?mod=mw_rss_marketpulse",
+   "published": "2024-11-12T13:53+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "6fa50a83a4e6",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Vestas Wind Systems stock slumps as company says margins to be at low end of guidance",
+   "link": "https://www.marketwatch.com/story/vestas-wind-systems-stock-slumps-as-company-says-margins-to-be-at-low-end-of-guidance-a33bf5c4?mod=mw_rss_marketpulse",
+   "published": "2024-11-05T08:39+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "600a2af0796a",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Burberry shares rise on report Moncler could bid for it",
+   "link": "https://www.marketwatch.com/story/burberry-shares-rise-on-report-moncler-could-bid-for-it-9de42b98?mod=mw_rss_marketpulse",
+   "published": "2024-11-04T08:36+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "cec19a73d9ea",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Kazatomprom reports 17% increase in production during the third quarter",
+   "link": "https://www.marketwatch.com/story/kazatomprom-reports-17-increase-in-production-during-the-third-quarter-68742d5c?mod=mw_rss_marketpulse",
+   "published": "2024-11-01T07:36+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Raw materials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "7c5e77f5c066",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Anheuser-Busch InBev shares slip as sales come up shy of estimates",
+   "link": "https://www.marketwatch.com/story/anheuser-busch-inbev-shares-slip-as-sales-come-up-shy-of-estimates-508282c4?mod=mw_rss_marketpulse",
+   "published": "2024-10-31T08:09+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "5e18370d3a8e",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Wingstop’s stock slides 12% after profit falls short of estimates",
+   "link": "https://www.marketwatch.com/story/wingstops-stock-slides-12-after-profit-falls-short-of-estimates-1146f0ec?mod=mw_rss_marketpulse",
+   "published": "2024-10-30T12:22+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "b4cb0cff3ac1",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Novartis hikes sales and profit guidance for the year",
+   "link": "https://www.marketwatch.com/story/novartis-hikes-sales-and-profit-guidance-for-the-year-eed24ebf?mod=mw_rss_marketpulse",
+   "published": "2024-10-29T07:08+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Health Care"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "32409a63d243",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Plus500 says it will meet expectations after quarterly revenue climbs 11%",
+   "link": "https://www.marketwatch.com/story/plus500-says-it-will-meet-expectations-after-quarterly-revenue-climbs-11-b68b5ef1?mod=mw_rss_marketpulse",
+   "published": "2024-10-28T07:14+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "ea682094c1a0",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Trainline boosts guidance for the second time this year",
+   "link": "https://www.marketwatch.com/story/trainline-boosts-guidance-for-the-second-time-this-year-513373f6?mod=mw_rss_marketpulse",
+   "published": "2024-10-28T07:08+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "2be4f761ebfa",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Barclays reports 18% profit rise as it lifts income guidance",
+   "link": "https://www.marketwatch.com/story/barclays-reports-18-profit-rise-as-it-lifts-income-guidance-ceef3caf?mod=mw_rss_marketpulse",
+   "published": "2024-10-24T06:41+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "c40a2674da06",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "London Stock Exchange Group says income grew, led by Tradeweb",
+   "link": "https://www.marketwatch.com/story/london-stock-exchange-group-says-income-grew-led-by-tradeweb-65d00f97?mod=mw_rss_marketpulse",
+   "published": "2024-10-24T06:28+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "1528767ff936",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Nobel economics prize awarded to three who studied wealth of nations",
+   "link": "https://www.marketwatch.com/story/nobel-economics-prize-awarded-to-three-who-studied-wealth-of-nations-b1a391ba?mod=mw_rss_marketpulse",
+   "published": "2024-10-14T09:53+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "ab114ae10d67",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Nobel Peace Prize awarded to Japanese atomic bomb survivors",
+   "link": "https://www.marketwatch.com/story/nobel-peace-prize-awarded-to-japanese-atomic-bomb-survivors-d14639d7?mod=mw_rss_marketpulse",
+   "published": "2024-10-11T09:05+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "6f7a7f093257",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "DirecTV to acquire EchoStar’s video distribution business including Dish TV and Sling TV",
+   "link": "https://www.marketwatch.com/story/directv-to-acquire-echostars-video-distribution-business-including-dish-tv-and-sling-tv-23349832?mod=mw_rss_marketpulse",
+   "published": "2024-09-30T11:15+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Communication Services"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "2270aa7dbeba",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Moody’s places all of Boeing’s ratings on review for a downgrade",
+   "link": "https://www.marketwatch.com/story/moodys-places-all-of-boeings-ratings-on-review-for-a-downgrade-be242697?mod=mw_rss_marketpulse",
+   "published": "2024-09-13T17:02+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "a446b829e2fd",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Microsoft to lay off 650 people from videogame business: WSJ",
+   "link": "https://www.marketwatch.com/story/microsoft-to-lay-off-650-people-from-videogame-business-wsj-72135ba9?mod=mw_rss_marketpulse",
+   "published": "2024-09-12T11:47+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "648d07b67b0e",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "ArcBest misses profit expectations, as soft rate environment weighed on revenue",
+   "link": "https://www.marketwatch.com/story/arcbest-misses-profit-expectations-as-soft-rate-environment-weighed-on-revenue-4461160b?mod=mw_rss_marketpulse",
+   "published": "2024-08-02T10:14+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "4172d77e6b0a",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Alibaba stock climbs on report of vendor service fee increase",
+   "link": "https://www.marketwatch.com/story/alibaba-stock-climbs-on-report-of-vendor-service-fee-increase-db9d1854?mod=mw_rss_marketpulse",
+   "published": "2024-07-29T11:43+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "dd443de930d3",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "European stocks open lower after weak Wall Street finish, computer outages",
+   "link": "https://www.marketwatch.com/story/european-stocks-open-lower-after-weak-wall-street-finish-computer-outages-a57c53a7?mod=mw_rss_marketpulse",
+   "published": "2024-07-19T07:08+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "0fdb649018c9",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Wholesale inventories in U.S. rise 0.1% in April",
+   "link": "https://www.marketwatch.com/story/wholesale-inventories-in-u-s-rise-0-1-in-april-36e6a92d?mod=mw_rss_marketpulse",
+   "published": "2024-06-07T14:14+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "9058ce8bca41",
+   "source": "MarketWatch",
+   "lang": "en",
+   "title": "Hibbett shares fall as Q1 sales miss analysts’ estimate",
+   "link": "https://www.marketwatch.com/story/hibbett-shares-fall-as-q1-sales-miss-analysts-estimate-801a7cb0?mod=mw_rss_marketpulse",
+   "published": "2024-06-05T11:34+00:00",
+   "feed": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "0768e6258e98",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "British data centre group Nscale files for $35bn US listing",
+   "link": "https://www.ft.com/content/93ba41c5-d777-4733-8738-93a06e8fead1?syn-25a6b1a6=1",
+   "published": "2026-09-18T21:32+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "c53767e29ae3",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "White House attacks Fed official after review of Silicon Valley Bank collapse",
+   "link": "https://www.ft.com/content/98c6db91-44c7-487e-a733-331a58766ba1?syn-25a6b1a6=1",
+   "published": "2026-09-18T19:48+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Financials",
+    "USD"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "b63f457761a4",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Ex-Apollo executive admits to improperly using company documents",
+   "link": "https://www.ft.com/content/c57e73d1-547d-4f69-addb-6516845fbe6d?syn-25a6b1a6=1",
+   "published": "2026-09-18T19:18+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "95db70bb4029",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "PizzaExpress puts £500mn sale on the menu",
+   "link": "https://www.ft.com/content/99b7000e-d977-457b-baf3-64f2931b044c?syn-25a6b1a6=1",
+   "published": "2026-09-18T17:24+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Consumer Discretionary"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "36935f5ff342",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Yen sinks after BoJ raises rates to highest level since 1995",
+   "link": "https://www.ft.com/content/97a0bed5-0580-4ccc-bd3c-fe9a714259e2?syn-25a6b1a6=1",
+   "published": "2026-09-18T16:28+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "USD"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "923bc4c5b327",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "France calls G7 summit on releasing more oil reserves",
+   "link": "https://www.ft.com/content/31c53c3c-5cc1-4248-98dc-68fc8956e8cc?syn-25a6b1a6=1",
+   "published": "2026-09-18T15:51+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Energy"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "3ace34caa0f7",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Court shines a further light on who was at fault in SVB implosion",
+   "link": "https://www.ft.com/content/24dc8ce0-5331-4280-ad85-c2dddcef429d?syn-25a6b1a6=1",
+   "published": "2026-09-18T15:34+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "4ba4b0d242ea",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Former Wells Fargo asset manager Allspring explores $4bn sale",
+   "link": "https://www.ft.com/content/1270032d-25e9-4be0-aa2f-5205b9bedd08?syn-25a6b1a6=1",
+   "published": "2026-09-18T14:12+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "56c81c8a9743",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Why Scott Bessent should pay attention to Turkey’s market scandal",
+   "link": "https://www.ft.com/content/d6adb7bb-72b4-47d1-b3bd-11e908d06b60?syn-25a6b1a6=1",
+   "published": "2026-09-18T13:45+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Emerging markets"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "9341d0238a6b",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Come on Latin America, you owe me one",
+   "link": "https://www.ft.com/content/0649f3dd-e473-4174-ad1d-b01a93923bd3?syn-25a6b1a6=1",
+   "published": "2026-09-18T13:29+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Emerging markets"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "45cf2dc13603",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Turkey moves to liquidate funds at centre of ‘Ponzi-like scheme’",
+   "link": "https://www.ft.com/content/3943277e-eaf8-4faf-9f9c-1c05cb2ba992?syn-25a6b1a6=1",
+   "published": "2026-09-18T12:38+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Emerging markets"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "ced2ed1dc4e2",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Venezuela nears deal to tap disputed $4bn gold reserve",
+   "link": "https://www.ft.com/content/8f1f3047-372d-425f-bcd6-cfe9d5d4890c?syn-25a6b1a6=1",
+   "published": "2026-09-18T11:21+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Gold"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "5f733dc91ad9",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Why Al Gore welcomes China’s ‘unilateral leadership’ on climate",
+   "link": "https://www.ft.com/content/ff7ca130-d25c-4294-b654-0aa8a79268ab?syn-25a6b1a6=1",
+   "published": "2026-09-18T11:00+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "5639531a283c",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "The QT endgame at the BoE",
+   "link": "https://www.ft.com/content/901d5aca-e0ab-4728-8a24-6b0e616c5139?syn-25a6b1a6=1",
+   "published": "2026-09-18T05:30+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "591dc0785426",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "The new credit debacle gripping Wall Street",
+   "link": "https://www.ft.com/content/a117a105-545e-45a9-b4a1-7d03f7b4082b?syn-25a6b1a6=1",
+   "published": "2026-09-18T04:00+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Equities",
+    "Bonds"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "90aa1c3014dc",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Europe can attract more stock trading with fewer, better markets",
+   "link": "https://www.ft.com/content/fa36c637-05fd-4669-8784-0ada6f671f39?syn-25a6b1a6=1",
+   "published": "2026-09-18T04:00+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "4f9304ee0f6d",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Will El Niño be the saviour of Europe’s energy market?",
+   "link": "https://www.ft.com/content/19309369-2741-4caf-91f9-a45505f82148?syn-25a6b1a6=1",
+   "published": "2026-09-18T04:00+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Energy"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "f31403c8b821",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Inside Glencore’s $2bn battle with iron ore trader Radiant",
+   "link": "https://www.ft.com/content/350df9ff-fa41-4984-a1ee-248d8335b213?syn-25a6b1a6=1",
+   "published": "2026-09-18T04:00+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Raw materials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "6851e52abdd1",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Iran activates land routes to bypass US blockade",
+   "link": "https://www.ft.com/content/f69943f7-b173-444c-a79e-c9396a0380bd?syn-25a6b1a6=1",
+   "published": "2026-09-18T04:00+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Energy"
+   ],
+   "tagged_by": "apertus"
+  },
+  {
+   "id": "17583c426cf6",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "The real risk of private credit’s involvement in the pension business",
+   "link": "https://www.ft.com/content/b420f86e-4266-432a-b2a1-cf1cde516463?syn-25a6b1a6=1",
+   "published": "2026-09-18T04:00+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Bonds"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "afdef222a822",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Private equity turns to financial engineering to lure insurance billions",
+   "link": "https://www.ft.com/content/9c6fac10-9f3f-4503-9765-b9e29e18c68d?syn-25a6b1a6=1",
+   "published": "2026-09-18T04:00+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Financials",
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "3efb2618a29d",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "OpenAI’s listing delay raises stakes for SoftBank’s $50bn data centre IPO",
+   "link": "https://www.ft.com/content/6c467774-9d91-425e-a901-26db055e37ad?syn-25a6b1a6=1",
+   "published": "2026-09-18T03:04+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "2692322cea7a",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "US regulator opens markets to tokenised stock trading",
+   "link": "https://www.ft.com/content/b528698e-9b04-4497-9d22-67e401be21d3?syn-25a6b1a6=1",
+   "published": "2026-09-17T18:29+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Equities"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "519cbdc78154",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Bank of England follows FTAV advice",
+   "link": "https://www.ft.com/content/46e25252-9e1e-4ead-aa56-293a0f09a393",
+   "published": "2026-09-17T17:53+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Financials"
+   ],
+   "tagged_by": "keyword"
+  },
+  {
+   "id": "72b6efb27136",
+   "source": "Financial Times",
+   "lang": "en",
+   "title": "Has AI broken the old VC model?",
+   "link": "https://www.ft.com/content/8c4143c7-f846-43a0-807a-b460fff7cd75?syn-25a6b1a6=1",
+   "published": "2026-09-17T16:46+00:00",
+   "feed": "https://www.ft.com/markets?format=rss",
+   "tags": [
+    "Information Technology"
+   ],
+   "tagged_by": "keyword"
+  }
+ ]
+}
