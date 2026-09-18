@@ -11,34 +11,10 @@ Alexeeva, Luis Haftendorn, Noé Szynalski, Tristan Arni); the case repo names
 nobody from UNRISKOMEGA. Partners are at their booths **Floor 3,
 Friday 9am–12am** — that is the window to collect names and roles.
 
-## Who UNRISKOMEGA is
+## Who we are pitching to, in detail
 
-Swiss fintech, founded Oct 2016, based in Kloten. A joint venture of MathConsult,
-multilateral AG, math link and uni software plus. Commercial-register board:
-Matthias Raphael Gysi (president), Rolf Grob, Dr. Michael Aichinger, Marc Fabian
-Aeberhard. None of them is confirmed as a judge — verify at the booth.
-
-Two lineages sit in that board, and they want different pitches:
-
-- **The quant lineage** (MathConsult). Michael Aichinger holds a PhD in theoretical
-  physics and co-wrote *A Workout in Computational Finance* (Wiley). If this is who
-  we get, lead with method and correctness.
-- **The commercial lineage.** Rolf Grob came via Credit Suisse and math link. If
-  this is who we get, lead with advisor time saved and bank adoption.
-
-Ask which one we're talking to in the first minute and switch accordingly.
-
-## What they sell, in their words
-
-URO Core with URO Advisor, Self Invest and Self Pension on top. 25+ banks,
-500,000+ portfolios, 1,000+ advisors. Their language is "quantitative depth",
-"Swiss diligence", advisors who "advise with substance". Built against FINMA,
-FIDLEG and MiFID II.
-
-Their public positioning contains **no AI at all** — automation appears only for
-self-service, never as advisor replacement. They are a risk-analytics house that
-has come to an AI hackathon, which suggests they are scouting where language and
-judgment fit on top of maths they already do deterministically.
+See [JUDGES.md](JUDGES.md) — company, board, the two lineages, and the blank table
+to fill in at the booth.
 
 ## What that means for the message
 
