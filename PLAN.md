@@ -34,19 +34,26 @@ Officer), Frédéric Altorfer (Head Solution Integration & Support).
 ## The idea
 
 Every team will read "ping" as a dashboard notification. We make it literal: **the ping
-is a phone call.** The advisor picks up and hears the briefing, interrupts with
-questions, and gets grounded answers — while a card on screen highlights each fact
-and its source as it is spoken.
+is a phone call.** The advisor's phone rings, they pick up and hear the briefing,
+interrupt with questions, and get grounded answers — while a card on screen highlights
+each fact and its source as it is spoken.
+
+The call is real and live, but it runs in the browser, not over the phone network: a
+phone web page that looks like an incoming call, talking to an ElevenLabs agent over
+WebRTC. No phone number, no telecom costs, no calling anyone who hasn't agreed to it.
 
 ## The stage moment
 
 1. The jury hands us the test client. We drop the file in; a 60-second countdown
    starts on screen.
-2. A juror's phone rings (agreed beforehand at the booth — fallback: our presenter's
-   phone on speaker). The voice briefs them on the client.
+2. The advisor's phone (a teammate playing the advisor) rings: incoming-call screen,
+   ringtone, vibration. They press green. The voice briefs them on the client.
 3. They interrupt ("which fund?"); the agent answers from the data and stops.
 4. On screen, each fact lights up with its source as it is spoken.
 5. The countdown stops well under 60.
+
+The role-play is theatre; the voice and the facts are live. A pre-recorded call is only
+the fallback video — it can't be about the test client, and the jury would notice.
 
 ## Architecture
 
@@ -55,10 +62,11 @@ client file ──> fact engine (deterministic) ──> briefing facts + sources
                                                    │
                         ┌──────────────────────────┼──────────────────────┐
                         v                          v                      v
-                 briefing card (UI)     ElevenLabs agent (outbound    news / CIO view
-                 karaoke highlighting   call via Twilio; facts         hooks
-                                        injected as dynamic vars;
-                                        follow-ups via server tools)
+                 briefing card (UI)     incoming-call page (phone)    news / CIO view
+                 karaoke highlighting   ElevenLabs agent over          hooks
+                                        WebRTC; facts injected as
+                                        dynamic vars; follow-ups
+                                        via client tools
 ```
 
 - **Fact engine first.** Performance, allocation drift vs. strategic asset allocation,
@@ -66,31 +74,41 @@ client file ──> fact engine (deterministic) ──> briefing facts + sources
   computed in code, each fact carrying its source row. Must run on any file of the
   `clients.json` shape — the test client is unseen.
 - **The LLM only phrases facts.** It never produces a number that isn't in the fact set.
+- **The ring is pushed from our server.** Dropping in a client file triggers the fact
+  engine, then a push (WebSocket) to the call page, which starts ringing.
 - **The call gets its facts up front** as dynamic variables, so the core briefing needs
-  no lookups after pick-up. Follow-up questions hit our API as server tools (public via
-  a tunnel).
-- **The card and the call share one fact set** — nothing is built twice.
+  no lookups after pick-up. Follow-up questions go through client tools in the page,
+  which call our API — no public tunnel needed.
+- **The card and the call share one fact set** — nothing is built twice. The card
+  follows the agent's transcript events to highlight each fact as it is spoken.
 
 ## Build order
 
 1. Fact engine + source tracking over `clients.json` / `reference.json`.
 2. Briefing card with per-claim sources and one-click trigger.
-3. Outbound call: Twilio number imported into ElevenLabs, agent reading the facts.
+3. Incoming-call page: ringing screen, pushed ring, ElevenLabs agent over WebRTC
+   reading the facts.
 4. Karaoke sync between call and card.
-5. Follow-up questions via server tools (covers the chatbot bonus).
+5. Follow-up questions via client tools (covers the chatbot bonus).
 6. Stretch, pick at most two: rehearsal mode (agent plays the client and pushes back),
    suitability objection ("that fund breaches her ESG exclusion"), German/French
    switching, post-meeting voice note → CRM note and follow-up email, ex-custody PDF
    import.
+7. Optional upgrade, only with time and a juror who agrees at the booth: a real phone
+   call to their phone via a Twilio number imported into ElevenLabs.
 
 ## Setup and risks
 
 - [ ] ElevenLabs key works (Growing Business tier, 5.4M chars/month). Conversational AI
-      is available; **no phone number attached yet** — buy a Twilio number (paid, not
-      trial, so it can call unverified numbers) and import it. Do this early.
-- [ ] Ask at the booth whether a juror will take the call. Never call anyone without
-      their agreement.
-- [ ] Test calling on venue reception; record a fallback video of the full flow.
+      is available; browser calls need no phone number.
+- [ ] **Audio routing is the biggest risk.** Speakerphone into a handheld mic sounds bad
+      and the agent can hear itself through the venue speakers and cut itself off.
+      Plan: the advisor wears earbuds on the phone; the laptop joins the same session
+      and plays the agent through venue audio while the card is on the projector.
+      Test it in the room during the partner slot.
+- [ ] The call page needs mic permission over HTTPS on the phone — test on the venue
+      WiFi, with a hotspot as backup.
+- [ ] Record a fallback video of the full flow.
 - [ ] No cloned voices of real people.
 - [ ] The account has an unrelated agent ("CallKeep – Thames Valley Plumbing") — leave it
       alone; create a separate demo agent.
