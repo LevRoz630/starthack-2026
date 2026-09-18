@@ -29,6 +29,9 @@
           <span class="tag sim" id="market-sim" hidden>SIMULATED</span>
         </p>
         <button class="btn secondary" id="demo-call" type="button" hidden>Simulate call</button>
+        <button class="btn secondary" id="demo-recorded" type="button" hidden>Play recorded call</button>
+        <button class="btn secondary" id="demo-replay" type="button" hidden>Replay offline</button>
+        <p class="demo-status" id="demo-status" hidden></p>
       </div>
     </section>
 
@@ -66,8 +69,8 @@
         </div>
       </form>
       <div class="listen-row">
-        <button class="btn secondary" id="listen-toggle" type="button">Enable live listening</button>
-        <p class="listen-hint">Experimental: streams your mic to speech-to-text and answers automatically. Unverified end-to-end.</p>
+        <button class="btn listen" id="listen" type="button" aria-pressed="false">Listen</button>
+        <p class="live" id="live-transcript" aria-live="polite"></p>
       </div>
       <ol class="answers" id="answers" aria-live="polite"></ol>
 
@@ -106,6 +109,7 @@
   </main>
 
   <audio id="ringtone" src="ringtone.mp3" loop preload="auto"></audio>
+  <audio id="caller-voice" preload="auto"></audio>
   <script type="module" src="app.js"></script>
 </body>
 </html>

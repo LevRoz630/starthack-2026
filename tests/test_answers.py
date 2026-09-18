@@ -1,0 +1,66 @@
+import pytest
+
+from backend import answers
+from backend.callmode import call_facts
+from backend.data import load
+from backend.facts import compute
+from backend.market import load_scenario
+
+
+@pytest.fixture(scope='module')
+def facts():
+    store = load()
+    client = store.client('CASE-043')
+    return call_facts(client, store, load_scenario('tech-selloff'))[0] + \
+        [f for f in compute(client, store) if f.slot != 'who']
+
+
+def ids(result):
+    return [a['fact'] for a in result['answers']]
+
+
+@pytest.mark.parametrize('question', [
+    'Is there more in-depth explanation of what happened?', 'Why is this happening?',
+    "What's going on with my portfolio?", 'Can you explain this?'])
+def test_open_questions_get_the_headline_then_the_hit(facts, question):
+    r = answers.answer(facts, question, use_llm=False)
+    assert r['method'] == 'type'
+    assert ids(r)[0].startswith('news.') and ids(r)[1].startswith('digest.')
+
+
+def test_advice_questions_get_talking_points(facts):
+    r = answers.answer(facts, 'Should I sell everything?', use_llm=False)
+    assert [i.split('.')[0] for i in ids(r)] == ['talk', 'talk', 'holding']
+
+
+def test_change_questions_get_the_last_proposal(facts):
+    r = answers.answer(facts, 'What did you change for me last week?', use_llm=False)
+    assert ids(r)[0] == 'watch.last_proposal'
+
+
+def test_the_open_issue_copy_is_not_answered_twice(facts):
+    r = answers.answer(facts, 'Did the orders go through?', use_llm=False)
+    texts = [a['text'].replace('Open issue: ', '') for a in r['answers']]
+    assert len(texts) == len(set(texts))
+
+
+def test_llm_may_only_pick_listed_facts(facts, monkeypatch):
+    monkeypatch.setattr(answers, 'chat', lambda *a, **kw: ('{"facts": [999, "x", 3]}', 'apertus'))
+    chosen = answers.by_llm([f for f in facts if f.slot != 'caller'], 'How much have I lost on tech?')
+    assert len(chosen) == 1
+
+
+def test_off_topic_llm_picks_are_dropped(facts, monkeypatch):
+    # Apertus picks the portfolio value for an ESG question: nothing about ESG, so no answer.
+    development = next(i for i, f in enumerate([f for f in facts if f.slot != 'caller'], 1) if f.slot == 'development')
+    monkeypatch.setattr(answers, 'chat', lambda *a, **kw: (f'{{"facts": [{development}]}}', 'apertus'))
+    r = answers.answer(facts, 'Is my portfolio sustainable enough?', use_llm=True)
+    assert r == {'answers': [], 'found': False, 'method': 'none'}
+
+
+def test_llm_failure_falls_back_to_keywords(facts, monkeypatch):
+    def down(*a, **kw):
+        raise answers.LLMUnavailable('no key')
+    monkeypatch.setattr(answers, 'chat', down)
+    r = answers.answer(facts, 'How much have I lost on tech?', use_llm=True)
+    assert r['method'] == 'keywords' and 'Information Technology' in r['answers'][0]['text']

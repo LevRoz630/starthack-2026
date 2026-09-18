@@ -128,10 +128,6 @@ p { margin: 0; }
 }
 .ask input:focus { outline: 2px solid var(--uro-blue); outline-offset: 1px; }
 
-.listen-row { display: flex; flex-direction: column; gap: 4px; }
-.listen-hint { font-size: var(--size-xs); color: var(--muted); }
-.btn.live { background: var(--red); color: var(--on-blue); border-color: var(--red); }
-
 .answers { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--gap); }
 .answer-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: var(--gutter); border-left: 4px solid var(--uro-blue); }
 .answer-card .q { font-size: var(--size-s); color: var(--muted); margin-bottom: 6px; }
@@ -187,3 +183,16 @@ p { margin: 0; }
   max-width: 480px;
   margin: 0 auto;
 }
+
+/* Live listening: the client's words as they are heard, and the toggle. */
+.listen-row { display: flex; align-items: center; gap: var(--gap); }
+.btn.listen { flex: none; min-width: 112px; }
+.btn.listen[aria-pressed="true"] { background: var(--red); border-color: var(--red); color: var(--on-blue); }
+.btn.listen[data-source="twilio"] { background: var(--green); border-color: var(--green); color: var(--on-blue); }
+.live { margin: 0; flex: 1; min-width: 0; color: var(--muted); font-style: italic; font-size: var(--size-s); overflow-wrap: anywhere; }
+.live.final { color: var(--ink); font-style: normal; }
+.live.error { color: var(--red); font-style: normal; }
+
+.tag.error { background: var(--red); color: #fff; }
+.demo-status { margin: 8px 0 0; font-size: 14px; color: var(--muted, #6b6b73); }
+.demo-status[hidden] { display: none; }

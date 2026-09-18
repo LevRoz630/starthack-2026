@@ -22,6 +22,7 @@ const state = {
   callStarted: null,
   timer: null,
   approved: {},
+  line: null,         // 'twilio' while the phone line is being transcribed
 };
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -119,6 +120,7 @@ function ring(briefing) {
   state.briefing = briefing;
   state.answers = [];
   state.approved = {};
+  state.line = null;
   fillCaller(briefing);
   renderBrief($('#screen-ringing [data-brief]'), briefing, { withImpact: true });
   show('ringing');
@@ -145,6 +147,7 @@ function stopRingtone() {
 
 function answer() {
   stopRingtone();
+  fetch(`${API}/call/answered`, { method: 'POST' }).catch(() => {});
   const b = state.briefing;
   const reason = (bySlot(b).reason || [])[0];
   $('[data-reason-line]').textContent = reason ? reason.text : '';
@@ -153,6 +156,8 @@ function answer() {
   $('[data-impact-line]').className = `impact-line ${b.impact && b.impact.amount < 0 ? 'loss' : ''}`;
   renderBrief($('#screen-call [data-brief]'), b, { withImpact: false });
   $('#answers').replaceChildren();
+  showLive('');
+  setListenButton(state.line);
   state.callStarted = Date.now();
   $('#timer').textContent = '0:00';
   clearInterval(state.timer);
@@ -197,95 +202,131 @@ function answerCard(entry) {
 // For the Twilio listener: inject a question heard on the line.
 window.pushAnswer = (question) => ask(question);
 
-// An {"answers": [...]} event already computed server-side (browser-mic listener,
-// or Twilio's media stream broadcasting over /ws since it can't read replies itself).
-function renderPushedAnswer(event) {
-  const entry = { question: event.question, answers: event.answers || [],
-                  error: event.found ? null : 'Nothing in the data answers this.' };
-  state.answers.unshift(entry);
-  $('#answers').prepend(answerCard(entry));
-}
+// --- live listening -------------------------------------------------------------
+// The client's voice reaches /listen (this phone's microphone, 16 kHz PCM16) or
+// /twilio/media (the phone line); either way transcripts and answers come back on /ws.
 
-// --- live listening (experimental; UNTESTED end-to-end, see backend/listener.py) --
+const LISTEN_RATE = 16000;
+const LISTEN_BATCH = LISTEN_RATE / 10;   // send 100 ms per message
+const mic = { stream: null, ctx: null, node: null, source: null, ws: null, pending: [] };
 
-const listen = { ws: null, ctx: null, processor: null, stream: null, active: false };
-
-function pcm16Base64(float32, ratio) {
-  // Nearest-neighbour downsample to 16kHz (no anti-alias filter — fine for speech
-  // at this bitrate, not audiophile-grade) then 16-bit PCM, base64-encoded.
-  const outLength = Math.floor(float32.length / ratio);
-  const pcm = new Int16Array(outLength);
-  for (let i = 0; i < outLength; i++) {
-    const s = Math.max(-1, Math.min(1, float32[Math.floor(i * ratio)]));
-    pcm[i] = s < 0 ? s * 0x8000 : s * 0x7fff;
+// Runs in the audio thread: hands raw Float32 frames to the page.
+const WORKLET = `
+class Tap extends AudioWorkletProcessor {
+  process(inputs) {
+    const ch = inputs[0] && inputs[0][0];
+    if (ch) this.port.postMessage(ch.slice(0));
+    return true;
   }
-  const bytes = new Uint8Array(pcm.buffer);
-  let binary = '';
-  for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
-  return btoa(binary);
+}
+registerProcessor('tap', Tap);`;
+
+function toPcm16(frame, inRate) {
+  // Average-downsample Float32 at the device rate to Int16 at 16 kHz.
+  const ratio = inRate / LISTEN_RATE;
+  const out = new Int16Array(Math.floor(frame.length / ratio));
+  for (let i = 0; i < out.length; i++) {
+    const start = Math.floor(i * ratio);
+    const end = Math.min(frame.length, Math.floor((i + 1) * ratio));
+    let sum = 0;
+    for (let j = start; j < end; j++) sum += frame[j];
+    const v = Math.max(-1, Math.min(1, sum / Math.max(1, end - start)));
+    out[i] = v < 0 ? v * 0x8000 : v * 0x7fff;
+  }
+  return out;
 }
 
-function setListenButton(text, { live = false, disabled = false } = {}) {
-  const btn = $('#listen-toggle');
-  if (!btn) return;
-  btn.textContent = text;
-  btn.disabled = disabled;
-  btn.classList.toggle('live', live);
+function queueAudio(samples) {
+  for (const s of samples) mic.pending.push(s);
+  while (mic.pending.length >= LISTEN_BATCH && mic.ws && mic.ws.readyState === WebSocket.OPEN) {
+    mic.ws.send(Int16Array.from(mic.pending.splice(0, LISTEN_BATCH)).buffer);
+  }
 }
 
 async function startListening() {
-  if (listen.active || !state.briefing) return;
-  setListenButton('Requesting mic…', { disabled: true });
+  if (mic.ws || !state.briefing) return;
+  setListenButton('mic');
   try {
-    listen.stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-  } catch {
-    setListenButton('Mic denied');
+    mic.stream = await navigator.mediaDevices.getUserMedia({
+      audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true },
+    });
+  } catch (e) {
+    showLive('Microphone not available (needs HTTPS and permission).', 'error');
+    setListenButton(null);
     return;
   }
-  listen.ctx = new (window.AudioContext || window.webkitAudioContext)();
-  const source = listen.ctx.createMediaStreamSource(listen.stream);
-  listen.processor = listen.ctx.createScriptProcessor(4096, 1, 1);
-  const ratio = listen.ctx.sampleRate / 16000;
-
-  listen.ws = new WebSocket(`${WS_BASE}/call/${encodeURIComponent(state.briefing.client)}/listen`);
-  listen.ws.addEventListener('open', () => {
-    listen.active = true;
-    setListenButton('Stop listening', { live: true });
-  });
-  listen.ws.addEventListener('message', (msg) => {
-    let event;
-    try { event = JSON.parse(msg.data); } catch { return; }
-    if (event.type === 'answer') {
-      renderPushedAnswer(event);
-    } else if (event.type === 'error') {
-      setListenButton(`Listener unavailable: ${event.error}`);
-      stopListening({ keepMessage: true });
-    }
-  });
-  listen.ws.addEventListener('close', () => stopListening({ keepMessage: true }));
-  listen.ws.addEventListener('error', () => {});
-
-  listen.processor.onaudioprocess = (e) => {
-    if (!listen.ws || listen.ws.readyState !== WebSocket.OPEN) return;
-    listen.ws.send(JSON.stringify({ audio_base_64: pcm16Base64(e.inputBuffer.getChannelData(0), ratio) }));
-  };
-  source.connect(listen.processor);
-  listen.processor.connect(listen.ctx.destination);
+  mic.ctx = new (window.AudioContext || window.webkitAudioContext)();
+  mic.source = mic.ctx.createMediaStreamSource(mic.stream);
+  const onFrame = (frame) => queueAudio(toPcm16(frame, mic.ctx.sampleRate));
+  if (mic.ctx.audioWorklet) {
+    const url = URL.createObjectURL(new Blob([WORKLET], { type: 'application/javascript' }));
+    await mic.ctx.audioWorklet.addModule(url);
+    mic.node = new AudioWorkletNode(mic.ctx, 'tap');
+    mic.node.port.onmessage = (e) => onFrame(e.data);
+    mic.source.connect(mic.node);
+  } else {
+    mic.node = mic.ctx.createScriptProcessor(4096, 1, 1);
+    mic.node.onaudioprocess = (e) => onFrame(e.inputBuffer.getChannelData(0));
+    mic.source.connect(mic.node);
+    mic.node.connect(mic.ctx.destination);
+  }
+  const wsUrl = `${API.replace(/^http/, 'ws')}/listen?client=${encodeURIComponent(state.briefing.client)}`;
+  mic.ws = new WebSocket(wsUrl);
+  mic.ws.binaryType = 'arraybuffer';
+  mic.ws.addEventListener('close', () => { if (mic.ws) stopListening(); });
+  showLive('Listening…');
 }
 
-function stopListening({ keepMessage = false } = {}) {
-  if (listen.processor) { try { listen.processor.disconnect(); } catch { /* ignore */ } listen.processor = null; }
-  if (listen.ctx) { try { listen.ctx.close(); } catch { /* ignore */ } listen.ctx = null; }
-  if (listen.stream) { for (const t of listen.stream.getTracks()) t.stop(); listen.stream = null; }
-  if (listen.ws) { const ws = listen.ws; listen.ws = null; try { ws.close(); } catch { /* ignore */ } }
-  listen.active = false;
-  if (!keepMessage) setListenButton('Enable live listening');
+function stopListening() {
+  const ws = mic.ws;
+  mic.ws = null;
+  if (ws) {
+    try { if (ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify({ type: 'stop' })); } catch { /* ignore */ }
+    try { ws.close(); } catch { /* ignore */ }
+  }
+  try { mic.source && mic.source.disconnect(); } catch { /* ignore */ }
+  try { mic.node && mic.node.disconnect(); } catch { /* ignore */ }
+  if (mic.stream) for (const t of mic.stream.getTracks()) t.stop();
+  if (mic.ctx) mic.ctx.close().catch(() => {});
+  Object.assign(mic, { stream: null, ctx: null, node: null, source: null, pending: [] });
+  setListenButton(null);
+}
+
+function setListenButton(source) {
+  const btn = $('#listen');
+  btn.setAttribute('aria-pressed', source === 'mic' ? 'true' : 'false');
+  if (source === 'twilio') btn.dataset.source = 'twilio'; else delete btn.dataset.source;
+  btn.textContent = source === 'mic' ? 'Stop' : source === 'twilio' ? 'On the line' : 'Listen';
+  btn.disabled = source === 'twilio';
+}
+
+function showLive(text, kind) {
+  const line = $('#live-transcript');
+  line.textContent = text || '';
+  line.className = `live${kind ? ` ${kind}` : ''}`;
+}
+
+// Events from the listener (either source) for the client on the line.
+function onListenerEvent(event) {
+  if (!state.briefing || event.client !== state.briefing.client) return;
+  if (event.type === 'listening' && event.source !== 'browser') { state.line = 'twilio'; setListenButton('twilio'); }
+  if (event.type === 'listening_stopped' && event.source !== 'browser') { state.line = null; setListenButton(mic.ws ? 'mic' : null); }
+  if (event.type === 'listener_error') showLive(`Listener: ${event.error}`, 'error');
+  if (state.screen !== 'call') return;
+  if (event.type === 'transcript') showLive(event.text, event.final ? 'final' : '');
+  if (event.type === 'answer') {
+    const entry = { question: event.question, answers: event.answers || [] };
+    state.answers.unshift(entry);
+    $('#answers').prepend(answerCard(entry));
+    showLive('');
+  }
 }
 
 // --- after call ---------------------------------------------------------------
 
 function endCall() {
   stopListening();
+  $('#caller-voice').pause();
   clearInterval(state.timer);
   const duration = state.callStarted ? clock(Date.now() - state.callStarted) : '0:00';
   $('#note-body').textContent = callNote(duration);
@@ -343,10 +384,28 @@ function followUpEmail() {
   return lines.join('\n');
 }
 
-function approve(kind) {
-  state.approved[kind] = true;
-  $(`[data-approved="${kind}"]`).hidden = false;
-  $(`[data-approve="${kind}"]`).disabled = true;
+async function approve(kind) {
+  const btn = $(`[data-approve="${kind}"]`);
+  const tag = $(`[data-approved="${kind}"]`);
+  btn.disabled = true;
+  tag.hidden = false;
+  tag.classList.remove('error');
+  tag.textContent = 'Sending…';
+  try {
+    const resp = await fetch(`${API}/followup/send`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ client: state.briefing.client, kind, body: $(kind === 'email' ? '#email-body' : '#note-body').textContent }),
+    });
+    const result = await resp.json();
+    if (!resp.ok) throw new Error(result.error || resp.status);
+    state.approved[kind] = true;
+    tag.textContent = result.sent ? `Sent to ${result.to}` : 'Saved to outbox (email not set up)';
+  } catch (err) {
+    tag.textContent = `Not sent: ${err.message}`;
+    tag.classList.add('error');
+    btn.disabled = false;
+  }
 }
 
 // --- market + connection ------------------------------------------------------
@@ -379,10 +438,18 @@ function connect() {
     try { event = JSON.parse(msg.data); } catch { return; }
     if (event.type === 'hello' || event.type === 'market') setMarket(event.market);
     if (event.type === 'incoming_call' && event.briefing) ring(event.briefing);
-    // From the Twilio media stream, which can't read replies on its own connection.
-    if (event.type === 'answer' && state.screen === 'call' && state.briefing && event.client === state.briefing.client) {
-      renderPushedAnswer(event);
+    if (['transcript', 'answer', 'listening', 'listening_stopped', 'listener_error'].includes(event.type)) {
+      onListenerEvent(event);
     }
+    if (event.type === 'demo_audio' && state.screen === 'call' && state.briefing && event.client === state.briefing.client) {
+      const voice = $('#caller-voice');
+      voice.src = `${API}${event.url}`;
+      voice.play().catch(() => {});
+    }
+    if (event.type === 'call_ended' && state.screen === 'call' && state.briefing && event.client === state.briefing.client) {
+      endCall();
+    }
+    if (event.type === 'demo_started' || event.type === 'demo_finished') demoStatus(event);
   });
   ws.addEventListener('close', retry);
   ws.addEventListener('error', () => ws.close());
@@ -399,6 +466,7 @@ function connect() {
 $('#answer').addEventListener('click', answer);
 $('#decline').addEventListener('click', () => { stopRingtone(); stopListening(); show('idle'); });
 $('#end-call').addEventListener('click', endCall);
+$('#listen').addEventListener('click', () => (mic.ws ? stopListening() : startListening()));
 $('#done').addEventListener('click', () => show('idle'));
 $('#ask-form').addEventListener('submit', (e) => {
   e.preventDefault();
@@ -406,7 +474,6 @@ $('#ask-form').addEventListener('submit', (e) => {
   ask(input.value);
   input.value = '';
 });
-$('#listen-toggle').addEventListener('click', () => (listen.active ? stopListening() : startListening()));
 for (const btn of $$('[data-approve]')) btn.addEventListener('click', () => approve(btn.dataset.approve));
 
 if (DEMO_CLIENT) {
@@ -421,6 +488,36 @@ if (DEMO_CLIENT) {
       });
     } catch { setConn('closed', 'Offline'); }
   });
+}
+
+function demoStatus(event) {
+  const status = $('#demo-status');
+  status.hidden = false;
+  status.textContent = event.type === 'demo_started' ? `Recorded call "${event.script}" running`
+    : `Recorded call finished (${event.result})`;
+}
+
+async function runDemo(mode) {
+  const status = $('#demo-status');
+  status.hidden = false;
+  status.textContent = mode === 'replay' ? 'Replaying the saved call…' : 'Preparing the recorded call…';
+  try {
+    const resp = await fetch(`${API}/demo/run`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ script: params.get('script') || 'golf', mode }),
+    });
+    const result = await resp.json();
+    if (!resp.ok) status.textContent = result.error || 'Could not start';
+  } catch { status.textContent = 'Offline'; }
+}
+
+if (DEMO_CLIENT) {
+  for (const [id, mode] of [['#demo-recorded', 'pipeline'], ['#demo-replay', 'replay']]) {
+    const b = $(id);
+    b.hidden = false;
+    b.addEventListener('click', () => runDemo(mode));
+  }
 }
 
 fetch(`${API}/market/state`).then((r) => r.json()).then(setMarket).catch(() => {});

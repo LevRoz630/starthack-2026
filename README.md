@@ -35,19 +35,12 @@ DEMO_SCENARIO=tech-selloff uvicorn backend.api:app --port 8000
 | `GET /call/{ref}` | the incoming-call briefing |
 | `POST /call/incoming` | `{"from": "+41..."}` (JSON or Twilio form) or `{"client": ref}` — pushes the briefing to `/ws` |
 | `POST /ask` | `{"client", "question"}` → the facts that answer it, with sources |
-| `WS /ws` | events: `hello`, `market`, `incoming_call`, `answer` (pushed answers from the Twilio media stream) |
+| `WS /ws` | events: `hello`, `market`, `incoming_call`, `transcript`, `answer`, `listening`, `listening_stopped`, `listener_error` |
 
 Also: `POST /transcribe` (audio → text → answers, ElevenLabs Scribe), `GET /profile/{ref}`,
-`GET /call/{ref}/audio` and `GET /briefing/{ref}/audio` (spoken, ElevenLabs Flash).
-
-**UNTESTED, written from documented protocols but never run against a real call — review before
-a demo relies on them.** `POST /twilio/incoming` and `WS /call/{ref}/twilio-media`
-(`backend/twilio_media.py`) are the real telephony path: set a Twilio number's "a call comes in"
-webhook to `/twilio/incoming` (`ADVISOR_NUMBER` env var forwards the call); it returns TwiML that
-also starts a media stream, resampled and relayed to ElevenLabs realtime STT the same way
-`WS /call/{ref}/listen` (`backend/listener.py`) does for the phone app's own microphone (the
-"Enable live listening" button mid-call). Until verified, `POST /call/incoming` plus a second
-device on the phone app remains the reliable fallback docs/PLAN.md already treats as acceptable.
+`GET /call/{ref}/audio` and `GET /briefing/{ref}/audio` (spoken, ElevenLabs Flash). The real-time
+call listener, Twilio webhook and demo pipelines are documented in `backend/listener.py` and
+under [Demo pipelines](#demo-pipelines) below.
 
 `GET /dashboard/` — the one-click 60-second briefing (`web/dashboard/`): pick a client, see the
 briefing with every sentence's source, word count and reading-time estimate, section-coverage
@@ -98,3 +91,13 @@ Data only — no brief, no judging criteria, no partner contacts. Those came at 
 | `side-challenge/` | Ten 8-page German quarterly client reports (Q4 2025), from a separate fictional bank — not joinable to `clients.json` |
 
 Three further client-data files arrive later for the live presentation, so the solution has to accept new files of the same shape rather than hardcoding the one we have.
+
+## Demo pipelines
+
+Both run through the same listener (speech-to-text → answer cards on the phone).
+
+- **Live:** a real call via Twilio (`/twilio/voice`, `/twilio/media`; setup steps in `backend/listener.py`) or the phone's microphone (Listen button in the call screen, `/listen`).
+- **Recorded:** `data/demo/golf.json` scripts the client's side of the golf-video call. Its lines are voiced by ElevenLabs once (`python -m backend.demo prepare golf`) and replayed in real time through the real speech-to-text. On the phone (`/phone/?demo=CASE-043`): **Play recorded call**, then tap Answer. Every run is saved to `data/demo/runs/golf-latest.json`.
+- **Replay offline:** pushes the saved run again with its original timing and no network — the fallback if the venue network fails.
+
+Approving the follow-up email or call note sends it through Gmail when `.env` has `SMTP_USER`, `SMTP_PASSWORD` (a Gmail app password) and `EMAIL_TO`; otherwise it lands in `data/outbox/`.

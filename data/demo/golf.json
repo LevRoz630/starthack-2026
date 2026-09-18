@@ -1,0 +1,14 @@
+{
+  "_about": "The golf-video call. Client CASE-043 calls during the simulated tech sell-off. client_voice is ElevenLabs 'Roger' (casual, middle-aged); the briefing voice is 'Alice'. pause_before is the silence before each line, which is where the advisor answers.",
+  "client": "CASE-043",
+  "scenario": "tech-selloff",
+  "client_voice": "CwhRBWXzGAHq8TQ4Fs17",
+  "ring_timeout": 45,
+  "hangup_after": 2.0,
+  "lines": [
+    {"pause_before": 1.0, "text": "Hi, it's Waldo. I just saw tech stocks are crashing. How much have I lost on tech?"},
+    {"pause_before": 7.0, "text": "And my world fund, is that hit by the dollar as well?"},
+    {"pause_before": 7.0, "text": "What about my bonds, are they holding up?"},
+    {"pause_before": 6.0, "text": "Great, thanks. Talk soon."}
+  ]
+}

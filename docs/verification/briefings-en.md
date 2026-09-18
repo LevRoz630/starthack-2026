@@ -122,19 +122,23 @@ Investor profile 5 · CHF 185k · ESG preference: no
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-002 holdings</sub>
 6. **digest.** The dollar −1.2% against the franc: 19.5% of the book is exposed, about −CHF 431.  
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-002 holdings</sub>
-7. **digest.** Ether −8.1% today: 1.2% of the book, about −CHF 177.  
+7. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **digest.** Ether −8.1% today: 1.2% of the book, about −CHF 177.  
    <sub>simulated feed "tech-selloff": XETUSD Curncy CHG_PCT_1D × clients.json CASE-002 holdings</sub>
-8. **digest.** 5.7% of the book has no matching market move and is not included.  
+10. **digest.** 5.7% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-002 holdings without a mapped market move</sub>
-9. **holding.** Global Investment Grade Credit Fund and SPDR Bloomberg Global Aggregate Bond UCITS ETF (17.7% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+11. **holding.** Global Investment Grade Credit Fund and SPDR Bloomberg Global Aggregate Bond UCITS ETF (17.7% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
    <sub>clients.json CASE-002: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-10. **holding.** Holding up today: Swiss franc bonds +0.2% (34.2% of the book); foreign bonds +0.3% (6.4% of the book); Consumer Staples +0.3% (4.6% of the book).  
+12. **holding.** Holding up today: Swiss franc bonds +0.2% (34.2% of the book); foreign bonds +0.3% (6.4% of the book); Consumer Staples +0.3% (4.6% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-002 holdings</sub>
-11. **talk.** Start with what held up, then walk through what fell.  
+13. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-12. **talk.** Frame today against the long-term plan, not the daily move.  
+14. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-13. **issue.** Open issue: 1 suitability error and 2 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
+15. **issue.** Open issue: 1 suitability error and 2 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
    <sub>clients.json CASE-002: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -203,13 +207,15 @@ Investor profile 5 · CHF 141k · ESG preference: no
    <sub>impact of the market feed on clients.json CASE-003 holdings</sub>
 4. **digest.** Information Technology −4.8% today: 23.6% of the book, about −CHF 2k, mostly via Sensirion Holding AG.  
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-003 holdings</sub>
-5. **holding.** Holding up today: Consumer Staples +0.3% (73.4% of the book).  
+5. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+6. **holding.** Holding up today: Consumer Staples +0.3% (73.4% of the book).  
    <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-003 holdings</sub>
-6. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
+7. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
    <sub>data/playbook.json: cash_need (when: withdrawal)</sub>
-7. **talk.** Start with what held up, then walk through what fell.  
+8. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-8. **issue.** Open issue: Volatility is 20.0%, above the 12.0% maximum of Investor profile 5.  
+9. **issue.** Open issue: Volatility is 20.0%, above the 12.0% maximum of Investor profile 5.  
    <sub>clients.json CASE-003: Portfolios[CASE-003-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -270,19 +276,23 @@ Investor profile 5 · CHF 534k · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-004 holdings</sub>
 6. **digest.** Information Technology −4.8% today: 6.2% of the book, about −CHF 2k, mostly via iShares Edge MSCI USA Quality Factor UCITS ETF and iShares Edge MSCI World Value Factor UCITS ETF.  
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-004 holdings</sub>
-7. **digest.** Financials −0.9% today: 10.7% of the book, about −CHF 517, mostly via Swiss Life Holding AG and iShares Swiss Dividend ETF (CH).  
+7. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **digest.** Financials −0.9% today: 10.7% of the book, about −CHF 517, mostly via Swiss Life Holding AG and iShares Swiss Dividend ETF (CH).  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-004 holdings</sub>
-8. **digest.** 14.1% of the book has no matching market move and is not included.  
+10. **digest.** 14.1% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-004 holdings without a mapped market move</sub>
-9. **holding.** Glob.High Yield Corp Bd CHF UCITS ETF (Dist) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (10.2% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+11. **holding.** Glob.High Yield Corp Bd CHF UCITS ETF (Dist) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (10.2% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
    <sub>clients.json CASE-004: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-10. **holding.** Holding up today: Swiss franc bonds +0.2% (17.3% of the book); Consumer Staples +0.3% (11.0% of the book); foreign bonds +0.3% (3.2% of the book).  
+12. **holding.** Holding up today: Swiss franc bonds +0.2% (17.3% of the book); Consumer Staples +0.3% (11.0% of the book); foreign bonds +0.3% (3.2% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-004 holdings</sub>
-11. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
+13. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
    <sub>data/playbook.json: cash_need (when: withdrawal)</sub>
-12. **talk.** Start with what held up, then walk through what fell.  
+14. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-13. **issue.** Open issue: 2 suitability errors and 0 warnings open; most serious: "Overweight in the equity sector "Energy"".  
+15. **issue.** Open issue: 2 suitability errors and 0 warnings open; most serious: "Overweight in the equity sector "Energy"".  
    <sub>clients.json CASE-004: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -353,17 +363,21 @@ Investor profile 6 · CHF 480k · ESG preference: yes
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-005 holdings</sub>
 7. **digest.** The dollar −1.2% against the franc: 20.7% of the book is exposed, about −CHF 1k.  
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-005 holdings</sub>
-8. **digest.** Raw materials −0.6% today: 9.3% of the book, about −CHF 267, mostly via Precious Metals Fund and Smart Energy Fund.  
+8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+10. **digest.** Raw materials −0.6% today: 9.3% of the book, about −CHF 267, mostly via Precious Metals Fund and Smart Energy Fund.  
    <sub>simulated feed "tech-selloff": S5MATR Index CHG_PCT_1D × clients.json CASE-005 holdings</sub>
-9. **digest.** 7.0% of the book has no matching market move and is not included.  
+11. **digest.** 7.0% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-005 holdings without a mapped market move</sub>
-10. **holding.** Holding up today: Gold +1.4% (20.5% of the book); Silver +0.8% (6.1% of the book); Utilities +0.5% (3.3% of the book).  
+12. **holding.** Holding up today: Gold +1.4% (20.5% of the book); Silver +0.8% (6.1% of the book); Utilities +0.5% (3.3% of the book).  
    <sub>simulated feed "tech-selloff": XAU Curncy CHG_PCT_1D × clients.json CASE-005 holdings</sub>
-11. **talk.** Start with what held up, then walk through what fell.  
+13. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-12. **talk.** Frame today against the long-term plan, not the daily move.  
+14. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-13. **issue.** Open issue: ESG client: average sustainability score 6.3 of 10 against a minimum of 5.7; 3 holdings below the per-position minimum (GQG Partners Emerging Markets Equity Fund, Biotechnology Fund and 1 more, 15.1% of the book); 33.5% of the book has no score.  
+15. **issue.** Open issue: ESG client: average sustainability score 6.3 of 10 against a minimum of 5.7; 3 holdings below the per-position minimum (GQG Partners Emerging Markets Equity Fund, Biotechnology Fund and 1 more, 15.1% of the book); 33.5% of the book has no score.  
    <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-005 positions</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -497,19 +511,23 @@ Investor profile 5 · CHF 905k · ESG preference: yes
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-007 holdings</sub>
 5. **digest.** The dollar −1.2% against the franc: 8.6% of the book is exposed, about −CHF 934.  
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-007 holdings</sub>
-6. **digest.** Financials −0.9% today: 10.5% of the book, about −CHF 853, mostly via iShares Swiss Dividend ETF (CH) and Equities Switzerland Passive Leader.  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** Financials −0.9% today: 10.5% of the book, about −CHF 853, mostly via iShares Swiss Dividend ETF (CH) and Equities Switzerland Passive Leader.  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-007 holdings</sub>
-7. **digest.** 6.8% of the book has no matching market move and is not included.  
+9. **digest.** 6.8% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-007 holdings without a mapped market move</sub>
-8. **holding.** Global Investment Grade Credit Fund and iShares MSCI World CHF Hedged UCITS ETF (Acc) and US Short Duration High Yield (18.0% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+10. **holding.** Global Investment Grade Credit Fund and iShares MSCI World CHF Hedged UCITS ETF (Acc) and US Short Duration High Yield (18.0% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
    <sub>clients.json CASE-007: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-9. **holding.** Holding up today: Swiss franc bonds +0.2% (35.2% of the book); Consumer Staples +0.3% (9.4% of the book).  
+11. **holding.** Holding up today: Swiss franc bonds +0.2% (35.2% of the book); Consumer Staples +0.3% (9.4% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-007 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
+12. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Frame today against the long-term plan, not the daily move.  
+13. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-12. **issue.** Open issue: 1 suitability error and 0 warnings open; most serious: "Compliance with maximum volatility".  
+14. **issue.** Open issue: 1 suitability error and 0 warnings open; most serious: "Compliance with maximum volatility".  
    <sub>clients.json CASE-007: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -572,13 +590,17 @@ Investor profile 7 · CHF 308k · ESG preference: yes
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-008 holdings</sub>
 5. **digest.** Consumer Discretionary −2.2% today: 8.5% of the book, about −CHF 574, mostly via CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
    <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-008 holdings</sub>
-6. **holding.** Holding up today: Consumer Staples +0.3% (8.6% of the book).  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **holding.** Holding up today: Consumer Staples +0.3% (8.6% of the book).  
    <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-008 holdings</sub>
-7. **talk.** Start with what held up, then walk through what fell.  
+9. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-8. **talk.** Frame today against the long-term plan, not the daily move.  
+10. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-9. **issue.** Open issue: 5 suitability errors and 7 warnings open; most serious: "Foreign currency exposure exceeds 50%".  
+11. **issue.** Open issue: 5 suitability errors and 7 warnings open; most serious: "Foreign currency exposure exceeds 50%".  
    <sub>clients.json CASE-008: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -635,13 +657,15 @@ Investor profile 5 · CHF 665k · ESG preference: no
    <sub>impact of the market feed on clients.json CASE-009 holdings</sub>
 3. **digest.** Financials −0.9% today: 94.3% of the book, about −CHF 6k, mostly via VZ Holding AG.  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-009 holdings</sub>
-4. **digest.** The dollar −1.2% against the franc: 0.6% of the book is exposed, about −CHF 49.  
+4. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+5. **digest.** The dollar −1.2% against the franc: 0.6% of the book is exposed, about −CHF 49.  
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-009 holdings</sub>
-5. **talk.** Frame today against the long-term plan, not the daily move.  
+6. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-6. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+7. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
-7. **issue.** Open issue: Risk profile last assessed 5 Sep 2022, 4 years ago.  
+8. **issue.** Open issue: Risk profile last assessed 5 Sep 2022, 4 years ago.  
    <sub>clients.json CASE-009: ProfilingDateUtc</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -757,11 +781,13 @@ Investor profile 6 · CHF 101k · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-011 holdings</sub>
 7. **digest.** Financials −0.9% today: 16.9% of the book, about −CHF 154, mostly via UBS Group AG.  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-011 holdings</sub>
-8. **talk.** Frame today against the long-term plan, not the daily move.  
+8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+10. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
-10. **issue.** Open issue: Volatility is 60.6%, above the 15.0% maximum of Investor profile 6.  
+11. **issue.** Open issue: Volatility is 60.6%, above the 15.0% maximum of Investor profile 6.  
    <sub>clients.json CASE-011: Portfolios[CASE-011-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -826,13 +852,17 @@ Investor profile 6 · CHF 44k · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-012 holdings</sub>
 7. **digest.** Communication Services −3.1% today: 28.0% of the book, about −CHF 385, mostly via Alphabet Inc and ETF USD iShares III PLC- iShares Core MSCI World UCITS ETF.  
    <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × clients.json CASE-012 holdings</sub>
-8. **holding.** Holding up today: Consumer Staples +0.3% (4.2% of the book).  
+8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+10. **holding.** Holding up today: Consumer Staples +0.3% (4.2% of the book).  
    <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-012 holdings</sub>
-9. **talk.** Start with what held up, then walk through what fell.  
+11. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-10. **talk.** Frame today against the long-term plan, not the daily move.  
+12. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-11. **issue.** Open issue: 13 suitability errors and 8 warnings open; most serious: "Volatility range exceeded (portfolio risk too high)".  
+13. **issue.** Open issue: 13 suitability errors and 8 warnings open; most serious: "Volatility range exceeded (portfolio risk too high)".  
    <sub>clients.json CASE-012: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -1029,17 +1059,19 @@ Investor profile 6 · CHF 304k · ESG preference: yes
    <sub>data/profiles/profiles.json CASE-015 (apertus) from clients.json ClientNotes</sub>
 3. **caller.** Contact preference: "Prefers not to be contacted during business hours on weekdays"  
    <sub>data/profiles/profiles.json CASE-015 from clients.json ClientNotes</sub>
-4. **digest.** The dollar −1.2% against the franc: 1.1% of the book is exposed, about −CHF 42.  
+4. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+5. **digest.** The dollar −1.2% against the franc: 1.1% of the book is exposed, about −CHF 42.  
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-015 holdings</sub>
-5. **digest.** Financials −0.9% today: 1.1% of the book, about −CHF 31, mostly via UBS Group AG.  
+6. **digest.** Financials −0.9% today: 1.1% of the book, about −CHF 31, mostly via UBS Group AG.  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-015 holdings</sub>
-6. **holding.** Holding up today: Utilities +0.5% (88.1% of the book).  
+7. **holding.** Holding up today: Utilities +0.5% (88.1% of the book).  
    <sub>simulated feed "tech-selloff": S5UTIL Index CHG_PCT_1D × clients.json CASE-015 holdings</sub>
-7. **talk.** Acknowledge the concern first, then give the numbers.  
+8. **talk.** Acknowledge the concern first, then give the numbers.  
    <sub>data/playbook.json: acknowledge (when: anxious)</sub>
-8. **talk.** Agree on a concrete next step and when you will call back.  
+9. **talk.** Agree on a concrete next step and when you will call back.  
    <sub>data/playbook.json: follow_up (when: always)</sub>
-9. **issue.** Open issue: Volatility is 29.3%, above the 15.0% maximum of Investor profile 6.  
+10. **issue.** Open issue: Volatility is 29.3%, above the 15.0% maximum of Investor profile 6.  
    <sub>clients.json CASE-015: Portfolios[CASE-015-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -1153,17 +1185,21 @@ Investor profile 6 · CHF 1.11m · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-017 holdings</sub>
 5. **digest.** Consumer Discretionary −2.2% today: 6.5% of the book, about −CHF 2k, mostly via mobilezone holding ag and Amazon.Com Inc.  
    <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-017 holdings</sub>
-6. **digest.** 5.5% of the book has no matching market move and is not included.  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** 5.5% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-017 holdings without a mapped market move</sub>
-7. **holding.** Global Investment Grade Credit Fund and iShares MSCI World CHF Hedged UCITS ETF (Acc) and US Short Duration High Yield (11.2% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+9. **holding.** Global Investment Grade Credit Fund and iShares MSCI World CHF Hedged UCITS ETF (Acc) and US Short Duration High Yield (11.2% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
    <sub>clients.json CASE-017: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-8. **holding.** Holding up today: Swiss franc bonds +0.2% (12.8% of the book); Consumer Staples +0.3% (8.6% of the book); foreign bonds +0.3% (4.7% of the book).  
+10. **holding.** Holding up today: Swiss franc bonds +0.2% (12.8% of the book); Consumer Staples +0.3% (8.6% of the book); foreign bonds +0.3% (4.7% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-017 holdings</sub>
-9. **talk.** Start with what held up, then walk through what fell.  
+11. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-10. **talk.** Frame today against the long-term plan, not the daily move.  
+12. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-11. **issue.** Open issue: 0 suitability errors and 2 warnings open; most serious: "Share is not part of the investment universe for individual shares and therefore not monitored." on American Dep.Share Repr 2 Shs -A- EHang Holdings Ltd.  
+13. **issue.** Open issue: 0 suitability errors and 2 warnings open; most serious: "Share is not part of the investment universe for individual shares and therefore not monitored." on American Dep.Share Repr 2 Shs -A- EHang Holdings Ltd.  
    <sub>clients.json CASE-017: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -1222,15 +1258,17 @@ Investor profile 6 · CHF 3.10m · ESG preference: no
    <sub>simulated feed "tech-selloff": S5MATR Index CHG_PCT_1D × clients.json CASE-018 holdings</sub>
 4. **digest.** Financials −0.9% today: 28.5% of the book, about −CHF 8k, mostly via Zurich Insurance Group AG and Swiss Re AG.  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-018 holdings</sub>
-5. **digest.** Industrials −1.1% today: 8.2% of the book, about −CHF 3k, mostly via Geberit AG.  
+5. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+6. **digest.** Industrials −1.1% today: 8.2% of the book, about −CHF 3k, mostly via Geberit AG.  
    <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-018 holdings</sub>
-6. **holding.** Holding up today: Consumer Staples +0.3% (4.5% of the book).  
+7. **holding.** Holding up today: Consumer Staples +0.3% (4.5% of the book).  
    <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-018 holdings</sub>
-7. **talk.** Start with what held up, then walk through what fell.  
+8. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-8. **talk.** Frame today against the long-term plan, not the daily move.  
+9. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-9. **issue.** Open issue: 13 suitability errors and 6 warnings open; most serious: "Volatility range exceeded (portfolio risk too high)".  
+10. **issue.** Open issue: 13 suitability errors and 6 warnings open; most serious: "Volatility range exceeded (portfolio risk too high)".  
    <sub>clients.json CASE-018: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -1309,13 +1347,17 @@ Investor profile 7 · CHF 699k · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-019 holdings</sub>
 7. **digest.** Health Care −0.4% today: 35.3% of the book, about −CHF 987, mostly via Ypsomed Holding AG and Roche Holding AG.  
    <sub>simulated feed "tech-selloff": S5HLTH Index CHG_PCT_1D × clients.json CASE-019 holdings</sub>
-8. **holding.** Holding up today: Consumer Staples +0.3% (9.6% of the book); Utilities +0.5% (5.3% of the book).  
+8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+10. **holding.** Holding up today: Consumer Staples +0.3% (9.6% of the book); Utilities +0.5% (5.3% of the book).  
    <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-019 holdings</sub>
-9. **talk.** Start with what held up, then walk through what fell.  
+11. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-10. **talk.** Frame today against the long-term plan, not the daily move.  
+12. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-11. **issue.** Open issue: 7 suitability errors and 6 warnings open; most serious: "Significant overweight in the equity region "Switzerland"".  
+13. **issue.** Open issue: 7 suitability errors and 6 warnings open; most serious: "Significant overweight in the equity region "Switzerland"".  
    <sub>clients.json CASE-019: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -1384,17 +1426,21 @@ Investor profile 4 · CHF 486k · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-020 holdings</sub>
 5. **digest.** Information Technology −4.8% today: 4.2% of the book, about −CHF 977, mostly via iShares MSCI World Minimum Volatility UCITS ETF and MSCI USA Select Factor Mix UCITS ETF.  
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-020 holdings</sub>
-6. **digest.** Communication Services −3.1% today: 2.8% of the book, about −CHF 416, mostly via iShares MSCI World Minimum Volatility UCITS ETF and CSIF (CH) Equity SPI ESG Multi Premia Blue.  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** Communication Services −3.1% today: 2.8% of the book, about −CHF 416, mostly via iShares MSCI World Minimum Volatility UCITS ETF and CSIF (CH) Equity SPI ESG Multi Premia Blue.  
    <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × clients.json CASE-020 holdings</sub>
-7. **holding.** SPDR Bloomberg Global Aggregate Bond UCITS ETF (5.6% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
+9. **holding.** SPDR Bloomberg Global Aggregate Bond UCITS ETF (5.6% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
    <sub>clients.json CASE-020: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-8. **holding.** Holding up today: Swiss franc bonds +0.2% (31.4% of the book); foreign bonds +0.3% (12.5% of the book); Consumer Staples +0.3% (5.8% of the book).  
+10. **holding.** Holding up today: Swiss franc bonds +0.2% (31.4% of the book); foreign bonds +0.3% (12.5% of the book); Consumer Staples +0.3% (5.8% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-020 holdings</sub>
-9. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
+11. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
    <sub>data/playbook.json: cash_need (when: withdrawal)</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
+12. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **issue.** Open issue: 1 suitability error and 0 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
+13. **issue.** Open issue: 1 suitability error and 0 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
    <sub>clients.json CASE-020: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -1520,13 +1566,17 @@ Investor profile 5 · CHF 6.38m · ESG preference: no
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-022 holdings</sub>
 7. **digest.** Industrials −1.1% today: 15.3% of the book, about −CHF 11k, mostly via ABB Ltd and SGS Ltd.  
    <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-022 holdings</sub>
-8. **holding.** Holding up today: Consumer Staples +0.3% (5.5% of the book); Utilities +0.5% (5.5% of the book).  
+8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+10. **holding.** Holding up today: Consumer Staples +0.3% (5.5% of the book); Utilities +0.5% (5.5% of the book).  
    <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-022 holdings</sub>
-9. **talk.** Start with what held up, then walk through what fell.  
+11. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-10. **talk.** Frame today against the long-term plan, not the daily move.  
+12. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-11. **issue.** Open issue: 6 suitability errors and 7 warnings open; most serious: "Significant overweight in the equity sector "Materials"".  
+13. **issue.** Open issue: 6 suitability errors and 7 warnings open; most serious: "Significant overweight in the equity sector "Materials"".  
    <sub>clients.json CASE-022: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -1597,13 +1647,17 @@ Investor profile 7 · CHF 258k · ESG preference: no
    <sub>simulated feed "tech-selloff": XETUSD Curncy CHG_PCT_1D × clients.json CASE-023 holdings</sub>
 7. **digest.** Information Technology −4.8% today: 4.2% of the book, about −CHF 526, mostly via International Business Machines Corp IBM.  
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-023 holdings</sub>
-8. **holding.** Holding up today: Consumer Staples +0.3% (10.3% of the book).  
+8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+10. **holding.** Holding up today: Consumer Staples +0.3% (10.3% of the book).  
    <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-023 holdings</sub>
-9. **talk.** Start with what held up, then walk through what fell.  
+11. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-10. **talk.** Frame today against the long-term plan, not the daily move.  
+12. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-11. **issue.** Open issue: Volatility is 24.5%, above the 18.5% maximum of Investor profile 7.  
+13. **issue.** Open issue: Volatility is 24.5%, above the 18.5% maximum of Investor profile 7.  
    <sub>clients.json CASE-023: Portfolios[CASE-023-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -1652,19 +1706,23 @@ Investor profile 5 · CHF 503k · ESG preference: yes
    <sub>data/profiles/profiles.json CASE-024 (apertus) from clients.json ClientNotes</sub>
 3. **digest.** Information Technology −4.8% today: 2.8% of the book, about −CHF 670, mostly via MSCI ACWI SF UCITS ETF and iShares Core SPI(R) ETF (CH).  
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-024 holdings</sub>
-4. **digest.** Consumer Discretionary −2.2% today: 1.8% of the book, about −CHF 197, mostly via MSCI ACWI SF UCITS ETF and iShares Core SPI(R) ETF (CH).  
+4. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+5. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+6. **digest.** Consumer Discretionary −2.2% today: 1.8% of the book, about −CHF 197, mostly via MSCI ACWI SF UCITS ETF and iShares Core SPI(R) ETF (CH).  
    <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-024 holdings</sub>
-5. **digest.** Industrials −1.1% today: 2.4% of the book, about −CHF 133, mostly via iShares Core SPI(R) ETF (CH) and MSCI ACWI SF UCITS ETF.  
+7. **digest.** Industrials −1.1% today: 2.4% of the book, about −CHF 133, mostly via iShares Core SPI(R) ETF (CH) and MSCI ACWI SF UCITS ETF.  
    <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-024 holdings</sub>
-6. **digest.** 5.2% of the book has no matching market move and is not included.  
+8. **digest.** 5.2% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-024 holdings without a mapped market move</sub>
-7. **holding.** Holding up today: Swiss franc bonds +0.2% (72.3% of the book).  
+9. **holding.** Holding up today: Swiss franc bonds +0.2% (72.3% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-024 holdings</sub>
-8. **holding.** Global Investment Grade Credit Fund and MSCI ACWI SF UCITS ETF and SPDR Bloomberg Global Aggregate Bond UCITS ETF (28.5% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+10. **holding.** Global Investment Grade Credit Fund and MSCI ACWI SF UCITS ETF and SPDR Bloomberg Global Aggregate Bond UCITS ETF (28.5% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
    <sub>clients.json CASE-024: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-9. **talk.** Agree on a concrete next step and when you will call back.  
+11. **talk.** Agree on a concrete next step and when you will call back.  
    <sub>data/playbook.json: follow_up (when: always)</sub>
-10. **issue.** Open issue: ESG client: average sustainability score 7.0 of 10 against a minimum of 5.7; 2 holdings below the per-position minimum (1.625 % Alpiq Holding AG 2022-30.05.25 and 0.26 % Hyundai Capital Services Inc 2020-11.02.25, 9.9% of the book); 10.0% of the book has no score.  
+12. **issue.** Open issue: ESG client: average sustainability score 7.0 of 10 against a minimum of 5.7; 2 holdings below the per-position minimum (1.625 % Alpiq Holding AG 2022-30.05.25 and 0.26 % Hyundai Capital Services Inc 2020-11.02.25, 9.9% of the book); 10.0% of the book has no score.  
    <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-024 positions</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -1786,13 +1844,17 @@ Investor profile 6 · CHF 2.38m · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-026 holdings</sub>
 7. **digest.** Financials −0.9% today: 16.8% of the book, about −CHF 4k, mostly via Zurich Insurance Group AG and Helvetia Holding AG.  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-026 holdings</sub>
-8. **holding.** Holding up today: Consumer Staples +0.3% (8.6% of the book).  
+8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+10. **holding.** Holding up today: Consumer Staples +0.3% (8.6% of the book).  
    <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-026 holdings</sub>
-9. **talk.** Start with what held up, then walk through what fell.  
+11. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-10. **talk.** Frame today against the long-term plan, not the daily move.  
+12. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-11. **issue.** Open issue: 5 suitability errors and 4 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
+13. **issue.** Open issue: 5 suitability errors and 4 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
    <sub>clients.json CASE-026: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -1855,11 +1917,13 @@ Investor profile 5 · CHF 172k · ESG preference: yes
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-027 holdings</sub>
 5. **digest.** Industrials −1.1% today: 97.9% of the book, about −CHF 2k, mostly via SpaceX and Union Pacific Corp.  
    <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-027 holdings</sub>
-6. **talk.** Frame today against the long-term plan, not the daily move.  
+6. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-7. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+8. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
-8. **issue.** Open issue: Risk profile last assessed 1 Oct 2022, 4 years ago.  
+9. **issue.** Open issue: Risk profile last assessed 1 Oct 2022, 4 years ago.  
    <sub>clients.json CASE-027: ProfilingDateUtc</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -1967,17 +2031,21 @@ no risk profile · CHF 102k · ESG preference: no
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-029 holdings</sub>
 5. **digest.** The dollar −1.2% against the franc: 11.9% of the book is exposed, about −CHF 146.  
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-029 holdings</sub>
-6. **digest.** Consumer Discretionary −2.2% today: 3.1% of the book, about −CHF 70, mostly via CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** Consumer Discretionary −2.2% today: 3.1% of the book, about −CHF 70, mostly via CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
    <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-029 holdings</sub>
-7. **digest.** 5.1% of the book has no matching market move and is not included.  
+9. **digest.** 5.1% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-029 holdings without a mapped market move</sub>
-8. **holding.** Holding up today: Swiss franc bonds +0.2% (56.5% of the book); Consumer Staples +0.3% (3.3% of the book).  
+10. **holding.** Holding up today: Swiss franc bonds +0.2% (56.5% of the book); Consumer Staples +0.3% (3.3% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-029 holdings</sub>
-9. **holding.** Vanguard Global Bond Index Fund (11.2% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
+11. **holding.** Vanguard Global Bond Index Fund (11.2% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
    <sub>clients.json CASE-029: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-10. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
+12. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
    <sub>data/playbook.json: cash_need (when: withdrawal)</sub>
-11. **talk.** Start with what held up, then walk through what fell.  
+13. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -2028,17 +2096,21 @@ no risk profile · CHF 28k · ESG preference: no
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-030 holdings</sub>
 4. **digest.** The dollar −1.2% against the franc: 11.8% of the book is exposed, about −CHF 40.  
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-030 holdings</sub>
-5. **digest.** Consumer Discretionary −2.2% today: 3.1% of the book, about −CHF 19, mostly via CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
+5. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+6. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Consumer Discretionary −2.2% today: 3.1% of the book, about −CHF 19, mostly via CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
    <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-030 holdings</sub>
-6. **digest.** 5.4% of the book has no matching market move and is not included.  
+8. **digest.** 5.4% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-030 holdings without a mapped market move</sub>
-7. **holding.** Holding up today: Swiss franc bonds +0.2% (56.2% of the book); Consumer Staples +0.3% (3.3% of the book).  
+9. **holding.** Holding up today: Swiss franc bonds +0.2% (56.2% of the book); Consumer Staples +0.3% (3.3% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-030 holdings</sub>
-8. **holding.** Vanguard Global Bond Index Fund (11.2% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
+10. **holding.** Vanguard Global Bond Index Fund (11.2% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
    <sub>clients.json CASE-030: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-9. **talk.** Start with what held up, then walk through what fell.  
+11. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-10. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+12. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -2091,19 +2163,23 @@ no risk profile · CHF 35k · ESG preference: yes
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-031 holdings</sub>
 5. **digest.** The dollar −1.2% against the franc: 14.8% of the book is exposed, about −CHF 63.  
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-031 holdings</sub>
-6. **digest.** Consumer Discretionary −2.2% today: 4.0% of the book, about −CHF 31, mostly via CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** Consumer Discretionary −2.2% today: 4.0% of the book, about −CHF 31, mostly via CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
    <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-031 holdings</sub>
-7. **digest.** 5.0% of the book has no matching market move and is not included.  
+9. **digest.** 5.0% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-031 holdings without a mapped market move</sub>
-8. **holding.** Holding up today: Swiss franc bonds +0.2% (46.5% of the book); Consumer Staples +0.3% (4.1% of the book).  
+10. **holding.** Holding up today: Swiss franc bonds +0.2% (46.5% of the book); Consumer Staples +0.3% (4.1% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-031 holdings</sub>
-9. **holding.** Vanguard Global Bond Index Fund (9.1% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
+11. **holding.** Vanguard Global Bond Index Fund (9.1% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
    <sub>clients.json CASE-031: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
+12. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+13. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
-12. **issue.** Open issue: ESG client: average sustainability score 7.1 of 10 against a minimum of 5.7; 5.0% of the book has no score.  
+14. **issue.** Open issue: ESG client: average sustainability score 7.1 of 10 against a minimum of 5.7; 5.0% of the book has no score.  
    <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-031 positions</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -2158,13 +2234,17 @@ no risk profile · CHF 23k · ESG preference: yes
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-032 holdings</sub>
 5. **digest.** Consumer Discretionary −2.2% today: 6.5% of the book, about −CHF 34, mostly via CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
    <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-032 holdings</sub>
-6. **holding.** Holding up today: Swiss franc bonds +0.2% (19.4% of the book); Consumer Staples +0.3% (6.8% of the book).  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **holding.** Holding up today: Swiss franc bonds +0.2% (19.4% of the book); Consumer Staples +0.3% (6.8% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-032 holdings</sub>
-7. **talk.** Start with what held up, then walk through what fell.  
+9. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-8. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+10. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
-9. **issue.** Open issue: ESG client: average sustainability score 7.3 of 10 against a minimum of 5.7; 2.9% of the book has no score.  
+11. **issue.** Open issue: ESG client: average sustainability score 7.3 of 10 against a minimum of 5.7; 2.9% of the book has no score.  
    <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-032 positions</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -2221,17 +2301,21 @@ Investor profile 5 · CHF 89k · ESG preference: no
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-033 holdings</sub>
 5. **digest.** The dollar −1.2% against the franc: 25.0% of the book is exposed, about −CHF 268.  
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-033 holdings</sub>
-6. **digest.** Consumer Discretionary −2.2% today: 3.9% of the book, about −CHF 78, mostly via iShares Core S&P 500 UCITS ETF and SLI (R).  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** Consumer Discretionary −2.2% today: 3.9% of the book, about −CHF 78, mostly via iShares Core S&P 500 UCITS ETF and SLI (R).  
    <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-033 holdings</sub>
-7. **holding.** Global Investment Grade Credit Fund and Glob.High Yield Corp Bd CHF UCITS ETF (Dist) (17.7% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+9. **holding.** Global Investment Grade Credit Fund and Glob.High Yield Corp Bd CHF UCITS ETF (Dist) (17.7% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
    <sub>clients.json CASE-033: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-8. **holding.** Holding up today: Swiss franc bonds +0.2% (35.3% of the book); foreign bonds +0.3% (7.7% of the book); Consumer Staples +0.3% (3.6% of the book).  
+10. **holding.** Holding up today: Swiss franc bonds +0.2% (35.3% of the book); foreign bonds +0.3% (7.7% of the book); Consumer Staples +0.3% (3.6% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-033 holdings</sub>
-9. **talk.** Start with what held up, then walk through what fell.  
+11. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-10. **talk.** Frame today against the long-term plan, not the daily move.  
+12. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-11. **issue.** Open issue: 0 suitability errors and 3 warnings open; most serious: "Underweight in the equity sector "Consumer Staples"".  
+13. **issue.** Open issue: 0 suitability errors and 3 warnings open; most serious: "Underweight in the equity sector "Consumer Staples"".  
    <sub>clients.json CASE-033: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -2302,17 +2386,21 @@ Investor profile 6 · CHF 698k · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-034 holdings</sub>
 6. **digest.** Industrials −1.1% today: 12.8% of the book, about −CHF 982, mostly via Global Climate and Environment Fund and iShares Global Water UCITS ETF.  
    <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-034 holdings</sub>
-7. **digest.** 9.5% of the book has no matching market move and is not included.  
+7. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **digest.** 9.5% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-034 holdings without a mapped market move</sub>
-8. **holding.** Glob.High Yield Corp Bd CHF UCITS ETF (Dist) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (7.2% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+10. **holding.** Glob.High Yield Corp Bd CHF UCITS ETF (Dist) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (7.2% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
    <sub>clients.json CASE-034: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-9. **holding.** Holding up today: Swiss franc bonds +0.2% (26.2% of the book); Consumer Staples +0.3% (5.6% of the book); Utilities +0.5% (3.2% of the book).  
+11. **holding.** Holding up today: Swiss franc bonds +0.2% (26.2% of the book); Consumer Staples +0.3% (5.6% of the book); Utilities +0.5% (3.2% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-034 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
+12. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Frame today against the long-term plan, not the daily move.  
+13. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-12. **issue.** Open issue: 1 suitability error and 3 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
+14. **issue.** Open issue: 1 suitability error and 3 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
    <sub>clients.json CASE-034: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -2383,15 +2471,19 @@ Investor profile 6 · CHF 741k · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-035 holdings</sub>
 7. **digest.** Financials −0.9% today: 12.1% of the book, about −CHF 809, mostly via iShares Swiss Dividend ETF (CH) and iShares Core SPI(R) ETF (CH).  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-035 holdings</sub>
-8. **holding.** Global Investment Grade Credit Fund and iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (13.0% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+10. **holding.** Global Investment Grade Credit Fund and iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (13.0% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
    <sub>clients.json CASE-035: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-9. **holding.** Holding up today: Swiss franc bonds +0.2% (17.6% of the book); Consumer Staples +0.3% (8.1% of the book).  
+11. **holding.** Holding up today: Swiss franc bonds +0.2% (17.6% of the book); Consumer Staples +0.3% (8.1% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-035 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
+12. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Frame today against the long-term plan, not the daily move.  
+13. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-12. **issue.** Open issue: 0 suitability errors and 1 warning open; most serious: "Underweight in the equity sector "Consumer Staples"".  
+14. **issue.** Open issue: 0 suitability errors and 1 warning open; most serious: "Underweight in the equity sector "Consumer Staples"".  
    <sub>clients.json CASE-035: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -2452,13 +2544,17 @@ Investor profile 7 · CHF 122k · ESG preference: yes
    <sub>clients.json CASE-036: LiquidityInDefaultCurrency</sub>
 5. **digest.** Information Technology −4.8% today: 2.6% of the book, about −CHF 151, mostly via CSIF (CH) I Equity World ex CH Blue and CSIF (CH) Equity World ex CH ESG Blue.  
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-036 holdings</sub>
-6. **digest.** The dollar −1.2% against the franc: 5.9% of the book is exposed, about −CHF 86.  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** The dollar −1.2% against the franc: 5.9% of the book is exposed, about −CHF 86.  
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-036 holdings</sub>
-7. **digest.** Financials −0.9% today: 3.4% of the book, about −CHF 37, mostly via Equities Switzerland Passive Leader and iShares Swiss Dividend ETF (CH).  
+9. **digest.** Financials −0.9% today: 3.4% of the book, about −CHF 37, mostly via Equities Switzerland Passive Leader and iShares Swiss Dividend ETF (CH).  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-036 holdings</sub>
-8. **talk.** Agree on a concrete next step and when you will call back.  
+10. **talk.** Agree on a concrete next step and when you will call back.  
    <sub>data/playbook.json: follow_up (when: always)</sub>
-9. **issue.** Open issue: 4 suitability errors and 0 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
+11. **issue.** Open issue: 4 suitability errors and 0 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
    <sub>clients.json CASE-036: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -2541,19 +2637,23 @@ Investor profile 5 · CHF 1.21m · ESG preference: yes
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-037 holdings</sub>
 6. **digest.** Information Technology −4.8% today: 5.5% of the book, about −CHF 3k, mostly via iShares Edge MSCI World Value Factor UCITS ETF and iShares NASDAQ 100 UCITS ETF.  
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-037 holdings</sub>
-7. **digest.** Financials −0.9% today: 9.3% of the book, about −CHF 1k, mostly via iShares Swiss Dividend ETF (CH) and UBS Group AG.  
+7. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **digest.** Financials −0.9% today: 9.3% of the book, about −CHF 1k, mostly via iShares Swiss Dividend ETF (CH) and UBS Group AG.  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-037 holdings</sub>
-8. **digest.** 5.6% of the book has no matching market move and is not included.  
+10. **digest.** 5.6% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-037 holdings without a mapped market move</sub>
-9. **holding.** Vanguard Global Bond Index Fund and SPDR Bloomberg Global Aggregate Bond UCITS ETF (6.4% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+11. **holding.** Vanguard Global Bond Index Fund and SPDR Bloomberg Global Aggregate Bond UCITS ETF (6.4% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
    <sub>clients.json CASE-037: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-10. **holding.** Holding up today: Swiss franc bonds +0.2% (31.0% of the book); foreign bonds +0.3% (9.0% of the book); Consumer Staples +0.3% (8.3% of the book).  
+12. **holding.** Holding up today: Swiss franc bonds +0.2% (31.0% of the book); foreign bonds +0.3% (9.0% of the book); Consumer Staples +0.3% (8.3% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-037 holdings</sub>
-11. **talk.** Start with what held up, then walk through what fell.  
+13. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-12. **talk.** Frame today against the long-term plan, not the daily move.  
+14. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-13. **issue.** Open issue: 0 suitability errors and 3 warnings open; most serious: "Underweight in the equity region "North America"".  
+15. **issue.** Open issue: 0 suitability errors and 3 warnings open; most serious: "Underweight in the equity region "North America"".  
    <sub>clients.json CASE-037: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -2632,17 +2732,21 @@ Investor profile 6 · CHF 1.62m · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-038 holdings</sub>
 5. **digest.** Industrials −1.1% today: 11.4% of the book, about −CHF 2k, mostly via Sulzer AG and Accelleron Industries AG.  
    <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-038 holdings</sub>
-6. **digest.** 6.3% of the book has no matching market move and is not included.  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** 6.3% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-038 holdings without a mapped market move</sub>
-7. **holding.** iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (3.4% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+9. **holding.** iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (3.4% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
    <sub>clients.json CASE-038: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-8. **holding.** Holding up today: Consumer Staples +0.3% (11.6% of the book); Swiss franc bonds +0.2% (9.3% of the book); Gold +1.4% (5.9% of the book).  
+10. **holding.** Holding up today: Consumer Staples +0.3% (11.6% of the book); Swiss franc bonds +0.2% (9.3% of the book); Gold +1.4% (5.9% of the book).  
    <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-038 holdings</sub>
-9. **talk.** Start with what held up, then walk through what fell.  
+11. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-10. **talk.** Frame today against the long-term plan, not the daily move.  
+12. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-11. **issue.** Open issue: 12 suitability errors and 6 warnings open; most serious: "Foreign currency cluster risk USD".  
+13. **issue.** Open issue: 12 suitability errors and 6 warnings open; most serious: "Foreign currency cluster risk USD".  
    <sub>clients.json CASE-038: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -2713,13 +2817,17 @@ Investor profile 5 · CHF 170k · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-039 holdings</sub>
 6. **digest.** Financials −0.9% today: 11.5% of the book, about −CHF 176, mostly via Swiss Life Holding AG and MSCI Switzerland IMI Socially Responsible.  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-039 holdings</sub>
-7. **holding.** Holding up today: Swiss franc bonds +0.2% (34.4% of the book); Consumer Staples +0.3% (5.9% of the book).  
+7. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **holding.** Holding up today: Swiss franc bonds +0.2% (34.4% of the book); Consumer Staples +0.3% (5.9% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-039 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
+10. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Frame today against the long-term plan, not the daily move.  
+11. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-10. **issue.** Open issue: 0 suitability errors and 3 warnings open; most serious: "Underweight in the equity region "Switzerland"".  
+12. **issue.** Open issue: 0 suitability errors and 3 warnings open; most serious: "Underweight in the equity region "Switzerland"".  
    <sub>clients.json CASE-039: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -2792,15 +2900,19 @@ Investor profile 6 · CHF 800k · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-040 holdings</sub>
 7. **digest.** Financials −0.9% today: 11.1% of the book, about −CHF 802, mostly via Swiss Re AG and Zurich Insurance Group AG.  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-040 holdings</sub>
-8. **holding.** SPDR Bloomberg Global Aggregate Bond UCITS ETF (4.4% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
+8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+10. **holding.** SPDR Bloomberg Global Aggregate Bond UCITS ETF (4.4% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
    <sub>clients.json CASE-040: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-9. **holding.** Holding up today: Swiss franc bonds +0.2% (11.7% of the book); Consumer Staples +0.3% (9.1% of the book); foreign bonds +0.3% (8.9% of the book).  
+11. **holding.** Holding up today: Swiss franc bonds +0.2% (11.7% of the book); Consumer Staples +0.3% (9.1% of the book); foreign bonds +0.3% (8.9% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-040 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
+12. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Frame today against the long-term plan, not the daily move.  
+13. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-12. **issue.** Open issue: 4 suitability errors and 1 warning open; most serious: "Knowledge of structured products" on 10.19 % Reverse Convertible UBS London 2023-26.08.24 on Straumann/Sonova/Lonza Grp.  
+14. **issue.** Open issue: 4 suitability errors and 1 warning open; most serious: "Knowledge of structured products" on 10.19 % Reverse Convertible UBS London 2023-26.08.24 on Straumann/Sonova/Lonza Grp.  
    <sub>clients.json CASE-040: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -2861,15 +2973,17 @@ Investor profile 5 · CHF 608k · ESG preference: no
    <sub>clients.json CASE-041: SecurityPositions × reference.json Securities.MaturityDateUtc</sub>
 3. **digest.** The euro −0.3% against the franc: 65.9% of the book is exposed, about −CHF 1k.  
    <sub>simulated feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × clients.json CASE-041 holdings</sub>
-4. **digest.** Financials −0.9% today: 10.9% of the book, about −CHF 595, mostly via Swiss Life Holding AG and Swiss Re AG.  
+4. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+5. **digest.** Financials −0.9% today: 10.9% of the book, about −CHF 595, mostly via Swiss Life Holding AG and Swiss Re AG.  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-041 holdings</sub>
-5. **digest.** Industrials −1.1% today: 5.3% of the book, about −CHF 354, mostly via ABB Ltd and SMIM (R).  
+6. **digest.** Industrials −1.1% today: 5.3% of the book, about −CHF 354, mostly via ABB Ltd and SMIM (R).  
    <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-041 holdings</sub>
-6. **holding.** Holding up today: foreign bonds +0.3% (53.4% of the book); Gold +1.4% (6.3% of the book); Consumer Staples +0.3% (4.5% of the book).  
+7. **holding.** Holding up today: foreign bonds +0.3% (53.4% of the book); Gold +1.4% (6.3% of the book); Consumer Staples +0.3% (4.5% of the book).  
    <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × clients.json CASE-041 holdings</sub>
-7. **talk.** Agree on a concrete next step and when you will call back.  
+8. **talk.** Agree on a concrete next step and when you will call back.  
    <sub>data/playbook.json: follow_up (when: always)</sub>
-8. **issue.** Open issue: 6 suitability errors and 6 warnings open; most serious: "Significant underweight in the equity region "North America"".  
+9. **issue.** Open issue: 6 suitability errors and 6 warnings open; most serious: "Significant underweight in the equity region "North America"".  
    <sub>clients.json CASE-041: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -2936,13 +3050,17 @@ Investor profile 4 · CHF 528k · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-042 holdings</sub>
 6. **digest.** Consumer Discretionary −2.2% today: 6.2% of the book, about −CHF 725, mostly via mobilezone holding ag and iShares Core EURO STOXX 50 UCITS ETF.  
    <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-042 holdings</sub>
-7. **holding.** Holding up today: Consumer Staples +0.3% (9.8% of the book); foreign bonds +0.3% (8.5% of the book); Swiss franc bonds +0.2% (8.4% of the book).  
+7. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **holding.** Holding up today: Consumer Staples +0.3% (9.8% of the book); foreign bonds +0.3% (8.5% of the book); Swiss franc bonds +0.2% (8.4% of the book).  
    <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-042 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
+10. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
-10. **issue.** Open issue: 2 suitability errors and 4 warnings open; most serious: "Cluster risk of a single financial instrument" on BB Biotech AG.  
+12. **issue.** Open issue: 2 suitability errors and 4 warnings open; most serious: "Cluster risk of a single financial instrument" on BB Biotech AG.  
    <sub>clients.json CASE-042: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -3007,15 +3125,19 @@ Investor profile 6 · CHF 891k · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-043 holdings</sub>
 5. **digest.** Consumer Discretionary −2.2% today: 6.9% of the book, about −CHF 1k, mostly via CIE FINANCIERE RICHEMONT SA and iShares MSCI World CHF Hedged UCITS ETF (Acc).  
    <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-043 holdings</sub>
-6. **holding.** iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (14.8% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **holding.** iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (14.8% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
    <sub>clients.json CASE-043: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-7. **holding.** Holding up today: Swiss franc bonds +0.2% (16.9% of the book); Consumer Staples +0.3% (8.4% of the book); foreign bonds +0.3% (5.6% of the book).  
+9. **holding.** Holding up today: Swiss franc bonds +0.2% (16.9% of the book); Consumer Staples +0.3% (8.4% of the book); foreign bonds +0.3% (5.6% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-043 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
+10. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Frame today against the long-term plan, not the daily move.  
+11. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-10. **issue.** Open issue: 21 of 22 orders from the proposal of 15 Sep 2026 were forwarded with a warning.  
+12. **issue.** Open issue: 21 of 22 orders from the proposal of 15 Sep 2026 were forwarded with a warning.  
    <sub>clients.json CASE-043: Transactions[ProposalId=25304].ForwardState = 2</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -3078,15 +3200,19 @@ Investor profile 6 · CHF 172k · ESG preference: yes
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-044 holdings</sub>
 8. **digest.** Information Technology −4.8% today: 3.3% of the book, about −CHF 270, mostly via GSC Green Tech ESG Fund and SMI (R).  
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-044 holdings</sub>
-9. **digest.** 26.8% of the book has no matching market move and is not included.  
+9. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+10. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+11. **digest.** 26.8% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-044 holdings without a mapped market move</sub>
-10. **holding.** Holding up today: Consumer Staples +0.3% (5.4% of the book); Utilities +0.5% (3.2% of the book).  
+12. **holding.** Holding up today: Consumer Staples +0.3% (5.4% of the book); Utilities +0.5% (3.2% of the book).  
    <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-044 holdings</sub>
-11. **talk.** Start with what held up, then walk through what fell.  
+13. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-12. **talk.** Frame today against the long-term plan, not the daily move.  
+14. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-13. **issue.** Open issue: 4 suitability errors and 8 warnings open; most serious: "Cluster risk of a single financial instrument" on GSC Green Tech ESG Fund.  
+15. **issue.** Open issue: 4 suitability errors and 8 warnings open; most serious: "Cluster risk of a single financial instrument" on GSC Green Tech ESG Fund.  
    <sub>clients.json CASE-044: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -3159,13 +3285,15 @@ Investor profile 6 · CHF 340k · ESG preference: yes
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-045 holdings</sub>
 6. **digest.** Health Care −0.4% today: 63.0% of the book, about −CHF 856, mostly via Novartis AG and BB Biotech AG.  
    <sub>simulated feed "tech-selloff": S5HLTH Index CHG_PCT_1D × clients.json CASE-045 holdings</sub>
-7. **digest.** Industrials −1.1% today: 7.3% of the book, about −CHF 274, mostly via A1A Car Wash.  
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** Industrials −1.1% today: 7.3% of the book, about −CHF 274, mostly via A1A Car Wash.  
    <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-045 holdings</sub>
-8. **talk.** Frame today against the long-term plan, not the daily move.  
+9. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+10. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
-10. **issue.** Open issue: 0 suitability errors and 1 warning open; most serious: "Share is not part of the investment universe for individual shares and therefore not monitored.".  
+11. **issue.** Open issue: 0 suitability errors and 1 warning open; most serious: "Share is not part of the investment universe for individual shares and therefore not monitored.".  
    <sub>clients.json CASE-045: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -3301,13 +3429,17 @@ Investor profile 6 · CHF 762k · ESG preference: yes
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-047 holdings</sub>
 6. **digest.** Industrials −1.1% today: 12.0% of the book, about −CHF 1k, mostly via Accelleron Industries AG and ABB Ltd.  
    <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-047 holdings</sub>
-7. **holding.** Holding up today: Swiss franc bonds +0.2% (11.4% of the book); foreign bonds +0.3% (10.5% of the book); Consumer Staples +0.3% (10.1% of the book).  
+7. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+9. **holding.** Holding up today: Swiss franc bonds +0.2% (11.4% of the book); foreign bonds +0.3% (10.5% of the book); Consumer Staples +0.3% (10.1% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-047 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
+10. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Frame today against the long-term plan, not the daily move.  
+11. **talk.** Frame today against the long-term plan, not the daily move.  
    <sub>data/playbook.json: long_term (when: long_term)</sub>
-10. **issue.** Open issue: 0 suitability errors and 3 warnings open; most serious: "Underweight in the equity sector "Consumer Discretionary"".  
+12. **issue.** Open issue: 0 suitability errors and 3 warnings open; most serious: "Underweight in the equity sector "Consumer Discretionary"".  
    <sub>clients.json CASE-047: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -3368,15 +3500,17 @@ no risk profile · CHF 2.05m · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
 4. **digest.** Consumer Discretionary −2.2% today: 5.6% of the book, about −CHF 3k, mostly via Amazon.com Inc..  
    <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
-5. **digest.** The euro −0.3% against the franc: 20.8% of the book is exposed, about −CHF 1k.  
+5. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+6. **digest.** The euro −0.3% against the franc: 20.8% of the book is exposed, about −CHF 1k.  
    <sub>simulated feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
-6. **digest.** 34.1% of the book has no matching market move and is not included.  
+7. **digest.** 34.1% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings without a mapped market move</sub>
-7. **holding.** Holding up today: foreign bonds +0.3% (20.4% of the book); Swiss franc bonds +0.2% (9.6% of the book); Consumer Staples +0.3% (6.4% of the book).  
+8. **holding.** Holding up today: foreign bonds +0.3% (20.4% of the book); Swiss franc bonds +0.2% (9.6% of the book); Consumer Staples +0.3% (6.4% of the book).  
    <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
+9. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+10. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -3419,15 +3553,19 @@ no risk profile · CHF 3.41m · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
 4. **digest.** Information Technology −4.8% today: 5.3% of the book, about −CHF 9k, mostly via Apple Inc..  
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
-5. **digest.** The euro −0.3% against the franc: 17.2% of the book is exposed, about −CHF 2k.  
+5. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+6. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** The euro −0.3% against the franc: 17.2% of the book is exposed, about −CHF 2k.  
    <sub>simulated feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
-6. **digest.** 50.9% of the book has no matching market move and is not included.  
+8. **digest.** 50.9% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings without a mapped market move</sub>
-7. **holding.** Holding up today: Swiss franc bonds +0.2% (12.4% of the book); foreign bonds +0.3% (8.8% of the book); Consumer Staples +0.3% (3.8% of the book).  
+9. **holding.** Holding up today: Swiss franc bonds +0.2% (12.4% of the book); foreign bonds +0.3% (8.8% of the book); Consumer Staples +0.3% (3.8% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
+10. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -3470,15 +3608,19 @@ no risk profile · CHF 1.25m · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
 4. **digest.** Communication Services −3.1% today: 3.7% of the book, about −CHF 1k, mostly via Swisscom AG and iShares Core MSCI World UCITS ETF.  
    <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
-5. **digest.** The pound −0.4% against the franc: 14.2% of the book is exposed, about −CHF 709.  
+5. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+6. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** The pound −0.4% against the franc: 14.2% of the book is exposed, about −CHF 709.  
    <sub>simulated feed "tech-selloff": GBPCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
-6. **digest.** 17.1% of the book has no matching market move and is not included.  
+8. **digest.** 17.1% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings without a mapped market move</sub>
-7. **holding.** Holding up today: foreign bonds +0.3% (46.0% of the book); Swiss franc bonds +0.2% (13.3% of the book); Consumer Staples +0.3% (4.3% of the book).  
+9. **holding.** Holding up today: foreign bonds +0.3% (46.0% of the book); Swiss franc bonds +0.2% (13.3% of the book); Consumer Staples +0.3% (4.3% of the book).  
    <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
+10. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -3531,13 +3673,17 @@ no risk profile · CHF 4.80m · ESG preference: no
    <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
 5. **digest.** Information Technology −4.8% today: 6.1% of the book, about −CHF 14k, mostly via Apple Inc..  
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
-6. **digest.** 36.8% of the book has no matching market move and is not included.  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** 36.8% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings without a mapped market move</sub>
-7. **holding.** Holding up today: Consumer Staples +0.3% (10.5% of the book); Swiss franc bonds +0.2% (4.7% of the book).  
+9. **holding.** Holding up today: Consumer Staples +0.3% (10.5% of the book); Swiss franc bonds +0.2% (4.7% of the book).  
    <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
+10. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -3586,13 +3732,17 @@ no risk profile · CHF 948k · ESG preference: no
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
 5. **digest.** Consumer Discretionary −2.2% today: 7.8% of the book, about −CHF 2k, mostly via LVMH Moët Hennessy SE and Amazon.com Inc..  
    <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
-6. **digest.** 24.7% of the book has no matching market move and is not included.  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** 24.7% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings without a mapped market move</sub>
-7. **holding.** Holding up today: Swiss franc bonds +0.2% (24.2% of the book); foreign bonds +0.3% (9.2% of the book); Consumer Staples +0.3% (7.5% of the book).  
+9. **holding.** Holding up today: Swiss franc bonds +0.2% (24.2% of the book); foreign bonds +0.3% (9.2% of the book); Consumer Staples +0.3% (7.5% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
+10. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -3635,15 +3785,19 @@ no risk profile · CHF 7.60m · ESG preference: no
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
 4. **digest.** The dollar −1.2% against the franc: 38.1% of the book is exposed, about −CHF 35k.  
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
-5. **digest.** Financials −0.9% today: 6.5% of the book, about −CHF 4k, mostly via Zurich Insurance Group AG and iShares Core MSCI World UCITS ETF.  
+5. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+6. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Financials −0.9% today: 6.5% of the book, about −CHF 4k, mostly via Zurich Insurance Group AG and iShares Core MSCI World UCITS ETF.  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
-6. **digest.** 26.8% of the book has no matching market move and is not included.  
+8. **digest.** 26.8% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings without a mapped market move</sub>
-7. **holding.** Holding up today: Consumer Staples +0.3% (20.6% of the book); foreign bonds +0.3% (7.6% of the book); Swiss franc bonds +0.2% (6.7% of the book).  
+9. **holding.** Holding up today: Consumer Staples +0.3% (20.6% of the book); foreign bonds +0.3% (7.6% of the book); Swiss franc bonds +0.2% (6.7% of the book).  
    <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
+10. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -3690,15 +3844,19 @@ no risk profile · CHF 1.80m · ESG preference: no
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
 4. **digest.** The dollar −1.2% against the franc: 29.5% of the book is exposed, about −CHF 6k.  
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
-5. **digest.** The pound −0.4% against the franc: 18.2% of the book is exposed, about −CHF 1k.  
+5. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+6. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** The pound −0.4% against the franc: 18.2% of the book is exposed, about −CHF 1k.  
    <sub>simulated feed "tech-selloff": GBPCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
-6. **digest.** 10.7% of the book has no matching market move and is not included.  
+8. **digest.** 10.7% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings without a mapped market move</sub>
-7. **holding.** Holding up today: foreign bonds +0.3% (44.8% of the book); Swiss franc bonds +0.2% (11.9% of the book); Gold +1.4% (3.7% of the book).  
+9. **holding.** Holding up today: foreign bonds +0.3% (44.8% of the book); Swiss franc bonds +0.2% (11.9% of the book); Gold +1.4% (3.7% of the book).  
    <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
+10. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -3751,13 +3909,17 @@ no risk profile · CHF 2.70m · ESG preference: no
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
 5. **digest.** The euro −0.3% against the franc: 42.1% of the book is exposed, about −CHF 3k.  
    <sub>simulated feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
-6. **digest.** 35.7% of the book has no matching market move and is not included.  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** 35.7% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings without a mapped market move</sub>
-7. **holding.** Holding up today: Consumer Staples +0.3% (6.3% of the book); foreign bonds +0.3% (3.7% of the book).  
+9. **holding.** Holding up today: Consumer Staples +0.3% (6.3% of the book); foreign bonds +0.3% (3.7% of the book).  
    <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
+10. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -3806,13 +3968,17 @@ no risk profile · CHF 9.20m · ESG preference: no
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
 5. **digest.** Communication Services −3.1% today: 3.5% of the book, about −CHF 10k, mostly via Swisscom AG and iShares Core MSCI World UCITS ETF.  
    <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
-6. **digest.** 35.4% of the book has no matching market move and is not included.  
+6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+8. **digest.** 35.4% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings without a mapped market move</sub>
-7. **holding.** Holding up today: Swiss franc bonds +0.2% (22.3% of the book); Consumer Staples +0.3% (8.4% of the book); foreign bonds +0.3% (7.5% of the book).  
+9. **holding.** Holding up today: Swiss franc bonds +0.2% (22.3% of the book); Consumer Staples +0.3% (8.4% of the book); foreign bonds +0.3% (7.5% of the book).  
    <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
+10. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
 
 <details><summary>Other facts on the card</summary>
@@ -3855,15 +4021,19 @@ no risk profile · CHF 1.45m · ESG preference: no
    <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
 4. **digest.** The dollar −1.2% against the franc: 20.5% of the book is exposed, about −CHF 4k.  
    <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
-5. **digest.** Financials −0.9% today: 10.8% of the book, about −CHF 1k, mostly via Zurich Insurance Group AG and UBS Group AG.  
+5. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+6. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
+   <sub>simulated feed "tech-selloff" headline</sub>
+7. **digest.** Financials −0.9% today: 10.8% of the book, about −CHF 1k, mostly via Zurich Insurance Group AG and UBS Group AG.  
    <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
-6. **digest.** 30.9% of the book has no matching market move and is not included.  
+8. **digest.** 30.9% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings without a mapped market move</sub>
-7. **holding.** Holding up today: foreign bonds +0.3% (9.8% of the book); Consumer Staples +0.3% (7.9% of the book); Swiss franc bonds +0.2% (6.9% of the book).  
+9. **holding.** Holding up today: foreign bonds +0.3% (9.8% of the book); Consumer Staples +0.3% (7.9% of the book); Swiss franc bonds +0.2% (6.9% of the book).  
    <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
+10. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
+11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
    <sub>data/playbook.json: no_rush (when: market)</sub>
 
 <details><summary>Other facts on the card</summary>
