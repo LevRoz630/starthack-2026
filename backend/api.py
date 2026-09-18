@@ -40,7 +40,7 @@ from starlette.websockets import WebSocketDisconnect
 
 from . import briefing, callmode
 from .data import ROOT, load
-from .facts import client_name, compute
+from .facts import client_name, compute, risk_profile
 from .market import MarketState, load_scenario, scenarios
 
 PHONEBOOK = ROOT / 'data' / 'phonebook.json'
@@ -128,7 +128,7 @@ async def health(request):
 
 async def list_clients(request):
     rows = [{'client': ref, 'name': client_name(c), 'aum': c.get('AssetsUnderManagementInDefaultCurrency'),
-             'currency': c.get('ReportingCurrency'), 'risk_profile': c.get('RiskProfileName')}
+             'currency': c.get('ReportingCurrency'), 'risk_profile': risk_profile(c)}
             for ref, c in sorted(state.store.clients.items())]
     return JSONResponse(rows)
 

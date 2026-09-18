@@ -149,11 +149,12 @@ def _holding(client, hit, market):
                    f'{market.source(up[0].dimension, up[0].bucket)} × clients.json {ref} holdings',
                    sum(t.exposure for t in up[:3]) / total)
     usd = market.change('fx', 'USD')
-    chf_hedged = {n: a for n, a in hit['hedged'].items() if 'chf' in n.lower()}
+    chf_hedged = hit['hedged_chf']
     if usd is not None and usd <= -MIN_CHANGE and chf_hedged:
         yield Fact('holding.hedged', 'holding',
                    f'{" and ".join(chf_hedged)} ({pct(sum(chf_hedged.values()) / total)} of the book) '
-                   f'is hedged to the franc, so the dollar move ({signed_pct(usd)}) does not reach it.',
+                   f'{"are" if len(chf_hedged) > 1 else "is"} hedged to the franc, '
+                   f'so the dollar move ({signed_pct(usd)}) does not reach {"them" if len(chf_hedged) > 1 else "it"}.',
                    f'clients.json {ref}: SecurityPositions.SecurityName (hedged share class); '
                    f'{market.source("fx", "USD")}', 0.5)
 
@@ -182,7 +183,9 @@ def call_facts(client, store, market, as_of=None):
     base = compute(client, store, as_of)
     hit = impact(client, store, market)
     who = next(f for f in base if f.slot == 'who')
-    out = [Fact('caller', 'caller', f'{client_name(client)} is calling. {who.text}', who.source, 1.0)]
+    name = client_name(client)
+    details = who.text[len(name):].lstrip(', ') if who.text.startswith(name) else who.text
+    out = [Fact('caller', 'caller', f'{name} is calling: {details}', who.source, 1.0)]
     temperament = next((n for n in _notes(client)
                         if any(w in (n.get('Note') or '').lower() for w in TEMPERAMENT_WORDS)), None)
     if temperament:

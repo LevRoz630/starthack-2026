@@ -28,6 +28,15 @@ NAME_PREFIX = re.compile(
     r'Anteile|Accum Shs|Exchange Traded Product)\s*(?:Class\s*)?(?:-[^-]{1,20}-|-\w\b)?\s*')
 HEDGED = re.compile(r'(?<!un)hedged', re.IGNORECASE)
 
+# The export keeps some display names in German; briefings are in English.
+PORTFOLIO_NAMES = {
+    'Konto / Depot': 'Account / Custody', 'Depotberatung': 'Depository advisory',
+    'Anlageberatung': 'Investment advisory', 'Vorsorge': 'Pension', 'Vorsorge Indiv': 'Individual pension',
+    'Vorsorge indiv': 'Individual pension', 'Zahlen': 'Payments', 'Konsolidierte': 'Consolidated',
+}
+NAME_WORDS = [(re.compile(r'\s+Aktie$'), ''), (re.compile(r'^Goldbarren\b'), 'Gold bar'),
+              (re.compile(r'\bGramm\b'), 'g'), (re.compile(r'\bfein$'), 'fine')]
+
 
 @dataclass
 class Fact:
@@ -73,11 +82,21 @@ def short_name(name):
     name = ' '.join((name or '').split())
     if ' - ' in name:
         name = name.rsplit(' - ', 1)[1]
-    return NAME_PREFIX.sub('', name).strip() or name
+    name = NAME_PREFIX.sub('', name).strip() or name
+    for pattern, english in NAME_WORDS:
+        name = pattern.sub(english, name)
+    return name
+
+
+def risk_profile(client):
+    """'Anlageprofil 5' as the data's own English strategies call it: 'Investor profile 5'."""
+    name = client.get('RiskProfileName') or ''
+    return re.sub(r'^Anlageprofil (\d+)$', r'Investor profile \1', name) or 'no risk profile'
 
 
 def portfolio_label(p):
-    return f'{(p.get("Name") or "").strip()} ({p.get("PortfolioNr")})'
+    name = (p.get('Name') or '').strip()
+    return f'{PORTFOLIO_NAMES.get(name, name)} ({p.get("PortfolioNr")})'
 
 
 def asset_class_label(name):
@@ -126,7 +145,7 @@ def exposures(client, store):
 
 def _who(client, store, ccy):
     ref = client['ClientRef']
-    profile = client.get('RiskProfileName') or 'no risk profile'
+    profile = risk_profile(client)
     esg = ', ESG preference' if client.get('EsgProfileName') == 'Yes' else ''
     n = len(portfolios(client))
     aum = client.get('AssetsUnderManagementInDefaultCurrency') or 0
@@ -173,7 +192,7 @@ def _health(client, store, as_of):
         vol, max_vol = p.get('Volatility') or 0, profile.get('MaxVola')
         if max_vol and vol > max_vol:
             yield Fact(f'health.vol.{p.get("PortfolioNr")}', 'health',
-                       f'Volatility{where} is {pct(vol)}, above the {pct(max_vol)} maximum of {client.get("RiskProfileName")}.',
+                       f'Volatility{where} is {pct(vol)}, above the {pct(max_vol)} maximum of {risk_profile(client)}.',
                        f'clients.json {ref}: Portfolios[{p.get("PortfolioNr")}].Volatility; reference.json RiskProfiles.MaxVola',
                        (vol - max_vol) * 10)
 

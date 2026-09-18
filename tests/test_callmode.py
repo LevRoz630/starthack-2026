@@ -68,3 +68,20 @@ def test_rank_puts_hardest_hit_first(store):
     rows = rank_callers(store, load_scenario('tech-selloff'))
     assert [r['share'] for r in rows] == sorted(r['share'] for r in rows)
     assert rows[0]['share'] < 0
+
+
+GERMAN = re.compile(r'\b(Anlage\w*|Vorsorge\w*|Depot\w*|Konto|Zahlen|Konsolid\w*|Abgelehnt|Entwurf|Aktie|Anteile)\b')
+
+
+def test_briefings_are_in_english(store):
+    from backend.facts import compute
+    market = load_scenario('tech-selloff')
+    for ref, client in store.clients.items():
+        texts = [f.text for f in compute(client, store)] + [s['text'] for s in build_call(store, ref, market)['sentences']]
+        assert not any(GERMAN.search(t) for t in texts), ref
+
+
+def test_hedging_to_chf_is_read_from_the_full_name(store):
+    # "Anteile -A- Hedged CHF UBS (Irl) ... - MSCI ACWI SF UCITS ETF": the hedge is only in the prefix.
+    hit = impact(store.client('CASE-043'), store, load_scenario('tech-selloff'))
+    assert 'SPDR Bloomberg Global Aggregate Bond UCITS ETF' in hit['hedged_chf']

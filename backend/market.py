@@ -150,11 +150,12 @@ def impact(client, store, market):
 
     Returns {'topics': {(dimension, bucket): Topic}, 'total': book value,
     'impact': summed impact, 'not_modelled': value no move applies to,
-    'hedged': {short name: exposure} of currency-hedged holdings}.
+    'hedged': {short name: exposure} of currency-hedged holdings,
+    'hedged_chf': the same for holdings hedged to the franc, read from the full name}.
     An equity holding in USD appears in both its industry topic and the USD topic;
     the two moves are separate and add up.
     """
-    topics, hedged = {}, defaultdict(float)
+    topics, hedged, hedged_chf = {}, defaultdict(float), defaultdict(float)
     total = not_modelled = 0.0
 
     def hit(dimension, bucket, amount, name):
@@ -178,6 +179,8 @@ def impact(client, store, market):
             is_hedged = bool(HEDGED.search(full))
             if is_hedged:
                 hedged[name] += amount
+                if 'chf' in full.lower():
+                    hedged_chf[name] += amount
             rows = store.fund_rows.get(sp.get('SecurityId'))
             if rows:
                 modelled = False
@@ -213,4 +216,4 @@ def impact(client, store, market):
                 hit('fx', ccy, amount, f'{ccy} account')
     topics.pop(('fx', ''), None)
     return {'topics': topics, 'total': total, 'impact': sum(t.impact for t in topics.values()),
-            'not_modelled': not_modelled, 'hedged': dict(hedged)}
+            'not_modelled': not_modelled, 'hedged': dict(hedged), 'hedged_chf': dict(hedged_chf)}
