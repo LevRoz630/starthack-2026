@@ -11,6 +11,51 @@ Alexeeva, Luis Haftendorn, Noé Szynalski, Tristan Arni); the case repo names
 nobody from UNRISKOMEGA. Partners are at their booths **Floor 3,
 Friday 9am–12am** — that is the window to collect names and roles.
 
+## Who UNRISKOMEGA is
+
+Swiss fintech, founded Oct 2016, based in Kloten. A joint venture of MathConsult,
+multilateral AG, math link and uni software plus. Commercial-register board:
+Matthias Raphael Gysi (president), Rolf Grob, Dr. Michael Aichinger, Marc Fabian
+Aeberhard. None of them is confirmed as a judge — verify at the booth.
+
+Two lineages sit in that board, and they want different pitches:
+
+- **The quant lineage** (MathConsult). Michael Aichinger holds a PhD in theoretical
+  physics and co-wrote *A Workout in Computational Finance* (Wiley). If this is who
+  we get, lead with method and correctness.
+- **The commercial lineage.** Rolf Grob came via Credit Suisse and math link. If
+  this is who we get, lead with advisor time saved and bank adoption.
+
+Ask which one we're talking to in the first minute and switch accordingly.
+
+## What they sell, in their words
+
+URO Core with URO Advisor, Self Invest and Self Pension on top. 25+ banks,
+500,000+ portfolios, 1,000+ advisors. Their language is "quantitative depth",
+"Swiss diligence", advisors who "advise with substance". Built against FINMA,
+FIDLEG and MiFID II.
+
+Their public positioning contains **no AI at all** — automation appears only for
+self-service, never as advisor replacement. They are a risk-analytics house that
+has come to an AI hackathon, which suggests they are scouting where language and
+judgment fit on top of maths they already do deterministically.
+
+## What that means for the message
+
+- **Don't sell the LLM.** These are people who can do the maths faster than us. Put
+  the model in a narrow role — reading language, drafting prose — and let a
+  deterministic engine hold every verdict. A disciplined split reads as competence
+  to this audience; an end-to-end LLM demo reads as naivety.
+- **Frame it as a compliance gap, not a feature.** A client preference stated in
+  writing that no rule enforces is the kind of thing FIDLEG makes their problem.
+  Use their words: documented, auditable, reproducible.
+- **Quote impact per advisor.** They think in multiples of 1,000 advisors and
+  500,000 portfolios. Minutes saved per client review is the unit.
+- **Never say "replaces the advisor."** Their whole positioning is the opposite.
+  We give the advisor the sentence to say.
+- **Make it survive scale.** Anything that calls a model per position dies at
+  500,000 portfolios, and they will know that immediately.
+
 ## Recon (Friday, at the booths)
 
 - [ ] Get the names and exact job titles of everyone staffing the UNRISKOMEGA booth.
