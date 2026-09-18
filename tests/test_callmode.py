@@ -16,11 +16,13 @@ def store():
     return load()
 
 
-def test_scenarios_load_and_are_marked_simulated():
+def test_scenarios_load_and_say_whether_they_are_simulated():
     assert {'tech-selloff', 'chf-spike'} <= set(scenarios())
     for name in scenarios():
         m = load_scenario(name)
-        assert m.simulated and m.moves
+        assert m.moves
+        # Only real snapshots may claim to be real.
+        assert m.simulated == (not name.startswith('live-')), name
 
 
 def test_unknown_tickers_are_ignored():
