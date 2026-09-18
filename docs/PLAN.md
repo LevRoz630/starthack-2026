@@ -33,49 +33,71 @@ Officer), Frédéric Altorfer (Head Solution Integration & Support).
 
 ## The idea
 
-Every team will read "ping" as a dashboard notification. We make it literal: **the
-client calling is the ping.** A client phones in — say after a tech sell-off — and
-before the advisor picks up, the advisor's own phone rings with a briefing: what moved,
-how much of this client's book it touches, in order of impact, what this particular
-client wants to hear, and what the advisor can truthfully say to steady them. The
-advisor can interrupt with questions and gets grounded answers, while a card on screen
-highlights each fact and its source as it is spoken.
+Two products on one backend:
 
-The voice only ever talks to the advisor, never to the client. The advisor stays in
-charge of what gets said.
+- **The dashboard satisfies the criteria.** One click, a 60-second briefing on the
+  laptop, exactly what the slides ask for. Plain and solid.
+- **The phone is what wins.** A relationship manager is on the golf course with one
+  client when another client calls in a panic. Before they even pick up, the briefing
+  is on their phone. During the call, an agent listens and puts the answer to each
+  question on the screen within about two seconds. The advisor is never caught off
+  guard, and never needs to be in front of a laptop.
 
-The call is real and live, but it runs in the browser, not over the phone network: a
-phone web page that looks like an incoming call, talking to an ElevenLabs agent over
-WebRTC. No phone number, no telecom costs, no calling anyone who hasn't agreed to it.
+What we claim, in two lines:
 
-The same engine serves the calm case too: a scheduled meeting triggers the six-slot
-briefing below without a market event.
+1. **Instant, and never caught off guard.** The briefing arrives while the phone is
+   still ringing; the answers arrive while the client is still asking.
+2. **Portable.** It works wherever the advisor is, not only at a desk.
 
-## The stage moment
+**Discretion is part of the story.** The advisor never puts the client on speaker in
+front of another client — that would breach banking secrecy (Art. 47 BankG). They
+excuse themselves, step away, and take the call on earbuds, reading the phone.
 
-1. The jury hands us the test client. We load the file; exposures are computed on
-   the spot.
-2. We fire a market alert from the (synthetic) feed: "Tech −4.8%, USD/CHF −1.2%".
-   The precompute job re-ranks every client's briefing; the dashboard shows it
-   finishing.
-3. "Incoming call: [test client]". A 60-second countdown starts. The advisor's phone
-   (a teammate playing the advisor) rings; they press green.
-4. The voice, for example: *"Anna Keller is calling. Tech is down 4.8% today; it's 18%
-   of her book, about CHF 41k. Her bonds and gold, 40% together, didn't move, and the
-   gold is the CHF-hedged class, so the dollar drop doesn't reach it. Her notes say
-   she's patient and wants it short — lead with the long-term plan. One open issue:
-   equities are 6 points over her risk profile."*
-5. The advisor interrupts ("which tech funds?"); the agent answers from the data and
-   stops. On screen, each fact lights up with its source as it is spoken.
-6. The countdown stops well under 60.
-7. A second call, a different client, a different reason: the briefing opens with
-   "probably a withdrawal — her note says a property purchase within 12 months" and
-   shows what can be sold without breaking her risk profile. This shows it isn't a
-   one-trick demo.
+**How the phone hears the call.** A phone app cannot hear a normal phone call (iOS
+never allows it; Android blocks it for third-party apps). So the advisor's business
+number runs through our telephony (Twilio): clients call that number, Twilio forwards
+the call to the advisor's mobile, tells us the caller ID before anyone answers, and
+streams us a copy of the audio. That is also how it would run at a bank, where advisor
+lines are already routed and recorded.
 
-The role-play is theatre; the voice and the facts are live. The market move is
-simulated and we say so. A pre-recorded call is only the fallback video — it can't be
-about the test client, and the jury would notice.
+The voice only ever talks to the advisor, never to the client.
+
+## The pitch and demo
+
+About 5 minutes. **The demo is pre-recorded first**, so the pitch cannot fail on venue
+WiFi or phone reception. Live testing comes after, with the jury's test client.
+
+| Time | What | How |
+| --- | --- | --- |
+| 0:00–0:15 | Cold open: the "your phone linging" meme ringtone, on a golf course | Video |
+| 0:15–1:45 | The golf scene (below) | Video |
+| 1:45–2:45 | How it works: one architecture slide, measured latencies, "the same backend powers the dashboard" | Slide |
+| 2:45–3:45 | Live: we load the jury's test client, one click, the 60-second briefing on the dashboard | Live, laptop |
+| 3:45–4:30 | Why it's real: every fact sourced and checked, Swiss-hosted model, the call note doubles as the advice record | Slide |
+| 4:30–5:00 | Close: pilot with a few relationship managers on Monday | Slide |
+
+If there is time or the jury asks, a live phone call: a teammate dials the Twilio
+number as the test client, and the advisor's phone screen is mirrored on the
+projector.
+
+### The golf scene (the video)
+
+1. The advisor is putting, chatting with a client.
+2. Their phone rings with the meme ringtone. The lock screen already shows: *"Anna
+   Keller calling — probably the tech drop (−4.8%, 18% of her book). Patient, wants it
+   short."*
+3. "Excuse me a moment." They step away and put in earbuds, glancing at the card:
+   exposure ranked by impact, what held up, two talking points.
+4. They answer. Anna: "How much have I lost on tech?" About two seconds later the
+   answer card shows: *"CHF 41k today, tech funds X and Y."* The advisor reads it and
+   answers calmly.
+5. She asks something else; the next card appears. They agree on a follow-up.
+6. They hang up. The phone shows the call note and a draft follow-up email; one tap
+   approves both.
+7. They walk back and sink the putt.
+
+The scene is acted; the system in it is real and running. The market move is
+simulated and we say so.
 
 ## The briefing itself
 
@@ -185,53 +207,38 @@ that scenario's briefing.
 ## Architecture
 
 ```
- SOURCES
- ┌──────────────────────────────────┐  ┌─────────────────────────────────────────┐
- │ Market feed, Bloomberg-shaped    │  │ Public sources                          │
- │ (synthetic, replayable scenarios)│  │ Yahoo Finance, SIX, SNB, ECB FX, FRED,  │
- │ prices, sector moves, FX, vol,   │  │ news RSS, bank CIO house views          │
- │ headlines                        │  │                                         │
- └────────────────┬─────────────────┘  └───────────────────┬─────────────────────┘
-                  └──────────────┬──────────────────────────┘
-                                 v
-                       market ingest ──> MARKET STATE
-                                         moves by industry / region / asset class /
-                                         currency / commodity, tagged headlines
-                                 │
-       scheduler (06:00 + every 15 min) ──┤
-       alert rules (sector or FX move over threshold, vol spike) ──┤
-                                 v
- client files ──> FACT ENGINE ──> EXPOSURE STORE (per client, built at upload)
- (clients.json     look-through   weights by industry / region / asset class /
-  shape, incl.     via fund       currency; risk contribution per position;
-  test client)     breakdowns     hedged share classes; SAA drift; violations
-                                 │
-                                 v
-                        PRECOMPUTE JOB ──> BRIEFING CACHE (keyed by client id)
-                        impact = exposure × move      ranked digest, facts + sources,
-                        rank, drop, attach sources    talking points, open issues
-                                 ^
-          PROFILE BUILDER ───────┤          advisor-playbook.md ──┘
-          notes, tags, risk/ESG
-          profile -> tone, topics
-                                 │
-                                 v
-             PHRASING (Apertus; OpenAI fallback) + CLAIM CHECKER
-             every number and every "hedged/offset" must match a fact,
-             otherwise fall back to a template sentence
-                                 │
-   incoming client call ──> RING ROUTER ──> advisor phone page (ElevenLabs agent over
-   (simulated on stage)       lookup only,  WebRTC; briefing injected as dynamic vars)
-                              no compute    + briefing card on screen (karaoke sync)
-                                 │
-                   follow-ups: client tools ──> our API (exposure store, market state)
-                   after the call: call note + follow-up email draft
+ SOURCES: Bloomberg-shaped feed (synthetic) + public (Yahoo, SIX, SNB, ECB, FRED,
+          news RSS, CIO house views)
+                 │
+                 v
+          MARKET STATE ──┐   scheduler (06:00 + every 15 min), alert rules
+                         v
+ client files ──> FACT ENGINE ──> EXPOSURE STORE ──> PRECOMPUTE JOB ──> BRIEFING CACHE
+ (any clients.json)  (fund           (weights, risk      impact ranking,     per client:
+                     look-through)   contribution,       reason predictor,   likely reason,
+                                     hedges, drift,      profile, playbook,  ranked digest,
+                                     violations)         phrasing + claim    talking points
+                                                         checker
+                                                              │
+            ┌─────────────────────────────────────────────────┼───────────────────────┐
+            v                                                 v                       │
+   DASHBOARD (laptop)                    client dials advisor's number (Twilio)       │
+   one-click 60-second                     │ caller ID, before anyone answers         │
+   briefing — the rubric                   ├──> client lookup ──> push briefing ──> ADVISOR PHONE
+                                           │                      while ringing        (card, answers,
+                                           │ call forwarded to advisor's mobile         call note)
+                                           └──> live audio copy ──> speech-to-text          ^
+                                                                    │                      │
+                                                     question detection ──> our API ───────┘
+                                                                            (same facts)
+                                         after the call: call note + follow-up email draft
 ```
 
 **Latency budget.** Everything slow happens before the call: exposures at upload,
-ranking and phrasing whenever the market moves. When the client calls, the ring
-router only does a cache lookup (milliseconds), the agent starts with the briefing
-already in its variables, and Flash TTS starts speaking in ~0.2 s.
+ranking and phrasing whenever the market moves. When the phone rings, the backend
+only looks up the cached briefing (milliseconds) and pushes it. During the call:
+speech-to-text, question detection and a fact lookup — target about two seconds from
+the end of the client's question to the answer card.
 
 **Components**
 
@@ -263,10 +270,19 @@ already in its variables, and Flash TTS starts speaking in ~0.2 s.
   meeting), phrasing guidance by risk profile, and banned phrases: guarantees,
   forecasts, "don't worry", "you're safe".
 - **Claim checker.** The gate between the LLM and anything spoken or shown.
-- **Ring router and call page.** Lookup only; pushes the ring over WebSocket.
+- **Call router** (Twilio). Incoming-call webhook: caller ID → client → push the
+  cached briefing to the advisor's phone, then forward the call. A media stream sends
+  a copy of the call audio to the listener.
+- **Listener.** Streaming speech-to-text on the client's side of the call, question
+  detection, a lookup against the API, an answer card pushed to the phone. Answers
+  use the same facts and the same claim checker as everything else.
+- **Advisor phone app.** A web app on the phone: the ringing briefing, answer cards
+  during the call, the call note and follow-up email after. Earbud whisper and a
+  spoken summary before picking up are optional extras (ElevenLabs).
+- **Dashboard.** The one-click 60-second briefing on the laptop, from the same cache.
 - **API.** Clean endpoints with the hooks the judges asked for:
   `POST /clients` (upload), `GET /briefing/{client}`, `POST /market/events`
-  (feed or alert in), `GET /market/state`, `POST /call/incoming`.
+  (feed or alert in), `GET /market/state`, `POST /call/incoming`, `POST /ask`.
 
 ## Market data and sources
 
@@ -355,37 +371,48 @@ German and French.
 3. Precompute job, impact ranking, briefing cache, API endpoints.
 4. Profile builder, `advisor-playbook.md`, phrasing with Apertus, claim checker.
 5. Reason predictor, plus the withdrawal and rejected-proposal scenarios.
-6. Briefing card with per-claim sources.
-7. Call page: ringing screen, ring router, ElevenLabs agent over WebRTC.
-8. Karaoke sync, follow-up questions via client tools (covers the chatbot bonus),
-   call note and follow-up email after the call.
-9. Stretch, pick at most two: more scenarios (new deposit, risk-tolerance change,
-   maturity), rehearsal mode (agent plays the client and pushes back), suitability
-   objection ("that fund breaches her ESG exclusion"), German/French switching or a
-   Swiss German briefing, ex-custody PDF import, more public sources (CIO views, news).
-10. Optional upgrade, only with time and a juror who agrees at the booth: a real phone
-   call to their phone via a Twilio number imported into ElevenLabs.
+6. Dashboard: one-click 60-second briefing with per-claim sources. This is what the
+   rubric scores — done before the phone gets polish.
+7. Advisor phone app: briefing pushed while ringing, answer cards, call note and
+   follow-up email.
+8. Twilio: number, incoming-call webhook, forwarding, media stream; listener with
+   streaming speech-to-text and question detection.
+9. **Record the golf video** once 6–8 work end to end. Hard deadline: by ~12:00
+   Saturday, so there is time to edit before the 15:00 submission. It is also the
+   required submission video.
+10. Stretch, pick at most two: more scenarios (new deposit, risk-tolerance change,
+    maturity), earbud whisper, spoken summary before pickup, suitability objection,
+    German/French or Swiss German, ex-custody PDF import, more public sources.
+
+If Twilio fights us, the fallback for the video is the call on a second device next
+to the advisor's phone, listening through our web app — same backend, same cards.
+Say so if asked; the production path is the telephony route.
 
 ## Setup and risks
 
-- [ ] ElevenLabs key works (Growing Business tier, 5.4M chars/month). Conversational AI
-      is available; browser calls need no phone number.
+- [ ] ElevenLabs key works (Growing Business tier, 5.4M chars/month).
 - [ ] Swisscom guide says "Authorization Bearer expires in 60 minutes" — re-test the key
       an hour after first use; if it expires, the server has to refresh it.
 - [ ] Claim the OpenAI credit for the fallback LLM.
-- [ ] Have a native speaker judge the Swiss German TTS sample.
-- [ ] **Audio routing is the biggest risk.** Speakerphone into a handheld mic sounds bad
-      and the agent can hear itself through the venue speakers and cut itself off.
-      Plan: the advisor wears earbuds on the phone; the laptop joins the same session
-      and plays the agent through venue audio while the card is on the projector.
-      Test it in the room during the partner slot.
-- [ ] The call page needs mic permission over HTTPS on the phone — test on the venue
-      WiFi, with a hotspot as backup.
-- [ ] The call page needs a tunnel (cloudflared or ngrok) or hosting: the phone must
-      load it over HTTPS for mic access and receive the ring from the laptop.
-- [ ] Say on stage that the market move is simulated.
+- [ ] **Twilio tonight:** paid account (trial can only call verified numbers), a UK or
+      US number (Swiss numbers need an address bundle), incoming-call webhook and
+      media stream reaching our server through a tunnel (cloudflared or ngrok).
+- [ ] Verify streaming speech-to-text latency (ElevenLabs realtime or an alternative)
+      on phone-quality audio, Swiss accents included.
+- [ ] **Consent.** Transcribing a call without consent is a criminal offence in
+      Switzerland (StGB Art. 179bis/179ter). The line plays "calls are recorded",
+      as bank lines do. Pitch it as a plus: the transcript is the advice record
+      FIDLEG asks for.
+- [ ] **Banking secrecy.** Never on speaker near other people — earbuds, step away. The
+      video must show this.
+- [ ] Phone web app over HTTPS (tunnel or hosting) for push and mic permissions.
+- [ ] Get the "your phone linging" meme ringtone for the video. Fine for the pitch;
+      check the rights before the video goes anywhere public (e.g. the ElevenLabs
+      showcase).
+- [ ] Film only teammates; a quiet spot with a putting green or park.
+- [ ] Say on stage that the market move is simulated and the scene is acted.
 - [ ] Sector-level moves approximate each security's move — say so if asked.
-- [ ] Record a fallback video of the full flow.
+- [ ] Have a native speaker judge the Swiss German TTS sample (only if we do that stretch).
 - [ ] No cloned voices of real people.
-- [ ] The account has an unrelated agent ("CallKeep – Thames Valley Plumbing") — leave it
-      alone; create a separate demo agent.
+- [ ] The ElevenLabs account has an unrelated agent ("CallKeep – Thames Valley
+      Plumbing") — leave it alone.
