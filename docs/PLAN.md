@@ -68,6 +68,10 @@ briefing below without a market event.
 5. The advisor interrupts ("which tech funds?"); the agent answers from the data and
    stops. On screen, each fact lights up with its source as it is spoken.
 6. The countdown stops well under 60.
+7. A second call, a different client, a different reason: the briefing opens with
+   "probably a withdrawal — her note says a property purchase within 12 months" and
+   shows what can be sold without breaking her risk profile. This shows it isn't a
+   one-trick demo.
 
 The role-play is theatre; the voice and the facts are live. The market move is
 simulated and we say so. A pre-recorded call is only the fallback video — it can't be
@@ -118,6 +122,65 @@ the ranked market digest comes first, then talking points, then the rest.
 expressed in CHF. Topics the client has tagged as an interest get a boost; topics under
 0.5% of the book or with no meaningful move are dropped. So a client heavy in tech and
 light in gold hears tech first and gold later, or not at all.
+
+## Why clients call
+
+The data records why each consultation happened (`Proposals[].Reason`, 206 proposals):
+
+| Count | Reason |
+| --- | --- |
+| 26 | Follow-up from prior meeting |
+| 19 | Withdrawal request |
+| 18 | Change of risk tolerance |
+| 17 | New deposit received |
+| 15 | Change of investment strategy |
+| 15 | Risk profile update |
+| 15 | Client relocation |
+| 14 | Annual review meeting |
+| 13 | Periodic portfolio review |
+| 11 | Estate planning discussion |
+| 11 | Client called |
+| 11 | Market volatility follow-up |
+| 9 | Portfolio rebalancing |
+| 9 | Tax year-end rebalancing |
+| 3 | Life event (retirement) |
+
+Market volatility is 11 of 206. A panic-call-only tool covers ~5% of real calls. The
+client notes point the same way: an expected inheritance, retirement within two years,
+a property purchase within 12 months, CHF 15,000 needed for the Q1 tax payment, a wish
+for more sustainable funds.
+
+### Scenarios
+
+| Scenario | What the advisor needs in 60 s | Data behind it | Priority |
+| --- | --- | --- | --- |
+| Market shock | Exposure ranked by impact, what held up, calming points | Look-through, market feed | Headline |
+| Withdrawal request | Cash on hand, which positions to sell so the portfolio still fits the risk profile, whether a note anticipated it | `Liquidity…`, positions, suitability rules, notes | Build |
+| Rejected-proposal follow-up | What was proposed, when it was rejected, the note on it | 76 rejected (`Abgelehnt`) proposals with notes | Build |
+| New deposit | Where it goes to close the gap to target allocation, recommendation-list funds, ESG preference | SAA gaps, `InRecommendationList`, ESG profile | Stretch |
+| Change of risk tolerance | What changes from profile *n* to *m*: new target mix, holdings that would then breach rules | `RiskProfiles`, `StrategicAssetAllocations` | Stretch |
+| Maturity / idle cash (advisor calls out) | What matures when, where it could go | 15 bond positions maturing within 180 days; 13 clients above 10% cash | Stretch |
+| Life event | Liquidity needs from the notes, what is actually liquid, age of the risk profile | Notes, `ProfilingDateUtc`, `Birthday` | Stretch |
+| Sustainability question | ESG score of holdings, ESG violations, the client's stated wish | `SustainabilityScore`, ESG profiles (28 clients) | Stretch |
+| Relocation, tax, estate | Cross-border rules, tax lots | **Not in the data** | Flag for a specialist, never guess |
+
+### Likely reason for the call
+
+The advisor doesn't know why the client is calling. The briefing opens with the
+likely reason, ranked from signals we already compute, each naming its signal:
+
+| Signal | Likely reason |
+| --- | --- |
+| A market move hits a large share of the book | Market volatility |
+| A note mentions a coming liquidity need (property, tax, retirement) | Withdrawal |
+| A proposal was rejected recently | Follow-up |
+| A bond matures soon, or cash is above 10% | Reinvestment |
+| A new deposit shows in the data | Investing new money |
+| Risk profile older than 3 years | Not a reason to call, but raise it on the call |
+
+*"She's probably calling about the tech drop — or possibly the house purchase you
+noted in March."* If the advisor says "she wants to withdraw", the agent switches to
+that scenario's briefing.
 
 ## Architecture
 
@@ -186,6 +249,9 @@ already in its variables, and Flash TTS starts speaking in ~0.2 s.
 - **Precompute job.** Runs on the schedule, on any alert, and on every client upload.
   Recomputes impact for every client, ranks, phrases, stores the result. Idempotent,
   so re-running it is always safe.
+- **Reason predictor.** Part of the precompute job: ranks the likely reasons for a
+  call from the signals in [Why clients call](#why-clients-call) and stores them with
+  the briefing. Each scenario is its own fact set plus playbook entries.
 - **Profile builder.** Turns the 153 client notes (English), tags (73, industries and
   regions the client cares about), risk profile (3–7) and ESG profile (28 clients) into
   a fixed profile: tone, length preference, interests, and which playbook angles suit
@@ -288,15 +354,16 @@ German and French.
    adapter (Yahoo Finance, cached).
 3. Precompute job, impact ranking, briefing cache, API endpoints.
 4. Profile builder, `advisor-playbook.md`, phrasing with Apertus, claim checker.
-5. Briefing card with per-claim sources.
-6. Call page: ringing screen, ring router, ElevenLabs agent over WebRTC.
-7. Karaoke sync, follow-up questions via client tools (covers the chatbot bonus),
+5. Reason predictor, plus the withdrawal and rejected-proposal scenarios.
+6. Briefing card with per-claim sources.
+7. Call page: ringing screen, ring router, ElevenLabs agent over WebRTC.
+8. Karaoke sync, follow-up questions via client tools (covers the chatbot bonus),
    call note and follow-up email after the call.
-8. Stretch, pick at most two: rehearsal mode (agent plays the client and pushes back),
-   suitability objection ("that fund breaches her ESG exclusion"), German/French
-   switching or a Swiss German briefing, ex-custody PDF import, more public sources
-   (CIO views, news).
-9. Optional upgrade, only with time and a juror who agrees at the booth: a real phone
+9. Stretch, pick at most two: more scenarios (new deposit, risk-tolerance change,
+   maturity), rehearsal mode (agent plays the client and pushes back), suitability
+   objection ("that fund breaches her ESG exclusion"), German/French switching or a
+   Swiss German briefing, ex-custody PDF import, more public sources (CIO views, news).
+10. Optional upgrade, only with time and a juror who agrees at the booth: a real phone
    call to their phone via a Twilio number imported into ElevenLabs.
 
 ## Setup and risks
