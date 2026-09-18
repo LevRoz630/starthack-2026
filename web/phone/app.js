@@ -3,7 +3,8 @@
 
 const params = new URLSearchParams(location.search);
 const API = (params.get('api') || location.origin).replace(/\/$/, '');
-const WS_URL = API.replace(/^http/, 'ws') + '/ws';
+const WS_BASE = API.replace(/^http/, 'ws');
+const WS_URL = `${WS_BASE}/ws`;
 const DEMO_CLIENT = params.get('demo');
 
 const SLOT_TITLES = {
@@ -196,9 +197,95 @@ function answerCard(entry) {
 // For the Twilio listener: inject a question heard on the line.
 window.pushAnswer = (question) => ask(question);
 
+// An {"answers": [...]} event already computed server-side (browser-mic listener,
+// or Twilio's media stream broadcasting over /ws since it can't read replies itself).
+function renderPushedAnswer(event) {
+  const entry = { question: event.question, answers: event.answers || [],
+                  error: event.found ? null : 'Nothing in the data answers this.' };
+  state.answers.unshift(entry);
+  $('#answers').prepend(answerCard(entry));
+}
+
+// --- live listening (experimental; UNTESTED end-to-end, see backend/listener.py) --
+
+const listen = { ws: null, ctx: null, processor: null, stream: null, active: false };
+
+function pcm16Base64(float32, ratio) {
+  // Nearest-neighbour downsample to 16kHz (no anti-alias filter — fine for speech
+  // at this bitrate, not audiophile-grade) then 16-bit PCM, base64-encoded.
+  const outLength = Math.floor(float32.length / ratio);
+  const pcm = new Int16Array(outLength);
+  for (let i = 0; i < outLength; i++) {
+    const s = Math.max(-1, Math.min(1, float32[Math.floor(i * ratio)]));
+    pcm[i] = s < 0 ? s * 0x8000 : s * 0x7fff;
+  }
+  const bytes = new Uint8Array(pcm.buffer);
+  let binary = '';
+  for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+  return btoa(binary);
+}
+
+function setListenButton(text, { live = false, disabled = false } = {}) {
+  const btn = $('#listen-toggle');
+  if (!btn) return;
+  btn.textContent = text;
+  btn.disabled = disabled;
+  btn.classList.toggle('live', live);
+}
+
+async function startListening() {
+  if (listen.active || !state.briefing) return;
+  setListenButton('Requesting mic…', { disabled: true });
+  try {
+    listen.stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  } catch {
+    setListenButton('Mic denied');
+    return;
+  }
+  listen.ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const source = listen.ctx.createMediaStreamSource(listen.stream);
+  listen.processor = listen.ctx.createScriptProcessor(4096, 1, 1);
+  const ratio = listen.ctx.sampleRate / 16000;
+
+  listen.ws = new WebSocket(`${WS_BASE}/call/${encodeURIComponent(state.briefing.client)}/listen`);
+  listen.ws.addEventListener('open', () => {
+    listen.active = true;
+    setListenButton('Stop listening', { live: true });
+  });
+  listen.ws.addEventListener('message', (msg) => {
+    let event;
+    try { event = JSON.parse(msg.data); } catch { return; }
+    if (event.type === 'answer') {
+      renderPushedAnswer(event);
+    } else if (event.type === 'error') {
+      setListenButton(`Listener unavailable: ${event.error}`);
+      stopListening({ keepMessage: true });
+    }
+  });
+  listen.ws.addEventListener('close', () => stopListening({ keepMessage: true }));
+  listen.ws.addEventListener('error', () => {});
+
+  listen.processor.onaudioprocess = (e) => {
+    if (!listen.ws || listen.ws.readyState !== WebSocket.OPEN) return;
+    listen.ws.send(JSON.stringify({ audio_base_64: pcm16Base64(e.inputBuffer.getChannelData(0), ratio) }));
+  };
+  source.connect(listen.processor);
+  listen.processor.connect(listen.ctx.destination);
+}
+
+function stopListening({ keepMessage = false } = {}) {
+  if (listen.processor) { try { listen.processor.disconnect(); } catch { /* ignore */ } listen.processor = null; }
+  if (listen.ctx) { try { listen.ctx.close(); } catch { /* ignore */ } listen.ctx = null; }
+  if (listen.stream) { for (const t of listen.stream.getTracks()) t.stop(); listen.stream = null; }
+  if (listen.ws) { const ws = listen.ws; listen.ws = null; try { ws.close(); } catch { /* ignore */ } }
+  listen.active = false;
+  if (!keepMessage) setListenButton('Enable live listening');
+}
+
 // --- after call ---------------------------------------------------------------
 
 function endCall() {
+  stopListening();
   clearInterval(state.timer);
   const duration = state.callStarted ? clock(Date.now() - state.callStarted) : '0:00';
   $('#note-body').textContent = callNote(duration);
@@ -232,18 +319,28 @@ function callNote(duration) {
 }
 
 function followUpEmail() {
-  const name = callerName(state.briefing);
-  return [
-    `Dear ${name},`,
-    '',
-    'Thank you for your call today. As discussed, I have reviewed how today\'s market ' +
-      'movements affect your portfolio and noted your questions.',
-    '',
-    'I will follow up with a short review of your positions and will call you to agree on ' +
-      'the next steps.',
-    '',
-    'Kind regards,',
-  ].join('\n');
+  const b = state.briefing;
+  const name = callerName(b);
+  const groups = bySlot(b);
+  const lines = [`Dear ${name},`, '', 'Thank you for your call today.'];
+
+  if (state.answers.length) {
+    const points = [...state.answers].reverse().flatMap((entry) => entry.answers.map((a) => a.text));
+    if (points.length) {
+      lines.push('', 'As discussed:');
+      for (const text of points) lines.push(`- ${text}`);
+    }
+  } else if (groups.reason) {
+    lines.push('', groups.reason[0].text);
+  }
+
+  if (groups.issue) {
+    lines.push('', `One open item: ${groups.issue[0].text.replace(/^Open issue:\s*/, '')}`);
+  }
+
+  lines.push('', 'I will follow up with a short review of your positions and will call you to agree on ' +
+    'the next steps.', '', 'Kind regards,');
+  return lines.join('\n');
 }
 
 function approve(kind) {
@@ -282,6 +379,10 @@ function connect() {
     try { event = JSON.parse(msg.data); } catch { return; }
     if (event.type === 'hello' || event.type === 'market') setMarket(event.market);
     if (event.type === 'incoming_call' && event.briefing) ring(event.briefing);
+    // From the Twilio media stream, which can't read replies on its own connection.
+    if (event.type === 'answer' && state.screen === 'call' && state.briefing && event.client === state.briefing.client) {
+      renderPushedAnswer(event);
+    }
   });
   ws.addEventListener('close', retry);
   ws.addEventListener('error', () => ws.close());
@@ -296,7 +397,7 @@ function connect() {
 // --- wiring -------------------------------------------------------------------
 
 $('#answer').addEventListener('click', answer);
-$('#decline').addEventListener('click', () => { stopRingtone(); show('idle'); });
+$('#decline').addEventListener('click', () => { stopRingtone(); stopListening(); show('idle'); });
 $('#end-call').addEventListener('click', endCall);
 $('#done').addEventListener('click', () => show('idle'));
 $('#ask-form').addEventListener('submit', (e) => {
@@ -305,6 +406,7 @@ $('#ask-form').addEventListener('submit', (e) => {
   ask(input.value);
   input.value = '';
 });
+$('#listen-toggle').addEventListener('click', () => (listen.active ? stopListening() : startListening()));
 for (const btn of $$('[data-approve]')) btn.addEventListener('click', () => approve(btn.dataset.approve));
 
 if (DEMO_CLIENT) {

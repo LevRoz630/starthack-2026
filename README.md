@@ -35,17 +35,31 @@ DEMO_SCENARIO=tech-selloff uvicorn backend.api:app --port 8000
 | `GET /call/{ref}` | the incoming-call briefing |
 | `POST /call/incoming` | `{"from": "+41..."}` (JSON or Twilio form) or `{"client": ref}` — pushes the briefing to `/ws` |
 | `POST /ask` | `{"client", "question"}` → the facts that answer it, with sources |
-| `WS /ws` | events: `hello`, `market`, `incoming_call` |
+| `WS /ws` | events: `hello`, `market`, `incoming_call`, `answer` (pushed answers from the Twilio media stream) |
 
 Also: `POST /transcribe` (audio → text → answers, ElevenLabs Scribe), `GET /profile/{ref}`,
 `GET /call/{ref}/audio` and `GET /briefing/{ref}/audio` (spoken, ElevenLabs Flash).
+
+**UNTESTED, written from documented protocols but never run against a real call — review before
+a demo relies on them.** `POST /twilio/incoming` and `WS /call/{ref}/twilio-media`
+(`backend/twilio_media.py`) are the real telephony path: set a Twilio number's "a call comes in"
+webhook to `/twilio/incoming` (`ADVISOR_NUMBER` env var forwards the call); it returns TwiML that
+also starts a media stream, resampled and relayed to ElevenLabs realtime STT the same way
+`WS /call/{ref}/listen` (`backend/listener.py`) does for the phone app's own microphone (the
+"Enable live listening" button mid-call). Until verified, `POST /call/incoming` plus a second
+device on the phone app remains the reliable fallback docs/PLAN.md already treats as acceptable.
+
+`GET /dashboard/` — the one-click 60-second briefing (`web/dashboard/`): pick a client, see the
+briefing with every sentence's source, word count and reading-time estimate, section-coverage
+("5/6 have data"), what the claim checker rejected, and a Listen button. Also uploads the jury's
+test client (`POST /clients`).
 
 More modules:
 
 - `backend/outlook.py` — real news (10 feeds) and verbatim bank house views, matched to the client's largest exposures. `python -m backend.outlook refresh`.
 - `backend/translate.py` — Supertext with a cache; `data/translations/rules-en.json` has every suitability rule in English.
 - `backend/profiles.py` — Apertus reads each client's notes once into a validated profile (`data/profiles/profiles.json`).
-- `backend/voice.py` — ElevenLabs speech (Flash) and transcription (Scribe; realtime URL for the call listener).
+- `backend/voice.py` — ElevenLabs speech (Flash) and transcription (Scribe; realtime URL for the call listener). `--dialect gsw-u-sd-chzh`/`gsw-u-sd-chbe` on `brief`/`say` speaks Swiss German (Supertext translation + a German voice, `language_code: "de"`) — untested by ear, see docs/PLAN.md "Swiss German option".
 - `backend/excustody.py` — the ten side-challenge custody PDFs as clients EXT-01..EXT-10 (bonus case), reconciled to the statements.
 - `python -m backend.report` — every client's briefings in English, with sources, in `docs/verification/briefings-en.md`.
 

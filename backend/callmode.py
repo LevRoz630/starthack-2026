@@ -60,11 +60,17 @@ def _has_note(client, words):
     return any(any(w in (n.get('Note') or '').lower() for w in words) for n in items(client, 'ClientNotes'))
 
 
-def reasons(client, store, hit, as_of):
+def reasons(client, store, hit, as_of, base=None):
     """Likely reasons for the call, most likely first, each as a Fact naming its signal."""
     ref = client['ClientRef']
     ccy = client.get('ReportingCurrency') or 'CHF'
     found = []
+    base = base if base is not None else compute(client, store, as_of)
+    esg = next((f for f in base if f.id == 'health.esg'), None)
+    if esg and esg.weight > 0:
+        first_word = esg.text.split(' ', 1)[0]
+        text = esg.text if first_word.isupper() else esg.text[0].lower() + esg.text[1:]
+        found.append((0.7, f'a sustainability concern: {text}', esg.source))
     total = hit['total'] or 1
     book_move = hit['impact'] / total
     losers = sorted((t for t in hit['topics'].values() if t.impact < 0), key=lambda t: t.impact)
@@ -171,7 +177,7 @@ def _holding(client, hit, market):
                    f'{market.source("fx", "USD")}', 0.5)
 
 
-def _talk(client, hit, top_reason, held_up, profile):
+def _talk(client, hit, top_reason, held_up, profile, has_issue=False):
     with open(PLAYBOOK, encoding='utf-8') as f:
         angles = json.load(f)['angles']
     market_hit = abs(hit['impact']) / (hit['total'] or 1) >= MARKET_REASON
@@ -181,6 +187,7 @@ def _talk(client, hit, top_reason, held_up, profile):
         'anxious': temperament == 'anxious' or _has_note(client, ANXIOUS_WORDS),
         'withdrawal': bool(top_reason and 'withdrawal' in top_reason.text),
         'held_up': held_up and market_hit,
+        'objection': has_issue,
         'long_term': market_hit and (temperament in ('calm', 'patient') or 'long_term' in profile.get('angles', [])
                                      or _has_note(client, PATIENT_WORDS)
                                      or (client.get('RiskProfileName') or '').endswith(('5', '6', '7'))),
@@ -218,13 +225,13 @@ def call_facts(client, store, market, as_of=None):
     for i, pref in enumerate(profile.get('contact_preferences', [])[:1]):
         out.append(Fact(f'caller.contact.{i}', 'caller', f'Contact preference: "{pref.strip()}"',
                         f'data/profiles/profiles.json {ref} from clients.json ClientNotes', 0.8))
-    why = reasons(client, store, hit, as_of)
+    why = reasons(client, store, hit, as_of, base)
     out += why
     digest = list(_digest(client, hit, market))
     holding = list(_holding(client, hit, market)) if digest else []
     out += digest + holding
-    out += _talk(client, hit, why[0] if why else None, bool(holding), profile)
     issues = sorted((f for f in base if f.slot == 'health'), key=lambda f: -f.weight)
+    out += _talk(client, hit, why[0] if why else None, bool(holding), profile, bool(issues))
     if issues:
         out.append(Fact('issue', 'issue', f'Open issue: {issues[0].text}', issues[0].source, issues[0].weight))
     return relabel(out, client), hit

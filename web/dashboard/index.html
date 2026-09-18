@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#5499E4">
+  <title>Advisor Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="bar">
+    <span class="brand">UNRISKOMEGA</span>
+    <span class="conn" id="conn" data-state="connecting" aria-live="polite">
+      <span class="dot" aria-hidden="true"></span><span id="conn-label">Connecting</span>
+    </span>
+  </header>
+
+  <main>
+    <aside class="clients">
+      <div class="search-row">
+        <input id="search" type="search" placeholder="Search clients&hellip;" aria-label="Search clients">
+      </div>
+      <ul id="client-list" class="client-list" aria-label="Clients"></ul>
+      <form id="upload-form" class="upload">
+        <label for="upload-file" class="btn secondary wide">Upload test client&hellip;</label>
+        <input id="upload-file" type="file" accept="application/json" hidden>
+        <p id="upload-status" class="upload-status" aria-live="polite"></p>
+      </form>
+    </aside>
+
+    <section class="briefing">
+      <div id="empty" class="empty">
+        <p class="eyebrow">One click, 60 seconds</p>
+        <h1>Pick a client</h1>
+        <p class="muted">Select a client on the left for their briefing.</p>
+      </div>
+
+      <div id="card" class="card" hidden>
+        <div class="card-head">
+          <div>
+            <h1 id="b-name"></h1>
+            <p class="ref" id="b-ref"></p>
+          </div>
+          <div class="head-actions">
+            <button class="btn secondary" id="play" type="button">&#9658; Listen</button>
+          </div>
+        </div>
+
+        <div class="meta-row">
+          <span class="pill" id="b-words"></span>
+          <span class="pill" id="b-read"></span>
+          <span class="pill" id="b-coverage"></span>
+          <span class="pill provider" id="b-provider"></span>
+        </div>
+
+        <div id="slots" class="slots"></div>
+
+        <details id="rejected-box" class="rejected" hidden>
+          <summary>Claim checker caught <span id="rejected-count"></span></summary>
+          <ul id="rejected-list"></ul>
+        </details>
+
+        <audio id="audio" preload="none"></audio>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

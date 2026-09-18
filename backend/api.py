@@ -15,13 +15,18 @@ Endpoints (JSON unless noted):
     GET  /call/{ref}                   the incoming-call briefing for a client
     POST /call/incoming                {"from": "+41..."} or {"client": ref}; Twilio form posts work too.
                                        Pushes the call briefing to every /ws subscriber.
+    POST /twilio/incoming              UNTESTED: Twilio's "a call comes in" webhook; returns TwiML
+                                       (backend/twilio_media.py). Set as the number's Voice URL.
     POST /ask                          {"client": ref, "question": "..."}: the facts that answer it
     POST /transcribe                   multipart "file" (audio) [+ "client"]: text via ElevenLabs Scribe, plus answers
     GET  /profile/{ref}                the client's profile (temperament, wants, cash needs), each with its note
     GET  /call/{ref}/audio             the call briefing spoken (audio/mpeg, ElevenLabs Flash, cached)
     GET  /briefing/{ref}/audio         the 60-second briefing spoken
     WS   /ws                           pushes {"type": "incoming_call" | "market", ...} events
+    WS   /call/{ref}/listen            UNTESTED: mic audio in, live answer cards out (backend/listener.py)
+    WS   /call/{ref}/twilio-media      UNTESTED: Twilio Media Streams audio in (backend/twilio_media.py)
     GET  /phone/                       the advisor phone app (web/phone)
+    GET  /dashboard/                   the one-click 60-second briefing dashboard (web/dashboard)
 
 External custody clients EXT-01..EXT-10 (from the side-challenge PDFs) are loaded at startup.
 Environment: DEMO_SCENARIO preloads a scenario; BRIEFING_LLM=0 turns off Apertus phrasing.
@@ -51,6 +56,7 @@ from .market import MarketState, load_scenario, scenarios
 
 PHONEBOOK = ROOT / 'data' / 'phonebook.json'
 PHONE_APP = ROOT / 'web' / 'phone'
+DASHBOARD_APP = ROOT / 'web' / 'dashboard'
 
 
 class State:
@@ -254,6 +260,25 @@ async def incoming_call(request):
     return JSONResponse(b)
 
 
+async def twilio_incoming(request):
+    """POST /twilio/incoming — Twilio's "a call comes in" webhook. UNTESTED
+    against a real Twilio number (see backend/twilio_media.py). Pushes the
+    briefing the same way POST /call/incoming does, then returns TwiML that
+    starts a media stream (if the caller resolved to a client) and forwards
+    the call to ADVISOR_NUMBER."""
+    from . import twilio_media
+    data = await body(request)
+    number = normalise_number((data or {}).get('From'))
+    ref = state.phonebook.get(number)
+    if ref and ref in state.store.clients:
+        b = callmode.build_call(state.store, ref, state.market)
+        await state.broadcast({'type': 'incoming_call', 'from': number, 'briefing': b})
+    else:
+        ref = None
+    xml = twilio_media.twiml_response(ref, request.headers.get('host', ''))
+    return Response(xml, media_type='text/xml')
+
+
 # Everyday words a client uses, mapped to the words our facts use.
 SYNONYMS = {
     'tech': 'information technology', 'technology': 'information technology',
@@ -363,6 +388,104 @@ async def websocket(ws):
         state.sockets.discard(ws)
 
 
+async def call_listen(ws):
+    """WS /call/{ref}/listen — UNTESTED (see backend/listener.py): relays the
+    advisor phone's mic audio (JSON {"audio_base_64": <16kHz PCM16>} frames,
+    ~100ms each) to ElevenLabs' realtime speech-to-text and pushes back
+    {"type": "answer", "question", "answers", "found"} for each committed
+    transcript, using the same claim-checked answer() as /ask."""
+    from . import listener
+    ref = ws.path_params['ref']
+    await ws.accept()
+    if ref not in state.store.clients:
+        await ws.close(code=4404)
+        return
+    client = state.store.clients[ref]
+
+    async def audio_chunks():
+        while True:
+            try:
+                raw = await ws.receive_text()
+            except WebSocketDisconnect:
+                return
+            try:
+                msg = json.loads(raw)
+            except json.JSONDecodeError:
+                continue
+            b64 = msg.get('audio_base_64')
+            if b64:
+                import base64
+                yield base64.b64decode(b64)
+
+    async def on_transcript(text):
+        result = await run_in_threadpool(answer, client, text)
+        await ws.send_json({'type': 'answer', 'question': text, **result})
+
+    try:
+        await listener.stream_to_elevenlabs(audio_chunks(), on_transcript)
+    except listener.ListenerUnavailable as e:
+        await ws.send_json({'type': 'error', 'error': str(e)})
+    finally:
+        try:
+            await ws.close()
+        except RuntimeError:
+            pass
+
+
+async def twilio_media_stream(ws):
+    """WS /call/{ref}/twilio-media — UNTESTED (see backend/twilio_media.py):
+    Twilio's Media Streams protocol for one call leg. Resamples the 8kHz
+    mu-law audio to 16kHz PCM16 and relays it to ElevenLabs realtime STT the
+    same way call_listen() does; Twilio never reads messages back on this
+    connection, so answers are pushed to every /ws subscriber instead, tagged
+    with the client ref so the advisor's phone can match them to the active call."""
+    from . import listener, twilio_media
+    ref = ws.path_params['ref']
+    await ws.accept()
+    if ref not in state.store.clients:
+        await ws.close(code=4404)
+        return
+    client = state.store.clients[ref]
+    rate_state = None
+
+    async def audio_chunks():
+        nonlocal rate_state
+        while True:
+            try:
+                raw = await ws.receive_text()
+            except WebSocketDisconnect:
+                return
+            try:
+                msg = json.loads(raw)
+            except json.JSONDecodeError:
+                continue
+            event = msg.get('event')
+            if event == 'stop':
+                return
+            if event != 'media':
+                continue
+            payload = (msg.get('media') or {}).get('payload')
+            if not payload:
+                continue
+            import base64
+            pcm16, rate_state = twilio_media.mulaw8k_to_pcm16k(base64.b64decode(payload), rate_state)
+            yield pcm16
+
+    async def on_transcript(text):
+        result = await run_in_threadpool(answer, client, text)
+        await state.broadcast({'type': 'answer', 'client': ref, 'question': text, **result})
+
+    try:
+        await listener.stream_to_elevenlabs(audio_chunks(), on_transcript)
+    except listener.ListenerUnavailable:
+        pass  # Twilio does not consume messages on this connection; nothing to report to.
+    finally:
+        try:
+            await ws.close()
+        except RuntimeError:
+            pass
+
+
 @asynccontextmanager
 async def lifespan(app):
     global state
@@ -385,6 +508,7 @@ app = Starlette(
         Route('/market/events', market_event, methods=['POST']),
         Route('/callers', callers),
         Route('/call/incoming', incoming_call, methods=['POST']),
+        Route('/twilio/incoming', twilio_incoming, methods=['POST']),
         Route('/call/{ref}', get_call),
         Route('/ask', ask, methods=['POST']),
         Route('/transcribe', transcribe, methods=['POST']),
@@ -392,7 +516,10 @@ app = Starlette(
         Route('/call/{ref}/audio', call_audio),
         Route('/briefing/{ref}/audio', briefing_audio),
         WebSocketRoute('/ws', websocket),
+        WebSocketRoute('/call/{ref}/listen', call_listen),
+        WebSocketRoute('/call/{ref}/twilio-media', twilio_media_stream),
         Mount('/phone', StaticFiles(directory=PHONE_APP, html=True), name='phone'),
+        Mount('/dashboard', StaticFiles(directory=DASHBOARD_APP, html=True), name='dashboard'),
     ],
     middleware=[Middleware(CORSMiddleware, allow_origins=['*'], allow_methods=['*'], allow_headers=['*'])],
     lifespan=lifespan,

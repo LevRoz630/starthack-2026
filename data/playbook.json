@@ -4,6 +4,7 @@
     {"id": "acknowledge", "when": "anxious", "text": "Acknowledge the concern first, then give the numbers."},
     {"id": "cash_need", "when": "withdrawal", "text": "Confirm the amount and the date of the cash need before discussing what to sell."},
     {"id": "held_up", "when": "held_up", "text": "Start with what held up, then walk through what fell."},
+    {"id": "objection", "when": "objection", "text": "If they push back on the open rule, explain what it protects, not just that it applies."},
     {"id": "long_term", "when": "long_term", "text": "Frame today against the long-term plan, not the daily move."},
     {"id": "no_rush", "when": "market", "text": "Advise against acting on a single day's move; offer to review the positions together."},
     {"id": "follow_up", "when": "always", "text": "Agree on a concrete next step and when you will call back."}

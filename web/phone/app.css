@@ -128,6 +128,10 @@ p { margin: 0; }
 }
 .ask input:focus { outline: 2px solid var(--uro-blue); outline-offset: 1px; }
 
+.listen-row { display: flex; flex-direction: column; gap: 4px; }
+.listen-hint { font-size: var(--size-xs); color: var(--muted); }
+.btn.live { background: var(--red); color: var(--on-blue); border-color: var(--red); }
+
 .answers { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--gap); }
 .answer-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: var(--gutter); border-left: 4px solid var(--uro-blue); }
 .answer-card .q { font-size: var(--size-s); color: var(--muted); margin-bottom: 6px; }

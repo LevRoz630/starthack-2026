@@ -3,9 +3,16 @@
     python -m backend.voice brief CASE-043 --scenario tech-selloff   # speak the call briefing, time it
     python -m backend.voice say "Waldo is calling." --out waldo.mp3
     python -m backend.voice transcribe call.mp3
+    python -m backend.voice brief CASE-043 --dialect gsw-u-sd-chzh   # Zurich German (untested live)
 
-Speech is cached in data/voice-cache/ by (model, voice, text), so a briefing that
-has been spoken once replays instantly.
+Speech is cached in data/voice-cache/ by (model, voice, language, text), so a
+briefing that has been spoken once replays instantly.
+
+Swiss German (--dialect): no ElevenLabs voice speaks dialect natively, so per
+docs/PLAN.md we translate the English script to a gsw dialect through Supertext
+(backend/translate.py) and have ElevenLabs read it with language_code='de' — a
+German voice reading dialect text. Untested end-to-end: needs a native speaker
+to judge whether it actually sounds right before it goes on stage.
 """
 
 import argparse
@@ -72,22 +79,45 @@ def briefing_script(sentences):
     return ' '.join(p if p.endswith(('.', '!', '?', '"')) else p + '.' for p in parts if p)
 
 
+def dialect_script(sentences, dialect='gsw-u-sd-chzh'):
+    """The briefing script translated into a Swiss German dialect via Supertext.
+
+    Numbers are spelled out in English first (spoken()), then the whole script is
+    translated — never the other way round, or the dialect pass would translate
+    around English number-words it doesn't recognise as numbers. Falls back to the
+    English script unchanged if Supertext is unavailable, so a missing/expired key
+    degrades to an English voice rather than breaking the briefing.
+    """
+    from .translate import TranslationUnavailable, translate
+    script = briefing_script(sentences)
+    try:
+        return translate([script], source='en', target=dialect)[0]
+    except TranslationUnavailable:
+        return script
+
+
 def _cache_path(*parts):
     return CACHE_DIR / (hashlib.sha256('|'.join(parts).encode('utf-8')).hexdigest()[:24] + '.mp3')
 
 
-def speak(text, voice_id=None, model=FAST_MODEL, timeout=60):
-    """MP3 bytes for text, from the cache or ElevenLabs. Returns (audio, seconds to first byte or None)."""
+def speak(text, voice_id=None, model=FAST_MODEL, timeout=60, language_code=None):
+    """MP3 bytes for text, from the cache or ElevenLabs. Returns (audio, seconds to first byte or None).
+
+    language_code tells ElevenLabs which language the voice should read in (e.g.
+    'de' for a German voice reading Swiss German dialect text from dialect_script)."""
     voice_id = voice_id or DEFAULT_VOICE
-    path = _cache_path(model, voice_id, text)
+    path = _cache_path(model, voice_id, language_code or '', text)
     if path.exists():
         return path.read_bytes(), None
     started = time.perf_counter()
+    body = {'model_id': model, 'text': text}
+    if language_code:
+        body['language_code'] = language_code
     try:
         resp = requests.post(f'{API}/text-to-speech/{voice_id}/stream',
                              params={'output_format': 'mp3_44100_128'},
                              headers={'xi-api-key': _key(), 'Content-Type': 'application/json'},
-                             data=_json({'model_id': model, 'text': text}), stream=True, timeout=timeout)
+                             data=_json(body), stream=True, timeout=timeout)
         resp.raise_for_status()
         chunks, first = [], None
         for chunk in resp.iter_content(chunk_size=4096):
@@ -129,9 +159,11 @@ def main(argv=None):
     b = sub.add_parser('brief')
     b.add_argument('ref')
     b.add_argument('--scenario', default='tech-selloff')
+    b.add_argument('--dialect', help="e.g. gsw-u-sd-chzh (Zurich) or gsw-u-sd-chbe (Bern); untested live")
     s = sub.add_parser('say')
     s.add_argument('text')
     s.add_argument('--out', default='say.mp3')
+    s.add_argument('--dialect', help="translate text to this Supertext target before speaking")
     t = sub.add_parser('transcribe')
     t.add_argument('file')
     args = parser.parse_args(argv)
@@ -141,13 +173,26 @@ def main(argv=None):
         from .data import load
         from .market import load_scenario
         call = build_call(load(), args.ref, load_scenario(args.scenario))
-        script = briefing_script(call['sentences'])
-        audio, first = speak(script)
+        if args.dialect:
+            script = dialect_script(call['sentences'], args.dialect)
+            audio, first = speak(script, language_code='de')
+        else:
+            script = briefing_script(call['sentences'])
+            audio, first = speak(script)
         print(f'{len(script.split())} words, {len(audio) // 1024} KB, first byte '
-              f'{first if first is not None else "cached"} s -> {_cache_path(FAST_MODEL, DEFAULT_VOICE, script)}')
+              f'{first if first is not None else "cached"} s')
         print(script)
     elif args.cmd == 'say':
-        audio, first = speak(args.text)
+        text = args.text
+        language_code = None
+        if args.dialect:
+            from .translate import TranslationUnavailable, translate
+            try:
+                text = translate([text], source='en', target=args.dialect)[0]
+                language_code = 'de'
+            except TranslationUnavailable as e:
+                print(f'translation unavailable ({e}); speaking English text', file=sys.stderr)
+        audio, first = speak(text, language_code=language_code)
         with open(args.out, 'wb') as f:
             f.write(audio)
         print(f'wrote {args.out}, first byte {first} s')
