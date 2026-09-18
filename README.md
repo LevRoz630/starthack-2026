@@ -6,12 +6,14 @@ Case: **UNRISKOMEGA** — [github.com/START-Hack/unriskomega-2026](https://githu
 
 - [RULES.md](RULES.md) — the official Hacker Guidebook, converted to markdown.
 - [PITCH.md](PITCH.md) — pitch prep todos.
+- [PLAN.md](PLAN.md) — the case brief from the kickoff slides, and what we are building.
+- [case-slides/](case-slides/) — photos of the kickoff slides: judging criteria, what we get, contacts.
 
 Guidebook source: <https://startglobal1920.notion.site/Hacker-Guidebook-START-Hack-Tour-St-Gallen-3b84da13be328082a75fc33a4a0eb9c5> (fetched 2026-09-18). Notion is authoritative; this copy is a snapshot.
 
 ## What the case ships
 
-Data only — no brief, no judging criteria, no partner contacts. Those come on site.
+Data only — no brief, no judging criteria, no partner contacts. Those came at the kickoff; see [PLAN.md](PLAN.md).
 
 | | |
 | --- | --- |
