@@ -180,7 +180,7 @@ async function ask(question) {
   } catch (e) {
     result = { answers: [], error: 'No connection' };
   }
-  const entry = { question, answers: result.answers || [], error: result.error };
+  const entry = { question, answers: result.answers || [], error: result.error, chain: !!result.chain };
   state.answers.unshift(entry);
   $('#answers').prepend(answerCard(entry));
   return entry;
@@ -191,6 +191,20 @@ function answerCard(entry) {
   card.append(el('p', 'q', `“${entry.question}”`));
   if (!entry.answers.length) {
     card.append(el('p', 'a', entry.error ? `Could not answer: ${entry.error}` : 'Nothing in the data answers this.'));
+  }
+  if (entry.chain) {
+    // A chain of facts: numbered steps, each with the link to the step before it.
+    card.classList.add('chain');
+    const steps = el('ol', 'steps');
+    for (const a of entry.answers) {
+      const step = el('li', 'step');
+      if (a.link) step.append(el('span', 'link', a.link));
+      step.append(el('p', 'a', a.text));
+      step.append(el('p', 'src', a.source));
+      steps.append(step);
+    }
+    card.append(steps);
+    return card;
   }
   for (const a of entry.answers) {
     card.append(el('p', 'a', a.text));
@@ -315,7 +329,7 @@ function onListenerEvent(event) {
   if (state.screen !== 'call') return;
   if (event.type === 'transcript') showLive(event.text, event.final ? 'final' : '');
   if (event.type === 'answer') {
-    const entry = { question: event.question, answers: event.answers || [] };
+    const entry = { question: event.question, answers: event.answers || [], chain: !!event.chain };
     state.answers.unshift(entry);
     $('#answers').prepend(answerCard(entry));
     showLive('');
