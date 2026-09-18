@@ -2,7 +2,7 @@
 
 ## The case, from the kickoff slides
 
-Slides are in [case-slides/](case-slides/). Transcribed:
+Slides were transcribed below, then deleted (still in git history):
 
 **Main challenge: From Ping to Pitch in 60 Seconds — AI Briefing Assistant.** One click
 gives the advisor a briefing readable in ~60 seconds: development, health check,

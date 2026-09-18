@@ -13,8 +13,7 @@ Friday 9am–12am** — that is the window to collect names and roles.
 
 ## Who we are pitching to, in detail
 
-See [JUDGES.md](JUDGES.md) — company, board, the two lineages, and the blank table
-to fill in at the booth.
+Contacts are in [JUDGES.md](JUDGES.md).
 
 ## What that means for the message
 
