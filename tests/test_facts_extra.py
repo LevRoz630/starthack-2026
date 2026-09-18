@@ -56,3 +56,22 @@ def test_candidates_are_not_already_held(store, all_facts):
         for f in all_facts[ref]:
             if f.id == 'actions.candidates':
                 assert not any(name and name in f.text for name in held if len(name) > 25), (ref, f.text)
+
+
+def test_external_clients_cite_their_custody_statement():
+    from backend.data import load
+    from backend.excustody import load_external
+    from backend.facts import compute
+    store = load()
+    load_external(store)
+    for f in compute(store.client('EXT-01'), store):
+        assert 'clients.json' not in f.source, f
+    assert any('custody statement' in f.source for f in compute(store.client('EXT-01'), store))
+
+
+def test_rule_explanations_are_card_only_and_english():
+    from backend.data import load
+    from backend.facts import compute
+    store = load()
+    rules = [f for f in compute(store.client('CASE-038'), store) if f.id.startswith('health.rule.')]
+    assert rules and all(f.weight == 0 and 'means:' in f.text for f in rules)

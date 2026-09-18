@@ -56,6 +56,12 @@ Investor profile 5 · CHF 726k · ESG preference: yes
   <sub>clients.json CASE-001: Portfolios[CASE-001-01] positions; reference.json StrategicAssetAllocations[92] AssetClass "Bonds"</sub>
 - **Health check** (0.15): 2 of 2 orders from the proposal of 7 Sep 2026 were forwarded with a warning.  
   <sub>clients.json CASE-001: Transactions[ProposalId=25156].ForwardState = 2</sub>
+- **Health check** (0.00): "Compliance with maximum volatility" means: For retail clients with financial services Comprehensive investment advisory or discretionary mandate must be PF Vola < max client profile Vola.  
+  <sub>clients.json CASE-001: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Minimum limit shares" means: Minimum Limit Stocks  
+  <sub>clients.json CASE-001: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Maximum limit liquidity" means: Maximum liquidity limits  
+  <sub>clients.json CASE-001: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.08): The last finalised proposal (7 Sep 2026, reason: Estate planning discussion) ordered to sell Short-Term Money Market CHF and Short-Term Money Market USD.  
   <sub>clients.json CASE-001: Proposals[25156] × Transactions</sub>
 - **Next best actions** (1.00): Resolve "Compliance with maximum volatility".  
@@ -133,6 +139,10 @@ Investor profile 5 · CHF 185k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): "Overweight in the equity sector "Industrials"" means: Overweight (+/- 5% of the benchmark’s SAA target) in the ‘Industrials’ equity sector  
+  <sub>clients.json CASE-002: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Underweight in the equity sector "Consumer Staples"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the Basic Consumer Goods equity sector  
+  <sub>clients.json CASE-002: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.14): Health Care is 14.2% of the book (CHF 26k) after fund look-through, mostly via CSIF (CH) Equity Switzerland Large Cap Blue and SPDR MSCI World Health Care UCITS ETF.  
   <sub>clients.json CASE-002: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.13): Financials is 13.2% of the book (CHF 24k) after fund look-through, mostly via Swisscanto (CH) Real Estate Fund Responsible IFCA and CSIF (CH) Equity Switzerland Large Cap Blue.  
@@ -277,6 +287,10 @@ Investor profile 5 · CHF 534k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): "Overweight in the equity sector "Energy"" means: Overweight (+/- 5% of the benchmark’s SAA target) in the Energy equity sector  
+  <sub>clients.json CASE-004: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Significant overweight in the equity region "Japan"" means: Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Japan’ equity region  
+  <sub>clients.json CASE-004: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.14): Financials is 13.9% of the book (CHF 74k) after fund look-through, mostly via Swisscanto (CH) Real Estate Fund Responsible IFCA and Swiss Life Holding AG.  
   <sub>clients.json CASE-004: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.10): Note from 8 May 2025: "Has expressed interest in consolidating multiple accounts."  
@@ -504,6 +518,8 @@ Investor profile 5 · CHF 905k · ESG preference: yes
   <sub>clients.json CASE-007: Transactions[ProposalId=19898].ForwardState = 2</sub>
 - **Health check** (0.06): ESG client: average sustainability score 7.1 of 10 against a minimum of 5.7; 2 holdings below the per-position minimum (iShares Core MSCI EM IMI UCITS ETF and ams-OSRAM AG, 3.0% of the book).  
   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-007 positions</sub>
+- **Health check** (0.00): "Compliance with maximum volatility" means: For retail clients with financial services Comprehensive investment advisory or discretionary mandate must be PF Vola < max client profile Vola.  
+  <sub>clients.json CASE-007: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.10): Financials is 10.5% of the book (CHF 95k) after fund look-through, mostly via iShares Swiss Dividend ETF (CH) and Equities Switzerland Passive Leader.  
   <sub>clients.json CASE-007: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.10): Note from 27 May 2025: "Prefers to avoid any exposure to fossil-fuel energy in the portfolio."  
@@ -569,6 +585,12 @@ Investor profile 7 · CHF 308k · ESG preference: yes
 
 - **Health check** (0.00): ESG client: average sustainability score 7.5 of 10 against a minimum of 5.7.  
   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-008 positions</sub>
+- **Health check** (0.00): "Significant underweight in the equity sector "Consumer Staples"" means: Significant underweight (+/- 10% of the benchmark’s SAA target) in the ‘Basic Consumer Goods’ equity sector  
+  <sub>clients.json CASE-008: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Significant overweight in the equity sector "Information Technology"" means: Significant overweight (+/- 10% of the benchmark’s SAA target) in the Information Technology sector  
+  <sub>clients.json CASE-008: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Foreign currency cluster risk EUR" means: For private customers, the EUR share should be < 9%.  
+  <sub>clients.json CASE-008: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.18): Financials is 18.5% of the book (CHF 57k) after fund look-through, mostly via Equities Switzerland Passive Leader and iShares Swiss Dividend ETF (CH).  
   <sub>clients.json CASE-008: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.15): Note from 2 Feb 2026: "Has expressed interest in consolidating multiple accounts."  
@@ -819,6 +841,12 @@ Investor profile 6 · CHF 44k · ESG preference: no
   <sub>clients.json CASE-012: ProfilingDateUtc</sub>
 - **Health check** (0.15): 5 of 6 orders from the proposal of 30 Aug 2026 were forwarded with a warning.  
   <sub>clients.json CASE-012: Transactions[ProposalId=25001].ForwardState = 2</sub>
+- **Health check** (0.00): "Volatility range exceeded (portfolio risk too high)" means: For retail clients with financial services Comprehensive investment advisory or discretionary mandate must be PF Vola < max SAA Vola.  
+  <sub>clients.json CASE-012: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Foreign currency cluster risk USD" means: For private customers, the USD share should be < 35.5%.  
+  <sub>clients.json CASE-012: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Cluster risk of a single financial instrument" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be single title share < x% (x varies with instrument type)  
+  <sub>clients.json CASE-012: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.28): Communication Services is 28.0% of the book (CHF 12k) after fund look-through, mostly via Alphabet Inc and ETF USD iShares III PLC- iShares Core MSCI World UCITS ETF.  
   <sub>clients.json CASE-012: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.25): Alphabet Inc alone is 25.5% of the book.  
@@ -1140,6 +1168,8 @@ Investor profile 6 · CHF 1.11m · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): "Underweight in the equity region "Asia/Pacific (ex Japan)"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the ‘Asia/Pacific (ex Japan)’ equity region  
+  <sub>clients.json CASE-017: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.11): Information Technology is 11.3% of the book (CHF 125k) after fund look-through, mostly via iShares Automation & Robotics UCITS ETF and iShares NASDAQ 100 UCITS ETF.  
   <sub>clients.json CASE-017: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.10): Note from 21 Nov 2025: "No direct positions in fossil fuels, please."  
@@ -1209,6 +1239,12 @@ Investor profile 6 · CHF 3.10m · ESG preference: no
   <sub>clients.json CASE-018: ProfilingDateUtc</sub>
 - **Health check** (0.15): 1 of 1 order from the proposal of 23 Sep 2025 were forwarded with a warning.  
   <sub>clients.json CASE-018: Transactions[ProposalId=17405].ForwardState = 2</sub>
+- **Health check** (0.00): "Foreign currency cluster risk EUR" means: For private customers, the EUR share should be < 9%.  
+  <sub>clients.json CASE-018: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Cluster risk of a single financial instrument" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be single title share < x% (x varies with instrument type)  
+  <sub>clients.json CASE-018: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Volatility range exceeded (portfolio risk too high)" means: For retail clients with financial services Comprehensive investment advisory or discretionary mandate must be PF Vola < max SAA Vola.  
+  <sub>clients.json CASE-018: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.28): Financials is 28.5% of the book (CHF 883k) after fund look-through, mostly via Zurich Insurance Group AG and Swiss Re AG.  
   <sub>clients.json CASE-018: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.23): Linde PLC alone is 22.5% of the book.  
@@ -1284,6 +1320,12 @@ Investor profile 7 · CHF 699k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): "Cluster risk of a single financial instrument" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be single title share < x% (x varies with instrument type)  
+  <sub>clients.json CASE-019: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Significant overweight in the equity region "Switzerland"" means: Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Switzerland’ equity region  
+  <sub>clients.json CASE-019: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Significant underweight in the equity region "North America"" means: Significant underweight (+/- 10% of the SAA target for the ‘North America’ equity region)  
+  <sub>clients.json CASE-019: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.35): Health Care is 35.3% of the book (CHF 247k) after fund look-through, mostly via Ypsomed Holding AG and Roche Holding AG.  
   <sub>clients.json CASE-019: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.26): Information Technology is 26.0% of the book (CHF 182k) after fund look-through, mostly via Comet Holding AG and Global Clean Energy UCITS ETF.  
@@ -1491,6 +1533,12 @@ Investor profile 5 · CHF 6.38m · ESG preference: no
 
 - **Health check** (0.11): Risk profile last assessed 12 Aug 2023, 3 years ago.  
   <sub>clients.json CASE-022: ProfilingDateUtc</sub>
+- **Health check** (0.00): "Foreign currency cluster risk EUR" means: For private customers, the EUR share should be < 9%.  
+  <sub>clients.json CASE-022: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Cluster risk of a single financial instrument" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be single title share < x% (x varies with instrument type)  
+  <sub>clients.json CASE-022: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Significant overweight in the equity region "Switzerland"" means: Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Switzerland’ equity region  
+  <sub>clients.json CASE-022: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.15): Industrials is 15.3% of the book (CHF 978k) after fund look-through, mostly via ABB Ltd and SGS Ltd.  
   <sub>clients.json CASE-022: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.08): The last finalised proposal (5 Oct 2025, reason: Life event (retirement)) ordered to buy ABB Ltd, Allianz SE and 7 more and sell iShares DivDAX (R) UCITS ETF (DE), BB Biotech AG and 3 more.  
@@ -1749,6 +1797,12 @@ Investor profile 6 · CHF 2.38m · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): "Foreign currency cluster risk EUR" means: For private customers, the EUR share should be < 9%.  
+  <sub>clients.json CASE-026: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Cluster risk of a single financial instrument" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be single title share < x% (x varies with instrument type)  
+  <sub>clients.json CASE-026: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Significant overweight in the equity region "Switzerland"" means: Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Switzerland’ equity region  
+  <sub>clients.json CASE-026: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.15): Note from 27 Apr 2026: "Prefers semi-annual phone contact, no unannounced visits."  
   <sub>clients.json CASE-026: ClientNotes</sub>
 - **Watch** (0.11): Holcim AG alone is 11.0% of the book.  
@@ -2182,6 +2236,12 @@ Investor profile 5 · CHF 89k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): "Underweight in the equity sector "Consumer Staples"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the Basic Consumer Goods equity sector  
+  <sub>clients.json CASE-033: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Overweight in the equity sector "Information Technology"" means: Overweight (+/- 5% of the benchmark’s SAA target) in the Information Technology sector  
+  <sub>clients.json CASE-033: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Overweight in the equity region "North America"" means: Overweight (+/- 5% of the benchmark’s SAA target) in the ‘North America’ equity region  
+  <sub>clients.json CASE-033: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.11): Health Care is 11.2% of the book (CHF 10k) after fund look-through, mostly via SLI (R) and Credit Suisse (Lux) Digital Health Equity Fund.  
   <sub>clients.json CASE-033: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.11): Information Technology is 10.7% of the book (CHF 10k) after fund look-through, mostly via iShares Core S&P 500 UCITS ETF and Credit Suisse (Lux) Robotics Equity Fund.  
@@ -2257,6 +2317,12 @@ Investor profile 6 · CHF 698k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): "Underweight in the equity sector "Consumer Staples"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the Basic Consumer Goods equity sector  
+  <sub>clients.json CASE-034: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Underweight in the equity sector "Health Care"" means: Underweight (+/- 5% of the SAA target for the Healthcare sector)  
+  <sub>clients.json CASE-034: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Significant overweight in the equity sector "Industrials"" means: Significant overweight (+/- 10% of the SAA target for the ‘Industry’ equity sector)  
+  <sub>clients.json CASE-034: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.11): Health Care is 11.0% of the book (CHF 77k) after fund look-through, mostly via MSCI Switzerland IMI Socially Responsible and SLI (R).  
   <sub>clients.json CASE-034: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.10): Note from 23 May 2026: "No direct positions in fossil fuels, please."  
@@ -2330,6 +2396,8 @@ Investor profile 6 · CHF 741k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): "Underweight in the equity sector "Consumer Staples"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the Basic Consumer Goods equity sector  
+  <sub>clients.json CASE-035: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.14): Industrials is 14.1% of the book (CHF 105k) after fund look-through, mostly via 1.6 % Sulzer AG 2018-22.10.24 and 2 % Implenia AG 2021-26.11.25 Reg S.  
   <sub>clients.json CASE-035: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.10): Note from 10 Feb 2025: "Prefers semi-annual phone contact, no unannounced visits."  
@@ -2401,6 +2469,12 @@ Investor profile 7 · CHF 122k · ESG preference: yes
   <sub>clients.json CASE-036: Portfolios[CASE-036-02] positions; reference.json StrategicAssetAllocations[44] AssetClass "Bonds"</sub>
 - **Health check** (0.00): ESG client: average sustainability score 7.5 of 10 against a minimum of 5.7.  
   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-036 positions</sub>
+- **Health check** (0.00): "Minimum limit fixed income" means: Minimum limits interest rates  
+  <sub>clients.json CASE-036: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Minimum limit shares" means: Minimum Limit Stocks  
+  <sub>clients.json CASE-036: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Maximum limit liquidity" means: Maximum liquidity limits  
+  <sub>clients.json CASE-036: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.05): Equities Switzerland Passive Leader drives 25.9% of the volatility of Pension (CASE-036-01).  
   <sub>clients.json CASE-036: Portfolios[CASE-036-01].SecurityPositions.ContributionVolatility</sub>
 - **Watch** (0.03): Health Care is 3.4% of the book (CHF 4k) after fund look-through, mostly via Equities Switzerland Passive Leader and iShares Swiss Dividend ETF (CH).  
@@ -2486,6 +2560,12 @@ Investor profile 5 · CHF 1.21m · ESG preference: yes
 
 - **Health check** (0.15): 1 of 2 orders from the proposal of 19 Aug 2026 were forwarded with a warning.  
   <sub>clients.json CASE-037: Transactions[ProposalId=24779].ForwardState = 2</sub>
+- **Health check** (0.00): "Underweight in the equity region "North America"" means: Underweight (+/- 5% of the SAA target for the ‘North America’ equity region)  
+  <sub>clients.json CASE-037: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Overweight in the equity region "Rest of Europe"" means: Overweight (+/- 5% of the benchmark’s SAA target) in the ‘Rest of Europe’ equity region  
+  <sub>clients.json CASE-037: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Underweight in the equity region "Asia/Pacific (ex Japan)"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the ‘Asia/Pacific (ex Japan)’ equity region  
+  <sub>clients.json CASE-037: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.14): iShares Edge MSCI World Value Factor UCITS ETF drives 17.1% of the volatility of Depository advisory (CASE-037-02).  
   <sub>clients.json CASE-037: Portfolios[CASE-037-02].SecurityPositions.ContributionVolatility</sub>
 - **Watch** (0.14): Health Care is 13.9% of the book (CHF 169k) after fund look-through, mostly via SPDR MSCI World Health Care UCITS ETF and iShares Swiss Dividend ETF (CH).  
@@ -2567,6 +2647,12 @@ Investor profile 6 · CHF 1.62m · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): "Foreign currency cluster risk EUR" means: For private customers, the EUR share should be < 9%.  
+  <sub>clients.json CASE-038: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Cluster risk of a single financial instrument" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be single title share < x% (x varies with instrument type)  
+  <sub>clients.json CASE-038: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Foreign currency exposure exceeds 50%" means: The entire foreign currency share in the portfolio is greater than 50%  
+  <sub>clients.json CASE-038: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.16): Industrials is 15.7% of the book (CHF 255k) after fund look-through, mostly via Sulzer AG and Accelleron Industries AG.  
   <sub>clients.json CASE-038: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.15): Note from 11 Jul 2026: "Wants as high a weighting of sustainable funds as possible at the next rebalancing."  
@@ -2638,6 +2724,12 @@ Investor profile 5 · CHF 170k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): "Underweight in the equity region "Switzerland"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the ‘Switzerland’ equity region  
+  <sub>clients.json CASE-039: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Underweight in the equity sector "Consumer Staples"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the Basic Consumer Goods equity sector  
+  <sub>clients.json CASE-039: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Overweight in the equity region "North America"" means: Overweight (+/- 5% of the benchmark’s SAA target) in the ‘North America’ equity region  
+  <sub>clients.json CASE-039: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.15): Note from 1 May 2026: "Prefers to avoid any exposure to fossil-fuel energy in the portfolio."  
   <sub>clients.json CASE-039: ClientNotes</sub>
 - **Watch** (0.12): Financials is 11.5% of the book (CHF 20k) after fund look-through, mostly via Swiss Life Holding AG and MSCI Switzerland IMI Socially Responsible.  
@@ -2713,6 +2805,12 @@ Investor profile 6 · CHF 800k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): "Significant overweight in the equity sector "Utilities"" means: Significant overweight (+/- 10% of the benchmark’s SAA target) in the Utilities sector  
+  <sub>clients.json CASE-040: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Underweight in the equity sector "Consumer Discretionary"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the non-basic consumer goods equity sector  
+  <sub>clients.json CASE-040: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Knowledge of structured products" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be available from K&E.  
+  <sub>clients.json CASE-040: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.13): Financials is 12.9% of the book (CHF 104k) after fund look-through, mostly via Swiss Re AG and Zurich Insurance Group AG.  
   <sub>clients.json CASE-040: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.10): Note from 9 Dec 2024: "No direct positions in fossil fuels, please."  
@@ -2776,6 +2874,12 @@ Investor profile 5 · CHF 608k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): "Significant underweight in the equity region "North America"" means: Significant underweight (+/- 10% of the SAA target for the ‘North America’ equity region)  
+  <sub>clients.json CASE-041: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Foreign currency cluster risk EUR" means: For private customers, the EUR share should be < 9%.  
+  <sub>clients.json CASE-041: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Foreign currency exposure exceeds 50%" means: The entire foreign currency share in the portfolio is greater than 50%  
+  <sub>clients.json CASE-041: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.19): Health Care is 19.4% of the book (CHF 118k) after fund look-through, mostly via 1.875 % Fresenius SE & Co. KGaA 2019-15.02.25 and Lonza Group AG.  
   <sub>clients.json CASE-041: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.19): 37.3% of the book is in holdings on none of the bank's recommendation lists, largest 1.5 % Volkswagen Financial Services AG 2019-01.10.24 Series F05/19, 1.875 % Fresenius SE & Co. KGaA 2019-15.02.25 and 6 more.  
@@ -2847,6 +2951,12 @@ Investor profile 4 · CHF 528k · ESG preference: no
   <sub>clients.json CASE-042: Transactions[ProposalId=19562].ForwardState = 2</sub>
 - **Health check** (0.04): 1 holding above the product risk class limit of Investor profile 4 (maximum 6): Global Clean Energy UCITS ETF, 2.0% of the book.  
   <sub>reference.json Securities.PRC vs RiskProfiles.MaxPRC; clients.json CASE-042 positions</sub>
+- **Health check** (0.00): "Cluster risk of a single financial instrument" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be single title share < x% (x varies with instrument type)  
+  <sub>clients.json CASE-042: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Compliance with maximum volatility" means: For retail clients with financial services Comprehensive investment advisory or discretionary mandate must be PF Vola < max client profile Vola.  
+  <sub>clients.json CASE-042: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Overweight in the equity region "Switzerland"" means: Overweight (+/- 5% of the benchmark’s SAA target) in the ‘Switzerland’ equity region  
+  <sub>clients.json CASE-042: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.15): Financials is 15.0% of the book (CHF 79k) after fund look-through, mostly via Swiss Life Holding AG and Zurich Insurance Group AG.  
   <sub>clients.json CASE-042: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.15): Note from 4 Feb 2026: "Open to increasing the equity allocation if markets remain stable."  
@@ -2983,6 +3093,12 @@ Investor profile 6 · CHF 172k · ESG preference: yes
 
 - **Health check** (0.00): ESG client: average sustainability score 7.6 of 10 against a minimum of 5.7; 1 holding below the per-position minimum (Meyer Burger Technology AG, 0.0% of the book); 29.3% of the book has no score.  
   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-044 positions</sub>
+- **Health check** (0.00): "Compliance with maximum volatility" means: For retail clients with financial services Comprehensive investment advisory or discretionary mandate must be PF Vola < max client profile Vola.  
+  <sub>clients.json CASE-044: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Knowledge of portfolio funds and mixed funds" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be available from K&E.  
+  <sub>clients.json CASE-044: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Knowledge of structured products" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be available from K&E.  
+  <sub>clients.json CASE-044: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.19): GSC Green Tech ESG Fund drives 19.2% of the volatility of Investment advisory (CASE-044-01).  
   <sub>clients.json CASE-044: Portfolios[CASE-044-01].SecurityPositions.ContributionVolatility</sub>
 - **Watch** (0.15): Note from 14 Sep 2026: "Would like a follow-up call before any changes to the standing order."  
@@ -3119,6 +3235,12 @@ Investor profile 5 · CHF 534k · ESG preference: yes
   <sub>clients.json CASE-046: Portfolios[CASE-046-01] positions; reference.json StrategicAssetAllocations[92] AssetClass "Shares"</sub>
 - **Health check** (0.50): Bonds at 0.0%, outside its 10.0%–70.0% band, target 47.0%.  
   <sub>clients.json CASE-046: Portfolios[CASE-046-01] positions; reference.json StrategicAssetAllocations[92] AssetClass "Bonds"</sub>
+- **Health check** (0.00): "Minimum limit fixed income" means: Minimum limits interest rates  
+  <sub>clients.json CASE-046: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Minimum limit shares" means: Minimum Limit Stocks  
+  <sub>clients.json CASE-046: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Maximum limit liquidity" means: Maximum liquidity limits  
+  <sub>clients.json CASE-046: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Next best actions** (1.00): Rebalance Shares up toward 45.0%.  
   <sub>clients.json CASE-046: Portfolios[CASE-046-01] positions; reference.json StrategicAssetAllocations[92] AssetClass "Shares"</sub>
 - **Next best actions** (1.00): Resolve "Minimum limit fixed income".  
@@ -3192,6 +3314,12 @@ Investor profile 6 · CHF 762k · ESG preference: yes
 
 - **Health check** (0.13): ESG client: average sustainability score 7.4 of 10 against a minimum of 5.7; 2 holdings below the per-position minimum (iShares Core MSCI EM IMI UCITS ETF and 2.5 % Apple Inc 2015-9.2.25 Global, 6.3% of the book); 2.6% of the book has no score.  
   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-047 positions</sub>
+- **Health check** (0.00): "Underweight in the equity sector "Consumer Discretionary"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the non-basic consumer goods equity sector  
+  <sub>clients.json CASE-047: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Overweight in the equity sector "Industrials"" means: Overweight (+/- 5% of the benchmark’s SAA target) in the ‘Industrials’ equity sector  
+  <sub>clients.json CASE-047: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Health check** (0.00): "Overweight in the equity sector "Information Technology"" means: Overweight (+/- 5% of the benchmark’s SAA target) in the Information Technology sector  
+  <sub>clients.json CASE-047: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.15): Note from 3 Nov 2025: "Wants as high a weighting of sustainable funds as possible at the next rebalancing."  
   <sub>clients.json CASE-047: ClientNotes</sub>
 - **Watch** (0.10): Note from 18 Jun 2025: "Requested a comparison against the benchmark at the next review."  
@@ -3218,34 +3346,34 @@ no risk profile · CHF 2.05m · ESG preference: no
 ### 60-second briefing (dashboard)
 
 1. **Who.** Max Muster, no risk profile, CHF 2.05m across 1 portfolio.  
-   <sub>clients.json EXT-01: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +9.9% over the 12 months to Dec 2025 and +48.3% since Dec 2022, now CHF 2.05m; value change including deposits and withdrawals.  
-   <sub>clients.json EXT-01: PerformanceHistory of EXT-01-01</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: PerformanceHistory of EXT-01-01</sub>
 3. **Watch.** 69.0% of the book is in holdings on none of the bank's recommendation lists, largest Vanguard S&P 500 UCITS ETF, 3.625% TotalEnergies SE 2023-2033 and 11 more.  
-   <sub>reference.json Securities.InRecommendationList; clients.json EXT-01 positions</sub>
+   <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 positions</sub>
 4. **Watch.** Health Care is 8.7% of the book (CHF 178k) after fund look-through, mostly via Lonza Group AG and Roche Holding AG.  
-   <sub>clients.json EXT-01: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
 6. **Next best actions.** Book a review: no finalised proposal on record.  
-   <sub>clients.json EXT-01: Proposals</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Max Muster is calling: no risk profile, CHF 2.05m across 1 portfolio.  
-   <sub>clients.json EXT-01: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably the market move: the dollar −1.2% today, 44.9% of the book; about −CHF 12k (−0.6%) overall.  
-   <sub>impact of the market feed on clients.json EXT-01 holdings</sub>
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
 3. **digest.** The dollar −1.2% against the franc: 44.9% of the book is exposed, about −CHF 11k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json EXT-01 holdings</sub>
+   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
 4. **digest.** Consumer Discretionary −2.2% today: 5.6% of the book, about −CHF 3k, mostly via Amazon.com Inc..  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json EXT-01 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
 5. **digest.** The euro −0.3% against the franc: 20.8% of the book is exposed, about −CHF 1k.  
-   <sub>simulated feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × clients.json EXT-01 holdings</sub>
+   <sub>simulated feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
 6. **digest.** 34.1% of the book has no matching market move and is not included.  
-   <sub>clients.json EXT-01 holdings without a mapped market move</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings without a mapped market move</sub>
 7. **holding.** Holding up today: foreign bonds +0.3% (20.4% of the book); Swiss franc bonds +0.2% (9.6% of the book); Consumer Staples +0.3% (6.4% of the book).  
-   <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × clients.json EXT-01 holdings</sub>
+   <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
 8. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
 9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
@@ -3254,9 +3382,9 @@ no risk profile · CHF 2.05m · ESG preference: no
 <details><summary>Other facts on the card</summary>
 
 - **Watch** (0.06): Consumer Staples is 6.4% of the book (CHF 131k) after fund look-through, mostly via Nestlé AG and Unilever PLC.  
-  <sub>clients.json EXT-01: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 69.0% of the book has no industry breakdown (bonds, funds without look-through).  
-  <sub>clients.json EXT-01: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions; reference.json FundUnbundlingMappings</sub>
 
 </details>
 
@@ -3269,34 +3397,34 @@ no risk profile · CHF 3.41m · ESG preference: no
 ### 60-second briefing (dashboard)
 
 1. **Who.** Anna Beispiel, no risk profile, CHF 3.41m across 1 portfolio.  
-   <sub>clients.json EXT-02: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +6.1% over the 12 months to Dec 2025 and +40.5% since Dec 2022, now CHF 3.41m; value change including deposits and withdrawals.  
-   <sub>clients.json EXT-02: PerformanceHistory of EXT-02-01</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: PerformanceHistory of EXT-02-01</sub>
 3. **Watch.** 72.1% of the book is in holdings on none of the bank's recommendation lists, largest Vanguard S&P 500 UCITS ETF, iShares STOXX Europe 600 UCITS and 11 more.  
-   <sub>reference.json Securities.InRecommendationList; clients.json EXT-02 positions</sub>
+   <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 positions</sub>
 4. **Watch.** Raw materials is 6.1% of the book (CHF 206k) after fund look-through, mostly via Sika AG.  
-   <sub>clients.json EXT-02: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 5. **Outlook.** Pictet Asset Management (Barometer, Sep 2026): "That means maintaining an overweight position in technology stocks."  
    <sub>https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook</sub>
 6. **Next best actions.** Book a review: no finalised proposal on record.  
-   <sub>clients.json EXT-02: Proposals</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Anna Beispiel is calling: no risk profile, CHF 3.41m across 1 portfolio.  
-   <sub>clients.json EXT-02: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably the market move: the dollar −1.2% today, 44.5% of the book; about −CHF 30k (−0.9%) overall.  
-   <sub>impact of the market feed on clients.json EXT-02 holdings</sub>
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
 3. **digest.** The dollar −1.2% against the franc: 44.5% of the book is exposed, about −CHF 18k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json EXT-02 holdings</sub>
+   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
 4. **digest.** Information Technology −4.8% today: 5.3% of the book, about −CHF 9k, mostly via Apple Inc..  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json EXT-02 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
 5. **digest.** The euro −0.3% against the franc: 17.2% of the book is exposed, about −CHF 2k.  
-   <sub>simulated feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × clients.json EXT-02 holdings</sub>
+   <sub>simulated feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
 6. **digest.** 50.9% of the book has no matching market move and is not included.  
-   <sub>clients.json EXT-02 holdings without a mapped market move</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings without a mapped market move</sub>
 7. **holding.** Holding up today: Swiss franc bonds +0.2% (12.4% of the book); foreign bonds +0.3% (8.8% of the book); Consumer Staples +0.3% (3.8% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json EXT-02 holdings</sub>
+   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
 8. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
 9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
@@ -3305,9 +3433,9 @@ no risk profile · CHF 3.41m · ESG preference: no
 <details><summary>Other facts on the card</summary>
 
 - **Watch** (0.05): Information Technology is 5.3% of the book (CHF 180k) after fund look-through, mostly via Apple Inc..  
-  <sub>clients.json EXT-02: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 72.1% of the book has no industry breakdown (bonds, funds without look-through).  
-  <sub>clients.json EXT-02: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions; reference.json FundUnbundlingMappings</sub>
 
 </details>
 
@@ -3320,34 +3448,34 @@ no risk profile · CHF 1.25m · ESG preference: no
 ### 60-second briefing (dashboard)
 
 1. **Who.** Weber-Brunner family, no risk profile, CHF 1.25m across 1 portfolio.  
-   <sub>clients.json EXT-03: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +8.2% over the 12 months to Dec 2025 and +31.6% since Dec 2022, now CHF 1.25m; value change including deposits and withdrawals.  
-   <sub>clients.json EXT-03: PerformanceHistory of EXT-03-01</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: PerformanceHistory of EXT-03-01</sub>
 3. **Watch.** 76.5% of the book is in holdings on none of the bank's recommendation lists, largest 4.625% JPMorgan Chase & Co. 2023-2030, 1.900% Roche Kapitalmarkt AG 2022-2029 and 6 more.  
-   <sub>reference.json Securities.InRecommendationList; clients.json EXT-03 positions</sub>
+   <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 positions</sub>
 4. **Watch.** 4.625% JPMorgan Chase & Co. 2023-2030 alone is 22.5% of the book.  
-   <sub>clients.json EXT-03: Portfolios[EXT-03-01].SecurityPositions</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: Portfolios[EXT-03-01].SecurityPositions</sub>
 5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
 6. **Next best actions.** Book a review: no finalised proposal on record.  
-   <sub>clients.json EXT-03: Proposals</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Weber-Brunner family is calling: no risk profile, CHF 1.25m across 1 portfolio.  
-   <sub>clients.json EXT-03: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably the market move: the dollar −1.2% today, 38.3% of the book; about −CHF 7k (−0.6%) overall.  
-   <sub>impact of the market feed on clients.json EXT-03 holdings</sub>
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
 3. **digest.** The dollar −1.2% against the franc: 38.3% of the book is exposed, about −CHF 6k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json EXT-03 holdings</sub>
+   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
 4. **digest.** Communication Services −3.1% today: 3.7% of the book, about −CHF 1k, mostly via Swisscom AG and iShares Core MSCI World UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × clients.json EXT-03 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
 5. **digest.** The pound −0.4% against the franc: 14.2% of the book is exposed, about −CHF 709.  
-   <sub>simulated feed "tech-selloff": GBPCHF Curncy CHG_PCT_1D × clients.json EXT-03 holdings</sub>
+   <sub>simulated feed "tech-selloff": GBPCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
 6. **digest.** 17.1% of the book has no matching market move and is not included.  
-   <sub>clients.json EXT-03 holdings without a mapped market move</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings without a mapped market move</sub>
 7. **holding.** Holding up today: foreign bonds +0.3% (46.0% of the book); Swiss franc bonds +0.2% (13.3% of the book); Consumer Staples +0.3% (4.3% of the book).  
-   <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × clients.json EXT-03 holdings</sub>
+   <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
 8. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
 9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
@@ -3356,17 +3484,17 @@ no risk profile · CHF 1.25m · ESG preference: no
 <details><summary>Other facts on the card</summary>
 
 - **Watch** (0.13): 1.900% Roche Kapitalmarkt AG 2022-2029 alone is 13.3% of the book.  
-  <sub>clients.json EXT-03: Portfolios[EXT-03-01].SecurityPositions</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: Portfolios[EXT-03-01].SecurityPositions</sub>
 - **Watch** (0.12): 4.125% AstraZeneca PLC 2023-2029 alone is 12.2% of the book.  
-  <sub>clients.json EXT-03: Portfolios[EXT-03-01].SecurityPositions</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: Portfolios[EXT-03-01].SecurityPositions</sub>
 - **Watch** (0.11): 3.000% Nestlé Finance Intl 2022-2030 alone is 11.3% of the book.  
-  <sub>clients.json EXT-03: Portfolios[EXT-03-01].SecurityPositions</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: Portfolios[EXT-03-01].SecurityPositions</sub>
 - **Watch** (0.04): Consumer Staples is 4.3% of the book (CHF 54k) after fund look-through, mostly via Unilever PLC and Nestlé AG.  
-  <sub>clients.json EXT-03: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.04): Communication Services is 3.7% of the book (CHF 47k) after fund look-through, mostly via Swisscom AG and iShares Core MSCI World UCITS ETF.  
-  <sub>clients.json EXT-03: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 76.5% of the book has no industry breakdown (bonds, funds without look-through).  
-  <sub>clients.json EXT-03: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions; reference.json FundUnbundlingMappings</sub>
 
 </details>
 
@@ -3379,34 +3507,34 @@ no risk profile · CHF 4.80m · ESG preference: no
 ### 60-second briefing (dashboard)
 
 1. **Who.** Peter Keller, no risk profile, CHF 4.80m across 1 portfolio.  
-   <sub>clients.json EXT-04: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +7.9% over the 12 months to Dec 2025 and +37.6% since Dec 2022, now CHF 4.80m; value change including deposits and withdrawals.  
-   <sub>clients.json EXT-04: PerformanceHistory of EXT-04-01</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: PerformanceHistory of EXT-04-01</sub>
 3. **Watch.** 43.6% of the book is in holdings on none of the bank's recommendation lists, largest iShares MSCI Emerging Mkts UCITS, NVIDIA Corp. and 10 more.  
-   <sub>reference.json Securities.InRecommendationList; clients.json EXT-04 positions</sub>
+   <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 positions</sub>
 4. **Watch.** Communication Services is 12.6% of the book (CHF 607k) after fund look-through, mostly via Swisscom AG and Alphabet Inc. Cl A.  
-   <sub>clients.json EXT-04: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
 6. **Next best actions.** Book a review: no finalised proposal on record.  
-   <sub>clients.json EXT-04: Proposals</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Peter Keller is calling: no risk profile, CHF 4.80m across 1 portfolio.  
-   <sub>clients.json EXT-04: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably the market move: the dollar −1.2% today, 53.1% of the book; about −CHF 69k (−1.4%) overall.  
-   <sub>impact of the market feed on clients.json EXT-04 holdings</sub>
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
 3. **digest.** The dollar −1.2% against the franc: 53.1% of the book is exposed, about −CHF 31k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json EXT-04 holdings</sub>
+   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
 4. **digest.** Communication Services −3.1% today: 12.6% of the book, about −CHF 19k, mostly via Swisscom AG and Alphabet Inc. Cl A.  
-   <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × clients.json EXT-04 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
 5. **digest.** Information Technology −4.8% today: 6.1% of the book, about −CHF 14k, mostly via Apple Inc..  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json EXT-04 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
 6. **digest.** 36.8% of the book has no matching market move and is not included.  
-   <sub>clients.json EXT-04 holdings without a mapped market move</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings without a mapped market move</sub>
 7. **holding.** Holding up today: Consumer Staples +0.3% (10.5% of the book); Swiss franc bonds +0.2% (4.7% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json EXT-04 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
 8. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
 9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
@@ -3415,13 +3543,13 @@ no risk profile · CHF 4.80m · ESG preference: no
 <details><summary>Other facts on the card</summary>
 
 - **Watch** (0.11): NVIDIA Corp. alone is 11.3% of the book.  
-  <sub>clients.json EXT-04: Portfolios[EXT-04-01].SecurityPositions</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: Portfolios[EXT-04-01].SecurityPositions</sub>
 - **Watch** (0.11): Consumer Staples is 10.5% of the book (CHF 506k) after fund look-through, mostly via Unilever PLC.  
-  <sub>clients.json EXT-04: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.11): Unilever PLC alone is 10.5% of the book.  
-  <sub>clients.json EXT-04: Portfolios[EXT-04-01].SecurityPositions</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: Portfolios[EXT-04-01].SecurityPositions</sub>
 - **Watch** (0.00): 43.6% of the book has no industry breakdown (bonds, funds without look-through).  
-  <sub>clients.json EXT-04: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions; reference.json FundUnbundlingMappings</sub>
 
 </details>
 
@@ -3434,34 +3562,34 @@ no risk profile · CHF 948k · ESG preference: no
 ### 60-second briefing (dashboard)
 
 1. **Who.** Laura Steiner, no risk profile, CHF 948k across 1 portfolio.  
-   <sub>clients.json EXT-05: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +8.4% over the 12 months to Dec 2025 and +39.1% since Dec 2022, now CHF 948k; value change including deposits and withdrawals.  
-   <sub>clients.json EXT-05: PerformanceHistory of EXT-05-01</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: PerformanceHistory of EXT-05-01</sub>
 3. **Watch.** 65.2% of the book is in holdings on none of the bank's recommendation lists, largest 3.375% Siemens Finance BV 2023-2031, 2.100% Pfandbriefzentrale 2023-2029 and 9 more.  
-   <sub>reference.json Securities.InRecommendationList; clients.json EXT-05 positions</sub>
+   <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 positions</sub>
 4. **Watch.** Consumer Discretionary is 12.3% of the book (CHF 117k) after fund look-through, mostly via 0.500% Schweiz. Eidgenossenschaft 2020-2032 and LVMH Moët Hennessy SE.  
-   <sub>clients.json EXT-05: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
 6. **Next best actions.** Book a review: no finalised proposal on record.  
-   <sub>clients.json EXT-05: Proposals</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Laura Steiner is calling: no risk profile, CHF 948k across 1 portfolio.  
-   <sub>clients.json EXT-05: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably the market move: the dollar −1.2% today, 26.3% of the book; about −CHF 8k (−0.8%) overall.  
-   <sub>impact of the market feed on clients.json EXT-05 holdings</sub>
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
 3. **digest.** The dollar −1.2% against the franc: 26.3% of the book is exposed, about −CHF 3k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json EXT-05 holdings</sub>
+   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
 4. **digest.** Information Technology −4.8% today: 5.1% of the book, about −CHF 2k, mostly via SAP SE and Microsoft Corp..  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json EXT-05 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
 5. **digest.** Consumer Discretionary −2.2% today: 7.8% of the book, about −CHF 2k, mostly via LVMH Moët Hennessy SE and Amazon.com Inc..  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json EXT-05 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
 6. **digest.** 24.7% of the book has no matching market move and is not included.  
-   <sub>clients.json EXT-05 holdings without a mapped market move</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings without a mapped market move</sub>
 7. **holding.** Holding up today: Swiss franc bonds +0.2% (24.2% of the book); foreign bonds +0.3% (9.2% of the book); Consumer Staples +0.3% (7.5% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json EXT-05 holdings</sub>
+   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
 8. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
 9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
@@ -3470,9 +3598,9 @@ no risk profile · CHF 948k · ESG preference: no
 <details><summary>Other facts on the card</summary>
 
 - **Watch** (0.07): Consumer Staples is 7.5% of the book (CHF 71k) after fund look-through, mostly via Unilever PLC and Nestlé AG.  
-  <sub>clients.json EXT-05: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 60.7% of the book has no industry breakdown (bonds, funds without look-through).  
-  <sub>clients.json EXT-05: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions; reference.json FundUnbundlingMappings</sub>
 
 </details>
 
@@ -3485,34 +3613,34 @@ no risk profile · CHF 7.60m · ESG preference: no
 ### 60-second briefing (dashboard)
 
 1. **Who.** Muster Holding AG, no risk profile, CHF 7.60m across 1 portfolio.  
-   <sub>clients.json EXT-06: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +12.3% over the 12 months to Dec 2025 and +55.2% since Dec 2022, now CHF 7.60m; value change including deposits and withdrawals.  
-   <sub>clients.json EXT-06: PerformanceHistory of EXT-06-01</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: PerformanceHistory of EXT-06-01</sub>
 3. **Watch.** Consumer Staples is 20.6% of the book (CHF 1.56m) after fund look-through, mostly via Unilever PLC and Nestlé AG.  
-   <sub>clients.json EXT-06: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 4. **Watch.** 41.1% of the book is in holdings on none of the bank's recommendation lists, largest JPMorgan Chase & Co., UBS CMCI Commodity Index Fonds and 11 more.  
-   <sub>reference.json Securities.InRecommendationList; clients.json EXT-06 positions</sub>
+   <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 positions</sub>
 5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
 6. **Next best actions.** Book a review: no finalised proposal on record.  
-   <sub>clients.json EXT-06: Proposals</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Muster Holding AG is calling: no risk profile, CHF 7.60m across 1 portfolio.  
-   <sub>clients.json EXT-06: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably the market move: Information Technology −4.8% today, 10.2% of the book; about −CHF 84k (−1.1%) overall.  
-   <sub>impact of the market feed on clients.json EXT-06 holdings</sub>
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
 3. **digest.** Information Technology −4.8% today: 10.2% of the book, about −CHF 37k, mostly via iShares Core MSCI World UCITS ETF and Microsoft Corp..  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json EXT-06 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
 4. **digest.** The dollar −1.2% against the franc: 38.1% of the book is exposed, about −CHF 35k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json EXT-06 holdings</sub>
+   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
 5. **digest.** Financials −0.9% today: 6.5% of the book, about −CHF 4k, mostly via Zurich Insurance Group AG and iShares Core MSCI World UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json EXT-06 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
 6. **digest.** 26.8% of the book has no matching market move and is not included.  
-   <sub>clients.json EXT-06 holdings without a mapped market move</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings without a mapped market move</sub>
 7. **holding.** Holding up today: Consumer Staples +0.3% (20.6% of the book); foreign bonds +0.3% (7.6% of the book); Swiss franc bonds +0.2% (6.7% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json EXT-06 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
 8. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
 9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
@@ -3521,13 +3649,13 @@ no risk profile · CHF 7.60m · ESG preference: no
 <details><summary>Other facts on the card</summary>
 
 - **Watch** (0.11): Unilever PLC alone is 10.5% of the book.  
-  <sub>clients.json EXT-06: Portfolios[EXT-06-01].SecurityPositions</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: Portfolios[EXT-06-01].SecurityPositions</sub>
 - **Watch** (0.10): Information Technology is 10.2% of the book (CHF 772k) after fund look-through, mostly via iShares Core MSCI World UCITS ETF and Microsoft Corp..  
-  <sub>clients.json EXT-06: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.10): JPMorgan Chase & Co. alone is 10.1% of the book.  
-  <sub>clients.json EXT-06: Portfolios[EXT-06-01].SecurityPositions</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: Portfolios[EXT-06-01].SecurityPositions</sub>
 - **Watch** (0.00): 38.3% of the book has no industry breakdown (bonds, funds without look-through).  
-  <sub>clients.json EXT-06: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions; reference.json FundUnbundlingMappings</sub>
 
 </details>
 
@@ -3540,34 +3668,34 @@ no risk profile · CHF 1.80m · ESG preference: no
 ### 60-second briefing (dashboard)
 
 1. **Who.** Daniel Frey, no risk profile, CHF 1.80m across 1 portfolio.  
-   <sub>clients.json EXT-07: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +5.4% over the 12 months to Dec 2025 and +33.5% since Dec 2022, now CHF 1.80m; value change including deposits and withdrawals.  
-   <sub>clients.json EXT-07: PerformanceHistory of EXT-07-01</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: PerformanceHistory of EXT-07-01</sub>
 3. **Watch.** 71.1% of the book is in holdings on none of the bank's recommendation lists, largest 4.125% AstraZeneca PLC 2023-2029, 3.000% Nestlé Finance Intl 2022-2030 and 9 more.  
-   <sub>reference.json Securities.InRecommendationList; clients.json EXT-07 positions</sub>
+   <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 positions</sub>
 4. **Watch.** 4.125% AstraZeneca PLC 2023-2029 alone is 18.0% of the book.  
-   <sub>clients.json EXT-07: Portfolios[EXT-07-01].SecurityPositions</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: Portfolios[EXT-07-01].SecurityPositions</sub>
 5. **Outlook.** Pictet Asset Management (Barometer, Sep 2026): "That means maintaining an overweight position in technology stocks."  
    <sub>https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook</sub>
 6. **Next best actions.** Book a review: no finalised proposal on record.  
-   <sub>clients.json EXT-07: Proposals</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Daniel Frey is calling: no risk profile, CHF 1.80m across 1 portfolio.  
-   <sub>clients.json EXT-07: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably the market move: Information Technology −4.8% today, 8.6% of the book; about −CHF 15k (−0.8%) overall.  
-   <sub>impact of the market feed on clients.json EXT-07 holdings</sub>
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
 3. **digest.** Information Technology −4.8% today: 8.6% of the book, about −CHF 7k, mostly via Apple Inc. and Microsoft Corp..  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json EXT-07 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
 4. **digest.** The dollar −1.2% against the franc: 29.5% of the book is exposed, about −CHF 6k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json EXT-07 holdings</sub>
+   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
 5. **digest.** The pound −0.4% against the franc: 18.2% of the book is exposed, about −CHF 1k.  
-   <sub>simulated feed "tech-selloff": GBPCHF Curncy CHG_PCT_1D × clients.json EXT-07 holdings</sub>
+   <sub>simulated feed "tech-selloff": GBPCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
 6. **digest.** 10.7% of the book has no matching market move and is not included.  
-   <sub>clients.json EXT-07 holdings without a mapped market move</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings without a mapped market move</sub>
 7. **holding.** Holding up today: foreign bonds +0.3% (44.8% of the book); Swiss franc bonds +0.2% (11.9% of the book); Gold +1.4% (3.7% of the book).  
-   <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × clients.json EXT-07 holdings</sub>
+   <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
 8. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
 9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
@@ -3576,17 +3704,17 @@ no risk profile · CHF 1.80m · ESG preference: no
 <details><summary>Other facts on the card</summary>
 
 - **Watch** (0.15): 3.000% Nestlé Finance Intl 2022-2030 alone is 15.0% of the book.  
-  <sub>clients.json EXT-07: Portfolios[EXT-07-01].SecurityPositions</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: Portfolios[EXT-07-01].SecurityPositions</sub>
 - **Watch** (0.12): 1.400% Kanton Waadt 2022-2030 alone is 11.9% of the book.  
-  <sub>clients.json EXT-07: Portfolios[EXT-07-01].SecurityPositions</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: Portfolios[EXT-07-01].SecurityPositions</sub>
 - **Watch** (0.12): 4.625% JPMorgan Chase & Co. 2023-2030 alone is 11.8% of the book.  
-  <sub>clients.json EXT-07: Portfolios[EXT-07-01].SecurityPositions</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: Portfolios[EXT-07-01].SecurityPositions</sub>
 - **Watch** (0.09): Information Technology is 8.6% of the book (CHF 155k) after fund look-through, mostly via Apple Inc. and Microsoft Corp..  
-  <sub>clients.json EXT-07: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.05): Industrials is 4.8% of the book (CHF 86k) after fund look-through, mostly via ABB Ltd and Siemens AG.  
-  <sub>clients.json EXT-07: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 71.1% of the book has no industry breakdown (bonds, funds without look-through).  
-  <sub>clients.json EXT-07: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions; reference.json FundUnbundlingMappings</sub>
 
 </details>
 
@@ -3599,34 +3727,34 @@ no risk profile · CHF 2.70m · ESG preference: no
 ### 60-second briefing (dashboard)
 
 1. **Who.** Nicole Baumann, no risk profile, CHF 2.70m across 1 portfolio.  
-   <sub>clients.json EXT-08: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +9.2% over the 12 months to Dec 2025 and +56.8% since Dec 2022, now CHF 2.70m; value change including deposits and withdrawals.  
-   <sub>clients.json EXT-08: PerformanceHistory of EXT-08-01</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: PerformanceHistory of EXT-08-01</sub>
 3. **Watch.** 43.6% of the book is in holdings on none of the bank's recommendation lists, largest iShares STOXX Europe 600 UCITS, JPMorgan Chase & Co. and 10 more.  
-   <sub>reference.json Securities.InRecommendationList; clients.json EXT-08 positions</sub>
+   <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 positions</sub>
 4. **Watch.** Information Technology is 10.7% of the book (CHF 290k) after fund look-through, mostly via SAP SE.  
-   <sub>clients.json EXT-08: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 5. **Outlook.** Pictet Asset Management (Barometer, Sep 2026): "That means maintaining an overweight position in technology stocks."  
    <sub>https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook</sub>
 6. **Next best actions.** Book a review: no finalised proposal on record.  
-   <sub>clients.json EXT-08: Proposals</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Nicole Baumann is calling: no risk profile, CHF 2.70m across 1 portfolio.  
-   <sub>clients.json EXT-08: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably the market move: Information Technology −4.8% today, 10.7% of the book; about −CHF 32k (−1.2%) overall.  
-   <sub>impact of the market feed on clients.json EXT-08 holdings</sub>
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
 3. **digest.** Information Technology −4.8% today: 10.7% of the book, about −CHF 14k, mostly via SAP SE.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json EXT-08 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
 4. **digest.** The dollar −1.2% against the franc: 24.8% of the book is exposed, about −CHF 8k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json EXT-08 holdings</sub>
+   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
 5. **digest.** The euro −0.3% against the franc: 42.1% of the book is exposed, about −CHF 3k.  
-   <sub>simulated feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × clients.json EXT-08 holdings</sub>
+   <sub>simulated feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
 6. **digest.** 35.7% of the book has no matching market move and is not included.  
-   <sub>clients.json EXT-08 holdings without a mapped market move</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings without a mapped market move</sub>
 7. **holding.** Holding up today: Consumer Staples +0.3% (6.3% of the book); foreign bonds +0.3% (3.7% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json EXT-08 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
 8. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
 9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
@@ -3635,13 +3763,13 @@ no risk profile · CHF 2.70m · ESG preference: no
 <details><summary>Other facts on the card</summary>
 
 - **Watch** (0.11): SAP SE alone is 10.7% of the book.  
-  <sub>clients.json EXT-08: Portfolios[EXT-08-01].SecurityPositions</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: Portfolios[EXT-08-01].SecurityPositions</sub>
 - **Watch** (0.10): Financials is 10.4% of the book (CHF 280k) after fund look-through, mostly via Zurich Insurance Group AG.  
-  <sub>clients.json EXT-08: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.10): Zurich Insurance Group AG alone is 10.4% of the book.  
-  <sub>clients.json EXT-08: Portfolios[EXT-08-01].SecurityPositions</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: Portfolios[EXT-08-01].SecurityPositions</sub>
 - **Watch** (0.00): 42.8% of the book has no industry breakdown (bonds, funds without look-through).  
-  <sub>clients.json EXT-08: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions; reference.json FundUnbundlingMappings</sub>
 
 </details>
 
@@ -3654,34 +3782,34 @@ no risk profile · CHF 9.20m · ESG preference: no
 ### 60-second briefing (dashboard)
 
 1. **Who.** Pensionskasse Fiktiva, no risk profile, CHF 9.20m across 1 portfolio.  
-   <sub>clients.json EXT-09: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +7.2% over the 12 months to Dec 2025 and +46.6% since Dec 2022, now CHF 9.20m; value change including deposits and withdrawals.  
-   <sub>clients.json EXT-09: PerformanceHistory of EXT-09-01</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: PerformanceHistory of EXT-09-01</sub>
 3. **Watch.** 67.2% of the book is in holdings on none of the bank's recommendation lists, largest iShares STOXX Europe 600 UCITS, 1.400% Kanton Waadt 2022-2030 and 14 more.  
-   <sub>reference.json Securities.InRecommendationList; clients.json EXT-09 positions</sub>
+   <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 positions</sub>
 4. **Watch.** Consumer Staples is 8.4% of the book (CHF 772k) after fund look-through, mostly via Nestlé AG and Procter & Gamble Co..  
-   <sub>clients.json EXT-09: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
 6. **Next best actions.** Book a review: no finalised proposal on record.  
-   <sub>clients.json EXT-09: Proposals</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Pensionskasse Fiktiva is calling: no risk profile, CHF 9.20m across 1 portfolio.  
-   <sub>clients.json EXT-09: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably the market move: the dollar −1.2% today, 30.9% of the book; about −CHF 68k (−0.7%) overall.  
-   <sub>impact of the market feed on clients.json EXT-09 holdings</sub>
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
 3. **digest.** The dollar −1.2% against the franc: 30.9% of the book is exposed, about −CHF 34k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json EXT-09 holdings</sub>
+   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
 4. **digest.** Information Technology −4.8% today: 2.6% of the book, about −CHF 11k, mostly via iShares Core MSCI World UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json EXT-09 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
 5. **digest.** Communication Services −3.1% today: 3.5% of the book, about −CHF 10k, mostly via Swisscom AG and iShares Core MSCI World UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × clients.json EXT-09 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
 6. **digest.** 35.4% of the book has no matching market move and is not included.  
-   <sub>clients.json EXT-09 holdings without a mapped market move</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings without a mapped market move</sub>
 7. **holding.** Holding up today: Swiss franc bonds +0.2% (22.3% of the book); Consumer Staples +0.3% (8.4% of the book); foreign bonds +0.3% (7.5% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json EXT-09 holdings</sub>
+   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
 8. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
 9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
@@ -3690,9 +3818,9 @@ no risk profile · CHF 9.20m · ESG preference: no
 <details><summary>Other facts on the card</summary>
 
 - **Watch** (0.07): Consumer Discretionary is 7.2% of the book (CHF 659k) after fund look-through, mostly via 0.500% Schweiz. Eidgenossenschaft 2020-2032 and LVMH Moët Hennessy SE.  
-  <sub>clients.json EXT-09: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 63.9% of the book has no industry breakdown (bonds, funds without look-through).  
-  <sub>clients.json EXT-09: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions; reference.json FundUnbundlingMappings</sub>
 
 </details>
 
@@ -3705,34 +3833,34 @@ no risk profile · CHF 1.45m · ESG preference: no
 ### 60-second briefing (dashboard)
 
 1. **Who.** Thomas Gerber, no risk profile, CHF 1.45m across 1 portfolio.  
-   <sub>clients.json EXT-10: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +8.6% over the 12 months to Dec 2025 and +45.6% since Dec 2022, now CHF 1.45m; value change including deposits and withdrawals.  
-   <sub>clients.json EXT-10: PerformanceHistory of EXT-10-01</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: PerformanceHistory of EXT-10-01</sub>
 3. **Watch.** 49.9% of the book is in holdings on none of the bank's recommendation lists, largest iShares MSCI Emerging Mkts UCITS, Sony Group Corp. and 13 more.  
-   <sub>reference.json Securities.InRecommendationList; clients.json EXT-10 positions</sub>
+   <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 positions</sub>
 4. **Watch.** Information Technology is 11.2% of the book (CHF 162k) after fund look-through, mostly via ASML Holding NV and SAP SE.  
-   <sub>clients.json EXT-10: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 5. **Outlook.** Pictet Asset Management (Barometer, Sep 2026): "That means maintaining an overweight position in technology stocks."  
    <sub>https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook</sub>
 6. **Next best actions.** Book a review: no finalised proposal on record.  
-   <sub>clients.json EXT-10: Proposals</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Thomas Gerber is calling: no risk profile, CHF 1.45m across 1 portfolio.  
-   <sub>clients.json EXT-10: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably the market move: Information Technology −4.8% today, 11.2% of the book; about −CHF 14k (−1.0%) overall.  
-   <sub>impact of the market feed on clients.json EXT-10 holdings</sub>
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
 3. **digest.** Information Technology −4.8% today: 11.2% of the book, about −CHF 8k, mostly via ASML Holding NV and SAP SE.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json EXT-10 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
 4. **digest.** The dollar −1.2% against the franc: 20.5% of the book is exposed, about −CHF 4k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json EXT-10 holdings</sub>
+   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
 5. **digest.** Financials −0.9% today: 10.8% of the book, about −CHF 1k, mostly via Zurich Insurance Group AG and UBS Group AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json EXT-10 holdings</sub>
+   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
 6. **digest.** 30.9% of the book has no matching market move and is not included.  
-   <sub>clients.json EXT-10 holdings without a mapped market move</sub>
+   <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings without a mapped market move</sub>
 7. **holding.** Holding up today: foreign bonds +0.3% (9.8% of the book); Consumer Staples +0.3% (7.9% of the book); Swiss franc bonds +0.2% (6.9% of the book).  
-   <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × clients.json EXT-10 holdings</sub>
+   <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
 8. **talk.** Start with what held up, then walk through what fell.  
    <sub>data/playbook.json: held_up (when: held_up)</sub>
 9. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
@@ -3741,8 +3869,8 @@ no risk profile · CHF 1.45m · ESG preference: no
 <details><summary>Other facts on the card</summary>
 
 - **Watch** (0.11): Financials is 10.8% of the book (CHF 156k) after fund look-through, mostly via Zurich Insurance Group AG and UBS Group AG.  
-  <sub>clients.json EXT-10: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 49.9% of the book has no industry breakdown (bonds, funds without look-through).  
-  <sub>clients.json EXT-10: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions; reference.json FundUnbundlingMappings</sub>
 
 </details>

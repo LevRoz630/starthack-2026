@@ -11,7 +11,9 @@ from dataclasses import dataclass
 from datetime import date
 from functools import lru_cache
 
-from .data import items, portfolios
+import json
+
+from .data import ROOT, items, portfolios
 
 SLOTS = ('who', 'development', 'health', 'watch', 'outlook', 'actions')
 
@@ -121,6 +123,51 @@ def _outlook_sources():
     """News snapshot and house views, read once per process."""
     from .outlook import cio, latest_news
     return latest_news(), cio()
+
+
+@lru_cache(maxsize=1)
+def _rules_en():
+    """English for each suitability rule, translated from German by Supertext (backend/translate.py)."""
+    path = ROOT / 'data' / 'translations' / 'rules-en.json'
+    if not path.exists():
+        return {}
+    with open(path, encoding='utf-8') as f:
+        return json.load(f)
+
+
+def _rule_explanations(client):
+    """Card-only facts: what each open rule means, in English (weight 0: never spoken)."""
+    ref = client['ClientRef']
+    seen = []
+    for v in sorted(items(client, 'SuitabilityViolations'), key=lambda v: v.get('Severity') != 'Error'):
+        code = v.get('RuleCode')
+        entry = _rules_en().get(code) or {}
+        meaning = entry.get('violation_en') or entry.get('rule_en')
+        if code in seen or not meaning or meaning == code:
+            continue
+        seen.append(code)
+        yield Fact(f'health.rule.{len(seen)}', 'health', f'"{code}" means: {meaning}',
+                   f'clients.json {ref}: SuitabilityViolations.RuleDescription, translated by Supertext '
+                   f'(data/translations/rules-en.json)', 0.0)
+        if len(seen) == 3:
+            return
+
+
+def source_origin(client):
+    """Where a client's data came from, for fact sources: clients.json, or the custody statement it was read from."""
+    ext = client.get('ExternalSource') or {}
+    if ext.get('file'):
+        return f'custody statement {ext["file"]} ({ext.get("bank", "external bank")})'
+    return 'clients.json'
+
+
+def relabel(facts, client):
+    """Point sources of external clients at their custody statement instead of clients.json."""
+    origin = source_origin(client)
+    if origin != 'clients.json':
+        for f in facts:
+            f.source = f.source.replace('clients.json', origin)
+    return facts
 
 
 def _outlook(exp):
@@ -568,6 +615,6 @@ def compute(client, store, as_of=None):
     as_of = as_of or date.today()
     ccy = client.get('ReportingCurrency') or 'CHF'
     exp = exposures(client, store)
-    return [*_who(client, store, ccy), *_development(client), *_health(client, store, as_of),
-            *_watch(client, store, exp, ccy), *_watch_extra(client, store), *_outlook(exp),
-            *_actions(client, as_of, ccy), *_candidates(client, store)]
+    return relabel([*_who(client, store, ccy), *_development(client), *_health(client, store, as_of),
+                    *_rule_explanations(client), *_watch(client, store, exp, ccy), *_watch_extra(client, store),
+                    *_outlook(exp), *_actions(client, as_of, ccy), *_candidates(client, store)], client)

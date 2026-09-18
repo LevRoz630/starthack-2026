@@ -16,7 +16,7 @@ from dataclasses import asdict
 from datetime import date, timedelta
 
 from .data import DATA_DIR, ROOT, items, load, portfolios
-from .facts import (Fact, client_name, compute, day, fmt_day, money, pct, short_name,
+from .facts import (Fact, relabel, client_name, compute, day, fmt_day, money, pct, short_name,
                     signed_pct)
 from .market import MarketState, impact, label, load_scenario
 from . import profiles
@@ -227,7 +227,7 @@ def call_facts(client, store, market, as_of=None):
     issues = sorted((f for f in base if f.slot == 'health'), key=lambda f: -f.weight)
     if issues:
         out.append(Fact('issue', 'issue', f'Open issue: {issues[0].text}', issues[0].source, issues[0].weight))
-    return out, hit
+    return relabel(out, client), hit
 
 
 def build_call(store, ref, market=None, as_of=None):
