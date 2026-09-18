@@ -1,4 +1,6 @@
-# START Hack Tour St. Gallen 2026 — rules
+# starthack-2026
+
+Team **Look Mom I am Quant** — START Hack Tour St. Gallen 2026.
 
 Working copy of the official event rules, kept here so they can be read and diffed without opening Notion.
 
