@@ -196,3 +196,9 @@ p { margin: 0; }
 .tag.error { background: var(--red); color: #fff; }
 .demo-status { margin: 8px 0 0; font-size: 14px; color: var(--muted, #6b6b73); }
 .demo-status[hidden] { display: none; }
+
+.answer-card.chain { border-left-color: var(--ink); }
+.answer-card .steps { margin: 0; padding-left: 20px; }
+.answer-card .step + .step { margin-top: 10px; }
+.answer-card .step .link { display: block; font-size: var(--size-xs); font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--uro-blue); margin-bottom: 2px; }

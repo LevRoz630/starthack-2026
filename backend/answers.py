@@ -1,6 +1,9 @@
 """Answer a client's question during a call with the facts that fit it — never new text.
 
-Three layers, first one that finds something wins:
+Four layers, first one that finds something wins (the first needs a fact graph):
+
+0. A chain of facts for why / where-did-it-go / versus-the-market / did-the-changes
+   questions (backend/reasoning.py): every step a fact, every link a known dependency.
 
 1. Question type, instant. Open questions ("what happened", "why", "explain", "tell me
    more") get the market headline, the largest hit and what held up. Advice questions
@@ -17,6 +20,7 @@ import re
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import TimeoutError as FutureTimeout
 
+from . import reasoning
 from .llm import LLMUnavailable, chat
 
 MAX_ANSWERS = 3
@@ -129,8 +133,17 @@ def by_keywords(facts, question):
     return out[:2]
 
 
-def answer(facts, question, use_llm=True):
-    """{'answers': [{text, source, fact}], 'found': bool, 'method': 'type' | 'llm' | 'keywords' | 'none'}."""
+def answer(facts, question, use_llm=True, graph=None):
+    """{'answers': [{text, source, fact}], 'found': bool, 'method': ...}.
+
+    With a fact graph (backend/reasoning.py), "why / where did it go / compared with the
+    market / did the changes" questions get a chain of facts first ('chain': True, and
+    each step carries the link word to the previous one).
+    """
+    if graph is not None:
+        chained = reasoning.chain_answer(graph, question, use_llm=use_llm)
+        if chained:
+            return chained
     seen, unique = set(), []
     for f in facts:
         # The call's "Open issue: ..." repeats a health fact word for word; keep one of them.

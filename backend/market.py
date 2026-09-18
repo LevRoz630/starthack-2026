@@ -138,6 +138,7 @@ class Topic:
     impact: float = 0.0       # reporting currency, today
     change: float = 0.0
     positions: dict = field(default_factory=lambda: defaultdict(float))  # short name -> exposure
+    position_impact: dict = field(default_factory=lambda: defaultdict(float))  # short name -> impact
 
 
 def _commodity(name):
@@ -151,11 +152,13 @@ def impact(client, store, market):
     Returns {'topics': {(dimension, bucket): Topic}, 'total': book value,
     'impact': summed impact, 'not_modelled': value no move applies to,
     'hedged': {short name: exposure} of currency-hedged holdings,
-    'hedged_chf': the same for holdings hedged to the franc, read from the full name}.
+    'hedged_chf': the same for holdings hedged to the franc, read from the full name,
+    'position_impact': {short name: impact} across all topics}.
     An equity holding in USD appears in both its industry topic and the USD topic;
     the two moves are separate and add up.
     """
     topics, hedged, hedged_chf = {}, defaultdict(float), defaultdict(float)
+    position_impact = defaultdict(float)
     total = not_modelled = 0.0
 
     def hit(dimension, bucket, amount, name):
@@ -166,6 +169,8 @@ def impact(client, store, market):
         t.exposure += amount
         t.impact += amount * change
         t.positions[name] += amount
+        t.position_impact[name] += amount * change
+        position_impact[name] += amount * change
         return True
 
     for p in portfolios(client):
@@ -216,4 +221,5 @@ def impact(client, store, market):
                 hit('fx', ccy, amount, f'{ccy} account')
     topics.pop(('fx', ''), None)
     return {'topics': topics, 'total': total, 'impact': sum(t.impact for t in topics.values()),
-            'not_modelled': not_modelled, 'hedged': dict(hedged), 'hedged_chf': dict(hedged_chf)}
+            'not_modelled': not_modelled, 'hedged': dict(hedged), 'hedged_chf': dict(hedged_chf),
+            'position_impact': dict(position_impact)}
