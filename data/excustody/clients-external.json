@@ -1,0 +1,5391 @@
+[
+ {
+  "ClientId": -1,
+  "ClientRef": "EXT-01",
+  "FirstName": "Max",
+  "LastName": "Muster",
+  "IsClientACompany": false,
+  "RegulatoryClientTypeName": "External custody client",
+  "ReportingCurrency": "CHF",
+  "AssetsUnderManagementInDefaultCurrency": 2049658.0,
+  "LiquidityInDefaultCurrency": 100347.0,
+  "Portfolios": [
+   {
+    "PortfolioId": 990001,
+    "PortfolioNr": "EXT-01-01",
+    "Name": "External custody (Privatbank Helvetia AG)",
+    "PortfolioCurrency": "CHF",
+    "InvestmentServiceName": "External custody",
+    "StrategyName": "Mandate: Balanced",
+    "ReferenceCurrency": "CHF",
+    "AssetsUnderManagementInDefaultCurrency": 2049658.0,
+    "LiquidityInDefaultCurrency": 100347.0,
+    "SecurityPositions": [
+     {
+      "SecurityId": -1,
+      "Isin": "US91282CJK18",
+      "Valor": "912828",
+      "SecurityName": "3.875% US Treasury Notes 2023-2028",
+      "Currency": "USD",
+      "Quantity": 125000.0,
+      "PricePerUnit": 98.87,
+      "CostPrice": 102.45,
+      "TotalAmountInPortfolioCurrency": 105482.0,
+      "PortfolioValuePercentage": 0.05146321971763094,
+      "ReportedWeight": 0.0515,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -2,
+      "Isin": "XS2652887431",
+      "Valor": "125902",
+      "SecurityName": "3.625% TotalEnergies SE 2023-2033",
+      "Currency": "EUR",
+      "Quantity": 210000.0,
+      "PricePerUnit": 101.1,
+      "CostPrice": 103.49,
+      "TotalAmountInPortfolioCurrency": 199996.0,
+      "PortfolioValuePercentage": 0.09757530280661457,
+      "ReportedWeight": 0.0976,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -3,
+      "Isin": "US037833EX12",
+      "Valor": "037833",
+      "SecurityName": "4.250% Apple Inc. 2023-2029",
+      "Currency": "USD",
+      "Quantity": 130000.0,
+      "PricePerUnit": 102.11,
+      "CostPrice": 101.1,
+      "TotalAmountInPortfolioCurrency": 113296.0,
+      "PortfolioValuePercentage": 0.055275563045151924,
+      "ReportedWeight": 0.0553,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -4,
+      "Isin": "CH0125118332",
+      "Valor": "125118",
+      "SecurityName": "2.250% Swisscom AG 2023-2031",
+      "Currency": "CHF",
+      "Quantity": 195000.0,
+      "PricePerUnit": 101.33,
+      "CostPrice": 98.5,
+      "TotalAmountInPortfolioCurrency": 197594.0,
+      "PortfolioValuePercentage": 0.09640339998185063,
+      "ReportedWeight": 0.0964,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": 8817,
+      "Isin": "US0231351067",
+      "Valor": "2000654",
+      "SecurityName": "Amazon.com Inc.",
+      "Currency": "USD",
+      "Quantity": 570.0,
+      "PricePerUnit": 235.64,
+      "CostPrice": 202.27,
+      "TotalAmountInPortfolioCurrency": 114638.0,
+      "PortfolioValuePercentage": 0.05593030642185184,
+      "ReportedWeight": 0.0559,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 10197,
+      "Isin": "GB00B10RZP78",
+      "Valor": "931293",
+      "SecurityName": "Unilever PLC",
+      "Currency": "GBP",
+      "Quantity": 1050.0,
+      "PricePerUnit": 48.32,
+      "CostPrice": 44.66,
+      "TotalAmountInPortfolioCurrency": 55708.0,
+      "PortfolioValuePercentage": 0.027179168427122966,
+      "ReportedWeight": 0.0272,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -5,
+      "Isin": "DE0002635307",
+      "Valor": "1293220",
+      "SecurityName": "iShares STOXX Europe 600 UCITS",
+      "Currency": "EUR",
+      "Quantity": 1550.0,
+      "PricePerUnit": 57.72,
+      "CostPrice": 49.33,
+      "TotalAmountInPortfolioCurrency": 84277.0,
+      "PortfolioValuePercentage": 0.04111759132499178,
+      "ReportedWeight": 0.0411,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 177,
+      "Isin": "CH0013841017",
+      "Valor": "1384101",
+      "SecurityName": "Lonza Group AG",
+      "Currency": "CHF",
+      "Quantity": 195.0,
+      "PricePerUnit": 563.15,
+      "CostPrice": 478.12,
+      "TotalAmountInPortfolioCurrency": 109814.0,
+      "PortfolioValuePercentage": 0.0535767430468888,
+      "ReportedWeight": 0.0536,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -6,
+      "Isin": "US67066G1040",
+      "Valor": "994529",
+      "SecurityName": "NVIDIA Corp.",
+      "Currency": "USD",
+      "Quantity": 470.0,
+      "PricePerUnit": 172.83,
+      "CostPrice": 161.56,
+      "TotalAmountInPortfolioCurrency": 69330.0,
+      "PortfolioValuePercentage": 0.03382515522101736,
+      "ReportedWeight": 0.0338,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 261,
+      "Isin": "CH0012032048",
+      "Valor": "1203204",
+      "SecurityName": "Roche Holding AG",
+      "Currency": "CHF",
+      "Quantity": 250.0,
+      "PricePerUnit": 274.41,
+      "CostPrice": 227.69,
+      "TotalAmountInPortfolioCurrency": 68602.0,
+      "PortfolioValuePercentage": 0.033469974015177165,
+      "ReportedWeight": 0.0335,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -7,
+      "Isin": "IE00B4L5YC18",
+      "Valor": "10737355",
+      "SecurityName": "iShares MSCI Emerging Mkts UCITS",
+      "Currency": "USD",
+      "Quantity": 5150.0,
+      "PricePerUnit": 35.84,
+      "CostPrice": 33.06,
+      "TotalAmountInPortfolioCurrency": 157536.0,
+      "PortfolioValuePercentage": 0.07685965170774832,
+      "ReportedWeight": 0.0769,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 11546,
+      "Isin": "FR0000120271",
+      "Valor": "524773",
+      "SecurityName": "TotalEnergies SE",
+      "Currency": "EUR",
+      "Quantity": 2000.0,
+      "PricePerUnit": 58.52,
+      "CostPrice": 52.03,
+      "TotalAmountInPortfolioCurrency": 110252.0,
+      "PortfolioValuePercentage": 0.053790437233919026,
+      "ReportedWeight": 0.0538,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -8,
+      "Isin": "IE00B3XXRP09",
+      "Valor": "18575508",
+      "SecurityName": "Vanguard S&P 500 UCITS ETF",
+      "Currency": "USD",
+      "Quantity": 2900.0,
+      "PricePerUnit": 107.92,
+      "CostPrice": 92.92,
+      "TotalAmountInPortfolioCurrency": 267118.0,
+      "PortfolioValuePercentage": 0.13032320513958914,
+      "ReportedWeight": 0.1303,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 644,
+      "Isin": "CH0038863350",
+      "Valor": "3886335",
+      "SecurityName": "Nestlé AG",
+      "Currency": "CHF",
+      "Quantity": 950.0,
+      "PricePerUnit": 79.38,
+      "CostPrice": 72.48,
+      "TotalAmountInPortfolioCurrency": 75411.0,
+      "PortfolioValuePercentage": 0.03679199163958085,
+      "ReportedWeight": 0.0368,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -9,
+      "Isin": "US78463V1070",
+      "Valor": "2461344",
+      "SecurityName": "SPDR Gold Shares ETF",
+      "Currency": "USD",
+      "Quantity": 230.0,
+      "PricePerUnit": 311.29,
+      "CostPrice": 323.61,
+      "TotalAmountInPortfolioCurrency": 61108.0,
+      "PortfolioValuePercentage": 0.029813754294618907,
+      "ReportedWeight": 0.0298,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -10,
+      "Isin": "CH0039773012",
+      "Valor": "3977301",
+      "SecurityName": "UBS CMCI Commodity Index Fonds",
+      "Currency": "CHF",
+      "Quantity": 660.0,
+      "PricePerUnit": 91.58,
+      "CostPrice": 79.66,
+      "TotalAmountInPortfolioCurrency": 60443.0,
+      "PortfolioValuePercentage": 0.0294893099238995,
+      "ReportedWeight": 0.0295,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -11,
+      "Isin": "CH0014420878",
+      "Valor": "1442085",
+      "SecurityName": "UBS Immofonds Sima",
+      "Currency": "CHF",
+      "Quantity": 230.0,
+      "PricePerUnit": 128.41,
+      "CostPrice": 129.9,
+      "TotalAmountInPortfolioCurrency": 29534.0,
+      "PortfolioValuePercentage": 0.014409233150115776,
+      "ReportedWeight": 0.0144,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -12,
+      "Isin": "US4642883837",
+      "Valor": "2725380",
+      "SecurityName": "iShares Global Infrastructure ETF",
+      "Currency": "USD",
+      "Quantity": 590.0,
+      "PricePerUnit": 62.75,
+      "CostPrice": 61.79,
+      "TotalAmountInPortfolioCurrency": 31599.0,
+      "PortfolioValuePercentage": 0.015416718301297094,
+      "ReportedWeight": 0.0154,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -13,
+      "Isin": "CH0044037317",
+      "Valor": "4403731",
+      "SecurityName": "ZKB Gold ETF (CHF)",
+      "Currency": "CHF",
+      "Quantity": 460.0,
+      "PricePerUnit": 81.68,
+      "CostPrice": 83.27,
+      "TotalAmountInPortfolioCurrency": 37573.0,
+      "PortfolioValuePercentage": 0.018331350888782422,
+      "ReportedWeight": 0.0183,
+      "Section": "Alternatives"
+     }
+    ],
+    "AccountPositions": [
+     {
+      "AccountName": "Private account CHF",
+      "Currency": "CHF",
+      "TotalAmountInPortfolioCurrency": 67589.0,
+      "PortfolioValuePercentage": 0.032975745221885795,
+      "ReportedWeight": 0.033
+     },
+     {
+      "AccountName": "Private account EUR",
+      "Currency": "EUR",
+      "TotalAmountInPortfolioCurrency": 32758.0,
+      "PortfolioValuePercentage": 0.015982178490265207,
+      "ReportedWeight": 0.016
+     }
+    ],
+    "PerformanceHistory": [
+     {
+      "Date": "2022-12-31",
+      "Value": 1382304.0
+     },
+     {
+      "Date": "2023-12-31",
+      "Value": 1616790.0
+     },
+     {
+      "Date": "2024-12-31",
+      "Value": 1864557.0
+     },
+     {
+      "Date": "2025-12-31",
+      "Value": 2049658.0
+     }
+    ],
+    "ReportedPerformance": [
+     {
+      "year": 2022,
+      "start": 0.0,
+      "flow": 1469130.0,
+      "end": 1382304.0,
+      "result": -86826.0,
+      "twr": -0.0591
+     },
+     {
+      "year": 2023,
+      "start": 1382304.0,
+      "flow": 127585.0,
+      "end": 1616790.0,
+      "result": 106900.0,
+      "twr": 0.0708
+     },
+     {
+      "year": 2024,
+      "start": 1616790.0,
+      "flow": 166622.0,
+      "end": 1864557.0,
+      "result": 81145.0,
+      "twr": 0.0455
+     },
+     {
+      "year": 2025,
+      "start": 1864557.0,
+      "flow": 83787.0,
+      "end": 2049658.0,
+      "result": 101314.0,
+      "twr": 0.052
+     }
+    ],
+    "ReportedBreakdowns": {
+     "asset_classes": {
+      "Liquidity / money market": 0.049,
+      "Bonds": 0.3007,
+      "Equities": 0.5429,
+      "Alternative investments": 0.1075
+     },
+     "currencies": {
+      "US Dollar (USD)": 0.4489,
+      "Swiss franc (CHF)": 0.3154,
+      "Euro (EUR)": 0.2085,
+      "British pound (GBP)": 0.0272
+     },
+     "equity_regions": {
+      "North America": 0.4054,
+      "Switzerland": 0.2281,
+      "Europe": 0.2249,
+      "Emerging Markets": 0.1416
+     },
+     "sustainability": {
+      "Sustainable": 0.4548,
+      "Not rated": 0.5452
+     },
+     "esg_ratings": {
+      "AAA-AA (Leader)": 0.3518,
+      "A-BBB (Average)": 0.4047,
+      "BB and below (Laggard)": 0.0723,
+      "No rating": 0.1712
+     },
+     "equity_sectors": {
+      "Other": 0.4574,
+      "Health Care": 0.1603,
+      "Consumer Staples": 0.1178,
+      "Consumer Discretionary": 0.103,
+      "Energy": 0.0991,
+      "Information Technology": 0.0623
+     }
+    }
+   }
+  ],
+  "Proposals": [],
+  "Transactions": [],
+  "SuitabilityViolations": [],
+  "ClientNotes": [],
+  "Tags": [],
+  "ExternalSource": {
+   "bank": "Privatbank Helvetia AG",
+   "file": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf",
+   "depot": "1583.5357.1001",
+   "mandate": "Balanced",
+   "valuation_date": "2025-12-31",
+   "twr_last_year": 0.052,
+   "client_as_reported": "Herr Max Muster"
+  },
+  "ExternalTransactions": [
+   {
+    "Currency": "CHF",
+    "Quantity": 195.0,
+    "Kind": "Dividend",
+    "Description": "Lonza Group AG · CHF 13.91 per share",
+    "Isin": "CH0013841017",
+    "BookingDate": "2025-04-15",
+    "Price": null,
+    "AmountCHF": 2711.92,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Custody fees",
+    "Description": "Management and custody fees",
+    "Isin": null,
+    "BookingDate": "2025-12-31",
+    "Price": null,
+    "AmountCHF": -5027.22,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 195000.0,
+    "Kind": "Coupon",
+    "Description": "2.250% Swisscom AG 2023-2031",
+    "Isin": "CH0125118332",
+    "BookingDate": "2025-01-09",
+    "Price": null,
+    "AmountCHF": 4387.5,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 30.0,
+    "Kind": "Buy",
+    "Description": "Lonza Group AG",
+    "Isin": "CH0013841017",
+    "BookingDate": "2025-04-23",
+    "Price": 546.5,
+    "AmountCHF": -16394.86,
+    "CostsCHF": -22.95
+   },
+   {
+    "Currency": "GBP",
+    "Quantity": -212.0,
+    "Kind": "Sell",
+    "Description": "Unilever PLC",
+    "Isin": "GB00B10RZP78",
+    "BookingDate": "2025-04-06",
+    "Price": 48.39,
+    "AmountCHF": 11263.86,
+    "CostsCHF": -15.77
+   },
+   {
+    "Currency": "EUR",
+    "Quantity": 210000.0,
+    "Kind": "Coupon",
+    "Description": "3.625% TotalEnergies SE 2023-2033",
+    "Isin": "XS2652887431",
+    "BookingDate": "2025-10-12",
+    "Price": null,
+    "AmountCHF": 7170.97,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 570.0,
+    "Kind": "Dividend",
+    "Description": "Amazon.com Inc. · USD 4.93 per share",
+    "Isin": "US0231351067",
+    "BookingDate": "2025-06-11",
+    "Price": null,
+    "AmountCHF": 2397.86,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Inflow",
+    "Description": "Transfer from current account",
+    "Isin": null,
+    "BookingDate": "2025-07-02",
+    "Price": null,
+    "AmountCHF": 83787.07,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 106.0,
+    "Kind": "Buy",
+    "Description": "Amazon.com Inc.",
+    "Isin": "US0231351067",
+    "BookingDate": "2025-06-05",
+    "Price": 204.27,
+    "AmountCHF": -18480.28,
+    "CostsCHF": -25.87
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 235.0,
+    "Kind": "Buy",
+    "Description": "iShares Global Infrastructure ETF",
+    "Isin": "US4642883837",
+    "BookingDate": "2025-12-08",
+    "Price": 58.16,
+    "AmountCHF": -11665.88,
+    "CostsCHF": -16.33
+   }
+  ]
+ },
+ {
+  "ClientId": -2,
+  "ClientRef": "EXT-02",
+  "FirstName": "Anna",
+  "LastName": "Beispiel",
+  "IsClientACompany": false,
+  "RegulatoryClientTypeName": "External custody client",
+  "ReportingCurrency": "CHF",
+  "AssetsUnderManagementInDefaultCurrency": 3406538.0,
+  "LiquidityInDefaultCurrency": 150796.0,
+  "Portfolios": [
+   {
+    "PortfolioId": 990002,
+    "PortfolioNr": "EXT-02-01",
+    "Name": "External custody (Privatbank Helvetia AG)",
+    "PortfolioCurrency": "CHF",
+    "InvestmentServiceName": "External custody",
+    "StrategyName": "Mandate: Growth",
+    "ReferenceCurrency": "CHF",
+    "AssetsUnderManagementInDefaultCurrency": 3406538.0,
+    "LiquidityInDefaultCurrency": 150796.0,
+    "SecurityPositions": [
+     {
+      "SecurityId": -3,
+      "Isin": "US037833EX12",
+      "Valor": "037833",
+      "SecurityName": "4.250% Apple Inc. 2023-2029",
+      "Currency": "USD",
+      "Quantity": 220000.0,
+      "PricePerUnit": 102.86,
+      "CostPrice": 99.91,
+      "TotalAmountInPortfolioCurrency": 193140.0,
+      "PortfolioValuePercentage": 0.05669685763082637,
+      "ReportedWeight": 0.0567,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -14,
+      "Isin": "CH0128331442",
+      "Valor": "128331",
+      "SecurityName": "1.750% Kanton Zürich 2023-2033",
+      "Currency": "CHF",
+      "Quantity": 270000.0,
+      "PricePerUnit": 100.41,
+      "CostPrice": 104.26,
+      "TotalAmountInPortfolioCurrency": 271107.0,
+      "PortfolioValuePercentage": 0.07958431698105231,
+      "ReportedWeight": 0.0796,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -15,
+      "Isin": "CH0119554873",
+      "Valor": "119554",
+      "SecurityName": "1.400% Kanton Waadt 2022-2030",
+      "Currency": "CHF",
+      "Quantity": 155000.0,
+      "PricePerUnit": 98.19,
+      "CostPrice": 100.8,
+      "TotalAmountInPortfolioCurrency": 152194.0,
+      "PortfolioValuePercentage": 0.044677029876079466,
+      "ReportedWeight": 0.0447,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -1,
+      "Isin": "US91282CJK18",
+      "Valor": "912828",
+      "SecurityName": "3.875% US Treasury Notes 2023-2028",
+      "Currency": "USD",
+      "Quantity": 125000.0,
+      "PricePerUnit": 100.33,
+      "CostPrice": 103.44,
+      "TotalAmountInPortfolioCurrency": 107040.0,
+      "PortfolioValuePercentage": 0.03142193041733279,
+      "ReportedWeight": 0.0314,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -8,
+      "Isin": "IE00B3XXRP09",
+      "Valor": "18575508",
+      "SecurityName": "Vanguard S&P 500 UCITS ETF",
+      "Currency": "USD",
+      "Quantity": 6600.0,
+      "PricePerUnit": 110.01,
+      "CostPrice": 108.83,
+      "TotalAmountInPortfolioCurrency": 619697.0,
+      "PortfolioValuePercentage": 0.18191401358211767,
+      "ReportedWeight": 0.1819,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 177,
+      "Isin": "CH0013841017",
+      "Valor": "1384101",
+      "SecurityName": "Lonza Group AG",
+      "Currency": "CHF",
+      "Quantity": 235.0,
+      "PricePerUnit": 559.74,
+      "CostPrice": 572.92,
+      "TotalAmountInPortfolioCurrency": 131539.0,
+      "PortfolioValuePercentage": 0.03861368932329538,
+      "ReportedWeight": 0.0386,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -16,
+      "Isin": "JP3633400001",
+      "Valor": "857771",
+      "SecurityName": "Toyota Motor Corp.",
+      "Currency": "JPY",
+      "Quantity": 7200.0,
+      "PricePerUnit": 3001.64,
+      "CostPrice": 2535.82,
+      "TotalAmountInPortfolioCurrency": 122107.0,
+      "PortfolioValuePercentage": 0.035844895903113363,
+      "ReportedWeight": 0.0358,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 10197,
+      "Isin": "GB00B10RZP78",
+      "Valor": "931293",
+      "SecurityName": "Unilever PLC",
+      "Currency": "GBP",
+      "Quantity": 2550.0,
+      "PricePerUnit": 46.1,
+      "CostPrice": 47.85,
+      "TotalAmountInPortfolioCurrency": 129075.0,
+      "PortfolioValuePercentage": 0.037890374333120605,
+      "ReportedWeight": 0.0379,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 11638,
+      "Isin": "DE0007236101",
+      "Valor": "349465",
+      "SecurityName": "Siemens AG",
+      "Currency": "EUR",
+      "Quantity": 730.0,
+      "PricePerUnit": 221.74,
+      "CostPrice": 239.49,
+      "TotalAmountInPortfolioCurrency": 152482.0,
+      "PortfolioValuePercentage": 0.04476157318661938,
+      "ReportedWeight": 0.0448,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 4908,
+      "Isin": "CH0418792922",
+      "Valor": "41879292",
+      "SecurityName": "Sika AG",
+      "Currency": "CHF",
+      "Quantity": 935.0,
+      "PricePerUnit": 220.47,
+      "CostPrice": 207.72,
+      "TotalAmountInPortfolioCurrency": 206139.0,
+      "PortfolioValuePercentage": 0.06051275517842455,
+      "ReportedWeight": 0.0605,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -6,
+      "Isin": "US67066G1040",
+      "Valor": "994529",
+      "SecurityName": "NVIDIA Corp.",
+      "Currency": "USD",
+      "Quantity": 1620.0,
+      "PricePerUnit": 176.94,
+      "CostPrice": 176.57,
+      "TotalAmountInPortfolioCurrency": 244650.0,
+      "PortfolioValuePercentage": 0.07181778098468299,
+      "ReportedWeight": 0.0718,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -5,
+      "Isin": "DE0002635307",
+      "Valor": "1293220",
+      "SecurityName": "iShares STOXX Europe 600 UCITS",
+      "Currency": "EUR",
+      "Quantity": 7900.0,
+      "PricePerUnit": 58.15,
+      "CostPrice": 51.19,
+      "TotalAmountInPortfolioCurrency": 432741.0,
+      "PortfolioValuePercentage": 0.12703248870260658,
+      "ReportedWeight": 0.127,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 7839,
+      "Isin": "US0378331005",
+      "Valor": "908440",
+      "SecurityName": "Apple Inc.",
+      "Currency": "USD",
+      "Quantity": 830.0,
+      "PricePerUnit": 254.26,
+      "CostPrice": 233.21,
+      "TotalAmountInPortfolioCurrency": 180119.0,
+      "PortfolioValuePercentage": 0.05287450191367306,
+      "ReportedWeight": 0.0529,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -17,
+      "Isin": "IE00B1ZBRN64",
+      "Valor": "10137992",
+      "SecurityName": "Partners Group Listed PE",
+      "Currency": "USD",
+      "Quantity": 2440.0,
+      "PricePerUnit": 33.45,
+      "CostPrice": 32.2,
+      "TotalAmountInPortfolioCurrency": 69661.0,
+      "PortfolioValuePercentage": 0.020449206790002047,
+      "ReportedWeight": 0.0204,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -10,
+      "Isin": "CH0039773012",
+      "Valor": "3977301",
+      "SecurityName": "UBS CMCI Commodity Index Fonds",
+      "Currency": "CHF",
+      "Quantity": 650.0,
+      "PricePerUnit": 92.3,
+      "CostPrice": 94.46,
+      "TotalAmountInPortfolioCurrency": 59995.0,
+      "PortfolioValuePercentage": 0.017611721930006357,
+      "ReportedWeight": 0.0176,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -12,
+      "Isin": "US4642883837",
+      "Valor": "2725380",
+      "SecurityName": "iShares Global Infrastructure ETF",
+      "Currency": "USD",
+      "Quantity": 1105.0,
+      "PricePerUnit": 62.3,
+      "CostPrice": 63.09,
+      "TotalAmountInPortfolioCurrency": 58756.0,
+      "PortfolioValuePercentage": 0.017248009562787794,
+      "ReportedWeight": 0.0172,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -11,
+      "Isin": "CH0014420878",
+      "Valor": "1442085",
+      "SecurityName": "UBS Immofonds Sima",
+      "Currency": "CHF",
+      "Quantity": 615.0,
+      "PricePerUnit": 130.17,
+      "CostPrice": 120.82,
+      "TotalAmountInPortfolioCurrency": 80055.0,
+      "PortfolioValuePercentage": 0.02350039835164029,
+      "ReportedWeight": 0.0235,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -18,
+      "Isin": "CH0312041188",
+      "Valor": "31204118",
+      "SecurityName": "Helvetia Multi-Strategy Fonds",
+      "Currency": "CHF",
+      "Quantity": 385.0,
+      "PricePerUnit": 117.52,
+      "CostPrice": 105.78,
+      "TotalAmountInPortfolioCurrency": 45245.0,
+      "PortfolioValuePercentage": 0.013281812796451999,
+      "ReportedWeight": 0.0133,
+      "Section": "Alternatives"
+     }
+    ],
+    "AccountPositions": [
+     {
+      "AccountName": "Private account GBP",
+      "Currency": "GBP",
+      "TotalAmountInPortfolioCurrency": 73037.0,
+      "PortfolioValuePercentage": 0.021440242263553202,
+      "ReportedWeight": 0.0214
+     },
+     {
+      "AccountName": "Private account CHF",
+      "Currency": "CHF",
+      "TotalAmountInPortfolioCurrency": 34017.0,
+      "PortfolioValuePercentage": 0.009985797898041942,
+      "ReportedWeight": 0.01
+     },
+     {
+      "AccountName": "Private account USD",
+      "Currency": "USD",
+      "TotalAmountInPortfolioCurrency": 43742.0,
+      "PortfolioValuePercentage": 0.01284060239457185,
+      "ReportedWeight": 0.0128
+     }
+    ],
+    "PerformanceHistory": [
+     {
+      "Date": "2022-12-31",
+      "Value": 2424559.0
+     },
+     {
+      "Date": "2023-12-31",
+      "Value": 2805001.0
+     },
+     {
+      "Date": "2024-12-31",
+      "Value": 3210949.0
+     },
+     {
+      "Date": "2025-12-31",
+      "Value": 3406538.0
+     }
+    ],
+    "ReportedPerformance": [
+     {
+      "year": 2022,
+      "start": 0.0,
+      "flow": 2517192.0,
+      "end": 2424559.0,
+      "result": -92633.0,
+      "twr": -0.0368
+     },
+     {
+      "year": 2023,
+      "start": 2424559.0,
+      "flow": 209492.0,
+      "end": 2805001.0,
+      "result": 170950.0,
+      "twr": 0.0649
+     },
+     {
+      "year": 2024,
+      "start": 2805001.0,
+      "flow": 280966.0,
+      "end": 3210949.0,
+      "result": 124982.0,
+      "twr": 0.0405
+     },
+     {
+      "year": 2025,
+      "start": 3210949.0,
+      "flow": 60794.0,
+      "end": 3406538.0,
+      "result": 134796.0,
+      "twr": 0.0412
+     }
+    ],
+    "ReportedBreakdowns": {
+     "asset_classes": {
+      "Liquidity / money market": 0.0443,
+      "Bonds": 0.2124,
+      "Equities": 0.6513,
+      "Alternative investments": 0.0921
+     },
+     "currencies": {
+      "US Dollar (USD)": 0.4453,
+      "Swiss franc (CHF)": 0.2878,
+      "Euro (EUR)": 0.1718,
+      "British pound (GBP)": 0.0593,
+      "Japanischer Yen (JPY)": 0.0358
+     },
+     "equity_regions": {
+      "North America": 0.4708,
+      "Europe": 0.322,
+      "Switzerland": 0.1522,
+      "Asia/Pacific": 0.055
+     },
+     "sustainability": {
+      "Sustainable": 0.4251,
+      "Not rated": 0.5749
+     },
+     "esg_ratings": {
+      "AAA-AA (Leader)": 0.3627,
+      "A-BBB (Average)": 0.4912,
+      "BB and below (Laggard)": 0.0918,
+      "No rating": 0.0543
+     },
+     "equity_sectors": {
+      "Other": 0.4744,
+      "Information Technology": 0.1915,
+      "Industrials": 0.1616,
+      "Health Care": 0.0593,
+      "Consumer Staples": 0.0582,
+      "Consumer Discretionary": 0.055
+     }
+    }
+   }
+  ],
+  "Proposals": [],
+  "Transactions": [],
+  "SuitabilityViolations": [],
+  "ClientNotes": [],
+  "Tags": [],
+  "ExternalSource": {
+   "bank": "Privatbank Helvetia AG",
+   "file": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf",
+   "depot": "7099.5207.1001",
+   "mandate": "Growth",
+   "valuation_date": "2025-12-31",
+   "twr_last_year": 0.0412,
+   "client_as_reported": "Frau Anna Beispiel"
+  },
+  "ExternalTransactions": [
+   {
+    "Currency": "USD",
+    "Quantity": 1195.0,
+    "Kind": "Buy",
+    "Description": "Partners Group Listed PE",
+    "Isin": "IE00B1ZBRN64",
+    "BookingDate": "2025-04-27",
+    "Price": 32.63,
+    "AmountCHF": -33285.38,
+    "CostsCHF": -46.6
+   },
+   {
+    "Currency": "EUR",
+    "Quantity": -1499.0,
+    "Kind": "Sell",
+    "Description": "iShares STOXX Europe 600 UCITS",
+    "Isin": "DE0002635307",
+    "BookingDate": "2025-09-05",
+    "Price": 56.4,
+    "AmountCHF": 79646.69,
+    "CostsCHF": -111.51
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 241.0,
+    "Kind": "Buy",
+    "Description": "Apple Inc.",
+    "Isin": "US0378331005",
+    "BookingDate": "2025-06-11",
+    "Price": 233.48,
+    "AmountCHF": -48024.55,
+    "CostsCHF": -67.23
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 344.0,
+    "Kind": "Buy",
+    "Description": "NVIDIA Corp.",
+    "Isin": "US67066G1040",
+    "BookingDate": "2025-09-19",
+    "Price": 152.88,
+    "AmountCHF": -44885.65,
+    "CostsCHF": -62.84
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 220000.0,
+    "Kind": "Coupon",
+    "Description": "4.250% Apple Inc. 2023-2029",
+    "Isin": "US037833EX12",
+    "BookingDate": "2025-10-16",
+    "Price": null,
+    "AmountCHF": 7980.23,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 1620.0,
+    "Kind": "Dividend",
+    "Description": "NVIDIA Corp. · USD 4.11 per share",
+    "Isin": "US67066G1040",
+    "BookingDate": "2025-09-05",
+    "Price": null,
+    "AmountCHF": 5682.03,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Inflow",
+    "Description": "Transfer from current account",
+    "Isin": null,
+    "BookingDate": "2025-07-02",
+    "Price": null,
+    "AmountCHF": 60793.79,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 830.0,
+    "Kind": "Dividend",
+    "Description": "Apple Inc. · USD 6.72 per share",
+    "Isin": "US0378331005",
+    "BookingDate": "2025-04-22",
+    "Price": null,
+    "AmountCHF": 4760.36,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Custody fees",
+    "Description": "Management and custody fees",
+    "Isin": null,
+    "BookingDate": "2025-12-31",
+    "Price": null,
+    "AmountCHF": -3647.63,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 155000.0,
+    "Kind": "Coupon",
+    "Description": "1.400% Kanton Waadt 2022-2030",
+    "Isin": "CH0119554873",
+    "BookingDate": "2025-06-21",
+    "Price": null,
+    "AmountCHF": 2170.0,
+    "CostsCHF": 0.0
+   }
+  ]
+ },
+ {
+  "ClientId": -3,
+  "ClientRef": "EXT-03",
+  "LastName": "Weber-Brunner family",
+  "IsClientACompany": false,
+  "RegulatoryClientTypeName": "External custody client",
+  "ReportingCurrency": "CHF",
+  "AssetsUnderManagementInDefaultCurrency": 1251538.0,
+  "LiquidityInDefaultCurrency": 83240.0,
+  "Portfolios": [
+   {
+    "PortfolioId": 990003,
+    "PortfolioNr": "EXT-03-01",
+    "Name": "External custody (Privatbank Helvetia AG)",
+    "PortfolioCurrency": "CHF",
+    "InvestmentServiceName": "External custody",
+    "StrategyName": "Mandate: Income",
+    "ReferenceCurrency": "CHF",
+    "AssetsUnderManagementInDefaultCurrency": 1251538.0,
+    "LiquidityInDefaultCurrency": 83240.0,
+    "SecurityPositions": [
+     {
+      "SecurityId": -19,
+      "Isin": "XS2589900145",
+      "Valor": "989001",
+      "SecurityName": "4.125% AstraZeneca PLC 2023-2029",
+      "Currency": "GBP",
+      "Quantity": 140000.0,
+      "PricePerUnit": 99.71,
+      "CostPrice": 99.01,
+      "TotalAmountInPortfolioCurrency": 153274.0,
+      "PortfolioValuePercentage": 0.12246851473946456,
+      "ReportedWeight": 0.1225,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -20,
+      "Isin": "US46625HKA76",
+      "Valor": "466247",
+      "SecurityName": "4.625% JPMorgan Chase & Co. 2023-2030",
+      "Currency": "USD",
+      "Quantity": 320000.0,
+      "PricePerUnit": 103.21,
+      "CostPrice": 101.57,
+      "TotalAmountInPortfolioCurrency": 281887.0,
+      "PortfolioValuePercentage": 0.22523247396403465,
+      "ReportedWeight": 0.2252,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -21,
+      "Isin": "XS2560048136",
+      "Valor": "121993",
+      "SecurityName": "3.000% Nestlé Finance Intl 2022-2030",
+      "Currency": "EUR",
+      "Quantity": 145000.0,
+      "PricePerUnit": 103.35,
+      "CostPrice": 101.71,
+      "TotalAmountInPortfolioCurrency": 141166.0,
+      "PortfolioValuePercentage": 0.11279401823995755,
+      "ReportedWeight": 0.1128,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -22,
+      "Isin": "CH0121445007",
+      "Valor": "121445",
+      "SecurityName": "1.900% Roche Kapitalmarkt AG 2022-2029",
+      "Currency": "CHF",
+      "Quantity": 165000.0,
+      "PricePerUnit": 100.86,
+      "CostPrice": 102.91,
+      "TotalAmountInPortfolioCurrency": 166419.0,
+      "PortfolioValuePercentage": 0.13297159175350648,
+      "ReportedWeight": 0.133,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": 10197,
+      "Isin": "GB00B10RZP78",
+      "Valor": "931293",
+      "SecurityName": "Unilever PLC",
+      "Currency": "GBP",
+      "Quantity": 700.0,
+      "PricePerUnit": 47.85,
+      "CostPrice": 43.3,
+      "TotalAmountInPortfolioCurrency": 36778.0,
+      "PortfolioValuePercentage": 0.02938624316640805,
+      "ReportedWeight": 0.0294,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -23,
+      "Isin": "JP3435000009",
+      "Valor": "858545",
+      "SecurityName": "Sony Group Corp.",
+      "Currency": "JPY",
+      "Quantity": 1800.0,
+      "PricePerUnit": 3411.96,
+      "CostPrice": 3668.95,
+      "TotalAmountInPortfolioCurrency": 34700.0,
+      "PortfolioValuePercentage": 0.027725886069779743,
+      "ReportedWeight": 0.0277,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 644,
+      "Isin": "CH0038863350",
+      "Valor": "3886335",
+      "SecurityName": "Nestlé AG",
+      "Currency": "CHF",
+      "Quantity": 175.0,
+      "PricePerUnit": 80.7,
+      "CostPrice": 79.1,
+      "TotalAmountInPortfolioCurrency": 14122.0,
+      "PortfolioValuePercentage": 0.011283716515199698,
+      "ReportedWeight": 0.0113,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 2686,
+      "Isin": "CH0008742519",
+      "Valor": "874251",
+      "SecurityName": "Swisscom AG",
+      "Currency": "CHF",
+      "Quantity": 80.0,
+      "PricePerUnit": 542.66,
+      "CostPrice": 500.58,
+      "TotalAmountInPortfolioCurrency": 43413.0,
+      "PortfolioValuePercentage": 0.0346877202290302,
+      "ReportedWeight": 0.0347,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 8151,
+      "Isin": "GB0009895292",
+      "Valor": "989001",
+      "SecurityName": "AstraZeneca PLC",
+      "Currency": "GBP",
+      "Quantity": 300.0,
+      "PricePerUnit": 121.67,
+      "CostPrice": 101.54,
+      "TotalAmountInPortfolioCurrency": 40078.0,
+      "PortfolioValuePercentage": 0.032022998902150795,
+      "ReportedWeight": 0.032,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 8867,
+      "Isin": "IE00B4L5Y983",
+      "Valor": "10737346",
+      "SecurityName": "iShares Core MSCI World UCITS ETF",
+      "Currency": "USD",
+      "Quantity": 450.0,
+      "PricePerUnit": 115.57,
+      "CostPrice": 105.04,
+      "TotalAmountInPortfolioCurrency": 44388.0,
+      "PortfolioValuePercentage": 0.035466761696408736,
+      "ReportedWeight": 0.0355,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -16,
+      "Isin": "JP3633400001",
+      "Valor": "857771",
+      "SecurityName": "Toyota Motor Corp.",
+      "Currency": "JPY",
+      "Quantity": 2600.0,
+      "PricePerUnit": 2971.18,
+      "CostPrice": 3298.82,
+      "TotalAmountInPortfolioCurrency": 43647.0,
+      "PortfolioValuePercentage": 0.03487469018120105,
+      "ReportedWeight": 0.0349,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 11638,
+      "Isin": "DE0007236101",
+      "Valor": "349465",
+      "SecurityName": "Siemens AG",
+      "Currency": "EUR",
+      "Quantity": 80.0,
+      "PricePerUnit": 221.74,
+      "CostPrice": 232.42,
+      "TotalAmountInPortfolioCurrency": 16710.0,
+      "PortfolioValuePercentage": 0.013351572225533704,
+      "ReportedWeight": 0.0134,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 2509,
+      "Isin": "CH0244767585",
+      "Valor": "24476758",
+      "SecurityName": "UBS Group AG",
+      "Currency": "CHF",
+      "Quantity": 550.0,
+      "PricePerUnit": 28.37,
+      "CostPrice": 25.36,
+      "TotalAmountInPortfolioCurrency": 15604.0,
+      "PortfolioValuePercentage": 0.012467859545615075,
+      "ReportedWeight": 0.0125,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -17,
+      "Isin": "IE00B1ZBRN64",
+      "Valor": "10137992",
+      "SecurityName": "Partners Group Listed PE",
+      "Currency": "USD",
+      "Quantity": 3120.0,
+      "PricePerUnit": 32.82,
+      "CostPrice": 31.24,
+      "TotalAmountInPortfolioCurrency": 87397.0,
+      "PortfolioValuePercentage": 0.06983167910203286,
+      "ReportedWeight": 0.0698,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -18,
+      "Isin": "CH0312041188",
+      "Valor": "31204118",
+      "SecurityName": "Helvetia Multi-Strategy Fonds",
+      "Currency": "CHF",
+      "Quantity": 415.0,
+      "PricePerUnit": 117.39,
+      "CostPrice": 108.19,
+      "TotalAmountInPortfolioCurrency": 48717.0,
+      "PortfolioValuePercentage": 0.03892570581156944,
+      "ReportedWeight": 0.0389,
+      "Section": "Alternatives"
+     }
+    ],
+    "AccountPositions": [
+     {
+      "AccountName": "Private account CHF",
+      "Currency": "CHF",
+      "TotalAmountInPortfolioCurrency": 37537.0,
+      "PortfolioValuePercentage": 0.029992696985628883,
+      "ReportedWeight": 0.03
+     },
+     {
+      "AccountName": "Private account GBP",
+      "Currency": "GBP",
+      "TotalAmountInPortfolioCurrency": 22294.0,
+      "PortfolioValuePercentage": 0.01781328253716627,
+      "ReportedWeight": 0.0178
+     },
+     {
+      "AccountName": "Private account USD",
+      "Currency": "USD",
+      "TotalAmountInPortfolioCurrency": 23409.0,
+      "PortfolioValuePercentage": 0.01870418636909147,
+      "ReportedWeight": 0.0187
+     }
+    ],
+    "PerformanceHistory": [
+     {
+      "Date": "2022-12-31",
+      "Value": 950676.0
+     },
+     {
+      "Date": "2023-12-31",
+      "Value": 1102879.0
+     },
+     {
+      "Date": "2024-12-31",
+      "Value": 1157075.0
+     },
+     {
+      "Date": "2025-12-31",
+      "Value": 1251538.0
+     }
+    ],
+    "ReportedPerformance": [
+     {
+      "year": 2022,
+      "start": 0.0,
+      "flow": 1001555.0,
+      "end": 950676.0,
+      "result": -50879.0,
+      "twr": -0.0508
+     },
+     {
+      "year": 2023,
+      "start": 950676.0,
+      "flow": 127197.0,
+      "end": 1102879.0,
+      "result": 25007.0,
+      "twr": 0.0232
+     },
+     {
+      "year": 2024,
+      "start": 1102879.0,
+      "flow": 39572.0,
+      "end": 1157075.0,
+      "result": 14623.0,
+      "twr": 0.0128
+     },
+     {
+      "year": 2025,
+      "start": 1157075.0,
+      "flow": 65012.0,
+      "end": 1251538.0,
+      "result": 29452.0,
+      "twr": 0.0241
+     }
+    ],
+    "ReportedBreakdowns": {
+     "asset_classes": {
+      "Liquidity / money market": 0.0665,
+      "Bonds": 0.5935,
+      "Equities": 0.2313,
+      "Alternative investments": 0.1088
+     },
+     "currencies": {
+      "US Dollar (USD)": 0.3492,
+      "Swiss franc (CHF)": 0.2603,
+      "British pound (GBP)": 0.2017,
+      "Euro (EUR)": 0.1261,
+      "Japanischer Yen (JPY)": 0.0626
+     },
+     "equity_regions": {
+      "Europe": 0.3233,
+      "Asia/Pacific": 0.2707,
+      "Switzerland": 0.2527,
+      "Diversified": 0.1534
+     },
+     "sustainability": {
+      "Sustainable": 0.6525,
+      "Not rated": 0.3475
+     },
+     "esg_ratings": {
+      "AAA-AA (Leader)": 0.3809,
+      "A-BBB (Average)": 0.4803,
+      "BB and below (Laggard)": 0.083,
+      "No rating": 0.0558
+     },
+     "equity_sectors": {
+      "Consumer Discretionary": 0.2707,
+      "Consumer Staples": 0.1759,
+      "Other": 0.1534,
+      "Communication Services": 0.15,
+      "Health Care": 0.1385,
+      "Industrials": 0.0577,
+      "Financials": 0.0539
+     }
+    }
+   }
+  ],
+  "Proposals": [],
+  "Transactions": [],
+  "SuitabilityViolations": [],
+  "ClientNotes": [],
+  "Tags": [],
+  "ExternalSource": {
+   "bank": "Privatbank Helvetia AG",
+   "file": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf",
+   "depot": "3628.8756.1001",
+   "mandate": "Income",
+   "valuation_date": "2025-12-31",
+   "twr_last_year": 0.0241,
+   "client_as_reported": "Familie Weber-Brunner"
+  },
+  "ExternalTransactions": [
+   {
+    "Currency": "EUR",
+    "Quantity": 145000.0,
+    "Kind": "Coupon",
+    "Description": "3.000% Nestlé Finance Intl 2022-2030",
+    "Isin": "XS2560048136",
+    "BookingDate": "2025-11-22",
+    "Price": null,
+    "AmountCHF": 4097.7,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Custody fees",
+    "Description": "Management and custody fees",
+    "Isin": null,
+    "BookingDate": "2025-12-31",
+    "Price": null,
+    "AmountCHF": -3900.69,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 165000.0,
+    "Kind": "Coupon",
+    "Description": "1.900% Roche Kapitalmarkt AG 2022-2029",
+    "Isin": "CH0121445007",
+    "BookingDate": "2025-01-06",
+    "Price": null,
+    "AmountCHF": 3135.0,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "JPY",
+    "Quantity": 1800.0,
+    "Kind": "Dividend",
+    "Description": "Sony Group Corp. · JPY 49.20 per share",
+    "Isin": "JP3435000009",
+    "BookingDate": "2025-11-11",
+    "Price": null,
+    "AmountCHF": 500.38,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "GBP",
+    "Quantity": 93.0,
+    "Kind": "Buy",
+    "Description": "AstraZeneca PLC",
+    "Isin": "GB0009895292",
+    "BookingDate": "2025-04-13",
+    "Price": 118.4,
+    "AmountCHF": -12090.06,
+    "CostsCHF": -16.93
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Inflow",
+    "Description": "Transfer from current account",
+    "Isin": null,
+    "BookingDate": "2025-07-02",
+    "Price": null,
+    "AmountCHF": 65011.55,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 160.0,
+    "Kind": "Buy",
+    "Description": "Helvetia Multi-Strategy Fonds",
+    "Isin": "CH0312041188",
+    "BookingDate": "2025-07-14",
+    "Price": 112.71,
+    "AmountCHF": -18033.06,
+    "CostsCHF": -25.25
+   },
+   {
+    "Currency": "USD",
+    "Quantity": -116.0,
+    "Kind": "Sell",
+    "Description": "iShares Core MSCI World UCITS ETF",
+    "Isin": "IE00B4L5Y983",
+    "BookingDate": "2025-10-27",
+    "Price": 110.33,
+    "AmountCHF": 10923.48,
+    "CostsCHF": -15.29
+   },
+   {
+    "Currency": "GBP",
+    "Quantity": 300.0,
+    "Kind": "Dividend",
+    "Description": "AstraZeneca PLC · GBP 1.60 per share",
+    "Isin": "GB0009895292",
+    "BookingDate": "2025-11-12",
+    "Price": null,
+    "AmountCHF": 525.41,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "JPY",
+    "Quantity": 336.0,
+    "Kind": "Buy",
+    "Description": "Sony Group Corp.",
+    "Isin": "JP3435000009",
+    "BookingDate": "2025-06-10",
+    "Price": 3339.32,
+    "AmountCHF": -6339.37,
+    "CostsCHF": -15.0
+   }
+  ]
+ },
+ {
+  "ClientId": -4,
+  "ClientRef": "EXT-04",
+  "FirstName": "Peter",
+  "LastName": "Keller",
+  "IsClientACompany": false,
+  "RegulatoryClientTypeName": "External custody client",
+  "ReportingCurrency": "CHF",
+  "AssetsUnderManagementInDefaultCurrency": 4803193.0,
+  "LiquidityInDefaultCurrency": 147667.0,
+  "Portfolios": [
+   {
+    "PortfolioId": 990004,
+    "PortfolioNr": "EXT-04-01",
+    "Name": "External custody (Privatbank Helvetia AG)",
+    "PortfolioCurrency": "CHF",
+    "InvestmentServiceName": "External custody",
+    "StrategyName": "Mandate: Equities",
+    "ReferenceCurrency": "CHF",
+    "AssetsUnderManagementInDefaultCurrency": 4803193.0,
+    "LiquidityInDefaultCurrency": 147667.0,
+    "SecurityPositions": [
+     {
+      "SecurityId": -3,
+      "Isin": "US037833EX12",
+      "Valor": "037833",
+      "SecurityName": "4.250% Apple Inc. 2023-2029",
+      "Currency": "USD",
+      "Quantity": 45000.0,
+      "PricePerUnit": 102.75,
+      "CostPrice": 103.69,
+      "TotalAmountInPortfolioCurrency": 39464.0,
+      "PortfolioValuePercentage": 0.008216201181172608,
+      "ReportedWeight": 0.0082,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -24,
+      "Isin": "CH0224397171",
+      "Valor": "115483",
+      "SecurityName": "1.250% Schweiz. Eidgenossenschaft 2021-2031",
+      "Currency": "CHF",
+      "Quantity": 55000.0,
+      "PricePerUnit": 98.47,
+      "CostPrice": 100.77,
+      "TotalAmountInPortfolioCurrency": 54158.0,
+      "PortfolioValuePercentage": 0.011275416165871327,
+      "ReportedWeight": 0.0113,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -15,
+      "Isin": "CH0119554873",
+      "Valor": "119554",
+      "SecurityName": "1.400% Kanton Waadt 2022-2030",
+      "Currency": "CHF",
+      "Quantity": 65000.0,
+      "PricePerUnit": 99.5,
+      "CostPrice": 103.39,
+      "TotalAmountInPortfolioCurrency": 64675.0,
+      "PortfolioValuePercentage": 0.013465001302258727,
+      "ReportedWeight": 0.0135,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -4,
+      "Isin": "CH0125118332",
+      "Valor": "125118",
+      "SecurityName": "2.250% Swisscom AG 2023-2031",
+      "Currency": "CHF",
+      "Quantity": 60000.0,
+      "PricePerUnit": 101.92,
+      "CostPrice": 103.17,
+      "TotalAmountInPortfolioCurrency": 61152.0,
+      "PortfolioValuePercentage": 0.012731530879562825,
+      "ReportedWeight": 0.0127,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -19,
+      "Isin": "XS2589900145",
+      "Valor": "989001",
+      "SecurityName": "4.125% AstraZeneca PLC 2023-2029",
+      "Currency": "GBP",
+      "Quantity": 55000.0,
+      "PricePerUnit": 102.08,
+      "CostPrice": 100.59,
+      "TotalAmountInPortfolioCurrency": 61646.0,
+      "PortfolioValuePercentage": 0.012834379130715756,
+      "ReportedWeight": 0.0128,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -14,
+      "Isin": "CH0128331442",
+      "Valor": "128331",
+      "SecurityName": "1.750% Kanton Zürich 2023-2033",
+      "Currency": "CHF",
+      "Quantity": 45000.0,
+      "PricePerUnit": 99.36,
+      "CostPrice": 96.97,
+      "TotalAmountInPortfolioCurrency": 44712.0,
+      "PortfolioValuePercentage": 0.009308807703542206,
+      "ReportedWeight": 0.0093,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": 177,
+      "Isin": "CH0013841017",
+      "Valor": "1384101",
+      "SecurityName": "Lonza Group AG",
+      "Currency": "CHF",
+      "Quantity": 325.0,
+      "PricePerUnit": 560.67,
+      "CostPrice": 505.79,
+      "TotalAmountInPortfolioCurrency": 182218.0,
+      "PortfolioValuePercentage": 0.037936847426284975,
+      "ReportedWeight": 0.0379,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -6,
+      "Isin": "US67066G1040",
+      "Valor": "994529",
+      "SecurityName": "NVIDIA Corp.",
+      "Currency": "USD",
+      "Quantity": 3690.0,
+      "PricePerUnit": 173.03,
+      "CostPrice": 191.08,
+      "TotalAmountInPortfolioCurrency": 544943.0,
+      "PortfolioValuePercentage": 0.1134543209069467,
+      "ReportedWeight": 0.1135,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 2686,
+      "Isin": "CH0008742519",
+      "Valor": "874251",
+      "SecurityName": "Swisscom AG",
+      "Currency": "CHF",
+      "Quantity": 625.0,
+      "PricePerUnit": 554.61,
+      "CostPrice": 512.27,
+      "TotalAmountInPortfolioCurrency": 346631.0,
+      "PortfolioValuePercentage": 0.07216678571941623,
+      "ReportedWeight": 0.0722,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -7,
+      "Isin": "IE00B4L5YC18",
+      "Valor": "10737355",
+      "SecurityName": "iShares MSCI Emerging Mkts UCITS",
+      "Currency": "USD",
+      "Quantity": 20100.0,
+      "PricePerUnit": 37.07,
+      "CostPrice": 39.9,
+      "TotalAmountInPortfolioCurrency": 635949.0,
+      "PortfolioValuePercentage": 0.13240130055152896,
+      "ReportedWeight": 0.1324,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -25,
+      "Isin": "US46625H1005",
+      "Valor": "946275",
+      "SecurityName": "JPMorgan Chase & Co.",
+      "Currency": "USD",
+      "Quantity": 950.0,
+      "PricePerUnit": 240.82,
+      "CostPrice": 258.67,
+      "TotalAmountInPortfolioCurrency": 195263.0,
+      "PortfolioValuePercentage": 0.04065274911917968,
+      "ReportedWeight": 0.0407,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 7839,
+      "Isin": "US0378331005",
+      "Valor": "908440",
+      "SecurityName": "Apple Inc.",
+      "Currency": "USD",
+      "Quantity": 1360.0,
+      "PricePerUnit": 252.23,
+      "CostPrice": 216.65,
+      "TotalAmountInPortfolioCurrency": 292778.0,
+      "PortfolioValuePercentage": 0.06095486897986402,
+      "ReportedWeight": 0.061,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 4908,
+      "Isin": "CH0418792922",
+      "Valor": "41879292",
+      "SecurityName": "Sika AG",
+      "Currency": "CHF",
+      "Quantity": 1810.0,
+      "PricePerUnit": 213.4,
+      "CostPrice": 224.08,
+      "TotalAmountInPortfolioCurrency": 386254.0,
+      "PortfolioValuePercentage": 0.08041608988021093,
+      "ReportedWeight": 0.0804,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 10197,
+      "Isin": "GB00B10RZP78",
+      "Valor": "931293",
+      "SecurityName": "Unilever PLC",
+      "Currency": "GBP",
+      "Quantity": 9600.0,
+      "PricePerUnit": 47.98,
+      "CostPrice": 49.8,
+      "TotalAmountInPortfolioCurrency": 505748.0,
+      "PortfolioValuePercentage": 0.10529412413783915,
+      "ReportedWeight": 0.1053,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 264,
+      "Isin": "CH0012005267",
+      "Valor": "1200526",
+      "SecurityName": "Novartis AG",
+      "Currency": "CHF",
+      "Quantity": 1800.0,
+      "PricePerUnit": 94.9,
+      "CostPrice": 85.09,
+      "TotalAmountInPortfolioCurrency": 170820.0,
+      "PortfolioValuePercentage": 0.0355638426355135,
+      "ReportedWeight": 0.0356,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 2509,
+      "Isin": "CH0244767585",
+      "Valor": "24476758",
+      "SecurityName": "UBS Group AG",
+      "Currency": "CHF",
+      "Quantity": 14500.0,
+      "PricePerUnit": 28.75,
+      "CostPrice": 31.19,
+      "TotalAmountInPortfolioCurrency": 416875.0,
+      "PortfolioValuePercentage": 0.08679122408780993,
+      "ReportedWeight": 0.0868,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 9033,
+      "Isin": "US02079K3059",
+      "Valor": "29798545",
+      "SecurityName": "Alphabet Inc. Cl A",
+      "Currency": "USD",
+      "Quantity": 1280.0,
+      "PricePerUnit": 238.59,
+      "CostPrice": 212.09,
+      "TotalAmountInPortfolioCurrency": 260655.0,
+      "PortfolioValuePercentage": 0.05426702612199843,
+      "ReportedWeight": 0.0543,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -12,
+      "Isin": "US4642883837",
+      "Valor": "2725380",
+      "SecurityName": "iShares Global Infrastructure ETF",
+      "Currency": "USD",
+      "Quantity": 2600.0,
+      "PricePerUnit": 62.76,
+      "CostPrice": 57.89,
+      "TotalAmountInPortfolioCurrency": 139271.0,
+      "PortfolioValuePercentage": 0.028995503616032085,
+      "ReportedWeight": 0.029,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -18,
+      "Isin": "CH0312041188",
+      "Valor": "31204118",
+      "SecurityName": "Helvetia Multi-Strategy Fonds",
+      "Currency": "CHF",
+      "Quantity": 870.0,
+      "PricePerUnit": 115.64,
+      "CostPrice": 102.52,
+      "TotalAmountInPortfolioCurrency": 100607.0,
+      "PortfolioValuePercentage": 0.020945858307171918,
+      "ReportedWeight": 0.0209,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -26,
+      "Isin": "CH0276180044",
+      "Valor": "27618004",
+      "SecurityName": "Swiss Prime Site Immobilienfonds",
+      "Currency": "CHF",
+      "Quantity": 1435.0,
+      "PricePerUnit": 105.72,
+      "CostPrice": 106.62,
+      "TotalAmountInPortfolioCurrency": 151708.0,
+      "PortfolioValuePercentage": 0.031584822845969335,
+      "ReportedWeight": 0.0316,
+      "Section": "Alternatives"
+     }
+    ],
+    "AccountPositions": [
+     {
+      "AccountName": "Private account CHF",
+      "Currency": "CHF",
+      "TotalAmountInPortfolioCurrency": 74867.0,
+      "PortfolioValuePercentage": 0.015586923115519197,
+      "ReportedWeight": 0.0156
+     },
+     {
+      "AccountName": "Private account USD",
+      "Currency": "USD",
+      "TotalAmountInPortfolioCurrency": 26789.0,
+      "PortfolioValuePercentage": 0.005577331579222405,
+      "ReportedWeight": 0.0056
+     },
+     {
+      "AccountName": "Private account GBP",
+      "Currency": "GBP",
+      "TotalAmountInPortfolioCurrency": 46011.0,
+      "PortfolioValuePercentage": 0.00957925280120953,
+      "ReportedWeight": 0.0096
+     }
+    ],
+    "PerformanceHistory": [
+     {
+      "Date": "2022-12-31",
+      "Value": 3490401.0
+     },
+     {
+      "Date": "2023-12-31",
+      "Value": 4028912.0
+     },
+     {
+      "Date": "2024-12-31",
+      "Value": 4450480.0
+     },
+     {
+      "Date": "2025-12-31",
+      "Value": 4803193.0
+     }
+    ],
+    "ReportedPerformance": [
+     {
+      "year": 2022,
+      "start": 0.0,
+      "flow": 3745869.0,
+      "end": 3490401.0,
+      "result": -255468.0,
+      "twr": -0.0682
+     },
+     {
+      "year": 2023,
+      "start": 3490401.0,
+      "flow": 136635.0,
+      "end": 4028912.0,
+      "result": 401876.0,
+      "twr": 0.1108
+     },
+     {
+      "year": 2024,
+      "start": 4028912.0,
+      "flow": 341159.0,
+      "end": 4450480.0,
+      "result": 80409.0,
+      "twr": 0.0184
+     },
+     {
+      "year": 2025,
+      "start": 4450480.0,
+      "flow": 49842.0,
+      "end": 4803193.0,
+      "result": 302872.0,
+      "twr": 0.0673
+     }
+    ],
+    "ReportedBreakdowns": {
+     "asset_classes": {
+      "Liquidity / money market": 0.0307,
+      "Bonds": 0.0678,
+      "Equities": 0.8199,
+      "Alternative investments": 0.0815
+     },
+     "currencies": {
+      "US Dollar (USD)": 0.4445,
+      "Swiss franc (CHF)": 0.4278,
+      "British pound (GBP)": 0.1277
+     },
+     "equity_regions": {
+      "Switzerland": 0.3816,
+      "North America": 0.3285,
+      "Emerging Markets": 0.1615,
+      "Europe": 0.1284
+     },
+     "sustainability": {
+      "Sustainable": 0.6498,
+      "Not rated": 0.3502
+     },
+     "esg_ratings": {
+      "AAA-AA (Leader)": 0.3009,
+      "A-BBB (Average)": 0.3662,
+      "BB and below (Laggard)": 0.0591,
+      "No rating": 0.2738
+     },
+     "equity_sectors": {
+      "Information Technology": 0.2127,
+      "Other": 0.1615,
+      "Financials": 0.1554,
+      "Communication Services": 0.1542,
+      "Consumer Staples": 0.1284,
+      "Industrials": 0.0981,
+      "Health Care": 0.0896
+     }
+    }
+   }
+  ],
+  "Proposals": [],
+  "Transactions": [],
+  "SuitabilityViolations": [],
+  "ClientNotes": [],
+  "Tags": [],
+  "ExternalSource": {
+   "bank": "Privatbank Helvetia AG",
+   "file": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf",
+   "depot": "3657.9020.1001",
+   "mandate": "Equities",
+   "valuation_date": "2025-12-31",
+   "twr_last_year": 0.0673,
+   "client_as_reported": "Herr Peter Keller"
+  },
+  "ExternalTransactions": [
+   {
+    "Currency": "CHF",
+    "Quantity": 107.0,
+    "Kind": "Buy",
+    "Description": "Lonza Group AG",
+    "Isin": "CH0013841017",
+    "BookingDate": "2025-12-02",
+    "Price": 495.87,
+    "AmountCHF": -53057.66,
+    "CostsCHF": -74.28
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 3690.0,
+    "Kind": "Dividend",
+    "Description": "NVIDIA Corp. · USD 2.02 per share",
+    "Isin": "US67066G1040",
+    "BookingDate": "2025-08-19",
+    "Price": null,
+    "AmountCHF": 6365.12,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Inflow",
+    "Description": "Transfer from current account",
+    "Isin": null,
+    "BookingDate": "2025-07-02",
+    "Price": null,
+    "AmountCHF": 49841.8,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 325.0,
+    "Kind": "Dividend",
+    "Description": "Lonza Group AG · CHF 11.90 per share",
+    "Isin": "CH0013841017",
+    "BookingDate": "2025-12-17",
+    "Price": null,
+    "AmountCHF": 3866.92,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 1225.0,
+    "Kind": "Buy",
+    "Description": "NVIDIA Corp.",
+    "Isin": "US67066G1040",
+    "BookingDate": "2025-04-09",
+    "Price": 158.18,
+    "AmountCHF": -165387.77,
+    "CostsCHF": -231.54
+   },
+   {
+    "Currency": "GBP",
+    "Quantity": -2518.0,
+    "Kind": "Sell",
+    "Description": "Unilever PLC",
+    "Isin": "GB00B10RZP78",
+    "BookingDate": "2025-01-10",
+    "Price": 46.6,
+    "AmountCHF": 128843.39,
+    "CostsCHF": -180.38
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 65000.0,
+    "Kind": "Coupon",
+    "Description": "1.400% Kanton Waadt 2022-2030",
+    "Isin": "CH0119554873",
+    "BookingDate": "2025-11-24",
+    "Price": null,
+    "AmountCHF": 910.0,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 440.0,
+    "Kind": "Buy",
+    "Description": "Swiss Prime Site Immobilienfonds",
+    "Isin": "CH0276180044",
+    "BookingDate": "2025-03-16",
+    "Price": 95.55,
+    "AmountCHF": -42039.82,
+    "CostsCHF": -58.86
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 45000.0,
+    "Kind": "Coupon",
+    "Description": "1.750% Kanton Zürich 2023-2033",
+    "Isin": "CH0128331442",
+    "BookingDate": "2025-06-15",
+    "Price": null,
+    "AmountCHF": 787.5,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Custody fees",
+    "Description": "Management and custody fees",
+    "Isin": null,
+    "BookingDate": "2025-12-31",
+    "Price": null,
+    "AmountCHF": -2990.51,
+    "CostsCHF": 0.0
+   }
+  ]
+ },
+ {
+  "ClientId": -5,
+  "ClientRef": "EXT-05",
+  "FirstName": "Laura",
+  "LastName": "Steiner",
+  "IsClientACompany": false,
+  "RegulatoryClientTypeName": "External custody client",
+  "ReportingCurrency": "CHF",
+  "AssetsUnderManagementInDefaultCurrency": 948090.0,
+  "LiquidityInDefaultCurrency": 43773.0,
+  "Portfolios": [
+   {
+    "PortfolioId": 990005,
+    "PortfolioNr": "EXT-05-01",
+    "Name": "External custody (Privatbank Helvetia AG)",
+    "PortfolioCurrency": "CHF",
+    "InvestmentServiceName": "External custody",
+    "StrategyName": "Mandate: Balanced",
+    "ReferenceCurrency": "CHF",
+    "AssetsUnderManagementInDefaultCurrency": 948090.0,
+    "LiquidityInDefaultCurrency": 43773.0,
+    "SecurityPositions": [
+     {
+      "SecurityId": 25672,
+      "Isin": "CH0559601544",
+      "Valor": "112907",
+      "SecurityName": "0.500% Schweiz. Eidgenossenschaft 2020-2032",
+      "Currency": "CHF",
+      "Quantity": 45000.0,
+      "PricePerUnit": 94.98,
+      "CostPrice": 91.39,
+      "TotalAmountInPortfolioCurrency": 42741.0,
+      "PortfolioValuePercentage": 0.04508116318071069,
+      "ReportedWeight": 0.0451,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -24,
+      "Isin": "CH0224397171",
+      "Valor": "115483",
+      "SecurityName": "1.250% Schweiz. Eidgenossenschaft 2021-2031",
+      "Currency": "CHF",
+      "Quantity": 75000.0,
+      "PricePerUnit": 99.16,
+      "CostPrice": 100.11,
+      "TotalAmountInPortfolioCurrency": 74370.0,
+      "PortfolioValuePercentage": 0.07844192007087934,
+      "ReportedWeight": 0.0784,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -15,
+      "Isin": "CH0119554873",
+      "Valor": "119554",
+      "SecurityName": "1.400% Kanton Waadt 2022-2030",
+      "Currency": "CHF",
+      "Quantity": 75000.0,
+      "PricePerUnit": 99.78,
+      "CostPrice": 97.27,
+      "TotalAmountInPortfolioCurrency": 74835.0,
+      "PortfolioValuePercentage": 0.07893237983735721,
+      "ReportedWeight": 0.0789,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -27,
+      "Isin": "XS2624785512",
+      "Valor": "124480",
+      "SecurityName": "3.375% Siemens Finance BV 2023-2031",
+      "Currency": "EUR",
+      "Quantity": 90000.0,
+      "PricePerUnit": 102.52,
+      "CostPrice": 104.64,
+      "TotalAmountInPortfolioCurrency": 86916.0,
+      "PortfolioValuePercentage": 0.09167484099610797,
+      "ReportedWeight": 0.0917,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -28,
+      "Isin": "CH0126774556",
+      "Valor": "126774",
+      "SecurityName": "2.100% Pfandbriefzentrale 2023-2029",
+      "Currency": "CHF",
+      "Quantity": 80000.0,
+      "PricePerUnit": 100.24,
+      "CostPrice": 103.8,
+      "TotalAmountInPortfolioCurrency": 80192.0,
+      "PortfolioValuePercentage": 0.08458268729761942,
+      "ReportedWeight": 0.0846,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -8,
+      "Isin": "IE00B3XXRP09",
+      "Valor": "18575508",
+      "SecurityName": "Vanguard S&P 500 UCITS ETF",
+      "Currency": "USD",
+      "Quantity": 650.0,
+      "PricePerUnit": 109.45,
+      "CostPrice": 108.52,
+      "TotalAmountInPortfolioCurrency": 60720.0,
+      "PortfolioValuePercentage": 0.06404455273233554,
+      "ReportedWeight": 0.064,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 10197,
+      "Isin": "GB00B10RZP78",
+      "Valor": "931293",
+      "SecurityName": "Unilever PLC",
+      "Currency": "GBP",
+      "Quantity": 850.0,
+      "PricePerUnit": 48.56,
+      "CostPrice": 40.53,
+      "TotalAmountInPortfolioCurrency": 45321.0,
+      "PortfolioValuePercentage": 0.04780242382052337,
+      "ReportedWeight": 0.0478,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -5,
+      "Isin": "DE0002635307",
+      "Valor": "1293220",
+      "SecurityName": "iShares STOXX Europe 600 UCITS",
+      "Currency": "EUR",
+      "Quantity": 400.0,
+      "PricePerUnit": 59.09,
+      "CostPrice": 62.54,
+      "TotalAmountInPortfolioCurrency": 22265.0,
+      "PortfolioValuePercentage": 0.023484057420709005,
+      "ReportedWeight": 0.0235,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -16,
+      "Isin": "JP3633400001",
+      "Valor": "857771",
+      "SecurityName": "Toyota Motor Corp.",
+      "Currency": "JPY",
+      "Quantity": 2500.0,
+      "PricePerUnit": 2934.75,
+      "CostPrice": 2553.36,
+      "TotalAmountInPortfolioCurrency": 41453.0,
+      "PortfolioValuePercentage": 0.043722642365176305,
+      "ReportedWeight": 0.0437,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 11539,
+      "Isin": "FR0000121014",
+      "Valor": "467669",
+      "SecurityName": "LVMH Moët Hennessy SE",
+      "Currency": "EUR",
+      "Quantity": 70.0,
+      "PricePerUnit": 604.21,
+      "CostPrice": 614.2,
+      "TotalAmountInPortfolioCurrency": 39842.0,
+      "PortfolioValuePercentage": 0.04202343659357234,
+      "ReportedWeight": 0.042,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -6,
+      "Isin": "US67066G1040",
+      "Valor": "994529",
+      "SecurityName": "NVIDIA Corp.",
+      "Currency": "USD",
+      "Quantity": 230.0,
+      "PricePerUnit": 174.96,
+      "CostPrice": 151.08,
+      "TotalAmountInPortfolioCurrency": 34346.0,
+      "PortfolioValuePercentage": 0.03622651857945976,
+      "ReportedWeight": 0.0362,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 8817,
+      "Isin": "US0231351067",
+      "Valor": "2000654",
+      "SecurityName": "Amazon.com Inc.",
+      "Currency": "USD",
+      "Quantity": 180.0,
+      "PricePerUnit": 224.51,
+      "CostPrice": 226.84,
+      "TotalAmountInPortfolioCurrency": 34491.0,
+      "PortfolioValuePercentage": 0.03637945764642597,
+      "ReportedWeight": 0.0364,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 9033,
+      "Isin": "US02079K3059",
+      "Valor": "29798545",
+      "SecurityName": "Alphabet Inc. Cl A",
+      "Currency": "USD",
+      "Quantity": 160.0,
+      "PricePerUnit": 249.58,
+      "CostPrice": 252.5,
+      "TotalAmountInPortfolioCurrency": 34083.0,
+      "PortfolioValuePercentage": 0.03594911875454862,
+      "ReportedWeight": 0.0359,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 2686,
+      "Isin": "CH0008742519",
+      "Valor": "874251",
+      "SecurityName": "Swisscom AG",
+      "Currency": "CHF",
+      "Quantity": 25.0,
+      "PricePerUnit": 555.84,
+      "CostPrice": 602.31,
+      "TotalAmountInPortfolioCurrency": 13896.0,
+      "PortfolioValuePercentage": 0.01465683637629339,
+      "ReportedWeight": 0.0147,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 644,
+      "Isin": "CH0038863350",
+      "Valor": "3886335",
+      "SecurityName": "Nestlé AG",
+      "Currency": "CHF",
+      "Quantity": 325.0,
+      "PricePerUnit": 78.48,
+      "CostPrice": 83.59,
+      "TotalAmountInPortfolioCurrency": 25506.0,
+      "PortfolioValuePercentage": 0.026902509255450433,
+      "ReportedWeight": 0.0269,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 267,
+      "Isin": "CH0012221716",
+      "Valor": "1222171",
+      "SecurityName": "ABB Ltd",
+      "Currency": "CHF",
+      "Quantity": 900.0,
+      "PricePerUnit": 49.74,
+      "CostPrice": 52.03,
+      "TotalAmountInPortfolioCurrency": 44766.0,
+      "PortfolioValuePercentage": 0.047217036357307854,
+      "ReportedWeight": 0.0472,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 10635,
+      "Isin": "DE0007164600",
+      "Valor": "345013",
+      "SecurityName": "SAP SE",
+      "Currency": "EUR",
+      "Quantity": 140.0,
+      "PricePerUnit": 231.29,
+      "CostPrice": 193.94,
+      "TotalAmountInPortfolioCurrency": 30503.0,
+      "PortfolioValuePercentage": 0.03217310592876204,
+      "ReportedWeight": 0.0322,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 7830,
+      "Isin": "US5949181045",
+      "Valor": "951692",
+      "SecurityName": "Microsoft Corp.",
+      "Currency": "USD",
+      "Quantity": 40.0,
+      "PricePerUnit": 519.28,
+      "CostPrice": 487.37,
+      "TotalAmountInPortfolioCurrency": 17728.0,
+      "PortfolioValuePercentage": 0.018698646752945396,
+      "ReportedWeight": 0.0187,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -18,
+      "Isin": "CH0312041188",
+      "Valor": "31204118",
+      "SecurityName": "Helvetia Multi-Strategy Fonds",
+      "Currency": "CHF",
+      "Quantity": 280.0,
+      "PricePerUnit": 115.75,
+      "CostPrice": 118.53,
+      "TotalAmountInPortfolioCurrency": 32410.0,
+      "PortfolioValuePercentage": 0.034184518347414275,
+      "ReportedWeight": 0.0342,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -9,
+      "Isin": "US78463V1070",
+      "Valor": "2461344",
+      "SecurityName": "SPDR Gold Shares ETF",
+      "Currency": "USD",
+      "Quantity": 255.0,
+      "PricePerUnit": 312.13,
+      "CostPrice": 278.99,
+      "TotalAmountInPortfolioCurrency": 67933.0,
+      "PortfolioValuePercentage": 0.07165248024976532,
+      "ReportedWeight": 0.0717,
+      "Section": "Alternatives"
+     }
+    ],
+    "AccountPositions": [
+     {
+      "AccountName": "Private account EUR",
+      "Currency": "EUR",
+      "TotalAmountInPortfolioCurrency": 27167.0,
+      "PortfolioValuePercentage": 0.02865445263635309,
+      "ReportedWeight": 0.0287
+     },
+     {
+      "AccountName": "Private account CHF",
+      "Currency": "CHF",
+      "TotalAmountInPortfolioCurrency": 16606.0,
+      "PortfolioValuePercentage": 0.017515214800282675,
+      "ReportedWeight": 0.0175
+     }
+    ],
+    "PerformanceHistory": [
+     {
+      "Date": "2022-12-31",
+      "Value": 681829.0
+     },
+     {
+      "Date": "2023-12-31",
+      "Value": 774612.0
+     },
+     {
+      "Date": "2024-12-31",
+      "Value": 874273.0
+     },
+     {
+      "Date": "2025-12-31",
+      "Value": 948090.0
+     }
+    ],
+    "ReportedPerformance": [
+     {
+      "year": 2022,
+      "start": 0.0,
+      "flow": 704515.0,
+      "end": 681829.0,
+      "result": -22685.0,
+      "twr": -0.0322
+     },
+     {
+      "year": 2023,
+      "start": 681829.0,
+      "flow": 49212.0,
+      "end": 774612.0,
+      "result": 43570.0,
+      "twr": 0.0596
+     },
+     {
+      "year": 2024,
+      "start": 774612.0,
+      "flow": 69933.0,
+      "end": 874273.0,
+      "result": 29728.0,
+      "twr": 0.0352
+     },
+     {
+      "year": 2025,
+      "start": 874273.0,
+      "flow": 18131.0,
+      "end": 948090.0,
+      "result": 55686.0,
+      "twr": 0.0624
+     }
+    ],
+    "ReportedBreakdowns": {
+     "asset_classes": {
+      "Liquidity / money market": 0.0462,
+      "Bonds": 0.3787,
+      "Equities": 0.4693,
+      "Alternative investments": 0.1058
+     },
+     "currencies": {
+      "Swiss franc (CHF)": 0.4275,
+      "US Dollar (USD)": 0.263,
+      "Euro (EUR)": 0.218,
+      "British pound (GBP)": 0.0478,
+      "Japanischer Yen (JPY)": 0.0437
+     },
+     "equity_regions": {
+      "North America": 0.4076,
+      "Europe": 0.31,
+      "Switzerland": 0.1892,
+      "Asia/Pacific": 0.0932
+     },
+     "sustainability": {
+      "Sustainable": 0.6638,
+      "Not rated": 0.3362
+     },
+     "esg_ratings": {
+      "AAA-AA (Leader)": 0.3589,
+      "A-BBB (Average)": 0.482,
+      "BB and below (Laggard)": 0.0686,
+      "No rating": 0.0905
+     },
+     "equity_sectors": {
+      "Consumer Discretionary": 0.2602,
+      "Other": 0.1865,
+      "Information Technology": 0.1856,
+      "Consumer Staples": 0.1592,
+      "Communication Services": 0.1078,
+      "Industrials": 0.1006
+     }
+    }
+   }
+  ],
+  "Proposals": [],
+  "Transactions": [],
+  "SuitabilityViolations": [],
+  "ClientNotes": [],
+  "Tags": [],
+  "ExternalSource": {
+   "bank": "Privatbank Helvetia AG",
+   "file": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf",
+   "depot": "9198.9756.1001",
+   "mandate": "Balanced",
+   "valuation_date": "2025-12-31",
+   "twr_last_year": 0.0624,
+   "client_as_reported": "Frau Laura Steiner"
+  },
+  "ExternalTransactions": [
+   {
+    "Currency": "EUR",
+    "Quantity": -22.0,
+    "Kind": "Sell",
+    "Description": "SAP SE",
+    "Isin": "DE0007164600",
+    "BookingDate": "2025-11-06",
+    "Price": 213.52,
+    "AmountCHF": 4424.94,
+    "CostsCHF": -15.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 130.0,
+    "Kind": "Buy",
+    "Description": "Helvetia Multi-Strategy Fonds",
+    "Isin": "CH0312041188",
+    "BookingDate": "2025-05-20",
+    "Price": 110.11,
+    "AmountCHF": -14314.9,
+    "CostsCHF": -20.04
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 80000.0,
+    "Kind": "Coupon",
+    "Description": "2.100% Pfandbriefzentrale 2023-2029",
+    "Isin": "CH0126774556",
+    "BookingDate": "2025-12-10",
+    "Price": null,
+    "AmountCHF": 1680.0,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 75000.0,
+    "Kind": "Coupon",
+    "Description": "1.250% Schweiz. Eidgenossenschaft 2021-2031",
+    "Isin": "CH0224397171",
+    "BookingDate": "2025-04-12",
+    "Price": null,
+    "AmountCHF": 937.5,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "GBP",
+    "Quantity": 850.0,
+    "Kind": "Dividend",
+    "Description": "Unilever PLC · GBP 1.39 per share",
+    "Isin": "GB00B10RZP78",
+    "BookingDate": "2025-11-09",
+    "Price": null,
+    "AmountCHF": 1298.94,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 25.0,
+    "Kind": "Dividend",
+    "Description": "Swisscom AG · CHF 13.11 per share",
+    "Isin": "CH0008742519",
+    "BookingDate": "2025-02-26",
+    "Price": null,
+    "AmountCHF": 327.84,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Inflow",
+    "Description": "Transfer from current account",
+    "Isin": null,
+    "BookingDate": "2025-07-02",
+    "Price": null,
+    "AmountCHF": 18130.89,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 8.0,
+    "Kind": "Buy",
+    "Description": "Swisscom AG",
+    "Isin": "CH0008742519",
+    "BookingDate": "2025-04-25",
+    "Price": 544.1,
+    "AmountCHF": -4352.83,
+    "CostsCHF": -15.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Custody fees",
+    "Description": "Management and custody fees",
+    "Isin": null,
+    "BookingDate": "2025-12-31",
+    "Price": null,
+    "AmountCHF": -1087.85,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "GBP",
+    "Quantity": 290.0,
+    "Kind": "Buy",
+    "Description": "Unilever PLC",
+    "Isin": "GB00B10RZP78",
+    "BookingDate": "2025-05-15",
+    "Price": 43.53,
+    "AmountCHF": -13859.57,
+    "CostsCHF": -19.4
+   }
+  ]
+ },
+ {
+  "ClientId": -6,
+  "ClientRef": "EXT-06",
+  "Company": "Muster Holding AG",
+  "IsClientACompany": true,
+  "RegulatoryClientTypeName": "External custody client",
+  "ReportingCurrency": "CHF",
+  "AssetsUnderManagementInDefaultCurrency": 7602477.0,
+  "LiquidityInDefaultCurrency": 321917.0,
+  "Portfolios": [
+   {
+    "PortfolioId": 990006,
+    "PortfolioNr": "EXT-06-01",
+    "Name": "External custody (Privatbank Helvetia AG)",
+    "PortfolioCurrency": "CHF",
+    "InvestmentServiceName": "External custody",
+    "StrategyName": "Mandate: Growth",
+    "ReferenceCurrency": "CHF",
+    "AssetsUnderManagementInDefaultCurrency": 7602477.0,
+    "LiquidityInDefaultCurrency": 321917.0,
+    "SecurityPositions": [
+     {
+      "SecurityId": 25672,
+      "Isin": "CH0559601544",
+      "Valor": "112907",
+      "SecurityName": "0.500% Schweiz. Eidgenossenschaft 2020-2032",
+      "Currency": "CHF",
+      "Quantity": 225000.0,
+      "PricePerUnit": 95.3,
+      "CostPrice": 94.72,
+      "TotalAmountInPortfolioCurrency": 214425.0,
+      "PortfolioValuePercentage": 0.02820462330895575,
+      "ReportedWeight": 0.0282,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -22,
+      "Isin": "CH0121445007",
+      "Valor": "121445",
+      "SecurityName": "1.900% Roche Kapitalmarkt AG 2022-2029",
+      "Currency": "CHF",
+      "Quantity": 130000.0,
+      "PricePerUnit": 99.12,
+      "CostPrice": 98.85,
+      "TotalAmountInPortfolioCurrency": 128856.0,
+      "PortfolioValuePercentage": 0.016949212736848792,
+      "ReportedWeight": 0.0169,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -3,
+      "Isin": "US037833EX12",
+      "Valor": "037833",
+      "SecurityName": "4.250% Apple Inc. 2023-2029",
+      "Currency": "USD",
+      "Quantity": 215000.0,
+      "PricePerUnit": 103.14,
+      "CostPrice": 104.27,
+      "TotalAmountInPortfolioCurrency": 189264.0,
+      "PortfolioValuePercentage": 0.02489504407576636,
+      "ReportedWeight": 0.0249,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -19,
+      "Isin": "XS2589900145",
+      "Valor": "989001",
+      "SecurityName": "4.125% AstraZeneca PLC 2023-2029",
+      "Currency": "GBP",
+      "Quantity": 205000.0,
+      "PricePerUnit": 99.48,
+      "CostPrice": 100.61,
+      "TotalAmountInPortfolioCurrency": 223920.0,
+      "PortfolioValuePercentage": 0.02945355835999241,
+      "ReportedWeight": 0.0295,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -1,
+      "Isin": "US91282CJK18",
+      "Valor": "912828",
+      "SecurityName": "3.875% US Treasury Notes 2023-2028",
+      "Currency": "USD",
+      "Quantity": 200000.0,
+      "PricePerUnit": 97.83,
+      "CostPrice": 101.49,
+      "TotalAmountInPortfolioCurrency": 166996.0,
+      "PortfolioValuePercentage": 0.021965998713314096,
+      "ReportedWeight": 0.022,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -14,
+      "Isin": "CH0128331442",
+      "Valor": "128331",
+      "SecurityName": "1.750% Kanton Zürich 2023-2033",
+      "Currency": "CHF",
+      "Quantity": 250000.0,
+      "PricePerUnit": 100.42,
+      "CostPrice": 97.06,
+      "TotalAmountInPortfolioCurrency": 251050.0,
+      "PortfolioValuePercentage": 0.03302213212877855,
+      "ReportedWeight": 0.033,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -24,
+      "Isin": "CH0224397171",
+      "Valor": "115483",
+      "SecurityName": "1.250% Schweiz. Eidgenossenschaft 2021-2031",
+      "Currency": "CHF",
+      "Quantity": 130000.0,
+      "PricePerUnit": 97.93,
+      "CostPrice": 94.45,
+      "TotalAmountInPortfolioCurrency": 127309.0,
+      "PortfolioValuePercentage": 0.016745726425742558,
+      "ReportedWeight": 0.0167,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": 4908,
+      "Isin": "CH0418792922",
+      "Valor": "41879292",
+      "SecurityName": "Sika AG",
+      "Currency": "CHF",
+      "Quantity": 1235.0,
+      "PricePerUnit": 216.45,
+      "CostPrice": 207.71,
+      "TotalAmountInPortfolioCurrency": 267316.0,
+      "PortfolioValuePercentage": 0.03516169795712634,
+      "ReportedWeight": 0.0352,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 7830,
+      "Isin": "US5949181045",
+      "Valor": "951692",
+      "SecurityName": "Microsoft Corp.",
+      "Currency": "USD",
+      "Quantity": 590.0,
+      "PricePerUnit": 518.53,
+      "CostPrice": 549.28,
+      "TotalAmountInPortfolioCurrency": 261114.0,
+      "PortfolioValuePercentage": 0.034345911207623515,
+      "ReportedWeight": 0.0343,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 230,
+      "Isin": "CH0011075394",
+      "Valor": "1107539",
+      "SecurityName": "Zurich Insurance Group AG",
+      "Currency": "CHF",
+      "Quantity": 625.0,
+      "PricePerUnit": 538.02,
+      "CostPrice": 493.95,
+      "TotalAmountInPortfolioCurrency": 336262.0,
+      "PortfolioValuePercentage": 0.04423058432139946,
+      "ReportedWeight": 0.0442,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 11638,
+      "Isin": "DE0007236101",
+      "Valor": "349465",
+      "SecurityName": "Siemens AG",
+      "Currency": "EUR",
+      "Quantity": 1120.0,
+      "PricePerUnit": 221.67,
+      "CostPrice": 216.23,
+      "TotalAmountInPortfolioCurrency": 233871.0,
+      "PortfolioValuePercentage": 0.0307624738621373,
+      "ReportedWeight": 0.0308,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -29,
+      "Isin": "US4781601046",
+      "Valor": "941034",
+      "SecurityName": "Johnson & Johnson",
+      "Currency": "USD",
+      "Quantity": 1940.0,
+      "PricePerUnit": 162.02,
+      "CostPrice": 165.42,
+      "TotalAmountInPortfolioCurrency": 268271.0,
+      "PortfolioValuePercentage": 0.03528731491065346,
+      "ReportedWeight": 0.0353,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 8867,
+      "Isin": "IE00B4L5Y983",
+      "Valor": "10737346",
+      "SecurityName": "iShares Core MSCI World UCITS ETF",
+      "Currency": "USD",
+      "Quantity": 10850.0,
+      "PricePerUnit": 115.12,
+      "CostPrice": 107.73,
+      "TotalAmountInPortfolioCurrency": 1066066.0,
+      "PortfolioValuePercentage": 0.14022613945428575,
+      "ReportedWeight": 0.1402,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 10635,
+      "Isin": "DE0007164600",
+      "Valor": "345013",
+      "SecurityName": "SAP SE",
+      "Currency": "EUR",
+      "Quantity": 1130.0,
+      "PricePerUnit": 232.3,
+      "CostPrice": 193.77,
+      "TotalAmountInPortfolioCurrency": 247274.0,
+      "PortfolioValuePercentage": 0.03252545190205771,
+      "ReportedWeight": 0.0325,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 10197,
+      "Isin": "GB00B10RZP78",
+      "Valor": "931293",
+      "SecurityName": "Unilever PLC",
+      "Currency": "GBP",
+      "Quantity": 15400.0,
+      "PricePerUnit": 47.28,
+      "CostPrice": 41.97,
+      "TotalAmountInPortfolioCurrency": 799467.0,
+      "PortfolioValuePercentage": 0.10515875286436249,
+      "ReportedWeight": 0.1052,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -25,
+      "Isin": "US46625H1005",
+      "Valor": "946275",
+      "SecurityName": "JPMorgan Chase & Co.",
+      "Currency": "USD",
+      "Quantity": 3630.0,
+      "PricePerUnit": 248.04,
+      "CostPrice": 225.89,
+      "TotalAmountInPortfolioCurrency": 768479.0,
+      "PortfolioValuePercentage": 0.10108271291054219,
+      "ReportedWeight": 0.1011,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 644,
+      "Isin": "CH0038863350",
+      "Valor": "3886335",
+      "SecurityName": "Nestlé AG",
+      "Currency": "CHF",
+      "Quantity": 9025.0,
+      "PricePerUnit": 77.2,
+      "CostPrice": 66.95,
+      "TotalAmountInPortfolioCurrency": 696730.0,
+      "PortfolioValuePercentage": 0.0916451309224612,
+      "ReportedWeight": 0.0916,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 8151,
+      "Isin": "GB0009895292",
+      "Valor": "989001",
+      "SecurityName": "AstraZeneca PLC",
+      "Currency": "GBP",
+      "Quantity": 1900.0,
+      "PricePerUnit": 118.76,
+      "CostPrice": 125.04,
+      "TotalAmountInPortfolioCurrency": 247757.0,
+      "PortfolioValuePercentage": 0.032588983827244726,
+      "ReportedWeight": 0.0326,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -10,
+      "Isin": "CH0039773012",
+      "Valor": "3977301",
+      "SecurityName": "UBS CMCI Commodity Index Fonds",
+      "Currency": "CHF",
+      "Quantity": 2925.0,
+      "PricePerUnit": 92.86,
+      "CostPrice": 96.44,
+      "TotalAmountInPortfolioCurrency": 271616.0,
+      "PortfolioValuePercentage": 0.03572730308819086,
+      "ReportedWeight": 0.0357,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -18,
+      "Isin": "CH0312041188",
+      "Valor": "31204118",
+      "SecurityName": "Helvetia Multi-Strategy Fonds",
+      "Currency": "CHF",
+      "Quantity": 1090.0,
+      "PricePerUnit": 114.35,
+      "CostPrice": 109.02,
+      "TotalAmountInPortfolioCurrency": 124642.0,
+      "PortfolioValuePercentage": 0.016394919708405564,
+      "ReportedWeight": 0.0164,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -12,
+      "Isin": "US4642883837",
+      "Valor": "2725380",
+      "SecurityName": "iShares Global Infrastructure ETF",
+      "Currency": "USD",
+      "Quantity": 2440.0,
+      "PricePerUnit": 61.19,
+      "CostPrice": 56.91,
+      "TotalAmountInPortfolioCurrency": 127431.0,
+      "PortfolioValuePercentage": 0.01676177382713555,
+      "ReportedWeight": 0.0168,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -26,
+      "Isin": "CH0276180044",
+      "Valor": "27618004",
+      "SecurityName": "Swiss Prime Site Immobilienfonds",
+      "Currency": "CHF",
+      "Quantity": 2550.0,
+      "PricePerUnit": 102.92,
+      "CostPrice": 95.11,
+      "TotalAmountInPortfolioCurrency": 262446.0,
+      "PortfolioValuePercentage": 0.03452111726217653,
+      "ReportedWeight": 0.0345,
+      "Section": "Alternatives"
+     }
+    ],
+    "AccountPositions": [
+     {
+      "AccountName": "Private account CHF",
+      "Currency": "CHF",
+      "TotalAmountInPortfolioCurrency": 211787.0,
+      "PortfolioValuePercentage": 0.02785763113785152,
+      "ReportedWeight": 0.0279
+     },
+     {
+      "AccountName": "Private account USD",
+      "Currency": "USD",
+      "TotalAmountInPortfolioCurrency": 110130.0,
+      "PortfolioValuePercentage": 0.014486068159101303,
+      "ReportedWeight": 0.0145
+     }
+    ],
+    "PerformanceHistory": [
+     {
+      "Date": "2022-12-31",
+      "Value": 4898995.0
+     },
+     {
+      "Date": "2023-12-31",
+      "Value": 5872813.0
+     },
+     {
+      "Date": "2024-12-31",
+      "Value": 6769800.0
+     },
+     {
+      "Date": "2025-12-31",
+      "Value": 7602477.0
+     }
+    ],
+    "ReportedPerformance": [
+     {
+      "year": 2022,
+      "start": 0.0,
+      "flow": 5449383.0,
+      "end": 4898995.0,
+      "result": -550388.0,
+      "twr": -0.101
+     },
+     {
+      "year": 2023,
+      "start": 4898995.0,
+      "flow": 615901.0,
+      "end": 5872813.0,
+      "result": 357917.0,
+      "twr": 0.0649
+     },
+     {
+      "year": 2024,
+      "start": 5872813.0,
+      "flow": 635984.0,
+      "end": 6769800.0,
+      "result": 261003.0,
+      "twr": 0.0401
+     },
+     {
+      "year": 2025,
+      "start": 6769800.0,
+      "flow": 302929.0,
+      "end": 7602477.0,
+      "result": 529747.0,
+      "twr": 0.0749
+     }
+    ],
+    "ReportedBreakdowns": {
+     "asset_classes": {
+      "Liquidity / money market": 0.0423,
+      "Bonds": 0.1712,
+      "Equities": 0.683,
+      "Alternative investments": 0.1034
+     },
+     "currencies": {
+      "US Dollar (USD)": 0.3891,
+      "Swiss franc (CHF)": 0.3805,
+      "British pound (GBP)": 0.1672,
+      "Euro (EUR)": 0.0633
+     },
+     "equity_regions": {
+      "Europe": 0.2943,
+      "Switzerland": 0.2504,
+      "North America": 0.2499,
+      "Diversified": 0.2053
+     },
+     "sustainability": {
+      "Sustainable": 0.5689,
+      "Not rated": 0.4311
+     },
+     "esg_ratings": {
+      "AAA-AA (Leader)": 0.4328,
+      "A-BBB (Average)": 0.3949,
+      "BB and below (Laggard)": 0.0438,
+      "No rating": 0.1285
+     },
+     "equity_sectors": {
+      "Consumer Staples": 0.2881,
+      "Financials": 0.2128,
+      "Other": 0.2053,
+      "Health Care": 0.0994,
+      "Information Technology": 0.0979,
+      "Industrials": 0.0965
+     }
+    }
+   }
+  ],
+  "Proposals": [],
+  "Transactions": [],
+  "SuitabilityViolations": [],
+  "ClientNotes": [],
+  "Tags": [],
+  "ExternalSource": {
+   "bank": "Privatbank Helvetia AG",
+   "file": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf",
+   "depot": "8302.1626.1001",
+   "mandate": "Growth",
+   "valuation_date": "2025-12-31",
+   "twr_last_year": 0.0749,
+   "client_as_reported": "Muster Holding AG"
+  },
+  "ExternalTransactions": [
+   {
+    "Currency": "CHF",
+    "Quantity": 225000.0,
+    "Kind": "Coupon",
+    "Description": "0.500% Schweiz. Eidgenossenschaft 2020-2032",
+    "Isin": "CH0559601544",
+    "BookingDate": "2025-02-04",
+    "Price": null,
+    "AmountCHF": 1125.0,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "EUR",
+    "Quantity": 387.0,
+    "Kind": "Buy",
+    "Description": "SAP SE",
+    "Isin": "DE0007164600",
+    "BookingDate": "2025-10-24",
+    "Price": 228.0,
+    "AmountCHF": -83119.79,
+    "CostsCHF": -116.37
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Inflow",
+    "Description": "Transfer from current account",
+    "Isin": null,
+    "BookingDate": "2025-07-02",
+    "Price": null,
+    "AmountCHF": 302929.44,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 1940.0,
+    "Kind": "Dividend",
+    "Description": "Johnson & Johnson · USD 4.66 per share",
+    "Isin": "US4781601046",
+    "BookingDate": "2025-02-23",
+    "Price": null,
+    "AmountCHF": 7711.51,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 130000.0,
+    "Kind": "Coupon",
+    "Description": "1.900% Roche Kapitalmarkt AG 2022-2029",
+    "Isin": "CH0121445007",
+    "BookingDate": "2025-08-12",
+    "Price": null,
+    "AmountCHF": 2470.0,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "GBP",
+    "Quantity": -2411.0,
+    "Kind": "Sell",
+    "Description": "Unilever PLC",
+    "Isin": "GB00B10RZP78",
+    "BookingDate": "2025-04-22",
+    "Price": 45.96,
+    "AmountCHF": 121664.12,
+    "CostsCHF": -170.33
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Custody fees",
+    "Description": "Management and custody fees",
+    "Isin": null,
+    "BookingDate": "2025-12-31",
+    "Price": null,
+    "AmountCHF": -18175.77,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "EUR",
+    "Quantity": 1130.0,
+    "Kind": "Dividend",
+    "Description": "SAP SE · EUR 5.67 per share",
+    "Isin": "DE0007164600",
+    "BookingDate": "2025-11-27",
+    "Price": null,
+    "AmountCHF": 6036.51,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 900.0,
+    "Kind": "Buy",
+    "Description": "Swiss Prime Site Immobilienfonds",
+    "Isin": "CH0276180044",
+    "BookingDate": "2025-09-03",
+    "Price": 97.91,
+    "AmountCHF": -88120.06,
+    "CostsCHF": -123.37
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 491.0,
+    "Kind": "Buy",
+    "Description": "Johnson & Johnson",
+    "Isin": "US4781601046",
+    "BookingDate": "2025-06-16",
+    "Price": 156.43,
+    "AmountCHF": -65555.85,
+    "CostsCHF": -91.78
+   }
+  ]
+ },
+ {
+  "ClientId": -7,
+  "ClientRef": "EXT-07",
+  "FirstName": "Daniel",
+  "LastName": "Frey",
+  "IsClientACompany": false,
+  "RegulatoryClientTypeName": "External custody client",
+  "ReportingCurrency": "CHF",
+  "AssetsUnderManagementInDefaultCurrency": 1801061.0,
+  "LiquidityInDefaultCurrency": 123828.0,
+  "Portfolios": [
+   {
+    "PortfolioId": 990007,
+    "PortfolioNr": "EXT-07-01",
+    "Name": "External custody (Privatbank Helvetia AG)",
+    "PortfolioCurrency": "CHF",
+    "InvestmentServiceName": "External custody",
+    "StrategyName": "Mandate: Income",
+    "ReferenceCurrency": "CHF",
+    "AssetsUnderManagementInDefaultCurrency": 1801061.0,
+    "LiquidityInDefaultCurrency": 123828.0,
+    "SecurityPositions": [
+     {
+      "SecurityId": -19,
+      "Isin": "XS2589900145",
+      "Valor": "989001",
+      "SecurityName": "4.125% AstraZeneca PLC 2023-2029",
+      "Currency": "GBP",
+      "Quantity": 295000.0,
+      "PricePerUnit": 99.97,
+      "CostPrice": 96.36,
+      "TotalAmountInPortfolioCurrency": 323813.0,
+      "PortfolioValuePercentage": 0.1797901348149785,
+      "ReportedWeight": 0.1798,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -20,
+      "Isin": "US46625HKA76",
+      "Valor": "466247",
+      "SecurityName": "4.625% JPMorgan Chase & Co. 2023-2030",
+      "Currency": "USD",
+      "Quantity": 245000.0,
+      "PricePerUnit": 101.9,
+      "CostPrice": 103.73,
+      "TotalAmountInPortfolioCurrency": 213081.0,
+      "PortfolioValuePercentage": 0.11830859698810868,
+      "ReportedWeight": 0.1183,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -21,
+      "Isin": "XS2560048136",
+      "Valor": "121993",
+      "SecurityName": "3.000% Nestlé Finance Intl 2022-2030",
+      "Currency": "EUR",
+      "Quantity": 280000.0,
+      "PricePerUnit": 102.18,
+      "CostPrice": 102.9,
+      "TotalAmountInPortfolioCurrency": 269510.0,
+      "PortfolioValuePercentage": 0.14963957356247234,
+      "ReportedWeight": 0.1496,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -15,
+      "Isin": "CH0119554873",
+      "Valor": "119554",
+      "SecurityName": "1.400% Kanton Waadt 2022-2030",
+      "Currency": "CHF",
+      "Quantity": 215000.0,
+      "PricePerUnit": 99.87,
+      "CostPrice": 103.33,
+      "TotalAmountInPortfolioCurrency": 214720.0,
+      "PortfolioValuePercentage": 0.11921861613793203,
+      "ReportedWeight": 0.1192,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": 8867,
+      "Isin": "IE00B4L5Y983",
+      "Valor": "10737346",
+      "SecurityName": "iShares Core MSCI World UCITS ETF",
+      "Currency": "USD",
+      "Quantity": 1050.0,
+      "PricePerUnit": 110.42,
+      "CostPrice": 92.44,
+      "TotalAmountInPortfolioCurrency": 98956.0,
+      "PortfolioValuePercentage": 0.054943169609469086,
+      "ReportedWeight": 0.0549,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 8817,
+      "Isin": "US0231351067",
+      "Valor": "2000654",
+      "SecurityName": "Amazon.com Inc.",
+      "Currency": "USD",
+      "Quantity": 90.0,
+      "PricePerUnit": 229.41,
+      "CostPrice": 220.42,
+      "TotalAmountInPortfolioCurrency": 17622.0,
+      "PortfolioValuePercentage": 0.009784232738369217,
+      "ReportedWeight": 0.0098,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 10635,
+      "Isin": "DE0007164600",
+      "Valor": "345013",
+      "SecurityName": "SAP SE",
+      "Currency": "EUR",
+      "Quantity": 170.0,
+      "PricePerUnit": 241.14,
+      "CostPrice": 258.46,
+      "TotalAmountInPortfolioCurrency": 38616.0,
+      "PortfolioValuePercentage": 0.021440695234642246,
+      "ReportedWeight": 0.0214,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -25,
+      "Isin": "US46625H1005",
+      "Valor": "946275",
+      "SecurityName": "JPMorgan Chase & Co.",
+      "Currency": "USD",
+      "Quantity": 170.0,
+      "PricePerUnit": 249.75,
+      "CostPrice": 218.54,
+      "TotalAmountInPortfolioCurrency": 36237.0,
+      "PortfolioValuePercentage": 0.020119807158114022,
+      "ReportedWeight": 0.0201,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 267,
+      "Isin": "CH0012221716",
+      "Valor": "1222171",
+      "SecurityName": "ABB Ltd",
+      "Currency": "CHF",
+      "Quantity": 1075.0,
+      "PricePerUnit": 48.13,
+      "CostPrice": 40.96,
+      "TotalAmountInPortfolioCurrency": 51740.0,
+      "PortfolioValuePercentage": 0.02872751117258105,
+      "ReportedWeight": 0.0287,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 644,
+      "Isin": "CH0038863350",
+      "Valor": "3886335",
+      "SecurityName": "Nestlé AG",
+      "Currency": "CHF",
+      "Quantity": 250.0,
+      "PricePerUnit": 79.16,
+      "CostPrice": 65.64,
+      "TotalAmountInPortfolioCurrency": 19790.0,
+      "PortfolioValuePercentage": 0.01098796764795862,
+      "ReportedWeight": 0.011,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -29,
+      "Isin": "US4781601046",
+      "Valor": "941034",
+      "SecurityName": "Johnson & Johnson",
+      "Currency": "USD",
+      "Quantity": 210.0,
+      "PricePerUnit": 162.78,
+      "CostPrice": 146.03,
+      "TotalAmountInPortfolioCurrency": 29176.0,
+      "PortfolioValuePercentage": 0.0161993402777585,
+      "ReportedWeight": 0.0162,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 11638,
+      "Isin": "DE0007236101",
+      "Valor": "349465",
+      "SecurityName": "Siemens AG",
+      "Currency": "EUR",
+      "Quantity": 110.0,
+      "PricePerUnit": 228.45,
+      "CostPrice": 200.87,
+      "TotalAmountInPortfolioCurrency": 23672.0,
+      "PortfolioValuePercentage": 0.013143363828321195,
+      "ReportedWeight": 0.0131,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 11546,
+      "Isin": "FR0000120271",
+      "Valor": "524773",
+      "SecurityName": "TotalEnergies SE",
+      "Currency": "EUR",
+      "Quantity": 1000.0,
+      "PricePerUnit": 58.73,
+      "CostPrice": 59.12,
+      "TotalAmountInPortfolioCurrency": 55324.0,
+      "PortfolioValuePercentage": 0.030717449325703017,
+      "ReportedWeight": 0.0307,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 7830,
+      "Isin": "US5949181045",
+      "Valor": "951692",
+      "SecurityName": "Microsoft Corp.",
+      "Currency": "USD",
+      "Quantity": 90.0,
+      "PricePerUnit": 503.98,
+      "CostPrice": 495.4,
+      "TotalAmountInPortfolioCurrency": 38713.0,
+      "PortfolioValuePercentage": 0.021494552377737345,
+      "ReportedWeight": 0.0215,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 7839,
+      "Isin": "US0378331005",
+      "Valor": "908440",
+      "SecurityName": "Apple Inc.",
+      "Currency": "USD",
+      "Quantity": 240.0,
+      "PricePerUnit": 259.2,
+      "CostPrice": 255.48,
+      "TotalAmountInPortfolioCurrency": 53095.0,
+      "PortfolioValuePercentage": 0.02947984549107443,
+      "ReportedWeight": 0.0295,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -13,
+      "Isin": "CH0044037317",
+      "Valor": "4403731",
+      "SecurityName": "ZKB Gold ETF (CHF)",
+      "Currency": "CHF",
+      "Quantity": 440.0,
+      "PricePerUnit": 80.87,
+      "CostPrice": 75.34,
+      "TotalAmountInPortfolioCurrency": 35583.0,
+      "PortfolioValuePercentage": 0.01975668786343161,
+      "ReportedWeight": 0.0198,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -11,
+      "Isin": "CH0014420878",
+      "Valor": "1442085",
+      "SecurityName": "UBS Immofonds Sima",
+      "Currency": "CHF",
+      "Quantity": 350.0,
+      "PricePerUnit": 131.04,
+      "CostPrice": 137.49,
+      "TotalAmountInPortfolioCurrency": 45864.0,
+      "PortfolioValuePercentage": 0.02546498980323265,
+      "ReportedWeight": 0.0255,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -26,
+      "Isin": "CH0276180044",
+      "Valor": "27618004",
+      "SecurityName": "Swiss Prime Site Immobilienfonds",
+      "Currency": "CHF",
+      "Quantity": 365.0,
+      "PricePerUnit": 103.99,
+      "CostPrice": 106.2,
+      "TotalAmountInPortfolioCurrency": 37956.0,
+      "PortfolioValuePercentage": 0.02107424457028385,
+      "ReportedWeight": 0.0211,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -9,
+      "Isin": "US78463V1070",
+      "Valor": "2461344",
+      "SecurityName": "SPDR Gold Shares ETF",
+      "Currency": "USD",
+      "Quantity": 115.0,
+      "PricePerUnit": 316.92,
+      "CostPrice": 331.73,
+      "TotalAmountInPortfolioCurrency": 31106.0,
+      "PortfolioValuePercentage": 0.017270930856867147,
+      "ReportedWeight": 0.0173,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -17,
+      "Isin": "IE00B1ZBRN64",
+      "Valor": "10137992",
+      "SecurityName": "Partners Group Listed PE",
+      "Currency": "USD",
+      "Quantity": 1505.0,
+      "PricePerUnit": 33.21,
+      "CostPrice": 30.04,
+      "TotalAmountInPortfolioCurrency": 42659.0,
+      "PortfolioValuePercentage": 0.023685483167977098,
+      "ReportedWeight": 0.0237,
+      "Section": "Alternatives"
+     }
+    ],
+    "AccountPositions": [
+     {
+      "AccountName": "Private account CHF",
+      "Currency": "CHF",
+      "TotalAmountInPortfolioCurrency": 90105.0,
+      "PortfolioValuePercentage": 0.050028844109111244,
+      "ReportedWeight": 0.05
+     },
+     {
+      "AccountName": "Private account EUR",
+      "Currency": "EUR",
+      "TotalAmountInPortfolioCurrency": 33723.0,
+      "PortfolioValuePercentage": 0.018723963263876126,
+      "ReportedWeight": 0.0187
+     }
+    ],
+    "PerformanceHistory": [
+     {
+      "Date": "2022-12-31",
+      "Value": 1349453.0
+     },
+     {
+      "Date": "2023-12-31",
+      "Value": 1529174.0
+     },
+     {
+      "Date": "2024-12-31",
+      "Value": 1708755.0
+     },
+     {
+      "Date": "2025-12-31",
+      "Value": 1801061.0
+     }
+    ],
+    "ReportedPerformance": [
+     {
+      "year": 2022,
+      "start": 0.0,
+      "flow": 1387612.0,
+      "end": 1349453.0,
+      "result": -38159.0,
+      "twr": -0.0275
+     },
+     {
+      "year": 2023,
+      "start": 1349453.0,
+      "flow": 128295.0,
+      "end": 1529174.0,
+      "result": 51426.0,
+      "twr": 0.0348
+     },
+     {
+      "year": 2024,
+      "start": 1529174.0,
+      "flow": 137580.0,
+      "end": 1708755.0,
+      "result": 42002.0,
+      "twr": 0.0252
+     },
+     {
+      "year": 2025,
+      "start": 1708755.0,
+      "flow": 37982.0,
+      "end": 1801061.0,
+      "result": 54324.0,
+      "twr": 0.0311
+     }
+    ],
+    "ReportedBreakdowns": {
+     "asset_classes": {
+      "Liquidity / money market": 0.0688,
+      "Bonds": 0.567,
+      "Equities": 0.257,
+      "Alternative investments": 0.1073
+     },
+     "currencies": {
+      "US Dollar (USD)": 0.3113,
+      "Swiss franc (CHF)": 0.2753,
+      "Euro (EUR)": 0.2337,
+      "British pound (GBP)": 0.1798
+     },
+     "equity_regions": {
+      "North America": 0.3777,
+      "Europe": 0.2541,
+      "Diversified": 0.2138,
+      "Switzerland": 0.1545
+     },
+     "sustainability": {
+      "Sustainable": 0.465,
+      "Not rated": 0.535
+     },
+     "esg_ratings": {
+      "AAA-AA (Leader)": 0.3021,
+      "A-BBB (Average)": 0.4877,
+      "BB and below (Laggard)": 0.1186,
+      "No rating": 0.0916
+     },
+     "equity_sectors": {
+      "Information Technology": 0.2817,
+      "Other": 0.2138,
+      "Industrials": 0.1629,
+      "Energy": 0.1195,
+      "Financials": 0.0783,
+      "Health Care": 0.063,
+      "Consumer Staples": 0.0427,
+      "Consumer Discretionary": 0.0381
+     }
+    }
+   }
+  ],
+  "Proposals": [],
+  "Transactions": [],
+  "SuitabilityViolations": [],
+  "ClientNotes": [],
+  "Tags": [],
+  "ExternalSource": {
+   "bank": "Privatbank Helvetia AG",
+   "file": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf",
+   "depot": "8291.2765.1001",
+   "mandate": "Income",
+   "valuation_date": "2025-12-31",
+   "twr_last_year": 0.0311,
+   "client_as_reported": "Herr Daniel Frey"
+  },
+  "ExternalTransactions": [
+   {
+    "Currency": "USD",
+    "Quantity": -28.0,
+    "Kind": "Sell",
+    "Description": "JPMorgan Chase & Co.",
+    "Isin": "US46625H1005",
+    "BookingDate": "2025-12-21",
+    "Price": 251.08,
+    "AmountCHF": 6000.31,
+    "CostsCHF": -15.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Custody fees",
+    "Description": "Management and custody fees",
+    "Isin": null,
+    "BookingDate": "2025-12-31",
+    "Price": null,
+    "AmountCHF": -2278.93,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 73.0,
+    "Kind": "Buy",
+    "Description": "Johnson & Johnson",
+    "Isin": "US4781601046",
+    "BookingDate": "2025-12-18",
+    "Price": 153.21,
+    "AmountCHF": -9545.6,
+    "CostsCHF": -15.0
+   },
+   {
+    "Currency": "GBP",
+    "Quantity": 295000.0,
+    "Kind": "Coupon",
+    "Description": "4.125% AstraZeneca PLC 2023-2029",
+    "Isin": "XS2589900145",
+    "BookingDate": "2025-01-17",
+    "Price": null,
+    "AmountCHF": 13361.29,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 210.0,
+    "Kind": "Dividend",
+    "Description": "Johnson & Johnson · USD 2.43 per share",
+    "Isin": "US4781601046",
+    "BookingDate": "2025-03-20",
+    "Price": null,
+    "AmountCHF": 436.12,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 1050.0,
+    "Kind": "Dividend",
+    "Description": "iShares Core MSCI World UCITS ETF · USD 1.91 per share",
+    "Isin": "IE00B4L5Y983",
+    "BookingDate": "2025-10-24",
+    "Price": null,
+    "AmountCHF": 1713.98,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "EUR",
+    "Quantity": 280000.0,
+    "Kind": "Coupon",
+    "Description": "3.000% Nestlé Finance Intl 2022-2030",
+    "Isin": "XS2560048136",
+    "BookingDate": "2025-10-12",
+    "Price": null,
+    "AmountCHF": 7912.8,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 161.0,
+    "Kind": "Buy",
+    "Description": "iShares Core MSCI World UCITS ETF",
+    "Isin": "IE00B4L5Y983",
+    "BookingDate": "2025-05-08",
+    "Price": 101.36,
+    "AmountCHF": -13928.38,
+    "CostsCHF": -19.5
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Inflow",
+    "Description": "Transfer from current account",
+    "Isin": null,
+    "BookingDate": "2025-07-02",
+    "Price": null,
+    "AmountCHF": 37982.09,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 150.0,
+    "Kind": "Buy",
+    "Description": "UBS Immofonds Sima",
+    "Isin": "CH0014420878",
+    "BookingDate": "2025-07-22",
+    "Price": 127.61,
+    "AmountCHF": -19141.73,
+    "CostsCHF": -26.8
+   }
+  ]
+ },
+ {
+  "ClientId": -8,
+  "ClientRef": "EXT-08",
+  "FirstName": "Nicole",
+  "LastName": "Baumann",
+  "IsClientACompany": false,
+  "RegulatoryClientTypeName": "External custody client",
+  "ReportingCurrency": "CHF",
+  "AssetsUnderManagementInDefaultCurrency": 2701278.0,
+  "LiquidityInDefaultCurrency": 74012.0,
+  "Portfolios": [
+   {
+    "PortfolioId": 990008,
+    "PortfolioNr": "EXT-08-01",
+    "Name": "External custody (Privatbank Helvetia AG)",
+    "PortfolioCurrency": "CHF",
+    "InvestmentServiceName": "External custody",
+    "StrategyName": "Mandate: Equities",
+    "ReferenceCurrency": "CHF",
+    "AssetsUnderManagementInDefaultCurrency": 2701278.0,
+    "LiquidityInDefaultCurrency": 74012.0,
+    "SecurityPositions": [
+     {
+      "SecurityId": -3,
+      "Isin": "US037833EX12",
+      "Valor": "037833",
+      "SecurityName": "4.250% Apple Inc. 2023-2029",
+      "Currency": "USD",
+      "Quantity": 50000.0,
+      "PricePerUnit": 101.99,
+      "CostPrice": 104.11,
+      "TotalAmountInPortfolioCurrency": 43524.0,
+      "PortfolioValuePercentage": 0.01611237347655443,
+      "ReportedWeight": 0.0161,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -15,
+      "Isin": "CH0119554873",
+      "Valor": "119554",
+      "SecurityName": "1.400% Kanton Waadt 2022-2030",
+      "Currency": "CHF",
+      "Quantity": 35000.0,
+      "PricePerUnit": 100.08,
+      "CostPrice": 103.06,
+      "TotalAmountInPortfolioCurrency": 35028.0,
+      "PortfolioValuePercentage": 0.01296719552745034,
+      "ReportedWeight": 0.013,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -20,
+      "Isin": "US46625HKA76",
+      "Valor": "466247",
+      "SecurityName": "4.625% JPMorgan Chase & Co. 2023-2030",
+      "Currency": "USD",
+      "Quantity": 20000.0,
+      "PricePerUnit": 103.46,
+      "CostPrice": 102.86,
+      "TotalAmountInPortfolioCurrency": 17661.0,
+      "PortfolioValuePercentage": 0.006538016449991448,
+      "ReportedWeight": 0.0065,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -21,
+      "Isin": "XS2560048136",
+      "Valor": "121993",
+      "SecurityName": "3.000% Nestlé Finance Intl 2022-2030",
+      "Currency": "EUR",
+      "Quantity": 40000.0,
+      "PricePerUnit": 103.23,
+      "CostPrice": 100.61,
+      "TotalAmountInPortfolioCurrency": 38897.0,
+      "PortfolioValuePercentage": 0.014399480542173002,
+      "ReportedWeight": 0.0144,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": 25672,
+      "Isin": "CH0559601544",
+      "Valor": "112907",
+      "SecurityName": "0.500% Schweiz. Eidgenossenschaft 2020-2032",
+      "Currency": "CHF",
+      "Quantity": 25000.0,
+      "PricePerUnit": 95.05,
+      "CostPrice": 92.21,
+      "TotalAmountInPortfolioCurrency": 23762.0,
+      "PortfolioValuePercentage": 0.008796577027614336,
+      "ReportedWeight": 0.0088,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": 8151,
+      "Isin": "GB0009895292",
+      "Valor": "989001",
+      "SecurityName": "AstraZeneca PLC",
+      "Currency": "GBP",
+      "Quantity": 1250.0,
+      "PricePerUnit": 120.97,
+      "CostPrice": 116.33,
+      "TotalAmountInPortfolioCurrency": 166031.0,
+      "PortfolioValuePercentage": 0.061463870064465784,
+      "ReportedWeight": 0.0615,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 8817,
+      "Isin": "US0231351067",
+      "Valor": "2000654",
+      "SecurityName": "Amazon.com Inc.",
+      "Currency": "USD",
+      "Quantity": 560.0,
+      "PricePerUnit": 229.9,
+      "CostPrice": 249.46,
+      "TotalAmountInPortfolioCurrency": 109883.0,
+      "PortfolioValuePercentage": 0.040678153081615445,
+      "ReportedWeight": 0.0407,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 10635,
+      "Isin": "DE0007164600",
+      "Valor": "345013",
+      "SecurityName": "SAP SE",
+      "Currency": "EUR",
+      "Quantity": 1330.0,
+      "PricePerUnit": 231.69,
+      "CostPrice": 238.22,
+      "TotalAmountInPortfolioCurrency": 290275.0,
+      "PortfolioValuePercentage": 0.10745839561866642,
+      "ReportedWeight": 0.1075,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -5,
+      "Isin": "DE0002635307",
+      "Valor": "1293220",
+      "SecurityName": "iShares STOXX Europe 600 UCITS",
+      "Currency": "EUR",
+      "Quantity": 11000.0,
+      "PricePerUnit": 57.87,
+      "CostPrice": 51.12,
+      "TotalAmountInPortfolioCurrency": 599649.0,
+      "PortfolioValuePercentage": 0.22198714830535768,
+      "ReportedWeight": 0.222,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -25,
+      "Isin": "US46625H1005",
+      "Valor": "946275",
+      "SecurityName": "JPMorgan Chase & Co.",
+      "Currency": "USD",
+      "Quantity": 1050.0,
+      "PricePerUnit": 244.86,
+      "CostPrice": 225.91,
+      "TotalAmountInPortfolioCurrency": 219437.0,
+      "PortfolioValuePercentage": 0.08123451196063493,
+      "ReportedWeight": 0.0812,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 11546,
+      "Isin": "FR0000120271",
+      "Valor": "524773",
+      "SecurityName": "TotalEnergies SE",
+      "Currency": "EUR",
+      "Quantity": 3850.0,
+      "PricePerUnit": 57.82,
+      "CostPrice": 59.47,
+      "TotalAmountInPortfolioCurrency": 209696.0,
+      "PortfolioValuePercentage": 0.07762844105641849,
+      "ReportedWeight": 0.0776,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 230,
+      "Isin": "CH0011075394",
+      "Valor": "1107539",
+      "SecurityName": "Zurich Insurance Group AG",
+      "Currency": "CHF",
+      "Quantity": 505.0,
+      "PricePerUnit": 555.21,
+      "CostPrice": 543.76,
+      "TotalAmountInPortfolioCurrency": 280381.0,
+      "PortfolioValuePercentage": 0.10379568485731569,
+      "ReportedWeight": 0.1038,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 267,
+      "Isin": "CH0012221716",
+      "Valor": "1222171",
+      "SecurityName": "ABB Ltd",
+      "Currency": "CHF",
+      "Quantity": 4450.0,
+      "PricePerUnit": 50.05,
+      "CostPrice": 43.91,
+      "TotalAmountInPortfolioCurrency": 222722.0,
+      "PortfolioValuePercentage": 0.08245060301087115,
+      "ReportedWeight": 0.0825,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 10197,
+      "Isin": "GB00B10RZP78",
+      "Valor": "931293",
+      "SecurityName": "Unilever PLC",
+      "Currency": "GBP",
+      "Quantity": 3300.0,
+      "PricePerUnit": 46.7,
+      "CostPrice": 44.2,
+      "TotalAmountInPortfolioCurrency": 169213.0,
+      "PortfolioValuePercentage": 0.06264183101480114,
+      "ReportedWeight": 0.0626,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -9,
+      "Isin": "US78463V1070",
+      "Valor": "2461344",
+      "SecurityName": "SPDR Gold Shares ETF",
+      "Currency": "USD",
+      "Quantity": 180.0,
+      "PricePerUnit": 307.85,
+      "CostPrice": 323.66,
+      "TotalAmountInPortfolioCurrency": 47295.0,
+      "PortfolioValuePercentage": 0.017508379367099574,
+      "ReportedWeight": 0.0175,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -26,
+      "Isin": "CH0276180044",
+      "Valor": "27618004",
+      "SecurityName": "Swiss Prime Site Immobilienfonds",
+      "Currency": "CHF",
+      "Quantity": 495.0,
+      "PricePerUnit": 104.2,
+      "CostPrice": 103.85,
+      "TotalAmountInPortfolioCurrency": 51579.0,
+      "PortfolioValuePercentage": 0.019094295366859686,
+      "ReportedWeight": 0.0191,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -17,
+      "Isin": "IE00B1ZBRN64",
+      "Valor": "10137992",
+      "SecurityName": "Partners Group Listed PE",
+      "Currency": "USD",
+      "Quantity": 1615.0,
+      "PricePerUnit": 32.95,
+      "CostPrice": 32.25,
+      "TotalAmountInPortfolioCurrency": 45418.0,
+      "PortfolioValuePercentage": 0.016813523080556683,
+      "ReportedWeight": 0.0168,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -18,
+      "Isin": "CH0312041188",
+      "Valor": "31204118",
+      "SecurityName": "Helvetia Multi-Strategy Fonds",
+      "Currency": "CHF",
+      "Quantity": 210.0,
+      "PricePerUnit": 116.55,
+      "CostPrice": 109.98,
+      "TotalAmountInPortfolioCurrency": 24476.0,
+      "PortfolioValuePercentage": 0.00906089636090769,
+      "ReportedWeight": 0.0091,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -13,
+      "Isin": "CH0044037317",
+      "Valor": "4403731",
+      "SecurityName": "ZKB Gold ETF (CHF)",
+      "Currency": "CHF",
+      "Quantity": 395.0,
+      "PricePerUnit": 81.87,
+      "CostPrice": 80.04,
+      "TotalAmountInPortfolioCurrency": 32339.0,
+      "PortfolioValuePercentage": 0.011971740783436581,
+      "ReportedWeight": 0.012,
+      "Section": "Alternatives"
+     }
+    ],
+    "AccountPositions": [
+     {
+      "AccountName": "Private account CHF",
+      "Currency": "CHF",
+      "TotalAmountInPortfolioCurrency": 53618.0,
+      "PortfolioValuePercentage": 0.01984912326683888,
+      "ReportedWeight": 0.0198
+     },
+     {
+      "AccountName": "Private account USD",
+      "Currency": "USD",
+      "TotalAmountInPortfolioCurrency": 20394.0,
+      "PortfolioValuePercentage": 0.0075497597803706245,
+      "ReportedWeight": 0.0075
+     }
+    ],
+    "PerformanceHistory": [
+     {
+      "Date": "2022-12-31",
+      "Value": 1722856.0
+     },
+     {
+      "Date": "2023-12-31",
+      "Value": 2134336.0
+     },
+     {
+      "Date": "2024-12-31",
+      "Value": 2473218.0
+     },
+     {
+      "Date": "2025-12-31",
+      "Value": 2701278.0
+     }
+    ],
+    "ReportedPerformance": [
+     {
+      "year": 2022,
+      "start": 0.0,
+      "flow": 1933838.0,
+      "end": 1722856.0,
+      "result": -210982.0,
+      "twr": -0.1091
+     },
+     {
+      "year": 2023,
+      "start": 1722856.0,
+      "flow": 201529.0,
+      "end": 2134336.0,
+      "result": 209950.0,
+      "twr": 0.1091
+     },
+     {
+      "year": 2024,
+      "start": 2134336.0,
+      "flow": 213285.0,
+      "end": 2473218.0,
+      "result": 125598.0,
+      "twr": 0.0535
+     },
+     {
+      "year": 2025,
+      "start": 2473218.0,
+      "flow": 31909.0,
+      "end": 2701278.0,
+      "result": 196151.0,
+      "twr": 0.0783
+     }
+    ],
+    "ReportedBreakdowns": {
+     "asset_classes": {
+      "Liquidity / money market": 0.0274,
+      "Bonds": 0.0588,
+      "Equities": 0.8393,
+      "Alternative investments": 0.0744
+     },
+     "currencies": {
+      "Euro (EUR)": 0.4215,
+      "Swiss franc (CHF)": 0.268,
+      "US Dollar (USD)": 0.1864,
+      "British pound (GBP)": 0.1241
+     },
+     "equity_regions": {
+      "Europe": 0.6329,
+      "Switzerland": 0.2219,
+      "North America": 0.1452
+     },
+     "sustainability": {
+      "Sustainable": 0.645,
+      "Not rated": 0.355
+     },
+     "esg_ratings": {
+      "AAA-AA (Leader)": 0.4184,
+      "A-BBB (Average)": 0.4868,
+      "BB and below (Laggard)": 0.0898,
+      "No rating": 0.005
+     },
+     "equity_sectors": {
+      "Other": 0.2645,
+      "Financials": 0.2204,
+      "Information Technology": 0.128,
+      "Industrials": 0.0982,
+      "Energy": 0.0925,
+      "Consumer Staples": 0.0746,
+      "Health Care": 0.0732,
+      "Consumer Discretionary": 0.0485
+     }
+    }
+   }
+  ],
+  "Proposals": [],
+  "Transactions": [],
+  "SuitabilityViolations": [],
+  "ClientNotes": [],
+  "Tags": [],
+  "ExternalSource": {
+   "bank": "Privatbank Helvetia AG",
+   "file": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf",
+   "depot": "2534.6936.1001",
+   "mandate": "Equities",
+   "valuation_date": "2025-12-31",
+   "twr_last_year": 0.0783,
+   "client_as_reported": "Frau Nicole Baumann"
+  },
+  "ExternalTransactions": [
+   {
+    "Currency": "GBP",
+    "Quantity": 1250.0,
+    "Kind": "Dividend",
+    "Description": "AstraZeneca PLC · GBP 2.47 per share",
+    "Isin": "GB0009895292",
+    "BookingDate": "2025-03-26",
+    "Price": null,
+    "AmountCHF": 3393.06,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "GBP",
+    "Quantity": 442.0,
+    "Kind": "Buy",
+    "Description": "AstraZeneca PLC",
+    "Isin": "GB0009895292",
+    "BookingDate": "2025-01-26",
+    "Price": 112.03,
+    "AmountCHF": -54368.9,
+    "CostsCHF": -76.12
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 321.0,
+    "Kind": "Buy",
+    "Description": "JPMorgan Chase & Co.",
+    "Isin": "US46625H1005",
+    "BookingDate": "2025-02-08",
+    "Price": 229.54,
+    "AmountCHF": -62887.28,
+    "CostsCHF": -88.04
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 1050.0,
+    "Kind": "Dividend",
+    "Description": "JPMorgan Chase & Co. · USD 4.75 per share",
+    "Isin": "US46625H1005",
+    "BookingDate": "2025-08-10",
+    "Price": null,
+    "AmountCHF": 4257.65,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Inflow",
+    "Description": "Transfer from current account",
+    "Isin": null,
+    "BookingDate": "2025-07-02",
+    "Price": null,
+    "AmountCHF": 31908.75,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "EUR",
+    "Quantity": -1646.0,
+    "Kind": "Sell",
+    "Description": "iShares STOXX Europe 600 UCITS",
+    "Isin": "DE0002635307",
+    "BookingDate": "2025-08-03",
+    "Price": 54.19,
+    "AmountCHF": 84024.02,
+    "CostsCHF": -117.63
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 720.0,
+    "Kind": "Buy",
+    "Description": "Partners Group Listed PE",
+    "Isin": "IE00B1ZBRN64",
+    "BookingDate": "2025-05-19",
+    "Price": 31.92,
+    "AmountCHF": -19617.51,
+    "CostsCHF": -27.46
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 35000.0,
+    "Kind": "Coupon",
+    "Description": "1.400% Kanton Waadt 2022-2030",
+    "Isin": "CH0119554873",
+    "BookingDate": "2025-05-20",
+    "Price": null,
+    "AmountCHF": 490.0,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 50000.0,
+    "Kind": "Coupon",
+    "Description": "4.250% Apple Inc. 2023-2029",
+    "Isin": "US037833EX12",
+    "BookingDate": "2025-05-06",
+    "Price": null,
+    "AmountCHF": 1813.69,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Custody fees",
+    "Description": "Management and custody fees",
+    "Isin": null,
+    "BookingDate": "2025-12-31",
+    "Price": null,
+    "AmountCHF": -1914.52,
+    "CostsCHF": 0.0
+   }
+  ]
+ },
+ {
+  "ClientId": -9,
+  "ClientRef": "EXT-09",
+  "Company": "Pensionskasse Fiktiva",
+  "IsClientACompany": true,
+  "RegulatoryClientTypeName": "External custody client",
+  "ReportingCurrency": "CHF",
+  "AssetsUnderManagementInDefaultCurrency": 9203755.0,
+  "LiquidityInDefaultCurrency": 411345.0,
+  "Portfolios": [
+   {
+    "PortfolioId": 990009,
+    "PortfolioNr": "EXT-09-01",
+    "Name": "External custody (Privatbank Helvetia AG)",
+    "PortfolioCurrency": "CHF",
+    "InvestmentServiceName": "External custody",
+    "StrategyName": "Mandate: Balanced",
+    "ReferenceCurrency": "CHF",
+    "AssetsUnderManagementInDefaultCurrency": 9203755.0,
+    "LiquidityInDefaultCurrency": 411345.0,
+    "SecurityPositions": [
+     {
+      "SecurityId": -21,
+      "Isin": "XS2560048136",
+      "Valor": "121993",
+      "SecurityName": "3.000% Nestlé Finance Intl 2022-2030",
+      "Currency": "EUR",
+      "Quantity": 720000.0,
+      "PricePerUnit": 102.4,
+      "CostPrice": 101.09,
+      "TotalAmountInPortfolioCurrency": 694518.0,
+      "PortfolioValuePercentage": 0.07546028767606265,
+      "ReportedWeight": 0.0755,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -28,
+      "Isin": "CH0126774556",
+      "Valor": "126774",
+      "SecurityName": "2.100% Pfandbriefzentrale 2023-2029",
+      "Currency": "CHF",
+      "Quantity": 375000.0,
+      "PricePerUnit": 100.13,
+      "CostPrice": 99.2,
+      "TotalAmountInPortfolioCurrency": 375488.0,
+      "PortfolioValuePercentage": 0.04079726155248591,
+      "ReportedWeight": 0.0408,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -24,
+      "Isin": "CH0224397171",
+      "Valor": "115483",
+      "SecurityName": "1.250% Schweiz. Eidgenossenschaft 2021-2031",
+      "Currency": "CHF",
+      "Quantity": 480000.0,
+      "PricePerUnit": 97.35,
+      "CostPrice": 101.32,
+      "TotalAmountInPortfolioCurrency": 467280.0,
+      "PortfolioValuePercentage": 0.0507705822243204,
+      "ReportedWeight": 0.0508,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -15,
+      "Isin": "CH0119554873",
+      "Valor": "119554",
+      "SecurityName": "1.400% Kanton Waadt 2022-2030",
+      "Currency": "CHF",
+      "Quantity": 770000.0,
+      "PricePerUnit": 98.43,
+      "CostPrice": 100.85,
+      "TotalAmountInPortfolioCurrency": 757911.0,
+      "PortfolioValuePercentage": 0.08234801991143832,
+      "ReportedWeight": 0.0823,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -14,
+      "Isin": "CH0128331442",
+      "Valor": "128331",
+      "SecurityName": "1.750% Kanton Zürich 2023-2033",
+      "Currency": "CHF",
+      "Quantity": 455000.0,
+      "PricePerUnit": 98.86,
+      "CostPrice": 96.65,
+      "TotalAmountInPortfolioCurrency": 449813.0,
+      "PortfolioValuePercentage": 0.04887276986403919,
+      "ReportedWeight": 0.0489,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": 25672,
+      "Isin": "CH0559601544",
+      "Valor": "112907",
+      "SecurityName": "0.500% Schweiz. Eidgenossenschaft 2020-2032",
+      "Currency": "CHF",
+      "Quantity": 330000.0,
+      "PricePerUnit": 92.84,
+      "CostPrice": 92.3,
+      "TotalAmountInPortfolioCurrency": 306372.0,
+      "PortfolioValuePercentage": 0.03328771789340329,
+      "ReportedWeight": 0.0333,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": 644,
+      "Isin": "CH0038863350",
+      "Valor": "3886335",
+      "SecurityName": "Nestlé AG",
+      "Currency": "CHF",
+      "Quantity": 5575.0,
+      "PricePerUnit": 77.65,
+      "CostPrice": 85.28,
+      "TotalAmountInPortfolioCurrency": 432899.0,
+      "PortfolioValuePercentage": 0.04703504167592466,
+      "ReportedWeight": 0.047,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 2686,
+      "Isin": "CH0008742519",
+      "Valor": "874251",
+      "SecurityName": "Swisscom AG",
+      "Currency": "CHF",
+      "Quantity": 450.0,
+      "PricePerUnit": 554.49,
+      "CostPrice": 588.83,
+      "TotalAmountInPortfolioCurrency": 249520.0,
+      "PortfolioValuePercentage": 0.027110673849966672,
+      "ReportedWeight": 0.0271,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -8,
+      "Isin": "IE00B3XXRP09",
+      "Valor": "18575508",
+      "SecurityName": "Vanguard S&P 500 UCITS ETF",
+      "Currency": "USD",
+      "Quantity": 5950.0,
+      "PricePerUnit": 106.85,
+      "CostPrice": 101.75,
+      "TotalAmountInPortfolioCurrency": 542619.0,
+      "PortfolioValuePercentage": 0.05895626296006358,
+      "ReportedWeight": 0.059,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -7,
+      "Isin": "IE00B4L5YC18",
+      "Valor": "10737355",
+      "SecurityName": "iShares MSCI Emerging Mkts UCITS",
+      "Currency": "USD",
+      "Quantity": 12050.0,
+      "PricePerUnit": 36.46,
+      "CostPrice": 30.25,
+      "TotalAmountInPortfolioCurrency": 374979.0,
+      "PortfolioValuePercentage": 0.04074195803777914,
+      "ReportedWeight": 0.0407,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 11638,
+      "Isin": "DE0007236101",
+      "Valor": "349465",
+      "SecurityName": "Siemens AG",
+      "Currency": "EUR",
+      "Quantity": 2020.0,
+      "PricePerUnit": 225.32,
+      "CostPrice": 194.23,
+      "TotalAmountInPortfolioCurrency": 428748.0,
+      "PortfolioValuePercentage": 0.04658403010510384,
+      "ReportedWeight": 0.0466,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 8867,
+      "Isin": "IE00B4L5Y983",
+      "Valor": "10737346",
+      "SecurityName": "iShares Core MSCI World UCITS ETF",
+      "Currency": "USD",
+      "Quantity": 10200.0,
+      "PricePerUnit": 110.69,
+      "CostPrice": 94.41,
+      "TotalAmountInPortfolioCurrency": 963634.0,
+      "PortfolioValuePercentage": 0.10470009251658698,
+      "ReportedWeight": 0.1047,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -25,
+      "Isin": "US46625H1005",
+      "Valor": "946275",
+      "SecurityName": "JPMorgan Chase & Co.",
+      "Currency": "USD",
+      "Quantity": 800.0,
+      "PricePerUnit": 247.87,
+      "CostPrice": 266.16,
+      "TotalAmountInPortfolioCurrency": 169246.0,
+      "PortfolioValuePercentage": 0.018388798919571413,
+      "ReportedWeight": 0.0184,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -6,
+      "Isin": "US67066G1040",
+      "Valor": "994529",
+      "SecurityName": "NVIDIA Corp.",
+      "Currency": "USD",
+      "Quantity": 1040.0,
+      "PricePerUnit": 176.88,
+      "CostPrice": 191.53,
+      "TotalAmountInPortfolioCurrency": 157006.0,
+      "PortfolioValuePercentage": 0.017058906935267182,
+      "ReportedWeight": 0.0171,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -5,
+      "Isin": "DE0002635307",
+      "Valor": "1293220",
+      "SecurityName": "iShares STOXX Europe 600 UCITS",
+      "Currency": "EUR",
+      "Quantity": 19800.0,
+      "PricePerUnit": 57.22,
+      "CostPrice": 50.6,
+      "TotalAmountInPortfolioCurrency": 1067245.0,
+      "PortfolioValuePercentage": 0.11595756297293876,
+      "ReportedWeight": 0.116,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 8996,
+      "Isin": "US7427181091",
+      "Valor": "953992",
+      "SecurityName": "Procter & Gamble Co.",
+      "Currency": "USD",
+      "Quantity": 1890.0,
+      "PricePerUnit": 172.1,
+      "CostPrice": 163.19,
+      "TotalAmountInPortfolioCurrency": 277617.0,
+      "PortfolioValuePercentage": 0.030163449592041508,
+      "ReportedWeight": 0.0302,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 11539,
+      "Isin": "FR0000121014",
+      "Valor": "467669",
+      "SecurityName": "LVMH Moët Hennessy SE",
+      "Currency": "EUR",
+      "Quantity": 425.0,
+      "PricePerUnit": 627.12,
+      "CostPrice": 631.06,
+      "TotalAmountInPortfolioCurrency": 251067.0,
+      "PortfolioValuePercentage": 0.02727875742020512,
+      "ReportedWeight": 0.0273,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -26,
+      "Isin": "CH0276180044",
+      "Valor": "27618004",
+      "SecurityName": "Swiss Prime Site Immobilienfonds",
+      "Currency": "CHF",
+      "Quantity": 1450.0,
+      "PricePerUnit": 105.61,
+      "CostPrice": 105.33,
+      "TotalAmountInPortfolioCurrency": 153134.0,
+      "PortfolioValuePercentage": 0.016638209078794472,
+      "ReportedWeight": 0.0166,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -12,
+      "Isin": "US4642883837",
+      "Valor": "2725380",
+      "SecurityName": "iShares Global Infrastructure ETF",
+      "Currency": "USD",
+      "Quantity": 3095.0,
+      "PricePerUnit": 63.24,
+      "CostPrice": 62.89,
+      "TotalAmountInPortfolioCurrency": 167054.0,
+      "PortfolioValuePercentage": 0.018150635257022815,
+      "ReportedWeight": 0.0182,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -9,
+      "Isin": "US78463V1070",
+      "Valor": "2461344",
+      "SecurityName": "SPDR Gold Shares ETF",
+      "Currency": "USD",
+      "Quantity": 695.0,
+      "PricePerUnit": 312.62,
+      "CostPrice": 305.57,
+      "TotalAmountInPortfolioCurrency": 185441.0,
+      "PortfolioValuePercentage": 0.020148406818738657,
+      "ReportedWeight": 0.0201,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -17,
+      "Isin": "IE00B1ZBRN64",
+      "Valor": "10137992",
+      "SecurityName": "Partners Group Listed PE",
+      "Currency": "USD",
+      "Quantity": 7015.0,
+      "PricePerUnit": 33.55,
+      "CostPrice": 34.78,
+      "TotalAmountInPortfolioCurrency": 200874.0,
+      "PortfolioValuePercentage": 0.021825222422804606,
+      "ReportedWeight": 0.0218,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -18,
+      "Isin": "CH0312041188",
+      "Valor": "31204118",
+      "SecurityName": "Helvetia Multi-Strategy Fonds",
+      "Currency": "CHF",
+      "Quantity": 1045.0,
+      "PricePerUnit": 114.78,
+      "CostPrice": 120.66,
+      "TotalAmountInPortfolioCurrency": 119945.0,
+      "PortfolioValuePercentage": 0.013032180887040126,
+      "ReportedWeight": 0.013,
+      "Section": "Alternatives"
+     }
+    ],
+    "AccountPositions": [
+     {
+      "AccountName": "Private account CHF",
+      "Currency": "CHF",
+      "TotalAmountInPortfolioCurrency": 221188.0,
+      "PortfolioValuePercentage": 0.02403236505100364,
+      "ReportedWeight": 0.024
+     },
+     {
+      "AccountName": "Private account USD",
+      "Currency": "USD",
+      "TotalAmountInPortfolioCurrency": 82314.0,
+      "PortfolioValuePercentage": 0.008943523594445963,
+      "ReportedWeight": 0.0089
+     },
+     {
+      "AccountName": "Private account GBP",
+      "Currency": "GBP",
+      "TotalAmountInPortfolioCurrency": 107843.0,
+      "PortfolioValuePercentage": 0.011717282782951088,
+      "ReportedWeight": 0.0117
+     }
+    ],
+    "PerformanceHistory": [
+     {
+      "Date": "2022-12-31",
+      "Value": 6278303.0
+     },
+     {
+      "Date": "2023-12-31",
+      "Value": 7599518.0
+     },
+     {
+      "Date": "2024-12-31",
+      "Value": 8589573.0
+     },
+     {
+      "Date": "2025-12-31",
+      "Value": 9203755.0
+     }
+    ],
+    "ReportedPerformance": [
+     {
+      "year": 2022,
+      "start": 0.0,
+      "flow": 6616401.0,
+      "end": 6278303.0,
+      "result": -338098.0,
+      "twr": -0.0511
+     },
+     {
+      "year": 2023,
+      "start": 6278303.0,
+      "flow": 869475.0,
+      "end": 7599518.0,
+      "result": 451740.0,
+      "twr": 0.0632
+     },
+     {
+      "year": 2024,
+      "start": 7599518.0,
+      "flow": 595857.0,
+      "end": 8589573.0,
+      "result": 394198.0,
+      "twr": 0.0481
+     },
+     {
+      "year": 2025,
+      "start": 8589573.0,
+      "flow": 251690.0,
+      "end": 9203755.0,
+      "result": 362492.0,
+      "twr": 0.041
+     }
+    ],
+    "ReportedBreakdowns": {
+     "asset_classes": {
+      "Liquidity / money market": 0.0447,
+      "Bonds": 0.3315,
+      "Equities": 0.534,
+      "Alternative investments": 0.0898
+     },
+     "currencies": {
+      "Swiss franc (CHF)": 0.3839,
+      "US Dollar (USD)": 0.3391,
+      "Euro (EUR)": 0.2653,
+      "British pound (GBP)": 0.0117
+     },
+     "equity_regions": {
+      "Europe": 0.3555,
+      "North America": 0.2333,
+      "Diversified": 0.1961,
+      "Switzerland": 0.1389,
+      "Emerging Markets": 0.0763
+     },
+     "sustainability": {
+      "Sustainable": 0.4282,
+      "Not rated": 0.5718
+     },
+     "esg_ratings": {
+      "AAA-AA (Leader)": 0.3808,
+      "A-BBB (Average)": 0.3674,
+      "BB and below (Laggard)": 0.0625,
+      "No rating": 0.1893
+     },
+     "equity_sectors": {
+      "Other": 0.5999,
+      "Consumer Staples": 0.1446,
+      "Industrials": 0.0872,
+      "Consumer Discretionary": 0.0511,
+      "Communication Services": 0.0508,
+      "Financials": 0.0344,
+      "Information Technology": 0.0319
+     }
+    }
+   }
+  ],
+  "Proposals": [],
+  "Transactions": [],
+  "SuitabilityViolations": [],
+  "ClientNotes": [],
+  "Tags": [],
+  "ExternalSource": {
+   "bank": "Privatbank Helvetia AG",
+   "file": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf",
+   "depot": "8001.1247.1001",
+   "mandate": "Balanced",
+   "valuation_date": "2025-12-31",
+   "twr_last_year": 0.041,
+   "client_as_reported": "Pensionskasse Fiktiva"
+  },
+  "ExternalTransactions": [
+   {
+    "Currency": "EUR",
+    "Quantity": 425.0,
+    "Kind": "Dividend",
+    "Description": "LVMH Moët Hennessy SE · EUR 18.69 per share",
+    "Isin": "FR0000121014",
+    "BookingDate": "2025-09-09",
+    "Price": null,
+    "AmountCHF": 7480.74,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 243.0,
+    "Kind": "Buy",
+    "Description": "NVIDIA Corp.",
+    "Isin": "US67066G1040",
+    "BookingDate": "2025-09-10",
+    "Price": 156.62,
+    "AmountCHF": -32482.32,
+    "CostsCHF": -45.48
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 455000.0,
+    "Kind": "Coupon",
+    "Description": "1.750% Kanton Zürich 2023-2033",
+    "Isin": "CH0128331442",
+    "BookingDate": "2025-06-24",
+    "Price": null,
+    "AmountCHF": 7962.5,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 265.0,
+    "Kind": "Buy",
+    "Description": "Helvetia Multi-Strategy Fonds",
+    "Isin": "CH0312041188",
+    "BookingDate": "2025-05-07",
+    "Price": 104.45,
+    "AmountCHF": -27678.07,
+    "CostsCHF": -38.75
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Inflow",
+    "Description": "Transfer from current account",
+    "Isin": null,
+    "BookingDate": "2025-07-02",
+    "Price": null,
+    "AmountCHF": 251690.2,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Custody fees",
+    "Description": "Management and custody fees",
+    "Isin": null,
+    "BookingDate": "2025-12-31",
+    "Price": null,
+    "AmountCHF": -15101.41,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "USD",
+    "Quantity": 1040.0,
+    "Kind": "Dividend",
+    "Description": "NVIDIA Corp. · USD 4.91 per share",
+    "Isin": "US67066G1040",
+    "BookingDate": "2025-07-27",
+    "Price": null,
+    "AmountCHF": 4357.01,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 375000.0,
+    "Kind": "Coupon",
+    "Description": "2.100% Pfandbriefzentrale 2023-2029",
+    "Isin": "CH0126774556",
+    "BookingDate": "2025-07-09",
+    "Price": null,
+    "AmountCHF": 7875.0,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "EUR",
+    "Quantity": 147.0,
+    "Kind": "Buy",
+    "Description": "LVMH Moët Hennessy SE",
+    "Isin": "FR0000121014",
+    "BookingDate": "2025-11-16",
+    "Price": 600.41,
+    "AmountCHF": -83141.79,
+    "CostsCHF": -116.4
+   },
+   {
+    "Currency": "EUR",
+    "Quantity": -238.0,
+    "Kind": "Sell",
+    "Description": "Siemens AG",
+    "Isin": "DE0007236101",
+    "BookingDate": "2025-09-12",
+    "Price": 218.68,
+    "AmountCHF": 49028.17,
+    "CostsCHF": -68.64
+   }
+  ]
+ },
+ {
+  "ClientId": -10,
+  "ClientRef": "EXT-10",
+  "FirstName": "Thomas",
+  "LastName": "Gerber",
+  "IsClientACompany": false,
+  "RegulatoryClientTypeName": "External custody client",
+  "ReportingCurrency": "CHF",
+  "AssetsUnderManagementInDefaultCurrency": 1451315.0,
+  "LiquidityInDefaultCurrency": 60153.0,
+  "Portfolios": [
+   {
+    "PortfolioId": 990010,
+    "PortfolioNr": "EXT-10-01",
+    "Name": "External custody (Privatbank Helvetia AG)",
+    "PortfolioCurrency": "CHF",
+    "InvestmentServiceName": "External custody",
+    "StrategyName": "Mandate: Growth",
+    "ReferenceCurrency": "CHF",
+    "AssetsUnderManagementInDefaultCurrency": 1451315.0,
+    "LiquidityInDefaultCurrency": 60153.0,
+    "SecurityPositions": [
+     {
+      "SecurityId": -14,
+      "Isin": "CH0128331442",
+      "Valor": "128331",
+      "SecurityName": "1.750% Kanton Zürich 2023-2033",
+      "Currency": "CHF",
+      "Quantity": 40000.0,
+      "PricePerUnit": 98.98,
+      "CostPrice": 100.27,
+      "TotalAmountInPortfolioCurrency": 39592.0,
+      "PortfolioValuePercentage": 0.02728008736904118,
+      "ReportedWeight": 0.0273,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -2,
+      "Isin": "XS2652887431",
+      "Valor": "125902",
+      "SecurityName": "3.625% TotalEnergies SE 2023-2033",
+      "Currency": "EUR",
+      "Quantity": 40000.0,
+      "PricePerUnit": 102.39,
+      "CostPrice": 103.71,
+      "TotalAmountInPortfolioCurrency": 38581.0,
+      "PortfolioValuePercentage": 0.026583477742598952,
+      "ReportedWeight": 0.0266,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -27,
+      "Isin": "XS2624785512",
+      "Valor": "124480",
+      "SecurityName": "3.375% Siemens Finance BV 2023-2031",
+      "Currency": "EUR",
+      "Quantity": 50000.0,
+      "PricePerUnit": 104.27,
+      "CostPrice": 104.27,
+      "TotalAmountInPortfolioCurrency": 49111.0,
+      "PortfolioValuePercentage": 0.03383896673017229,
+      "ReportedWeight": 0.0338,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -4,
+      "Isin": "CH0125118332",
+      "Valor": "125118",
+      "SecurityName": "2.250% Swisscom AG 2023-2031",
+      "Currency": "CHF",
+      "Quantity": 30000.0,
+      "PricePerUnit": 102.78,
+      "CostPrice": 101.15,
+      "TotalAmountInPortfolioCurrency": 30834.0,
+      "PortfolioValuePercentage": 0.021245560061048083,
+      "ReportedWeight": 0.0212,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -1,
+      "Isin": "US91282CJK18",
+      "Valor": "912828",
+      "SecurityName": "3.875% US Treasury Notes 2023-2028",
+      "Currency": "USD",
+      "Quantity": 25000.0,
+      "PricePerUnit": 98.86,
+      "CostPrice": 98.84,
+      "TotalAmountInPortfolioCurrency": 21094.0,
+      "PortfolioValuePercentage": 0.01453440500511605,
+      "ReportedWeight": 0.0145,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -24,
+      "Isin": "CH0224397171",
+      "Valor": "115483",
+      "SecurityName": "1.250% Schweiz. Eidgenossenschaft 2021-2031",
+      "Currency": "CHF",
+      "Quantity": 30000.0,
+      "PricePerUnit": 98.94,
+      "CostPrice": 95.5,
+      "TotalAmountInPortfolioCurrency": 29682.0,
+      "PortfolioValuePercentage": 0.020451797163262283,
+      "ReportedWeight": 0.0205,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -21,
+      "Isin": "XS2560048136",
+      "Valor": "121993",
+      "SecurityName": "3.000% Nestlé Finance Intl 2022-2030",
+      "Currency": "EUR",
+      "Quantity": 35000.0,
+      "PricePerUnit": 101.74,
+      "CostPrice": 101.78,
+      "TotalAmountInPortfolioCurrency": 33544.0,
+      "PortfolioValuePercentage": 0.023112832155665723,
+      "ReportedWeight": 0.0231,
+      "Section": "Bonds"
+     },
+     {
+      "SecurityId": -7,
+      "Isin": "IE00B4L5YC18",
+      "Valor": "10737355",
+      "SecurityName": "iShares MSCI Emerging Mkts UCITS",
+      "Currency": "USD",
+      "Quantity": 5500.0,
+      "PricePerUnit": 37.0,
+      "CostPrice": 34.23,
+      "TotalAmountInPortfolioCurrency": 173687.0,
+      "PortfolioValuePercentage": 0.1196756045379535,
+      "ReportedWeight": 0.1197,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 11208,
+      "Isin": "NL0010273215",
+      "Valor": "1122083",
+      "SecurityName": "ASML Holding NV",
+      "Currency": "EUR",
+      "Quantity": 145.0,
+      "PricePerUnit": 667.61,
+      "CostPrice": 570.76,
+      "TotalAmountInPortfolioCurrency": 91189.0,
+      "PortfolioValuePercentage": 0.06283198340815054,
+      "ReportedWeight": 0.0628,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 230,
+      "Isin": "CH0011075394",
+      "Valor": "1107539",
+      "SecurityName": "Zurich Insurance Group AG",
+      "Currency": "CHF",
+      "Quantity": 200.0,
+      "PricePerUnit": 548.29,
+      "CostPrice": 489.13,
+      "TotalAmountInPortfolioCurrency": 109658.0,
+      "PortfolioValuePercentage": 0.07555768389357238,
+      "ReportedWeight": 0.0756,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -16,
+      "Isin": "JP3633400001",
+      "Valor": "857771",
+      "SecurityName": "Toyota Motor Corp.",
+      "Currency": "JPY",
+      "Quantity": 4900.0,
+      "PricePerUnit": 2884.73,
+      "CostPrice": 2523.62,
+      "TotalAmountInPortfolioCurrency": 79864.0,
+      "PortfolioValuePercentage": 0.055028715337469815,
+      "ReportedWeight": 0.055,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 11546,
+      "Isin": "FR0000120271",
+      "Valor": "524773",
+      "SecurityName": "TotalEnergies SE",
+      "Currency": "EUR",
+      "Quantity": 2050.0,
+      "PricePerUnit": 59.34,
+      "CostPrice": 50.91,
+      "TotalAmountInPortfolioCurrency": 114591.0,
+      "PortfolioValuePercentage": 0.07895667033001105,
+      "ReportedWeight": 0.079,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 8151,
+      "Isin": "GB0009895292",
+      "Valor": "989001",
+      "SecurityName": "AstraZeneca PLC",
+      "Currency": "GBP",
+      "Quantity": 275.0,
+      "PricePerUnit": 118.85,
+      "CostPrice": 105.97,
+      "TotalAmountInPortfolioCurrency": 35887.0,
+      "PortfolioValuePercentage": 0.024727230132672782,
+      "ReportedWeight": 0.0247,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -23,
+      "Isin": "JP3435000009",
+      "Valor": "858545",
+      "SecurityName": "Sony Group Corp.",
+      "Currency": "JPY",
+      "Quantity": 4800.0,
+      "PricePerUnit": 3452.49,
+      "CostPrice": 3304.49,
+      "TotalAmountInPortfolioCurrency": 93632.0,
+      "PortfolioValuePercentage": 0.06451528441447928,
+      "ReportedWeight": 0.0645,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 10635,
+      "Isin": "DE0007164600",
+      "Valor": "345013",
+      "SecurityName": "SAP SE",
+      "Currency": "EUR",
+      "Quantity": 310.0,
+      "PricePerUnit": 242.05,
+      "CostPrice": 212.18,
+      "TotalAmountInPortfolioCurrency": 70683.0,
+      "PortfolioValuePercentage": 0.048702728215445995,
+      "ReportedWeight": 0.0487,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 2509,
+      "Isin": "CH0244767585",
+      "Valor": "24476758",
+      "SecurityName": "UBS Group AG",
+      "Currency": "CHF",
+      "Quantity": 1600.0,
+      "PricePerUnit": 29.13,
+      "CostPrice": 24.76,
+      "TotalAmountInPortfolioCurrency": 46608.0,
+      "PortfolioValuePercentage": 0.03211432390625054,
+      "ReportedWeight": 0.0321,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 644,
+      "Isin": "CH0038863350",
+      "Valor": "3886335",
+      "SecurityName": "Nestlé AG",
+      "Currency": "CHF",
+      "Quantity": 1500.0,
+      "PricePerUnit": 76.75,
+      "CostPrice": 74.3,
+      "TotalAmountInPortfolioCurrency": 115125.0,
+      "PortfolioValuePercentage": 0.07932461250658886,
+      "ReportedWeight": 0.0793,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": 267,
+      "Isin": "CH0012221716",
+      "Valor": "1222171",
+      "SecurityName": "ABB Ltd",
+      "Currency": "CHF",
+      "Quantity": 1700.0,
+      "PricePerUnit": 48.78,
+      "CostPrice": 50.66,
+      "TotalAmountInPortfolioCurrency": 82926.0,
+      "PortfolioValuePercentage": 0.05713852609529978,
+      "ReportedWeight": 0.0571,
+      "Section": "Shares"
+     },
+     {
+      "SecurityId": -11,
+      "Isin": "CH0014420878",
+      "Valor": "1442085",
+      "SecurityName": "UBS Immofonds Sima",
+      "Currency": "CHF",
+      "Quantity": 210.0,
+      "PricePerUnit": 127.0,
+      "CostPrice": 131.22,
+      "TotalAmountInPortfolioCurrency": 26670.0,
+      "PortfolioValuePercentage": 0.018376437920093157,
+      "ReportedWeight": 0.0184,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -17,
+      "Isin": "IE00B1ZBRN64",
+      "Valor": "10137992",
+      "SecurityName": "Partners Group Listed PE",
+      "Currency": "USD",
+      "Quantity": 705.0,
+      "PricePerUnit": 33.12,
+      "CostPrice": 32.96,
+      "TotalAmountInPortfolioCurrency": 19929.0,
+      "PortfolioValuePercentage": 0.01373168471351843,
+      "ReportedWeight": 0.0137,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -13,
+      "Isin": "CH0044037317",
+      "Valor": "4403731",
+      "SecurityName": "ZKB Gold ETF (CHF)",
+      "Currency": "CHF",
+      "Quantity": 410.0,
+      "PricePerUnit": 80.78,
+      "CostPrice": 71.7,
+      "TotalAmountInPortfolioCurrency": 33120.0,
+      "PortfolioValuePercentage": 0.022820683311341784,
+      "ReportedWeight": 0.0228,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -10,
+      "Isin": "CH0039773012",
+      "Valor": "3977301",
+      "SecurityName": "UBS CMCI Commodity Index Fonds",
+      "Currency": "CHF",
+      "Quantity": 250.0,
+      "PricePerUnit": 90.42,
+      "CostPrice": 82.2,
+      "TotalAmountInPortfolioCurrency": 22605.0,
+      "PortfolioValuePercentage": 0.015575529778166697,
+      "ReportedWeight": 0.0156,
+      "Section": "Alternatives"
+     },
+     {
+      "SecurityId": -18,
+      "Isin": "CH0312041188",
+      "Valor": "31204118",
+      "SecurityName": "Helvetia Multi-Strategy Fonds",
+      "Currency": "CHF",
+      "Quantity": 280.0,
+      "PricePerUnit": 116.25,
+      "CostPrice": 120.89,
+      "TotalAmountInPortfolioCurrency": 32550.0,
+      "PortfolioValuePercentage": 0.022427936044208185,
+      "ReportedWeight": 0.0224,
+      "Section": "Alternatives"
+     }
+    ],
+    "AccountPositions": [
+     {
+      "AccountName": "Private account CHF",
+      "Currency": "CHF",
+      "TotalAmountInPortfolioCurrency": 42271.0,
+      "PortfolioValuePercentage": 0.029125999524569096,
+      "ReportedWeight": 0.0291
+     },
+     {
+      "AccountName": "Private account EUR",
+      "Currency": "EUR",
+      "TotalAmountInPortfolioCurrency": 17882.0,
+      "PortfolioValuePercentage": 0.012321239703303555,
+      "ReportedWeight": 0.0123
+     }
+    ],
+    "PerformanceHistory": [
+     {
+      "Date": "2022-12-31",
+      "Value": 997072.0
+     },
+     {
+      "Date": "2023-12-31",
+      "Value": 1168661.0
+     },
+     {
+      "Date": "2024-12-31",
+      "Value": 1336876.0
+     },
+     {
+      "Date": "2025-12-31",
+      "Value": 1451315.0
+     }
+    ],
+    "ReportedPerformance": [
+     {
+      "year": 2022,
+      "start": 0.0,
+      "flow": 1067301.0,
+      "end": 997072.0,
+      "result": -70228.0,
+      "twr": -0.0658
+     },
+     {
+      "year": 2023,
+      "start": 997072.0,
+      "flow": 56440.0,
+      "end": 1168661.0,
+      "result": 115149.0,
+      "twr": 0.1093
+     },
+     {
+      "year": 2024,
+      "start": 1168661.0,
+      "flow": 92662.0,
+      "end": 1336876.0,
+      "result": 75553.0,
+      "twr": 0.0599
+     },
+     {
+      "year": 2025,
+      "start": 1336876.0,
+      "flow": 47174.0,
+      "end": 1451315.0,
+      "result": 67265.0,
+      "twr": 0.0486
+     }
+    ],
+    "ReportedBreakdowns": {
+     "asset_classes": {
+      "Liquidity / money market": 0.0414,
+      "Bonds": 0.167,
+      "Equities": 0.6986,
+      "Alternative investments": 0.0929
+     },
+     "currencies": {
+      "Swiss franc (CHF)": 0.4214,
+      "Euro (EUR)": 0.2863,
+      "US Dollar (USD)": 0.1479,
+      "Japanischer Yen (JPY)": 0.1195,
+      "British pound (GBP)": 0.0247
+     },
+     "equity_regions": {
+      "Switzerland": 0.3495,
+      "Europe": 0.3081,
+      "Emerging Markets": 0.1713,
+      "Asia/Pacific": 0.1711
+     },
+     "sustainability": {
+      "Sustainable": 0.5917,
+      "Not rated": 0.4083
+     },
+     "esg_ratings": {
+      "AAA-AA (Leader)": 0.4214,
+      "A-BBB (Average)": 0.456,
+      "BB and below (Laggard)": 0.082,
+      "No rating": 0.0406
+     },
+     "equity_sectors": {
+      "Other": 0.1713,
+      "Consumer Discretionary": 0.1711,
+      "Information Technology": 0.1597,
+      "Financials": 0.1541,
+      "Consumer Staples": 0.1136,
+      "Energy": 0.113,
+      "Industrials": 0.0818,
+      "Health Care": 0.0354
+     }
+    }
+   }
+  ],
+  "Proposals": [],
+  "Transactions": [],
+  "SuitabilityViolations": [],
+  "ClientNotes": [],
+  "Tags": [],
+  "ExternalSource": {
+   "bank": "Privatbank Helvetia AG",
+   "file": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf",
+   "depot": "5080.8091.1001",
+   "mandate": "Growth",
+   "valuation_date": "2025-12-31",
+   "twr_last_year": 0.0486,
+   "client_as_reported": "Herr Thomas Gerber"
+  },
+  "ExternalTransactions": [
+   {
+    "Currency": "CHF",
+    "Quantity": 80.0,
+    "Kind": "Buy",
+    "Description": "Helvetia Multi-Strategy Fonds",
+    "Isin": "CH0312041188",
+    "BookingDate": "2025-04-10",
+    "Price": 113.37,
+    "AmountCHF": -9069.24,
+    "CostsCHF": -15.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 30000.0,
+    "Kind": "Coupon",
+    "Description": "1.250% Schweiz. Eidgenossenschaft 2021-2031",
+    "Isin": "CH0224397171",
+    "BookingDate": "2025-05-18",
+    "Price": null,
+    "AmountCHF": 375.0,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Inflow",
+    "Description": "Transfer from current account",
+    "Isin": null,
+    "BookingDate": "2025-07-02",
+    "Price": null,
+    "AmountCHF": 47173.51,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "EUR",
+    "Quantity": 145.0,
+    "Kind": "Dividend",
+    "Description": "ASML Holding NV · EUR 10.16 per share",
+    "Isin": "NL0010273215",
+    "BookingDate": "2025-05-19",
+    "Price": null,
+    "AmountCHF": 1387.85,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "EUR",
+    "Quantity": 54.0,
+    "Kind": "Buy",
+    "Description": "ASML Holding NV",
+    "Isin": "NL0010273215",
+    "BookingDate": "2025-05-07",
+    "Price": 645.04,
+    "AmountCHF": -32811.7,
+    "CostsCHF": -45.94
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 40000.0,
+    "Kind": "Coupon",
+    "Description": "1.750% Kanton Zürich 2023-2033",
+    "Isin": "CH0128331442",
+    "BookingDate": "2025-04-22",
+    "Price": null,
+    "AmountCHF": 700.0,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 1700.0,
+    "Kind": "Dividend",
+    "Description": "ABB Ltd · CHF 0.52 per share",
+    "Isin": "CH0012221716",
+    "BookingDate": "2025-08-13",
+    "Price": null,
+    "AmountCHF": 890.43,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": null,
+    "Kind": "Custody fees",
+    "Description": "Management and custody fees",
+    "Isin": null,
+    "BookingDate": "2025-12-31",
+    "Price": null,
+    "AmountCHF": -2830.41,
+    "CostsCHF": 0.0
+   },
+   {
+    "Currency": "GBP",
+    "Quantity": -61.0,
+    "Kind": "Sell",
+    "Description": "AstraZeneca PLC",
+    "Isin": "GB0009895292",
+    "BookingDate": "2025-10-20",
+    "Price": 120.93,
+    "AmountCHF": 8099.63,
+    "CostsCHF": -15.0
+   },
+   {
+    "Currency": "CHF",
+    "Quantity": 489.0,
+    "Kind": "Buy",
+    "Description": "ABB Ltd",
+    "Isin": "CH0012221716",
+    "BookingDate": "2025-04-04",
+    "Price": 45.56,
+    "AmountCHF": -22279.2,
+    "CostsCHF": -31.19
+   }
+  ]
+ }
+]

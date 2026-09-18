@@ -1,0 +1,1188 @@
+{
+ "EXT-01": {
+  "file": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf",
+  "client": "page 1",
+  "performance": "page 2",
+  "breakdowns": "page 5",
+  "transactions": "page 8",
+  "positions": [
+   {
+    "name": "Private account CHF",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 6"
+   },
+   {
+    "name": "Private account EUR",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 6"
+   },
+   {
+    "isin": "US91282CJK18",
+    "name": "3.875% US Treasury Notes 2023-2028",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 6"
+   },
+   {
+    "isin": "XS2652887431",
+    "name": "3.625% TotalEnergies SE 2023-2033",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 6"
+   },
+   {
+    "isin": "US037833EX12",
+    "name": "4.250% Apple Inc. 2023-2029",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 6"
+   },
+   {
+    "isin": "CH0125118332",
+    "name": "2.250% Swisscom AG 2023-2031",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 6"
+   },
+   {
+    "isin": "US0231351067",
+    "name": "Amazon.com Inc.",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   },
+   {
+    "isin": "GB00B10RZP78",
+    "name": "Unilever PLC",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   },
+   {
+    "isin": "DE0002635307",
+    "name": "iShares STOXX Europe 600 UCITS",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   },
+   {
+    "isin": "CH0013841017",
+    "name": "Lonza Group AG",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   },
+   {
+    "isin": "US67066G1040",
+    "name": "NVIDIA Corp.",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   },
+   {
+    "isin": "CH0012032048",
+    "name": "Roche Holding AG",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   },
+   {
+    "isin": "IE00B4L5YC18",
+    "name": "iShares MSCI Emerging Mkts UCITS",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   },
+   {
+    "isin": "FR0000120271",
+    "name": "TotalEnergies SE",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   },
+   {
+    "isin": "IE00B3XXRP09",
+    "name": "Vanguard S&P 500 UCITS ETF",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   },
+   {
+    "isin": "CH0038863350",
+    "name": "Nestlé AG",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   },
+   {
+    "isin": "US78463V1070",
+    "name": "SPDR Gold Shares ETF",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   },
+   {
+    "isin": "CH0039773012",
+    "name": "UBS CMCI Commodity Index Fonds",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   },
+   {
+    "isin": "CH0014420878",
+    "name": "UBS Immofonds Sima",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   },
+   {
+    "isin": "US4642883837",
+    "name": "iShares Global Infrastructure ETF",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   },
+   {
+    "isin": "CH0044037317",
+    "name": "ZKB Gold ETF (CHF)",
+    "source": "Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf, page 7"
+   }
+  ],
+  "unparsed": []
+ },
+ "EXT-02": {
+  "file": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf",
+  "client": "page 1",
+  "performance": "page 2",
+  "breakdowns": "page 5",
+  "transactions": "page 8",
+  "positions": [
+   {
+    "name": "Private account GBP",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 6"
+   },
+   {
+    "name": "Private account CHF",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 6"
+   },
+   {
+    "name": "Private account USD",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 6"
+   },
+   {
+    "isin": "US037833EX12",
+    "name": "4.250% Apple Inc. 2023-2029",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 6"
+   },
+   {
+    "isin": "CH0128331442",
+    "name": "1.750% Kanton Zürich 2023-2033",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 6"
+   },
+   {
+    "isin": "CH0119554873",
+    "name": "1.400% Kanton Waadt 2022-2030",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 6"
+   },
+   {
+    "isin": "US91282CJK18",
+    "name": "3.875% US Treasury Notes 2023-2028",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 6"
+   },
+   {
+    "isin": "IE00B3XXRP09",
+    "name": "Vanguard S&P 500 UCITS ETF",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 7"
+   },
+   {
+    "isin": "CH0013841017",
+    "name": "Lonza Group AG",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 7"
+   },
+   {
+    "isin": "JP3633400001",
+    "name": "Toyota Motor Corp.",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 7"
+   },
+   {
+    "isin": "GB00B10RZP78",
+    "name": "Unilever PLC",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 7"
+   },
+   {
+    "isin": "DE0007236101",
+    "name": "Siemens AG",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 7"
+   },
+   {
+    "isin": "CH0418792922",
+    "name": "Sika AG",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 7"
+   },
+   {
+    "isin": "US67066G1040",
+    "name": "NVIDIA Corp.",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 7"
+   },
+   {
+    "isin": "DE0002635307",
+    "name": "iShares STOXX Europe 600 UCITS",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 7"
+   },
+   {
+    "isin": "US0378331005",
+    "name": "Apple Inc.",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 7"
+   },
+   {
+    "isin": "IE00B1ZBRN64",
+    "name": "Partners Group Listed PE",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 7"
+   },
+   {
+    "isin": "CH0039773012",
+    "name": "UBS CMCI Commodity Index Fonds",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 7"
+   },
+   {
+    "isin": "US4642883837",
+    "name": "iShares Global Infrastructure ETF",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 7"
+   },
+   {
+    "isin": "CH0014420878",
+    "name": "UBS Immofonds Sima",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 7"
+   },
+   {
+    "isin": "CH0312041188",
+    "name": "Helvetia Multi-Strategy Fonds",
+    "source": "Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf, page 7"
+   }
+  ],
+  "unparsed": []
+ },
+ "EXT-03": {
+  "file": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf",
+  "client": "page 1",
+  "performance": "page 2",
+  "breakdowns": "page 5",
+  "transactions": "page 8",
+  "positions": [
+   {
+    "name": "Private account CHF",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 6"
+   },
+   {
+    "name": "Private account GBP",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 6"
+   },
+   {
+    "name": "Private account USD",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 6"
+   },
+   {
+    "isin": "XS2589900145",
+    "name": "4.125% AstraZeneca PLC 2023-2029",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 6"
+   },
+   {
+    "isin": "US46625HKA76",
+    "name": "4.625% JPMorgan Chase & Co. 2023-2030",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 6"
+   },
+   {
+    "isin": "XS2560048136",
+    "name": "3.000% Nestlé Finance Intl 2022-2030",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 6"
+   },
+   {
+    "isin": "CH0121445007",
+    "name": "1.900% Roche Kapitalmarkt AG 2022-2029",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 6"
+   },
+   {
+    "isin": "GB00B10RZP78",
+    "name": "Unilever PLC",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 7"
+   },
+   {
+    "isin": "JP3435000009",
+    "name": "Sony Group Corp.",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 7"
+   },
+   {
+    "isin": "CH0038863350",
+    "name": "Nestlé AG",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 7"
+   },
+   {
+    "isin": "CH0008742519",
+    "name": "Swisscom AG",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 7"
+   },
+   {
+    "isin": "GB0009895292",
+    "name": "AstraZeneca PLC",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 7"
+   },
+   {
+    "isin": "IE00B4L5Y983",
+    "name": "iShares Core MSCI World UCITS ETF",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 7"
+   },
+   {
+    "isin": "JP3633400001",
+    "name": "Toyota Motor Corp.",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 7"
+   },
+   {
+    "isin": "DE0007236101",
+    "name": "Siemens AG",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 7"
+   },
+   {
+    "isin": "CH0244767585",
+    "name": "UBS Group AG",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 7"
+   },
+   {
+    "isin": "IE00B1ZBRN64",
+    "name": "Partners Group Listed PE",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 7"
+   },
+   {
+    "isin": "CH0312041188",
+    "name": "Helvetia Multi-Strategy Fonds",
+    "source": "Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf, page 7"
+   }
+  ],
+  "unparsed": []
+ },
+ "EXT-04": {
+  "file": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf",
+  "client": "page 1",
+  "performance": "page 2",
+  "breakdowns": "page 5",
+  "transactions": "page 8",
+  "positions": [
+   {
+    "name": "Private account CHF",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 6"
+   },
+   {
+    "name": "Private account USD",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 6"
+   },
+   {
+    "name": "Private account GBP",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 6"
+   },
+   {
+    "isin": "US037833EX12",
+    "name": "4.250% Apple Inc. 2023-2029",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 6"
+   },
+   {
+    "isin": "CH0224397171",
+    "name": "1.250% Schweiz. Eidgenossenschaft 2021-2031",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 6"
+   },
+   {
+    "isin": "CH0119554873",
+    "name": "1.400% Kanton Waadt 2022-2030",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 6"
+   },
+   {
+    "isin": "CH0125118332",
+    "name": "2.250% Swisscom AG 2023-2031",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 6"
+   },
+   {
+    "isin": "XS2589900145",
+    "name": "4.125% AstraZeneca PLC 2023-2029",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 6"
+   },
+   {
+    "isin": "CH0128331442",
+    "name": "1.750% Kanton Zürich 2023-2033",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 6"
+   },
+   {
+    "isin": "CH0013841017",
+    "name": "Lonza Group AG",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 7"
+   },
+   {
+    "isin": "US67066G1040",
+    "name": "NVIDIA Corp.",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 7"
+   },
+   {
+    "isin": "CH0008742519",
+    "name": "Swisscom AG",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 7"
+   },
+   {
+    "isin": "IE00B4L5YC18",
+    "name": "iShares MSCI Emerging Mkts UCITS",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 7"
+   },
+   {
+    "isin": "US46625H1005",
+    "name": "JPMorgan Chase & Co.",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 7"
+   },
+   {
+    "isin": "US0378331005",
+    "name": "Apple Inc.",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 7"
+   },
+   {
+    "isin": "CH0418792922",
+    "name": "Sika AG",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 7"
+   },
+   {
+    "isin": "GB00B10RZP78",
+    "name": "Unilever PLC",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 7"
+   },
+   {
+    "isin": "CH0012005267",
+    "name": "Novartis AG",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 7"
+   },
+   {
+    "isin": "CH0244767585",
+    "name": "UBS Group AG",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 7"
+   },
+   {
+    "isin": "US02079K3059",
+    "name": "Alphabet Inc. Cl A",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 7"
+   },
+   {
+    "isin": "US4642883837",
+    "name": "iShares Global Infrastructure ETF",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 7"
+   },
+   {
+    "isin": "CH0312041188",
+    "name": "Helvetia Multi-Strategy Fonds",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 7"
+   },
+   {
+    "isin": "CH0276180044",
+    "name": "Swiss Prime Site Immobilienfonds",
+    "source": "Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf, page 7"
+   }
+  ],
+  "unparsed": []
+ },
+ "EXT-05": {
+  "file": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf",
+  "client": "page 1",
+  "performance": "page 2",
+  "breakdowns": "page 5",
+  "transactions": "page 8",
+  "positions": [
+   {
+    "name": "Private account EUR",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 6"
+   },
+   {
+    "name": "Private account CHF",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 6"
+   },
+   {
+    "isin": "CH0559601544",
+    "name": "0.500% Schweiz. Eidgenossenschaft 2020-2032",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 6"
+   },
+   {
+    "isin": "CH0224397171",
+    "name": "1.250% Schweiz. Eidgenossenschaft 2021-2031",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 6"
+   },
+   {
+    "isin": "CH0119554873",
+    "name": "1.400% Kanton Waadt 2022-2030",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 6"
+   },
+   {
+    "isin": "XS2624785512",
+    "name": "3.375% Siemens Finance BV 2023-2031",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 6"
+   },
+   {
+    "isin": "CH0126774556",
+    "name": "2.100% Pfandbriefzentrale 2023-2029",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 6"
+   },
+   {
+    "isin": "IE00B3XXRP09",
+    "name": "Vanguard S&P 500 UCITS ETF",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   },
+   {
+    "isin": "GB00B10RZP78",
+    "name": "Unilever PLC",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   },
+   {
+    "isin": "DE0002635307",
+    "name": "iShares STOXX Europe 600 UCITS",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   },
+   {
+    "isin": "JP3633400001",
+    "name": "Toyota Motor Corp.",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   },
+   {
+    "isin": "FR0000121014",
+    "name": "LVMH Moët Hennessy SE",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   },
+   {
+    "isin": "US67066G1040",
+    "name": "NVIDIA Corp.",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   },
+   {
+    "isin": "US0231351067",
+    "name": "Amazon.com Inc.",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   },
+   {
+    "isin": "US02079K3059",
+    "name": "Alphabet Inc. Cl A",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   },
+   {
+    "isin": "CH0008742519",
+    "name": "Swisscom AG",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   },
+   {
+    "isin": "CH0038863350",
+    "name": "Nestlé AG",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   },
+   {
+    "isin": "CH0012221716",
+    "name": "ABB Ltd",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   },
+   {
+    "isin": "DE0007164600",
+    "name": "SAP SE",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   },
+   {
+    "isin": "US5949181045",
+    "name": "Microsoft Corp.",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   },
+   {
+    "isin": "CH0312041188",
+    "name": "Helvetia Multi-Strategy Fonds",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   },
+   {
+    "isin": "US78463V1070",
+    "name": "SPDR Gold Shares ETF",
+    "source": "Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf, page 7"
+   }
+  ],
+  "unparsed": []
+ },
+ "EXT-06": {
+  "file": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf",
+  "client": "page 1",
+  "performance": "page 2",
+  "breakdowns": "page 5",
+  "transactions": "page 8",
+  "positions": [
+   {
+    "name": "Private account CHF",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 6"
+   },
+   {
+    "name": "Private account USD",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 6"
+   },
+   {
+    "isin": "CH0559601544",
+    "name": "0.500% Schweiz. Eidgenossenschaft 2020-2032",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 6"
+   },
+   {
+    "isin": "CH0121445007",
+    "name": "1.900% Roche Kapitalmarkt AG 2022-2029",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 6"
+   },
+   {
+    "isin": "US037833EX12",
+    "name": "4.250% Apple Inc. 2023-2029",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 6"
+   },
+   {
+    "isin": "XS2589900145",
+    "name": "4.125% AstraZeneca PLC 2023-2029",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 6"
+   },
+   {
+    "isin": "US91282CJK18",
+    "name": "3.875% US Treasury Notes 2023-2028",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 6"
+   },
+   {
+    "isin": "CH0128331442",
+    "name": "1.750% Kanton Zürich 2023-2033",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 6"
+   },
+   {
+    "isin": "CH0224397171",
+    "name": "1.250% Schweiz. Eidgenossenschaft 2021-2031",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 6"
+   },
+   {
+    "isin": "CH0418792922",
+    "name": "Sika AG",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   },
+   {
+    "isin": "US5949181045",
+    "name": "Microsoft Corp.",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   },
+   {
+    "isin": "CH0011075394",
+    "name": "Zurich Insurance Group AG",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   },
+   {
+    "isin": "DE0007236101",
+    "name": "Siemens AG",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   },
+   {
+    "isin": "US4781601046",
+    "name": "Johnson & Johnson",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   },
+   {
+    "isin": "IE00B4L5Y983",
+    "name": "iShares Core MSCI World UCITS ETF",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   },
+   {
+    "isin": "DE0007164600",
+    "name": "SAP SE",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   },
+   {
+    "isin": "GB00B10RZP78",
+    "name": "Unilever PLC",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   },
+   {
+    "isin": "US46625H1005",
+    "name": "JPMorgan Chase & Co.",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   },
+   {
+    "isin": "CH0038863350",
+    "name": "Nestlé AG",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   },
+   {
+    "isin": "GB0009895292",
+    "name": "AstraZeneca PLC",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   },
+   {
+    "isin": "CH0039773012",
+    "name": "UBS CMCI Commodity Index Fonds",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   },
+   {
+    "isin": "CH0312041188",
+    "name": "Helvetia Multi-Strategy Fonds",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   },
+   {
+    "isin": "US4642883837",
+    "name": "iShares Global Infrastructure ETF",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   },
+   {
+    "isin": "CH0276180044",
+    "name": "Swiss Prime Site Immobilienfonds",
+    "source": "Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf, page 7"
+   }
+  ],
+  "unparsed": []
+ },
+ "EXT-07": {
+  "file": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf",
+  "client": "page 1",
+  "performance": "page 2",
+  "breakdowns": "page 5",
+  "transactions": "page 8",
+  "positions": [
+   {
+    "name": "Private account CHF",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 6"
+   },
+   {
+    "name": "Private account EUR",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 6"
+   },
+   {
+    "isin": "XS2589900145",
+    "name": "4.125% AstraZeneca PLC 2023-2029",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 6"
+   },
+   {
+    "isin": "US46625HKA76",
+    "name": "4.625% JPMorgan Chase & Co. 2023-2030",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 6"
+   },
+   {
+    "isin": "XS2560048136",
+    "name": "3.000% Nestlé Finance Intl 2022-2030",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 6"
+   },
+   {
+    "isin": "CH0119554873",
+    "name": "1.400% Kanton Waadt 2022-2030",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 6"
+   },
+   {
+    "isin": "IE00B4L5Y983",
+    "name": "iShares Core MSCI World UCITS ETF",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "US0231351067",
+    "name": "Amazon.com Inc.",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "DE0007164600",
+    "name": "SAP SE",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "US46625H1005",
+    "name": "JPMorgan Chase & Co.",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "CH0012221716",
+    "name": "ABB Ltd",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "CH0038863350",
+    "name": "Nestlé AG",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "US4781601046",
+    "name": "Johnson & Johnson",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "DE0007236101",
+    "name": "Siemens AG",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "FR0000120271",
+    "name": "TotalEnergies SE",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "US5949181045",
+    "name": "Microsoft Corp.",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "US0378331005",
+    "name": "Apple Inc.",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "CH0044037317",
+    "name": "ZKB Gold ETF (CHF)",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "CH0014420878",
+    "name": "UBS Immofonds Sima",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "CH0276180044",
+    "name": "Swiss Prime Site Immobilienfonds",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "US78463V1070",
+    "name": "SPDR Gold Shares ETF",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   },
+   {
+    "isin": "IE00B1ZBRN64",
+    "name": "Partners Group Listed PE",
+    "source": "Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf, page 7"
+   }
+  ],
+  "unparsed": []
+ },
+ "EXT-08": {
+  "file": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf",
+  "client": "page 1",
+  "performance": "page 2",
+  "breakdowns": "page 5",
+  "transactions": "page 8",
+  "positions": [
+   {
+    "name": "Private account CHF",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 6"
+   },
+   {
+    "name": "Private account USD",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 6"
+   },
+   {
+    "isin": "US037833EX12",
+    "name": "4.250% Apple Inc. 2023-2029",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 6"
+   },
+   {
+    "isin": "CH0119554873",
+    "name": "1.400% Kanton Waadt 2022-2030",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 6"
+   },
+   {
+    "isin": "US46625HKA76",
+    "name": "4.625% JPMorgan Chase & Co. 2023-2030",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 6"
+   },
+   {
+    "isin": "XS2560048136",
+    "name": "3.000% Nestlé Finance Intl 2022-2030",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 6"
+   },
+   {
+    "isin": "CH0559601544",
+    "name": "0.500% Schweiz. Eidgenossenschaft 2020-2032",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 6"
+   },
+   {
+    "isin": "GB0009895292",
+    "name": "AstraZeneca PLC",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 7"
+   },
+   {
+    "isin": "US0231351067",
+    "name": "Amazon.com Inc.",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 7"
+   },
+   {
+    "isin": "DE0007164600",
+    "name": "SAP SE",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 7"
+   },
+   {
+    "isin": "DE0002635307",
+    "name": "iShares STOXX Europe 600 UCITS",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 7"
+   },
+   {
+    "isin": "US46625H1005",
+    "name": "JPMorgan Chase & Co.",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 7"
+   },
+   {
+    "isin": "FR0000120271",
+    "name": "TotalEnergies SE",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 7"
+   },
+   {
+    "isin": "CH0011075394",
+    "name": "Zurich Insurance Group AG",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 7"
+   },
+   {
+    "isin": "CH0012221716",
+    "name": "ABB Ltd",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 7"
+   },
+   {
+    "isin": "GB00B10RZP78",
+    "name": "Unilever PLC",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 7"
+   },
+   {
+    "isin": "US78463V1070",
+    "name": "SPDR Gold Shares ETF",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 7"
+   },
+   {
+    "isin": "CH0276180044",
+    "name": "Swiss Prime Site Immobilienfonds",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 7"
+   },
+   {
+    "isin": "IE00B1ZBRN64",
+    "name": "Partners Group Listed PE",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 7"
+   },
+   {
+    "isin": "CH0312041188",
+    "name": "Helvetia Multi-Strategy Fonds",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 7"
+   },
+   {
+    "isin": "CH0044037317",
+    "name": "ZKB Gold ETF (CHF)",
+    "source": "Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf, page 7"
+   }
+  ],
+  "unparsed": []
+ },
+ "EXT-09": {
+  "file": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf",
+  "client": "page 1",
+  "performance": "page 2",
+  "breakdowns": "page 5",
+  "transactions": "page 8",
+  "positions": [
+   {
+    "name": "Private account CHF",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 6"
+   },
+   {
+    "name": "Private account USD",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 6"
+   },
+   {
+    "name": "Private account GBP",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 6"
+   },
+   {
+    "isin": "XS2560048136",
+    "name": "3.000% Nestlé Finance Intl 2022-2030",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 6"
+   },
+   {
+    "isin": "CH0126774556",
+    "name": "2.100% Pfandbriefzentrale 2023-2029",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 6"
+   },
+   {
+    "isin": "CH0224397171",
+    "name": "1.250% Schweiz. Eidgenossenschaft 2021-2031",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 6"
+   },
+   {
+    "isin": "CH0119554873",
+    "name": "1.400% Kanton Waadt 2022-2030",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 6"
+   },
+   {
+    "isin": "CH0128331442",
+    "name": "1.750% Kanton Zürich 2023-2033",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 6"
+   },
+   {
+    "isin": "CH0559601544",
+    "name": "0.500% Schweiz. Eidgenossenschaft 2020-2032",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 6"
+   },
+   {
+    "isin": "CH0038863350",
+    "name": "Nestlé AG",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "CH0008742519",
+    "name": "Swisscom AG",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "IE00B3XXRP09",
+    "name": "Vanguard S&P 500 UCITS ETF",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "IE00B4L5YC18",
+    "name": "iShares MSCI Emerging Mkts UCITS",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "DE0007236101",
+    "name": "Siemens AG",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "IE00B4L5Y983",
+    "name": "iShares Core MSCI World UCITS ETF",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "US46625H1005",
+    "name": "JPMorgan Chase & Co.",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "US67066G1040",
+    "name": "NVIDIA Corp.",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "DE0002635307",
+    "name": "iShares STOXX Europe 600 UCITS",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "US7427181091",
+    "name": "Procter & Gamble Co.",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "FR0000121014",
+    "name": "LVMH Moët Hennessy SE",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "CH0276180044",
+    "name": "Swiss Prime Site Immobilienfonds",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "US4642883837",
+    "name": "iShares Global Infrastructure ETF",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "US78463V1070",
+    "name": "SPDR Gold Shares ETF",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "IE00B1ZBRN64",
+    "name": "Partners Group Listed PE",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   },
+   {
+    "isin": "CH0312041188",
+    "name": "Helvetia Multi-Strategy Fonds",
+    "source": "Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf, page 7"
+   }
+  ],
+  "unparsed": []
+ },
+ "EXT-10": {
+  "file": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf",
+  "client": "page 1",
+  "performance": "page 2",
+  "breakdowns": "page 5",
+  "transactions": "page 8",
+  "positions": [
+   {
+    "name": "Private account CHF",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 6"
+   },
+   {
+    "name": "Private account EUR",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 6"
+   },
+   {
+    "isin": "CH0128331442",
+    "name": "1.750% Kanton Zürich 2023-2033",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 6"
+   },
+   {
+    "isin": "XS2652887431",
+    "name": "3.625% TotalEnergies SE 2023-2033",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 6"
+   },
+   {
+    "isin": "XS2624785512",
+    "name": "3.375% Siemens Finance BV 2023-2031",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 6"
+   },
+   {
+    "isin": "CH0125118332",
+    "name": "2.250% Swisscom AG 2023-2031",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 6"
+   },
+   {
+    "isin": "US91282CJK18",
+    "name": "3.875% US Treasury Notes 2023-2028",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 6"
+   },
+   {
+    "isin": "CH0224397171",
+    "name": "1.250% Schweiz. Eidgenossenschaft 2021-2031",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 6"
+   },
+   {
+    "isin": "XS2560048136",
+    "name": "3.000% Nestlé Finance Intl 2022-2030",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 6"
+   },
+   {
+    "isin": "IE00B4L5YC18",
+    "name": "iShares MSCI Emerging Mkts UCITS",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "NL0010273215",
+    "name": "ASML Holding NV",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "CH0011075394",
+    "name": "Zurich Insurance Group AG",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "JP3633400001",
+    "name": "Toyota Motor Corp.",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "FR0000120271",
+    "name": "TotalEnergies SE",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "GB0009895292",
+    "name": "AstraZeneca PLC",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "JP3435000009",
+    "name": "Sony Group Corp.",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "DE0007164600",
+    "name": "SAP SE",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "CH0244767585",
+    "name": "UBS Group AG",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "CH0038863350",
+    "name": "Nestlé AG",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "CH0012221716",
+    "name": "ABB Ltd",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "CH0014420878",
+    "name": "UBS Immofonds Sima",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "IE00B1ZBRN64",
+    "name": "Partners Group Listed PE",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "CH0044037317",
+    "name": "ZKB Gold ETF (CHF)",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "CH0039773012",
+    "name": "UBS CMCI Commodity Index Fonds",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   },
+   {
+    "isin": "CH0312041188",
+    "name": "Helvetia Multi-Strategy Fonds",
+    "source": "Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf, page 7"
+   }
+  ],
+  "unparsed": []
+ }
+}
