@@ -5,12 +5,14 @@ where it came from, and a weight for ranking within its slot. The LLM only
 rephrases these sentences; it never sees raw data.
 """
 
+import json
 import re
 from collections import defaultdict
 from dataclasses import dataclass
 from datetime import date
+from functools import lru_cache
 
-from .data import items, portfolios
+from .data import DATA_DIR, items, portfolios
 
 SLOTS = ('who', 'development', 'health', 'watch', 'actions')
 
@@ -101,6 +103,75 @@ def portfolio_label(p):
 
 def asset_class_label(name):
     return name.replace('andC', 'and C')
+
+
+def names(ns, limit=2):
+    """'A and B', or 'A, B and 3 more'."""
+    ns = list(dict.fromkeys(ns))
+    shown = ' and '.join(ns[:limit]) if len(ns) <= limit else ', '.join(ns[:limit])
+    return shown + (f' and {len(ns) - limit} more' if len(ns) > limit else '')
+
+
+@lru_cache(maxsize=1)
+def _reference():
+    """Reference collections the Store does not index: recommendation list, ESG profiles, strategies."""
+    with open(DATA_DIR / 'reference.json', encoding='utf-8') as f:
+        ref = json.load(f)
+    return {
+        'recommended': [s['SecurityId'] for lst in items(ref, 'RecommendationLists') for s in items(lst, 'Securities')],
+        'esg': {e['Id']: e for e in items(ref, 'EsgProfiles')},
+        'strategies': {s['Id']: s for s in items(ref, 'Strategies')},
+    }
+
+
+def _bands(p, store):
+    """A portfolio's SAA and its asset-class bands with the actual share of each: (saa, [(mapping, share)])."""
+    saa = store.saas.get(p.get('StrategicAssetAllocationId'), {})
+    bands = [m for m in items(saa, 'Mappings')
+             if m.get('Dimension') == 'AssetClass' and m.get('MinPercentage') is not None
+             and m.get('MaxPercentage') is not None]
+    actual = defaultdict(float)
+    for sp in items(p, 'SecurityPositions'):
+        sec = store.securities.get(sp.get('SecurityId'), {})
+        actual[sec.get('SAA_AssetClassName') or 'Unclassified'] += sp.get('PortfolioValuePercentage') or 0
+    for ap in items(p, 'AccountPositions'):
+        actual['Liquidity'] += ap.get('PortfolioValuePercentage') or 0
+    return saa, [(m, actual.get(m['Category'], 0)) for m in bands]
+
+
+def _holdings(client, store):
+    """(position, security, amount in reporting currency) for every security position."""
+    for p in portfolios(client):
+        aum = p.get('AssetsUnderManagementInDefaultCurrency') or 0
+        for sp in items(p, 'SecurityPositions'):
+            yield sp, store.securities.get(sp.get('SecurityId'), {}), (sp.get('PortfolioValuePercentage') or 0) * aum
+
+
+def _book(client):
+    return sum(p.get('AssetsUnderManagementInDefaultCurrency') or 0 for p in portfolios(client)) or 1
+
+
+def _overridden(client):
+    return {o.get('RuleCode') for o in items(client, 'IndividualRuleOverrides')}
+
+
+def _trades(client, proposal):
+    """A proposal's orders, and its buy and sell names, largest first.
+
+    A proposal's SecurityPositions are the whole target portfolio (never negative);
+    the trades are its Transactions, signed. Expiry records are not orders.
+    """
+    orders = [t for t in items(client, 'Transactions')
+              if t.get('ProposalId') == proposal.get('ProposalId') and not t.get('IsExpiry')]
+    # Cash movements have no security; they are orders but not something to name.
+    by_size = sorted((t for t in orders if t.get('SecurityName')), key=lambda t: -abs(t.get('TotalAmount') or 0))
+    buys = [short_name(t['SecurityName']) for t in by_size if (t.get('QuantityForTransaction') or 0) > 0]
+    sells = [short_name(t['SecurityName']) for t in by_size if (t.get('QuantityForTransaction') or 0) < 0]
+    return orders, buys, sells
+
+
+def _trade_text(buys, sells):
+    return ' and '.join(([f'buy {names(buys)}'] if buys else []) + ([f'sell {names(sells)}'] if sells else []))
 
 
 def exposures(client, store):
@@ -196,18 +267,9 @@ def _health(client, store, as_of):
                        f'clients.json {ref}: Portfolios[{p.get("PortfolioNr")}].Volatility; reference.json RiskProfiles.MaxVola',
                        (vol - max_vol) * 10)
 
-        saa = store.saas.get(p.get('StrategicAssetAllocationId'), {})
-        bands = [m for m in items(saa, 'Mappings')
-                 if m.get('Dimension') == 'AssetClass' and m.get('MinPercentage') is not None
-                 and m.get('MaxPercentage') is not None]
-        actual = defaultdict(float)
-        for sp in items(p, 'SecurityPositions'):
-            sec = store.securities.get(sp.get('SecurityId'), {})
-            actual[sec.get('SAA_AssetClassName') or 'Unclassified'] += sp.get('PortfolioValuePercentage') or 0
-        for ap in items(p, 'AccountPositions'):
-            actual['Liquidity'] += ap.get('PortfolioValuePercentage') or 0
-        for m in bands:
-            share, lo, hi = actual.get(m['Category'], 0), m['MinPercentage'], m['MaxPercentage']
+        saa, bands = _bands(p, store)
+        for m, share in bands:
+            lo, hi = m['MinPercentage'], m['MaxPercentage']
             gap = lo - share if share < lo else share - hi if share > hi else 0
             if gap <= 0:
                 continue
@@ -224,7 +286,8 @@ def _health(client, store, as_of):
                        f'Rebalance {label}{where} {direction} toward {pct(target if target is not None else (lo + hi) / 2)}.',
                        source, gap * 5)
 
-    violations = items(client, 'SuitabilityViolations')
+    # Rules the bank has waived for this client are neither counted nor turned into actions.
+    violations = [v for v in items(client, 'SuitabilityViolations') if v.get('RuleCode') not in _overridden(client)]
     if violations:
         names = {sp.get('Isin'): short_name(sp.get('SecurityName')) for p in ports for sp in items(p, 'SecurityPositions')}
         errors = [v for v in violations if v.get('Severity') == 'Error']
@@ -243,6 +306,8 @@ def _health(client, store, as_of):
                        f'clients.json {ref}: SuitabilityViolations[Id={v.get("Id")}]',
                        1.0 if v.get('Severity') == 'Error' else 0.3)
 
+    yield from _health_extra(client, store, violations)
+
     if client.get('ProfilingDateUtc'):
         assessed = day(client['ProfilingDateUtc'])
         years = (as_of - assessed).days / 365.25
@@ -250,6 +315,147 @@ def _health(client, store, as_of):
             yield Fact('health.profile_age', 'health',
                        f'Risk profile last assessed {fmt_day(assessed)}, {years:.0f} years ago.',
                        f'clients.json {ref}: ProfilingDateUtc', 0.1 * (years - 2))
+
+
+def _health_extra(client, store, violations):
+    ref = client['ClientRef']
+    total = _book(client)
+    held = list(_holdings(client, store))
+    profile = store.risk_profiles.get(client.get('RiskProfileId'), {})
+
+    max_prc = profile.get('MaxPRC')
+    if max_prc is not None:
+        above = defaultdict(float)
+        for sp, sec, amount in held:
+            if sec.get('PRC') is not None and sec['PRC'] > max_prc:
+                above[short_name(sp.get('SecurityName'))] += amount
+        if above:
+            share = sum(above.values()) / total
+            ranked = sorted(above, key=lambda n: -above[n])
+            yield Fact('health.prc', 'health',
+                       f'{len(above)} holding{"s" if len(above) != 1 else ""} above the product risk class limit of '
+                       f'{risk_profile(client)} (maximum {max_prc}): {names(ranked)}, {pct(share)} of the book.',
+                       f'reference.json Securities.PRC vs RiskProfiles.MaxPRC; clients.json {ref} positions',
+                       share * 2)
+
+    esg = _reference()['esg'].get(client.get('EsgProfileId'), {})
+    if client.get('EsgProfileName') == 'Yes' and esg.get('MinimumPositionLevel') is not None:
+        floor, minimum = esg['MinimumPositionLevel'], esg.get('MinimumLevel', esg['MinimumPositionLevel'])
+        scored = [(sp, sec, a) for sp, sec, a in held if sec.get('SustainabilityScore') is not None]
+        weight = sum(a for _, _, a in scored)
+        if weight:
+            below = defaultdict(float)
+            for sp, sec, amount in scored:
+                if sec['SustainabilityScore'] < floor:
+                    below[short_name(sp.get('SecurityName'))] += amount
+            average = sum(sec['SustainabilityScore'] * a for _, sec, a in scored) / weight
+            unscored = sum(a for _, sec, a in held if sec.get('SustainabilityScore') is None) / total
+            below_text = ''
+            if below:
+                ranked = sorted(below, key=lambda n: -below[n])
+                below_text = (f'; {len(below)} holding{"s" if len(below) != 1 else ""} below the per-position '
+                              f'minimum ({names(ranked)}, {pct(sum(below.values()) / total)} of the book)')
+            unscored_text = f'; {pct(unscored)} of the book has no score' if unscored >= 0.01 else ''
+            yield Fact('health.esg', 'health',
+                       f'ESG client: average sustainability score {average:.1f} of 10 against a minimum of '
+                       f'{minimum:.1f}{below_text}{unscored_text}.',
+                       f'reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[{esg.get("Id")}] '
+                       f'MinimumLevel / MinimumPositionLevel; clients.json {ref} positions',
+                       sum(below.values()) / total * 2 + (0.5 if average < minimum else 0))
+
+    strategies = _reference()['strategies']
+    has_vol_rule = any('volatil' in (v.get('RuleCode') or '').lower() for v in violations)
+    for p in portfolios(client):
+        strategy = strategies.get(p.get('StrategyId'), {})
+        vol, low = p.get('Volatility') or 0, strategy.get('VolatilityMinimum')
+        if not has_vol_rule and vol > 0 and low and vol < low:
+            yield Fact(f'health.vol_low.{p.get("PortfolioNr")}', 'health',
+                       f'Volatility of {portfolio_label(p)} is {pct(vol)}, below the {pct(low)} minimum of '
+                       f'{strategy.get("Name")}.',
+                       f'clients.json {ref}: Portfolios[{p.get("PortfolioNr")}].Volatility; reference.json Strategies',
+                       (low - vol) * 10)
+
+    submitted = [p for p in items(client, 'Proposals') if p.get('ProposalStatusName') == 'Final'
+                 and p.get('TransactionsSubmittedDateUTC')]
+    if submitted:
+        latest = max(submitted, key=lambda p: p['TransactionsSubmittedDateUTC'])
+        orders, _, _ = _trades(client, latest)
+        warned = [t for t in orders if t.get('ForwardState') == 2]
+        if warned:
+            yield Fact('health.order_warnings', 'health',
+                       f'{len(warned)} of {len(orders)} order{"s" if len(orders) != 1 else ""} from the proposal of '
+                       f'{fmt_day(day(latest["TransactionsSubmittedDateUTC"]))} were forwarded with a warning.',
+                       f'clients.json {ref}: Transactions[ProposalId={latest.get("ProposalId")}].ForwardState = 2',
+                       # Most finalised orders in the data carry this state, so it ranks low.
+                       0.15)
+
+
+def _watch_extra(client, store):
+    ref = client['ClientRef']
+    total = _book(client)
+    off_list = defaultdict(float)
+    for sp, sec, amount in _holdings(client, store):
+        if sec and not sec.get('InRecommendationList'):
+            off_list[short_name(sp.get('SecurityName'))] += amount
+    share = sum(off_list.values()) / total
+    if share >= 0.1:
+        ranked = sorted(off_list, key=lambda n: -off_list[n])
+        yield Fact('watch.off_list', 'watch',
+                   f'{pct(share)} of the book is in holdings on none of the bank\'s recommendation lists, '
+                   f'largest {names(ranked)}.',
+                   f'reference.json Securities.InRecommendationList; clients.json {ref} positions', share * 0.5)
+
+    for p in portfolios(client):
+        er, var = p.get('ExpectedReturn'), p.get('ValueAtRisk')
+        if er or var:
+            when = f', {fmt_day(day(p["FactoryDateUtc"]))}' if p.get('FactoryDateUtc') else ''
+            yield Fact(f'watch.risk_engine.{p.get("PortfolioNr")}', 'watch',
+                       f'Risk engine for {portfolio_label(p)}{when}: expected return {pct(er or 0)}, '
+                       f'value at risk {pct(var or 0)}.',
+                       f'clients.json {ref}: Portfolios[{p.get("PortfolioNr")}].ExpectedReturn, ValueAtRisk', 0.03)
+
+    finalised = [p for p in items(client, 'Proposals') if p.get('ProposalStatusName') == 'Final'
+                 and p.get('FinalizedDateUTC')]
+    if finalised:
+        latest = max(finalised, key=lambda p: p['FinalizedDateUTC'])
+        _, buys, sells = _trades(client, latest)
+        if buys or sells:
+            yield Fact('watch.last_proposal', 'watch',
+                       f'The last finalised proposal ({fmt_day(day(latest["FinalizedDateUTC"]))}, '
+                       f'reason: {latest.get("Reason") or "not given"}) ordered to {_trade_text(buys, sells)}.',
+                       f'clients.json {ref}: Proposals[{latest.get("ProposalId")}] × Transactions', 0.08)
+
+    for code in sorted(c for c in _overridden(client) if c):
+        yield Fact(f'watch.override.{code}', 'watch',
+                   f'The rule "{code}" is waived for this client by an individual override.',
+                   f'clients.json {ref}: IndividualRuleOverrides', 0.02)
+
+
+def _candidates(client, store):
+    """Recommendation-list securities for the asset class furthest under its band, or for idle cash."""
+    under = []
+    for p in portfolios(client):
+        _, bands = _bands(p, store)
+        under += [(m['MinPercentage'] - share, m['Category']) for m, share in bands
+                  if share < m['MinPercentage'] and m['Category'] != 'Liquidity']
+    aum = client.get('AssetsUnderManagementInDefaultCurrency') or 0
+    idle_cash = bool(aum) and (client.get('LiquidityInDefaultCurrency') or 0) / aum > 0.1
+    if not under and not idle_cash:
+        return
+    category = max(under)[1] if under else 'Shares'
+    held = {sp.get('SecurityId') for sp, _, _ in _holdings(client, store)}
+    ccy = client.get('ReportingCurrency') or 'CHF'
+    pool = [store.securities[i] for i in _reference()['recommended'] if i in store.securities and i not in held]
+    pool = [s for s in pool if s.get('SAA_AssetClassName') == category]
+    pool.sort(key=lambda s: (s.get('Currency') != ccy, -(s.get('SustainabilityScore') or 0), s.get('Name') or ''))
+    picks = list(dict.fromkeys(short_name(s.get('Name')) for s in pool))[:2]
+    if picks:
+        why = f'{asset_class_label(category)} is under its band' if under else 'cash is above 10% of the book'
+        yield Fact('actions.candidates', 'actions',
+                   f'Candidates from the recommendation list for {asset_class_label(category)}: '
+                   f'{" and ".join(picks)} ({why}).',
+                   f'reference.json RecommendationLists "Recommendation list free assets", not held, '
+                   f'{ccy} first, ordered by SustainabilityScore', 0.2)
 
 
 def _watch(client, store, exp, ccy):
@@ -343,10 +549,12 @@ def _actions(client, as_of, ccy):
                 and 0 <= (as_of - day(p['ProposedDateUTC'])).days <= 90]
     if rejected:
         latest = max(rejected, key=lambda p: p['ProposedDateUTC'])
+        _, buys, sells = _trades(client, latest)
+        wanted = f'; it would have had the client {_trade_text(buys, sells)}' if buys or sells else ''
         yield Fact('actions.rejected', 'actions',
                    f'Follow up on the proposal of {fmt_day(day(latest["ProposedDateUTC"]))} that was rejected '
-                   f'(reason: {latest.get("Reason") or "not given"}).',
-                   f'clients.json {ref}: Proposals[{latest.get("ProposalId")}]', 0.5)
+                   f'(reason: {latest.get("Reason") or "not given"}){wanted}.',
+                   f'clients.json {ref}: Proposals[{latest.get("ProposalId")}] × Transactions', 0.5)
 
 
 def compute(client, store, as_of=None):
@@ -355,4 +563,5 @@ def compute(client, store, as_of=None):
     ccy = client.get('ReportingCurrency') or 'CHF'
     exp = exposures(client, store)
     return [*_who(client, store, ccy), *_development(client), *_health(client, store, as_of),
-            *_watch(client, store, exp, ccy), *_actions(client, as_of, ccy)]
+            *_watch(client, store, exp, ccy), *_watch_extra(client, store),
+            *_actions(client, as_of, ccy), *_candidates(client, store)]
