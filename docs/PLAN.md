@@ -125,23 +125,6 @@ client file ──> fact engine (deterministic) ──> briefing facts + sources
 7. Optional upgrade, only with time and a juror who agrees at the booth: a real phone
    call to their phone via a Twilio number imported into ElevenLabs.
 
-## The clock
-
-19 hours: hacking opens 20:00 Friday, submission closes 15:00 Saturday.
-
-| | |
-| --- | --- |
-| 20:00–23:00 | Fact engine + source tracking |
-| 23:00–01:00 | Briefing card, one-click trigger |
-| 01:00–03:00 | Call page, pushed ring, agent reading facts |
-| 03:00–06:00 | Sleep in shifts |
-| 06:00–09:00 | Karaoke sync, follow-up questions |
-| 09:00–12:00 | **Partner slot** — test audio in the actual room, ask how the test client arrives, bonus-case Q&A |
-| 12:00–13:00 | Harden: unseen file, malformed file, latency |
-| 13:00 | **Feature freeze** |
-| 13:00–14:30 | Deck, rehearsal, record the fallback video |
-| 14:30–15:00 | Submit |
-
 ## Submission
 
 Due 15:00 in the Hack App, by the team leader: title, description, GitHub link,
