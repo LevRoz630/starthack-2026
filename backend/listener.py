@@ -12,7 +12,18 @@ Two ways audio arrives, one Session for both:
   a Twilio number.
 
 Measured on this key: with a 0.5 s silence threshold the committed transcript
-arrives ~0.6 s after the client stops speaking.
+arrives ~0.6 s after the client stops speaking; the answer event reaches the phone
+~0.85 s after (tests/test_listener.py, RUN_NETWORK_TESTS=1).
+
+Going live with Twilio:
+1. Run the API behind HTTPS: `uvicorn backend.api:app --port 8000` and
+   `cloudflared tunnel --url http://localhost:8000` (or `ngrok http 8000`).
+2. Set ADVISOR_NUMBER (the advisor's mobile, E.164) in the environment, and map the
+   calling numbers to clients in data/phonebook.json.
+3. In the Twilio console, on the number: "A call comes in" -> Webhook, HTTP POST,
+   https://<tunnel host>/twilio/voice. The TwiML it returns streams the caller's audio
+   to wss://<tunnel host>/twilio/media and then dials the advisor.
+4. Open https://<tunnel host>/phone/ on the advisor's phone before the call.
 """
 
 import asyncio
@@ -271,11 +282,12 @@ class Session:
         if self.answer_tasks:
             await asyncio.wait(self.answer_tasks, timeout=5)
         self.closed = True
+        # Tell the phone first: closing the upstream socket can wait on its handshake.
+        await self.emit({'type': 'listening_stopped', 'source': self.source})
         if self.reader:
             self.reader.cancel()
         if self.ws is not None:
             try:
-                await self.ws.close()
+                await asyncio.wait_for(self.ws.close(), 2)
             except Exception:
                 pass
-        await self.emit({'type': 'listening_stopped', 'source': self.source})

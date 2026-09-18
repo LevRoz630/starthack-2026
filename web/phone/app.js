@@ -21,6 +21,7 @@ const state = {
   callStarted: null,
   timer: null,
   approved: {},
+  line: null,         // 'twilio' while the phone line is being transcribed
 };
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -118,6 +119,7 @@ function ring(briefing) {
   state.briefing = briefing;
   state.answers = [];
   state.approved = {};
+  state.line = null;
   fillCaller(briefing);
   renderBrief($('#screen-ringing [data-brief]'), briefing, { withImpact: true });
   show('ringing');
@@ -152,6 +154,8 @@ function answer() {
   $('[data-impact-line]').className = `impact-line ${b.impact && b.impact.amount < 0 ? 'loss' : ''}`;
   renderBrief($('#screen-call [data-brief]'), b, { withImpact: false });
   $('#answers').replaceChildren();
+  showLive('');
+  setListenButton(state.line);
   state.callStarted = Date.now();
   $('#timer').textContent = '0:00';
   clearInterval(state.timer);
@@ -196,9 +200,130 @@ function answerCard(entry) {
 // For the Twilio listener: inject a question heard on the line.
 window.pushAnswer = (question) => ask(question);
 
+// --- live listening -------------------------------------------------------------
+// The client's voice reaches /listen (this phone's microphone, 16 kHz PCM16) or
+// /twilio/media (the phone line); either way transcripts and answers come back on /ws.
+
+const LISTEN_RATE = 16000;
+const LISTEN_BATCH = LISTEN_RATE / 10;   // send 100 ms per message
+const mic = { stream: null, ctx: null, node: null, source: null, ws: null, pending: [] };
+
+// Runs in the audio thread: hands raw Float32 frames to the page.
+const WORKLET = `
+class Tap extends AudioWorkletProcessor {
+  process(inputs) {
+    const ch = inputs[0] && inputs[0][0];
+    if (ch) this.port.postMessage(ch.slice(0));
+    return true;
+  }
+}
+registerProcessor('tap', Tap);`;
+
+function toPcm16(frame, inRate) {
+  // Average-downsample Float32 at the device rate to Int16 at 16 kHz.
+  const ratio = inRate / LISTEN_RATE;
+  const out = new Int16Array(Math.floor(frame.length / ratio));
+  for (let i = 0; i < out.length; i++) {
+    const start = Math.floor(i * ratio);
+    const end = Math.min(frame.length, Math.floor((i + 1) * ratio));
+    let sum = 0;
+    for (let j = start; j < end; j++) sum += frame[j];
+    const v = Math.max(-1, Math.min(1, sum / Math.max(1, end - start)));
+    out[i] = v < 0 ? v * 0x8000 : v * 0x7fff;
+  }
+  return out;
+}
+
+function queueAudio(samples) {
+  for (const s of samples) mic.pending.push(s);
+  while (mic.pending.length >= LISTEN_BATCH && mic.ws && mic.ws.readyState === WebSocket.OPEN) {
+    mic.ws.send(Int16Array.from(mic.pending.splice(0, LISTEN_BATCH)).buffer);
+  }
+}
+
+async function startListening() {
+  if (mic.ws || !state.briefing) return;
+  setListenButton('mic');
+  try {
+    mic.stream = await navigator.mediaDevices.getUserMedia({
+      audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true },
+    });
+  } catch (e) {
+    showLive('Microphone not available (needs HTTPS and permission).', 'error');
+    setListenButton(null);
+    return;
+  }
+  mic.ctx = new (window.AudioContext || window.webkitAudioContext)();
+  mic.source = mic.ctx.createMediaStreamSource(mic.stream);
+  const onFrame = (frame) => queueAudio(toPcm16(frame, mic.ctx.sampleRate));
+  if (mic.ctx.audioWorklet) {
+    const url = URL.createObjectURL(new Blob([WORKLET], { type: 'application/javascript' }));
+    await mic.ctx.audioWorklet.addModule(url);
+    mic.node = new AudioWorkletNode(mic.ctx, 'tap');
+    mic.node.port.onmessage = (e) => onFrame(e.data);
+    mic.source.connect(mic.node);
+  } else {
+    mic.node = mic.ctx.createScriptProcessor(4096, 1, 1);
+    mic.node.onaudioprocess = (e) => onFrame(e.inputBuffer.getChannelData(0));
+    mic.source.connect(mic.node);
+    mic.node.connect(mic.ctx.destination);
+  }
+  const wsUrl = `${API.replace(/^http/, 'ws')}/listen?client=${encodeURIComponent(state.briefing.client)}`;
+  mic.ws = new WebSocket(wsUrl);
+  mic.ws.binaryType = 'arraybuffer';
+  mic.ws.addEventListener('close', () => { if (mic.ws) stopListening(); });
+  showLive('Listening…');
+}
+
+function stopListening() {
+  const ws = mic.ws;
+  mic.ws = null;
+  if (ws) {
+    try { if (ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify({ type: 'stop' })); } catch { /* ignore */ }
+    try { ws.close(); } catch { /* ignore */ }
+  }
+  try { mic.source && mic.source.disconnect(); } catch { /* ignore */ }
+  try { mic.node && mic.node.disconnect(); } catch { /* ignore */ }
+  if (mic.stream) for (const t of mic.stream.getTracks()) t.stop();
+  if (mic.ctx) mic.ctx.close().catch(() => {});
+  Object.assign(mic, { stream: null, ctx: null, node: null, source: null, pending: [] });
+  setListenButton(null);
+}
+
+function setListenButton(source) {
+  const btn = $('#listen');
+  btn.setAttribute('aria-pressed', source === 'mic' ? 'true' : 'false');
+  if (source === 'twilio') btn.dataset.source = 'twilio'; else delete btn.dataset.source;
+  btn.textContent = source === 'mic' ? 'Stop' : source === 'twilio' ? 'On the line' : 'Listen';
+  btn.disabled = source === 'twilio';
+}
+
+function showLive(text, kind) {
+  const line = $('#live-transcript');
+  line.textContent = text || '';
+  line.className = `live${kind ? ` ${kind}` : ''}`;
+}
+
+// Events from the listener (either source) for the client on the line.
+function onListenerEvent(event) {
+  if (!state.briefing || event.client !== state.briefing.client) return;
+  if (event.type === 'listening' && event.source === 'twilio') { state.line = 'twilio'; setListenButton('twilio'); }
+  if (event.type === 'listening_stopped' && event.source === 'twilio') { state.line = null; setListenButton(mic.ws ? 'mic' : null); }
+  if (event.type === 'listener_error') showLive(`Listener: ${event.error}`, 'error');
+  if (state.screen !== 'call') return;
+  if (event.type === 'transcript') showLive(event.text, event.final ? 'final' : '');
+  if (event.type === 'answer') {
+    const entry = { question: event.question, answers: event.answers || [] };
+    state.answers.unshift(entry);
+    $('#answers').prepend(answerCard(entry));
+    showLive('');
+  }
+}
+
 // --- after call ---------------------------------------------------------------
 
 function endCall() {
+  stopListening();
   clearInterval(state.timer);
   const duration = state.callStarted ? clock(Date.now() - state.callStarted) : '0:00';
   $('#note-body').textContent = callNote(duration);
@@ -282,6 +407,9 @@ function connect() {
     try { event = JSON.parse(msg.data); } catch { return; }
     if (event.type === 'hello' || event.type === 'market') setMarket(event.market);
     if (event.type === 'incoming_call' && event.briefing) ring(event.briefing);
+    if (['transcript', 'answer', 'listening', 'listening_stopped', 'listener_error'].includes(event.type)) {
+      onListenerEvent(event);
+    }
   });
   ws.addEventListener('close', retry);
   ws.addEventListener('error', () => ws.close());
@@ -298,6 +426,7 @@ function connect() {
 $('#answer').addEventListener('click', answer);
 $('#decline').addEventListener('click', () => { stopRingtone(); show('idle'); });
 $('#end-call').addEventListener('click', endCall);
+$('#listen').addEventListener('click', () => (mic.ws ? stopListening() : startListening()));
 $('#done').addEventListener('click', () => show('idle'));
 $('#ask-form').addEventListener('submit', (e) => {
   e.preventDefault();
