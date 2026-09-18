@@ -1,7 +1,9 @@
 # Sketch — UNRISKOMEGA case
 
-Written before the case presentation (Friday 18:15–18:45). Everything below the
-"What we don't know" line is a guess and should be re-read once we have the brief.
+> **Superseded by [PLAN.md](PLAN.md).** This was written before the case
+> presentation, when the brief was still unknown. The actual case is "From Ping to
+> Pitch in 60 Seconds — AI Briefing Assistant", not the constraint checker guessed
+> at below. Kept for the data notes, which still hold.
 
 ## The clock
 
