@@ -232,7 +232,7 @@ SMALL_TALK = re.compile(
     r"|\bit'?s \w+(?: here| calling)?\b"
     r"|\bhow (?:are|r) (?:you|things|u)(?: doing)?(?: today)?\b"
     r"|\bhow(?:'s| is) (?:it going|life|the family|your (?:day|game|round|family)|the weather|the golf|golf|business)\b"
-    r"|\bhow (?:have|'ve) you been\b|\bhow was your (?:weekend|day|holiday)\b"
+    r"|\bhow (?:have|'ve) you been\b|\bhow was (?:the|your) (?:weekend|day|holiday|drive|trip|flight|journey|round|game|golf|meeting)\b"
     r"|\b(?:is this|is now) a (?:good|bad) time\b|\bdo you have a (?:minute|second|moment)\b"
     r"|\bcan you hear me\b|\bare you there\b"
     r"|\bhow can i help(?: you)?(?: today)?\b|\bwhat can i do for you\b"

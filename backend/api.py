@@ -441,14 +441,17 @@ async def demo_run(request):
     if mode == 'replay' and not (demo.RUNS_DIR / f'{name}-latest.json').is_file():
         return error(409, 'no saved run yet: run the pipeline once first')
     if _demo_running():
-        if not state.demo_stop.is_set():
-            return error(409, 'a demo call is already running; POST /demo/stop first')
-        # End call was just pressed: let the old call finish closing, then start the retry.
+        # Starting a call always ends the one before it: stop it, let it close, then start.
+        # A demo is retried many times; it must never refuse because an old call is still up.
+        state.demo_stop.set()
+        state.demo_answered.set()
+        state.demo_next.set()
         try:
             await asyncio.wait_for(asyncio.shield(state.demo_task), 8)
         except (asyncio.TimeoutError, Exception):
-            pass
+            state.demo_task.cancel()
     state.demo_stop.clear()
+    state.demo_next.clear()
     if mode == 'pipeline':
         coro = demo.run(
             name, broadcast=state.broadcast,

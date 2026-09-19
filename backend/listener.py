@@ -24,6 +24,10 @@ import time
 
 import websockets
 
+import os
+from datetime import datetime
+
+from . import utterance
 from .answers import small_talk_only
 from .data import env
 
@@ -96,6 +100,8 @@ class Session:
         self.failed = False
         self.last_answered = None
         self.answer_tasks = set()
+        self.log = None if os.getenv('PYTEST_CURRENT_TEST') else \
+            utterance.SessionLog(client_ref, source, datetime.now())
 
     async def emit(self, event):
         try:
@@ -177,11 +183,18 @@ class Session:
             await self.emit({'type': 'transcript', 'text': text, 'final': False})
         elif kind.startswith('committed_transcript') and text:
             await self.emit({'type': 'transcript', 'text': text, 'final': True})
-            if is_question(text) and text != self.last_answered:
+            said = utterance.classify(text)
+            if said in ('instruction', 'request', 'info'):
+                # Not a card: a line for the call note. Nothing is ever acted on.
+                await self.emit({'type': 'heard', 'kind': said, 'label': utterance.LABELS[said], 'text': text})
+                self._log(text, said, 'noted')
+            elif said == 'question' and is_question(text) and text != self.last_answered:
                 self.last_answered = text
                 task = asyncio.create_task(self._answer(text))
                 self.answer_tasks.add(task)
                 task.add_done_callback(self.answer_tasks.discard)
+            else:
+                self._log(text, said, 'nothing')
         elif 'error' in kind:
             await self.emit({'type': 'listener_error', 'error': data.get('error') or kind})
 
@@ -191,7 +204,20 @@ class Session:
         except Exception as e:
             await self.emit({'type': 'listener_error', 'error': f'answering failed: {type(e).__name__}'})
             return
+        if not result.get('found') and result.get('method') != 'small_talk':
+            # Nothing in the data answers it: an empty card mid-call is clutter, a follow-up is useful.
+            await self.emit({'type': 'heard', 'kind': 'follow_up', 'label': utterance.LABELS['follow_up'], 'text': text})
+            self._log(text, 'question', 'follow_up', method=result.get('method'))
+            return
         await self.emit({'type': 'answer', 'question': text, **result})
+        self._log(text, 'question', 'card', method=result.get('method'),
+                  shown=(result.get('answers') or [{}])[0].get('text', ''),
+                  facts=[a.get('fact') for a in result.get('answers') or []])
+
+    def _log(self, text, kind, decision, **extra):
+        if self.log:
+            self.log.write(at=round(time.time(), 3), client=self.client, source=self.source,
+                           text=text, kind=kind, decision=decision, **extra)
 
     async def close(self):
         if self.closed:

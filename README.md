@@ -108,6 +108,8 @@ Both run through the same listener (speech-to-text → answer cards on the phone
 - **Replay offline:** pushes the saved run again with its original timing and no network — the fallback if the venue network fails.
 - **Turn-taking (demo only, never shown):** in a recorded call the client only speaks again once the advisor has answered: the phone listens locally and continues when the advisor stops talking. Fallbacks the audience does not see: double-tap the call timer, or Space on a laptop; after 25 s it continues anyway. **End call** stops the demo on the server, so it can be started again at once.
 - **Small talk** ("how are you?", "is this a good time?") gets no card; a question inside small talk still does.
+- **What is not a card** goes quietly into the call note: a question the data cannot answer becomes *To follow up*, "can you send me…" a *To do*, "sell the Novartis" an *Instruction, confirm in writing* (never executed), "we're buying a house" *Noted* (`backend/utterance.py`).
+- **Testing on real conversations:** every live call logs each sentence and what was done with it to `data/sessions/` (gitignored). `python -m backend.utterance review` shows the last call; add misfires to `data/eval/utterances.json` and run `python -m pytest tests/test_utterance.py`.
 
 
 Approving the follow-up email or call note sends it through Gmail when `.env` has `SMTP_USER`, `SMTP_PASSWORD` (a Gmail app password) and `EMAIL_TO`; otherwise it lands in `data/outbox/`.

@@ -132,6 +132,8 @@ function ring(briefing) {
   if (state.screen === 'call') return; // never interrupt a call in progress
   state.briefing = briefing;
   state.answers = [];
+  state.heard = [];
+  $('#heard').replaceChildren();
   state.approved = {};
   state.line = null;
   fillCaller(briefing);
@@ -316,6 +318,15 @@ function onListenerEvent(event) {
   if (event.type === 'listener_error') showLive(`Listener: ${event.error}`, 'error');
   if (state.screen !== 'call') return;
   if (event.type === 'transcript') showLive(event.text, event.final ? 'final' : '');
+  if (event.type === 'heard') {
+    // Not a card: a quiet line now, and a line in the call note later.
+    state.heard = state.heard || [];
+    state.heard.push({ kind: event.kind, label: event.label, text: event.text });
+    const item = el('li');
+    item.dataset.kind = event.kind;
+    item.append(el('span', 'kind', event.label), document.createTextNode(event.text));
+    $('#heard').prepend(item);
+  }
   if (event.type === 'answer') {
     const entry = { question: event.question, answers: event.answers || [], chain: !!event.chain };
     state.answers.unshift(entry);
@@ -396,7 +407,8 @@ function endTurn() {
 // End call / Decline lets the next "Start the call" begin straight away. A call the server
 // ends itself is not stopped: that run finished and becomes the saved replay.
 function stopDemo() {
-  if (!state.demoRunning) return;
+  // Always tell the server, even if this page missed the demo starting (reloaded mid-call):
+  // stopping when nothing runs is harmless, a call left running is not.
   state.demoRunning = false;
   fetch(`${API}/demo/stop`, { method: 'POST' }).catch(() => {});
 }
@@ -433,6 +445,15 @@ function callNote(duration) {
       for (const a of entry.answers) lines.push(`  A: ${a.text}`);
     }
   }
+  const heard = state.heard || [];
+  const section = (title, kind) => {
+    const items = heard.filter((h) => h.kind === kind);
+    if (items.length) lines.push('', `${title}:`, ...items.map((h) => `- ${h.text}`));
+  };
+  section('Instructions given (not executed, confirm in writing)', 'instruction');
+  section('To do', 'request');
+  section('Open questions (not answered from the data)', 'follow_up');
+  section('Noted', 'info');
   return lines.join('\n');
 }
 
@@ -625,7 +646,7 @@ function connect() {
     try { event = JSON.parse(msg.data); } catch { return; }
     if (event.type === 'hello' || event.type === 'market') setMarket(event.market);
     if (event.type === 'incoming_call' && event.briefing) ring(event.briefing);
-    if (['transcript', 'answer', 'listening', 'listening_stopped', 'listener_error'].includes(event.type)) {
+    if (['transcript', 'answer', 'heard', 'listening', 'listening_stopped', 'listener_error'].includes(event.type)) {
       onListenerEvent(event);
     }
     // A replayed run carries its demo_audio events too, but the silent demo must stay

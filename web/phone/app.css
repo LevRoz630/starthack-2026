@@ -232,3 +232,10 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 #prep-brief .group li + li { margin-top: 8px; }
 #prep-brief .src { font-size: var(--size-xs); color: var(--muted); margin-top: 2px; overflow-wrap: anywhere; }
 
+
+/* Sentences that are not a card: small, muted, one line each, newest first. */
+.heard { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 4px; }
+.heard:empty { display: none; }
+.heard li { font-size: var(--size-xs); color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.heard .kind { font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 6px; }
+.heard li[data-kind="instruction"] .kind { color: var(--red); }
