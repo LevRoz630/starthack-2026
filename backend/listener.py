@@ -17,13 +17,24 @@ arrives ~0.6 s after the client stops speaking; the answer event reaches the pho
 
 Going live with Twilio:
 1. Run the API behind HTTPS: `uvicorn backend.api:app --port 8000` and
-   `cloudflared tunnel --url http://localhost:8000` (or `ngrok http 8000`).
-2. Set ADVISOR_NUMBER (the advisor's mobile, E.164) in the environment, and map the
-   calling numbers to clients in data/phonebook.json.
+   `cloudflared tunnel --url http://localhost:8000` (or `ngrok http 8000`). The tunnel
+   host changes every restart, so step 3 has to be redone each time.
+2. Map the calling numbers to clients in data/phonebook.json. ADVISOR_NUMBER (the
+   advisor's mobile, E.164) is optional -- see the two shapes below.
 3. In the Twilio console, on the number: "A call comes in" -> Webhook, HTTP POST,
    https://<tunnel host>/twilio/voice. The TwiML it returns streams the caller's audio
-   to wss://<tunnel host>/twilio/media and then dials the advisor.
-4. Open https://<tunnel host>/phone/ on the advisor's phone before the call.
+   to wss://<tunnel host>/twilio/media.
+4. Open https://<tunnel host>/phone/ wherever the advisor will read the cards.
+
+Two shapes, same pipeline:
+
+- Two phones. ADVISOR_NUMBER set: the TwiML dials the advisor after starting the stream,
+  so the client and the advisor are on a real forwarded call. This is the production
+  story and what the video shows.
+- One phone. ADVISOR_NUMBER unset: nothing is dialled and a <Pause> holds the caller's
+  line open, so their audio keeps streaming while the advisor watches the phone page in
+  a browser. Nobody speaks back to the client, so this is for testing the pipeline --
+  and for a trial account, where every number on the call has to be verified first.
 """
 
 import asyncio
@@ -44,6 +55,9 @@ BYTES_PER_SECOND = {'ulaw_8000': 8000, 'pcm_16000': 32000}
 BATCH_SECONDS = 0.1          # send audio in 100 ms batches rather than Twilio's 20 ms frames
 
 RECORDING_NOTICE = 'This call is recorded for advice documentation.'
+# How long the line is held open when there is no advisor number to dial. Twilio caps a
+# trial call at 10 minutes anyway, and a demo call is over in two.
+HOLD_SECONDS = 600
 
 # How sessions open the speech-to-text socket; tests replace this with a fake.
 connect_stt = websockets.connect
@@ -145,6 +159,11 @@ def twiml(stream_url=None, client=None, advisor_number=None):
                   f'<Parameter name="client" value={quoteattr(client)}/>', '</Stream>', '</Start>']
     if advisor_number:
         parts.append(f'<Dial>{escape(advisor_number)}</Dial>')
+    elif stream_url and client:
+        # One-phone demo: no advisor line to dial, the advisor reads the cards in a browser.
+        # <Start><Stream> does not block, so without a verb here Twilio would disconnect at
+        # once and the audio would stop; the Pause is what holds the caller's line open.
+        parts.append(f'<Pause length="{HOLD_SECONDS}"/>')
     else:
         parts += ['<Say>Your advisor cannot take the call right now. Please try again later.</Say>', '<Hangup/>']
     parts.append('</Response>')

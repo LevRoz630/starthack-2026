@@ -117,6 +117,20 @@ def test_twiml_streams_the_caller_and_dials_the_advisor():
     assert '&lt;' in twiml('wss://x/y', 'A<B', None)
 
 
+def test_twiml_holds_the_line_open_with_no_advisor_number():
+    """One-phone demo: the client calls, the advisor watches a browser, nothing is dialled.
+
+    <Start><Stream> does not block, so with no verb after it Twilio disconnects the call and
+    the audio stops. The Pause is what keeps the caller's audio flowing to the listener.
+    """
+    xml = twiml('wss://example.org/twilio/media', 'CASE-043', None)
+    assert '<Stream url="wss://example.org/twilio/media"' in xml
+    assert '<Dial>' not in xml
+    assert '<Pause length=' in xml and '<Hangup/>' not in xml
+    # A caller we cannot place is still told, and that call does end.
+    assert '<Pause length=' not in twiml(None, None, None)
+
+
 # --- the session ------------------------------------------------------------------------
 
 def run(coro):
