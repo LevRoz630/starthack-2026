@@ -106,7 +106,7 @@ Both run through the same listener (speech-to-text → answer cards on the phone
 - **Live:** the phone's microphone (the call screen starts listening when you answer, `/listen`).
 - **Recorded:** `data/demo/golf.json` scripts the client's side of the golf-video call. Its lines are voiced by ElevenLabs once (`python -m backend.demo prepare golf`) and replayed in real time through the real speech-to-text. On the phone (`/phone/?demo=CASE-043`): **Play recorded call**, then tap Answer. Every run is saved to `data/demo/runs/golf-latest.json`.
 - **Replay offline:** pushes the saved run again with its original timing and no network — the fallback if the venue network fails.
-- **Turn-taking:** in a recorded call the client only speaks again once the advisor has answered: the phone shows *Your turn*, listens locally, and continues when the advisor stops talking (or on **Continue**). **End call** stops the demo on the server, so it can be started again at once.
+- **Turn-taking (demo only, never shown):** in a recorded call the client only speaks again once the advisor has answered: the phone listens locally and continues when the advisor stops talking. Fallbacks the audience does not see: double-tap the call timer, or Space on a laptop; after 25 s it continues anyway. **End call** stops the demo on the server, so it can be started again at once.
 - **Small talk** ("how are you?", "is this a good time?") gets no card; a question inside small talk still does.
 
 

@@ -232,11 +232,3 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 #prep-brief .group li + li { margin-top: 8px; }
 #prep-brief .src { font-size: var(--size-xs); color: var(--muted); margin-top: 2px; overflow-wrap: anywhere; }
 
-/* The advisor's turn in a recorded call: the client will not speak again until this goes. */
-.turn { display: flex; align-items: center; gap: 10px; padding: 10px 12px; margin-bottom: 8px;
-        border-radius: var(--radius); background: var(--card); border-left: 4px solid var(--uro-blue); }
-.turn[hidden] { display: none; }
-.turn p { margin: 0; flex: 1; font-size: var(--size-s); }
-.turn .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--muted); flex: none; }
-.turn[data-level="speaking"] .dot { background: var(--green, #3BA776); }
-.turn[data-level="finishing"] .dot { background: var(--amber); }

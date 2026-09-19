@@ -171,7 +171,7 @@ async def run(name, *, broadcast, ring, make_session, set_market, answered, stop
                 next_turn.clear()
                 await rec({'type': 'demo_turn', 'client': ref})
                 await rec({'type': '_turn', 'client': ref})
-                await _silence_until(session, next_turn.is_set, script.get('turn_timeout', 60), stop)
+                await _silence_until(session, next_turn.is_set, script.get('turn_timeout', 25), stop)
                 await _silence(session, 0.4, stop)
             if stop.is_set():
                 break
@@ -188,7 +188,7 @@ async def run(name, *, broadcast, ring, make_session, set_market, answered, stop
                     complete=not stop.is_set())
 
 
-async def replay(name, *, broadcast, answered, stop, answer_timeout=120, next_turn=None, turn_timeout=60):
+async def replay(name, *, broadcast, answered, stop, answer_timeout=120, next_turn=None, turn_timeout=25):
     """Push a saved run again with its original timing; waits for Answer, and for the advisor's
     turn, where the run did, then carries on at the recorded pace from that point."""
     path = RUNS_DIR / f'{name}-latest.json'

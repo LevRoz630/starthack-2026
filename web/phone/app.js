@@ -326,19 +326,18 @@ function onListenerEvent(event) {
   }
 }
 
-// --- the advisor's turn in a recorded call -----------------------------------------
-// The recorded client asks, the card arrives, then it waits: the phone listens to the
+// --- the advisor's turn in a recorded demo call --------------------------------------
+// Demo machinery only, never on screen: a real client does not wait for a server. The
+// recorded client asks, the card arrives, then it waits while the phone listens to the
 // advisor (locally, nothing is sent) and tells the server once they stop talking.
-// Continue does the same by hand, for a noisy room or a mic that is not allowed.
+// If the room is too loud or the mic is refused: double-tap the call timer, or press
+// Space on a laptop. The server carries on by itself after turn_timeout anyway.
 
-const turn = { stream: null, ctx: null, timer: null, arming: null };
+const turn = { stream: null, ctx: null, timer: null, arming: null, active: false };
 
 function beginTurn() {
   stopTurn();
-  const box = $('#turn');
-  box.hidden = false;
-  box.dataset.level = 'waiting';
-  $('#turn-label').textContent = 'Your turn. The client waits until you finish.';
+  turn.active = true;
   // Start listening once the client's own voice has finished playing from the speaker.
   const voice = $('#caller-voice');
   const left = voice && !voice.paused && !voice.ended && isFinite(voice.duration)
@@ -352,8 +351,7 @@ async function startTurnDetector() {
       audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true },
     });
   } catch {
-    $('#turn-label').textContent = 'Your turn. Tap Continue when you are done.';
-    return;
+    return;   // no mic: the discreet fallbacks or the server's timeout end the turn
   }
   turn.ctx = new (window.AudioContext || window.webkitAudioContext)();
   const analyser = turn.ctx.createAnalyser();
@@ -374,7 +372,6 @@ async function startTurnDetector() {
     const speaking = rms > Math.max(0.015, noise * 2.5);
     if (speaking) { loud += 50; quiet = 0; if (loud >= 300) heard = true; }
     else { quiet += 50; if (!heard) loud = 0; }
-    $('#turn').dataset.level = !heard ? 'waiting' : speaking ? 'speaking' : 'finishing';
     if (heard && quiet >= 1300) endTurn();    // spoke, then 1.3 s of quiet: done
   }, 50);
 }
@@ -384,12 +381,11 @@ function stopTurn() {
   clearInterval(turn.timer);
   if (turn.stream) for (const t of turn.stream.getTracks()) t.stop();
   if (turn.ctx) turn.ctx.close().catch(() => {});
-  Object.assign(turn, { stream: null, ctx: null, timer: null, arming: null });
-  const box = $('#turn');
-  if (box) box.hidden = true;
+  Object.assign(turn, { stream: null, ctx: null, timer: null, arming: null, active: false });
 }
 
 function endTurn() {
+  if (!turn.active) return;
   stopTurn();
   fetch(`${API}/demo/next`, { method: 'POST' }).catch(() => {});
 }
@@ -665,7 +661,10 @@ function connect() {
 $('#answer').addEventListener('click', answer);
 $('#decline').addEventListener('click', () => { stopDemo(); stopRingtone(); stopListening(); show('idle'); });
 $('#end-call').addEventListener('click', () => { stopDemo(); endCall(); });
-$('#turn-continue').addEventListener('click', endTurn);
+$('#timer').addEventListener('dblclick', endTurn);
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'Space' && turn.active && document.activeElement === document.body) { e.preventDefault(); endTurn(); }
+});
 $('#listen').addEventListener('click', () => (mic.ws ? stopListening() : startListening()));
 $('#type-toggle').addEventListener('click', () => {
   const form = $('#ask-form');
