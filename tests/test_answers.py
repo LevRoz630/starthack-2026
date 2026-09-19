@@ -21,16 +21,32 @@ def ids(result):
 
 @pytest.mark.parametrize('question', [
     'Is there more in-depth explanation of what happened?', 'Why is this happening?',
-    "What's going on with my portfolio?", 'Can you explain this?'])
-def test_open_questions_get_the_headline_then_the_hit(facts, question):
+    "What's going on with my portfolio?", 'Can you explain this?',
+    'what the fuck is going on', 'how bad is it?'])
+def test_open_questions_lead_with_what_it_cost_then_why(facts, question):
+    """The advisor is asked for a number first, and the reason after it."""
     r = answers.answer(facts, question, use_llm=False)
     assert r['method'] == 'type'
-    assert ids(r)[0].startswith('news.') and ids(r)[1].startswith('digest.')
+    assert ids(r)[0].startswith('reason')
+    assert any(i.startswith(('digest.', 'news.')) for i in ids(r)[1:])
 
 
-def test_advice_questions_get_talking_points(facts):
-    r = answers.answer(facts, 'Should I sell everything?', use_llm=False)
-    assert [i.split('.')[0] for i in ids(r)] == ['talk', 'talk', 'holding']
+@pytest.mark.parametrize('question', [
+    'Should I sell everything?', 'so we are losing money what do we do',
+    'what should we do now?'])
+def test_advice_questions_answer_with_facts_not_a_script(facts, question):
+    """"What do we do" is answered with this client's own record and holdings.
+    The playbook line is worth at most one card, and never the first."""
+    r = answers.answer(facts, question, use_llm=False)
+    slots = [i.split('.')[0] for i in ids(r)]
+    assert slots[0] != 'talk', f'coaching led the answer: {ids(r)}'
+    assert slots.count('talk') <= 1, f'more than one coaching card: {ids(r)}'
+    assert 'development' in slots, f'the long record was not offered: {ids(r)}'
+
+
+def test_no_two_headlines_say_the_same_event_twice(facts):
+    r = answers.answer(facts, 'what the fuck is going on', use_llm=False)
+    assert len([i for i in ids(r) if i.startswith('news')]) <= 1
 
 
 def test_change_questions_get_the_last_proposal(facts):
