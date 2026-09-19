@@ -307,13 +307,80 @@ def answer(facts, question, use_llm=True, graph=None):
     return _say(_answer(facts, question, use_llm, graph))
 
 
+# Questions about what the client holds, answered from the holdings facts (facts.py,
+# expo.*). A named subject the client does not hold gets "no gold in the portfolio": the
+# holdings list is complete, so that is a fact, not a guess.
+HOLDINGS_LIST = re.compile(r"\bwhich (?:funds|stocks|shares|holdings|positions|investments) do i (?:own|have|hold)\b"
+                           r"|\bwhat do i (?:own|hold)\b|\bwhat(?:'s| is| are) my (?:holdings|positions)\b"
+                           r"|\blist (?:my|the) (?:holdings|positions|funds)\b", re.IGNORECASE)
+LARGEST = re.compile(r"\b(?:largest|biggest|main|top) (?:holding|position|investment|stock|fund|share)s?\b", re.IGNORECASE)
+HOLDING_AMOUNT = re.compile(r"\bhow much (?:do i have |have i got |is |of my \w+ is |money is )?(?:in|on)\b"
+                            r"|\bdo i (?:have|own|hold) (?:any )?\w|\bhow much \w+(?: \w+)? do i (?:have|own|hold)\b"
+                            r"|\bwhat(?:'s| is) my (?:exposure|allocation|position) (?:to|in)\b"
+                            r"|\bam i (?:in|invested in|exposed to)\b|\bhow exposed am i to\b", re.IGNORECASE)
+SUBJECTS = [(r'\bbonds?\b', 'expo.asset.Bonds', 'bonds'),
+            (r'\b(?:shares|stocks|equit\w*)\b', 'expo.asset.Shares', 'shares'),
+            (r'\b(?:cash|liquidity)\b', 'watch.liquidity', 'cash'),
+            (r'\b(?:real estate|property)\b', 'expo.asset.Real estate', 'real estate'),
+            (r'\bgold\b', 'expo.holding.Gold', 'gold'), (r'\bsilver\b', 'expo.holding.Silver', 'silver'),
+            (r'\b(?:crypto\w*|bitcoin|ether)\b', 'expo.holding.Crypto', 'crypto'),
+            (r'\btech\w*\b', 'expo.industry.Information Technology', 'tech'),
+            (r'\b(?:health ?care|pharma\w*)\b', 'expo.industry.Health Care', 'health care'),
+            (r'\b(?:banks?|financials?)\b', 'expo.industry.Financials', 'financials'),
+            (r'\b(?:energy|oil)\b', 'expo.industry.Energy', 'energy'),
+            (r'\bindustrials?\b', 'expo.industry.Industrials', 'industrials'),
+            (r'\butilit\w+\b', 'expo.industry.Utilities', 'utilities'),
+            (r'\b(?:dollars?|usd)\b', 'expo.currency.US-Dollar', 'dollars'),
+            (r'\beuros?\b', 'expo.currency.Euro', 'euros')]
+RISK_QUESTION = re.compile(r"\b(?:biggest|main|largest|key) risks?\b|\bhow risky\b|\bvolatil\w*\b"
+                           r"|\brisk(?:iness| level)? (?:of|in) my\b|\bmy risk\b", re.IGNORECASE)
+PROBLEMS_QUESTION = re.compile(r"\b(?:problems?|issues?|anything wrong|wrong with|warnings?|compliance|violations?|"
+                               r"red flags?)\b", re.IGNORECASE)
+DIVERSIFIED = re.compile(r'\bdiversif\w*\b', re.IGNORECASE)
+LOGISTICS = re.compile(r"\bwhen (?:should|shall|can|could) we (?:meet|talk|speak)\b"
+                       r"|\b(?:appointment|lunch|coffee|schedule a)\b|\bnext meeting\b", re.IGNORECASE)
+
+
+def _holdings_answer(facts, question):
+    by_id = {f.id: f for f in facts}
+    if HOLDINGS_LIST.search(question) and 'expo.holdings' in by_id:
+        return [_card(by_id['expo.holdings'])]
+    if LARGEST.search(question) and 'expo.largest' in by_id:
+        return [_card(by_id['expo.largest'])]
+    if HOLDING_AMOUNT.search(question):
+        for pattern, fact_id, label in SUBJECTS:
+            if re.search(pattern, question, re.IGNORECASE):
+                if fact_id in by_id:
+                    return [_card(by_id[fact_id])]
+                if any(f.id.startswith('expo.') for f in facts):   # the holdings were checked
+                    return [{'text': f'No {label} in the portfolio.', 'fact': 'expo.none', 'slot': 'watch',
+                             'source': 'all holdings checked, including fund look-through'}]
+    return []
+
+
 def _answer(facts, question, use_llm=True, graph=None):
     if small_talk_only(question):
         return {'answers': [], 'found': False, 'method': 'small_talk'}
-    if OVERVIEW_QUESTION.search(question):
+    if LOGISTICS.search(question):
+        # Diary questions are the advisor's to answer; a card here would be noise.
+        return {'answers': [], 'found': False, 'method': 'logistics'}
+    if OVERVIEW_QUESTION.search(question) or DIVERSIFIED.search(question):
         cards = overview(facts, graph)
         if cards:
             return {'answers': cards, 'found': True, 'method': 'overview'}
+    held = _holdings_answer(facts, question)
+    if held:
+        return {'answers': held, 'found': True, 'method': 'holdings'}
+    if RISK_QUESTION.search(question):
+        picked = _pick(facts, [('watch.risk', 1), ('watch.concentration', 1), ('watch.risk_engine', 1),
+                               ('health.vol', 1)]) or _pick(facts, [('expo.largest', 1)])
+        if picked:
+            return {'answers': [_card(f) for f in picked], 'found': True, 'method': 'risk'}
+    if PROBLEMS_QUESTION.search(question):
+        picked = _pick(facts, [('health.violations', 1), ('health.order_warnings', 1), ('health.saa', 1),
+                               ('health.esg', 1), ('health.prc', 1), ('health.clear', 1)])
+        if picked:
+            return {'answers': [_card(f) for f in picked], 'found': True, 'method': 'problems'}
     if graph is not None:
         chained = reasoning.chain_answer(graph, question, use_llm=use_llm)
         # A chain that never mentions what was asked about ("what happened to my gold?")

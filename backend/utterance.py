@@ -38,7 +38,9 @@ REQUEST = re.compile(
     r"set up|arrange|find out|get back|put together|share|update)\b"
     r"|\bplease (?:send|email|forward|call|book|check|prepare|arrange)\b"
     r"|\b(?:send|email|forward) me\b|\bi(?:'d| would) like (?:a|the|to (?:get|see|have|receive))\b"
-    r"|\blet me know\b|\bget back to me\b|\bcall me (?:back|tomorrow|later|next)\b", re.I)
+    r"|\blet me know\b|\bget back to me\b|\bcall me (?:back|tomorrow|later|next)\b"
+    r"|\bwhen (?:should|shall|can|could) we (?:meet|talk|speak)\b|\b(?:let'?s|can we|could we) (?:meet|schedule|book)\b",
+    re.I)
 INFO = re.compile(
     r"\b(?:retir\w*|pension|house|property|flat|apartment|mortgage|inherit\w*|wedding|divorc\w*|baby|grandchild\w*|"
     r"school|university|tuition|new job|lost my job|my (?:company|business)|selling the (?:house|company|business)|"

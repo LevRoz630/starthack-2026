@@ -649,4 +649,63 @@ def compute(client, store, as_of=None):
                           'Nothing open: no suitability violation, and every asset class is inside its band.',
                           f'clients.json {client["ClientRef"]}: SuitabilityViolations (none open); '
                           f'reference.json StrategicAssetAllocations bands', 0.2))
+    facts += _holdings_facts(client, store, exp, ccy)
     return relabel(facts, client)
+
+
+# Words a client uses for a precious metal or crypto, matched in security and account names.
+HOLDING_WORDS = {'Gold': ('gold',), 'Silver': ('silver',), 'Palladium': ('palladium',), 'Platinum': ('platinum',),
+                 'Crypto': ('bitcoin', 'ether', 'crypto', 'btc', 'eth', 'solana', 'polkadot', 'shib')}
+
+
+def _holdings_facts(client, store, exp, ccy):
+    """What the client holds, for questions like "how much do I have in bonds?", "do I have
+    any gold?", "what's my largest holding?". Card-only (weight 0): never spoken unasked."""
+    ref = client['ClientRef']
+    total = exp['total'] or 1
+    src = f'clients.json {ref}: SecurityPositions, AccountPositions × reference.json Securities'
+    out = []
+    names = {'Liquidity': 'Cash', 'Specialties andCommodities': 'Alternatives and commodities'}
+    for cls, amount in sorted(exp['asset_class'].items(), key=lambda kv: -kv[1]):
+        if amount > 0:
+            label = names.get(cls, asset_class_label(cls))
+            verb = 'is' if label == 'Cash' else 'are'
+            out.append(Fact(f'expo.asset.{cls}', 'watch', f'{label} {verb} {pct(amount / total)} of the portfolio '
+                                                           f'({money(amount, ccy)}).', src, 0.0))
+    for bucket, amount in sorted(exp['industry'].items(), key=lambda kv: -kv[1]):
+        if amount > 0 and bucket != 'Not classified':
+            out.append(Fact(f'expo.industry.{bucket}', 'watch',
+                            f'{bucket} is {pct(amount / total)} of the portfolio ({money(amount, ccy)}) '
+                            f'after fund look-through.', src + ' × FundUnbundlingMappings', 0.0))
+    groups = defaultdict(float)
+    for group, amount in exp['currency'].items():   # cash accounts use ISO codes, securities group names
+        groups[{'CHF': 'Swiss francs', 'USD': 'US-Dollar', 'EUR': 'Euro', 'GBP': 'British pound'}.get(group, group)] += amount
+    for group, amount in sorted(groups.items(), key=lambda kv: -kv[1]):
+        if amount > 0:
+            out.append(Fact(f'expo.currency.{group}', 'watch', f'{group}: {pct(amount / total)} of the portfolio '
+                                                              f'({money(amount, ccy)}).', src, 0.0))
+    held, metals = defaultdict(float), defaultdict(float)
+    for p in portfolios(client):
+        aum = p.get('AssetsUnderManagementInDefaultCurrency') or 0
+        for sp in items(p, 'SecurityPositions'):
+            amount = (sp.get('PortfolioValuePercentage') or 0) * aum
+            name = sp.get('SecurityName') or ''
+            held[short_name(name)] += amount
+            for label, words in HOLDING_WORDS.items():
+                if any(w in name.lower() for w in words):
+                    metals[label] += amount
+        for ap in items(p, 'AccountPositions'):
+            code = (ap.get('Currency') or '').upper()
+            if code in ('BTC', 'ETH', 'SOL', 'DOT', 'SHIB'):
+                metals['Crypto'] += (ap.get('PortfolioValuePercentage') or 0) * aum
+    for label, amount in metals.items():
+        out.append(Fact(f'expo.holding.{label}', 'watch', f'{label}: {money(amount, ccy)}, '
+                                                          f'{pct(amount / total)} of the portfolio.', src, 0.0))
+    top = sorted(held.items(), key=lambda kv: -kv[1])
+    if top:
+        name, amount = top[0]
+        out.append(Fact('expo.largest', 'watch', f'Largest holding: {name}, {money(amount, ccy)} '
+                                                 f'({pct(amount / total)} of the portfolio).', src, 0.0))
+        listed = ', '.join(f'{n} ({money(a, ccy)})' for n, a in top[:4])
+        out.append(Fact('expo.holdings', 'watch', f'{len(top)} holdings; the largest: {listed}.', src, 0.0))
+    return out

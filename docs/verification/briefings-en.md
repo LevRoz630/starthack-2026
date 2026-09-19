@@ -1,6 +1,6 @@
 # Briefings for every client (English, for verification)
 
-Generated 2026-09-19 by `python -m backend.report --scenario tech-selloff`. Market: **tech-selloff** — SIMULATED. US tech sell-off; the dollar weakens against the franc, gold is bid.
+Generated 2026-09-19 by `python -m backend.report --scenario tech-selloff`. Market: **tech-selloff** — US tech sell-off; the dollar weakens against the franc, gold is bid.
 
 Each sentence is computed from the data and shows where it came from. Check a few against `data/core-case/portfolio-data/clients.json` and `reference.json`; report anything wrong with the client number and the sentence.
 
@@ -41,12 +41,10 @@ Investor profile 5 · CHF 726k · ESG preference: yes
    <sub>clients.json CASE-001: Proposals[20409]</sub>
 4. **reason.** Possibly idle cash: 100.0% of the book (CHF 726k) is cash.  
    <sub>clients.json CASE-001: LiquidityInDefaultCurrency</sub>
-5. **digest.** Bitcoin −6.5% today: 0.9% of the book, about −CHF 444.  
-   <sub>simulated feed "tech-selloff": XBTUSD Curncy CHG_PCT_1D × clients.json CASE-001 holdings</sub>
-6. **talk.** Agree on a concrete next step and when you will call back.  
-   <sub>data/playbook.json: follow_up (when: always)</sub>
-7. **issue.** Open issue: 5 suitability errors and 0 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
-   <sub>clients.json CASE-001: SuitabilityViolations</sub>
+5. **digest.** About −CHF 444 today, −0.1% of the book.  
+   <sub>impact of the market feed on clients.json CASE-001 holdings</sub>
+6. **digest.** About −CHF 444 from Bitcoin, −6.5% today on 0.9% of the book.  
+   <sub>market feed "tech-selloff": XBTUSD Curncy CHG_PCT_1D × clients.json CASE-001 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -64,6 +62,16 @@ Investor profile 5 · CHF 726k · ESG preference: yes
   <sub>clients.json CASE-001: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.08): The last finalised proposal (7 Sep 2026, reason: Estate planning discussion) ordered to sell Short-Term Money Market CHF and Short-Term Money Market USD.  
   <sub>clients.json CASE-001: Proposals[25156] × Transactions</sub>
+- **Watch** (0.00): Cash on hand is CHF 726k, 100.0% of the book.  
+  <sub>clients.json CASE-001: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Cash is 100.0% of the portfolio (CHF 726k).  
+  <sub>clients.json CASE-001: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Swiss francs: 99.1% of the portfolio (CHF 720k).  
+  <sub>clients.json CASE-001: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): BTC: 0.9% of the portfolio (CHF 7k).  
+  <sub>clients.json CASE-001: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Crypto: CHF 7k, 0.9% of the portfolio.  
+  <sub>clients.json CASE-001: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (1.00): Resolve "Compliance with maximum volatility".  
   <sub>clients.json CASE-001: SuitabilityViolations[Id=313155]</sub>
 - **Next best actions** (1.00): Resolve "Volatility range undershot (portfolio risk too low)".  
@@ -76,6 +84,8 @@ Investor profile 5 · CHF 726k · ESG preference: yes
   <sub>clients.json CASE-001: Proposals[20409] × Transactions</sub>
 - **Next best actions** (0.30): Keep the 100.0% cash (CHF 726k) in view of the note from 17 Sep 2024: "Prefers to keep a cash reserve on hand for unexpected medical expenses."  
   <sub>clients.json CASE-001: LiquidityInDefaultCurrency, ClientNotes</sub>
+- **Next best actions** (0.25): Clear the warnings on the 2 flagged orders from the proposal of 7 Sep 2026.  
+  <sub>clients.json CASE-001: Transactions[ProposalId=25156].ForwardState = 2</sub>
 - **Next best actions** (0.20): Candidates from the recommendation list for Shares: ABB Ltd and Kuehne + Nagel International AG (Shares is under its band).  
   <sub>reference.json RecommendationLists "Recommendation list free assets", not held, CHF first, ordered by SustainabilityScore</sub>
 
@@ -116,30 +126,26 @@ Investor profile 5 · CHF 185k · ESG preference: no
    <sub>data/profiles/profiles.json CASE-002 (apertus) from clients.json ClientNotes</sub>
 3. **reason.** Probably the proposal of 28 Jul 2026 that was rejected (reason: Client called).  
    <sub>clients.json CASE-002: Proposals[24210]</sub>
-4. **reason.** Possibly the market move: Information Technology −4.8% today, 6.1% of the book; about −CHF 2k (−0.9%) overall.  
+4. **reason.** Possibly the market: about −CHF 2k today, −0.9% of the book. Mostly Information Technology, −4.8% on 6.1% of it.  
    <sub>impact of the market feed on clients.json CASE-002 holdings</sub>
-5. **digest.** Information Technology −4.8% today: 6.1% of the book, about −CHF 541, mostly via MSCI World Socially Responsible UCITS ETF and Global Clean Energy UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-002 holdings</sub>
-6. **digest.** The dollar −1.2% against the franc: 19.5% of the book is exposed, about −CHF 431.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-002 holdings</sub>
-7. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **digest.** Ether −8.1% today: 1.2% of the book, about −CHF 177.  
-   <sub>simulated feed "tech-selloff": XETUSD Curncy CHG_PCT_1D × clients.json CASE-002 holdings</sub>
-10. **digest.** 5.7% of the book has no matching market move and is not included.  
+5. **digest.** About −CHF 2k today, −0.9% of the book.  
+   <sub>impact of the market feed on clients.json CASE-002 holdings</sub>
+6. **digest.** About −CHF 541 from Information Technology, −4.8% today on 6.1% of the book, mostly MSCI World Socially Responsible UCITS ETF and Global Clean Energy UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-002 holdings</sub>
+7. **digest.** About −CHF 431 from the dollar, −1.2% against the franc on 19.5% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-002 holdings</sub>
+8. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **digest.** About −CHF 177 from Ether, −8.1% today on 1.2% of the book.  
+   <sub>market feed "tech-selloff": XETUSD Curncy CHG_PCT_1D × clients.json CASE-002 holdings</sub>
+11. **digest.** 5.7% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-002 holdings without a mapped market move</sub>
-11. **holding.** Global Investment Grade Credit Fund and SPDR Bloomberg Global Aggregate Bond UCITS ETF (17.7% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
-   <sub>clients.json CASE-002: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-12. **holding.** Holding up today: Swiss franc bonds +0.2% (34.2% of the book); foreign bonds +0.3% (6.4% of the book); Consumer Staples +0.3% (4.6% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-002 holdings</sub>
-13. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-14. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-15. **issue.** Open issue: 1 suitability error and 2 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
-   <sub>clients.json CASE-002: SuitabilityViolations</sub>
+12. **holding.** Global Investment Grade Credit Fund and SPDR Bloomberg Global Aggregate Bond UCITS ETF (17.7% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+   <sub>clients.json CASE-002: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
+13. **holding.** Holding up today: Swiss franc bonds +0.2% (34.2% of the book); foreign bonds +0.3% (6.4% of the book); Consumer Staples +0.3% (4.6% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-002 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -163,6 +169,52 @@ Investor profile 5 · CHF 185k · ESG preference: no
   <sub>clients.json CASE-002: Portfolios[CASE-002-01].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): 40.6% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-002: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 3k, 1.7% of the book.  
+  <sub>clients.json CASE-002: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 52.0% of the portfolio (CHF 96k).  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 40.6% of the portfolio (CHF 75k).  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 5.7% of the portfolio (CHF 10k).  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 1.7% of the portfolio (CHF 3k).  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 14.2% of the portfolio (CHF 26k) after fund look-through.  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 13.2% of the portfolio (CHF 24k) after fund look-through.  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 8.2% of the portfolio (CHF 15k) after fund look-through.  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 6.1% of the portfolio (CHF 11k) after fund look-through.  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 4.6% of the portfolio (CHF 8k) after fund look-through.  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 3.3% of the portfolio (CHF 6k) after fund look-through.  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 3.0% of the portfolio (CHF 6k) after fund look-through.  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 3.0% of the portfolio (CHF 5k) after fund look-through.  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 1.2% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.9% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.1% of the portfolio (CHF 211) after fund look-through.  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 67.1% of the portfolio (CHF 124k).  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 28.4% of the portfolio (CHF 53k).  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 3.3% of the portfolio (CHF 6k).  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): ETH: 1.2% of the portfolio (CHF 2k).  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Crypto: CHF 12k, 6.3% of the portfolio.  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: CSIF (CH) Equity Switzerland Large Cap Blue, CHF 27k (14.6% of the portfolio).  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 15 holdings; the largest: CSIF (CH) Equity Switzerland Large Cap Blue (CHF 27k), MSCI World Socially Responsible UCITS ETF (CHF 21k), SPDR Bloomberg Global Aggregate Bond UCITS ETF (CHF 19k), Short Duration High Yield Portfolio (CHF 16k).  
+  <sub>clients.json CASE-002: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.40): Book a review: the last finalised proposal was on 20 May 2025.  
   <sub>clients.json CASE-002: Proposals.FinalizedDateUTC</sub>
 - **Next best actions** (0.30): Resolve "Overweight in the equity sector "Industrials"".  
@@ -203,20 +255,16 @@ Investor profile 5 · CHF 141k · ESG preference: no
    <sub>clients.json CASE-003: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably a withdrawal: note from 1 May 2026: "Plans to retire in the next two years, increasing liquidity needs expected."  
    <sub>clients.json CASE-003: ClientNotes</sub>
-3. **reason.** Possibly the market move: Information Technology −4.8% today, 23.6% of the book; about −CHF 1k (−0.9%) overall.  
+3. **reason.** Possibly the market: about −CHF 1k today, −0.9% of the book. Mostly Information Technology, −4.8% on 23.6% of it.  
    <sub>impact of the market feed on clients.json CASE-003 holdings</sub>
-4. **digest.** Information Technology −4.8% today: 23.6% of the book, about −CHF 2k, mostly via Sensirion Holding AG.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-003 holdings</sub>
-5. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-6. **holding.** Holding up today: Consumer Staples +0.3% (73.4% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-003 holdings</sub>
-7. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
-   <sub>data/playbook.json: cash_need (when: withdrawal)</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **issue.** Open issue: Volatility is 20.0%, above the 12.0% maximum of Investor profile 5.  
-   <sub>clients.json CASE-003: Portfolios[CASE-003-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
+4. **digest.** About −CHF 1k today, −0.9% of the book.  
+   <sub>impact of the market feed on clients.json CASE-003 holdings</sub>
+5. **digest.** About −CHF 2k from Information Technology, −4.8% today on 23.6% of the book, mostly Sensirion Holding AG.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-003 holdings</sub>
+6. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+7. **holding.** Holding up today: Consumer Staples +0.3% (73.4% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-003 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -232,6 +280,22 @@ Investor profile 5 · CHF 141k · ESG preference: no
   <sub>clients.json CASE-003: ClientNotes</sub>
 - **Watch** (0.03): Risk engine for Account / Custody (CASE-003-01), 3 Sep 2026: expected return 6.4%, value at risk 19.0%.  
   <sub>clients.json CASE-003: Portfolios[CASE-003-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 4k, 3.0% of the book.  
+  <sub>clients.json CASE-003: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 97.0% of the portfolio (CHF 136k).  
+  <sub>clients.json CASE-003: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 3.0% of the portfolio (CHF 4k).  
+  <sub>clients.json CASE-003: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Consumer Staples is 73.4% of the portfolio (CHF 103k) after fund look-through.  
+  <sub>clients.json CASE-003: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 23.6% of the portfolio (CHF 33k) after fund look-through.  
+  <sub>clients.json CASE-003: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 141k).  
+  <sub>clients.json CASE-003: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Chocoladefabriken Lindt & Spruengli AG, CHF 103k (73.4% of the portfolio).  
+  <sub>clients.json CASE-003: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 2 holdings; the largest: Chocoladefabriken Lindt & Spruengli AG (CHF 103k), Sensirion Holding AG (CHF 33k).  
+  <sub>clients.json CASE-003: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -270,30 +334,26 @@ Investor profile 5 · CHF 534k · ESG preference: no
    <sub>clients.json CASE-004: ClientNotes</sub>
 3. **reason.** Possibly the proposal of 4 Aug 2026 that was rejected (reason: Client relocation).  
    <sub>clients.json CASE-004: Proposals[24385]</sub>
-4. **reason.** Possibly the market move: the dollar −1.2% today, 25.1% of the book; about −CHF 5k (−0.9%) overall.  
+4. **reason.** Possibly the market: about −CHF 5k today, −0.9% of the book. Mostly the dollar, −1.2% on 25.1% of it.  
    <sub>impact of the market feed on clients.json CASE-004 holdings</sub>
-5. **digest.** The dollar −1.2% against the franc: 25.1% of the book is exposed, about −CHF 2k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-004 holdings</sub>
-6. **digest.** Information Technology −4.8% today: 6.2% of the book, about −CHF 2k, mostly via iShares Edge MSCI USA Quality Factor UCITS ETF and iShares Edge MSCI World Value Factor UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-004 holdings</sub>
-7. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **digest.** Financials −0.9% today: 10.7% of the book, about −CHF 517, mostly via Swiss Life Holding AG and iShares Swiss Dividend ETF (CH).  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-004 holdings</sub>
-10. **digest.** 14.1% of the book has no matching market move and is not included.  
+5. **digest.** About −CHF 5k today, −0.9% of the book.  
+   <sub>impact of the market feed on clients.json CASE-004 holdings</sub>
+6. **digest.** About −CHF 2k from the dollar, −1.2% against the franc on 25.1% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-004 holdings</sub>
+7. **digest.** About −CHF 2k from Information Technology, −4.8% today on 6.2% of the book, mostly iShares Edge MSCI USA Quality Factor UCITS ETF and iShares Edge MSCI World Value Factor UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-004 holdings</sub>
+8. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **digest.** About −CHF 517 from Financials, −0.9% today on 10.7% of the book, mostly Swiss Life Holding AG and iShares Swiss Dividend ETF (CH).  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-004 holdings</sub>
+11. **digest.** 14.1% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-004 holdings without a mapped market move</sub>
-11. **holding.** Glob.High Yield Corp Bd CHF UCITS ETF (Dist) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (10.2% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
-   <sub>clients.json CASE-004: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-12. **holding.** Holding up today: Swiss franc bonds +0.2% (17.3% of the book); Consumer Staples +0.3% (11.0% of the book); foreign bonds +0.3% (3.2% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-004 holdings</sub>
-13. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
-   <sub>data/playbook.json: cash_need (when: withdrawal)</sub>
-14. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-15. **issue.** Open issue: 2 suitability errors and 0 warnings open; most serious: "Overweight in the equity sector "Energy"".  
-   <sub>clients.json CASE-004: SuitabilityViolations</sub>
+12. **holding.** Glob.High Yield Corp Bd CHF UCITS ETF (Dist) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (10.2% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+   <sub>clients.json CASE-004: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
+13. **holding.** Holding up today: Swiss franc bonds +0.2% (17.3% of the book); Consumer Staples +0.3% (11.0% of the book); foreign bonds +0.3% (3.2% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-004 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -315,8 +375,56 @@ Investor profile 5 · CHF 534k · ESG preference: no
   <sub>clients.json CASE-004: Portfolios[CASE-004-01].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): 28.3% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-004: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 9k, 1.6% of the book.  
+  <sub>clients.json CASE-004: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 63.7% of the portfolio (CHF 340k).  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 20.5% of the portfolio (CHF 110k).  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 11.0% of the portfolio (CHF 59k).  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 3.1% of the portfolio (CHF 17k).  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 1.6% of the portfolio (CHF 9k).  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 15.9% of the portfolio (CHF 85k) after fund look-through.  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 13.9% of the portfolio (CHF 74k) after fund look-through.  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 11.0% of the portfolio (CHF 59k) after fund look-through.  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 7.5% of the portfolio (CHF 40k) after fund look-through.  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 6.2% of the portfolio (CHF 33k) after fund look-through.  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 5.5% of the portfolio (CHF 29k) after fund look-through.  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 3.5% of the portfolio (CHF 19k) after fund look-through.  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 3.3% of the portfolio (CHF 18k) after fund look-through.  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 2.1% of the portfolio (CHF 11k) after fund look-through.  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.7% of the portfolio (CHF 4k) after fund look-through.  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.6% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 62.0% of the portfolio (CHF 331k).  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 37.2% of the portfolio (CHF 199k).  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): SOL: 0.8% of the portfolio (CHF 4k).  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Crypto: CHF 4k, 0.8% of the portfolio.  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares Edge MSCI World Value Factor UCITS ETF, CHF 44k (8.1% of the portfolio).  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 24 holdings; the largest: iShares Edge MSCI World Value Factor UCITS ETF (CHF 44k), iShares SMI(R) Equity Index Fund (CH) (CHF 41k), SPDR Bloomberg Global Aggregate Bond UCITS ETF (CHF 40k), iShares Edge MSCI USA Quality Factor UCITS ETF (CHF 35k).  
+  <sub>clients.json CASE-004: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.50): Follow up on the proposal of 4 Aug 2026 that was rejected (reason: Client relocation); it would have had the client buy Xtrackers MSCI World UCITS ETF, FTSE All-World High Dividend Yield UCITS ETF and 25 more and sell iShares Edge MSCI World Value Factor UCITS ETF and SPDR MSCI World Energy UCITS ETF.  
   <sub>clients.json CASE-004: Proposals[24385] × Transactions</sub>
+- **Next best actions** (0.25): Clear the warnings on the 7 flagged orders from the proposal of 22 Jul 2026.  
+  <sub>clients.json CASE-004: Transactions[ProposalId=23993].ForwardState = 2</sub>
 
 </details>
 
@@ -355,30 +463,28 @@ Investor profile 6 · CHF 480k · ESG preference: yes
    <sub>data/profiles/profiles.json CASE-005 (apertus) from clients.json ClientNotes</sub>
 3. **caller.** Contact preference: "Would like a follow-up call before any changes to the standing order"  
    <sub>data/profiles/profiles.json CASE-005 from clients.json ClientNotes</sub>
-4. **reason.** Probably the market move: Information Technology −4.8% today, 7.6% of the book; about −CHF 2k (−0.5%) overall.  
-   <sub>impact of the market feed on clients.json CASE-005 holdings</sub>
-5. **reason.** Possibly idle cash: 25.9% of the book (CHF 124k) is cash.  
-   <sub>clients.json CASE-005: LiquidityInDefaultCurrency</sub>
-6. **digest.** Information Technology −4.8% today: 7.6% of the book, about −CHF 2k, mostly via Smart Energy Fund and GQG Partners Emerging Markets Equity Fund.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-005 holdings</sub>
-7. **digest.** The dollar −1.2% against the franc: 20.7% of the book is exposed, about −CHF 1k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-005 holdings</sub>
-8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-10. **digest.** Raw materials −0.6% today: 9.3% of the book, about −CHF 267, mostly via Precious Metals Fund and Smart Energy Fund.  
-   <sub>simulated feed "tech-selloff": S5MATR Index CHG_PCT_1D × clients.json CASE-005 holdings</sub>
-11. **digest.** 7.0% of the book has no matching market move and is not included.  
-   <sub>clients.json CASE-005 holdings without a mapped market move</sub>
-12. **holding.** Holding up today: Gold +1.4% (20.5% of the book); Silver +0.8% (6.1% of the book); Utilities +0.5% (3.3% of the book).  
-   <sub>simulated feed "tech-selloff": XAU Curncy CHG_PCT_1D × clients.json CASE-005 holdings</sub>
-13. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-14. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-15. **issue.** Open issue: ESG client: average sustainability score 6.3 of 10 against a minimum of 5.7; 3 holdings below the per-position minimum (GQG Partners Emerging Markets Equity Fund, Biotechnology Fund and 1 more, 15.1% of the book); 33.5% of the book has no score.  
+4. **reason.** Probably a sustainability concern: ESG client: average sustainability score 6.3 of 10 against a minimum of 5.7; 3 holdings below the per-position minimum (GQG Partners Emerging Markets Equity Fund, Biotechnology Fund and 1 more, 15.1% of the book); 33.5% of the book has no score.  
    <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-005 positions</sub>
+5. **reason.** Possibly the market: about −CHF 2k today, −0.5% of the book. Mostly Information Technology, −4.8% on 7.6% of it.  
+   <sub>impact of the market feed on clients.json CASE-005 holdings</sub>
+6. **reason.** Possibly idle cash: 25.9% of the book (CHF 124k) is cash.  
+   <sub>clients.json CASE-005: LiquidityInDefaultCurrency</sub>
+7. **digest.** About −CHF 2k today, −0.5% of the book.  
+   <sub>impact of the market feed on clients.json CASE-005 holdings</sub>
+8. **digest.** About −CHF 2k from Information Technology, −4.8% today on 7.6% of the book, mostly Smart Energy Fund and GQG Partners Emerging Markets Equity Fund.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-005 holdings</sub>
+9. **digest.** About −CHF 1k from the dollar, −1.2% against the franc on 20.7% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-005 holdings</sub>
+10. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+11. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+12. **digest.** About −CHF 267 from Raw materials, −0.6% today on 9.3% of the book, mostly Precious Metals Fund and Smart Energy Fund.  
+   <sub>market feed "tech-selloff": S5MATR Index CHG_PCT_1D × clients.json CASE-005 holdings</sub>
+13. **digest.** 7.0% of the book has no matching market move and is not included.  
+   <sub>clients.json CASE-005 holdings without a mapped market move</sub>
+14. **holding.** Holding up today: Gold +1.4% (20.5% of the book); Silver +0.8% (6.1% of the book); Utilities +0.5% (3.3% of the book).  
+   <sub>market feed "tech-selloff": XAU Curncy CHG_PCT_1D × clients.json CASE-005 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -400,6 +506,54 @@ Investor profile 6 · CHF 480k · ESG preference: yes
   <sub>clients.json CASE-005: Portfolios[CASE-005-02].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): 33.5% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-005: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 124k, 25.9% of the book.  
+  <sub>clients.json CASE-005: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 40.6% of the portfolio (CHF 195k).  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 30.8% of the portfolio (CHF 147k).  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 25.9% of the portfolio (CHF 124k).  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 2.8% of the portfolio (CHF 13k).  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Raw materials is 9.3% of the portfolio (CHF 45k) after fund look-through.  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 7.6% of the portfolio (CHF 36k) after fund look-through.  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 7.0% of the portfolio (CHF 34k) after fund look-through.  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 4.1% of the portfolio (CHF 20k) after fund look-through.  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 3.7% of the portfolio (CHF 18k) after fund look-through.  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 3.3% of the portfolio (CHF 16k) after fund look-through.  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 2.2% of the portfolio (CHF 10k) after fund look-through.  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 1.4% of the portfolio (CHF 7k) after fund look-through.  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 1.0% of the portfolio (CHF 5k) after fund look-through.  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 0.7% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.4% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 67.6% of the portfolio (CHF 324k).  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 27.1% of the portfolio (CHF 130k).  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 5.3% of the portfolio (CHF 25k).  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Gold: CHF 98k, 20.5% of the portfolio.  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Silver: CHF 29k, 6.1% of the portfolio.  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: CSIF (CH) II Gold Blue, CHF 98k (20.5% of the portfolio).  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 13 holdings; the largest: CSIF (CH) II Gold Blue (CHF 98k), GQG Partners Emerging Markets Equity Fund (CHF 40k), Precious Metals Fund (CHF 36k), CSIF (CH) I Equity World ex CH Blue (CHF 31k).  
+  <sub>clients.json CASE-005: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Next best actions** (0.12): Clear the warnings on the 2 flagged orders from the proposal of 24 Jan 2026.  
+  <sub>clients.json CASE-005: Transactions[ProposalId=20030].ForwardState = 2</sub>
 
 </details>
 
@@ -438,20 +592,16 @@ Investor profile 5 · CHF 700k · ESG preference: no
    <sub>data/profiles/profiles.json CASE-006 from clients.json ClientNotes</sub>
 3. **reason.** Probably a withdrawal: note from 27 Jul 2026: "Considering a charitable donation from the portfolio, details being clarified."  
    <sub>clients.json CASE-006: ClientNotes</sub>
-4. **digest.** Consumer Discretionary −2.2% today: 6.0% of the book, about −CHF 920, mostly via adidas AG and The Swatch Group AG.  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-006 holdings</sub>
-5. **digest.** Financials −0.9% today: 11.1% of the book, about −CHF 698, mostly via Zurich Insurance Group AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-006 holdings</sub>
-6. **digest.** Raw materials −0.6% today: 11.3% of the book, about −CHF 474, mostly via Sika AG.  
-   <sub>simulated feed "tech-selloff": S5MATR Index CHG_PCT_1D × clients.json CASE-006 holdings</sub>
-7. **holding.** Holding up today: Consumer Staples +0.3% (18.7% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-006 holdings</sub>
-8. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
-   <sub>data/playbook.json: cash_need (when: withdrawal)</sub>
-9. **talk.** Agree on a concrete next step and when you will call back.  
-   <sub>data/playbook.json: follow_up (when: always)</sub>
-10. **issue.** Open issue: Risk profile last assessed 5 Sep 2022, 4 years ago.  
-   <sub>clients.json CASE-006: ProfilingDateUtc</sub>
+4. **digest.** About −CHF 2k today, −0.3% of the book.  
+   <sub>impact of the market feed on clients.json CASE-006 holdings</sub>
+5. **digest.** About −CHF 920 from Consumer Discretionary, −2.2% today on 6.0% of the book, mostly adidas AG and The Swatch Group AG.  
+   <sub>market feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-006 holdings</sub>
+6. **digest.** About −CHF 698 from Financials, −0.9% today on 11.1% of the book, mostly Zurich Insurance Group AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-006 holdings</sub>
+7. **digest.** About −CHF 474 from Raw materials, −0.6% today on 11.3% of the book, mostly Sika AG.  
+   <sub>market feed "tech-selloff": S5MATR Index CHG_PCT_1D × clients.json CASE-006 holdings</sub>
+8. **holding.** Holding up today: Consumer Staples +0.3% (18.7% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-006 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -469,6 +619,32 @@ Investor profile 5 · CHF 700k · ESG preference: no
   <sub>clients.json CASE-006: ClientNotes</sub>
 - **Watch** (0.03): Risk engine for Account / Custody (CASE-006-01), 3 Sep 2026: expected return 5.6%, value at risk 13.3%.  
   <sub>clients.json CASE-006: Portfolios[CASE-006-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 290k, 41.5% of the book.  
+  <sub>clients.json CASE-006: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 58.5% of the portfolio (CHF 410k).  
+  <sub>clients.json CASE-006: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 41.5% of the portfolio (CHF 290k).  
+  <sub>clients.json CASE-006: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Consumer Staples is 18.7% of the portfolio (CHF 131k) after fund look-through.  
+  <sub>clients.json CASE-006: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 11.3% of the portfolio (CHF 79k) after fund look-through.  
+  <sub>clients.json CASE-006: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 11.1% of the portfolio (CHF 78k) after fund look-through.  
+  <sub>clients.json CASE-006: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 9.2% of the portfolio (CHF 64k) after fund look-through.  
+  <sub>clients.json CASE-006: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 6.0% of the portfolio (CHF 42k) after fund look-through.  
+  <sub>clients.json CASE-006: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 2.3% of the portfolio (CHF 16k) after fund look-through.  
+  <sub>clients.json CASE-006: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 86.9% of the portfolio (CHF 609k).  
+  <sub>clients.json CASE-006: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 13.1% of the portfolio (CHF 91k).  
+  <sub>clients.json CASE-006: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Nestle SA, CHF 121k (17.3% of the portfolio).  
+  <sub>clients.json CASE-006: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 10 holdings; the largest: Nestle SA (CHF 121k), Sika AG (CHF 79k), Zurich Insurance Group AG (CHF 78k), Roche Holding AG (CHF 49k).  
+  <sub>clients.json CASE-006: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.20): Candidates from the recommendation list for Shares: ABB Ltd and Kuehne + Nagel International AG (cash is above 10% of the book).  
   <sub>reference.json RecommendationLists "Recommendation list free assets", not held, CHF first, ordered by SustainabilityScore</sub>
 
@@ -505,30 +681,28 @@ Investor profile 5 · CHF 905k · ESG preference: yes
    <sub>clients.json CASE-007: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Contact preference: "Hard to reach during the day, best contacted after 6pm"  
    <sub>data/profiles/profiles.json CASE-007 from clients.json ClientNotes</sub>
-3. **reason.** Probably the market move: Information Technology −4.8% today, 6.6% of the book; about −CHF 7k (−0.7%) overall.  
+3. **reason.** Probably the market: about −CHF 7k today, −0.7% of the book. Mostly Information Technology, −4.8% on 6.6% of it.  
    <sub>impact of the market feed on clients.json CASE-007 holdings</sub>
-4. **digest.** Information Technology −4.8% today: 6.6% of the book, about −CHF 3k, mostly via Edge MSCI World Momentum Factor UCITS ETF and iShares MSCI World CHF Hedged UCITS ETF (Acc).  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-007 holdings</sub>
-5. **digest.** The dollar −1.2% against the franc: 8.6% of the book is exposed, about −CHF 934.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-007 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** Financials −0.9% today: 10.5% of the book, about −CHF 853, mostly via iShares Swiss Dividend ETF (CH) and Equities Switzerland Passive Leader.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-007 holdings</sub>
-9. **digest.** 6.8% of the book has no matching market move and is not included.  
+4. **reason.** Possibly a sustainability concern: ESG client: average sustainability score 7.1 of 10 against a minimum of 5.7; 2 holdings below the per-position minimum (iShares Core MSCI EM IMI UCITS ETF and ams-OSRAM AG, 3.0% of the book).  
+   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-007 positions</sub>
+5. **digest.** About −CHF 7k today, −0.7% of the book.  
+   <sub>impact of the market feed on clients.json CASE-007 holdings</sub>
+6. **digest.** About −CHF 3k from Information Technology, −4.8% today on 6.6% of the book, mostly Edge MSCI World Momentum Factor UCITS ETF and iShares MSCI World CHF Hedged UCITS ETF (Acc).  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-007 holdings</sub>
+7. **digest.** About −CHF 934 from the dollar, −1.2% against the franc on 8.6% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-007 holdings</sub>
+8. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **digest.** About −CHF 853 from Financials, −0.9% today on 10.5% of the book, mostly iShares Swiss Dividend ETF (CH) and Equities Switzerland Passive Leader.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-007 holdings</sub>
+11. **digest.** 6.8% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-007 holdings without a mapped market move</sub>
-10. **holding.** Global Investment Grade Credit Fund and iShares MSCI World CHF Hedged UCITS ETF (Acc) and US Short Duration High Yield (18.0% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
-   <sub>clients.json CASE-007: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-11. **holding.** Holding up today: Swiss franc bonds +0.2% (35.2% of the book); Consumer Staples +0.3% (9.4% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-007 holdings</sub>
-12. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-13. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-14. **issue.** Open issue: 1 suitability error and 0 warnings open; most serious: "Compliance with maximum volatility".  
-   <sub>clients.json CASE-007: SuitabilityViolations</sub>
+12. **holding.** Global Investment Grade Credit Fund and iShares MSCI World CHF Hedged UCITS ETF (Acc) and US Short Duration High Yield (18.0% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+   <sub>clients.json CASE-007: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
+13. **holding.** Holding up today: Swiss franc bonds +0.2% (35.2% of the book); Consumer Staples +0.3% (9.4% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-007 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -550,6 +724,50 @@ Investor profile 5 · CHF 905k · ESG preference: yes
   <sub>clients.json CASE-007: Portfolios[CASE-007-01].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): 42.8% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-007: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 4k, 0.5% of the book.  
+  <sub>clients.json CASE-007: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 56.7% of the portfolio (CHF 513k).  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 35.2% of the portfolio (CHF 319k).  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 7.6% of the portfolio (CHF 69k).  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 0.5% of the portfolio (CHF 4k).  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 10.7% of the portfolio (CHF 97k) after fund look-through.  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 10.5% of the portfolio (CHF 95k) after fund look-through.  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 9.4% of the portfolio (CHF 85k) after fund look-through.  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 7.6% of the portfolio (CHF 69k) after fund look-through.  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 6.6% of the portfolio (CHF 60k) after fund look-through.  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 4.1% of the portfolio (CHF 37k) after fund look-through.  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 2.8% of the portfolio (CHF 26k) after fund look-through.  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 2.5% of the portfolio (CHF 23k) after fund look-through.  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 1.4% of the portfolio (CHF 13k) after fund look-through.  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.7% of the portfolio (CHF 6k) after fund look-through.  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.6% of the portfolio (CHF 5k) after fund look-through.  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 78.5% of the portfolio (CHF 711k).  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 14.7% of the portfolio (CHF 134k).  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 6.8% of the portfolio (CHF 61k).  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Palladium: CHF 8k, 0.9% of the portfolio.  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares Swiss Dividend ETF (CH), CHF 106k (11.7% of the portfolio).  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 20 holdings; the largest: iShares Swiss Dividend ETF (CH) (CHF 106k), Equities Switzerland Passive Leader (CHF 93k), Edge MSCI World Momentum Factor UCITS ETF (CHF 62k), iShares MSCI World CHF Hedged UCITS ETF (Acc) (CHF 59k).  
+  <sub>clients.json CASE-007: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -582,26 +800,22 @@ Investor profile 7 · CHF 308k · ESG preference: yes
 
 1. **caller.** Betty Boop is calling: Investor profile 7, ESG preference, CHF 308k across 1 portfolio.  
    <sub>clients.json CASE-008: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Information Technology −4.8% today, 13.9% of the book; about −CHF 6k (−1.8%) overall.  
+2. **reason.** Probably the market: about −CHF 6k today, −1.8% of the book. Mostly Information Technology, −4.8% on 13.9% of it.  
    <sub>impact of the market feed on clients.json CASE-008 holdings</sub>
-3. **digest.** Information Technology −4.8% today: 13.9% of the book, about −CHF 2k, mostly via CSIF (CH) I Equity World ex CH Blue and CSIF (CH) Equity World ex CH ESG Blue.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-008 holdings</sub>
-4. **digest.** The dollar −1.2% against the franc: 31.7% of the book is exposed, about −CHF 1k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-008 holdings</sub>
-5. **digest.** Consumer Discretionary −2.2% today: 8.5% of the book, about −CHF 574, mostly via CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-008 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **holding.** Holding up today: Consumer Staples +0.3% (8.6% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-008 holdings</sub>
-9. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-10. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-11. **issue.** Open issue: 5 suitability errors and 7 warnings open; most serious: "Foreign currency exposure exceeds 50%".  
-   <sub>clients.json CASE-008: SuitabilityViolations</sub>
+3. **digest.** About −CHF 6k today, −1.8% of the book.  
+   <sub>impact of the market feed on clients.json CASE-008 holdings</sub>
+4. **digest.** About −CHF 2k from Information Technology, −4.8% today on 13.9% of the book, mostly CSIF (CH) I Equity World ex CH Blue and CSIF (CH) Equity World ex CH ESG Blue.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-008 holdings</sub>
+5. **digest.** About −CHF 1k from the dollar, −1.2% against the franc on 31.7% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-008 holdings</sub>
+6. **digest.** About −CHF 574 from Consumer Discretionary, −2.2% today on 8.5% of the book, mostly CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
+   <sub>market feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-008 holdings</sub>
+7. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **holding.** Holding up today: Consumer Staples +0.3% (8.6% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-008 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -621,6 +835,40 @@ Investor profile 7 · CHF 308k · ESG preference: yes
   <sub>clients.json CASE-008: ClientNotes</sub>
 - **Watch** (0.03): Risk engine for Pension (CASE-008-01), 3 Sep 2026: expected return 6.3%, value at risk 16.3%.  
   <sub>clients.json CASE-008: Portfolios[CASE-008-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 9k, 2.9% of the book.  
+  <sub>clients.json CASE-008: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 97.1% of the portfolio (CHF 299k).  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 2.9% of the portfolio (CHF 9k).  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 18.5% of the portfolio (CHF 57k) after fund look-through.  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 18.5% of the portfolio (CHF 57k) after fund look-through.  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 13.9% of the portfolio (CHF 43k) after fund look-through.  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 13.0% of the portfolio (CHF 40k) after fund look-through.  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 8.6% of the portfolio (CHF 26k) after fund look-through.  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 8.5% of the portfolio (CHF 26k) after fund look-through.  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 5.6% of the portfolio (CHF 17k) after fund look-through.  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 5.4% of the portfolio (CHF 17k) after fund look-through.  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 2.0% of the portfolio (CHF 6k) after fund look-through.  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 2.0% of the portfolio (CHF 6k) after fund look-through.  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 1.1% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 308k).  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: CSIF (CH) I Equity World ex CH Blue, CHF 76k (24.6% of the portfolio).  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 6 holdings; the largest: CSIF (CH) I Equity World ex CH Blue (CHF 76k), Equities Switzerland Passive Leader (CHF 74k), CSIF (CH) Equity World ex CH ESG Blue (CHF 58k), Index Equity Fund Small & Mid Caps Switzerland (CHF 37k).  
+  <sub>clients.json CASE-008: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (1.00): Resolve "Foreign currency cluster risk EUR".  
   <sub>clients.json CASE-008: SuitabilityViolations[Id=893795]</sub>
 
@@ -653,20 +901,16 @@ Investor profile 5 · CHF 665k · ESG preference: no
 
 1. **caller.** Dorothy Gale is calling: Investor profile 5, CHF 665k across 1 portfolio.  
    <sub>clients.json CASE-009: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Financials −0.9% today, 94.3% of the book; about −CHF 6k (−0.9%) overall.  
+2. **reason.** Probably the market: about −CHF 6k today, −0.9% of the book. Mostly Financials, −0.9% on 94.3% of it.  
    <sub>impact of the market feed on clients.json CASE-009 holdings</sub>
-3. **digest.** Financials −0.9% today: 94.3% of the book, about −CHF 6k, mostly via VZ Holding AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-009 holdings</sub>
-4. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-5. **digest.** The dollar −1.2% against the franc: 0.6% of the book is exposed, about −CHF 49.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-009 holdings</sub>
-6. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-7. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
-8. **issue.** Open issue: Risk profile last assessed 5 Sep 2022, 4 years ago.  
-   <sub>clients.json CASE-009: ProfilingDateUtc</sub>
+3. **digest.** About −CHF 6k today, −0.9% of the book.  
+   <sub>impact of the market feed on clients.json CASE-009 holdings</sub>
+4. **digest.** About −CHF 6k from Financials, −0.9% today on 94.3% of the book, mostly VZ Holding AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-009 holdings</sub>
+5. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+6. **digest.** About −CHF 49 from the dollar, −1.2% against the franc on 0.6% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-009 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -676,6 +920,24 @@ Investor profile 5 · CHF 665k · ESG preference: no
   <sub>clients.json CASE-009: ClientNotes</sub>
 - **Watch** (0.03): Risk engine for Account / Custody (CASE-009-01): expected return 6.4%, value at risk 21.2%.  
   <sub>clients.json CASE-009: Portfolios[CASE-009-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 34k, 5.1% of the book.  
+  <sub>clients.json CASE-009: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 94.3% of the portfolio (CHF 627k).  
+  <sub>clients.json CASE-009: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 5.1% of the portfolio (CHF 34k).  
+  <sub>clients.json CASE-009: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 0.6% of the portfolio (CHF 4k).  
+  <sub>clients.json CASE-009: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Financials is 94.3% of the portfolio (CHF 627k) after fund look-through.  
+  <sub>clients.json CASE-009: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 99.4% of the portfolio (CHF 661k).  
+  <sub>clients.json CASE-009: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 0.6% of the portfolio (CHF 4k).  
+  <sub>clients.json CASE-009: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: VZ Holding AG, CHF 627k (94.3% of the portfolio).  
+  <sub>clients.json CASE-009: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 2 holdings; the largest: VZ Holding AG (CHF 627k), FIM Long-Invest Portfolio Ltd (CHF 4k).  
+  <sub>clients.json CASE-009: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -712,14 +974,14 @@ Investor profile 5 · CHF 371k · ESG preference: yes
    <sub>clients.json CASE-010: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Profile: calm temperament, wants it detailed. From the notes: "Comfortable with higher volatility given a long time horizon."  
    <sub>data/profiles/profiles.json CASE-010 (apertus) from clients.json ClientNotes</sub>
-3. **reason.** Probably idle cash: 19.9% of the book (CHF 74k) is cash.  
+3. **reason.** Probably a sustainability concern: ESG client: average sustainability score 7.8 of 10 against a minimum of 5.7; 1 holding below the per-position minimum (Sandoz Group AG, 4.2% of the book).  
+   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-010 positions</sub>
+4. **reason.** Possibly idle cash: 19.9% of the book (CHF 74k) is cash.  
    <sub>clients.json CASE-010: LiquidityInDefaultCurrency</sub>
-4. **digest.** Health Care −0.4% today: 80.1% of the book, about −CHF 1k, mostly via Novartis AG and Alcon AG.  
-   <sub>simulated feed "tech-selloff": S5HLTH Index CHG_PCT_1D × clients.json CASE-010 holdings</sub>
-5. **talk.** Agree on a concrete next step and when you will call back.  
-   <sub>data/playbook.json: follow_up (when: always)</sub>
-6. **issue.** Open issue: Risk profile last assessed 12 Oct 2022, 4 years ago.  
-   <sub>clients.json CASE-010: ProfilingDateUtc</sub>
+5. **digest.** About −CHF 1k today, −0.3% of the book.  
+   <sub>impact of the market feed on clients.json CASE-010 holdings</sub>
+6. **digest.** About −CHF 1k from Health Care, −0.4% today on 80.1% of the book, mostly Novartis AG and Alcon AG.  
+   <sub>market feed "tech-selloff": S5HLTH Index CHG_PCT_1D × clients.json CASE-010 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -735,6 +997,20 @@ Investor profile 5 · CHF 371k · ESG preference: yes
   <sub>clients.json CASE-010: ClientNotes</sub>
 - **Watch** (0.03): Risk engine for Account / Custody (CASE-010-01), 3 Sep 2026: expected return 5.3%, value at risk 3.5%.  
   <sub>clients.json CASE-010: Portfolios[CASE-010-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 74k, 19.9% of the book.  
+  <sub>clients.json CASE-010: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 80.1% of the portfolio (CHF 297k).  
+  <sub>clients.json CASE-010: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 19.9% of the portfolio (CHF 74k).  
+  <sub>clients.json CASE-010: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 80.1% of the portfolio (CHF 297k) after fund look-through.  
+  <sub>clients.json CASE-010: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 371k).  
+  <sub>clients.json CASE-010: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Novartis AG, CHF 240k (64.8% of the portfolio).  
+  <sub>clients.json CASE-010: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 3 holdings; the largest: Novartis AG (CHF 240k), Alcon AG (CHF 41k), Sandoz Group AG (CHF 16k).  
+  <sub>clients.json CASE-010: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.20): Candidates from the recommendation list for Shares: ABB Ltd and Kuehne + Nagel International AG (cash is above 10% of the book).  
   <sub>reference.json RecommendationLists "Recommendation list free assets", not held, CHF first, ordered by SustainabilityScore</sub>
 
@@ -773,22 +1049,18 @@ Investor profile 6 · CHF 101k · ESG preference: no
    <sub>data/profiles/profiles.json CASE-011 (apertus) from clients.json ClientNotes</sub>
 3. **caller.** Contact preference: "Prefers email communication, hard to reach by phone"  
    <sub>data/profiles/profiles.json CASE-011 from clients.json ClientNotes</sub>
-4. **reason.** Probably the market move: Industrials −1.1% today, 58.5% of the book; about −CHF 1k (−1.1%) overall.  
+4. **reason.** Probably the market: about −CHF 1k today, −1.1% of the book. Mostly Industrials, −1.1% on 58.5% of it.  
    <sub>impact of the market feed on clients.json CASE-011 holdings</sub>
-5. **digest.** Industrials −1.1% today: 58.5% of the book, about −CHF 648, mostly via ABB Ltd and Rieter Holding AG.  
-   <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-011 holdings</sub>
-6. **digest.** The dollar −1.2% against the franc: 17.1% of the book is exposed, about −CHF 207.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-011 holdings</sub>
-7. **digest.** Financials −0.9% today: 16.9% of the book, about −CHF 154, mostly via UBS Group AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-011 holdings</sub>
-8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-10. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
-11. **issue.** Open issue: Volatility is 60.6%, above the 15.0% maximum of Investor profile 6.  
-   <sub>clients.json CASE-011: Portfolios[CASE-011-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
+5. **digest.** About −CHF 1k today, −1.1% of the book.  
+   <sub>impact of the market feed on clients.json CASE-011 holdings</sub>
+6. **digest.** About −CHF 648 from Industrials, −1.1% today on 58.5% of the book, mostly ABB Ltd and Rieter Holding AG.  
+   <sub>market feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-011 holdings</sub>
+7. **digest.** About −CHF 207 from the dollar, −1.2% against the franc on 17.1% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-011 holdings</sub>
+8. **digest.** About −CHF 154 from Financials, −0.9% today on 16.9% of the book, mostly UBS Group AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-011 holdings</sub>
+9. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -806,6 +1078,30 @@ Investor profile 6 · CHF 101k · ESG preference: no
   <sub>clients.json CASE-011: ClientNotes</sub>
 - **Watch** (0.03): Risk engine for Account / Custody (CASE-011-01), 3 Sep 2026: expected return 6.1%, value at risk 15.2%.  
   <sub>clients.json CASE-011: Portfolios[CASE-011-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 7k, 7.1% of the book.  
+  <sub>clients.json CASE-011: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 92.7% of the portfolio (CHF 93k).  
+  <sub>clients.json CASE-011: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 7.1% of the portfolio (CHF 7k).  
+  <sub>clients.json CASE-011: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 0.2% of the portfolio (CHF 152).  
+  <sub>clients.json CASE-011: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Industrials is 58.5% of the portfolio (CHF 59k) after fund look-through.  
+  <sub>clients.json CASE-011: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 16.9% of the portfolio (CHF 17k) after fund look-through.  
+  <sub>clients.json CASE-011: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 10.5% of the portfolio (CHF 11k) after fund look-through.  
+  <sub>clients.json CASE-011: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 6.8% of the portfolio (CHF 7k) after fund look-through.  
+  <sub>clients.json CASE-011: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 82.9% of the portfolio (CHF 84k).  
+  <sub>clients.json CASE-011: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 17.1% of the portfolio (CHF 17k).  
+  <sub>clients.json CASE-011: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: ABB Ltd, CHF 42k (41.9% of the portfolio).  
+  <sub>clients.json CASE-011: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 9 holdings; the largest: ABB Ltd (CHF 42k), UBS Group AG (CHF 17k), Galenica AG (CHF 11k), SIG Group AG (CHF 7k).  
+  <sub>clients.json CASE-011: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -840,30 +1136,26 @@ Investor profile 6 · CHF 44k · ESG preference: no
 
 1. **caller.** Company 001 AG is calling: Investor profile 6, CHF 44k across 1 portfolio.  
    <sub>clients.json CASE-012: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Information Technology −4.8% today, 23.7% of the book; about −CHF 2k (−3.5%) overall.  
+2. **reason.** Probably the market: about −CHF 2k today, −3.5% of the book. Mostly Information Technology, −4.8% on 23.7% of it.  
    <sub>impact of the market feed on clients.json CASE-012 holdings</sub>
 3. **reason.** Possibly a withdrawal: note from 20 Mar 2026: "Needs approximately CHF 15,000 in liquid funds for the Q1 tax payment."  
    <sub>clients.json CASE-012: ClientNotes</sub>
 4. **reason.** Possibly investing new money: a deposit was noted on 30 Aug 2026.  
    <sub>clients.json CASE-012: Proposals[25001].Reason</sub>
-5. **digest.** Information Technology −4.8% today: 23.7% of the book, about −CHF 504, mostly via Apple Inc and ETF USD iShares III PLC- iShares Core MSCI World UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-012 holdings</sub>
-6. **digest.** The dollar −1.2% against the franc: 75.3% of the book is exposed, about −CHF 401.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-012 holdings</sub>
-7. **digest.** Communication Services −3.1% today: 28.0% of the book, about −CHF 385, mostly via Alphabet Inc and ETF USD iShares III PLC- iShares Core MSCI World UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × clients.json CASE-012 holdings</sub>
-8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-10. **holding.** Holding up today: Consumer Staples +0.3% (4.2% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-012 holdings</sub>
-11. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-12. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-13. **issue.** Open issue: 13 suitability errors and 8 warnings open; most serious: "Volatility range exceeded (portfolio risk too high)".  
-   <sub>clients.json CASE-012: SuitabilityViolations</sub>
+5. **digest.** About −CHF 2k today, −3.5% of the book.  
+   <sub>impact of the market feed on clients.json CASE-012 holdings</sub>
+6. **digest.** About −CHF 504 from Information Technology, −4.8% today on 23.7% of the book, mostly Apple Inc and ETF USD iShares III PLC- iShares Core MSCI World UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-012 holdings</sub>
+7. **digest.** About −CHF 401 from the dollar, −1.2% against the franc on 75.3% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-012 holdings</sub>
+8. **digest.** About −CHF 385 from Communication Services, −3.1% today on 28.0% of the book, mostly Alphabet Inc and ETF USD iShares III PLC- iShares Core MSCI World UCITS ETF.  
+   <sub>market feed "tech-selloff": S5TELS Index CHG_PCT_1D × clients.json CASE-012 holdings</sub>
+9. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+11. **holding.** Holding up today: Consumer Staples +0.3% (4.2% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-012 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -893,8 +1185,46 @@ Investor profile 6 · CHF 44k · ESG preference: no
   <sub>clients.json CASE-012: Proposals[25001] × Transactions</sub>
 - **Watch** (0.03): Risk engine for Investment advisory (CASE-012-01), 3 Sep 2026: expected return 6.5%, value at risk 20.8%.  
   <sub>clients.json CASE-012: Portfolios[CASE-012-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 328, 0.7% of the book.  
+  <sub>clients.json CASE-012: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 99.3% of the portfolio (CHF 44k).  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 0.7% of the portfolio (CHF 328).  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Communication Services is 28.0% of the portfolio (CHF 12k) after fund look-through.  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 23.7% of the portfolio (CHF 11k) after fund look-through.  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 17.6% of the portfolio (CHF 8k) after fund look-through.  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 10.0% of the portfolio (CHF 4k) after fund look-through.  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 8.0% of the portfolio (CHF 4k) after fund look-through.  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 4.5% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 4.2% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 1.1% of the portfolio (CHF 494) after fund look-through.  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 1.0% of the portfolio (CHF 460) after fund look-through.  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.6% of the portfolio (CHF 254) after fund look-through.  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.5% of the portfolio (CHF 235) after fund look-through.  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): US-Dollar: 82.2% of the portfolio (CHF 36k).  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Swiss francs: 17.8% of the portfolio (CHF 8k).  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Alphabet Inc, CHF 11k (25.5% of the portfolio).  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 5 holdings; the largest: Alphabet Inc (CHF 11k), ETF USD iShares III PLC- iShares Core MSCI World UCITS ETF (CHF 11k), Apple Inc (CHF 8k), iShares Swiss Dividend ETF (CH) (CHF 8k).  
+  <sub>clients.json CASE-012: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (1.00): Resolve "Cluster risk of a single financial instrument" on iShares Swiss Dividend ETF (CH).  
   <sub>clients.json CASE-012: SuitabilityViolations[Id=171637]</sub>
+- **Next best actions** (0.21): Clear the warnings on the 5 flagged orders from the proposal of 30 Aug 2026.  
+  <sub>clients.json CASE-012: Transactions[ProposalId=25001].ForwardState = 2</sub>
 
 </details>
 
@@ -931,16 +1261,14 @@ Investor profile 4 · CHF 58k · ESG preference: no
    <sub>clients.json CASE-013: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably idle cash: 19.2% of the book (CHF 11k) is cash.  
    <sub>clients.json CASE-013: LiquidityInDefaultCurrency</sub>
-3. **digest.** Financials −0.9% today: 6.0% of the book, about −CHF 31, mostly via Helvetia Holding AG and VZ Holding AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-013 holdings</sub>
-4. **digest.** Industrials −1.1% today: 2.3% of the book, about −CHF 14, mostly via Daetwyler Holding AG and Stadler Rail AG.  
-   <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-013 holdings</sub>
-5. **digest.** 72.5% of the book has no matching market move and is not included.  
+3. **digest.** About −CHF 46 today, −0.1% of the book.  
+   <sub>impact of the market feed on clients.json CASE-013 holdings</sub>
+4. **digest.** About −CHF 31 from Financials, −0.9% today on 6.0% of the book, mostly Helvetia Holding AG and VZ Holding AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-013 holdings</sub>
+5. **digest.** About −CHF 14 from Industrials, −1.1% today on 2.3% of the book, mostly Daetwyler Holding AG and Stadler Rail AG.  
+   <sub>market feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-013 holdings</sub>
+6. **digest.** 72.5% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-013 holdings without a mapped market move</sub>
-6. **talk.** Agree on a concrete next step and when you will call back.  
-   <sub>data/playbook.json: follow_up (when: always)</sub>
-7. **issue.** Open issue: Risk profile last assessed 1 Oct 2022, 4 years ago.  
-   <sub>clients.json CASE-013: ProfilingDateUtc</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -960,6 +1288,22 @@ Investor profile 4 · CHF 58k · ESG preference: no
   <sub>clients.json CASE-013: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 72.5% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-013: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 11k, 19.2% of the book.  
+  <sub>clients.json CASE-013: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 80.8% of the portfolio (CHF 47k).  
+  <sub>clients.json CASE-013: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 19.2% of the portfolio (CHF 11k).  
+  <sub>clients.json CASE-013: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Financials is 6.0% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-013: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 2.3% of the portfolio (CHF 1k) after fund look-through.  
+  <sub>clients.json CASE-013: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 58k).  
+  <sub>clients.json CASE-013: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: WWZ AG, CHF 40k (68.4% of the portfolio).  
+  <sub>clients.json CASE-013: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 6 holdings; the largest: WWZ AG (CHF 40k), Helvetia Holding AG (CHF 2k), Stanserhorn-Bahn-Aktiengesellschaft (CHF 2k), VZ Holding AG (CHF 1k).  
+  <sub>clients.json CASE-013: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.20): Candidates from the recommendation list for Shares: ABB Ltd and Kuehne + Nagel International AG (cash is above 10% of the book).  
   <sub>reference.json RecommendationLists "Recommendation list free assets", not held, CHF first, ordered by SustainabilityScore</sub>
 
@@ -998,18 +1342,14 @@ Investor profile 4 · CHF 109k · ESG preference: no
    <sub>clients.json CASE-014: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Contact preference: "Prefers not to be contacted during business hours on weekdays"  
    <sub>data/profiles/profiles.json CASE-014 from clients.json ClientNotes</sub>
-3. **reason.** Probably the market move: Financials −0.9% today, 67.5% of the book; about −CHF 665 (−0.6%) overall.  
+3. **reason.** Probably the market: about −CHF 665 today, −0.6% of the book. Mostly Financials, −0.9% on 67.5% of it.  
    <sub>impact of the market feed on clients.json CASE-014 holdings</sub>
 4. **reason.** Possibly idle cash: 32.2% of the book (CHF 35k) is cash.  
    <sub>clients.json CASE-014: LiquidityInDefaultCurrency</sub>
-5. **digest.** Financials −0.9% today: 67.5% of the book, about −CHF 662, mostly via VZ Holding AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-014 holdings</sub>
-6. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
-7. **talk.** Agree on a concrete next step and when you will call back.  
-   <sub>data/playbook.json: follow_up (when: always)</sub>
-8. **issue.** Open issue: Volatility in Account / Custody (CASE-014-02) is 22.0%, above the 10.0% maximum of Investor profile 4.  
-   <sub>clients.json CASE-014: Portfolios[CASE-014-02].Volatility; reference.json RiskProfiles.MaxVola</sub>
+5. **digest.** About −CHF 665 today, −0.6% of the book.  
+   <sub>impact of the market feed on clients.json CASE-014 holdings</sub>
+6. **digest.** About −CHF 662 from Financials, −0.9% today on 67.5% of the book, mostly VZ Holding AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-014 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1021,6 +1361,22 @@ Investor profile 4 · CHF 109k · ESG preference: no
   <sub>clients.json CASE-014: Portfolios[CASE-014-02].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): Industrials is 0.3% of the book (CHF 307) after fund look-through, mostly via Stadler Rail AG.  
   <sub>clients.json CASE-014: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+- **Watch** (0.00): Cash on hand is CHF 35k, 32.2% of the book.  
+  <sub>clients.json CASE-014: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 67.8% of the portfolio (CHF 74k).  
+  <sub>clients.json CASE-014: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 32.2% of the portfolio (CHF 35k).  
+  <sub>clients.json CASE-014: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Financials is 67.5% of the portfolio (CHF 74k) after fund look-through.  
+  <sub>clients.json CASE-014: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 0.3% of the portfolio (CHF 307) after fund look-through.  
+  <sub>clients.json CASE-014: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 109k).  
+  <sub>clients.json CASE-014: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: VZ Holding AG, CHF 74k (67.5% of the portfolio).  
+  <sub>clients.json CASE-014: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 2 holdings; the largest: VZ Holding AG (CHF 74k), Stadler Rail AG (CHF 307).  
+  <sub>clients.json CASE-014: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.20): Candidates from the recommendation list for Shares: ABB Ltd and Kuehne + Nagel International AG (cash is above 10% of the book).  
   <sub>reference.json RecommendationLists "Recommendation list free assets", not held, CHF first, ordered by SustainabilityScore</sub>
 
@@ -1059,20 +1415,16 @@ Investor profile 6 · CHF 304k · ESG preference: yes
    <sub>data/profiles/profiles.json CASE-015 (apertus) from clients.json ClientNotes</sub>
 3. **caller.** Contact preference: "Prefers not to be contacted during business hours on weekdays"  
    <sub>data/profiles/profiles.json CASE-015 from clients.json ClientNotes</sub>
-4. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-5. **digest.** The dollar −1.2% against the franc: 1.1% of the book is exposed, about −CHF 42.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-015 holdings</sub>
-6. **digest.** Financials −0.9% today: 1.1% of the book, about −CHF 31, mostly via UBS Group AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-015 holdings</sub>
-7. **holding.** Holding up today: Utilities +0.5% (88.1% of the book).  
-   <sub>simulated feed "tech-selloff": S5UTIL Index CHG_PCT_1D × clients.json CASE-015 holdings</sub>
-8. **talk.** Acknowledge the concern first, then give the numbers.  
-   <sub>data/playbook.json: acknowledge (when: anxious)</sub>
-9. **talk.** Agree on a concrete next step and when you will call back.  
-   <sub>data/playbook.json: follow_up (when: always)</sub>
-10. **issue.** Open issue: Volatility is 29.3%, above the 15.0% maximum of Investor profile 6.  
-   <sub>clients.json CASE-015: Portfolios[CASE-015-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
+4. **digest.** About +CHF 1k today, +0.4% of the book.  
+   <sub>impact of the market feed on clients.json CASE-015 holdings</sub>
+5. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+6. **digest.** About −CHF 42 from the dollar, −1.2% against the franc on 1.1% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-015 holdings</sub>
+7. **digest.** About −CHF 31 from Financials, −0.9% today on 1.1% of the book, mostly UBS Group AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-015 holdings</sub>
+8. **holding.** Holding up today: Utilities +0.5% (88.1% of the book).  
+   <sub>market feed "tech-selloff": S5UTIL Index CHG_PCT_1D × clients.json CASE-015 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1088,6 +1440,24 @@ Investor profile 6 · CHF 304k · ESG preference: yes
   <sub>clients.json CASE-015: Portfolios[CASE-015-01].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.01): Financials is 1.1% of the book (CHF 3k) after fund look-through, mostly via UBS Group AG.  
   <sub>clients.json CASE-015: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
+- **Watch** (0.00): Cash on hand is CHF 28k, 9.1% of the book.  
+  <sub>clients.json CASE-015: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 90.9% of the portfolio (CHF 276k).  
+  <sub>clients.json CASE-015: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 9.1% of the portfolio (CHF 28k).  
+  <sub>clients.json CASE-015: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Utilities is 88.1% of the portfolio (CHF 268k) after fund look-through.  
+  <sub>clients.json CASE-015: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 1.1% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-015: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 98.9% of the portfolio (CHF 300k).  
+  <sub>clients.json CASE-015: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 1.1% of the portfolio (CHF 3k).  
+  <sub>clients.json CASE-015: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Edisun Power Europe AG, CHF 268k (88.1% of the portfolio).  
+  <sub>clients.json CASE-015: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 3 holdings; the largest: Edisun Power Europe AG (CHF 268k), Grand Resort Bad Ragaz AG (CHF 5k), UBS Group AG (CHF 3k).  
+  <sub>clients.json CASE-015: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -1124,16 +1494,14 @@ Investor profile 5 · CHF 364k · ESG preference: yes
    <sub>clients.json CASE-016: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably a withdrawal: note from 25 Apr 2026: "Considering a charitable donation from the portfolio, details being clarified."  
    <sub>clients.json CASE-016: ClientNotes</sub>
-3. **reason.** Possibly the market move: Financials −0.9% today, 58.6% of the book; about −CHF 2k (−0.5%) overall.  
-   <sub>impact of the market feed on clients.json CASE-016 holdings</sub>
-4. **digest.** Financials −0.9% today: 58.6% of the book, about −CHF 2k, mostly via VZ Holding AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-016 holdings</sub>
-5. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
-   <sub>data/playbook.json: cash_need (when: withdrawal)</sub>
-6. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-7. **issue.** Open issue: ESG client: average sustainability score 3.1 of 10 against a minimum of 5.7; 1 holding below the per-position minimum (VZ Holding AG, 58.6% of the book).  
+3. **reason.** Possibly a sustainability concern: ESG client: average sustainability score 3.1 of 10 against a minimum of 5.7; 1 holding below the per-position minimum (VZ Holding AG, 58.6% of the book).  
    <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-016 positions</sub>
+4. **reason.** Possibly the market: about −CHF 2k today, −0.5% of the book. Mostly Financials, −0.9% on 58.6% of it.  
+   <sub>impact of the market feed on clients.json CASE-016 holdings</sub>
+5. **digest.** About −CHF 2k today, −0.5% of the book.  
+   <sub>impact of the market feed on clients.json CASE-016 holdings</sub>
+6. **digest.** About −CHF 2k from Financials, −0.9% today on 58.6% of the book, mostly VZ Holding AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-016 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1141,6 +1509,20 @@ Investor profile 5 · CHF 364k · ESG preference: yes
   <sub>clients.json CASE-016: ClientNotes</sub>
 - **Watch** (0.15): Note from 25 Apr 2026: "Considering a charitable donation from the portfolio, details being clarified."  
   <sub>clients.json CASE-016: ClientNotes</sub>
+- **Watch** (0.00): Cash on hand is CHF 151k, 41.4% of the book.  
+  <sub>clients.json CASE-016: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 58.6% of the portfolio (CHF 213k).  
+  <sub>clients.json CASE-016: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 41.4% of the portfolio (CHF 151k).  
+  <sub>clients.json CASE-016: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Financials is 58.6% of the portfolio (CHF 213k) after fund look-through.  
+  <sub>clients.json CASE-016: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 364k).  
+  <sub>clients.json CASE-016: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: VZ Holding AG, CHF 213k (58.6% of the portfolio).  
+  <sub>clients.json CASE-016: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 1 holdings; the largest: VZ Holding AG (CHF 213k).  
+  <sub>clients.json CASE-016: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.20): Candidates from the recommendation list for Shares: ABB Ltd and Kuehne + Nagel International AG (cash is above 10% of the book).  
   <sub>reference.json RecommendationLists "Recommendation list free assets", not held, CHF first, ordered by SustainabilityScore</sub>
 
@@ -1177,30 +1559,26 @@ Investor profile 6 · CHF 1.11m · ESG preference: no
 
 1. **caller.** Hulk is calling: Investor profile 6, CHF 1.11m across 1 portfolio.  
    <sub>clients.json CASE-017: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Information Technology −4.8% today, 11.3% of the book; about −CHF 15k (−1.4%) overall.  
+2. **reason.** Probably the market: about −CHF 15k today, −1.4% of the book. Mostly Information Technology, −4.8% on 11.3% of it.  
    <sub>impact of the market feed on clients.json CASE-017 holdings</sub>
-3. **digest.** Information Technology −4.8% today: 11.3% of the book, about −CHF 6k, mostly via iShares Automation & Robotics UCITS ETF and iShares NASDAQ 100 UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-017 holdings</sub>
-4. **digest.** The dollar −1.2% against the franc: 27.2% of the book is exposed, about −CHF 4k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-017 holdings</sub>
-5. **digest.** Consumer Discretionary −2.2% today: 6.5% of the book, about −CHF 2k, mostly via mobilezone holding ag and Amazon.Com Inc.  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-017 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** 5.5% of the book has no matching market move and is not included.  
+3. **digest.** About −CHF 15k today, −1.4% of the book.  
+   <sub>impact of the market feed on clients.json CASE-017 holdings</sub>
+4. **digest.** About −CHF 6k from Information Technology, −4.8% today on 11.3% of the book, mostly iShares Automation & Robotics UCITS ETF and iShares NASDAQ 100 UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-017 holdings</sub>
+5. **digest.** About −CHF 4k from the dollar, −1.2% against the franc on 27.2% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-017 holdings</sub>
+6. **digest.** About −CHF 2k from Consumer Discretionary, −2.2% today on 6.5% of the book, mostly mobilezone holding ag and Amazon.Com Inc.  
+   <sub>market feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-017 holdings</sub>
+7. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** 5.5% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-017 holdings without a mapped market move</sub>
-9. **holding.** Global Investment Grade Credit Fund and iShares MSCI World CHF Hedged UCITS ETF (Acc) and US Short Duration High Yield (11.2% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
-   <sub>clients.json CASE-017: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-10. **holding.** Holding up today: Swiss franc bonds +0.2% (12.8% of the book); Consumer Staples +0.3% (8.6% of the book); foreign bonds +0.3% (4.7% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-017 holdings</sub>
-11. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-12. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-13. **issue.** Open issue: 0 suitability errors and 2 warnings open; most serious: "Share is not part of the investment universe for individual shares and therefore not monitored." on American Dep.Share Repr 2 Shs -A- EHang Holdings Ltd.  
-   <sub>clients.json CASE-017: SuitabilityViolations</sub>
+10. **holding.** Global Investment Grade Credit Fund and iShares MSCI World CHF Hedged UCITS ETF (Acc) and US Short Duration High Yield (11.2% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+   <sub>clients.json CASE-017: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
+11. **holding.** Holding up today: Swiss franc bonds +0.2% (12.8% of the book); Consumer Staples +0.3% (8.6% of the book); foreign bonds +0.3% (4.7% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-017 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1218,6 +1596,54 @@ Investor profile 6 · CHF 1.11m · ESG preference: no
   <sub>clients.json CASE-017: Portfolios[CASE-017-01].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): 20.6% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-017: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 49k, 4.4% of the book.  
+  <sub>clients.json CASE-017: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 72.6% of the portfolio (CHF 807k).  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 17.4% of the portfolio (CHF 194k).  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 4.4% of the portfolio (CHF 49k).  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 3.7% of the portfolio (CHF 41k).  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 1.9% of the portfolio (CHF 21k).  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 16.2% of the portfolio (CHF 180k) after fund look-through.  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 11.3% of the portfolio (CHF 125k) after fund look-through.  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 9.9% of the portfolio (CHF 110k) after fund look-through.  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 8.6% of the portfolio (CHF 95k) after fund look-through.  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 8.2% of the portfolio (CHF 91k) after fund look-through.  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 6.8% of the portfolio (CHF 75k) after fund look-through.  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 6.5% of the portfolio (CHF 72k) after fund look-through.  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 4.2% of the portfolio (CHF 47k) after fund look-through.  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 2.2% of the portfolio (CHF 24k) after fund look-through.  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 1.1% of the portfolio (CHF 13k) after fund look-through.  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.1% of the portfolio (CHF 1k) after fund look-through.  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 65.2% of the portfolio (CHF 724k).  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 30.2% of the portfolio (CHF 335k).  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 4.7% of the portfolio (CHF 52k).  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Crypto: CHF 8k, 0.8% of the portfolio.  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Nestle SA, CHF 69k (6.2% of the portfolio).  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 36 holdings; the largest: Nestle SA (CHF 69k), iShares MSCI World CHF Hedged UCITS ETF (Acc) (CHF 56k), SPDR MSCI World Health Care UCITS ETF (CHF 52k), iShares NASDAQ 100 UCITS ETF (CHF 52k).  
+  <sub>clients.json CASE-017: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Next best actions** (0.25): Clear the warnings on the 2 flagged orders from the proposal of 19 Oct 2025.  
+  <sub>clients.json CASE-017: Transactions[ProposalId=17977].ForwardState = 2</sub>
 
 </details>
 
@@ -1252,24 +1678,20 @@ Investor profile 6 · CHF 3.10m · ESG preference: no
 
 1. **caller.** Company 002 AG is calling: Investor profile 6, CHF 3.10m across 1 portfolio.  
    <sub>clients.json CASE-018: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Raw materials −0.6% today, 49.5% of the book; about −CHF 22k (−0.7%) overall.  
+2. **reason.** Probably the market: about −CHF 22k today, −0.7% of the book. Mostly Raw materials, −0.6% on 49.5% of it.  
    <sub>impact of the market feed on clients.json CASE-018 holdings</sub>
-3. **digest.** Raw materials −0.6% today: 49.5% of the book, about −CHF 9k, mostly via Linde PLC and Holcim AG.  
-   <sub>simulated feed "tech-selloff": S5MATR Index CHG_PCT_1D × clients.json CASE-018 holdings</sub>
-4. **digest.** Financials −0.9% today: 28.5% of the book, about −CHF 8k, mostly via Zurich Insurance Group AG and Swiss Re AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-018 holdings</sub>
-5. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-6. **digest.** Industrials −1.1% today: 8.2% of the book, about −CHF 3k, mostly via Geberit AG.  
-   <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-018 holdings</sub>
-7. **holding.** Holding up today: Consumer Staples +0.3% (4.5% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-018 holdings</sub>
-8. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-9. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-10. **issue.** Open issue: 13 suitability errors and 6 warnings open; most serious: "Volatility range exceeded (portfolio risk too high)".  
-   <sub>clients.json CASE-018: SuitabilityViolations</sub>
+3. **digest.** About −CHF 22k today, −0.7% of the book.  
+   <sub>impact of the market feed on clients.json CASE-018 holdings</sub>
+4. **digest.** About −CHF 9k from Raw materials, −0.6% today on 49.5% of the book, mostly Linde PLC and Holcim AG.  
+   <sub>market feed "tech-selloff": S5MATR Index CHG_PCT_1D × clients.json CASE-018 holdings</sub>
+5. **digest.** About −CHF 8k from Financials, −0.9% today on 28.5% of the book, mostly Zurich Insurance Group AG and Swiss Re AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-018 holdings</sub>
+6. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+7. **digest.** About −CHF 3k from Industrials, −1.1% today on 8.2% of the book, mostly Geberit AG.  
+   <sub>market feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-018 holdings</sub>
+8. **holding.** Holding up today: Consumer Staples +0.3% (4.5% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-018 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1299,6 +1721,30 @@ Investor profile 6 · CHF 3.10m · ESG preference: no
   <sub>clients.json CASE-018: Proposals[17405] × Transactions</sub>
 - **Watch** (0.03): Risk engine for Depository advisory (CASE-018-01), 3 Sep 2026: expected return 5.9%, value at risk 5.2%.  
   <sub>clients.json CASE-018: Portfolios[CASE-018-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 292k, 9.4% of the book.  
+  <sub>clients.json CASE-018: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 90.6% of the portfolio (CHF 2.81m).  
+  <sub>clients.json CASE-018: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 9.4% of the portfolio (CHF 292k).  
+  <sub>clients.json CASE-018: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Raw materials is 49.5% of the portfolio (CHF 1.53m) after fund look-through.  
+  <sub>clients.json CASE-018: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 28.5% of the portfolio (CHF 883k) after fund look-through.  
+  <sub>clients.json CASE-018: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 8.2% of the portfolio (CHF 254k) after fund look-through.  
+  <sub>clients.json CASE-018: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 4.5% of the portfolio (CHF 139k) after fund look-through.  
+  <sub>clients.json CASE-018: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 77.2% of the portfolio (CHF 2.40m).  
+  <sub>clients.json CASE-018: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 22.5% of the portfolio (CHF 698k).  
+  <sub>clients.json CASE-018: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 0.2% of the portfolio (CHF 8k).  
+  <sub>clients.json CASE-018: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Linde PLC, CHF 698k (22.5% of the portfolio).  
+  <sub>clients.json CASE-018: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 8 holdings; the largest: Linde PLC (CHF 698k), Holcim AG (CHF 476k), Zurich Insurance Group AG (CHF 454k), Swiss Re AG (CHF 430k).  
+  <sub>clients.json CASE-018: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (1.00): Resolve "Cluster risk of a single financial instrument" on Holcim AG.  
   <sub>clients.json CASE-018: SuitabilityViolations[Id=161421]</sub>
 
@@ -1337,28 +1783,24 @@ Investor profile 7 · CHF 699k · ESG preference: no
    <sub>clients.json CASE-019: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Contact preference: "Hard to reach during the day, best contacted after 6pm"  
    <sub>data/profiles/profiles.json CASE-019 from clients.json ClientNotes</sub>
-3. **reason.** Probably the market move: Information Technology −4.8% today, 26.0% of the book; about −CHF 12k (−1.7%) overall.  
+3. **reason.** Probably the market: about −CHF 12k today, −1.7% of the book. Mostly Information Technology, −4.8% on 26.0% of it.  
    <sub>impact of the market feed on clients.json CASE-019 holdings</sub>
 4. **reason.** Possibly a withdrawal: note from 15 Aug 2025: "Considering a charitable donation from the portfolio, details being clarified."  
    <sub>clients.json CASE-019: ClientNotes</sub>
-5. **digest.** Information Technology −4.8% today: 26.0% of the book, about −CHF 9k, mostly via Comet Holding AG and Global Clean Energy UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-019 holdings</sub>
-6. **digest.** The dollar −1.2% against the franc: 17.2% of the book is exposed, about −CHF 1k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-019 holdings</sub>
-7. **digest.** Health Care −0.4% today: 35.3% of the book, about −CHF 987, mostly via Ypsomed Holding AG and Roche Holding AG.  
-   <sub>simulated feed "tech-selloff": S5HLTH Index CHG_PCT_1D × clients.json CASE-019 holdings</sub>
-8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-10. **holding.** Holding up today: Consumer Staples +0.3% (9.6% of the book); Utilities +0.5% (5.3% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-019 holdings</sub>
-11. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-12. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-13. **issue.** Open issue: 7 suitability errors and 6 warnings open; most serious: "Significant overweight in the equity region "Switzerland"".  
-   <sub>clients.json CASE-019: SuitabilityViolations</sub>
+5. **digest.** About −CHF 12k today, −1.7% of the book.  
+   <sub>impact of the market feed on clients.json CASE-019 holdings</sub>
+6. **digest.** About −CHF 9k from Information Technology, −4.8% today on 26.0% of the book, mostly Comet Holding AG and Global Clean Energy UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-019 holdings</sub>
+7. **digest.** About −CHF 1k from the dollar, −1.2% against the franc on 17.2% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-019 holdings</sub>
+8. **digest.** About −CHF 987 from Health Care, −0.4% today on 35.3% of the book, mostly Ypsomed Holding AG and Roche Holding AG.  
+   <sub>market feed "tech-selloff": S5HLTH Index CHG_PCT_1D × clients.json CASE-019 holdings</sub>
+9. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+11. **holding.** Holding up today: Consumer Staples +0.3% (9.6% of the book); Utilities +0.5% (5.3% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-019 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1382,6 +1824,44 @@ Investor profile 7 · CHF 699k · ESG preference: no
   <sub>clients.json CASE-019: Proposals[1960] × Transactions</sub>
 - **Watch** (0.03): Risk engine for Depository advisory (CASE-019-01), 3 Sep 2026: expected return 6.5%, value at risk 19.4%.  
   <sub>clients.json CASE-019: Portfolios[CASE-019-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 4k, 0.6% of the book.  
+  <sub>clients.json CASE-019: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 96.1% of the portfolio (CHF 671k).  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 3.4% of the portfolio (CHF 24k).  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 0.6% of the portfolio (CHF 4k).  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 35.3% of the portfolio (CHF 247k) after fund look-through.  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 26.0% of the portfolio (CHF 182k) after fund look-through.  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 9.6% of the portfolio (CHF 67k) after fund look-through.  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 8.5% of the portfolio (CHF 59k) after fund look-through.  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 7.3% of the portfolio (CHF 51k) after fund look-through.  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 5.3% of the portfolio (CHF 37k) after fund look-through.  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 2.3% of the portfolio (CHF 16k) after fund look-through.  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 0.7% of the portfolio (CHF 5k) after fund look-through.  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 0.3% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.2% of the portfolio (CHF 1k) after fund look-through.  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.1% of the portfolio (CHF 459) after fund look-through.  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 74.6% of the portfolio (CHF 522k).  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 25.4% of the portfolio (CHF 177k).  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Comet Holding AG, CHF 153k (21.9% of the portfolio).  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 20 holdings; the largest: Comet Holding AG (CHF 153k), Ypsomed Holding AG (CHF 109k), Nestle SA (CHF 65k), Roche Holding AG (CHF 47k).  
+  <sub>clients.json CASE-019: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (1.00): Resolve "Cluster risk of a single financial instrument" on Ypsomed Holding AG.  
   <sub>clients.json CASE-019: SuitabilityViolations[Id=285004]</sub>
 - **Next best actions** (0.40): Book a review: the last finalised proposal was on 21 Aug 2023.  
@@ -1420,28 +1900,24 @@ Investor profile 4 · CHF 486k · ESG preference: no
    <sub>clients.json CASE-020: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably a withdrawal: note from 18 May 2025: "Expects an inheritance in the coming years, strategy to be reviewed at that point."  
    <sub>clients.json CASE-020: ClientNotes</sub>
-3. **reason.** Possibly the market move: the dollar −1.2% today, 31.8% of the book; about −CHF 4k (−0.8%) overall.  
+3. **reason.** Possibly the market: about −CHF 4k today, −0.8% of the book. Mostly the dollar, −1.2% on 31.8% of it.  
    <sub>impact of the market feed on clients.json CASE-020 holdings</sub>
-4. **digest.** The dollar −1.2% against the franc: 31.8% of the book is exposed, about −CHF 2k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-020 holdings</sub>
-5. **digest.** Information Technology −4.8% today: 4.2% of the book, about −CHF 977, mostly via iShares MSCI World Minimum Volatility UCITS ETF and MSCI USA Select Factor Mix UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-020 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** Communication Services −3.1% today: 2.8% of the book, about −CHF 416, mostly via iShares MSCI World Minimum Volatility UCITS ETF and CSIF (CH) Equity SPI ESG Multi Premia Blue.  
-   <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × clients.json CASE-020 holdings</sub>
-9. **holding.** SPDR Bloomberg Global Aggregate Bond UCITS ETF (5.6% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
-   <sub>clients.json CASE-020: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-10. **holding.** Holding up today: Swiss franc bonds +0.2% (31.4% of the book); foreign bonds +0.3% (12.5% of the book); Consumer Staples +0.3% (5.8% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-020 holdings</sub>
-11. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
-   <sub>data/playbook.json: cash_need (when: withdrawal)</sub>
-12. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-13. **issue.** Open issue: 1 suitability error and 0 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
-   <sub>clients.json CASE-020: SuitabilityViolations</sub>
+4. **digest.** About −CHF 4k today, −0.8% of the book.  
+   <sub>impact of the market feed on clients.json CASE-020 holdings</sub>
+5. **digest.** About −CHF 2k from the dollar, −1.2% against the franc on 31.8% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-020 holdings</sub>
+6. **digest.** About −CHF 977 from Information Technology, −4.8% today on 4.2% of the book, mostly iShares MSCI World Minimum Volatility UCITS ETF and MSCI USA Select Factor Mix UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-020 holdings</sub>
+7. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** About −CHF 416 from Communication Services, −3.1% today on 2.8% of the book, mostly iShares MSCI World Minimum Volatility UCITS ETF and CSIF (CH) Equity SPI ESG Multi Premia Blue.  
+   <sub>market feed "tech-selloff": S5TELS Index CHG_PCT_1D × clients.json CASE-020 holdings</sub>
+10. **holding.** SPDR Bloomberg Global Aggregate Bond UCITS ETF (5.6% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
+   <sub>clients.json CASE-020: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
+11. **holding.** Holding up today: Swiss franc bonds +0.2% (31.4% of the book); foreign bonds +0.3% (12.5% of the book); Consumer Staples +0.3% (5.8% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-020 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1457,6 +1933,46 @@ Investor profile 4 · CHF 486k · ESG preference: no
   <sub>clients.json CASE-020: Portfolios[CASE-020-01].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): 43.9% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-020: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 30k, 6.2% of the book.  
+  <sub>clients.json CASE-020: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 49.9% of the portfolio (CHF 242k).  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 43.9% of the portfolio (CHF 213k).  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 6.2% of the portfolio (CHF 30k).  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 12.5% of the portfolio (CHF 61k) after fund look-through.  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 7.9% of the portfolio (CHF 38k) after fund look-through.  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 7.1% of the portfolio (CHF 34k) after fund look-through.  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 5.8% of the portfolio (CHF 28k) after fund look-through.  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 4.2% of the portfolio (CHF 20k) after fund look-through.  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 3.0% of the portfolio (CHF 15k) after fund look-through.  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 2.8% of the portfolio (CHF 14k) after fund look-through.  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 2.8% of the portfolio (CHF 13k) after fund look-through.  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 1.9% of the portfolio (CHF 9k) after fund look-through.  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 1.1% of the portfolio (CHF 5k) after fund look-through.  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.7% of the portfolio (CHF 4k) after fund look-through.  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 61.8% of the portfolio (CHF 300k).  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 35.0% of the portfolio (CHF 170k).  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 3.2% of the portfolio (CHF 15k).  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares MSCI World Minimum Volatility UCITS ETF, CHF 56k (11.4% of the portfolio).  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 15 holdings; the largest: iShares MSCI World Minimum Volatility UCITS ETF (CHF 56k), SMI (R) (CHF 55k), CSIF (CH) Equity SPI ESG Multi Premia Blue (CHF 46k), Credit Suisse (CH) Corporate CHF Bond Fund (CHF 46k).  
+  <sub>clients.json CASE-020: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -1495,16 +2011,12 @@ Investor profile 3 · CHF 759k · ESG preference: no
    <sub>data/profiles/profiles.json CASE-021 from clients.json ClientNotes</sub>
 3. **reason.** Probably a withdrawal: note from 2 Nov 2025: "Considering a charitable donation from the portfolio, details being clarified."  
    <sub>clients.json CASE-021: ClientNotes</sub>
-4. **reason.** Possibly the market move: Financials −0.9% today, 65.8% of the book; about −CHF 4k (−0.6%) overall.  
+4. **reason.** Possibly the market: about −CHF 4k today, −0.6% of the book. Mostly Financials, −0.9% on 65.8% of it.  
    <sub>impact of the market feed on clients.json CASE-021 holdings</sub>
-5. **digest.** Financials −0.9% today: 65.8% of the book, about −CHF 4k, mostly via VZ Holding AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-021 holdings</sub>
-6. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
-   <sub>data/playbook.json: cash_need (when: withdrawal)</sub>
-7. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
-8. **issue.** Open issue: Volatility in Account / Custody (CASE-021-01) is 21.6%, above the 7.5% maximum of Investor profile 3.  
-   <sub>clients.json CASE-021: Portfolios[CASE-021-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
+5. **digest.** About −CHF 4k today, −0.6% of the book.  
+   <sub>impact of the market feed on clients.json CASE-021 holdings</sub>
+6. **digest.** About −CHF 4k from Financials, −0.9% today on 65.8% of the book, mostly VZ Holding AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-021 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1518,6 +2030,20 @@ Investor profile 3 · CHF 759k · ESG preference: no
   <sub>clients.json CASE-021: ClientNotes</sub>
 - **Watch** (0.03): Risk engine for Account / Custody (CASE-021-01), 3 Sep 2026: expected return 6.2%, value at risk 20.7%.  
   <sub>clients.json CASE-021: Portfolios[CASE-021-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 259k, 34.2% of the book.  
+  <sub>clients.json CASE-021: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 65.8% of the portfolio (CHF 500k).  
+  <sub>clients.json CASE-021: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 34.2% of the portfolio (CHF 259k).  
+  <sub>clients.json CASE-021: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Financials is 65.8% of the portfolio (CHF 500k) after fund look-through.  
+  <sub>clients.json CASE-021: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 759k).  
+  <sub>clients.json CASE-021: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: VZ Holding AG, CHF 500k (65.8% of the portfolio).  
+  <sub>clients.json CASE-021: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 1 holdings; the largest: VZ Holding AG (CHF 500k).  
+  <sub>clients.json CASE-021: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.20): Candidates from the recommendation list for Shares: ABB Ltd and Kuehne + Nagel International AG (cash is above 10% of the book).  
   <sub>reference.json RecommendationLists "Recommendation list free assets", not held, CHF first, ordered by SustainabilityScore</sub>
 
@@ -1554,30 +2080,26 @@ Investor profile 5 · CHF 6.38m · ESG preference: no
 
 1. **caller.** Company 003 AG is calling: Investor profile 5, CHF 6.38m across 1 portfolio.  
    <sub>clients.json CASE-022: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Information Technology −4.8% today, 6.9% of the book; about −CHF 63k (−1.0%) overall.  
+2. **reason.** Probably the market: about −CHF 63k today, −1.0% of the book. Mostly Information Technology, −4.8% on 6.9% of it.  
    <sub>impact of the market feed on clients.json CASE-022 holdings</sub>
 3. **reason.** Possibly reinvestment: RC Notes Lehman Brothers Treasury Bv 2006-12.5.09 on Zurich Insur Grp Shs -In Default- matures on 19 Sep 2026 (CHF 0).  
    <sub>clients.json CASE-022: SecurityPositions × reference.json Securities.MaturityDateUtc</sub>
 4. **reason.** Possibly idle cash: 14.7% of the book (CHF 939k) is cash.  
    <sub>clients.json CASE-022: LiquidityInDefaultCurrency</sub>
-5. **digest.** Information Technology −4.8% today: 6.9% of the book, about −CHF 21k, mostly via Apple Inc and Logitech International SA.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-022 holdings</sub>
-6. **digest.** Financials −0.9% today: 19.3% of the book, about −CHF 11k, mostly via Swiss Re AG and Zurich Insurance Group AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-022 holdings</sub>
-7. **digest.** Industrials −1.1% today: 15.3% of the book, about −CHF 11k, mostly via ABB Ltd and SGS Ltd.  
-   <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-022 holdings</sub>
-8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-10. **holding.** Holding up today: Consumer Staples +0.3% (5.5% of the book); Utilities +0.5% (5.5% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-022 holdings</sub>
-11. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-12. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-13. **issue.** Open issue: 6 suitability errors and 7 warnings open; most serious: "Significant overweight in the equity sector "Materials"".  
-   <sub>clients.json CASE-022: SuitabilityViolations</sub>
+5. **digest.** About −CHF 63k today, −1.0% of the book.  
+   <sub>impact of the market feed on clients.json CASE-022 holdings</sub>
+6. **digest.** About −CHF 21k from Information Technology, −4.8% today on 6.9% of the book, mostly Apple Inc and Logitech International SA.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-022 holdings</sub>
+7. **digest.** About −CHF 11k from Financials, −0.9% today on 19.3% of the book, mostly Swiss Re AG and Zurich Insurance Group AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-022 holdings</sub>
+8. **digest.** About −CHF 11k from Industrials, −1.1% today on 15.3% of the book, mostly ABB Ltd and SGS Ltd.  
+   <sub>market feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-022 holdings</sub>
+9. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+11. **holding.** Holding up today: Consumer Staples +0.3% (5.5% of the book); Utilities +0.5% (5.5% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-022 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1595,10 +2117,50 @@ Investor profile 5 · CHF 6.38m · ESG preference: no
   <sub>clients.json CASE-022: Proposals[17579] × Transactions</sub>
 - **Watch** (0.03): Risk engine for Depository advisory (CASE-022-01), 3 Sep 2026: expected return 5.5%, value at risk 5.9%.  
   <sub>clients.json CASE-022: Portfolios[CASE-022-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 939k, 14.7% of the book.  
+  <sub>clients.json CASE-022: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 84.0% of the portfolio (CHF 5.36m).  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 14.7% of the portfolio (CHF 939k).  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 1.3% of the portfolio (CHF 83k).  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Financials is 19.3% of the portfolio (CHF 1.23m) after fund look-through.  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 15.3% of the portfolio (CHF 978k) after fund look-through.  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 15.0% of the portfolio (CHF 957k) after fund look-through.  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 12.6% of the portfolio (CHF 802k) after fund look-through.  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 6.9% of the portfolio (CHF 441k) after fund look-through.  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 5.5% of the portfolio (CHF 354k) after fund look-through.  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 5.5% of the portfolio (CHF 351k) after fund look-through.  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 3.9% of the portfolio (CHF 246k) after fund look-through.  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 80.6% of the portfolio (CHF 5.14m).  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 11.6% of the portfolio (CHF 738k).  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 6.4% of the portfolio (CHF 410k).  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): OZG: 1.5% of the portfolio (CHF 93k).  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Gold: CHF 83k, 1.3% of the portfolio.  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Holcim AG, CHF 568k (8.9% of the portfolio).  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 18 holdings; the largest: Holcim AG (CHF 568k), Swiss Re AG (CHF 532k), Zurich Insurance Group AG (CHF 467k), Novartis AG (CHF 415k).  
+  <sub>clients.json CASE-022: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (1.00): Resolve "Cluster risk of a single financial instrument" on Swiss Re AG.  
   <sub>clients.json CASE-022: SuitabilityViolations[Id=593831]</sub>
 - **Next best actions** (0.30): Keep the 14.7% cash (CHF 939k) in view of the note from 26 Nov 2024: "Expects an inheritance in the coming years, strategy to be reviewed at that point."  
   <sub>clients.json CASE-022: LiquidityInDefaultCurrency, ClientNotes</sub>
+- **Next best actions** (0.25): Clear the warnings on the 14 flagged orders from the proposal of 5 Oct 2025.  
+  <sub>clients.json CASE-022: Transactions[ProposalId=17579].ForwardState = 2</sub>
 - **Next best actions** (0.20): Candidates from the recommendation list for Shares: Kuehne + Nagel International AG and Lonza Group AG (cash is above 10% of the book).  
   <sub>reference.json RecommendationLists "Recommendation list free assets", not held, CHF first, ordered by SustainabilityScore</sub>
 
@@ -1637,28 +2199,24 @@ Investor profile 7 · CHF 258k · ESG preference: no
    <sub>clients.json CASE-023: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Profile: calm temperament, wants it short. From the notes: "Comfortable with high concentration risk and significant volatility, including in digital assets."  
    <sub>data/profiles/profiles.json CASE-023 (apertus) from clients.json ClientNotes</sub>
-3. **reason.** Probably the market move: Communication Services −3.1% today, 17.3% of the book; about −CHF 3k (−1.3%) overall.  
+3. **reason.** Probably the market: about −CHF 3k today, −1.3% of the book. Mostly Communication Services, −3.1% on 17.3% of it.  
    <sub>impact of the market feed on clients.json CASE-023 holdings</sub>
 4. **reason.** Possibly idle cash: 52.0% of the book (CHF 134k) is cash.  
    <sub>clients.json CASE-023: LiquidityInDefaultCurrency</sub>
-5. **digest.** Communication Services −3.1% today: 17.3% of the book, about −CHF 1k, mostly via Alphabet Inc and Swisscom AG.  
-   <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × clients.json CASE-023 holdings</sub>
-6. **digest.** Ether −8.1% today: 4.1% of the book, about −CHF 856.  
-   <sub>simulated feed "tech-selloff": XETUSD Curncy CHG_PCT_1D × clients.json CASE-023 holdings</sub>
-7. **digest.** Information Technology −4.8% today: 4.2% of the book, about −CHF 526, mostly via International Business Machines Corp IBM.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-023 holdings</sub>
-8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-10. **holding.** Holding up today: Consumer Staples +0.3% (10.3% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-023 holdings</sub>
-11. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-12. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-13. **issue.** Open issue: Volatility is 24.5%, above the 18.5% maximum of Investor profile 7.  
-   <sub>clients.json CASE-023: Portfolios[CASE-023-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
+5. **digest.** About −CHF 3k today, −1.3% of the book.  
+   <sub>impact of the market feed on clients.json CASE-023 holdings</sub>
+6. **digest.** About −CHF 1k from Communication Services, −3.1% today on 17.3% of the book, mostly Alphabet Inc and Swisscom AG.  
+   <sub>market feed "tech-selloff": S5TELS Index CHG_PCT_1D × clients.json CASE-023 holdings</sub>
+7. **digest.** About −CHF 856 from Ether, −8.1% today on 4.1% of the book.  
+   <sub>market feed "tech-selloff": XETUSD Curncy CHG_PCT_1D × clients.json CASE-023 holdings</sub>
+8. **digest.** About −CHF 526 from Information Technology, −4.8% today on 4.2% of the book, mostly International Business Machines Corp IBM.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-023 holdings</sub>
+9. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+11. **holding.** Holding up today: Consumer Staples +0.3% (10.3% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-023 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1668,6 +2226,36 @@ Investor profile 7 · CHF 258k · ESG preference: no
   <sub>clients.json CASE-023: ClientNotes</sub>
 - **Watch** (0.03): Risk engine for Investment advisory (CASE-023-01), 3 Sep 2026: expected return 9.8%, value at risk 34.2%.  
   <sub>clients.json CASE-023: Portfolios[CASE-023-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 134k, 52.0% of the book.  
+  <sub>clients.json CASE-023: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Cash is 52.0% of the portfolio (CHF 134k).  
+  <sub>clients.json CASE-023: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Shares are 47.8% of the portfolio (CHF 123k).  
+  <sub>clients.json CASE-023: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Communication Services is 17.3% of the portfolio (CHF 45k) after fund look-through.  
+  <sub>clients.json CASE-023: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 10.8% of the portfolio (CHF 28k) after fund look-through.  
+  <sub>clients.json CASE-023: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 10.3% of the portfolio (CHF 27k) after fund look-through.  
+  <sub>clients.json CASE-023: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 5.1% of the portfolio (CHF 13k) after fund look-through.  
+  <sub>clients.json CASE-023: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 4.2% of the portfolio (CHF 11k) after fund look-through.  
+  <sub>clients.json CASE-023: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 74.9% of the portfolio (CHF 193k).  
+  <sub>clients.json CASE-023: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 13.8% of the portfolio (CHF 36k).  
+  <sub>clients.json CASE-023: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Andere: 7.0% of the portfolio (CHF 18k).  
+  <sub>clients.json CASE-023: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): ETH: 4.1% of the portfolio (CHF 11k).  
+  <sub>clients.json CASE-023: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Crypto: CHF 11k, 4.1% of the portfolio.  
+  <sub>clients.json CASE-023: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Alphabet Inc, CHF 25k (9.5% of the portfolio).  
+  <sub>clients.json CASE-023: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 9 holdings; the largest: Alphabet Inc (CHF 25k), Swisscom AG (CHF 20k), Imperial Brands PLC (CHF 18k), Roche Holding AG (CHF 18k).  
+  <sub>clients.json CASE-023: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.40): Book a review: no finalised proposal on record.  
   <sub>clients.json CASE-023: Proposals</sub>
 - **Next best actions** (0.20): Candidates from the recommendation list for Bonds: 0.1525 % Cembra Money Bank AG 2019-14.10.26 and 2.875 % OC Oerlikon Corporation AG, Pfaeffikon 2023-19.03.29 Tranche 1 (Bonds is under its band).  
@@ -1697,6 +2285,8 @@ Investor profile 5 · CHF 503k · ESG preference: yes
    <sub>clients.json CASE-024: ClientNotes</sub>
 7. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "Financial sector an attractive route to broadening exposure."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
+8. **Next best actions.** Clear the warnings on the 16 flagged orders from the proposal of 30 Jun 2026.  
+   <sub>clients.json CASE-024: Transactions[ProposalId=23263].ForwardState = 2</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
@@ -1704,26 +2294,26 @@ Investor profile 5 · CHF 503k · ESG preference: yes
    <sub>clients.json CASE-024: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Profile: calm temperament. From the notes: "Comfortable with higher volatility given a long time horizon."  
    <sub>data/profiles/profiles.json CASE-024 (apertus) from clients.json ClientNotes</sub>
-3. **digest.** Information Technology −4.8% today: 2.8% of the book, about −CHF 670, mostly via MSCI ACWI SF UCITS ETF and iShares Core SPI(R) ETF (CH).  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-024 holdings</sub>
-4. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-5. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-6. **digest.** Consumer Discretionary −2.2% today: 1.8% of the book, about −CHF 197, mostly via MSCI ACWI SF UCITS ETF and iShares Core SPI(R) ETF (CH).  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-024 holdings</sub>
-7. **digest.** Industrials −1.1% today: 2.4% of the book, about −CHF 133, mostly via iShares Core SPI(R) ETF (CH) and MSCI ACWI SF UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-024 holdings</sub>
-8. **digest.** 5.2% of the book has no matching market move and is not included.  
-   <sub>clients.json CASE-024 holdings without a mapped market move</sub>
-9. **holding.** Holding up today: Swiss franc bonds +0.2% (72.3% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-024 holdings</sub>
-10. **holding.** Global Investment Grade Credit Fund and MSCI ACWI SF UCITS ETF and SPDR Bloomberg Global Aggregate Bond UCITS ETF (28.5% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
-   <sub>clients.json CASE-024: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-11. **talk.** Agree on a concrete next step and when you will call back.  
-   <sub>data/playbook.json: follow_up (when: always)</sub>
-12. **issue.** Open issue: ESG client: average sustainability score 7.0 of 10 against a minimum of 5.7; 2 holdings below the per-position minimum (1.625 % Alpiq Holding AG 2022-30.05.25 and 0.26 % Hyundai Capital Services Inc 2020-11.02.25, 9.9% of the book); 10.0% of the book has no score.  
+3. **reason.** Probably a sustainability concern: ESG client: average sustainability score 7.0 of 10 against a minimum of 5.7; 2 holdings below the per-position minimum (1.625 % Alpiq Holding AG 2022-30.05.25 and 0.26 % Hyundai Capital Services Inc 2020-11.02.25, 9.9% of the book); 10.0% of the book has no score.  
    <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-024 positions</sub>
+4. **digest.** About −CHF 665 today, −0.1% of the book.  
+   <sub>impact of the market feed on clients.json CASE-024 holdings</sub>
+5. **digest.** About −CHF 670 from Information Technology, −4.8% today on 2.8% of the book, mostly MSCI ACWI SF UCITS ETF and iShares Core SPI(R) ETF (CH).  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-024 holdings</sub>
+6. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** About −CHF 197 from Consumer Discretionary, −2.2% today on 1.8% of the book, mostly MSCI ACWI SF UCITS ETF and iShares Core SPI(R) ETF (CH).  
+   <sub>market feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-024 holdings</sub>
+9. **digest.** About −CHF 133 from Industrials, −1.1% today on 2.4% of the book, mostly iShares Core SPI(R) ETF (CH) and MSCI ACWI SF UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-024 holdings</sub>
+10. **digest.** 5.2% of the book has no matching market move and is not included.  
+   <sub>clients.json CASE-024 holdings without a mapped market move</sub>
+11. **holding.** Holding up today: Swiss franc bonds +0.2% (72.3% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-024 holdings</sub>
+12. **holding.** Global Investment Grade Credit Fund and MSCI ACWI SF UCITS ETF and SPDR Bloomberg Global Aggregate Bond UCITS ETF (28.5% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+   <sub>clients.json CASE-024: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1743,6 +2333,44 @@ Investor profile 5 · CHF 503k · ESG preference: yes
   <sub>clients.json CASE-024: Portfolios[CASE-024-01].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): 48.0% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-024: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 8k, 1.7% of the book.  
+  <sub>clients.json CASE-024: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Bonds are 72.3% of the portfolio (CHF 364k).  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Shares are 20.9% of the portfolio (CHF 105k).  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 5.2% of the portfolio (CHF 26k).  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 1.7% of the portfolio (CHF 8k).  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Financials is 13.3% of the portfolio (CHF 67k) after fund look-through.  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 12.2% of the portfolio (CHF 61k) after fund look-through.  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 7.7% of the portfolio (CHF 39k) after fund look-through.  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 7.5% of the portfolio (CHF 38k) after fund look-through.  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 4.5% of the portfolio (CHF 22k) after fund look-through.  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 1.8% of the portfolio (CHF 9k) after fund look-through.  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 1.3% of the portfolio (CHF 7k) after fund look-through.  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 0.9% of the portfolio (CHF 4k) after fund look-through.  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.5% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.4% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.3% of the portfolio (CHF 1k) after fund look-through.  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 503k).  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares Core SPI(R) ETF (CH), CHF 53k (10.5% of the portfolio).  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 16 holdings; the largest: iShares Core SPI(R) ETF (CH) (CHF 53k), MSCI ACWI SF UCITS ETF (CHF 52k), SPDR Bloomberg Global Aggregate Bond UCITS ETF (CHF 46k), Global Investment Grade Credit Fund (CHF 46k).  
+  <sub>clients.json CASE-024: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -1775,14 +2403,12 @@ Investor profile 7 · CHF 259k · ESG preference: no
    <sub>clients.json CASE-025: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Profile: calm temperament. From the notes: "Risk profile discussed again after the market downturn, client keeps current classification."  
    <sub>data/profiles/profiles.json CASE-025 (apertus) from clients.json ClientNotes</sub>
-3. **digest.** Financials −0.9% today: 10.3% of the book, about −CHF 240, mostly via VZ Holding AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-025 holdings</sub>
-4. **holding.** Holding up today: Consumer Staples +0.3% (79.8% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-025 holdings</sub>
-5. **talk.** Agree on a concrete next step and when you will call back.  
-   <sub>data/playbook.json: follow_up (when: always)</sub>
-6. **issue.** Open issue: Risk profile last assessed 5 Sep 2022, 4 years ago.  
-   <sub>clients.json CASE-025: ProfilingDateUtc</sub>
+3. **digest.** About +CHF 370 today, +0.1% of the book.  
+   <sub>impact of the market feed on clients.json CASE-025 holdings</sub>
+4. **digest.** About −CHF 240 from Financials, −0.9% today on 10.3% of the book, mostly VZ Holding AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-025 holdings</sub>
+5. **holding.** Holding up today: Consumer Staples +0.3% (79.8% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-025 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1798,6 +2424,24 @@ Investor profile 7 · CHF 259k · ESG preference: no
   <sub>clients.json CASE-025: ClientNotes</sub>
 - **Watch** (0.03): Risk engine for Account / Custody (CASE-025-02), 3 Sep 2026: expected return 6.3%, value at risk 21.3%.  
   <sub>clients.json CASE-025: Portfolios[CASE-025-02].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 25k, 9.8% of the book.  
+  <sub>clients.json CASE-025: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 90.2% of the portfolio (CHF 233k).  
+  <sub>clients.json CASE-025: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 9.8% of the portfolio (CHF 25k).  
+  <sub>clients.json CASE-025: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Consumer Staples is 79.8% of the portfolio (CHF 206k) after fund look-through.  
+  <sub>clients.json CASE-025: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 10.3% of the portfolio (CHF 27k) after fund look-through.  
+  <sub>clients.json CASE-025: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 0.1% of the portfolio (CHF 307) after fund look-through.  
+  <sub>clients.json CASE-025: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 259k).  
+  <sub>clients.json CASE-025: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Chocoladefabriken Lindt & Spruengli AG, CHF 206k (79.8% of the portfolio).  
+  <sub>clients.json CASE-025: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 3 holdings; the largest: Chocoladefabriken Lindt & Spruengli AG (CHF 206k), VZ Holding AG (CHF 27k), TX Group AG (CHF 307).  
+  <sub>clients.json CASE-025: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -1836,26 +2480,22 @@ Investor profile 6 · CHF 2.38m · ESG preference: no
    <sub>data/profiles/profiles.json CASE-026 (apertus) from clients.json ClientNotes</sub>
 3. **caller.** Contact preference: "Prefers semi-annual phone contact, no unannounced visits"  
    <sub>data/profiles/profiles.json CASE-026 from clients.json ClientNotes</sub>
-4. **reason.** Probably the market move: Information Technology −4.8% today, 8.3% of the book; about −CHF 30k (−1.3%) overall.  
+4. **reason.** Probably the market: about −CHF 30k today, −1.3% of the book. Mostly Information Technology, −4.8% on 8.3% of it.  
    <sub>impact of the market feed on clients.json CASE-026 holdings</sub>
-5. **digest.** Information Technology −4.8% today: 8.3% of the book, about −CHF 9k, mostly via iShares NASDAQ 100 UCITS ETF and Logitech International SA.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-026 holdings</sub>
-6. **digest.** The dollar −1.2% against the franc: 15.7% of the book is exposed, about −CHF 4k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-026 holdings</sub>
-7. **digest.** Financials −0.9% today: 16.8% of the book, about −CHF 4k, mostly via Zurich Insurance Group AG and Helvetia Holding AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-026 holdings</sub>
-8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-10. **holding.** Holding up today: Consumer Staples +0.3% (8.6% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-026 holdings</sub>
-11. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-12. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-13. **issue.** Open issue: 5 suitability errors and 4 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
-   <sub>clients.json CASE-026: SuitabilityViolations</sub>
+5. **digest.** About −CHF 30k today, −1.3% of the book.  
+   <sub>impact of the market feed on clients.json CASE-026 holdings</sub>
+6. **digest.** About −CHF 9k from Information Technology, −4.8% today on 8.3% of the book, mostly iShares NASDAQ 100 UCITS ETF and Logitech International SA.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-026 holdings</sub>
+7. **digest.** About −CHF 4k from the dollar, −1.2% against the franc on 15.7% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-026 holdings</sub>
+8. **digest.** About −CHF 4k from Financials, −0.9% today on 16.8% of the book, mostly Zurich Insurance Group AG and Helvetia Holding AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-026 holdings</sub>
+9. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+11. **holding.** Holding up today: Consumer Staples +0.3% (8.6% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-026 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1873,6 +2513,54 @@ Investor profile 6 · CHF 2.38m · ESG preference: no
   <sub>clients.json CASE-026: ClientNotes</sub>
 - **Watch** (0.03): Risk engine for Depository advisory (CASE-026-01), 3 Sep 2026: expected return 6.2%, value at risk 12.1%.  
   <sub>clients.json CASE-026: Portfolios[CASE-026-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 115k, 4.9% of the book.  
+  <sub>clients.json CASE-026: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 94.0% of the portfolio (CHF 2.23m).  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 4.9% of the portfolio (CHF 115k).  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 1.2% of the portfolio (CHF 27k).  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Raw materials is 20.1% of the portfolio (CHF 479k) after fund look-through.  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 20.0% of the portfolio (CHF 475k) after fund look-through.  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 16.8% of the portfolio (CHF 400k) after fund look-through.  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 9.5% of the portfolio (CHF 227k) after fund look-through.  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 8.6% of the portfolio (CHF 204k) after fund look-through.  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 8.3% of the portfolio (CHF 198k) after fund look-through.  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 3.6% of the portfolio (CHF 85k) after fund look-through.  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 2.4% of the portfolio (CHF 57k) after fund look-through.  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 2.1% of the portfolio (CHF 51k) after fund look-through.  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 2.0% of the portfolio (CHF 48k) after fund look-through.  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.5% of the portfolio (CHF 11k) after fund look-through.  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 68.6% of the portfolio (CHF 1.63m).  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 17.7% of the portfolio (CHF 422k).  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 10.8% of the portfolio (CHF 256k).  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Andere: 2.0% of the portfolio (CHF 47k).  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): BTC: 0.9% of the portfolio (CHF 20k).  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Gold: CHF 42k, 1.8% of the portfolio.  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Crypto: CHF 20k, 0.9% of the portfolio.  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Holcim AG, CHF 262k (11.0% of the portfolio).  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 36 holdings; the largest: Holcim AG (CHF 262k), Zurich Insurance Group AG (CHF 136k), Sika AG (CHF 128k), Novartis AG (CHF 127k).  
+  <sub>clients.json CASE-026: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (1.00): Resolve "Significant overweight in the equity region "Switzerland"".  
   <sub>clients.json CASE-026: SuitabilityViolations[Id=602319]</sub>
 - **Next best actions** (0.40): Book a review: no finalised proposal on record.  
@@ -1911,20 +2599,16 @@ Investor profile 5 · CHF 172k · ESG preference: yes
    <sub>clients.json CASE-027: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Profile: calm temperament, wants it detailed. From the notes: "Comfortable with a long time horizon; not concerned by short-term volatility in thematic growth positions."  
    <sub>data/profiles/profiles.json CASE-027 (apertus) from clients.json ClientNotes</sub>
-3. **reason.** Probably the market move: the dollar −1.2% today, 97.9% of the book; about −CHF 4k (−2.3%) overall.  
+3. **reason.** Probably the market: about −CHF 4k today, −2.3% of the book. Mostly the dollar, −1.2% on 97.9% of it.  
    <sub>impact of the market feed on clients.json CASE-027 holdings</sub>
-4. **digest.** The dollar −1.2% against the franc: 97.9% of the book is exposed, about −CHF 2k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-027 holdings</sub>
-5. **digest.** Industrials −1.1% today: 97.9% of the book, about −CHF 2k, mostly via SpaceX and Union Pacific Corp.  
-   <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-027 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-8. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
-9. **issue.** Open issue: Risk profile last assessed 1 Oct 2022, 4 years ago.  
-   <sub>clients.json CASE-027: ProfilingDateUtc</sub>
+4. **digest.** About −CHF 4k today, −2.3% of the book.  
+   <sub>impact of the market feed on clients.json CASE-027 holdings</sub>
+5. **digest.** About −CHF 2k from the dollar, −1.2% against the franc on 97.9% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-027 holdings</sub>
+6. **digest.** About −CHF 2k from Industrials, −1.1% today on 97.9% of the book, mostly SpaceX and Union Pacific Corp.  
+   <sub>market feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-027 holdings</sub>
+7. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1940,6 +2624,26 @@ Investor profile 5 · CHF 172k · ESG preference: yes
   <sub>clients.json CASE-027: ClientNotes</sub>
 - **Watch** (0.03): Risk engine for Account / Custody (CASE-027-01), 3 Sep 2026: expected return 6.5%, value at risk 8.8%.  
   <sub>clients.json CASE-027: Portfolios[CASE-027-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 4k, 2.1% of the book.  
+  <sub>clients.json CASE-027: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 97.9% of the portfolio (CHF 168k).  
+  <sub>clients.json CASE-027: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 2.1% of the portfolio (CHF 4k).  
+  <sub>clients.json CASE-027: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Industrials is 97.9% of the portfolio (CHF 168k) after fund look-through.  
+  <sub>clients.json CASE-027: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): US-Dollar: 97.9% of the portfolio (CHF 168k).  
+  <sub>clients.json CASE-027: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Swiss francs: 1.1% of the portfolio (CHF 2k).  
+  <sub>clients.json CASE-027: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): SOL: 1.0% of the portfolio (CHF 2k).  
+  <sub>clients.json CASE-027: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Crypto: CHF 2k, 1.0% of the portfolio.  
+  <sub>clients.json CASE-027: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: SpaceX, CHF 118k (68.5% of the portfolio).  
+  <sub>clients.json CASE-027: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 3 holdings; the largest: SpaceX (CHF 118k), Union Pacific Corp (CHF 30k), Caterpillar Inc (CHF 20k).  
+  <sub>clients.json CASE-027: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -1974,16 +2678,12 @@ Investor profile 5 · CHF 197k · ESG preference: no
    <sub>clients.json CASE-028: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Profile: wants it detailed. From the notes: "Appreciates a detailed written summary after every meeting."  
    <sub>data/profiles/profiles.json CASE-028 (apertus) from clients.json ClientNotes</sub>
-3. **reason.** Probably the market move: Financials −0.9% today, 95.9% of the book; about −CHF 2k (−0.9%) overall.  
+3. **reason.** Probably the market: about −CHF 2k today, −0.9% of the book. Mostly Financials, −0.9% on 95.9% of it.  
    <sub>impact of the market feed on clients.json CASE-028 holdings</sub>
-4. **digest.** Financials −0.9% today: 95.9% of the book, about −CHF 2k, mostly via VZ Holding AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-028 holdings</sub>
-5. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-6. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
-7. **issue.** Open issue: Volatility is 22.0%, above the 12.0% maximum of Investor profile 5.  
-   <sub>clients.json CASE-028: Portfolios[CASE-028-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
+4. **digest.** About −CHF 2k today, −0.9% of the book.  
+   <sub>impact of the market feed on clients.json CASE-028 holdings</sub>
+5. **digest.** About −CHF 2k from Financials, −0.9% today on 95.9% of the book, mostly VZ Holding AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-028 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -1995,6 +2695,20 @@ Investor profile 5 · CHF 197k · ESG preference: no
   <sub>clients.json CASE-028: ClientNotes</sub>
 - **Watch** (0.03): Risk engine for Account / Custody (CASE-028-01), 3 Sep 2026: expected return 6.3%, value at risk 21.1%.  
   <sub>clients.json CASE-028: Portfolios[CASE-028-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 8k, 4.1% of the book.  
+  <sub>clients.json CASE-028: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 95.9% of the portfolio (CHF 189k).  
+  <sub>clients.json CASE-028: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 4.2% of the portfolio (CHF 8k).  
+  <sub>clients.json CASE-028: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Financials is 95.9% of the portfolio (CHF 189k) after fund look-through.  
+  <sub>clients.json CASE-028: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 197k).  
+  <sub>clients.json CASE-028: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: VZ Holding AG, CHF 189k (95.9% of the portfolio).  
+  <sub>clients.json CASE-028: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 1 holdings; the largest: VZ Holding AG (CHF 189k).  
+  <sub>clients.json CASE-028: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -2010,13 +2724,15 @@ no risk profile · CHF 102k · ESG preference: no
    <sub>clients.json CASE-029: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +21.0% over the 12 months to Jul 2026 and +78.0% since Oct 2021, now CHF 102k; value change including deposits and withdrawals.  
    <sub>clients.json CASE-029: PerformanceHistory of CASE-029-01</sub>
-3. **Watch.** Global Aggregate Bond Index Fund drives 20.8% of the volatility of Pension (CASE-029-01).  
+3. **Health check.** Nothing open: no suitability violation, and every asset class is inside its band.  
+   <sub>clients.json CASE-029: SuitabilityViolations (none open); reference.json StrategicAssetAllocations bands</sub>
+4. **Watch.** Global Aggregate Bond Index Fund drives 20.8% of the volatility of Pension (CASE-029-01).  
    <sub>clients.json CASE-029: Portfolios[CASE-029-01].SecurityPositions.ContributionVolatility</sub>
-4. **Watch.** Note from 9 Jul 2026: "Very risk-averse since the last market downturn, prefers defensive positioning."  
+5. **Watch.** Note from 9 Jul 2026: "Very risk-averse since the last market downturn, prefers defensive positioning."  
    <sub>clients.json CASE-029: ClientNotes</sub>
-5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "Financial sector an attractive route to broadening exposure."  
+6. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "Financial sector an attractive route to broadening exposure."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
-6. **Next best actions.** Book a review: no finalised proposal on record.  
+7. **Next best actions.** Book a review: no finalised proposal on record.  
    <sub>clients.json CASE-029: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
@@ -2025,28 +2741,26 @@ no risk profile · CHF 102k · ESG preference: no
    <sub>clients.json CASE-029: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably a withdrawal: note from 13 May 2026: "Plans to retire in the next two years, increasing liquidity needs expected."  
    <sub>clients.json CASE-029: ClientNotes</sub>
-3. **reason.** Possibly the market move: Information Technology −4.8% today, 5.2% of the book; about −CHF 582 (−0.6%) overall.  
+3. **reason.** Possibly the market: about −CHF 582 today, −0.6% of the book. Mostly Information Technology, −4.8% on 5.2% of it.  
    <sub>impact of the market feed on clients.json CASE-029 holdings</sub>
-4. **digest.** Information Technology −4.8% today: 5.2% of the book, about −CHF 256, mostly via CSIF (CH) I Equity World ex CH Blue and CSIF (CH) Equity World ex CH ESG Blue.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-029 holdings</sub>
-5. **digest.** The dollar −1.2% against the franc: 11.9% of the book is exposed, about −CHF 146.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-029 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** Consumer Discretionary −2.2% today: 3.1% of the book, about −CHF 70, mostly via CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-029 holdings</sub>
-9. **digest.** 5.1% of the book has no matching market move and is not included.  
+4. **digest.** About −CHF 582 today, −0.6% of the book.  
+   <sub>impact of the market feed on clients.json CASE-029 holdings</sub>
+5. **digest.** About −CHF 256 from Information Technology, −4.8% today on 5.2% of the book, mostly CSIF (CH) I Equity World ex CH Blue and CSIF (CH) Equity World ex CH ESG Blue.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-029 holdings</sub>
+6. **digest.** About −CHF 146 from the dollar, −1.2% against the franc on 11.9% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-029 holdings</sub>
+7. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** About −CHF 70 from Consumer Discretionary, −2.2% today on 3.1% of the book, mostly CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
+   <sub>market feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-029 holdings</sub>
+10. **digest.** 5.1% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-029 holdings without a mapped market move</sub>
-10. **holding.** Holding up today: Swiss franc bonds +0.2% (56.5% of the book); Consumer Staples +0.3% (3.3% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-029 holdings</sub>
-11. **holding.** Vanguard Global Bond Index Fund (11.2% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
-   <sub>clients.json CASE-029: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-12. **talk.** Confirm the amount and the date of the cash need before discussing what to sell.  
-   <sub>data/playbook.json: cash_need (when: withdrawal)</sub>
-13. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
+11. **holding.** Holding up today: Swiss franc bonds +0.2% (56.5% of the book); Consumer Staples +0.3% (3.3% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-029 holdings</sub>
+12. **holding.** Vanguard Global Bond Index Fund (11.2% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
+   <sub>clients.json CASE-029: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -2062,6 +2776,44 @@ no risk profile · CHF 102k · ESG preference: no
   <sub>clients.json CASE-029: Portfolios[CASE-029-01].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): 61.6% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-029: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 2k, 1.8% of the book.  
+  <sub>clients.json CASE-029: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Bonds are 56.5% of the portfolio (CHF 58k).  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Shares are 36.6% of the portfolio (CHF 37k).  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 5.1% of the portfolio (CHF 5k).  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 1.8% of the portfolio (CHF 2k).  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Financials is 7.1% of the portfolio (CHF 7k) after fund look-through.  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 6.9% of the portfolio (CHF 7k) after fund look-through.  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 5.2% of the portfolio (CHF 5k) after fund look-through.  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 5.0% of the portfolio (CHF 5k) after fund look-through.  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 3.3% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 3.1% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 2.0% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 2.0% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.8% of the portfolio (CHF 795) after fund look-through.  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.7% of the portfolio (CHF 765) after fund look-through.  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.4% of the portfolio (CHF 444) after fund look-through.  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 102k).  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Global Aggregate Bond Index Fund, CHF 11k (11.2% of the portfolio).  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 13 holdings; the largest: Global Aggregate Bond Index Fund (CHF 11k), CSIF (CH) Bond Aggregate Global ex CHF ESG Blue (CHF 11k), Vanguard Global Bond Index Fund (CHF 11k), CSIF (CH) I Equity World ex CH Blue (CHF 10k).  
+  <sub>clients.json CASE-029: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -2077,41 +2829,41 @@ no risk profile · CHF 28k · ESG preference: no
    <sub>clients.json CASE-030: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +27.7% over the 12 months to Jul 2026 and +94.3% since Oct 2021, now CHF 28k; value change including deposits and withdrawals.  
    <sub>clients.json CASE-030: PerformanceHistory of CASE-030-01</sub>
-3. **Watch.** Global Aggregate Bond Index Fund drives 20.7% of the volatility of Pension (CASE-030-01).  
+3. **Health check.** Nothing open: no suitability violation, and every asset class is inside its band.  
+   <sub>clients.json CASE-030: SuitabilityViolations (none open); reference.json StrategicAssetAllocations bands</sub>
+4. **Watch.** Global Aggregate Bond Index Fund drives 20.7% of the volatility of Pension (CASE-030-01).  
    <sub>clients.json CASE-030: Portfolios[CASE-030-01].SecurityPositions.ContributionVolatility</sub>
-4. **Watch.** Note from 12 Aug 2025: "Requested a comparison against the benchmark at the next review."  
+5. **Watch.** Note from 12 Aug 2025: "Requested a comparison against the benchmark at the next review."  
    <sub>clients.json CASE-030: ClientNotes</sub>
-5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "Financial sector an attractive route to broadening exposure."  
+6. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "Financial sector an attractive route to broadening exposure."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
-6. **Next best actions.** Book a review: no finalised proposal on record.  
+7. **Next best actions.** Book a review: no finalised proposal on record.  
    <sub>clients.json CASE-030: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Darth Vader is calling: no risk profile, CHF 28k across 1 portfolio.  
    <sub>clients.json CASE-030: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Information Technology −4.8% today, 5.2% of the book; about −CHF 159 (−0.6%) overall.  
+2. **reason.** Probably the market: about −CHF 159 today, −0.6% of the book. Mostly Information Technology, −4.8% on 5.2% of it.  
    <sub>impact of the market feed on clients.json CASE-030 holdings</sub>
-3. **digest.** Information Technology −4.8% today: 5.2% of the book, about −CHF 70, mostly via CSIF (CH) I Equity World ex CH Blue and CSIF (CH) Equity World ex CH ESG Blue.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-030 holdings</sub>
-4. **digest.** The dollar −1.2% against the franc: 11.8% of the book is exposed, about −CHF 40.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-030 holdings</sub>
-5. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-6. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Consumer Discretionary −2.2% today: 3.1% of the book, about −CHF 19, mostly via CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-030 holdings</sub>
-8. **digest.** 5.4% of the book has no matching market move and is not included.  
+3. **digest.** About −CHF 159 today, −0.6% of the book.  
+   <sub>impact of the market feed on clients.json CASE-030 holdings</sub>
+4. **digest.** About −CHF 70 from Information Technology, −4.8% today on 5.2% of the book, mostly CSIF (CH) I Equity World ex CH Blue and CSIF (CH) Equity World ex CH ESG Blue.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-030 holdings</sub>
+5. **digest.** About −CHF 40 from the dollar, −1.2% against the franc on 11.8% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-030 holdings</sub>
+6. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** About −CHF 19 from Consumer Discretionary, −2.2% today on 3.1% of the book, mostly CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
+   <sub>market feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-030 holdings</sub>
+9. **digest.** 5.4% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-030 holdings without a mapped market move</sub>
-9. **holding.** Holding up today: Swiss franc bonds +0.2% (56.2% of the book); Consumer Staples +0.3% (3.3% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-030 holdings</sub>
-10. **holding.** Vanguard Global Bond Index Fund (11.2% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
-   <sub>clients.json CASE-030: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-11. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-12. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
+10. **holding.** Holding up today: Swiss franc bonds +0.2% (56.2% of the book); Consumer Staples +0.3% (3.3% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-030 holdings</sub>
+11. **holding.** Vanguard Global Bond Index Fund (11.2% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
+   <sub>clients.json CASE-030: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -2127,6 +2879,44 @@ no risk profile · CHF 28k · ESG preference: no
   <sub>clients.json CASE-030: Portfolios[CASE-030-01].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): 61.5% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-030: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 518, 1.8% of the book.  
+  <sub>clients.json CASE-030: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Bonds are 56.2% of the portfolio (CHF 16k).  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Shares are 36.6% of the portfolio (CHF 10k).  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 5.4% of the portfolio (CHF 2k).  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 1.8% of the portfolio (CHF 519).  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Financials is 7.1% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 7.0% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 5.2% of the portfolio (CHF 1k) after fund look-through.  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 5.0% of the portfolio (CHF 1k) after fund look-through.  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 3.3% of the portfolio (CHF 927) after fund look-through.  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 3.1% of the portfolio (CHF 883) after fund look-through.  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 2.0% of the portfolio (CHF 574) after fund look-through.  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 2.0% of the portfolio (CHF 565) after fund look-through.  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.8% of the portfolio (CHF 219) after fund look-through.  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.7% of the portfolio (CHF 208) after fund look-through.  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.4% of the portfolio (CHF 121) after fund look-through.  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 28k).  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Global Aggregate Bond Index Fund, CHF 3k (11.2% of the portfolio).  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 13 holdings; the largest: Global Aggregate Bond Index Fund (CHF 3k), Vanguard Global Bond Index Fund (CHF 3k), CSIF (CH) Bond Aggregate Global ex CHF ESG Blue (CHF 3k), CSIF (CH) I Equity World ex CH Blue (CHF 3k).  
+  <sub>clients.json CASE-030: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -2157,30 +2947,26 @@ no risk profile · CHF 35k · ESG preference: yes
    <sub>clients.json CASE-031: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Contact preference: "Prefers email communication, hard to reach by phone"  
    <sub>data/profiles/profiles.json CASE-031 from clients.json ClientNotes</sub>
-3. **reason.** Probably the market move: Information Technology −4.8% today, 6.6% of the book; about −CHF 270 (−0.8%) overall.  
+3. **reason.** Probably the market: about −CHF 270 today, −0.8% of the book. Mostly Information Technology, −4.8% on 6.6% of it.  
    <sub>impact of the market feed on clients.json CASE-031 holdings</sub>
-4. **digest.** Information Technology −4.8% today: 6.6% of the book, about −CHF 111, mostly via CSIF (CH) I Equity World ex CH Blue and CSIF (CH) Equity World ex CH ESG Blue.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-031 holdings</sub>
-5. **digest.** The dollar −1.2% against the franc: 14.8% of the book is exposed, about −CHF 63.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-031 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** Consumer Discretionary −2.2% today: 4.0% of the book, about −CHF 31, mostly via CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-031 holdings</sub>
-9. **digest.** 5.0% of the book has no matching market move and is not included.  
+4. **digest.** About −CHF 270 today, −0.8% of the book.  
+   <sub>impact of the market feed on clients.json CASE-031 holdings</sub>
+5. **digest.** About −CHF 111 from Information Technology, −4.8% today on 6.6% of the book, mostly CSIF (CH) I Equity World ex CH Blue and CSIF (CH) Equity World ex CH ESG Blue.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-031 holdings</sub>
+6. **digest.** About −CHF 63 from the dollar, −1.2% against the franc on 14.8% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-031 holdings</sub>
+7. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** About −CHF 31 from Consumer Discretionary, −2.2% today on 4.0% of the book, mostly CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
+   <sub>market feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-031 holdings</sub>
+10. **digest.** 5.0% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-031 holdings without a mapped market move</sub>
-10. **holding.** Holding up today: Swiss franc bonds +0.2% (46.5% of the book); Consumer Staples +0.3% (4.1% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-031 holdings</sub>
-11. **holding.** Vanguard Global Bond Index Fund (9.1% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
-   <sub>clients.json CASE-031: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-12. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-13. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
-14. **issue.** Open issue: ESG client: average sustainability score 7.1 of 10 against a minimum of 5.7; 5.0% of the book has no score.  
-   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-031 positions</sub>
+11. **holding.** Holding up today: Swiss franc bonds +0.2% (46.5% of the book); Consumer Staples +0.3% (4.1% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-031 holdings</sub>
+12. **holding.** Vanguard Global Bond Index Fund (9.1% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
+   <sub>clients.json CASE-031: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -2198,6 +2984,44 @@ no risk profile · CHF 35k · ESG preference: yes
   <sub>clients.json CASE-031: Portfolios[CASE-031-01].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): 51.5% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-031: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 711, 2.0% of the book.  
+  <sub>clients.json CASE-031: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Bonds are 46.5% of the portfolio (CHF 16k).  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Shares are 46.4% of the portfolio (CHF 16k).  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 5.0% of the portfolio (CHF 2k).  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 2.0% of the portfolio (CHF 711).  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Financials is 8.9% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 8.9% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 6.6% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 6.3% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 4.1% of the portfolio (CHF 1k) after fund look-through.  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 4.0% of the portfolio (CHF 1k) after fund look-through.  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 2.7% of the portfolio (CHF 940) after fund look-through.  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 2.6% of the portfolio (CHF 907) after fund look-through.  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 1.0% of the portfolio (CHF 339) after fund look-through.  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.9% of the portfolio (CHF 327) after fund look-through.  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.5% of the portfolio (CHF 189) after fund look-through.  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 35k).  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Equities Switzerland Passive Leader, CHF 4k (11.3% of the portfolio).  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 13 holdings; the largest: Equities Switzerland Passive Leader (CHF 4k), CSIF (CH) I Equity World ex CH Blue (CHF 4k), Global Aggregate Bond Index Fund (CHF 3k), CSIF (CH) Bond Aggregate Global ex CHF ESG Blue (CHF 3k).  
+  <sub>clients.json CASE-031: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -2226,26 +3050,22 @@ no risk profile · CHF 23k · ESG preference: yes
 
 1. **caller.** Popeye is calling: no risk profile, ESG preference, CHF 23k across 1 portfolio.  
    <sub>clients.json CASE-032: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Information Technology −4.8% today, 10.8% of the book; about −CHF 321 (−1.4%) overall.  
+2. **reason.** Probably the market: about −CHF 321 today, −1.4% of the book. Mostly Information Technology, −4.8% on 10.8% of it.  
    <sub>impact of the market feed on clients.json CASE-032 holdings</sub>
-3. **digest.** Information Technology −4.8% today: 10.8% of the book, about −CHF 121, mostly via CSIF (CH) I Equity World ex CH Blue and CSIF (CH) Equity World ex CH ESG Blue.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-032 holdings</sub>
-4. **digest.** The dollar −1.2% against the franc: 24.4% of the book is exposed, about −CHF 69.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-032 holdings</sub>
-5. **digest.** Consumer Discretionary −2.2% today: 6.5% of the book, about −CHF 34, mostly via CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-032 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **holding.** Holding up today: Swiss franc bonds +0.2% (19.4% of the book); Consumer Staples +0.3% (6.8% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-032 holdings</sub>
-9. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-10. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
-11. **issue.** Open issue: ESG client: average sustainability score 7.3 of 10 against a minimum of 5.7; 2.9% of the book has no score.  
-   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-032 positions</sub>
+3. **digest.** About −CHF 321 today, −1.4% of the book.  
+   <sub>impact of the market feed on clients.json CASE-032 holdings</sub>
+4. **digest.** About −CHF 121 from Information Technology, −4.8% today on 10.8% of the book, mostly CSIF (CH) I Equity World ex CH Blue and CSIF (CH) Equity World ex CH ESG Blue.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-032 holdings</sub>
+5. **digest.** About −CHF 69 from the dollar, −1.2% against the franc on 24.4% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-032 holdings</sub>
+6. **digest.** About −CHF 34 from Consumer Discretionary, −2.2% today on 6.5% of the book, mostly CSIF (CH) I Equity World ex CH Blue and Equities Switzerland Passive Leader.  
+   <sub>market feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-032 holdings</sub>
+7. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **holding.** Holding up today: Swiss franc bonds +0.2% (19.4% of the book); Consumer Staples +0.3% (6.8% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-032 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -2261,6 +3081,44 @@ no risk profile · CHF 23k · ESG preference: yes
   <sub>clients.json CASE-032: Portfolios[CASE-032-01].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): 22.2% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-032: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 494, 2.1% of the book.  
+  <sub>clients.json CASE-032: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 75.7% of the portfolio (CHF 18k).  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 19.4% of the portfolio (CHF 5k).  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 2.9% of the portfolio (CHF 678).  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 2.1% of the portfolio (CHF 494).  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Financials is 14.5% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 14.4% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 10.8% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 10.2% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 6.8% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 6.5% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 4.3% of the portfolio (CHF 999) after fund look-through.  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 4.2% of the portfolio (CHF 987) after fund look-through.  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 1.6% of the portfolio (CHF 370) after fund look-through.  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 1.5% of the portfolio (CHF 358) after fund look-through.  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.9% of the portfolio (CHF 207) after fund look-through.  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 23k).  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: CSIF (CH) I Equity World ex CH Blue, CHF 4k (18.7% of the portfolio).  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 11 holdings; the largest: CSIF (CH) I Equity World ex CH Blue (CHF 4k), Equities Switzerland Passive Leader (CHF 4k), CSIF (CH) Equity World ex CH ESG Blue (CHF 3k), iShares Swiss Dividend ETF (CH) (CHF 2k).  
+  <sub>clients.json CASE-032: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -2293,30 +3151,26 @@ Investor profile 5 · CHF 89k · ESG preference: no
 
 1. **caller.** Eric Cartman is calling: Investor profile 5, CHF 89k across 1 portfolio.  
    <sub>clients.json CASE-033: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Information Technology −4.8% today, 10.7% of the book; about −CHF 979 (−1.1%) overall.  
+2. **reason.** Probably the market: about −CHF 979 today, −1.1% of the book. Mostly Information Technology, −4.8% on 10.7% of it.  
    <sub>impact of the market feed on clients.json CASE-033 holdings</sub>
 3. **reason.** Possibly the proposal of 29 Jun 2026 that was rejected (reason: Risk profile update).  
    <sub>clients.json CASE-033: Proposals[23490]</sub>
-4. **digest.** Information Technology −4.8% today: 10.7% of the book, about −CHF 459, mostly via iShares Core S&P 500 UCITS ETF and Credit Suisse (Lux) Robotics Equity Fund.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-033 holdings</sub>
-5. **digest.** The dollar −1.2% against the franc: 25.0% of the book is exposed, about −CHF 268.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-033 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** Consumer Discretionary −2.2% today: 3.9% of the book, about −CHF 78, mostly via iShares Core S&P 500 UCITS ETF and SLI (R).  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-033 holdings</sub>
-9. **holding.** Global Investment Grade Credit Fund and Glob.High Yield Corp Bd CHF UCITS ETF (Dist) (17.7% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
-   <sub>clients.json CASE-033: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-10. **holding.** Holding up today: Swiss franc bonds +0.2% (35.3% of the book); foreign bonds +0.3% (7.7% of the book); Consumer Staples +0.3% (3.6% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-033 holdings</sub>
-11. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-12. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-13. **issue.** Open issue: 0 suitability errors and 3 warnings open; most serious: "Underweight in the equity sector "Consumer Staples"".  
-   <sub>clients.json CASE-033: SuitabilityViolations</sub>
+4. **digest.** About −CHF 979 today, −1.1% of the book.  
+   <sub>impact of the market feed on clients.json CASE-033 holdings</sub>
+5. **digest.** About −CHF 459 from Information Technology, −4.8% today on 10.7% of the book, mostly iShares Core S&P 500 UCITS ETF and Credit Suisse (Lux) Robotics Equity Fund.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-033 holdings</sub>
+6. **digest.** About −CHF 268 from the dollar, −1.2% against the franc on 25.0% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-033 holdings</sub>
+7. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** About −CHF 78 from Consumer Discretionary, −2.2% today on 3.9% of the book, mostly iShares Core S&P 500 UCITS ETF and SLI (R).  
+   <sub>market feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-033 holdings</sub>
+10. **holding.** Global Investment Grade Credit Fund and Glob.High Yield Corp Bd CHF UCITS ETF (Dist) (17.7% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+   <sub>clients.json CASE-033: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
+11. **holding.** Holding up today: Swiss franc bonds +0.2% (35.3% of the book); foreign bonds +0.3% (7.7% of the book); Consumer Staples +0.3% (3.6% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-033 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -2336,6 +3190,50 @@ Investor profile 5 · CHF 89k · ESG preference: no
   <sub>clients.json CASE-033: Portfolios[CASE-033-01].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): 43.0% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-033: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 3k, 3.8% of the book.  
+  <sub>clients.json CASE-033: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 53.2% of the portfolio (CHF 48k).  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 43.0% of the portfolio (CHF 38k).  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 3.8% of the portfolio (CHF 3k).  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 11.2% of the portfolio (CHF 10k) after fund look-through.  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 10.7% of the portfolio (CHF 10k) after fund look-through.  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 7.7% of the portfolio (CHF 7k) after fund look-through.  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 7.4% of the portfolio (CHF 7k) after fund look-through.  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 3.9% of the portfolio (CHF 4k) after fund look-through.  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 3.6% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 3.2% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 2.3% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 1.7% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.9% of the portfolio (CHF 760) after fund look-through.  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.5% of the portfolio (CHF 486) after fund look-through.  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 63.9% of the portfolio (CHF 57k).  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 33.4% of the portfolio (CHF 30k).  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 2.5% of the portfolio (CHF 2k).  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): SHIB: 0.3% of the portfolio (CHF 228).  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Crypto: CHF 228, 0.3% of the portfolio.  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares Core S&P 500 UCITS ETF, CHF 13k (14.4% of the portfolio).  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 12 holdings; the largest: iShares Core S&P 500 UCITS ETF (CHF 13k), BCV Swiss Franc Bonds (CHF 11k), SLI (R) (CHF 11k), Global Investment Grade Credit Fund (CHF 11k).  
+  <sub>clients.json CASE-033: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.30): Resolve "Underweight in the equity sector "Consumer Staples"".  
   <sub>clients.json CASE-033: SuitabilityViolations[Id=610083]</sub>
 - **Next best actions** (0.30): Resolve "Overweight in the equity sector "Information Technology"".  
@@ -2378,30 +3276,26 @@ Investor profile 6 · CHF 698k · ESG preference: no
    <sub>clients.json CASE-034: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Contact preference: "Prefers semi-annual phone contact, no unannounced visits"  
    <sub>data/profiles/profiles.json CASE-034 from clients.json ClientNotes</sub>
-3. **reason.** Probably the market move: Information Technology −4.8% today, 8.8% of the book; about −CHF 8k (−1.1%) overall.  
+3. **reason.** Probably the market: about −CHF 8k today, −1.1% of the book. Mostly Information Technology, −4.8% on 8.8% of it.  
    <sub>impact of the market feed on clients.json CASE-034 holdings</sub>
-4. **digest.** Information Technology −4.8% today: 8.8% of the book, about −CHF 3k, mostly via Xtrackers MSCI World ESG UCITS ETF and Global Climate and Environment Fund.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-034 holdings</sub>
-5. **digest.** The dollar −1.2% against the franc: 27.3% of the book is exposed, about −CHF 2k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-034 holdings</sub>
-6. **digest.** Industrials −1.1% today: 12.8% of the book, about −CHF 982, mostly via Global Climate and Environment Fund and iShares Global Water UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-034 holdings</sub>
-7. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **digest.** 9.5% of the book has no matching market move and is not included.  
+4. **digest.** About −CHF 8k today, −1.1% of the book.  
+   <sub>impact of the market feed on clients.json CASE-034 holdings</sub>
+5. **digest.** About −CHF 3k from Information Technology, −4.8% today on 8.8% of the book, mostly Xtrackers MSCI World ESG UCITS ETF and Global Climate and Environment Fund.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-034 holdings</sub>
+6. **digest.** About −CHF 2k from the dollar, −1.2% against the franc on 27.3% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-034 holdings</sub>
+7. **digest.** About −CHF 982 from Industrials, −1.1% today on 12.8% of the book, mostly Global Climate and Environment Fund and iShares Global Water UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-034 holdings</sub>
+8. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **digest.** 9.5% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-034 holdings without a mapped market move</sub>
-10. **holding.** Glob.High Yield Corp Bd CHF UCITS ETF (Dist) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (7.2% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
-   <sub>clients.json CASE-034: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-11. **holding.** Holding up today: Swiss franc bonds +0.2% (26.2% of the book); Consumer Staples +0.3% (5.6% of the book); Utilities +0.5% (3.2% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-034 holdings</sub>
-12. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-13. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-14. **issue.** Open issue: 1 suitability error and 3 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
-   <sub>clients.json CASE-034: SuitabilityViolations</sub>
+11. **holding.** Glob.High Yield Corp Bd CHF UCITS ETF (Dist) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (7.2% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+   <sub>clients.json CASE-034: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
+12. **holding.** Holding up today: Swiss franc bonds +0.2% (26.2% of the book); Consumer Staples +0.3% (5.6% of the book); Utilities +0.5% (3.2% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-034 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -2425,8 +3319,56 @@ Investor profile 6 · CHF 698k · ESG preference: no
   <sub>clients.json CASE-034: IndividualRuleOverrides</sub>
 - **Watch** (0.00): 35.7% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-034: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 8k, 1.2% of the book.  
+  <sub>clients.json CASE-034: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 63.2% of the portfolio (CHF 441k).  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 26.2% of the portfolio (CHF 183k).  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 7.7% of the portfolio (CHF 54k).  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 1.7% of the portfolio (CHF 12k).  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 1.2% of the portfolio (CHF 8k).  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Industrials is 12.8% of the portfolio (CHF 89k) after fund look-through.  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 11.0% of the portfolio (CHF 77k) after fund look-through.  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 9.2% of the portfolio (CHF 64k) after fund look-through.  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 8.8% of the portfolio (CHF 61k) after fund look-through.  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 5.6% of the portfolio (CHF 39k) after fund look-through.  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 4.7% of the portfolio (CHF 33k) after fund look-through.  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 3.9% of the portfolio (CHF 27k) after fund look-through.  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 3.2% of the portfolio (CHF 22k) after fund look-through.  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 2.0% of the portfolio (CHF 14k) after fund look-through.  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 1.9% of the portfolio (CHF 13k) after fund look-through.  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.1% of the portfolio (CHF 522) after fund look-through.  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 60.7% of the portfolio (CHF 424k).  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 29.2% of the portfolio (CHF 203k).  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 10.1% of the portfolio (CHF 71k).  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Crypto: CHF 36k, 5.1% of the portfolio.  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: MSCI Switzerland IMI Socially Responsible, CHF 56k (8.0% of the portfolio).  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 22 holdings; the largest: MSCI Switzerland IMI Socially Responsible (CHF 56k), iShares Listed Private Equity UCITS ETF (CHF 54k), SLI (R) (CHF 52k), CSIF (CH) Equity SPI ESG Multi Premia Blue (CHF 45k).  
+  <sub>clients.json CASE-034: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.30): Resolve "Underweight in the equity sector "Health Care"".  
   <sub>clients.json CASE-034: SuitabilityViolations[Id=603414]</sub>
+- **Next best actions** (0.21): Clear the warnings on the 5 flagged orders from the proposal of 23 Dec 2025.  
+  <sub>clients.json CASE-034: Transactions[ProposalId=19458].ForwardState = 2</sub>
 
 </details>
 
@@ -2454,6 +3396,8 @@ Investor profile 6 · CHF 741k · ESG preference: no
    <sub>https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook</sub>
 8. **Next best actions.** Resolve "Underweight in the equity sector "Consumer Staples"".  
    <sub>clients.json CASE-035: SuitabilityViolations[Id=898024]</sub>
+9. **Next best actions.** Clear the warnings on the 3 flagged orders from the proposal of 3 May 2026.  
+   <sub>clients.json CASE-035: Transactions[ProposalId=22110].ForwardState = 2</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
@@ -2461,30 +3405,26 @@ Investor profile 6 · CHF 741k · ESG preference: no
    <sub>clients.json CASE-035: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Contact preference: "Prefers email communication, hard to reach by phone"  
    <sub>data/profiles/profiles.json CASE-035 from clients.json ClientNotes</sub>
-3. **reason.** Probably the market move: Information Technology −4.8% today, 9.7% of the book; about −CHF 9k (−1.2%) overall.  
+3. **reason.** Probably the market: about −CHF 9k today, −1.2% of the book. Mostly Information Technology, −4.8% on 9.7% of it.  
    <sub>impact of the market feed on clients.json CASE-035 holdings</sub>
 4. **reason.** Possibly reinvestment: 0.1525 % Cembra Money Bank AG 2019-14.10.26 matures on 14 Oct 2026 (CHF 14k).  
    <sub>clients.json CASE-035: SecurityPositions × reference.json Securities.MaturityDateUtc</sub>
-5. **digest.** Information Technology −4.8% today: 9.7% of the book, about −CHF 3k, mostly via iShares NASDAQ 100 UCITS ETF and iShares MSCI World CHF Hedged UCITS ETF (Acc).  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-035 holdings</sub>
-6. **digest.** The dollar −1.2% against the franc: 20.5% of the book is exposed, about −CHF 2k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-035 holdings</sub>
-7. **digest.** Financials −0.9% today: 12.1% of the book, about −CHF 809, mostly via iShares Swiss Dividend ETF (CH) and iShares Core SPI(R) ETF (CH).  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-035 holdings</sub>
-8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-10. **holding.** Global Investment Grade Credit Fund and iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (13.0% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
-   <sub>clients.json CASE-035: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-11. **holding.** Holding up today: Swiss franc bonds +0.2% (17.6% of the book); Consumer Staples +0.3% (8.1% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-035 holdings</sub>
-12. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-13. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-14. **issue.** Open issue: 0 suitability errors and 1 warning open; most serious: "Underweight in the equity sector "Consumer Staples"".  
-   <sub>clients.json CASE-035: SuitabilityViolations</sub>
+5. **digest.** About −CHF 9k today, −1.2% of the book.  
+   <sub>impact of the market feed on clients.json CASE-035 holdings</sub>
+6. **digest.** About −CHF 3k from Information Technology, −4.8% today on 9.7% of the book, mostly iShares NASDAQ 100 UCITS ETF and iShares MSCI World CHF Hedged UCITS ETF (Acc).  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-035 holdings</sub>
+7. **digest.** About −CHF 2k from the dollar, −1.2% against the franc on 20.5% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-035 holdings</sub>
+8. **digest.** About −CHF 809 from Financials, −0.9% today on 12.1% of the book, mostly iShares Swiss Dividend ETF (CH) and iShares Core SPI(R) ETF (CH).  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-035 holdings</sub>
+9. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+11. **holding.** Global Investment Grade Credit Fund and iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (13.0% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+   <sub>clients.json CASE-035: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
+12. **holding.** Holding up today: Swiss franc bonds +0.2% (17.6% of the book); Consumer Staples +0.3% (8.1% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-035 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -2502,6 +3442,46 @@ Investor profile 6 · CHF 741k · ESG preference: no
   <sub>clients.json CASE-035: SecurityPositions.SecurityName</sub>
 - **Watch** (0.03): Risk engine for Depository advisory (CASE-035-01), 3 Sep 2026: expected return 5.4%, value at risk 12.6%.  
   <sub>clients.json CASE-035: Portfolios[CASE-035-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 27k, 3.7% of the book.  
+  <sub>clients.json CASE-035: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 74.8% of the portfolio (CHF 554k).  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 17.6% of the portfolio (CHF 130k).  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 3.9% of the portfolio (CHF 29k).  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 3.7% of the portfolio (CHF 27k).  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 16.2% of the portfolio (CHF 120k) after fund look-through.  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 14.1% of the portfolio (CHF 105k) after fund look-through.  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 14.1% of the portfolio (CHF 104k) after fund look-through.  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 9.7% of the portfolio (CHF 72k) after fund look-through.  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 8.1% of the portfolio (CHF 60k) after fund look-through.  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 5.9% of the portfolio (CHF 44k) after fund look-through.  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 4.4% of the portfolio (CHF 33k) after fund look-through.  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 3.3% of the portfolio (CHF 24k) after fund look-through.  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 3.0% of the portfolio (CHF 22k) after fund look-through.  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 2.9% of the portfolio (CHF 22k) after fund look-through.  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 1.1% of the portfolio (CHF 8k) after fund look-through.  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 72.2% of the portfolio (CHF 534k).  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 27.8% of the portfolio (CHF 206k).  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares Swiss Dividend ETF (CH), CHF 100k (13.5% of the portfolio).  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 28 holdings; the largest: iShares Swiss Dividend ETF (CH) (CHF 100k), iShares MSCI World CHF Hedged UCITS ETF (Acc) (CHF 70k), iShares Core SPI(R) ETF (CH) (CHF 69k), iShares Edge MSCI World Value Factor UCITS ETF (CHF 58k).  
+  <sub>clients.json CASE-035: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -2542,20 +3522,18 @@ Investor profile 7 · CHF 122k · ESG preference: yes
    <sub>data/profiles/profiles.json CASE-036 from clients.json ClientNotes</sub>
 4. **reason.** Probably idle cash: 82.2% of the book (CHF 100k) is cash.  
    <sub>clients.json CASE-036: LiquidityInDefaultCurrency</sub>
-5. **digest.** Information Technology −4.8% today: 2.6% of the book, about −CHF 151, mostly via CSIF (CH) I Equity World ex CH Blue and CSIF (CH) Equity World ex CH ESG Blue.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-036 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** The dollar −1.2% against the franc: 5.9% of the book is exposed, about −CHF 86.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-036 holdings</sub>
-9. **digest.** Financials −0.9% today: 3.4% of the book, about −CHF 37, mostly via Equities Switzerland Passive Leader and iShares Swiss Dividend ETF (CH).  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-036 holdings</sub>
-10. **talk.** Agree on a concrete next step and when you will call back.  
-   <sub>data/playbook.json: follow_up (when: always)</sub>
-11. **issue.** Open issue: 4 suitability errors and 0 warnings open; most serious: "Volatility range undershot (portfolio risk too low)".  
-   <sub>clients.json CASE-036: SuitabilityViolations</sub>
+5. **digest.** About −CHF 408 today, −0.3% of the book.  
+   <sub>impact of the market feed on clients.json CASE-036 holdings</sub>
+6. **digest.** About −CHF 151 from Information Technology, −4.8% today on 2.6% of the book, mostly CSIF (CH) I Equity World ex CH Blue and CSIF (CH) Equity World ex CH ESG Blue.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-036 holdings</sub>
+7. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** About −CHF 86 from the dollar, −1.2% against the franc on 5.9% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-036 holdings</sub>
+10. **digest.** About −CHF 37 from Financials, −0.9% today on 3.4% of the book, mostly Equities Switzerland Passive Leader and iShares Swiss Dividend ETF (CH).  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-036 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -2579,6 +3557,40 @@ Investor profile 7 · CHF 122k · ESG preference: yes
   <sub>clients.json CASE-036: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.03): Risk engine for Pension (CASE-036-01), 3 Sep 2026: expected return 6.2%, value at risk 16.3%.  
   <sub>clients.json CASE-036: Portfolios[CASE-036-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 100k, 82.2% of the book.  
+  <sub>clients.json CASE-036: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Cash is 82.2% of the portfolio (CHF 100k).  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Shares are 17.8% of the portfolio (CHF 22k).  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 3.4% of the portfolio (CHF 4k) after fund look-through.  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 3.4% of the portfolio (CHF 4k) after fund look-through.  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 2.6% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 2.4% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 1.6% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 1.6% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 1.0% of the portfolio (CHF 1k) after fund look-through.  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 1.0% of the portfolio (CHF 1k) after fund look-through.  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.4% of the portfolio (CHF 444) after fund look-through.  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.4% of the portfolio (CHF 440) after fund look-through.  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.2% of the portfolio (CHF 254) after fund look-through.  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 122k).  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: CSIF (CH) I Equity World ex CH Blue, CHF 5k (4.4% of the portfolio).  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 6 holdings; the largest: CSIF (CH) I Equity World ex CH Blue (CHF 5k), Equities Switzerland Passive Leader (CHF 5k), CSIF (CH) Equity World ex CH ESG Blue (CHF 4k), Index Equity Fund Small & Mid Caps Switzerland (CHF 3k).  
+  <sub>clients.json CASE-036: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (1.00): Rebalance Shares in Investment advisory (CASE-036-02) up toward 50.0%.  
   <sub>clients.json CASE-036: Portfolios[CASE-036-02] positions; reference.json StrategicAssetAllocations[44] AssetClass "Shares"</sub>
 - **Next best actions** (1.00): Resolve "Minimum limit fixed income".  
@@ -2629,32 +3641,30 @@ Investor profile 5 · CHF 1.21m · ESG preference: yes
    <sub>clients.json CASE-037: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Contact preference: "Would like a follow-up call before any changes to the standing order"  
    <sub>data/profiles/profiles.json CASE-037 from clients.json ClientNotes</sub>
-3. **reason.** Probably the market move: the dollar −1.2% today, 24.6% of the book; about −CHF 10k (−0.8%) overall.  
+3. **reason.** Probably the market: about −CHF 10k today, −0.8% of the book. Mostly the dollar, −1.2% on 24.6% of it.  
    <sub>impact of the market feed on clients.json CASE-037 holdings</sub>
 4. **reason.** Possibly reinvestment: 0.1525 % Cembra Money Bank AG 2019-14.10.26 matures on 14 Oct 2026 (CHF 19k).  
    <sub>clients.json CASE-037: SecurityPositions × reference.json Securities.MaturityDateUtc</sub>
-5. **digest.** The dollar −1.2% against the franc: 24.6% of the book is exposed, about −CHF 4k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-037 holdings</sub>
-6. **digest.** Information Technology −4.8% today: 5.5% of the book, about −CHF 3k, mostly via iShares Edge MSCI World Value Factor UCITS ETF and iShares NASDAQ 100 UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-037 holdings</sub>
-7. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **digest.** Financials −0.9% today: 9.3% of the book, about −CHF 1k, mostly via iShares Swiss Dividend ETF (CH) and UBS Group AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-037 holdings</sub>
-10. **digest.** 5.6% of the book has no matching market move and is not included.  
+5. **reason.** Possibly a sustainability concern: ESG client: average sustainability score 7.1 of 10 against a minimum of 5.7; 4 holdings below the per-position minimum (1.878 % Hyundai Capital Services Inc 2022-14.06.27 Global, 0.875 % Hyundai Capital America Inc 2021-14.06.24 Reg S and 2 more, 8.4% of the book); 4.6% of the book has no score.  
+   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-037 positions</sub>
+6. **digest.** About −CHF 10k today, −0.8% of the book.  
+   <sub>impact of the market feed on clients.json CASE-037 holdings</sub>
+7. **digest.** About −CHF 4k from the dollar, −1.2% against the franc on 24.6% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-037 holdings</sub>
+8. **digest.** About −CHF 3k from Information Technology, −4.8% today on 5.5% of the book, mostly iShares Edge MSCI World Value Factor UCITS ETF and iShares NASDAQ 100 UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-037 holdings</sub>
+9. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+11. **digest.** About −CHF 1k from Financials, −0.9% today on 9.3% of the book, mostly iShares Swiss Dividend ETF (CH) and UBS Group AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-037 holdings</sub>
+12. **digest.** 5.6% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-037 holdings without a mapped market move</sub>
-11. **holding.** Vanguard Global Bond Index Fund and SPDR Bloomberg Global Aggregate Bond UCITS ETF (6.4% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
-   <sub>clients.json CASE-037: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-12. **holding.** Holding up today: Swiss franc bonds +0.2% (31.0% of the book); foreign bonds +0.3% (9.0% of the book); Consumer Staples +0.3% (8.3% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-037 holdings</sub>
-13. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-14. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-15. **issue.** Open issue: 0 suitability errors and 3 warnings open; most serious: "Underweight in the equity region "North America"".  
-   <sub>clients.json CASE-037: SuitabilityViolations</sub>
+13. **holding.** Vanguard Global Bond Index Fund and SPDR Bloomberg Global Aggregate Bond UCITS ETF (6.4% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+   <sub>clients.json CASE-037: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
+14. **holding.** Holding up today: Swiss franc bonds +0.2% (31.0% of the book); foreign bonds +0.3% (9.0% of the book); Consumer Staples +0.3% (8.3% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-037 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -2688,8 +3698,54 @@ Investor profile 5 · CHF 1.21m · ESG preference: yes
   <sub>clients.json CASE-037: IndividualRuleOverrides</sub>
 - **Watch** (0.00): 32.5% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-037: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 10k, 0.8% of the book.  
+  <sub>clients.json CASE-037: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 53.7% of the portfolio (CHF 650k).  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 39.9% of the portfolio (CHF 483k).  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 4.6% of the portfolio (CHF 55k).  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 1.0% of the portfolio (CHF 13k).  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 0.8% of the portfolio (CHF 10k).  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Financials is 14.4% of the portfolio (CHF 174k) after fund look-through.  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 13.9% of the portfolio (CHF 169k) after fund look-through.  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 10.5% of the portfolio (CHF 127k) after fund look-through.  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 8.3% of the portfolio (CHF 101k) after fund look-through.  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 7.8% of the portfolio (CHF 94k) after fund look-through.  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 3.4% of the portfolio (CHF 41k) after fund look-through.  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 2.7% of the portfolio (CHF 32k) after fund look-through.  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 2.3% of the portfolio (CHF 28k) after fund look-through.  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 2.0% of the portfolio (CHF 24k) after fund look-through.  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.9% of the portfolio (CHF 10k) after fund look-through.  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.5% of the portfolio (CHF 7k) after fund look-through.  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 67.0% of the portfolio (CHF 811k).  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 29.1% of the portfolio (CHF 352k).  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 3.9% of the portfolio (CHF 48k).  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares Edge MSCI World Value Factor UCITS ETF, CHF 105k (8.7% of the portfolio).  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 48 holdings; the largest: iShares Edge MSCI World Value Factor UCITS ETF (CHF 105k), iShares Swiss Dividend ETF (CH) (CHF 81k), SPDR Bloomberg Global Aggregate Bond UCITS ETF (CHF 58k), iShares Core SPI(R) ETF (CH) (CHF 48k).  
+  <sub>clients.json CASE-037: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.30): Resolve "Underweight in the equity region "Asia/Pacific (ex Japan)"".  
   <sub>clients.json CASE-037: SuitabilityViolations[Id=608516]</sub>
+- **Next best actions** (0.12): Clear the warnings on the 1 flagged orders from the proposal of 19 Aug 2026.  
+  <sub>clients.json CASE-037: Transactions[ProposalId=24779].ForwardState = 2</sub>
 
 </details>
 
@@ -2724,30 +3780,26 @@ Investor profile 6 · CHF 1.62m · ESG preference: no
 
 1. **caller.** Charlie Brown is calling: Investor profile 6, CHF 1.62m across 1 portfolio.  
    <sub>clients.json CASE-038: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Information Technology −4.8% today, 8.7% of the book; about −CHF 19k (−1.2%) overall.  
+2. **reason.** Probably the market: about −CHF 19k today, −1.2% of the book. Mostly Information Technology, −4.8% on 8.7% of it.  
    <sub>impact of the market feed on clients.json CASE-038 holdings</sub>
-3. **digest.** Information Technology −4.8% today: 8.7% of the book, about −CHF 7k, mostly via iShares Core S&P 500 UCITS ETF and iShares NASDAQ 100 UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-038 holdings</sub>
-4. **digest.** The dollar −1.2% against the franc: 29.1% of the book is exposed, about −CHF 6k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-038 holdings</sub>
-5. **digest.** Industrials −1.1% today: 11.4% of the book, about −CHF 2k, mostly via Sulzer AG and Accelleron Industries AG.  
-   <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-038 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** 6.3% of the book has no matching market move and is not included.  
+3. **digest.** About −CHF 19k today, −1.2% of the book.  
+   <sub>impact of the market feed on clients.json CASE-038 holdings</sub>
+4. **digest.** About −CHF 7k from Information Technology, −4.8% today on 8.7% of the book, mostly iShares Core S&P 500 UCITS ETF and iShares NASDAQ 100 UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-038 holdings</sub>
+5. **digest.** About −CHF 6k from the dollar, −1.2% against the franc on 29.1% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-038 holdings</sub>
+6. **digest.** About −CHF 2k from Industrials, −1.1% today on 11.4% of the book, mostly Sulzer AG and Accelleron Industries AG.  
+   <sub>market feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-038 holdings</sub>
+7. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** 6.3% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-038 holdings without a mapped market move</sub>
-9. **holding.** iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (3.4% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
-   <sub>clients.json CASE-038: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-10. **holding.** Holding up today: Consumer Staples +0.3% (11.6% of the book); Swiss franc bonds +0.2% (9.3% of the book); Gold +1.4% (5.9% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-038 holdings</sub>
-11. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-12. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-13. **issue.** Open issue: 12 suitability errors and 6 warnings open; most serious: "Foreign currency cluster risk USD".  
-   <sub>clients.json CASE-038: SuitabilityViolations</sub>
+10. **holding.** iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (3.4% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+   <sub>clients.json CASE-038: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
+11. **holding.** Holding up today: Consumer Staples +0.3% (11.6% of the book); Swiss franc bonds +0.2% (9.3% of the book); Gold +1.4% (5.9% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-038 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -2771,8 +3823,58 @@ Investor profile 6 · CHF 1.62m · ESG preference: no
   <sub>clients.json CASE-038: SecurityPositions.SecurityName</sub>
 - **Watch** (0.03): Risk engine for Depository advisory (CASE-038-02), 3 Sep 2026: expected return 5.6%, value at risk 12.2%.  
   <sub>clients.json CASE-038: Portfolios[CASE-038-02].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 34k, 2.1% of the book.  
+  <sub>clients.json CASE-038: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 76.3% of the portfolio (CHF 1.24m).  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 9.3% of the portfolio (CHF 151k).  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 9.0% of the portfolio (CHF 147k).  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 3.2% of the portfolio (CHF 53k).  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 2.1% of the portfolio (CHF 34k).  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 20.5% of the portfolio (CHF 332k) after fund look-through.  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 15.7% of the portfolio (CHF 255k) after fund look-through.  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 12.7% of the portfolio (CHF 206k) after fund look-through.  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 11.6% of the portfolio (CHF 187k) after fund look-through.  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 9.7% of the portfolio (CHF 156k) after fund look-through.  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 5.3% of the portfolio (CHF 85k) after fund look-through.  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 3.2% of the portfolio (CHF 52k) after fund look-through.  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 2.9% of the portfolio (CHF 47k) after fund look-through.  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 1.3% of the portfolio (CHF 21k) after fund look-through.  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 1.1% of the portfolio (CHF 17k) after fund look-through.  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.8% of the portfolio (CHF 14k) after fund look-through.  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 57.3% of the portfolio (CHF 928k).  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 33.9% of the portfolio (CHF 548k).  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 7.0% of the portfolio (CHF 114k).  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Andere: 1.8% of the portfolio (CHF 29k).  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Gold: CHF 96k, 5.9% of the portfolio.  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares Core S&P 500 UCITS ETF, CHF 237k (14.6% of the portfolio).  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 42 holdings; the largest: iShares Core S&P 500 UCITS ETF (CHF 237k), iShares Edge MSCI World Value Factor UCITS ETF (CHF 87k), Nestle SA (CHF 82k), iShares Swiss Dividend ETF (CH) (CHF 80k).  
+  <sub>clients.json CASE-038: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (1.00): Resolve "Cluster risk of a single financial instrument" on Zurich Insurance Group AG.  
   <sub>clients.json CASE-038: SuitabilityViolations[Id=505015]</sub>
+- **Next best actions** (0.12): Clear the warnings on the 3 flagged orders from the proposal of 24 Aug 2026.  
+  <sub>clients.json CASE-038: Transactions[ProposalId=23779].ForwardState = 2</sub>
 
 </details>
 
@@ -2809,26 +3911,22 @@ Investor profile 5 · CHF 170k · ESG preference: no
    <sub>clients.json CASE-039: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Profile: wants it detailed. From the notes: "Appreciates a detailed written summary after every meeting."  
    <sub>data/profiles/profiles.json CASE-039 (apertus) from clients.json ClientNotes</sub>
-3. **reason.** Probably the market move: Information Technology −4.8% today, 9.7% of the book; about −CHF 2k (−1.2%) overall.  
+3. **reason.** Probably the market: about −CHF 2k today, −1.2% of the book. Mostly Information Technology, −4.8% on 9.7% of it.  
    <sub>impact of the market feed on clients.json CASE-039 holdings</sub>
-4. **digest.** Information Technology −4.8% today: 9.7% of the book, about −CHF 786, mostly via Xtrackers MSCI World ESG UCITS ETF and S&P 500 ESG ELITE UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-039 holdings</sub>
-5. **digest.** The dollar −1.2% against the franc: 23.9% of the book is exposed, about −CHF 487.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-039 holdings</sub>
-6. **digest.** Financials −0.9% today: 11.5% of the book, about −CHF 176, mostly via Swiss Life Holding AG and MSCI Switzerland IMI Socially Responsible.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-039 holdings</sub>
-7. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **holding.** Holding up today: Swiss franc bonds +0.2% (34.4% of the book); Consumer Staples +0.3% (5.9% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-039 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-12. **issue.** Open issue: 0 suitability errors and 3 warnings open; most serious: "Underweight in the equity region "Switzerland"".  
-   <sub>clients.json CASE-039: SuitabilityViolations</sub>
+4. **digest.** About −CHF 2k today, −1.2% of the book.  
+   <sub>impact of the market feed on clients.json CASE-039 holdings</sub>
+5. **digest.** About −CHF 786 from Information Technology, −4.8% today on 9.7% of the book, mostly Xtrackers MSCI World ESG UCITS ETF and S&P 500 ESG ELITE UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-039 holdings</sub>
+6. **digest.** About −CHF 487 from the dollar, −1.2% against the franc on 23.9% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-039 holdings</sub>
+7. **digest.** About −CHF 176 from Financials, −0.9% today on 11.5% of the book, mostly Swiss Life Holding AG and MSCI Switzerland IMI Socially Responsible.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-039 holdings</sub>
+8. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **holding.** Holding up today: Swiss franc bonds +0.2% (34.4% of the book); Consumer Staples +0.3% (5.9% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-039 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -2852,8 +3950,48 @@ Investor profile 5 · CHF 170k · ESG preference: no
   <sub>clients.json CASE-039: IndividualRuleOverrides</sub>
 - **Watch** (0.00): 34.4% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-039: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 3k, 1.8% of the book.  
+  <sub>clients.json CASE-039: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 63.8% of the portfolio (CHF 108k).  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 34.4% of the portfolio (CHF 58k).  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 1.8% of the portfolio (CHF 3k).  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 15.3% of the portfolio (CHF 26k) after fund look-through.  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 11.5% of the portfolio (CHF 20k) after fund look-through.  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 9.7% of the portfolio (CHF 16k) after fund look-through.  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 6.7% of the portfolio (CHF 11k) after fund look-through.  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 6.7% of the portfolio (CHF 11k) after fund look-through.  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 5.9% of the portfolio (CHF 10k) after fund look-through.  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 2.9% of the portfolio (CHF 5k) after fund look-through.  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 2.5% of the portfolio (CHF 4k) after fund look-through.  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 1.3% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 1.2% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.0% of the portfolio (CHF 39) after fund look-through.  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 64.2% of the portfolio (CHF 109k).  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 35.8% of the portfolio (CHF 61k).  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Xtrackers MSCI World ESG UCITS ETF, CHF 23k (13.8% of the portfolio).  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 15 holdings; the largest: Xtrackers MSCI World ESG UCITS ETF (CHF 23k), MSCI Switzerland IMI Socially Responsible (CHF 20k), CHF Short Mid Term Bonds (CHF 19k), iShares Core CHF Corporate Bond ETF (CH) (CHF 19k).  
+  <sub>clients.json CASE-039: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.30): Resolve "Overweight in the equity region "North America"".  
   <sub>clients.json CASE-039: SuitabilityViolations[Id=854520]</sub>
+- **Next best actions** (0.19): Clear the warnings on the 6 flagged orders from the proposal of 10 Feb 2026.  
+  <sub>clients.json CASE-039: Transactions[ProposalId=20322].ForwardState = 2</sub>
 
 </details>
 
@@ -2890,30 +4028,26 @@ Investor profile 6 · CHF 800k · ESG preference: no
    <sub>clients.json CASE-040: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Contact preference: "Hard to reach during the day, best contacted after 6pm"  
    <sub>data/profiles/profiles.json CASE-040 from clients.json ClientNotes</sub>
-3. **reason.** Probably the market move: Information Technology −4.8% today, 10.8% of the book; about −CHF 11k (−1.4%) overall.  
+3. **reason.** Probably the market: about −CHF 11k today, −1.4% of the book. Mostly Information Technology, −4.8% on 10.8% of it.  
    <sub>impact of the market feed on clients.json CASE-040 holdings</sub>
 4. **reason.** Possibly reinvestment: 0.1525 % Cembra Money Bank AG 2019-14.10.26 matures on 14 Oct 2026 (CHF 14k).  
    <sub>clients.json CASE-040: SecurityPositions × reference.json Securities.MaturityDateUtc</sub>
-5. **digest.** Information Technology −4.8% today: 10.8% of the book, about −CHF 4k, mostly via iShares NASDAQ 100 UCITS ETF and iShares Digital Security UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-040 holdings</sub>
-6. **digest.** The dollar −1.2% against the franc: 35.0% of the book is exposed, about −CHF 3k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-040 holdings</sub>
-7. **digest.** Financials −0.9% today: 11.1% of the book, about −CHF 802, mostly via Swiss Re AG and Zurich Insurance Group AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-040 holdings</sub>
-8. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-10. **holding.** SPDR Bloomberg Global Aggregate Bond UCITS ETF (4.4% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
-   <sub>clients.json CASE-040: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-11. **holding.** Holding up today: Swiss franc bonds +0.2% (11.7% of the book); Consumer Staples +0.3% (9.1% of the book); foreign bonds +0.3% (8.9% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-040 holdings</sub>
-12. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-13. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-14. **issue.** Open issue: 4 suitability errors and 1 warning open; most serious: "Knowledge of structured products" on 10.19 % Reverse Convertible UBS London 2023-26.08.24 on Straumann/Sonova/Lonza Grp.  
-   <sub>clients.json CASE-040: SuitabilityViolations</sub>
+5. **digest.** About −CHF 11k today, −1.4% of the book.  
+   <sub>impact of the market feed on clients.json CASE-040 holdings</sub>
+6. **digest.** About −CHF 4k from Information Technology, −4.8% today on 10.8% of the book, mostly iShares NASDAQ 100 UCITS ETF and iShares Digital Security UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-040 holdings</sub>
+7. **digest.** About −CHF 3k from the dollar, −1.2% against the franc on 35.0% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-040 holdings</sub>
+8. **digest.** About −CHF 802 from Financials, −0.9% today on 11.1% of the book, mostly Swiss Re AG and Zurich Insurance Group AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-040 holdings</sub>
+9. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+11. **holding.** SPDR Bloomberg Global Aggregate Bond UCITS ETF (4.4% of the book) is hedged to the franc, so the dollar move (−1.2%) does not reach it.  
+   <sub>clients.json CASE-040: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
+12. **holding.** Holding up today: Swiss franc bonds +0.2% (11.7% of the book); Consumer Staples +0.3% (9.1% of the book); foreign bonds +0.3% (8.9% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-040 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -2933,8 +4067,50 @@ Investor profile 6 · CHF 800k · ESG preference: no
   <sub>clients.json CASE-040: SecurityPositions.SecurityName</sub>
 - **Watch** (0.03): Risk engine for Depository advisory (CASE-040-01), 3 Sep 2026: expected return 5.5%, value at risk 11.8%.  
   <sub>clients.json CASE-040: Portfolios[CASE-040-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 12k, 1.5% of the book.  
+  <sub>clients.json CASE-040: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 75.4% of the portfolio (CHF 603k).  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 20.6% of the portfolio (CHF 164k).  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 2.5% of the portfolio (CHF 20k).  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 1.5% of the portfolio (CHF 12k).  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 20.6% of the portfolio (CHF 165k) after fund look-through.  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 12.9% of the portfolio (CHF 104k) after fund look-through.  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 11.2% of the portfolio (CHF 90k) after fund look-through.  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 11.0% of the portfolio (CHF 88k) after fund look-through.  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 10.8% of the portfolio (CHF 87k) after fund look-through.  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 4.6% of the portfolio (CHF 37k) after fund look-through.  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 3.1% of the portfolio (CHF 25k) after fund look-through.  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 2.5% of the portfolio (CHF 20k) after fund look-through.  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 1.7% of the portfolio (CHF 14k) after fund look-through.  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 1.2% of the portfolio (CHF 9k) after fund look-through.  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 1.1% of the portfolio (CHF 9k) after fund look-through.  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 54.2% of the portfolio (CHF 434k).  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 45.8% of the portfolio (CHF 367k).  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares Core S&P 500 UCITS ETF, CHF 64k (8.0% of the portfolio).  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 28 holdings; the largest: iShares Core S&P 500 UCITS ETF (CHF 64k), iShares NASDAQ 100 UCITS ETF (CHF 47k), FTSE All-World High Dividend Yield UCITS ETF (CHF 47k), iShares Edge MSCI World Value Factor UCITS ETF (CHF 46k).  
+  <sub>clients.json CASE-040: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (1.00): Resolve "Knowledge of structured products" on 10.19 % Reverse Convertible UBS London 2023-26.08.24 on Straumann/Sonova/Lonza Grp.  
   <sub>clients.json CASE-040: SuitabilityViolations[Id=700639]</sub>
+- **Next best actions** (0.25): Clear the warnings on the 4 flagged orders from the proposal of 8 Aug 2026.  
+  <sub>clients.json CASE-040: Transactions[ProposalId=24401].ForwardState = 2</sub>
 
 </details>
 
@@ -2971,20 +4147,18 @@ Investor profile 5 · CHF 608k · ESG preference: no
    <sub>clients.json CASE-041: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **reason.** Probably reinvestment: 0.25 % E.ON SE 2019-24.10.26 matures on 24 Oct 2026 (CHF 36k).  
    <sub>clients.json CASE-041: SecurityPositions × reference.json Securities.MaturityDateUtc</sub>
-3. **digest.** The euro −0.3% against the franc: 65.9% of the book is exposed, about −CHF 1k.  
-   <sub>simulated feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × clients.json CASE-041 holdings</sub>
-4. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-5. **digest.** Financials −0.9% today: 10.9% of the book, about −CHF 595, mostly via Swiss Life Holding AG and Swiss Re AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-041 holdings</sub>
-6. **digest.** Industrials −1.1% today: 5.3% of the book, about −CHF 354, mostly via ABB Ltd and SMIM (R).  
-   <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-041 holdings</sub>
-7. **holding.** Holding up today: foreign bonds +0.3% (53.4% of the book); Gold +1.4% (6.3% of the book); Consumer Staples +0.3% (4.5% of the book).  
-   <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × clients.json CASE-041 holdings</sub>
-8. **talk.** Agree on a concrete next step and when you will call back.  
-   <sub>data/playbook.json: follow_up (when: always)</sub>
-9. **issue.** Open issue: 6 suitability errors and 6 warnings open; most serious: "Significant underweight in the equity region "North America"".  
-   <sub>clients.json CASE-041: SuitabilityViolations</sub>
+3. **digest.** About −CHF 1k today, −0.2% of the book.  
+   <sub>impact of the market feed on clients.json CASE-041 holdings</sub>
+4. **digest.** About −CHF 1k from the euro, −0.3% against the franc on 65.9% of the book.  
+   <sub>market feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × clients.json CASE-041 holdings</sub>
+5. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+6. **digest.** About −CHF 595 from Financials, −0.9% today on 10.9% of the book, mostly Swiss Life Holding AG and Swiss Re AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-041 holdings</sub>
+7. **digest.** About −CHF 354 from Industrials, −1.1% today on 5.3% of the book, mostly ABB Ltd and SMIM (R).  
+   <sub>market feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-041 holdings</sub>
+8. **holding.** Holding up today: foreign bonds +0.3% (53.4% of the book); Gold +1.4% (6.3% of the book); Consumer Staples +0.3% (4.5% of the book).  
+   <sub>market feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × clients.json CASE-041 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3004,8 +4178,50 @@ Investor profile 5 · CHF 608k · ESG preference: no
   <sub>clients.json CASE-041: Portfolios[CASE-041-01].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): 32.0% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-041: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 19k, 3.1% of the book.  
+  <sub>clients.json CASE-041: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Bonds are 59.8% of the portfolio (CHF 363k).  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Shares are 37.2% of the portfolio (CHF 226k).  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 3.1% of the portfolio (CHF 19k).  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Financials is 23.4% of the portfolio (CHF 142k) after fund look-through.  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 19.4% of the portfolio (CHF 118k) after fund look-through.  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 6.7% of the portfolio (CHF 41k) after fund look-through.  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 5.3% of the portfolio (CHF 32k) after fund look-through.  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 4.5% of the portfolio (CHF 27k) after fund look-through.  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 4.0% of the portfolio (CHF 24k) after fund look-through.  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 0.8% of the portfolio (CHF 5k) after fund look-through.  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.4% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 0.3% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 0.2% of the portfolio (CHF 947) after fund look-through.  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.1% of the portfolio (CHF 458) after fund look-through.  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Euro: 65.9% of the portfolio (CHF 401k).  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Swiss francs: 34.1% of the portfolio (CHF 207k).  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Gold: CHF 38k, 6.3% of the portfolio.  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares EUR Corp Bond Large Cap UCITS ETF, CHF 59k (9.8% of the portfolio).  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 23 holdings; the largest: iShares EUR Corp Bond Large Cap UCITS ETF (CHF 59k), 1.5 % Volkswagen Financial Services AG 2019-01.10.24 Series F05/19 (CHF 39k), 0.125 % Nordic Investment Bank 2016-10.06.24 Reg S (CHF 39k), 0.125 % Goldman Sachs Group Inc 2019-19.08.24 Reg S (CHF 38k).  
+  <sub>clients.json CASE-041: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (1.00): Resolve "Foreign currency exposure exceeds 50%".  
   <sub>clients.json CASE-041: SuitabilityViolations[Id=617813]</sub>
+- **Next best actions** (0.25): Clear the warnings on the 3 flagged orders from the proposal of 15 Apr 2026.  
+  <sub>clients.json CASE-041: Transactions[ProposalId=21880].ForwardState = 2</sub>
 
 </details>
 
@@ -3040,28 +4256,24 @@ Investor profile 4 · CHF 528k · ESG preference: no
 
 1. **caller.** Zorro is calling: Investor profile 4, CHF 528k across 1 portfolio.  
    <sub>clients.json CASE-042: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Information Technology −4.8% today, 8.4% of the book; about −CHF 6k (−1.2%) overall.  
+2. **reason.** Probably the market: about −CHF 6k today, −1.2% of the book. Mostly Information Technology, −4.8% on 8.4% of it.  
    <sub>impact of the market feed on clients.json CASE-042 holdings</sub>
 3. **reason.** Possibly reinvestment: 0.1525 % Cembra Money Bank AG 2019-14.10.26 matures on 14 Oct 2026 (CHF 14k).  
    <sub>clients.json CASE-042: SecurityPositions × reference.json Securities.MaturityDateUtc</sub>
-4. **digest.** Information Technology −4.8% today: 8.4% of the book, about −CHF 2k, mostly via iShares Automation & Robotics UCITS ETF and iShares Core S&P 500 UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-042 holdings</sub>
-5. **digest.** The dollar −1.2% against the franc: 26.8% of the book is exposed, about −CHF 2k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-042 holdings</sub>
-6. **digest.** Consumer Discretionary −2.2% today: 6.2% of the book, about −CHF 725, mostly via mobilezone holding ag and iShares Core EURO STOXX 50 UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-042 holdings</sub>
-7. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **holding.** Holding up today: Consumer Staples +0.3% (9.8% of the book); foreign bonds +0.3% (8.5% of the book); Swiss franc bonds +0.2% (8.4% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-042 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
-12. **issue.** Open issue: 2 suitability errors and 4 warnings open; most serious: "Cluster risk of a single financial instrument" on BB Biotech AG.  
-   <sub>clients.json CASE-042: SuitabilityViolations</sub>
+4. **digest.** About −CHF 6k today, −1.2% of the book.  
+   <sub>impact of the market feed on clients.json CASE-042 holdings</sub>
+5. **digest.** About −CHF 2k from Information Technology, −4.8% today on 8.4% of the book, mostly iShares Automation & Robotics UCITS ETF and iShares Core S&P 500 UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-042 holdings</sub>
+6. **digest.** About −CHF 2k from the dollar, −1.2% against the franc on 26.8% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-042 holdings</sub>
+7. **digest.** About −CHF 725 from Consumer Discretionary, −2.2% today on 6.2% of the book, mostly mobilezone holding ag and iShares Core EURO STOXX 50 UCITS ETF.  
+   <sub>market feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-042 holdings</sub>
+8. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **holding.** Holding up today: Consumer Staples +0.3% (9.8% of the book); foreign bonds +0.3% (8.5% of the book); Swiss franc bonds +0.2% (8.4% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-042 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3087,8 +4299,52 @@ Investor profile 4 · CHF 528k · ESG preference: no
   <sub>clients.json CASE-042: Proposals[19562] × Transactions</sub>
 - **Watch** (0.03): Risk engine for Depository advisory (CASE-042-01), 3 Sep 2026: expected return 5.6%, value at risk 11.7%.  
   <sub>clients.json CASE-042: Portfolios[CASE-042-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 14k, 2.6% of the book.  
+  <sub>clients.json CASE-042: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 80.5% of the portfolio (CHF 425k).  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 16.9% of the portfolio (CHF 89k).  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 2.6% of the portfolio (CHF 14k).  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 26.5% of the portfolio (CHF 140k) after fund look-through.  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 15.0% of the portfolio (CHF 79k) after fund look-through.  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 9.8% of the portfolio (CHF 52k) after fund look-through.  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 8.8% of the portfolio (CHF 47k) after fund look-through.  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 8.4% of the portfolio (CHF 45k) after fund look-through.  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 6.0% of the portfolio (CHF 32k) after fund look-through.  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 5.4% of the portfolio (CHF 29k) after fund look-through.  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 1.8% of the portfolio (CHF 10k) after fund look-through.  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 1.6% of the portfolio (CHF 8k) after fund look-through.  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 1.5% of the portfolio (CHF 8k) after fund look-through.  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.8% of the portfolio (CHF 4k) after fund look-through.  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 52.9% of the portfolio (CHF 279k).  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 33.6% of the portfolio (CHF 177k).  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Andere: 8.6% of the portfolio (CHF 45k).  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 5.0% of the portfolio (CHF 26k).  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: BB Biotech AG, CHF 73k (13.8% of the portfolio).  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 21 holdings; the largest: BB Biotech AG (CHF 73k), GSK PLC (CHF 45k), iShares Core S&P 500 UCITS ETF (CHF 40k), SMIM (R) (CHF 39k).  
+  <sub>clients.json CASE-042: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.30): Resolve "Compliance with maximum volatility".  
   <sub>clients.json CASE-042: SuitabilityViolations[Id=657307]</sub>
+- **Next best actions** (0.24): Clear the warnings on the 21 flagged orders from the proposal of 29 Dec 2025.  
+  <sub>clients.json CASE-042: Transactions[ProposalId=19562].ForwardState = 2</sub>
 
 </details>
 
@@ -3112,33 +4368,31 @@ Investor profile 6 · CHF 891k · ESG preference: no
    <sub>clients.json CASE-043: ClientNotes</sub>
 6. **Outlook.** Pictet Asset Management (Barometer, Sep 2026): "The AI-driven capex boom, and the need for infrastructure to support it, should support the outlook for industrials, another sector on which we have an overweight stance."  
    <sub>https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook</sub>
+7. **Next best actions.** Clear the warnings on the 21 flagged orders from the proposal of 15 Sep 2026.  
+   <sub>clients.json CASE-043: Transactions[ProposalId=25304].ForwardState = 2</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Waldo is calling: Investor profile 6, CHF 891k across 1 portfolio.  
    <sub>clients.json CASE-043: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Information Technology −4.8% today, 9.6% of the book; about −CHF 12k (−1.4%) overall.  
+2. **reason.** Probably the market: about −CHF 12k today, −1.4% of the book. Mostly Information Technology, −4.8% on 9.6% of it.  
    <sub>impact of the market feed on clients.json CASE-043 holdings</sub>
-3. **digest.** Information Technology −4.8% today: 9.6% of the book, about −CHF 4k, mostly via iShares NASDAQ 100 UCITS ETF and iShares Core S&P 500 UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-043 holdings</sub>
-4. **digest.** The dollar −1.2% against the franc: 25.3% of the book is exposed, about −CHF 3k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-043 holdings</sub>
-5. **digest.** Consumer Discretionary −2.2% today: 6.9% of the book, about −CHF 1k, mostly via CIE FINANCIERE RICHEMONT SA and iShares MSCI World CHF Hedged UCITS ETF (Acc).  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-043 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **holding.** iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (14.8% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
-   <sub>clients.json CASE-043: SecurityPositions.SecurityName (hedged share class); simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
-9. **holding.** Holding up today: Swiss franc bonds +0.2% (16.9% of the book); Consumer Staples +0.3% (8.4% of the book); foreign bonds +0.3% (5.6% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-043 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-12. **issue.** Open issue: 21 of 22 orders from the proposal of 15 Sep 2026 were forwarded with a warning.  
-   <sub>clients.json CASE-043: Transactions[ProposalId=25304].ForwardState = 2</sub>
+3. **digest.** About −CHF 12k today, −1.4% of the book.  
+   <sub>impact of the market feed on clients.json CASE-043 holdings</sub>
+4. **digest.** About −CHF 4k from Information Technology, −4.8% today on 9.6% of the book, mostly iShares NASDAQ 100 UCITS ETF and iShares Core S&P 500 UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-043 holdings</sub>
+5. **digest.** About −CHF 3k from the dollar, −1.2% against the franc on 25.3% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-043 holdings</sub>
+6. **digest.** About −CHF 1k from Consumer Discretionary, −2.2% today on 6.9% of the book, mostly CIE FINANCIERE RICHEMONT SA and iShares MSCI World CHF Hedged UCITS ETF (Acc).  
+   <sub>market feed "tech-selloff": S5COND Index CHG_PCT_1D × clients.json CASE-043 holdings</sub>
+7. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **holding.** iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (14.8% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.  
+   <sub>clients.json CASE-043: SecurityPositions.SecurityName (hedged share class); market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D</sub>
+10. **holding.** Holding up today: Swiss franc bonds +0.2% (16.9% of the book); Consumer Staples +0.3% (8.4% of the book); foreign bonds +0.3% (5.6% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-043 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3152,6 +4406,46 @@ Investor profile 6 · CHF 891k · ESG preference: no
   <sub>clients.json CASE-043: SecurityPositions.SecurityName</sub>
 - **Watch** (0.03): Risk engine for Depository advisory (CASE-043-01), 3 Sep 2026: expected return 5.5%, value at risk 14.3%.  
   <sub>clients.json CASE-043: Portfolios[CASE-043-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 5k, 0.6% of the book.  
+  <sub>clients.json CASE-043: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 77.0% of the portfolio (CHF 686k).  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 22.4% of the portfolio (CHF 200k).  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 0.6% of the portfolio (CHF 5k).  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 18.1% of the portfolio (CHF 161k) after fund look-through.  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 13.9% of the portfolio (CHF 124k) after fund look-through.  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 9.6% of the portfolio (CHF 86k) after fund look-through.  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 8.7% of the portfolio (CHF 77k) after fund look-through.  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 8.4% of the portfolio (CHF 75k) after fund look-through.  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 6.9% of the portfolio (CHF 61k) after fund look-through.  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 6.4% of the portfolio (CHF 57k) after fund look-through.  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 4.9% of the portfolio (CHF 44k) after fund look-through.  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 1.3% of the portfolio (CHF 11k) after fund look-through.  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.9% of the portfolio (CHF 8k) after fund look-through.  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.8% of the portfolio (CHF 8k) after fund look-through.  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 62.8% of the portfolio (CHF 560k).  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 32.3% of the portfolio (CHF 287k).  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 4.9% of the portfolio (CHF 44k).  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares MSCI World CHF Hedged UCITS ETF (Acc), CHF 83k (9.4% of the portfolio).  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 24 holdings; the largest: iShares MSCI World CHF Hedged UCITS ETF (Acc) (CHF 83k), iShares Core S&P 500 UCITS ETF (CHF 74k), iShares Core SPI(R) ETF (CH) (CHF 55k), SMIM (R) (CHF 52k).  
+  <sub>clients.json CASE-043: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -3190,30 +4484,28 @@ Investor profile 6 · CHF 172k · ESG preference: yes
    <sub>data/profiles/profiles.json CASE-044 (apertus) from clients.json ClientNotes</sub>
 3. **caller.** Contact preference: "Prefers not to be contacted during business hours on weekdays"  
    <sub>data/profiles/profiles.json CASE-044 from clients.json ClientNotes</sub>
-4. **reason.** Probably the market move: Industrials −1.1% today, 25.5% of the book; about −CHF 1k (−0.8%) overall.  
+4. **reason.** Probably the market: about −CHF 1k today, −0.8% of the book. Mostly Industrials, −1.1% on 25.5% of it.  
    <sub>impact of the market feed on clients.json CASE-044 holdings</sub>
-5. **reason.** Possibly idle cash: 22.6% of the book (CHF 39k) is cash.  
+5. **reason.** Possibly a sustainability concern: ESG client: average sustainability score 7.6 of 10 against a minimum of 5.7; 1 holding below the per-position minimum (Meyer Burger Technology AG, 0.0% of the book); 29.3% of the book has no score.  
+   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-044 positions</sub>
+6. **reason.** Possibly idle cash: 22.6% of the book (CHF 39k) is cash.  
    <sub>clients.json CASE-044: LiquidityInDefaultCurrency</sub>
-6. **digest.** Industrials −1.1% today: 25.5% of the book, about −CHF 484, mostly via GSC Green Tech ESG Fund and Georg Fischer AG.  
-   <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-044 holdings</sub>
-7. **digest.** The dollar −1.2% against the franc: 22.6% of the book is exposed, about −CHF 468.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-044 holdings</sub>
-8. **digest.** Information Technology −4.8% today: 3.3% of the book, about −CHF 270, mostly via GSC Green Tech ESG Fund and SMI (R).  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-044 holdings</sub>
-9. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-10. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-11. **digest.** 26.8% of the book has no matching market move and is not included.  
+7. **digest.** About −CHF 1k today, −0.8% of the book.  
+   <sub>impact of the market feed on clients.json CASE-044 holdings</sub>
+8. **digest.** About −CHF 484 from Industrials, −1.1% today on 25.5% of the book, mostly GSC Green Tech ESG Fund and Georg Fischer AG.  
+   <sub>market feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-044 holdings</sub>
+9. **digest.** About −CHF 468 from the dollar, −1.2% against the franc on 22.6% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-044 holdings</sub>
+10. **digest.** About −CHF 270 from Information Technology, −4.8% today on 3.3% of the book, mostly GSC Green Tech ESG Fund and SMI (R).  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-044 holdings</sub>
+11. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+12. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+13. **digest.** 26.8% of the book has no matching market move and is not included.  
    <sub>clients.json CASE-044 holdings without a mapped market move</sub>
-12. **holding.** Holding up today: Consumer Staples +0.3% (5.4% of the book); Utilities +0.5% (3.2% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-044 holdings</sub>
-13. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-14. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-15. **issue.** Open issue: 4 suitability errors and 8 warnings open; most serious: "Cluster risk of a single financial instrument" on GSC Green Tech ESG Fund.  
-   <sub>clients.json CASE-044: SuitabilityViolations</sub>
+14. **holding.** Holding up today: Consumer Staples +0.3% (5.4% of the book); Utilities +0.5% (3.2% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × clients.json CASE-044 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3237,10 +4529,50 @@ Investor profile 6 · CHF 172k · ESG preference: yes
   <sub>clients.json CASE-044: Portfolios[CASE-044-01].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.00): 26.8% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>clients.json CASE-044: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 39k, 22.6% of the book.  
+  <sub>clients.json CASE-044: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 50.6% of the portfolio (CHF 87k).  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 22.6% of the portfolio (CHF 39k).  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 14.1% of the portfolio (CHF 24k).  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 12.7% of the portfolio (CHF 22k).  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Industrials is 25.5% of the portfolio (CHF 44k) after fund look-through.  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 9.7% of the portfolio (CHF 17k) after fund look-through.  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 5.4% of the portfolio (CHF 9k) after fund look-through.  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 3.3% of the portfolio (CHF 6k) after fund look-through.  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 3.2% of the portfolio (CHF 5k) after fund look-through.  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 1.2% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 1.1% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.7% of the portfolio (CHF 1k) after fund look-through.  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 0.4% of the portfolio (CHF 726) after fund look-through.  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 0.1% of the portfolio (CHF 110) after fund look-through.  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 85.7% of the portfolio (CHF 148k).  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 14.3% of the portfolio (CHF 25k).  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: GSC Green Tech ESG Fund, CHF 26k (15.2% of the portfolio).  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 12 holdings; the largest: GSC Green Tech ESG Fund (CHF 26k), SF Sustainable Property Fund (CHF 24k), Shs Global X Data Center REITs & Digital Infrastructure ETF (CHF 12k), Georg Fischer AG (CHF 11k).  
+  <sub>clients.json CASE-044: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (1.00): Resolve "Knowledge of structured products" on Underlying Tracker Bk Vontobel 2020-open end o/SOLVALOR HYDROGEN TOP SEL.  
   <sub>clients.json CASE-044: SuitabilityViolations[Id=797860]</sub>
 - **Next best actions** (0.30): Keep the 22.6% cash (CHF 39k) in view of the note from 20 Mar 2026: "Prefers to keep a cash reserve on hand for unexpected medical expenses."  
   <sub>clients.json CASE-044: LiquidityInDefaultCurrency, ClientNotes</sub>
+- **Next best actions** (0.25): Clear the warnings on the 6 flagged orders from the proposal of 8 Jul 2026.  
+  <sub>clients.json CASE-044: Transactions[ProposalId=22767].ForwardState = 2</sub>
 - **Next best actions** (0.20): Candidates from the recommendation list for Shares: ABB Ltd and Kuehne + Nagel International AG (cash is above 10% of the book).  
   <sub>reference.json RecommendationLists "Recommendation list free assets", not held, CHF first, ordered by SustainabilityScore</sub>
 
@@ -3270,6 +4602,8 @@ Investor profile 6 · CHF 340k · ESG preference: yes
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
 8. **Next best actions.** Resolve "Share is not part of the investment universe for individual shares and therefore not monitored.".  
    <sub>clients.json CASE-045: SuitabilityViolations[Id=910188]</sub>
+9. **Next best actions.** Clear the warnings on the 19 flagged orders from the proposal of 30 Aug 2026.  
+   <sub>clients.json CASE-045: Transactions[ProposalId=24828].ForwardState = 2</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
@@ -3279,22 +4613,18 @@ Investor profile 6 · CHF 340k · ESG preference: yes
    <sub>data/profiles/profiles.json CASE-045 (apertus) from clients.json ClientNotes</sub>
 3. **caller.** Contact preference: "Values discretion; prefers minimal written correspondence about portfolio specifics"  
    <sub>data/profiles/profiles.json CASE-045 from clients.json ClientNotes</sub>
-4. **reason.** Probably the market move: Financials −0.9% today, 29.3% of the book; about −CHF 2k (−0.7%) overall.  
+4. **reason.** Probably the market: about −CHF 2k today, −0.7% of the book. Mostly Financials, −0.9% on 29.3% of it.  
    <sub>impact of the market feed on clients.json CASE-045 holdings</sub>
-5. **digest.** Financials −0.9% today: 29.3% of the book, about −CHF 896, mostly via Cembra Money Bank AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-045 holdings</sub>
-6. **digest.** Health Care −0.4% today: 63.0% of the book, about −CHF 856, mostly via Novartis AG and BB Biotech AG.  
-   <sub>simulated feed "tech-selloff": S5HLTH Index CHG_PCT_1D × clients.json CASE-045 holdings</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** Industrials −1.1% today: 7.3% of the book, about −CHF 274, mostly via A1A Car Wash.  
-   <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-045 holdings</sub>
-9. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-10. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
-11. **issue.** Open issue: 0 suitability errors and 1 warning open; most serious: "Share is not part of the investment universe for individual shares and therefore not monitored.".  
-   <sub>clients.json CASE-045: SuitabilityViolations</sub>
+5. **digest.** About −CHF 2k today, −0.7% of the book.  
+   <sub>impact of the market feed on clients.json CASE-045 holdings</sub>
+6. **digest.** About −CHF 896 from Financials, −0.9% today on 29.3% of the book, mostly Cembra Money Bank AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-045 holdings</sub>
+7. **digest.** About −CHF 856 from Health Care, −0.4% today on 63.0% of the book, mostly Novartis AG and BB Biotech AG.  
+   <sub>market feed "tech-selloff": S5HLTH Index CHG_PCT_1D × clients.json CASE-045 holdings</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** About −CHF 274 from Industrials, −1.1% today on 7.3% of the book, mostly A1A Car Wash.  
+   <sub>market feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-045 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3314,6 +4644,26 @@ Investor profile 6 · CHF 340k · ESG preference: yes
   <sub>clients.json CASE-045: Proposals[24828] × Transactions</sub>
 - **Watch** (0.03): Risk engine for Investment advisory (CASE-045-01), 3 Sep 2026: expected return 5.5%, value at risk 14.7%.  
   <sub>clients.json CASE-045: Portfolios[CASE-045-01].ExpectedReturn, ValueAtRisk</sub>
+- **Watch** (0.00): Cash on hand is CHF 1k, 0.4% of the book.  
+  <sub>clients.json CASE-045: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 99.7% of the portfolio (CHF 338k).  
+  <sub>clients.json CASE-045: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 0.4% of the portfolio (CHF 1k).  
+  <sub>clients.json CASE-045: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 63.0% of the portfolio (CHF 214k) after fund look-through.  
+  <sub>clients.json CASE-045: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 29.3% of the portfolio (CHF 100k) after fund look-through.  
+  <sub>clients.json CASE-045: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 7.3% of the portfolio (CHF 25k) after fund look-through.  
+  <sub>clients.json CASE-045: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 92.7% of the portfolio (CHF 315k).  
+  <sub>clients.json CASE-045: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 7.3% of the portfolio (CHF 25k).  
+  <sub>clients.json CASE-045: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Novartis AG, CHF 139k (41.0% of the portfolio).  
+  <sub>clients.json CASE-045: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 4 holdings; the largest: Novartis AG (CHF 139k), Cembra Money Bank AG (CHF 100k), BB Biotech AG (CHF 75k), A1A Car Wash (CHF 25k).  
+  <sub>clients.json CASE-045: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -3352,10 +4702,6 @@ Investor profile 5 · CHF 534k · ESG preference: yes
    <sub>clients.json CASE-046: Proposals[25042]</sub>
 4. **reason.** Possibly idle cash: 100.0% of the book (CHF 534k) is cash.  
    <sub>clients.json CASE-046: LiquidityInDefaultCurrency</sub>
-5. **talk.** Agree on a concrete next step and when you will call back.  
-   <sub>data/playbook.json: follow_up (when: always)</sub>
-6. **issue.** Open issue: 4 suitability errors and 0 warnings open; most serious: "Maximum limit liquidity".  
-   <sub>clients.json CASE-046: SuitabilityViolations</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3369,6 +4715,12 @@ Investor profile 5 · CHF 534k · ESG preference: yes
   <sub>clients.json CASE-046: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Maximum limit liquidity" means: Maximum liquidity limits  
   <sub>clients.json CASE-046: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
+- **Watch** (0.00): Cash on hand is CHF 534k, 100.0% of the book.  
+  <sub>clients.json CASE-046: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Cash is 100.0% of the portfolio (CHF 534k).  
+  <sub>clients.json CASE-046: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Swiss francs: 100.0% of the portfolio (CHF 534k).  
+  <sub>clients.json CASE-046: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (1.00): Rebalance Shares up toward 45.0%.  
   <sub>clients.json CASE-046: Portfolios[CASE-046-01] positions; reference.json StrategicAssetAllocations[92] AssetClass "Shares"</sub>
 - **Next best actions** (1.00): Resolve "Minimum limit fixed income".  
@@ -3421,26 +4773,24 @@ Investor profile 6 · CHF 762k · ESG preference: yes
    <sub>clients.json CASE-047: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **caller.** Profile: calm temperament. From the notes: "Comfortable with higher volatility given a long time horizon."  
    <sub>data/profiles/profiles.json CASE-047 (apertus) from clients.json ClientNotes</sub>
-3. **reason.** Probably the market move: Information Technology −4.8% today, 13.2% of the book; about −CHF 11k (−1.5%) overall.  
+3. **reason.** Probably the market: about −CHF 11k today, −1.5% of the book. Mostly Information Technology, −4.8% on 13.2% of it.  
    <sub>impact of the market feed on clients.json CASE-047 holdings</sub>
-4. **digest.** Information Technology −4.8% today: 13.2% of the book, about −CHF 5k, mostly via Comet Holding AG and iShares Automation & Robotics UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-047 holdings</sub>
-5. **digest.** The dollar −1.2% against the franc: 34.7% of the book is exposed, about −CHF 3k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-047 holdings</sub>
-6. **digest.** Industrials −1.1% today: 12.0% of the book, about −CHF 1k, mostly via Accelleron Industries AG and ABB Ltd.  
-   <sub>simulated feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-047 holdings</sub>
-7. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-9. **holding.** Holding up today: Swiss franc bonds +0.2% (11.4% of the book); foreign bonds +0.3% (10.5% of the book); Consumer Staples +0.3% (10.1% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-047 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Frame today against the long-term plan, not the daily move.  
-   <sub>data/playbook.json: long_term (when: long_term)</sub>
-12. **issue.** Open issue: 0 suitability errors and 3 warnings open; most serious: "Underweight in the equity sector "Consumer Discretionary"".  
-   <sub>clients.json CASE-047: SuitabilityViolations</sub>
+4. **reason.** Possibly a sustainability concern: ESG client: average sustainability score 7.4 of 10 against a minimum of 5.7; 2 holdings below the per-position minimum (iShares Core MSCI EM IMI UCITS ETF and 2.5 % Apple Inc 2015-9.2.25 Global, 6.3% of the book); 2.6% of the book has no score.  
+   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-047 positions</sub>
+5. **digest.** About −CHF 11k today, −1.5% of the book.  
+   <sub>impact of the market feed on clients.json CASE-047 holdings</sub>
+6. **digest.** About −CHF 5k from Information Technology, −4.8% today on 13.2% of the book, mostly Comet Holding AG and iShares Automation & Robotics UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × clients.json CASE-047 holdings</sub>
+7. **digest.** About −CHF 3k from the dollar, −1.2% against the franc on 34.7% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-047 holdings</sub>
+8. **digest.** About −CHF 1k from Industrials, −1.1% today on 12.0% of the book, mostly Accelleron Industries AG and ABB Ltd.  
+   <sub>market feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-047 holdings</sub>
+9. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+10. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+11. **holding.** Holding up today: Swiss franc bonds +0.2% (11.4% of the book); foreign bonds +0.3% (10.5% of the book); Consumer Staples +0.3% (10.1% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × clients.json CASE-047 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3464,8 +4814,50 @@ Investor profile 6 · CHF 762k · ESG preference: yes
   <sub>clients.json CASE-047: Portfolios[CASE-047-02].ExpectedReturn, ValueAtRisk</sub>
 - **Watch** (0.01): Equities Switzerland Passive Leader drives 26.0% of the volatility of Pension (CASE-047-01).  
   <sub>clients.json CASE-047: Portfolios[CASE-047-01].SecurityPositions.ContributionVolatility</sub>
+- **Watch** (0.00): Cash on hand is CHF 11k, 1.4% of the book.  
+  <sub>clients.json CASE-047: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 76.7% of the portfolio (CHF 584k).  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 21.9% of the portfolio (CHF 167k).  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 1.4% of the portfolio (CHF 11k).  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 17.4% of the portfolio (CHF 133k) after fund look-through.  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 15.5% of the portfolio (CHF 118k) after fund look-through.  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 14.6% of the portfolio (CHF 111k) after fund look-through.  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 13.5% of the portfolio (CHF 103k) after fund look-through.  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 10.1% of the portfolio (CHF 77k) after fund look-through.  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 5.4% of the portfolio (CHF 41k) after fund look-through.  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 3.2% of the portfolio (CHF 25k) after fund look-through.  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 2.4% of the portfolio (CHF 18k) after fund look-through.  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.9% of the portfolio (CHF 7k) after fund look-through.  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.5% of the portfolio (CHF 4k) after fund look-through.  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.4% of the portfolio (CHF 3k) after fund look-through.  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 55.0% of the portfolio (CHF 419k).  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 40.9% of the portfolio (CHF 312k).  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 4.0% of the portfolio (CHF 31k).  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares Core S&P 500 UCITS ETF, CHF 49k (6.5% of the portfolio).  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 32 holdings; the largest: iShares Core S&P 500 UCITS ETF (CHF 49k), Lonza Group AG (CHF 40k), Nestle SA (CHF 38k), Accelleron Industries AG (CHF 35k).  
+  <sub>clients.json CASE-047: SecurityPositions, AccountPositions × reference.json Securities</sub>
 - **Next best actions** (0.30): Resolve "Overweight in the equity sector "Information Technology"".  
   <sub>clients.json CASE-047: SuitabilityViolations[Id=857255]</sub>
+- **Next best actions** (0.23): Clear the warnings on the 26 flagged orders from the proposal of 8 Jul 2026.  
+  <sub>clients.json CASE-047: Transactions[ProposalId=23727].ForwardState = 2</sub>
 
 </details>
 
@@ -3481,37 +4873,37 @@ no risk profile · CHF 2.05m · ESG preference: no
    <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +9.9% over the 12 months to Dec 2025 and +48.3% since Dec 2022, now CHF 2.05m; value change including deposits and withdrawals.  
    <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: PerformanceHistory of EXT-01-01</sub>
-3. **Watch.** 69.0% of the book is in holdings on none of the bank's recommendation lists, largest Vanguard S&P 500 UCITS ETF, 3.625% TotalEnergies SE 2023-2033 and 11 more.  
+3. **Health check.** Nothing open: no suitability violation, and every asset class is inside its band.  
+   <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SuitabilityViolations (none open); reference.json StrategicAssetAllocations bands</sub>
+4. **Watch.** 69.0% of the book is in holdings on none of the bank's recommendation lists, largest Vanguard S&P 500 UCITS ETF, 3.625% TotalEnergies SE 2023-2033 and 11 more.  
    <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 positions</sub>
-4. **Watch.** Health Care is 8.7% of the book (CHF 178k) after fund look-through, mostly via Lonza Group AG and Roche Holding AG.  
+5. **Watch.** Health Care is 8.7% of the book (CHF 178k) after fund look-through, mostly via Lonza Group AG and Roche Holding AG.  
    <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
-5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
+6. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
-6. **Next best actions.** Book a review: no finalised proposal on record.  
+7. **Next best actions.** Book a review: no finalised proposal on record.  
    <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Max Muster is calling: no risk profile, CHF 2.05m across 1 portfolio.  
    <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: the dollar −1.2% today, 44.9% of the book; about −CHF 12k (−0.6%) overall.  
+2. **reason.** Probably the market: about −CHF 12k today, −0.6% of the book. Mostly the dollar, −1.2% on 44.9% of it.  
    <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
-3. **digest.** The dollar −1.2% against the franc: 44.9% of the book is exposed, about −CHF 11k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
-4. **digest.** Consumer Discretionary −2.2% today: 5.6% of the book, about −CHF 3k, mostly via Amazon.com Inc..  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
-5. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-6. **digest.** The euro −0.3% against the franc: 20.8% of the book is exposed, about −CHF 1k.  
-   <sub>simulated feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
-7. **digest.** 34.1% of the book has no matching market move and is not included.  
+3. **digest.** About −CHF 12k today, −0.6% of the book.  
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
+4. **digest.** About −CHF 11k from the dollar, −1.2% against the franc on 44.9% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
+5. **digest.** About −CHF 3k from Consumer Discretionary, −2.2% today on 5.6% of the book, mostly Amazon.com Inc..  
+   <sub>market feed "tech-selloff": S5COND Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
+6. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+7. **digest.** About −CHF 1k from the euro, −0.3% against the franc on 20.8% of the book.  
+   <sub>market feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
+8. **digest.** 34.1% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings without a mapped market move</sub>
-8. **holding.** Holding up today: foreign bonds +0.3% (20.4% of the book); Swiss franc bonds +0.2% (9.6% of the book); Consumer Staples +0.3% (6.4% of the book).  
-   <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
-9. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-10. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
+9. **holding.** Holding up today: foreign bonds +0.3% (20.4% of the book); Swiss franc bonds +0.2% (9.6% of the book); Consumer Staples +0.3% (6.4% of the book).  
+   <sub>market feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3519,6 +4911,40 @@ no risk profile · CHF 2.05m · ESG preference: no
   <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 69.0% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 100k, 4.9% of the book.  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 54.3% of the portfolio (CHF 1.11m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 30.1% of the portfolio (CHF 616k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 9.3% of the portfolio (CHF 191k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 4.9% of the portfolio (CHF 100k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 1.4% of the portfolio (CHF 30k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Health Care is 8.7% of the portfolio (CHF 178k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 6.4% of the portfolio (CHF 131k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 5.6% of the portfolio (CHF 115k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 5.4% of the portfolio (CHF 110k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): US-Dollar: 44.9% of the portfolio (CHF 920k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Swiss francs: 31.5% of the portfolio (CHF 647k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 20.8% of the portfolio (CHF 427k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Andere: 2.7% of the portfolio (CHF 56k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Gold: CHF 99k, 4.8% of the portfolio.  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Vanguard S&P 500 UCITS ETF, CHF 267k (13.0% of the portfolio).  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 19 holdings; the largest: Vanguard S&P 500 UCITS ETF (CHF 267k), 3.625% TotalEnergies SE 2023-2033 (CHF 200k), 2.250% Swisscom AG 2023-2031 (CHF 198k), iShares MSCI Emerging Mkts UCITS (CHF 158k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_01_Herr_Max_Muster.pdf (Privatbank Helvetia AG) EXT-01: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -3534,39 +4960,39 @@ no risk profile · CHF 3.41m · ESG preference: no
    <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +6.1% over the 12 months to Dec 2025 and +40.5% since Dec 2022, now CHF 3.41m; value change including deposits and withdrawals.  
    <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: PerformanceHistory of EXT-02-01</sub>
-3. **Watch.** 72.1% of the book is in holdings on none of the bank's recommendation lists, largest Vanguard S&P 500 UCITS ETF, iShares STOXX Europe 600 UCITS and 11 more.  
+3. **Health check.** Nothing open: no suitability violation, and every asset class is inside its band.  
+   <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SuitabilityViolations (none open); reference.json StrategicAssetAllocations bands</sub>
+4. **Watch.** 72.1% of the book is in holdings on none of the bank's recommendation lists, largest Vanguard S&P 500 UCITS ETF, iShares STOXX Europe 600 UCITS and 11 more.  
    <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 positions</sub>
-4. **Watch.** Raw materials is 6.1% of the book (CHF 206k) after fund look-through, mostly via Sika AG.  
+5. **Watch.** Raw materials is 6.1% of the book (CHF 206k) after fund look-through, mostly via Sika AG.  
    <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
-5. **Outlook.** Pictet Asset Management (Barometer, Sep 2026): "That means maintaining an overweight position in technology stocks."  
+6. **Outlook.** Pictet Asset Management (Barometer, Sep 2026): "That means maintaining an overweight position in technology stocks."  
    <sub>https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook</sub>
-6. **Next best actions.** Book a review: no finalised proposal on record.  
+7. **Next best actions.** Book a review: no finalised proposal on record.  
    <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Anna Beispiel is calling: no risk profile, CHF 3.41m across 1 portfolio.  
    <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: the dollar −1.2% today, 44.5% of the book; about −CHF 30k (−0.9%) overall.  
+2. **reason.** Probably the market: about −CHF 30k today, −0.9% of the book. Mostly the dollar, −1.2% on 44.5% of it.  
    <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
-3. **digest.** The dollar −1.2% against the franc: 44.5% of the book is exposed, about −CHF 18k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
-4. **digest.** Information Technology −4.8% today: 5.3% of the book, about −CHF 9k, mostly via Apple Inc..  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
-5. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-6. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** The euro −0.3% against the franc: 17.2% of the book is exposed, about −CHF 2k.  
-   <sub>simulated feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
-8. **digest.** 50.9% of the book has no matching market move and is not included.  
+3. **digest.** About −CHF 30k today, −0.9% of the book.  
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
+4. **digest.** About −CHF 18k from the dollar, −1.2% against the franc on 44.5% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
+5. **digest.** About −CHF 9k from Information Technology, −4.8% today on 5.3% of the book, mostly Apple Inc..  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
+6. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** About −CHF 2k from the euro, −0.3% against the franc on 17.2% of the book.  
+   <sub>market feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
+9. **digest.** 50.9% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings without a mapped market move</sub>
-9. **holding.** Holding up today: Swiss franc bonds +0.2% (12.4% of the book); foreign bonds +0.3% (8.8% of the book); Consumer Staples +0.3% (3.8% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
+10. **holding.** Holding up today: Swiss franc bonds +0.2% (12.4% of the book); foreign bonds +0.3% (8.8% of the book); Consumer Staples +0.3% (3.8% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3574,6 +5000,42 @@ no risk profile · CHF 3.41m · ESG preference: no
   <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 72.1% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 151k, 4.4% of the book.  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 65.1% of the portfolio (CHF 2.22m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 21.2% of the portfolio (CHF 723k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 6.9% of the portfolio (CHF 234k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 4.4% of the portfolio (CHF 151k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 2.4% of the portfolio (CHF 80k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Raw materials is 6.1% of the portfolio (CHF 206k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 5.3% of the portfolio (CHF 180k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 4.5% of the portfolio (CHF 152k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 3.9% of the portfolio (CHF 132k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 3.8% of the portfolio (CHF 129k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): US-Dollar: 44.5% of the portfolio (CHF 1.52m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Swiss francs: 28.8% of the portfolio (CHF 980k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 17.2% of the portfolio (CHF 585k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Andere: 7.4% of the portfolio (CHF 251k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): British pound: 2.1% of the portfolio (CHF 73k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: Vanguard S&P 500 UCITS ETF, CHF 620k (18.2% of the portfolio).  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 18 holdings; the largest: Vanguard S&P 500 UCITS ETF (CHF 620k), iShares STOXX Europe 600 UCITS (CHF 433k), 1.750% Kanton Zürich 2023-2033 (CHF 271k), NVIDIA Corp. (CHF 245k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_02_Frau_Anna_Beispiel.pdf (Privatbank Helvetia AG) EXT-02: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -3589,39 +5051,39 @@ no risk profile · CHF 1.25m · ESG preference: no
    <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +8.2% over the 12 months to Dec 2025 and +31.6% since Dec 2022, now CHF 1.25m; value change including deposits and withdrawals.  
    <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: PerformanceHistory of EXT-03-01</sub>
-3. **Watch.** 76.5% of the book is in holdings on none of the bank's recommendation lists, largest 4.625% JPMorgan Chase & Co. 2023-2030, 1.900% Roche Kapitalmarkt AG 2022-2029 and 6 more.  
+3. **Health check.** Nothing open: no suitability violation, and every asset class is inside its band.  
+   <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SuitabilityViolations (none open); reference.json StrategicAssetAllocations bands</sub>
+4. **Watch.** 76.5% of the book is in holdings on none of the bank's recommendation lists, largest 4.625% JPMorgan Chase & Co. 2023-2030, 1.900% Roche Kapitalmarkt AG 2022-2029 and 6 more.  
    <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 positions</sub>
-4. **Watch.** 4.625% JPMorgan Chase & Co. 2023-2030 alone is 22.5% of the book.  
+5. **Watch.** 4.625% JPMorgan Chase & Co. 2023-2030 alone is 22.5% of the book.  
    <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: Portfolios[EXT-03-01].SecurityPositions</sub>
-5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
+6. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
-6. **Next best actions.** Book a review: no finalised proposal on record.  
+7. **Next best actions.** Book a review: no finalised proposal on record.  
    <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Weber-Brunner family is calling: no risk profile, CHF 1.25m across 1 portfolio.  
    <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: the dollar −1.2% today, 38.3% of the book; about −CHF 7k (−0.6%) overall.  
+2. **reason.** Probably the market: about −CHF 7k today, −0.6% of the book. Mostly the dollar, −1.2% on 38.3% of it.  
    <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
-3. **digest.** The dollar −1.2% against the franc: 38.3% of the book is exposed, about −CHF 6k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
-4. **digest.** Communication Services −3.1% today: 3.7% of the book, about −CHF 1k, mostly via Swisscom AG and iShares Core MSCI World UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
-5. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-6. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** The pound −0.4% against the franc: 14.2% of the book is exposed, about −CHF 709.  
-   <sub>simulated feed "tech-selloff": GBPCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
-8. **digest.** 17.1% of the book has no matching market move and is not included.  
+3. **digest.** About −CHF 7k today, −0.6% of the book.  
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
+4. **digest.** About −CHF 6k from the dollar, −1.2% against the franc on 38.3% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
+5. **digest.** About −CHF 1k from Communication Services, −3.1% today on 3.7% of the book, mostly Swisscom AG and iShares Core MSCI World UCITS ETF.  
+   <sub>market feed "tech-selloff": S5TELS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
+6. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** About −CHF 709 from the pound, −0.4% against the franc on 14.2% of the book.  
+   <sub>market feed "tech-selloff": GBPCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
+9. **digest.** 17.1% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings without a mapped market move</sub>
-9. **holding.** Holding up today: foreign bonds +0.3% (46.0% of the book); Swiss franc bonds +0.2% (13.3% of the book); Consumer Staples +0.3% (4.3% of the book).  
-   <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
+10. **holding.** Holding up today: foreign bonds +0.3% (46.0% of the book); Swiss franc bonds +0.2% (13.3% of the book); Consumer Staples +0.3% (4.3% of the book).  
+   <sub>market feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3637,6 +5099,52 @@ no risk profile · CHF 1.25m · ESG preference: no
   <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 76.5% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 83k, 6.7% of the book.  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Bonds are 59.3% of the portfolio (CHF 743k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Shares are 23.1% of the portfolio (CHF 289k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 10.9% of the portfolio (CHF 136k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 6.7% of the portfolio (CHF 83k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Consumer Staples is 4.3% of the portfolio (CHF 54k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 3.7% of the portfolio (CHF 47k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 3.6% of the portfolio (CHF 45k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 1.8% of the portfolio (CHF 22k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 1.7% of the portfolio (CHF 22k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 0.9% of the portfolio (CHF 11k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 0.4% of the portfolio (CHF 5k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.2% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 0.1% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.1% of the portfolio (CHF 1k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.1% of the portfolio (CHF 985) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): US-Dollar: 39.4% of the portfolio (CHF 493k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Swiss francs: 24.8% of the portfolio (CHF 310k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): British pound: 14.0% of the portfolio (CHF 176k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 12.6% of the portfolio (CHF 158k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Andere: 9.2% of the portfolio (CHF 115k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: 4.625% JPMorgan Chase & Co. 2023-2030, CHF 282k (22.5% of the portfolio).  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 15 holdings; the largest: 4.625% JPMorgan Chase & Co. 2023-2030 (CHF 282k), 1.900% Roche Kapitalmarkt AG 2022-2029 (CHF 166k), 4.125% AstraZeneca PLC 2023-2029 (CHF 153k), 3.000% Nestlé Finance Intl 2022-2030 (CHF 141k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_03_Familie_Weber_Brunner.pdf (Privatbank Helvetia AG) EXT-03: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -3652,39 +5160,39 @@ no risk profile · CHF 4.80m · ESG preference: no
    <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +7.9% over the 12 months to Dec 2025 and +37.6% since Dec 2022, now CHF 4.80m; value change including deposits and withdrawals.  
    <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: PerformanceHistory of EXT-04-01</sub>
-3. **Watch.** 43.6% of the book is in holdings on none of the bank's recommendation lists, largest iShares MSCI Emerging Mkts UCITS, NVIDIA Corp. and 10 more.  
+3. **Health check.** Nothing open: no suitability violation, and every asset class is inside its band.  
+   <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SuitabilityViolations (none open); reference.json StrategicAssetAllocations bands</sub>
+4. **Watch.** 43.6% of the book is in holdings on none of the bank's recommendation lists, largest iShares MSCI Emerging Mkts UCITS, NVIDIA Corp. and 10 more.  
    <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 positions</sub>
-4. **Watch.** Communication Services is 12.6% of the book (CHF 607k) after fund look-through, mostly via Swisscom AG and Alphabet Inc. Cl A.  
+5. **Watch.** Communication Services is 12.6% of the book (CHF 607k) after fund look-through, mostly via Swisscom AG and Alphabet Inc. Cl A.  
    <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
-5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
+6. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
-6. **Next best actions.** Book a review: no finalised proposal on record.  
+7. **Next best actions.** Book a review: no finalised proposal on record.  
    <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Peter Keller is calling: no risk profile, CHF 4.80m across 1 portfolio.  
    <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: the dollar −1.2% today, 53.1% of the book; about −CHF 69k (−1.4%) overall.  
+2. **reason.** Probably the market: about −CHF 69k today, −1.4% of the book. Mostly the dollar, −1.2% on 53.1% of it.  
    <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
-3. **digest.** The dollar −1.2% against the franc: 53.1% of the book is exposed, about −CHF 31k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
-4. **digest.** Communication Services −3.1% today: 12.6% of the book, about −CHF 19k, mostly via Swisscom AG and Alphabet Inc. Cl A.  
-   <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
-5. **digest.** Information Technology −4.8% today: 6.1% of the book, about −CHF 14k, mostly via Apple Inc..  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** 36.8% of the book has no matching market move and is not included.  
+3. **digest.** About −CHF 69k today, −1.4% of the book.  
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
+4. **digest.** About −CHF 31k from the dollar, −1.2% against the franc on 53.1% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
+5. **digest.** About −CHF 19k from Communication Services, −3.1% today on 12.6% of the book, mostly Swisscom AG and Alphabet Inc. Cl A.  
+   <sub>market feed "tech-selloff": S5TELS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
+6. **digest.** About −CHF 14k from Information Technology, −4.8% today on 6.1% of the book, mostly Apple Inc..  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
+7. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** 36.8% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings without a mapped market move</sub>
-9. **holding.** Holding up today: Consumer Staples +0.3% (10.5% of the book); Swiss franc bonds +0.2% (4.7% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
+10. **holding.** Holding up today: Consumer Staples +0.3% (10.5% of the book); Swiss franc bonds +0.2% (4.7% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3696,6 +5204,42 @@ no risk profile · CHF 4.80m · ESG preference: no
   <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: Portfolios[EXT-04-01].SecurityPositions</sub>
 - **Watch** (0.00): 43.6% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 148k, 3.1% of the book.  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 82.0% of the portfolio (CHF 3.94m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 6.8% of the portfolio (CHF 326k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 5.0% of the portfolio (CHF 240k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 3.2% of the portfolio (CHF 152k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 3.1% of the portfolio (CHF 148k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Communication Services is 12.6% of the portfolio (CHF 607k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 10.5% of the portfolio (CHF 506k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 8.7% of the portfolio (CHF 417k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 8.0% of the portfolio (CHF 386k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 7.4% of the portfolio (CHF 353k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 6.1% of the portfolio (CHF 293k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): US-Dollar: 53.1% of the portfolio (CHF 2.55m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Swiss francs: 34.1% of the portfolio (CHF 1.64m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Andere: 10.5% of the portfolio (CHF 506k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): British pound: 2.2% of the portfolio (CHF 108k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares MSCI Emerging Mkts UCITS, CHF 636k (13.2% of the portfolio).  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 20 holdings; the largest: iShares MSCI Emerging Mkts UCITS (CHF 636k), NVIDIA Corp. (CHF 545k), Unilever PLC (CHF 506k), UBS Group AG (CHF 417k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_04_Herr_Peter_Keller.pdf (Privatbank Helvetia AG) EXT-04: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -3711,39 +5255,39 @@ no risk profile · CHF 948k · ESG preference: no
    <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +8.4% over the 12 months to Dec 2025 and +39.1% since Dec 2022, now CHF 948k; value change including deposits and withdrawals.  
    <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: PerformanceHistory of EXT-05-01</sub>
-3. **Watch.** 65.2% of the book is in holdings on none of the bank's recommendation lists, largest 3.375% Siemens Finance BV 2023-2031, 2.100% Pfandbriefzentrale 2023-2029 and 9 more.  
+3. **Health check.** Nothing open: no suitability violation, and every asset class is inside its band.  
+   <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SuitabilityViolations (none open); reference.json StrategicAssetAllocations bands</sub>
+4. **Watch.** 65.2% of the book is in holdings on none of the bank's recommendation lists, largest 3.375% Siemens Finance BV 2023-2031, 2.100% Pfandbriefzentrale 2023-2029 and 9 more.  
    <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 positions</sub>
-4. **Watch.** Consumer Discretionary is 12.3% of the book (CHF 117k) after fund look-through, mostly via 0.500% Schweiz. Eidgenossenschaft 2020-2032 and LVMH Moët Hennessy SE.  
+5. **Watch.** Consumer Discretionary is 12.3% of the book (CHF 117k) after fund look-through, mostly via 0.500% Schweiz. Eidgenossenschaft 2020-2032 and LVMH Moët Hennessy SE.  
    <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
-5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
+6. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
-6. **Next best actions.** Book a review: no finalised proposal on record.  
+7. **Next best actions.** Book a review: no finalised proposal on record.  
    <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Laura Steiner is calling: no risk profile, CHF 948k across 1 portfolio.  
    <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: the dollar −1.2% today, 26.3% of the book; about −CHF 8k (−0.8%) overall.  
+2. **reason.** Probably the market: about −CHF 8k today, −0.8% of the book. Mostly the dollar, −1.2% on 26.3% of it.  
    <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
-3. **digest.** The dollar −1.2% against the franc: 26.3% of the book is exposed, about −CHF 3k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
-4. **digest.** Information Technology −4.8% today: 5.1% of the book, about −CHF 2k, mostly via SAP SE and Microsoft Corp..  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
-5. **digest.** Consumer Discretionary −2.2% today: 7.8% of the book, about −CHF 2k, mostly via LVMH Moët Hennessy SE and Amazon.com Inc..  
-   <sub>simulated feed "tech-selloff": S5COND Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** 24.7% of the book has no matching market move and is not included.  
+3. **digest.** About −CHF 8k today, −0.8% of the book.  
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
+4. **digest.** About −CHF 3k from the dollar, −1.2% against the franc on 26.3% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
+5. **digest.** About −CHF 2k from Information Technology, −4.8% today on 5.1% of the book, mostly SAP SE and Microsoft Corp..  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
+6. **digest.** About −CHF 2k from Consumer Discretionary, −2.2% today on 7.8% of the book, mostly LVMH Moët Hennessy SE and Amazon.com Inc..  
+   <sub>market feed "tech-selloff": S5COND Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
+7. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** 24.7% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings without a mapped market move</sub>
-9. **holding.** Holding up today: Swiss franc bonds +0.2% (24.2% of the book); foreign bonds +0.3% (9.2% of the book); Consumer Staples +0.3% (7.5% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
+10. **holding.** Holding up today: Swiss franc bonds +0.2% (24.2% of the book); foreign bonds +0.3% (9.2% of the book); Consumer Staples +0.3% (7.5% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3751,6 +5295,40 @@ no risk profile · CHF 948k · ESG preference: no
   <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 60.7% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 44k, 4.6% of the book.  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 46.9% of the portfolio (CHF 445k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 33.4% of the portfolio (CHF 316k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 15.1% of the portfolio (CHF 143k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 4.6% of the portfolio (CHF 44k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Consumer Discretionary is 12.3% of the portfolio (CHF 117k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 7.5% of the portfolio (CHF 71k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 5.1% of the portfolio (CHF 48k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 5.1% of the portfolio (CHF 48k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 4.7% of the portfolio (CHF 45k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 42.8% of the portfolio (CHF 405k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 26.3% of the portfolio (CHF 249k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 21.8% of the portfolio (CHF 207k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Andere: 9.2% of the portfolio (CHF 87k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Gold: CHF 68k, 7.2% of the portfolio.  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: 3.375% Siemens Finance BV 2023-2031, CHF 87k (9.2% of the portfolio).  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 20 holdings; the largest: 3.375% Siemens Finance BV 2023-2031 (CHF 87k), 2.100% Pfandbriefzentrale 2023-2029 (CHF 80k), 1.400% Kanton Waadt 2022-2030 (CHF 75k), 1.250% Schweiz. Eidgenossenschaft 2021-2031 (CHF 74k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_05_Frau_Laura_Steiner.pdf (Privatbank Helvetia AG) EXT-05: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -3766,39 +5344,39 @@ no risk profile · CHF 7.60m · ESG preference: no
    <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +12.3% over the 12 months to Dec 2025 and +55.2% since Dec 2022, now CHF 7.60m; value change including deposits and withdrawals.  
    <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: PerformanceHistory of EXT-06-01</sub>
-3. **Watch.** Consumer Staples is 20.6% of the book (CHF 1.56m) after fund look-through, mostly via Unilever PLC and Nestlé AG.  
+3. **Health check.** Nothing open: no suitability violation, and every asset class is inside its band.  
+   <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SuitabilityViolations (none open); reference.json StrategicAssetAllocations bands</sub>
+4. **Watch.** Consumer Staples is 20.6% of the book (CHF 1.56m) after fund look-through, mostly via Unilever PLC and Nestlé AG.  
    <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
-4. **Watch.** 41.1% of the book is in holdings on none of the bank's recommendation lists, largest JPMorgan Chase & Co., UBS CMCI Commodity Index Fonds and 11 more.  
+5. **Watch.** 41.1% of the book is in holdings on none of the bank's recommendation lists, largest JPMorgan Chase & Co., UBS CMCI Commodity Index Fonds and 11 more.  
    <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 positions</sub>
-5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
+6. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
-6. **Next best actions.** Book a review: no finalised proposal on record.  
+7. **Next best actions.** Book a review: no finalised proposal on record.  
    <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Muster Holding AG is calling: no risk profile, CHF 7.60m across 1 portfolio.  
    <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Information Technology −4.8% today, 10.2% of the book; about −CHF 84k (−1.1%) overall.  
+2. **reason.** Probably the market: about −CHF 84k today, −1.1% of the book. Mostly Information Technology, −4.8% on 10.2% of it.  
    <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
-3. **digest.** Information Technology −4.8% today: 10.2% of the book, about −CHF 37k, mostly via iShares Core MSCI World UCITS ETF and Microsoft Corp..  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
-4. **digest.** The dollar −1.2% against the franc: 38.1% of the book is exposed, about −CHF 35k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
-5. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-6. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Financials −0.9% today: 6.5% of the book, about −CHF 4k, mostly via Zurich Insurance Group AG and iShares Core MSCI World UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
-8. **digest.** 26.8% of the book has no matching market move and is not included.  
+3. **digest.** About −CHF 84k today, −1.1% of the book.  
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
+4. **digest.** About −CHF 37k from Information Technology, −4.8% today on 10.2% of the book, mostly iShares Core MSCI World UCITS ETF and Microsoft Corp..  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
+5. **digest.** About −CHF 35k from the dollar, −1.2% against the franc on 38.1% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
+6. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** About −CHF 4k from Financials, −0.9% today on 6.5% of the book, mostly Zurich Insurance Group AG and iShares Core MSCI World UCITS ETF.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
+9. **digest.** 26.8% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings without a mapped market move</sub>
-9. **holding.** Holding up today: Consumer Staples +0.3% (20.6% of the book); foreign bonds +0.3% (7.6% of the book); Swiss franc bonds +0.2% (6.7% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
+10. **holding.** Holding up today: Consumer Staples +0.3% (20.6% of the book); foreign bonds +0.3% (7.6% of the book); Swiss franc bonds +0.2% (6.7% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3810,6 +5388,54 @@ no risk profile · CHF 7.60m · ESG preference: no
   <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: Portfolios[EXT-06-01].SecurityPositions</sub>
 - **Watch** (0.00): 38.3% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 322k, 4.2% of the book.  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 68.3% of the portfolio (CHF 5.19m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 14.3% of the portfolio (CHF 1.09m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 9.7% of the portfolio (CHF 738k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 4.2% of the portfolio (CHF 322k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 3.5% of the portfolio (CHF 262k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Consumer Staples is 20.6% of the portfolio (CHF 1.56m) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 10.2% of the portfolio (CHF 772k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 6.5% of the portfolio (CHF 495k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 4.9% of the portfolio (CHF 374k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 4.6% of the portfolio (CHF 349k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 4.3% of the portfolio (CHF 327k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 4.0% of the portfolio (CHF 308k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 1.1% of the portfolio (CHF 82k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.7% of the portfolio (CHF 50k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.3% of the portfolio (CHF 26k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.3% of the portfolio (CHF 24k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): US-Dollar: 42.2% of the portfolio (CHF 3.21m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Swiss francs: 38.0% of the portfolio (CHF 2.89m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Andere: 10.5% of the portfolio (CHF 799k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 6.3% of the portfolio (CHF 481k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): British pound: 2.9% of the portfolio (CHF 224k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares Core MSCI World UCITS ETF, CHF 1.07m (14.0% of the portfolio).  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 22 holdings; the largest: iShares Core MSCI World UCITS ETF (CHF 1.07m), Unilever PLC (CHF 799k), JPMorgan Chase & Co. (CHF 768k), Nestlé AG (CHF 697k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_06_Muster_Holding_AG.pdf (Privatbank Helvetia AG) EXT-06: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -3825,39 +5451,39 @@ no risk profile · CHF 1.80m · ESG preference: no
    <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +5.4% over the 12 months to Dec 2025 and +33.5% since Dec 2022, now CHF 1.80m; value change including deposits and withdrawals.  
    <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: PerformanceHistory of EXT-07-01</sub>
-3. **Watch.** 71.1% of the book is in holdings on none of the bank's recommendation lists, largest 4.125% AstraZeneca PLC 2023-2029, 3.000% Nestlé Finance Intl 2022-2030 and 9 more.  
+3. **Health check.** Nothing open: no suitability violation, and every asset class is inside its band.  
+   <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SuitabilityViolations (none open); reference.json StrategicAssetAllocations bands</sub>
+4. **Watch.** 71.1% of the book is in holdings on none of the bank's recommendation lists, largest 4.125% AstraZeneca PLC 2023-2029, 3.000% Nestlé Finance Intl 2022-2030 and 9 more.  
    <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 positions</sub>
-4. **Watch.** 4.125% AstraZeneca PLC 2023-2029 alone is 18.0% of the book.  
+5. **Watch.** 4.125% AstraZeneca PLC 2023-2029 alone is 18.0% of the book.  
    <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: Portfolios[EXT-07-01].SecurityPositions</sub>
-5. **Outlook.** Pictet Asset Management (Barometer, Sep 2026): "That means maintaining an overweight position in technology stocks."  
+6. **Outlook.** Pictet Asset Management (Barometer, Sep 2026): "That means maintaining an overweight position in technology stocks."  
    <sub>https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook</sub>
-6. **Next best actions.** Book a review: no finalised proposal on record.  
+7. **Next best actions.** Book a review: no finalised proposal on record.  
    <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Daniel Frey is calling: no risk profile, CHF 1.80m across 1 portfolio.  
    <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Information Technology −4.8% today, 8.6% of the book; about −CHF 15k (−0.8%) overall.  
+2. **reason.** Probably the market: about −CHF 15k today, −0.8% of the book. Mostly Information Technology, −4.8% on 8.6% of it.  
    <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
-3. **digest.** Information Technology −4.8% today: 8.6% of the book, about −CHF 7k, mostly via Apple Inc. and Microsoft Corp..  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
-4. **digest.** The dollar −1.2% against the franc: 29.5% of the book is exposed, about −CHF 6k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
-5. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-6. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** The pound −0.4% against the franc: 18.2% of the book is exposed, about −CHF 1k.  
-   <sub>simulated feed "tech-selloff": GBPCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
-8. **digest.** 10.7% of the book has no matching market move and is not included.  
+3. **digest.** About −CHF 15k today, −0.8% of the book.  
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
+4. **digest.** About −CHF 7k from Information Technology, −4.8% today on 8.6% of the book, mostly Apple Inc. and Microsoft Corp..  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
+5. **digest.** About −CHF 6k from the dollar, −1.2% against the franc on 29.5% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
+6. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** About −CHF 1k from the pound, −0.4% against the franc on 18.2% of the book.  
+   <sub>market feed "tech-selloff": GBPCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
+9. **digest.** 10.7% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings without a mapped market move</sub>
-9. **holding.** Holding up today: foreign bonds +0.3% (44.8% of the book); Swiss franc bonds +0.2% (11.9% of the book); Gold +1.4% (3.7% of the book).  
-   <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
+10. **holding.** Holding up today: foreign bonds +0.3% (44.8% of the book); Swiss franc bonds +0.2% (11.9% of the book); Gold +1.4% (3.7% of the book).  
+   <sub>market feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3873,6 +5499,54 @@ no risk profile · CHF 1.80m · ESG preference: no
   <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 71.1% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 124k, 6.9% of the book.  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Bonds are 56.7% of the portfolio (CHF 1.02m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Shares are 25.7% of the portfolio (CHF 463k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 6.9% of the portfolio (CHF 124k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 6.1% of the portfolio (CHF 109k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 4.7% of the portfolio (CHF 84k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Information Technology is 8.6% of the portfolio (CHF 155k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 4.8% of the portfolio (CHF 86k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 3.3% of the portfolio (CHF 60k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 1.6% of the portfolio (CHF 28k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 1.4% of the portfolio (CHF 26k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 0.8% of the portfolio (CHF 15k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 0.7% of the portfolio (CHF 12k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 0.4% of the portfolio (CHF 8k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 0.2% of the portfolio (CHF 4k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.1% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.1% of the portfolio (CHF 2k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): US-Dollar: 31.1% of the portfolio (CHF 561k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Swiss francs: 27.5% of the portfolio (CHF 496k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 23.4% of the portfolio (CHF 421k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): British pound: 18.0% of the portfolio (CHF 324k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Gold: CHF 67k, 3.7% of the portfolio.  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: 4.125% AstraZeneca PLC 2023-2029, CHF 324k (18.0% of the portfolio).  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 20 holdings; the largest: 4.125% AstraZeneca PLC 2023-2029 (CHF 324k), 3.000% Nestlé Finance Intl 2022-2030 (CHF 270k), 1.400% Kanton Waadt 2022-2030 (CHF 215k), 4.625% JPMorgan Chase & Co. 2023-2030 (CHF 213k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_07_Herr_Daniel_Frey.pdf (Privatbank Helvetia AG) EXT-07: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -3888,39 +5562,39 @@ no risk profile · CHF 2.70m · ESG preference: no
    <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +9.2% over the 12 months to Dec 2025 and +56.8% since Dec 2022, now CHF 2.70m; value change including deposits and withdrawals.  
    <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: PerformanceHistory of EXT-08-01</sub>
-3. **Watch.** 43.6% of the book is in holdings on none of the bank's recommendation lists, largest iShares STOXX Europe 600 UCITS, JPMorgan Chase & Co. and 10 more.  
+3. **Health check.** Nothing open: no suitability violation, and every asset class is inside its band.  
+   <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SuitabilityViolations (none open); reference.json StrategicAssetAllocations bands</sub>
+4. **Watch.** 43.6% of the book is in holdings on none of the bank's recommendation lists, largest iShares STOXX Europe 600 UCITS, JPMorgan Chase & Co. and 10 more.  
    <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 positions</sub>
-4. **Watch.** Information Technology is 10.7% of the book (CHF 290k) after fund look-through, mostly via SAP SE.  
+5. **Watch.** Information Technology is 10.7% of the book (CHF 290k) after fund look-through, mostly via SAP SE.  
    <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
-5. **Outlook.** Pictet Asset Management (Barometer, Sep 2026): "That means maintaining an overweight position in technology stocks."  
+6. **Outlook.** Pictet Asset Management (Barometer, Sep 2026): "That means maintaining an overweight position in technology stocks."  
    <sub>https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook</sub>
-6. **Next best actions.** Book a review: no finalised proposal on record.  
+7. **Next best actions.** Book a review: no finalised proposal on record.  
    <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Nicole Baumann is calling: no risk profile, CHF 2.70m across 1 portfolio.  
    <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Information Technology −4.8% today, 10.7% of the book; about −CHF 32k (−1.2%) overall.  
+2. **reason.** Probably the market: about −CHF 32k today, −1.2% of the book. Mostly Information Technology, −4.8% on 10.7% of it.  
    <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
-3. **digest.** Information Technology −4.8% today: 10.7% of the book, about −CHF 14k, mostly via SAP SE.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
-4. **digest.** The dollar −1.2% against the franc: 24.8% of the book is exposed, about −CHF 8k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
-5. **digest.** The euro −0.3% against the franc: 42.1% of the book is exposed, about −CHF 3k.  
-   <sub>simulated feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** 35.7% of the book has no matching market move and is not included.  
+3. **digest.** About −CHF 32k today, −1.2% of the book.  
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
+4. **digest.** About −CHF 14k from Information Technology, −4.8% today on 10.7% of the book, mostly SAP SE.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
+5. **digest.** About −CHF 8k from the dollar, −1.2% against the franc on 24.8% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
+6. **digest.** About −CHF 3k from the euro, −0.3% against the franc on 42.1% of the book.  
+   <sub>market feed "tech-selloff": EURCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
+7. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** 35.7% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings without a mapped market move</sub>
-9. **holding.** Holding up today: Consumer Staples +0.3% (6.3% of the book); foreign bonds +0.3% (3.7% of the book).  
-   <sub>simulated feed "tech-selloff": S5CONS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
+10. **holding.** Holding up today: Consumer Staples +0.3% (6.3% of the book); foreign bonds +0.3% (3.7% of the book).  
+   <sub>market feed "tech-selloff": S5CONS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3932,6 +5606,46 @@ no risk profile · CHF 2.70m · ESG preference: no
   <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: Portfolios[EXT-08-01].SecurityPositions</sub>
 - **Watch** (0.00): 42.8% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 74k, 2.7% of the book.  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 83.9% of the portfolio (CHF 2.27m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 6.4% of the portfolio (CHF 173k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 5.0% of the portfolio (CHF 135k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 2.7% of the portfolio (CHF 74k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 1.9% of the portfolio (CHF 52k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Information Technology is 10.7% of the portfolio (CHF 290k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 10.4% of the portfolio (CHF 280k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 8.2% of the portfolio (CHF 223k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 7.8% of the portfolio (CHF 210k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 6.3% of the portfolio (CHF 169k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 6.1% of the portfolio (CHF 166k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 4.9% of the portfolio (CHF 134k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Euro: 42.1% of the portfolio (CHF 1.14m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Swiss francs: 26.8% of the portfolio (CHF 724k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 24.8% of the portfolio (CHF 670k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Andere: 6.3% of the portfolio (CHF 169k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Gold: CHF 80k, 2.9% of the portfolio.  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares STOXX Europe 600 UCITS, CHF 600k (22.2% of the portfolio).  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 19 holdings; the largest: iShares STOXX Europe 600 UCITS (CHF 600k), SAP SE (CHF 290k), Zurich Insurance Group AG (CHF 280k), ABB Ltd (CHF 223k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_08_Frau_Nicole_Baumann.pdf (Privatbank Helvetia AG) EXT-08: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -3947,39 +5661,39 @@ no risk profile · CHF 9.20m · ESG preference: no
    <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +7.2% over the 12 months to Dec 2025 and +46.6% since Dec 2022, now CHF 9.20m; value change including deposits and withdrawals.  
    <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: PerformanceHistory of EXT-09-01</sub>
-3. **Watch.** 67.2% of the book is in holdings on none of the bank's recommendation lists, largest iShares STOXX Europe 600 UCITS, 1.400% Kanton Waadt 2022-2030 and 14 more.  
+3. **Health check.** Nothing open: no suitability violation, and every asset class is inside its band.  
+   <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SuitabilityViolations (none open); reference.json StrategicAssetAllocations bands</sub>
+4. **Watch.** 67.2% of the book is in holdings on none of the bank's recommendation lists, largest iShares STOXX Europe 600 UCITS, 1.400% Kanton Waadt 2022-2030 and 14 more.  
    <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 positions</sub>
-4. **Watch.** Consumer Staples is 8.4% of the book (CHF 772k) after fund look-through, mostly via Nestlé AG and Procter & Gamble Co..  
+5. **Watch.** Consumer Staples is 8.4% of the book (CHF 772k) after fund look-through, mostly via Nestlé AG and Procter & Gamble Co..  
    <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
-5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
+6. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "We remain Underweight real estate and consumer staples amid weak sentiment and low visibility on the housing recovery."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
-6. **Next best actions.** Book a review: no finalised proposal on record.  
+7. **Next best actions.** Book a review: no finalised proposal on record.  
    <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Pensionskasse Fiktiva is calling: no risk profile, CHF 9.20m across 1 portfolio.  
    <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: the dollar −1.2% today, 30.9% of the book; about −CHF 68k (−0.7%) overall.  
+2. **reason.** Probably the market: about −CHF 68k today, −0.7% of the book. Mostly the dollar, −1.2% on 30.9% of it.  
    <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
-3. **digest.** The dollar −1.2% against the franc: 30.9% of the book is exposed, about −CHF 34k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
-4. **digest.** Information Technology −4.8% today: 2.6% of the book, about −CHF 11k, mostly via iShares Core MSCI World UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
-5. **digest.** Communication Services −3.1% today: 3.5% of the book, about −CHF 10k, mostly via Swisscom AG and iShares Core MSCI World UCITS ETF.  
-   <sub>simulated feed "tech-selloff": S5TELS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
-6. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-8. **digest.** 35.4% of the book has no matching market move and is not included.  
+3. **digest.** About −CHF 68k today, −0.7% of the book.  
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
+4. **digest.** About −CHF 34k from the dollar, −1.2% against the franc on 30.9% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
+5. **digest.** About −CHF 11k from Information Technology, −4.8% today on 2.6% of the book, mostly iShares Core MSCI World UCITS ETF.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
+6. **digest.** About −CHF 10k from Communication Services, −3.1% today on 3.5% of the book, mostly Swisscom AG and iShares Core MSCI World UCITS ETF.  
+   <sub>market feed "tech-selloff": S5TELS Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
+7. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+9. **digest.** 35.4% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings without a mapped market move</sub>
-9. **holding.** Holding up today: Swiss franc bonds +0.2% (22.3% of the book); Consumer Staples +0.3% (8.4% of the book); foreign bonds +0.3% (7.5% of the book).  
-   <sub>simulated feed "tech-selloff": SBR14T Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
+10. **holding.** Holding up today: Swiss franc bonds +0.2% (22.3% of the book); Consumer Staples +0.3% (8.4% of the book); foreign bonds +0.3% (7.5% of the book).  
+   <sub>market feed "tech-selloff": SBR14T Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -3987,6 +5701,54 @@ no risk profile · CHF 9.20m · ESG preference: no
   <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 63.9% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 411k, 4.5% of the book.  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 53.4% of the portfolio (CHF 4.91m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 29.8% of the portfolio (CHF 2.75m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 10.6% of the portfolio (CHF 980k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 4.5% of the portfolio (CHF 411k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 1.7% of the portfolio (CHF 153k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Consumer Staples is 8.4% of the portfolio (CHF 772k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Discretionary is 7.2% of the portfolio (CHF 659k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 5.8% of the portfolio (CHF 533k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Communication Services is 3.5% of the portfolio (CHF 324k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Information Technology is 2.6% of the portfolio (CHF 238k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 1.6% of the portfolio (CHF 144k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 1.2% of the portfolio (CHF 114k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 0.5% of the portfolio (CHF 45k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Raw materials is 0.4% of the portfolio (CHF 36k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Utilities is 0.3% of the portfolio (CHF 23k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Real Estate is 0.2% of the portfolio (CHF 21k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 38.4% of the portfolio (CHF 3.53m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 33.9% of the portfolio (CHF 3.12m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 26.5% of the portfolio (CHF 2.44m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): British pound: 1.2% of the portfolio (CHF 108k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Gold: CHF 185k, 2.0% of the portfolio.  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares STOXX Europe 600 UCITS, CHF 1.07m (11.6% of the portfolio).  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 22 holdings; the largest: iShares STOXX Europe 600 UCITS (CHF 1.07m), iShares Core MSCI World UCITS ETF (CHF 964k), 1.400% Kanton Waadt 2022-2030 (CHF 758k), 3.000% Nestlé Finance Intl 2022-2030 (CHF 695k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_09_Pensionskasse_Fiktiva.pdf (Privatbank Helvetia AG) EXT-09: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
 
@@ -4002,39 +5764,39 @@ no risk profile · CHF 1.45m · ESG preference: no
    <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +8.6% over the 12 months to Dec 2025 and +45.6% since Dec 2022, now CHF 1.45m; value change including deposits and withdrawals.  
    <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: PerformanceHistory of EXT-10-01</sub>
-3. **Watch.** 49.9% of the book is in holdings on none of the bank's recommendation lists, largest iShares MSCI Emerging Mkts UCITS, Sony Group Corp. and 13 more.  
+3. **Health check.** Nothing open: no suitability violation, and every asset class is inside its band.  
+   <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SuitabilityViolations (none open); reference.json StrategicAssetAllocations bands</sub>
+4. **Watch.** 49.9% of the book is in holdings on none of the bank's recommendation lists, largest iShares MSCI Emerging Mkts UCITS, Sony Group Corp. and 13 more.  
    <sub>reference.json Securities.InRecommendationList; custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 positions</sub>
-4. **Watch.** Information Technology is 11.2% of the book (CHF 162k) after fund look-through, mostly via ASML Holding NV and SAP SE.  
+5. **Watch.** Information Technology is 11.2% of the book (CHF 162k) after fund look-through, mostly via ASML Holding NV and SAP SE.  
    <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
-5. **Outlook.** Pictet Asset Management (Barometer, Sep 2026): "That means maintaining an overweight position in technology stocks."  
+6. **Outlook.** Pictet Asset Management (Barometer, Sep 2026): "That means maintaining an overweight position in technology stocks."  
    <sub>https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook</sub>
-6. **Next best actions.** Book a review: no finalised proposal on record.  
+7. **Next best actions.** Book a review: no finalised proposal on record.  
    <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
 
 1. **caller.** Thomas Gerber is calling: no risk profile, CHF 1.45m across 1 portfolio.  
    <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
-2. **reason.** Probably the market move: Information Technology −4.8% today, 11.2% of the book; about −CHF 14k (−1.0%) overall.  
+2. **reason.** Probably the market: about −CHF 14k today, −1.0% of the book. Mostly Information Technology, −4.8% on 11.2% of it.  
    <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
-3. **digest.** Information Technology −4.8% today: 11.2% of the book, about −CHF 8k, mostly via ASML Holding NV and SAP SE.  
-   <sub>simulated feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
-4. **digest.** The dollar −1.2% against the franc: 20.5% of the book is exposed, about −CHF 4k.  
-   <sub>simulated feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
-5. **digest.** Behind the move: "Simulated: Chip stocks slide after export-control headlines"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-6. **digest.** Behind the move: "Simulated: Dollar weakens as rate-cut bets rise"  
-   <sub>simulated feed "tech-selloff" headline</sub>
-7. **digest.** Financials −0.9% today: 10.8% of the book, about −CHF 1k, mostly via Zurich Insurance Group AG and UBS Group AG.  
-   <sub>simulated feed "tech-selloff": S5FINL Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
-8. **digest.** 30.9% of the book has no matching market move and is not included.  
+3. **digest.** About −CHF 14k today, −1.0% of the book.  
+   <sub>impact of the market feed on custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
+4. **digest.** About −CHF 8k from Information Technology, −4.8% today on 11.2% of the book, mostly ASML Holding NV and SAP SE.  
+   <sub>market feed "tech-selloff": S5INFT Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
+5. **digest.** About −CHF 4k from the dollar, −1.2% against the franc on 20.5% of the book.  
+   <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
+6. **digest.** Behind the move: "Chip stocks slide after export-control headlines"  
+   <sub>market feed "tech-selloff" headline</sub>
+7. **digest.** Behind the move: "Dollar weakens as rate-cut bets rise"  
+   <sub>market feed "tech-selloff" headline</sub>
+8. **digest.** About −CHF 1k from Financials, −0.9% today on 10.8% of the book, mostly Zurich Insurance Group AG and UBS Group AG.  
+   <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
+9. **digest.** 30.9% of the book has no matching market move and is not included.  
    <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings without a mapped market move</sub>
-9. **holding.** Holding up today: foreign bonds +0.3% (9.8% of the book); Consumer Staples +0.3% (7.9% of the book); Swiss franc bonds +0.2% (6.9% of the book).  
-   <sub>simulated feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
-10. **talk.** Start with what held up, then walk through what fell.  
-   <sub>data/playbook.json: held_up (when: held_up)</sub>
-11. **talk.** Advise against acting on a single day's move; offer to review the positions together.  
-   <sub>data/playbook.json: no_rush (when: market)</sub>
+10. **holding.** Holding up today: foreign bonds +0.3% (9.8% of the book); Consumer Staples +0.3% (7.9% of the book); Swiss franc bonds +0.2% (6.9% of the book).  
+   <sub>market feed "tech-selloff": LEGATRUU Index CHG_PCT_1D × custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10 holdings</sub>
 
 <details><summary>Other facts on the card</summary>
 
@@ -4042,5 +5804,43 @@ no risk profile · CHF 1.45m · ESG preference: no
   <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.00): 49.9% of the book has no industry breakdown (bonds, funds without look-through).  
   <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions; reference.json FundUnbundlingMappings</sub>
+- **Watch** (0.00): Cash on hand is CHF 60k, 4.1% of the book.  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: LiquidityInDefaultCurrency</sub>
+- **Watch** (0.00): Shares are 69.9% of the portfolio (CHF 1.01m).  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Bonds are 16.7% of the portfolio (CHF 242k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Alternatives and commodities are 7.5% of the portfolio (CHF 108k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Cash is 4.1% of the portfolio (CHF 60k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Real estate are 1.8% of the portfolio (CHF 27k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Information Technology is 11.2% of the portfolio (CHF 162k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Financials is 10.8% of the portfolio (CHF 156k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Consumer Staples is 7.9% of the portfolio (CHF 115k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Energy is 7.9% of the portfolio (CHF 115k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Industrials is 5.7% of the portfolio (CHF 83k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Health Care is 2.5% of the portfolio (CHF 36k) after fund look-through.  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities × FundUnbundlingMappings</sub>
+- **Watch** (0.00): Swiss francs: 38.9% of the portfolio (CHF 565k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Euro: 28.6% of the portfolio (CHF 416k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): US-Dollar: 20.5% of the portfolio (CHF 297k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Andere: 12.0% of the portfolio (CHF 173k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Gold: CHF 33k, 2.3% of the portfolio.  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): Largest holding: iShares MSCI Emerging Mkts UCITS, CHF 174k (12.0% of the portfolio).  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities</sub>
+- **Watch** (0.00): 23 holdings; the largest: iShares MSCI Emerging Mkts UCITS (CHF 174k), Nestlé AG (CHF 115k), TotalEnergies SE (CHF 115k), Zurich Insurance Group AG (CHF 110k).  
+  <sub>custody statement Quartalsreporting_Q4_2025_10_Herr_Thomas_Gerber.pdf (Privatbank Helvetia AG) EXT-10: SecurityPositions, AccountPositions × reference.json Securities</sub>
 
 </details>
