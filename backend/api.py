@@ -450,6 +450,12 @@ async def demo_run(request):
             set_market=_set_market, answered=state.demo_answered, stop=state.demo_stop,
             audio_url=lambda path: f'/demo/audio/{path.name}')
     else:
+        # A replay pushes the saved events, which carry their own market; without this the
+        # server would still hold whatever scenario was loaded before, so a question typed
+        # during the replayed call would be answered against the wrong market.
+        scenario = (demo.load_script(name) or {}).get('scenario')
+        if scenario:
+            _set_market(scenario)
         coro = demo.replay(name, broadcast=state.broadcast, answered=state.demo_answered, stop=state.demo_stop)
     state.demo_task = asyncio.create_task(coro)
     return JSONResponse({'started': name, 'mode': mode})

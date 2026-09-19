@@ -29,7 +29,14 @@
           Market: <span id="market-name">none</span>
         </p>
         <p class="demo-caller" id="demo-caller"></p>
-        <button class="btn primary wide" id="demo-recorded" type="button">Start the call</button>
+        <button class="btn primary wide" id="demo-silent" type="button">Start the call</button>
+        <button class="btn secondary wide" id="demo-voice" type="button">Start the call with voice</button>
+        <details class="more">
+          <summary>Other ways to start it</summary>
+          <div class="more-actions">
+            <button class="btn secondary wide" id="demo-call" type="button">Ring only, then use the microphone</button>
+          </div>
+        </details>
         <p class="demo-status" id="demo-status" hidden></p>
       </div>
     </section>
@@ -146,6 +153,7 @@
   </main>
 
   <audio id="ringtone" src="ringtone.mp3" loop preload="auto"></audio>
+  <audio id="caller-voice" preload="auto"></audio>
   <audio id="brief-voice" preload="none"></audio>
   <script type="module" src="app.js"></script>
 </body>

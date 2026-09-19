@@ -7,7 +7,12 @@ const params = new URLSearchParams(location.search);
 const API = (params.get('api') || location.origin).replace(/\/$/, '');
 const WS_BASE = API.replace(/^http/, 'ws');
 const WS_URL = `${WS_BASE}/ws`;
-const SCRIPT = params.get('script') || 'golf';
+// Two demos. SILENT replays a saved run -- questions and answer cards on their real
+// timing, nothing spoken, no network -- which is what the video is filmed against.
+// VOICED runs a different client and scenario through ElevenLabs and the live
+// speech-to-text, so the cards are produced rather than replayed. ?script= overrides.
+const SILENT_SCRIPT = params.get('script') || 'golf';
+const VOICED_SCRIPT = params.get('voiced') || 'franc';
 let DEMO_CLIENT = params.get('demo') || null;   // filled from the script by loadDemo()
 
 const SLOT_TITLES = {
@@ -321,6 +326,7 @@ function onListenerEvent(event) {
 // --- after call ---------------------------------------------------------------
 
 function endCall() {
+  $('#caller-voice').pause();
   stopListening();
   clearInterval(state.timer);
   const duration = state.callStarted ? clock(Date.now() - state.callStarted) : '0:00';
@@ -545,9 +551,18 @@ function connect() {
     if (['transcript', 'answer', 'listening', 'listening_stopped', 'listener_error'].includes(event.type)) {
       onListenerEvent(event);
     }
+    // A replayed run carries its demo_audio events too, but the silent demo must stay
+    // silent: only the live pipeline's audio is played.
+    if (event.type === 'demo_audio' && !event.replayed
+        && state.screen === 'call' && state.briefing && event.client === state.briefing.client) {
+      const voice = $('#caller-voice');
+      voice.src = `${API}${event.url}`;
+      voice.play().catch(() => {});
+    }
     if (event.type === 'call_ended' && state.screen === 'call' && state.briefing && event.client === state.briefing.client) {
       endCall();
     }
+    if (event.type === 'demo_started' || event.type === 'demo_finished') demoStatus(event);
   });
   ws.addEventListener('close', retry);
   ws.addEventListener('error', () => ws.close());
@@ -582,7 +597,7 @@ for (const btn of $$('[data-approve]')) btn.addEventListener('click', () => appr
 
 // Ring the advisor and push the briefing. Nothing is voiced -- a person speaks the
 // client's lines into the microphone, which starts itself when the call is answered.
-$('#demo-recorded').addEventListener('click', async () => {
+$('#demo-call').addEventListener('click', async () => {
   if (!DEMO_CLIENT) return;
   try {
     await fetch(`${API}/call/incoming`, {
@@ -593,8 +608,32 @@ $('#demo-recorded').addEventListener('click', async () => {
   } catch { setConn('closed', 'Offline'); }
 });
 
-// Who the call rings as. The lines are spoken by a person, so nothing is voiced here
-// and there is no recorded run to replay -- the microphone hears the real voice.
+function demoStatus(event) {
+  const status = $('#demo-status');
+  status.hidden = false;
+  status.textContent = event.type === 'demo_started' ? `Call "${event.script}" running`
+    : `Call finished (${event.result})`;
+}
+
+async function runDemo(script, mode) {
+  const status = $('#demo-status');
+  status.hidden = false;
+  status.textContent = mode === 'replay' ? 'Starting the call…' : 'Preparing the voiced call…';
+  try {
+    const resp = await fetch(`${API}/demo/run`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ script, mode }),
+    });
+    const result = await resp.json();
+    if (!resp.ok) status.textContent = result.error || 'Could not start';
+  } catch { status.textContent = 'Offline'; }
+}
+
+$('#demo-silent').addEventListener('click', () => runDemo(SILENT_SCRIPT, 'replay'));
+$('#demo-voice').addEventListener('click', () => runDemo(VOICED_SCRIPT, 'pipeline'));
+
+// Who each demo rings as, and whether the silent one has a saved run to replay.
 async function loadDemo() {
   let info;
   try {
@@ -602,12 +641,16 @@ async function loadDemo() {
   } catch {
     return;
   }
-  DEMO_CLIENT = DEMO_CLIENT || (info.clients || {})[SCRIPT] || null;
+  const clients = info.clients || {};
   const names = info.names || {};
-  $('#demo-caller').textContent = DEMO_CLIENT
-    ? `${names[DEMO_CLIENT] || DEMO_CLIENT} will call, during the market shown above.`
-    : 'No client to call.';
-  $('#demo-recorded').disabled = !DEMO_CLIENT;
+  const who = (script) => names[clients[script]] || clients[script] || script;
+  DEMO_CLIENT = DEMO_CLIENT || clients[SILENT_SCRIPT] || null;
+  const replayable = (info.replayable || {})[SILENT_SCRIPT];
+  $('#demo-silent').disabled = !replayable;
+  $('#demo-silent').title = replayable ? '' : 'No saved call to replay yet';
+  $('#demo-caller').textContent =
+    `${who(SILENT_SCRIPT)} calls silently; ${who(VOICED_SCRIPT)} calls with voice.`;
+  $('#demo-call').disabled = !DEMO_CLIENT;
 }
 
 loadDemo();

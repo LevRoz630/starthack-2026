@@ -1,0 +1,26 @@
+{
+ "_about": "The presentation call. Peter Keller (EXT-04) rings during the franc spike. He is one of the ten clients read out of the side-challenge custody PDFs, so this call also shows the ex-custody import working end to end. Every line was checked against POST /ask first: all three questions return facts, and the second comes back as a chain. pause_before is the silence the advisor talks into.",
+ "client": "EXT-04",
+ "scenario": "chf-spike",
+ "client_voice": "CwhRBWXzGAHq8TQ4Fs17",
+ "ring_timeout": 45,
+ "hangup_after": 2.0,
+ "lines": [
+  {
+   "pause_before": 1.0,
+   "text": "Hi, it's Peter Keller. The franc is all over the news this morning. How much has this cost me today?"
+  },
+  {
+   "pause_before": 7.0,
+   "text": "Why is the dollar hitting me so hard?"
+  },
+  {
+   "pause_before": 8.0,
+   "text": "And how big is my emerging markets position?"
+  },
+  {
+   "pause_before": 6.0,
+   "text": "Right, that helps. Speak next week."
+  }
+ ]
+}
