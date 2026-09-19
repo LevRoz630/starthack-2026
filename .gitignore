@@ -8,5 +8,4 @@ data/demo/audio/
 data/outbox/
 data/demo/runs/*-2*.json
 .venv/
-.vercel
 data/sessions/

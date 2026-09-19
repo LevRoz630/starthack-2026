@@ -1,9 +1,0 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "functions": {
-    "app.py": {
-      "maxDuration": 60,
-      "includeFiles": "{backend/**,web/**,data/core-case/portfolio-data/**,data/outlook/**,data/profiles/**,data/translations/**,data/scenarios/**,data/playbook.json,data/excustody/**,data/demo/*.json}"
-    }
-  }
-}
