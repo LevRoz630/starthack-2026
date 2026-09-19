@@ -4,26 +4,16 @@ Audio from the call goes to ElevenLabs realtime speech-to-text. Each finished
 utterance that looks like a question is answered from the facts (api.answer), and
 both the running transcript and the answer are pushed to the advisor's phone.
 
-Two ways audio arrives, one Session for both:
+Audio arrives as 16-bit PCM at 16 kHz (pcm_16000), from either the phone page's
+microphone (WS /listen) or the recorded demo pipeline (backend/demo.py). Both drive
+the same Session, so an answer card is built the same way whichever fed it.
 
-- Twilio Media Streams: mu-law 8 kHz, which ElevenLabs accepts as-is (ulaw_8000),
-  so phone audio is forwarded without conversion.
-- The phone page's microphone: 16-bit PCM at 16 kHz (pcm_16000), for demos without
-  a Twilio number.
+In production this sits on the advisor's line, which banks already route and record --
+that is where the caller ID before the first ring comes from. Demos here are scripted.
 
 Measured on this key: with a 0.5 s silence threshold the committed transcript
 arrives ~0.6 s after the client stops speaking; the answer event reaches the phone
 ~0.85 s after (tests/test_listener.py, RUN_NETWORK_TESTS=1).
-
-Going live with Twilio:
-1. Run the API behind HTTPS: `uvicorn backend.api:app --port 8000` and
-   `cloudflared tunnel --url http://localhost:8000` (or `ngrok http 8000`).
-2. Set ADVISOR_NUMBER (the advisor's mobile, E.164) in the environment, and map the
-   calling numbers to clients in data/phonebook.json.
-3. In the Twilio console, on the number: "A call comes in" -> Webhook, HTTP POST,
-   https://<tunnel host>/twilio/voice. The TwiML it returns streams the caller's audio
-   to wss://<tunnel host>/twilio/media and then dials the advisor.
-4. Open https://<tunnel host>/phone/ on the advisor's phone before the call.
 """
 
 import asyncio
@@ -31,7 +21,6 @@ import base64
 import json
 import re
 import time
-from xml.sax.saxutils import escape, quoteattr
 
 import websockets
 
@@ -39,11 +28,10 @@ from .data import env
 
 STT_URL = ('wss://api.elevenlabs.io/v1/speech-to-text/realtime?model_id=scribe_v2_realtime'
            '&audio_format={fmt}&commit_strategy=vad&vad_silence_threshold_secs=0.5')
-SAMPLE_RATES = {'ulaw_8000': 8000, 'pcm_16000': 16000}
-BYTES_PER_SECOND = {'ulaw_8000': 8000, 'pcm_16000': 32000}
-BATCH_SECONDS = 0.1          # send audio in 100 ms batches rather than Twilio's 20 ms frames
+SAMPLE_RATES = {'pcm_16000': 16000}
+BYTES_PER_SECOND = {'pcm_16000': 32000}
+BATCH_SECONDS = 0.1          # send audio in 100 ms batches rather than per-frame
 
-RECORDING_NOTICE = 'This call is recorded for advice documentation.'
 
 # How sessions open the speech-to-text socket; tests replace this with a fake.
 connect_stt = websockets.connect
@@ -55,39 +43,6 @@ QUESTION_WORDS = ('how', 'what', 'why', 'when', 'where', 'which', 'who', 'is', '
                   'could', 'should', 'will', 'would', 'have', 'has')
 # Not questions, but the client is still asking to be told something.
 REQUEST_WORDS = ('tell', 'explain', 'show')
-
-
-# --- mu-law (G.711), since Python 3.13 removed audioop ---------------------------
-
-def _ulaw_decode(u):
-    u = ~u & 0xFF
-    sample = (((u & 0x0F) << 3) + 0x84) << ((u >> 4) & 0x07)
-    return 0x84 - sample if u & 0x80 else sample - 0x84
-
-
-ULAW_TO_PCM = [_ulaw_decode(u) for u in range(256)]
-
-
-def _ulaw_encode(sample):
-    sign = 0x80 if sample < 0 else 0
-    magnitude = min(abs(sample), 32635) + 0x84
-    exponent = max(magnitude.bit_length() - 8, 0)
-    mantissa = (magnitude >> (exponent + 3)) & 0x0F
-    return ~(sign | (exponent << 4) | mantissa) & 0xFF
-
-
-def ulaw_to_pcm16(data):
-    """mu-law bytes -> little-endian 16-bit PCM bytes."""
-    out = bytearray()
-    for u in data:
-        out += ULAW_TO_PCM[u].to_bytes(2, 'little', signed=True)
-    return bytes(out)
-
-
-def pcm16_to_ulaw(data):
-    """Little-endian 16-bit PCM bytes -> mu-law bytes."""
-    return bytes(_ulaw_encode(int.from_bytes(data[i:i + 2], 'little', signed=True))
-                 for i in range(0, len(data) - 1, 2))
 
 
 # --- what to answer ---------------------------------------------------------------
@@ -108,49 +63,6 @@ def is_question(text):
     return len(words) >= 3 and words[0] in QUESTION_WORDS + REQUEST_WORDS
 
 
-# --- Twilio -------------------------------------------------------------------------
-
-def parse_twilio(message):
-    """One Twilio Media Streams message -> {'event', 'stream_sid', 'client', 'track', 'audio'}.
-
-    Events: connected, start (customParameters carry the client), media (base64 mu-law
-    8 kHz), mark, stop. Unknown or malformed messages come back as {'event': None}.
-    """
-    try:
-        data = json.loads(message)
-    except (json.JSONDecodeError, TypeError):
-        return {'event': None}
-    event = data.get('event')
-    out = {'event': event, 'stream_sid': data.get('streamSid')}
-    if event == 'start':
-        start = data.get('start') or {}
-        out['stream_sid'] = start.get('streamSid') or out['stream_sid']
-        out['client'] = (start.get('customParameters') or {}).get('client')
-        out['call_sid'] = start.get('callSid')
-    elif event == 'media':
-        media = data.get('media') or {}
-        out['track'] = media.get('track', 'inbound')
-        try:
-            out['audio'] = base64.b64decode(media.get('payload') or '')
-        except (ValueError, TypeError):
-            out['audio'] = b''
-    return out
-
-
-def twiml(stream_url=None, client=None, advisor_number=None):
-    """TwiML for an incoming call: recording notice, media stream to us, then ring the advisor."""
-    parts = ['<?xml version="1.0" encoding="UTF-8"?>', '<Response>', f'<Say>{escape(RECORDING_NOTICE)}</Say>']
-    if stream_url and client:
-        parts += ['<Start>', f'<Stream url={quoteattr(stream_url)} track="inbound_track">',
-                  f'<Parameter name="client" value={quoteattr(client)}/>', '</Stream>', '</Start>']
-    if advisor_number:
-        parts.append(f'<Dial>{escape(advisor_number)}</Dial>')
-    else:
-        parts += ['<Say>Your advisor cannot take the call right now. Please try again later.</Say>', '<Hangup/>']
-    parts.append('</Response>')
-    return '\n'.join(parts)
-
-
 # --- the session ----------------------------------------------------------------------
 
 class Session:
@@ -162,7 +74,7 @@ class Session:
     the audio is dropped, so a failing listener cannot take the call or the API down.
     """
 
-    def __init__(self, client_ref, on_event, answer, fmt='ulaw_8000', source='twilio', key=None,
+    def __init__(self, client_ref, on_event, answer, fmt='pcm_16000', source='browser', key=None,
                  connect=None, open_timeout=10):
         if fmt not in SAMPLE_RATES:
             raise ValueError(f'unsupported audio format {fmt}')

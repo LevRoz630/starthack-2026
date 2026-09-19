@@ -13,7 +13,7 @@ Endpoints (JSON unless noted):
     POST /market/events                {"scenario": name} or {"ticks": [...]}: update the market, re-rank
     GET  /callers                      clients the market hit hardest, with their likely reason to call
     GET  /call/{ref}                   the incoming-call briefing for a client
-    POST /call/incoming                {"from": "+41..."} or {"client": ref}; Twilio form posts work too.
+    POST /call/incoming                {"from": "+41..."} or {"client": ref}
                                        Pushes the call briefing to every /ws subscriber.
     POST /ask                          {"client": ref, "question": "..."}: the facts that answer it
     POST /transcribe                   multipart "file" (audio) [+ "client"]: text via ElevenLabs Scribe, plus answers
@@ -26,9 +26,6 @@ Endpoints (JSON unless noted):
     POST /demo/run                     {"script": "golf", "mode": "pipeline"|"replay"}; POST /demo/stop
     WS   /ws                           pushes {"type": "incoming_call" | "market" | "transcript" | "answer" |
                                        "listening" | "listening_stopped" | "listener_error", ...} events
-    POST /twilio/voice                 Twilio webhook: push the briefing, answer with TwiML that plays the
-                                       recording notice, streams the caller's audio to us and dials ADVISOR_NUMBER
-    WS   /twilio/media                 Twilio Media Streams (mu-law 8 kHz) -> live transcript + answers on /ws
     WS   /listen?client=REF            browser microphone (16 kHz PCM16 frames) -> live transcript + answers on /ws
     GET  /phone/                       the advisor phone app (web/phone)
     GET  /dashboard/                   the one-click 60-second briefing dashboard (web/dashboard)
@@ -135,7 +132,7 @@ def client_or_404(ref):
 
 
 async def body(request):
-    """JSON or form body as a dict; Twilio posts forms."""
+    """JSON or form body as a dict."""
     if 'application/json' in request.headers.get('content-type', ''):
         try:
             data = await request.json()
@@ -378,8 +375,19 @@ def _set_market(name):
 
 
 async def demo_scripts(request):
-    runs = {name: (demo.RUNS_DIR / f'{name}-latest.json').is_file() for name in demo.scripts()}
-    return JSONResponse({'scripts': demo.scripts(), 'replayable': runs, 'running': _demo_running(),
+    names = demo.scripts()
+    runs = {name: (demo.RUNS_DIR / f'{name}-latest.json').is_file() for name in names}
+    # Who each script calls as, so the phone does not need the client in its URL.
+    callers = {}
+    for name in names:
+        try:
+            callers[name] = demo.load_script(name).get('client')
+        except (KeyError, ValueError):
+            callers[name] = None
+    who = {ref: client_name(state.store.clients[ref]) for ref in set(callers.values())
+           if ref in state.store.clients}
+    return JSONResponse({'scripts': names, 'replayable': runs, 'clients': callers, 'names': who,
+                         'running': _demo_running(),
                          'email': 'gmail' if mailer.configured() else 'outbox'})
 
 
@@ -442,55 +450,8 @@ async def websocket(ws):
         state.sockets.discard(ws)
 
 
-def _ws_base(scope_owner):
-    """wss://host of this server as the caller sees it, honouring tunnel headers."""
-    headers = scope_owner.headers
-    proto = (headers.get('x-forwarded-proto') or scope_owner.url.scheme).split(',')[0].strip()
-    host = (headers.get('x-forwarded-host') or headers.get('host') or scope_owner.url.netloc).split(',')[0].strip()
-    return f'{"wss" if proto in ("https", "wss") else "ws"}://{host}'
-
-
-async def twilio_voice(request):
-    """Twilio's incoming-call webhook. The phone rings with the briefing before the advisor's line does."""
-    data = await body(request) or {}
-    number = normalise_number(data.get('From') or data.get('from'))
-    ref = data.get('client') or state.phonebook.get(number)
-    advisor = env('ADVISOR_NUMBER')  # env() strips quotes; a quoted number would break <Dial>
-    if ref in state.store.clients:
-        b = callmode.build_call(state.store, ref, state.market)
-        await state.broadcast({'type': 'incoming_call', 'from': number, 'call_sid': data.get('CallSid'),
-                               'briefing': b})
-        xml = listener.twiml(f'{_ws_base(request)}/twilio/media', ref, advisor)
-    else:
-        xml = listener.twiml(None, None, advisor)
-    return Response(xml, media_type='application/xml')
-
-
 def _session(ref, client, fmt, source):
     return listener.Session(ref, state.broadcast, lambda text: answer(client, text), fmt=fmt, source=source)
-
-
-async def twilio_media(ws):
-    """Twilio Media Streams: only the caller's (inbound) track goes to speech-to-text."""
-    await ws.accept()
-    session = None
-    try:
-        while True:
-            msg = listener.parse_twilio(await ws.receive_text())
-            if msg['event'] == 'start' and session is None:
-                client = state.store.clients.get(msg.get('client'))
-                if client is not None:
-                    session = _session(msg['client'], client, 'ulaw_8000', 'twilio')
-                    await session.start()
-            elif msg['event'] == 'media' and session and msg.get('track', 'inbound') == 'inbound':
-                await session.send_audio(msg['audio'])
-            elif msg['event'] == 'stop':
-                break
-    except WebSocketDisconnect:
-        pass
-    finally:
-        if session:
-            await session.close()
 
 
 async def listen(ws):
@@ -555,8 +516,6 @@ app = Starlette(
         Route('/call/{ref}/audio', call_audio),
         Route('/briefing/{ref}/audio', briefing_audio),
         WebSocketRoute('/ws', websocket),
-        Route('/twilio/voice', twilio_voice, methods=['POST']),
-        WebSocketRoute('/twilio/media', twilio_media),
         WebSocketRoute('/listen', listen),
         Route('/call/answered', call_answered, methods=['POST']),
         Route('/followup/send', send_followup, methods=['POST']),

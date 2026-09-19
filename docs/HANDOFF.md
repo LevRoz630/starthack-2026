@@ -35,7 +35,7 @@ so Approve writes to `data/outbox/`. The server reads `.env` at start: restart a
 | Market | `market.py`, `yahoo.py`, `data/scenarios/` | Bloomberg-shaped ticks. `tech-selloff`, `chf-spike` are **simulated**; `live-*` are real Yahoo snapshots. Hedged share classes get no FX move. |
 | Call briefing | `callmode.py`, `data/playbook.json`, `profiles.py` | Caller + profile, likely reason, ranked impact, headline, what held up, talking points, open issue. |
 | Answers during the call | `answers.py`, `reasoning.py` | Chains first (breakdown / vs index / proposal / named holding / Apertus path along real edges), then question type, Apertus picking fact numbers, keywords. Never new text. |
-| Live listener | `listener.py`, API `/twilio/*`, `/listen` | ElevenLabs realtime STT; ~0.85 s from end of question to answer card. Twilio built to spec, **never run against a real Twilio call** (no account). |
+| Live listener | `listener.py`, API `/listen` | ElevenLabs realtime STT; ~0.85 s from end of question to answer card. Fed by the phone's microphone or the recorded call; both are the same Session. |
 | Demo pipelines | `demo.py`, `data/demo/golf.json`, `data/demo/runs/golf-latest.json` | Recorded golf call through the real STT; offline replay of the saved run. |
 | Email | `mailer.py`, `/followup/send` | Gmail SMTP or outbox. |
 | Voice | `voice.py` | Spoken briefings (Flash, ~0.3–0.6 s to first audio), transcription. |
@@ -56,7 +56,6 @@ so Approve writes to `data/outbox/`. The server reads `.env` at start: restart a
 5. **Ringtone:** the user's "your phone linging" meme as `web/phone/ringtone.mp3` (not in repo).
 6. **Golf video** (hard deadline ~12:00 Sat): run "Play recorded call" on a real phone over
    a tunnel (`cloudflared tunnel --url http://localhost:8000`), screen-record, composite.
-7. Twilio live test if someone buys a number (steps in `backend/listener.py` docstring).
 8. Deck: content and script are written (`docs/PITCH.md`) — the slides themselves still
    have to be built, and one rehearsal against a timer.
 

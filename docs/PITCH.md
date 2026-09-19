@@ -35,8 +35,7 @@ No slide, no introduction. The video opens on the ringtone. The scene:
 2. The phone rings. The lock screen already reads: *"Waldo calling — probably the tech
    drop: Information Technology −4.8% today, 9.6% of the book, about −CHF 12k."*
 3. "Excuse me a moment." They step away, earbuds in — **never on speaker next to
-   another client** (Art. 47 BankG). The card shows what fell, what held up, two
-   talking points.
+   another client** (Art. 47 BankG). The card shows what fell and what held up.
 4. They answer. The client asks how much they lost on tech. About a second later the
    answer card appears; the advisor reads it and answers calmly.
 5. A second question, a second card. They agree on a follow-up.
@@ -96,10 +95,11 @@ One diagram, three arrows, three numbers. Do not read the boxes out loud.
 > whenever the market moves. When the phone rings we are doing a lookup.
 
 **The telephony line** (say only if asked, or in one breath): a phone app cannot
-listen to a normal call — iOS forbids it. So the advisor's business number runs
-through our telephony: the client calls that number, we get the caller ID before
-anyone answers, the call is forwarded to their mobile, and we receive a copy of the
-audio. That is how bank advisor lines are already routed and recorded.
+listen to a normal call — iOS forbids it. In production this sits on the advisor's
+line, which banks already route and record: that is where the caller ID before the
+first ring comes from, and where the copy of the audio comes from. **Today's call is
+scripted** — say so plainly; the transcription, the questions and the answers in it
+are real, and the same listener takes the phone's microphone live.
 
 ---
 

@@ -199,7 +199,7 @@
 
   <figure>
     <div class="diagram-scroll">
-      <svg viewBox="0 0 1400 620" role="img" aria-label="Client data, market feed and news feed the fact engine. Facts are ranked and phrased, then a checker either keeps the sentence or falls back to the plain fact sentence, and either way the result lands in the briefing cache. The cache feeds the dashboard directly, and separately pushes to the phone when a client calls, which then listens during the call, looks up the answer against the same facts, shows an answer card, and drafts a note and email once the call ends.">
+      <svg viewBox="0 0 1400 620" role="img" aria-label="Client data, market feed and news feed the fact engine. Facts are ranked and phrased, then a checker either keeps the sentence or falls back to the plain fact sentence, and either way the result lands in the briefing cache. The cache feeds the dashboard directly, ranking who to call first, and separately pushes to the phone when a client calls, which then listens during the call, looks up the answer against the same facts and checker, sometimes as a chain of linked facts for why-type questions, shows an answer card about 0.85 seconds after the question ends, and drafts a note and email once the call ends.">
         <defs>
           <marker id="ah-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <polygon class="mk-ink" points="0,0 10,5 0,10" />
@@ -283,8 +283,8 @@
         <rect class="box-fill" x="1140" y="100" width="220" height="100" rx="8" style="stroke: var(--blue-bright); stroke-width: 2;" />
         <text class="box-title" x="1158" y="124" style="fill: var(--blue);">DASHBOARD</text>
         <text class="box-text" x="1158" y="148">The laptop, one click</text>
-        <text class="box-text" x="1158" y="166">Every line shows</text>
-        <text class="box-text" x="1158" y="180">the row it came from</text>
+        <text class="box-text" x="1158" y="166">Ranks who to call first</text>
+        <text class="box-text" x="1158" y="180">Every line shows its row</text>
 
         <!-- Cache down to phone row -->
         <path class="flow-accent" d="M 1020 200 L 1020 400 L 140 400 L 140 456" marker-end="url(#ah-ink)" />
@@ -295,8 +295,8 @@
         <!-- Phone rings -->
         <rect class="box-fill box-line" x="40" y="460" width="200" height="100" rx="8" />
         <text class="box-title" x="58" y="484">PHONE RINGS</text>
-        <text class="box-text" x="58" y="508">Twilio, or the phone's</text>
-        <text class="box-text" x="58" y="524">own microphone</text>
+        <text class="box-text" x="58" y="508">the scripted call, or the</text>
+        <text class="box-text" x="58" y="524">phone's own microphone</text>
         <text class="box-text" x="58" y="546">Caller matched before pickup</text>
 
         <line class="flow-line" x1="240" y1="510" x2="276" y2="510" marker-end="url(#ah-ink)" />
@@ -313,9 +313,9 @@
         <!-- Same check -->
         <rect class="box-fill box-line" x="530" y="460" width="210" height="100" rx="8" />
         <text class="box-title" x="548" y="484">SAME CHECK</text>
-        <text class="box-text" x="548" y="508">Same facts,</text>
-        <text class="box-text" x="548" y="524">same checker as above</text>
-        <text class="box-text" x="548" y="546">About two seconds</text>
+        <text class="box-text" x="548" y="508">Same facts, same checker</text>
+        <text class="box-text" x="548" y="524">Chains linked facts for why</text>
+        <text class="box-text" x="548" y="546">0.85s, question to card</text>
 
         <line class="flow-line" x1="740" y1="510" x2="776" y2="510" marker-end="url(#ah-ink)" />
 
@@ -366,6 +366,17 @@
         Market moves in the demo replay from a recorded file, and that's said
         out loud on stage. The same code takes a live feed; a Yahoo Finance
         snapshot already runs as one working example.
+      </p>
+    </div>
+    <div class="note">
+      <h2>Some answers are a chain</h2>
+      <p>
+        "Where did it go" or "why less than the index" get a path through a
+        small graph of facts: the total, the parts it came from, what held up.
+        Every step is a fact and every link is a dependency the engine already
+        computed, so a chain can be checked one step at a time. Other
+        questions go through simpler layers: the question's type, then the
+        model choosing among the facts, then a keyword match.
       </p>
     </div>
   </div>

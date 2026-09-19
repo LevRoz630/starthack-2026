@@ -147,8 +147,8 @@ main {
 .caller-list button:hover { background: var(--page); }
 .caller-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
 .caller-impact { font-size: var(--size-xs); font-weight: 600; white-space: nowrap; }
-.caller-impact.loss { color: var(--red); }
-.caller-impact.gain { color: var(--green); }
+.caller-impact.loss { color: var(--red-ink); }
+.caller-impact.gain { color: var(--green-ink); }
 
 /* Follow-up questions: the same POST /ask the phone uses on a live call. */
 .ask-box { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 16px; }
