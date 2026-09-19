@@ -81,11 +81,9 @@
 
     <!-- 3. In call -->
     <section class="screen" id="screen-call" data-screen="call" hidden>
-      <!-- Order matters: the advisor glances down mid-sentence, so the answer is
-           the first thing under the header. The ask box and Listen toggle are the
-           manual fallback for when the listener is not running, so they sit at the
-           bottom; the reason and the running total are context they already read
-           on the ringing screen. -->
+      <!-- Order matters: the advisor glances down mid-sentence, so the answer is the
+           first thing under the header. Everything they already read while it was
+           ringing is either gone or behind "Full briefing". -->
       <div class="caller compact">
         <h1 data-caller-name></h1>
         <p class="ref"><span data-caller-ref></span></p>
@@ -94,11 +92,6 @@
       <ol class="answers" id="answers" aria-live="polite"></ol>
 
       <p class="waiting" id="waiting">Listening for the client's first question.</p>
-
-      <div class="context">
-        <p class="reason-line" data-reason-line></p>
-        <p class="impact-line" data-impact-line></p>
-      </div>
 
       <details class="card more">
         <summary>Full briefing</summary>

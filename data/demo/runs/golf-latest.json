@@ -2,7 +2,7 @@
  "script": "golf",
  "client": "CASE-043",
  "scenario": "tech-selloff",
- "saved_at": "2026-09-19T12:30:25",
+ "saved_at": "2026-09-19T12:38:12",
  "events": [
   {
    "t": 0.0,
@@ -253,7 +253,7 @@
    }
   },
   {
-   "t": 0.028,
+   "t": 0.021,
    "event": {
     "type": "incoming_call",
     "briefing": {
@@ -433,23 +433,23 @@
    }
   },
   {
-   "t": 0.145,
+   "t": 0.125,
    "event": {
     "type": "_answered",
     "client": "CASE-043"
    }
   },
   {
-   "t": 0.387,
+   "t": 0.371,
    "event": {
     "client": "CASE-043",
-    "at": 1789813788.193,
+    "at": 1789814243.843,
     "type": "listening",
     "source": "recorded"
    }
   },
   {
-   "t": 1.395,
+   "t": 1.379,
    "event": {
     "type": "demo_audio",
     "client": "CASE-043",
@@ -461,67 +461,67 @@
    "t": 2.674,
    "event": {
     "client": "CASE-043",
-    "at": 1789813790.48,
+    "at": 1789814246.147,
     "type": "transcript",
     "text": "Hi, it's Waldo.",
     "final": false
    }
   },
   {
-   "t": 3.582,
+   "t": 3.584,
    "event": {
     "client": "CASE-043",
-    "at": 1789813791.388,
+    "at": 1789814247.056,
     "type": "transcript",
     "text": "Hi, it's Waldo. I just saw a",
     "final": false
    }
   },
   {
-   "t": 4.641,
+   "t": 4.593,
    "event": {
     "client": "CASE-043",
-    "at": 1789813792.447,
+    "at": 1789814248.065,
     "type": "transcript",
     "text": "Hi, it's Waldo. I just saw tech stocks are crashing.",
     "final": false
    }
   },
   {
-   "t": 5.446,
+   "t": 5.401,
    "event": {
     "client": "CASE-043",
-    "at": 1789813793.252,
+    "at": 1789814248.873,
     "type": "transcript",
     "text": "Hi, it's Waldo. I just saw tech stocks are crashing. How much have I lost?",
     "final": false
    }
   },
   {
-   "t": 6.654,
+   "t": 6.7,
    "event": {
     "client": "CASE-043",
-    "at": 1789813794.46,
+    "at": 1789814250.172,
     "type": "transcript",
     "text": "Hi, it's Waldo. I just saw tech stocks are crashing. How much have I lost on tech?",
     "final": false
    }
   },
   {
-   "t": 6.815,
+   "t": 6.901,
    "event": {
     "client": "CASE-043",
-    "at": 1789813794.621,
+    "at": 1789814250.373,
     "type": "transcript",
     "text": "Hi, it's Waldo. I just saw tech stocks are crashing. How much have I lost on tech?",
     "final": true
    }
   },
   {
-   "t": 7.27,
+   "t": 7.32,
    "event": {
     "client": "CASE-043",
-    "at": 1789813795.076,
+    "at": 1789814250.792,
     "type": "answer",
     "question": "Hi, it's Waldo. I just saw tech stocks are crashing. How much have I lost on tech?",
     "answers": [
@@ -537,7 +537,7 @@
    }
   },
   {
-   "t": 13.307,
+   "t": 17.323,
    "event": {
     "type": "demo_audio",
     "client": "CASE-043",
@@ -546,50 +546,50 @@
    }
   },
   {
-   "t": 14.393,
+   "t": 18.371,
    "event": {
     "client": "CASE-043",
-    "at": 1789813802.199,
+    "at": 1789814261.843,
     "type": "transcript",
     "text": "And my",
     "final": false
    }
   },
   {
-   "t": 15.401,
+   "t": 19.173,
    "event": {
     "client": "CASE-043",
-    "at": 1789813803.207,
+    "at": 1789814262.645,
     "type": "transcript",
-    "text": "And my world fund, is",
+    "text": "And my world fund",
     "final": false
    }
   },
   {
-   "t": 16.203,
+   "t": 20.178,
    "event": {
     "client": "CASE-043",
-    "at": 1789813804.009,
+    "at": 1789814263.65,
     "type": "transcript",
-    "text": "And my world fund, is that hit by the dollar",
+    "text": "And my world fund, is that hit by the dollar crash?",
     "final": false
    }
   },
   {
-   "t": 17.226,
+   "t": 21.121,
    "event": {
     "client": "CASE-043",
-    "at": 1789813805.032,
+    "at": 1789814264.593,
     "type": "transcript",
     "text": "And my world fund, is that hit by the dollar as well?",
     "final": true
    }
   },
   {
-   "t": 17.756,
+   "t": 21.583,
    "event": {
     "client": "CASE-043",
-    "at": 1789813805.562,
+    "at": 1789814265.055,
     "type": "answer",
     "question": "And my world fund, is that hit by the dollar as well?",
     "answers": [
@@ -611,7 +611,7 @@
    }
   },
   {
-   "t": 23.611,
+   "t": 31.658,
    "event": {
     "type": "demo_audio",
     "client": "CASE-043",
@@ -620,40 +620,40 @@
    }
   },
   {
-   "t": 24.659,
+   "t": 32.459,
    "event": {
     "client": "CASE-043",
-    "at": 1789813812.465,
+    "at": 1789814275.931,
     "type": "transcript",
-    "text": "What about my",
+    "text": "What about",
     "final": false
    }
   },
   {
-   "t": 25.665,
+   "t": 33.364,
    "event": {
     "client": "CASE-043",
-    "at": 1789813813.471,
+    "at": 1789814276.836,
     "type": "transcript",
-    "text": "What about my bonds? Are they",
+    "text": "What about my bonds? Are",
     "final": false
    }
   },
   {
-   "t": 26.596,
+   "t": 34.425,
    "event": {
     "client": "CASE-043",
-    "at": 1789813814.402,
+    "at": 1789814277.897,
     "type": "transcript",
     "text": "What about my bonds? Are they holding up?",
     "final": true
    }
   },
   {
-   "t": 26.994,
+   "t": 34.77,
    "event": {
     "client": "CASE-043",
-    "at": 1789813814.8,
+    "at": 1789814278.242,
     "type": "answer",
     "question": "What about my bonds? Are they holding up?",
     "answers": [
@@ -669,7 +669,7 @@
    }
   },
   {
-   "t": 31.978,
+   "t": 44.069,
    "event": {
     "type": "demo_audio",
     "client": "CASE-043",
@@ -678,36 +678,46 @@
    }
   },
   {
-   "t": 33.015,
+   "t": 44.958,
    "event": {
     "client": "CASE-043",
-    "at": 1789813820.821,
+    "at": 1789814288.431,
     "type": "transcript",
-    "text": "Great. Thanks.",
+    "text": "Great.",
     "final": false
    }
   },
   {
-   "t": 34.006,
+   "t": 46.072,
    "event": {
     "client": "CASE-043",
-    "at": 1789813821.812,
+    "at": 1789814289.544,
+    "type": "transcript",
+    "text": "Great. Thanks. Talk soon.",
+    "final": false
+   }
+  },
+  {
+   "t": 46.236,
+   "event": {
+    "client": "CASE-043",
+    "at": 1789814289.708,
     "type": "transcript",
     "text": "Great. Thanks. Talk soon.",
     "final": true
    }
   },
   {
-   "t": 35.102,
+   "t": 47.203,
    "event": {
     "client": "CASE-043",
-    "at": 1789813822.908,
+    "at": 1789814290.675,
     "type": "listening_stopped",
     "source": "recorded"
    }
   },
   {
-   "t": 37.243,
+   "t": 49.322,
    "event": {
     "type": "call_ended",
     "client": "CASE-043",
@@ -715,7 +725,7 @@
    }
   },
   {
-   "t": 37.244,
+   "t": 49.323,
    "event": {
     "type": "demo_finished",
     "client": "CASE-043",

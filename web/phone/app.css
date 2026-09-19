@@ -61,15 +61,10 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 .impact { border-left: 4px solid var(--ink); padding-left: 14px; }
 .impact .amount { font-size: var(--size-hero); font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; }
 .impact .share { font-variant-numeric: tabular-nums; color: var(--muted); }
-/* The 40px hero passes on --red as large text, but .impact-line is 16px and
-   would not, so both use the ink twins: one loss colour, readable at any size. */
+/* The ink twins: one loss colour and one gain colour that stay readable at any size,
+   including the 40px hero, where plain --red would not pass on its own. */
 .loss { color: var(--red-ink); }
 .gain { color: var(--green-ink); }
-
-/* Context, not headline: the advisor read both of these on the ringing screen. */
-.context { display: flex; flex-direction: column; gap: 4px; }
-.reason-line { font-size: var(--size-s); color: var(--muted); }
-.impact-line { font-size: var(--size-s); font-variant-numeric: tabular-nums; font-weight: 600; }
 
 .visually-hidden {
   position: absolute; width: 1px; height: 1px;

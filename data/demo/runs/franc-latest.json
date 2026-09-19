@@ -2,7 +2,7 @@
  "script": "franc",
  "client": "EXT-04",
  "scenario": "chf-spike",
- "saved_at": "2026-09-19T12:33:55",
+ "saved_at": "2026-09-19T12:39:06",
  "events": [
   {
    "t": 0.0,
@@ -192,7 +192,7 @@
    }
   },
   {
-   "t": 0.006,
+   "t": 0.009,
    "event": {
     "type": "incoming_call",
     "briefing": {
@@ -338,23 +338,23 @@
    }
   },
   {
-   "t": 0.123,
+   "t": 0.126,
    "event": {
     "type": "_answered",
     "client": "EXT-04"
    }
   },
   {
-   "t": 0.362,
+   "t": 0.347,
    "event": {
     "client": "EXT-04",
-    "at": 1789813997.211,
+    "at": 1789814295.966,
     "type": "listening",
     "source": "recorded"
    }
   },
   {
-   "t": 1.37,
+   "t": 1.356,
    "event": {
     "type": "demo_audio",
     "client": "EXT-04",
@@ -363,70 +363,70 @@
    }
   },
   {
-   "t": 2.672,
+   "t": 2.661,
    "event": {
     "client": "EXT-04",
-    "at": 1789813999.522,
+    "at": 1789814298.28,
     "type": "transcript",
     "text": "Hi, it's Peter",
     "final": false
    }
   },
   {
-   "t": 3.623,
+   "t": 3.668,
    "event": {
     "client": "EXT-04",
-    "at": 1789814000.473,
+    "at": 1789814299.287,
     "type": "transcript",
     "text": "Hi, it's Peter Keller, the Frank",
     "final": false
    }
   },
   {
-   "t": 4.63,
+   "t": 4.572,
    "event": {
     "client": "EXT-04",
-    "at": 1789814001.479,
+    "at": 1789814300.19,
     "type": "transcript",
     "text": "Hi, it's Peter Keller. The Frank is all over the news",
     "final": false
    }
   },
   {
-   "t": 5.435,
+   "t": 5.38,
    "event": {
     "client": "EXT-04",
-    "at": 1789814002.285,
+    "at": 1789814300.999,
     "type": "transcript",
     "text": "Hi, it's Peter Keller. The-- Frank is all over the news this morning. How much",
     "final": false
    }
   },
   {
-   "t": 6.44,
+   "t": 6.385,
    "event": {
     "client": "EXT-04",
-    "at": 1789814003.289,
+    "at": 1789814302.004,
     "type": "transcript",
     "text": "Hi, it's Peter Keller. The Frank is all over the news this morning. How much has this cost me today?",
     "final": false
    }
   },
   {
-   "t": 6.956,
+   "t": 6.918,
    "event": {
     "client": "EXT-04",
-    "at": 1789814003.806,
+    "at": 1789814302.537,
     "type": "transcript",
     "text": "Hi, it's Peter Keller. The Frank is all over the news this morning. How much has this cost me today?",
     "final": true
    }
   },
   {
-   "t": 7.382,
+   "t": 7.284,
    "event": {
     "client": "EXT-04",
-    "at": 1789814004.232,
+    "at": 1789814302.903,
     "type": "answer",
     "question": "Hi, it's Peter Keller. The Frank is all over the news this morning. How much has this cost me today?",
     "answers": [
@@ -448,7 +448,7 @@
    }
   },
   {
-   "t": 13.471,
+   "t": 17.495,
    "event": {
     "type": "demo_audio",
     "client": "EXT-04",
@@ -457,40 +457,40 @@
    }
   },
   {
-   "t": 14.435,
+   "t": 18.468,
    "event": {
     "client": "EXT-04",
-    "at": 1789814011.284,
+    "at": 1789814314.087,
     "type": "transcript",
-    "text": "Why's the do",
+    "text": "Why's the",
     "final": false
    }
   },
   {
-   "t": 15.541,
+   "t": 19.275,
    "event": {
     "client": "EXT-04",
-    "at": 1789814012.391,
+    "at": 1789814314.894,
     "type": "transcript",
-    "text": "Why's the dollar hitting me so",
+    "text": "Why is the dollar hitting me so",
     "final": false
    }
   },
   {
-   "t": 16.195,
+   "t": 20.219,
    "event": {
     "client": "EXT-04",
-    "at": 1789814013.045,
+    "at": 1789814315.838,
     "type": "transcript",
     "text": "Why's the dollar hitting me so hard?",
     "final": true
    }
   },
   {
-   "t": 16.659,
+   "t": 20.677,
    "event": {
     "client": "EXT-04",
-    "at": 1789814013.509,
+    "at": 1789814316.296,
     "type": "answer",
     "question": "Why's the dollar hitting me so hard?",
     "answers": [
@@ -519,7 +519,7 @@
    }
   },
   {
-   "t": 23.764,
+   "t": 31.818,
    "event": {
     "type": "demo_audio",
     "client": "EXT-04",
@@ -528,50 +528,50 @@
    }
   },
   {
-   "t": 24.716,
+   "t": 32.613,
    "event": {
     "client": "EXT-04",
-    "at": 1789814021.566,
+    "at": 1789814328.232,
     "type": "transcript",
     "text": "And how",
     "final": false
    }
   },
   {
-   "t": 25.736,
+   "t": 33.618,
    "event": {
     "client": "EXT-04",
-    "at": 1789814022.586,
+    "at": 1789814329.237,
     "type": "transcript",
     "text": "And how big is my emerging",
     "final": false
    }
   },
   {
-   "t": 26.839,
+   "t": 34.725,
    "event": {
     "client": "EXT-04",
-    "at": 1789814023.688,
+    "at": 1789814330.344,
     "type": "transcript",
     "text": "And how big is my emerging markets position?",
     "final": false
    }
   },
   {
-   "t": 26.991,
+   "t": 35.022,
    "event": {
     "client": "EXT-04",
-    "at": 1789814023.841,
+    "at": 1789814330.641,
     "type": "transcript",
     "text": "And how big is my emerging markets position?",
     "final": true
    }
   },
   {
-   "t": 26.999,
+   "t": 35.03,
    "event": {
     "client": "EXT-04",
-    "at": 1789814023.848,
+    "at": 1789814330.649,
     "type": "answer",
     "question": "And how big is my emerging markets position?",
     "answers": [
@@ -594,7 +594,7 @@
    }
   },
   {
-   "t": 32.539,
+   "t": 44.63,
    "event": {
     "type": "demo_audio",
     "client": "EXT-04",
@@ -603,46 +603,46 @@
    }
   },
   {
-   "t": 33.629,
+   "t": 45.473,
    "event": {
     "client": "EXT-04",
-    "at": 1789814030.479,
+    "at": 1789814341.092,
     "type": "transcript",
-    "text": "Right, that",
+    "text": "Right. That",
     "final": false
    }
   },
   {
-   "t": 34.632,
+   "t": 46.481,
    "event": {
     "client": "EXT-04",
-    "at": 1789814031.482,
+    "at": 1789814342.1,
     "type": "transcript",
-    "text": "Right, that helps. Speak next.",
+    "text": "Right, that helps. Speak",
     "final": false
    }
   },
   {
-   "t": 35.411,
+   "t": 47.447,
    "event": {
     "client": "EXT-04",
-    "at": 1789814032.261,
+    "at": 1789814343.066,
     "type": "transcript",
     "text": "Right, that helps. Speak next week.",
     "final": true
    }
   },
   {
-   "t": 36.275,
+   "t": 48.363,
    "event": {
     "client": "EXT-04",
-    "at": 1789814033.125,
+    "at": 1789814343.982,
     "type": "listening_stopped",
     "source": "recorded"
    }
   },
   {
-   "t": 38.398,
+   "t": 50.481,
    "event": {
     "type": "call_ended",
     "client": "EXT-04",
@@ -650,7 +650,7 @@
    }
   },
   {
-   "t": 38.399,
+   "t": 50.481,
    "event": {
     "type": "demo_finished",
     "client": "EXT-04",

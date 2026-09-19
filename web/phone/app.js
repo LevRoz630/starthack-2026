@@ -160,10 +160,6 @@ function answer() {
   fetch(`${API}/call/answered`, { method: 'POST' }).catch(() => {});
   const b = state.briefing;
   const reason = (bySlot(b).reason || [])[0];
-  $('[data-reason-line]').textContent = reason ? reason.text : '';
-  $('[data-impact-line]').textContent = b.impact && b.impact.amount
-    ? `Today: ${signedMoney(b.impact.amount)} (${signedPct(b.impact.share)})` : '';
-  $('[data-impact-line]').className = `impact-line ${b.impact && b.impact.amount < 0 ? 'loss' : ''}`;
   renderBrief($('#screen-call [data-brief]'), b, { withImpact: false, brief: true });
   $('#answers').replaceChildren();
   showLive('');
