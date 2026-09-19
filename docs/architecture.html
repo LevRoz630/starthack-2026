@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ping to Pitch</title>
+<style>
+  /* Same tokens as docs/deck/index.html, so this and the deck read as one set.
+     No web fonts: this file has to open with no network, on a laptop with
+     nothing installed, so every face below is one already on the machine. */
+  :root {
+    --ink: #16161A;
+    --ink-soft: #55545E;
+    --muted: #84838D;
+    --page: #F1F2F5;
+    --card: #FFFFFF;
+    --line: #DCDCE3;
+    --blue: #2F6FBA;
+    --blue-bright: #5499E4;
+    --red: #C9433C;
+    --green: #2E8C62;
+    --shadow: 0 1px 2px rgba(22, 22, 26, .06), 0 10px 30px rgba(22, 22, 26, .07);
+    --display: "Helvetica Neue", Arial, sans-serif;
+    --body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #F2F2F5;
+      --ink-soft: #B9B8C2;
+      --muted: #8B8A95;
+      --page: #121218;
+      --card: #1C1C24;
+      --line: #32323D;
+      --blue: #7FB4F0;
+      --blue-bright: #5499E4;
+      --red: #F0837C;
+      --green: #5FC294;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #F2F2F5;
+    --ink-soft: #B9B8C2;
+    --muted: #8B8A95;
+    --page: #121218;
+    --card: #1C1C24;
+    --line: #32323D;
+    --blue: #7FB4F0;
+    --blue-bright: #5499E4;
+    --red: #F0837C;
+    --green: #5FC294;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .35);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.5;
+  }
+
+  main {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  .lede {
+    max-width: 62ch;
+    color: var(--muted);
+    font-size: 16px;
+  }
+
+  figure {
+    margin: 0;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+  }
+
+  .diagram-scroll {
+    overflow-x: auto;
+  }
+
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    min-width: 900px;
+    font-family: var(--body);
+  }
+
+  figcaption {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .box-fill { fill: var(--card); }
+  .box-line { stroke: var(--line); stroke-width: 1.5; }
+  .box-title { fill: var(--ink); font-weight: 700; font-size: 12.5px; letter-spacing: 0.04em; }
+  .box-text { fill: var(--muted); font-size: 12px; }
+  .flow-line { stroke: var(--ink); stroke-width: 1.6; fill: none; opacity: 0.55; }
+  .flow-good { stroke: var(--green); stroke-width: 1.8; fill: none; }
+  .flow-bad { stroke: var(--red); stroke-width: 1.8; fill: none; }
+  .flow-accent { stroke: var(--blue-bright); stroke-width: 1.8; fill: none; }
+  .label-good { fill: var(--green); font-size: 11.5px; font-weight: 600; }
+  .label-bad { fill: var(--red); font-size: 11.5px; font-weight: 600; }
+  .label-muted { fill: var(--muted); font-size: 11px; font-style: italic; }
+  .mk-ink { fill: var(--ink); opacity: 0.55; }
+  .mk-good { fill: var(--green); }
+  .mk-bad { fill: var(--red); }
+  .diamond-fill { fill: var(--card); stroke: var(--blue); stroke-width: 1.8; }
+  .diamond-title { fill: var(--blue); font-weight: 700; font-size: 13px; letter-spacing: 0.04em; }
+  .row-tag { fill: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .note {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+  }
+
+  .note h2 {
+    margin: 0 0 6px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  .note p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
+  footer {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    padding-top: 8px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    figure { transition: box-shadow 0.2s ease; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">UNRISKOMEGA &middot; Look Mom I am Quant</p>
+    <h1>Ping to Pitch</h1>
+    <p class="lede">
+      One fact engine feeds two places: a laptop dashboard for the one-click briefing,
+      and a phone that keeps answering while a client is on the line. A checker sits
+      between the model and anything spoken, so nothing reaches the advisor unless the
+      data backs it up.
+    </p>
+  </header>
+
+  <figure>
+    <div class="diagram-scroll">
+      <svg viewBox="0 0 1400 620" role="img" aria-label="Client data, market feed and news feed the fact engine. Facts are ranked and phrased, then a checker either keeps the sentence or falls back to the plain fact sentence, and either way the result lands in the briefing cache. The cache feeds the dashboard directly, and separately pushes to the phone when a client calls, which then listens during the call, looks up the answer against the same facts, shows an answer card, and drafts a note and email once the call ends.">
+        <defs>
+          <marker id="ah-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon class="mk-ink" points="0,0 10,5 0,10" />
+          </marker>
+          <marker id="ah-good" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon class="mk-good" points="0,0 10,5 0,10" />
+          </marker>
+          <marker id="ah-bad" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon class="mk-bad" points="0,0 10,5 0,10" />
+          </marker>
+        </defs>
+
+        <!-- row labels -->
+        <text class="row-tag" x="40" y="30">Before the briefing exists</text>
+        <text class="row-tag" x="40" y="450">While the phone is ringing and after</text>
+
+        <!-- ROW 1: main pipeline -->
+
+        <!-- Sources -->
+        <rect class="box-fill box-line" x="40" y="100" width="180" height="100" rx="8" />
+        <text class="box-title" x="58" y="124">SOURCES</text>
+        <text class="box-text" x="58" y="146">Client &amp; portfolio data</text>
+        <text class="box-text" x="58" y="164">Market feed</text>
+        <text class="box-text" x="58" y="182">News, house views,</text>
+        <text class="box-text" x="58" y="196">custody PDFs</text>
+
+        <line class="flow-line" x1="220" y1="150" x2="256" y2="150" marker-end="url(#ah-ink)" />
+
+        <!-- Fact engine -->
+        <rect class="box-fill box-line" x="260" y="100" width="200" height="100" rx="8" />
+        <text class="box-title" x="278" y="124">FACT ENGINE</text>
+        <text class="box-text" x="278" y="148">Exposure, drift,</text>
+        <text class="box-text" x="278" y="166">violations, per client</text>
+        <text class="box-text" x="278" y="188">Every fact keeps its source</text>
+
+        <line class="flow-line" x1="460" y1="150" x2="496" y2="150" marker-end="url(#ah-ink)" />
+
+        <!-- Rank + write -->
+        <rect class="box-fill box-line" x="500" y="100" width="200" height="100" rx="8" />
+        <text class="box-title" x="518" y="124">RANK + WRITE</text>
+        <text class="box-text" x="518" y="148">Ranks by impact,</text>
+        <text class="box-text" x="518" y="166">guesses the reason to call</text>
+        <text class="box-text" x="518" y="188">Apertus writes the sentence</text>
+
+        <line class="flow-line" x1="700" y1="150" x2="736" y2="150" marker-end="url(#ah-ink)" />
+
+        <!-- Checker diamond -->
+        <polygon class="diamond-fill" points="820,70 900,150 820,230 740,150" />
+        <text class="diamond-title" x="820" y="146" text-anchor="middle">CHECKER</text>
+        <text class="box-text" x="820" y="163" text-anchor="middle">matches</text>
+        <text class="box-text" x="820" y="177" text-anchor="middle">the facts?</text>
+
+        <!-- checker pass -> cache -->
+        <line class="flow-good" x1="900" y1="150" x2="936" y2="150" marker-end="url(#ah-good)" />
+        <text class="label-good" x="905" y="138">keeps the sentence</text>
+
+        <!-- checker reject -> fallback -->
+        <line class="flow-bad" x1="820" y1="230" x2="820" y2="276" marker-end="url(#ah-bad)" />
+        <text class="label-bad" x="828" y="256">adds a number</text>
+        <text class="label-bad" x="828" y="270">or cause it didn't compute</text>
+
+        <!-- fallback box -->
+        <rect class="box-fill box-line" x="740" y="280" width="160" height="70" rx="8" />
+        <text class="box-text" x="756" y="308">Use the plain</text>
+        <text class="box-text" x="756" y="324">fact sentence instead</text>
+
+        <!-- fallback -> cache -->
+        <path class="flow-good" d="M 900 315 L 960 315 L 960 200" marker-end="url(#ah-good)" />
+
+        <!-- Cache -->
+        <rect class="box-fill box-line" x="940" y="100" width="160" height="100" rx="8" />
+        <text class="box-title" x="958" y="124">BRIEFING CACHE</text>
+        <text class="box-text" x="958" y="148">One entry per client</text>
+        <text class="box-text" x="958" y="166">Recomputed on every</text>
+        <text class="box-text" x="958" y="180">market move</text>
+
+        <line class="flow-line" x1="1100" y1="150" x2="1136" y2="150" marker-end="url(#ah-ink)" />
+        <text class="label-muted" x="1103" y="138">one click</text>
+
+        <!-- Dashboard -->
+        <rect class="box-fill" x="1140" y="100" width="220" height="100" rx="8" style="stroke: var(--blue-bright); stroke-width: 2;" />
+        <text class="box-title" x="1158" y="124" style="fill: var(--blue);">DASHBOARD</text>
+        <text class="box-text" x="1158" y="148">The laptop, one click</text>
+        <text class="box-text" x="1158" y="166">Every line shows</text>
+        <text class="box-text" x="1158" y="180">the row it came from</text>
+
+        <!-- Cache down to phone row -->
+        <path class="flow-accent" d="M 1020 200 L 1020 400 L 140 400 L 140 456" marker-end="url(#ah-ink)" />
+        <text class="label-muted" x="620" y="393">pushes the cached briefing while the phone is still ringing</text>
+
+        <!-- ROW 2: call path -->
+
+        <!-- Phone rings -->
+        <rect class="box-fill box-line" x="40" y="460" width="200" height="100" rx="8" />
+        <text class="box-title" x="58" y="484">PHONE RINGS</text>
+        <text class="box-text" x="58" y="508">Twilio, or the phone's</text>
+        <text class="box-text" x="58" y="524">own microphone</text>
+        <text class="box-text" x="58" y="546">Caller matched before pickup</text>
+
+        <line class="flow-line" x1="240" y1="510" x2="276" y2="510" marker-end="url(#ah-ink)" />
+
+        <!-- Listens -->
+        <rect class="box-fill box-line" x="280" y="460" width="210" height="100" rx="8" />
+        <text class="box-title" x="298" y="484">LISTENS</text>
+        <text class="box-text" x="298" y="508">Speech to text</text>
+        <text class="box-text" x="298" y="526">during the call</text>
+
+        <line class="flow-line" x1="490" y1="510" x2="526" y2="510" marker-end="url(#ah-ink)" />
+        <text class="label-muted" x="493" y="498">detects a question</text>
+
+        <!-- Same check -->
+        <rect class="box-fill box-line" x="530" y="460" width="210" height="100" rx="8" />
+        <text class="box-title" x="548" y="484">SAME CHECK</text>
+        <text class="box-text" x="548" y="508">Same facts,</text>
+        <text class="box-text" x="548" y="524">same checker as above</text>
+        <text class="box-text" x="548" y="546">About two seconds</text>
+
+        <line class="flow-line" x1="740" y1="510" x2="776" y2="510" marker-end="url(#ah-ink)" />
+
+        <!-- Answer card -->
+        <rect class="box-fill" x="780" y="460" width="210" height="100" rx="8" style="stroke: var(--blue-bright); stroke-width: 2;" />
+        <text class="box-title" x="798" y="484" style="fill: var(--blue);">ANSWER CARD</text>
+        <text class="box-text" x="798" y="508">Appears on the phone</text>
+        <text class="box-text" x="798" y="526">while the client is still talking</text>
+
+        <line class="flow-line" x1="990" y1="510" x2="1026" y2="510" marker-end="url(#ah-ink)" />
+        <text class="label-muted" x="993" y="498">call ends</text>
+
+        <!-- Note + email -->
+        <rect class="box-fill box-line" x="1030" y="460" width="210" height="100" rx="8" />
+        <text class="box-title" x="1048" y="484">NOTE + EMAIL</text>
+        <text class="box-text" x="1048" y="508">Drafted from what</text>
+        <text class="box-text" x="1048" y="524">was actually said</text>
+        <text class="box-text" x="1048" y="546">Advisor approves before it sends</text>
+      </svg>
+    </div>
+    <figcaption>
+      The dashboard and the phone read from the same cache. The checker between
+      the model and the cache is the only gate either path goes through.
+    </figcaption>
+  </figure>
+
+  <div class="notes">
+    <div class="note">
+      <h2>Why the checker exists</h2>
+      <p>
+        Apertus writes the sentence, but a sentence is only kept if every number
+        and every rule name in it also appears in the facts it was given. If it
+        adds something the data didn't say, the plain fact sentence is used
+        instead. Either way the advisor never sees an unchecked line.
+      </p>
+    </div>
+    <div class="note">
+      <h2>Two surfaces, one backend</h2>
+      <p>
+        The dashboard is the one-click version for a desk: pick a client, read
+        the briefing, see the source under each line. The phone runs the same
+        code, but the trigger is a ringing call instead of a click.
+      </p>
+    </div>
+    <div class="note">
+      <h2>What's real and what's replayed</h2>
+      <p>
+        Market moves in the demo replay from a recorded file, and that's said
+        out loud on stage. The same code takes a live feed; a Yahoo Finance
+        snapshot already runs as one working example.
+      </p>
+    </div>
+  </div>
+
+  <footer>UNRISKOMEGA case &middot; START Hack Tour St. Gallen 2026</footer>
+</main>
+</body>
+</html>
