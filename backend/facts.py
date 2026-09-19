@@ -319,6 +319,12 @@ def _health(client, store, as_of):
                        f'Volatility{where} is {pct(vol)}, above the {pct(max_vol)} maximum of {risk_profile(client)}.',
                        f'clients.json {ref}: Portfolios[{p.get("PortfolioNr")}].Volatility; reference.json RiskProfiles.MaxVola',
                        (vol - max_vol) * 10)
+        elif max_vol and vol > 0:
+            # Card-only: answers "am I within my risk profile?" when nothing is breached.
+            yield Fact(f'health.volok.{p.get("PortfolioNr")}', 'health',
+                       f'Volatility{where} is {pct(vol)}, within the {pct(max_vol)} maximum of {risk_profile(client)}.',
+                       f'clients.json {ref}: Portfolios[{p.get("PortfolioNr")}].Volatility; reference.json RiskProfiles.MaxVola',
+                       0.0)
 
         saa, bands = _bands(p, store)
         for m, share in bands:
@@ -642,7 +648,7 @@ def compute(client, store, as_of=None):
     facts = [*_who(client, store, ccy), *_development(client), *_health(client, store, as_of),
              *_rule_explanations(client), *_watch(client, store, exp, ccy), *_watch_extra(client, store),
              *_outlook(exp), *_actions(client, as_of, ccy), *_candidates(client, store)]
-    if not any(f.slot == 'health' for f in facts):
+    if not any(f.slot == 'health' and f.weight > 0 for f in facts):   # card-only facts are not findings
         # A silent health check reads like missing data. Saying "nothing is open" is a
         # fact about this client, not padding, and it is only said when it is true.
         facts.append(Fact('health.clear', 'health',

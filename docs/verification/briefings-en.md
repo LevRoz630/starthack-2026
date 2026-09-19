@@ -149,6 +149,8 @@ Investor profile 5 · CHF 185k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 8.2%, within the 12.0% maximum of Investor profile 5.  
+  <sub>clients.json CASE-002: Portfolios[CASE-002-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Overweight in the equity sector "Industrials"" means: Overweight (+/- 5% of the benchmark’s SAA target) in the ‘Industrials’ equity sector  
   <sub>clients.json CASE-002: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Underweight in the equity sector "Consumer Staples"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the Basic Consumer Goods equity sector  
@@ -357,6 +359,8 @@ Investor profile 5 · CHF 534k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 9.7%, within the 12.0% maximum of Investor profile 5.  
+  <sub>clients.json CASE-004: Portfolios[CASE-004-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Overweight in the equity sector "Energy"" means: Overweight (+/- 5% of the benchmark’s SAA target) in the Energy equity sector  
   <sub>clients.json CASE-004: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Significant overweight in the equity region "Japan"" means: Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Japan’ equity region  
@@ -488,6 +492,10 @@ Investor profile 6 · CHF 480k · ESG preference: yes
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility in Pension (CASE-005-01) is 11.7%, within the 15.0% maximum of Investor profile 6.  
+  <sub>clients.json CASE-005: Portfolios[CASE-005-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
+- **Health check** (0.00): Volatility in Individual pension (CASE-005-02) is 10.1%, within the 15.0% maximum of Investor profile 6.  
+  <sub>clients.json CASE-005: Portfolios[CASE-005-02].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Watch** (0.13): 26.8% of the book is in holdings on none of the bank's recommendation lists, largest GQG Partners Emerging Markets Equity Fund, Precious Metals Fund and 3 more.  
   <sub>reference.json Securities.InRecommendationList; clients.json CASE-005 positions</sub>
 - **Watch** (0.10): Note from 8 Nov 2024: "Also manages a family member's portfolio under a power of attorney."  
@@ -710,6 +718,8 @@ Investor profile 5 · CHF 905k · ESG preference: yes
   <sub>clients.json CASE-007: Transactions[ProposalId=19898].ForwardState = 2</sub>
 - **Health check** (0.06): ESG client: average sustainability score 7.1 of 10 against a minimum of 5.7; 2 holdings below the per-position minimum (iShares Core MSCI EM IMI UCITS ETF and ams-OSRAM AG, 3.0% of the book).  
   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-007 positions</sub>
+- **Health check** (0.00): Volatility is 9.2%, within the 12.0% maximum of Investor profile 5.  
+  <sub>clients.json CASE-007: Portfolios[CASE-007-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Compliance with maximum volatility" means: For retail clients with financial services Comprehensive investment advisory or discretionary mandate must be PF Vola < max client profile Vola.  
   <sub>clients.json CASE-007: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.10): Financials is 10.5% of the book (CHF 95k) after fund look-through, mostly via iShares Swiss Dividend ETF (CH) and Equities Switzerland Passive Leader.  
@@ -819,6 +829,8 @@ Investor profile 7 · CHF 308k · ESG preference: yes
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 12.7%, within the 18.5% maximum of Investor profile 7.  
+  <sub>clients.json CASE-008: Portfolios[CASE-008-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): ESG client: average sustainability score 7.5 of 10 against a minimum of 5.7.  
   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-008 positions</sub>
 - **Health check** (0.00): "Significant underweight in the equity sector "Consumer Staples"" means: Significant underweight (+/- 10% of the benchmark’s SAA target) in the ‘Basic Consumer Goods’ equity sector  
@@ -1582,6 +1594,8 @@ Investor profile 6 · CHF 1.11m · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 10.7%, within the 15.0% maximum of Investor profile 6.  
+  <sub>clients.json CASE-017: Portfolios[CASE-017-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Underweight in the equity region "Asia/Pacific (ex Japan)"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the ‘Asia/Pacific (ex Japan)’ equity region  
   <sub>clients.json CASE-017: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.11): Information Technology is 11.3% of the book (CHF 125k) after fund look-through, mostly via iShares Automation & Robotics UCITS ETF and iShares NASDAQ 100 UCITS ETF.  
@@ -1804,6 +1818,8 @@ Investor profile 7 · CHF 699k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 18.0%, within the 18.5% maximum of Investor profile 7.  
+  <sub>clients.json CASE-019: Portfolios[CASE-019-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Cluster risk of a single financial instrument" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be single title share < x% (x varies with instrument type)  
   <sub>clients.json CASE-019: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Significant overweight in the equity region "Switzerland"" means: Significant overweight (+/- 10% of the benchmark’s SAA target) in the ‘Switzerland’ equity region  
@@ -1921,6 +1937,8 @@ Investor profile 4 · CHF 486k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 6.5%, within the 10.0% maximum of Investor profile 4.  
+  <sub>clients.json CASE-020: Portfolios[CASE-020-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Watch** (0.13): Health Care is 12.5% of the book (CHF 61k) after fund look-through, mostly via SMI (R) and MIV Global Medtech Fund.  
   <sub>clients.json CASE-020: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.10): Note from 3 Jul 2025: "Wants to invest more heavily in Swiss small caps going forward."  
@@ -2105,6 +2123,8 @@ Investor profile 5 · CHF 6.38m · ESG preference: no
 
 - **Health check** (0.11): Risk profile last assessed 12 Aug 2023, 3 years ago.  
   <sub>clients.json CASE-022: ProfilingDateUtc</sub>
+- **Health check** (0.00): Volatility is 10.6%, within the 12.0% maximum of Investor profile 5.  
+  <sub>clients.json CASE-022: Portfolios[CASE-022-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Foreign currency cluster risk EUR" means: For private customers, the EUR share should be < 9%.  
   <sub>clients.json CASE-022: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Cluster risk of a single financial instrument" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be single title share < x% (x varies with instrument type)  
@@ -2317,6 +2337,8 @@ Investor profile 5 · CHF 503k · ESG preference: yes
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 5.8%, within the 12.0% maximum of Investor profile 5.  
+  <sub>clients.json CASE-024: Portfolios[CASE-024-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Watch** (0.13): Financials is 13.3% of the book (CHF 67k) after fund look-through, mostly via 0.2 % Luzerner Kantonalbank AG 2017-11.04.25 and 0.3 % National Australia Bank Ltd 2017-31.10.25 Global.  
   <sub>clients.json CASE-024: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.12): 24.5% of the book is in holdings on none of the bank's recommendation lists, largest 1.375 % Grande Dixence SA 2015-18.02.25, 1.5 % TEMENOS AG 2019-28.11.25 and 3 more.  
@@ -2412,6 +2434,8 @@ Investor profile 7 · CHF 259k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility in Account / Custody (CASE-025-02) is 18.1%, within the 18.5% maximum of Investor profile 7.  
+  <sub>clients.json CASE-025: Portfolios[CASE-025-02].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Watch** (0.80): Chocoladefabriken Lindt & Spruengli AG alone is 79.8% of the book.  
   <sub>clients.json CASE-025: Portfolios[CASE-025-02].SecurityPositions</sub>
 - **Watch** (0.15): Note from 17 Jul 2026: "Watching technology stocks in the portfolio closely, interested in expanding further."  
@@ -2499,6 +2523,8 @@ Investor profile 6 · CHF 2.38m · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 12.7%, within the 15.0% maximum of Investor profile 6.  
+  <sub>clients.json CASE-026: Portfolios[CASE-026-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Foreign currency cluster risk EUR" means: For private customers, the EUR share should be < 9%.  
   <sub>clients.json CASE-026: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Cluster risk of a single financial instrument" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be single title share < x% (x varies with instrument type)  
@@ -2932,13 +2958,15 @@ no risk profile · CHF 35k · ESG preference: yes
    <sub>clients.json CASE-031: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +25.4% over the 12 months to Jul 2026 and +84.1% since Oct 2021, now CHF 35k; value change including deposits and withdrawals.  
    <sub>clients.json CASE-031: PerformanceHistory of CASE-031-01</sub>
-3. **Watch.** Equities Switzerland Passive Leader drives 16.9% of the volatility of Pension (CASE-031-01).  
+3. **Health check.** Nothing open: no suitability violation, and every asset class is inside its band.  
+   <sub>clients.json CASE-031: SuitabilityViolations (none open); reference.json StrategicAssetAllocations bands</sub>
+4. **Watch.** Equities Switzerland Passive Leader drives 16.9% of the volatility of Pension (CASE-031-01).  
    <sub>clients.json CASE-031: Portfolios[CASE-031-01].SecurityPositions.ContributionVolatility</sub>
-4. **Watch.** Note from 11 Jan 2026: "Wants to invest more heavily in Swiss small caps going forward."  
+5. **Watch.** Note from 11 Jan 2026: "Wants to invest more heavily in Swiss small caps going forward."  
    <sub>clients.json CASE-031: ClientNotes</sub>
-5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "Financial sector an attractive route to broadening exposure."  
+6. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "Financial sector an attractive route to broadening exposure."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
-6. **Next best actions.** Book a review: no finalised proposal on record.  
+7. **Next best actions.** Book a review: no finalised proposal on record.  
    <sub>clients.json CASE-031: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
@@ -3037,13 +3065,15 @@ no risk profile · CHF 23k · ESG preference: yes
    <sub>clients.json CASE-032: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency</sub>
 2. **Development.** Portfolio value +8.7% over the 12 months to Jul 2026 and −4.9% since Oct 2021, now CHF 23k; value change including deposits and withdrawals.  
    <sub>clients.json CASE-032: PerformanceHistory of CASE-032-01</sub>
-3. **Watch.** CSIF (CH) I Equity World ex CH Blue drives 21.3% of the volatility of Pension (CASE-032-01).  
+3. **Health check.** Nothing open: no suitability violation, and every asset class is inside its band.  
+   <sub>clients.json CASE-032: SuitabilityViolations (none open); reference.json StrategicAssetAllocations bands</sub>
+4. **Watch.** CSIF (CH) I Equity World ex CH Blue drives 21.3% of the volatility of Pension (CASE-032-01).  
    <sub>clients.json CASE-032: Portfolios[CASE-032-01].SecurityPositions.ContributionVolatility</sub>
-4. **Watch.** Note from 29 Jul 2026: "Interested in a broader diversification across currencies."  
+5. **Watch.** Note from 29 Jul 2026: "Interested in a broader diversification across currencies."  
    <sub>clients.json CASE-032: ClientNotes</sub>
-5. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "Financial sector an attractive route to broadening exposure."  
+6. **Outlook.** Standard Chartered (Global Market Outlook, Sep 2026): "Financial sector an attractive route to broadening exposure."  
    <sub>https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf</sub>
-6. **Next best actions.** Book a review: no finalised proposal on record.  
+7. **Next best actions.** Book a review: no finalised proposal on record.  
    <sub>clients.json CASE-032: Proposals</sub>
 
 ### Incoming call during "tech-selloff" (simulated market)
@@ -3174,6 +3204,8 @@ Investor profile 5 · CHF 89k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 9.0%, within the 12.0% maximum of Investor profile 5.  
+  <sub>clients.json CASE-033: Portfolios[CASE-033-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Underweight in the equity sector "Consumer Staples"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the Basic Consumer Goods equity sector  
   <sub>clients.json CASE-033: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Overweight in the equity sector "Information Technology"" means: Overweight (+/- 5% of the benchmark’s SAA target) in the Information Technology sector  
@@ -3299,6 +3331,8 @@ Investor profile 6 · CHF 698k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 10.3%, within the 15.0% maximum of Investor profile 6.  
+  <sub>clients.json CASE-034: Portfolios[CASE-034-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Underweight in the equity sector "Consumer Staples"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the Basic Consumer Goods equity sector  
   <sub>clients.json CASE-034: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Underweight in the equity sector "Health Care"" means: Underweight (+/- 5% of the SAA target for the Healthcare sector)  
@@ -3428,6 +3462,8 @@ Investor profile 6 · CHF 741k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 10.5%, within the 15.0% maximum of Investor profile 6.  
+  <sub>clients.json CASE-035: Portfolios[CASE-035-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Underweight in the equity sector "Consumer Staples"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the Basic Consumer Goods equity sector  
   <sub>clients.json CASE-035: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Watch** (0.14): Industrials is 14.1% of the book (CHF 105k) after fund look-through, mostly via 1.6 % Sulzer AG 2018-22.10.24 and 2 % Implenia AG 2021-26.11.25 Reg S.  
@@ -3541,6 +3577,8 @@ Investor profile 7 · CHF 122k · ESG preference: yes
   <sub>clients.json CASE-036: Portfolios[CASE-036-02] positions; reference.json StrategicAssetAllocations[44] AssetClass "Shares"</sub>
 - **Health check** (0.50): Bonds in Investment advisory (CASE-036-02) at 0.0%, outside its 10.0%–70.0% band, target 42.0%.  
   <sub>clients.json CASE-036: Portfolios[CASE-036-02] positions; reference.json StrategicAssetAllocations[44] AssetClass "Bonds"</sub>
+- **Health check** (0.00): Volatility in Pension (CASE-036-01) is 12.7%, within the 18.5% maximum of Investor profile 7.  
+  <sub>clients.json CASE-036: Portfolios[CASE-036-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): ESG client: average sustainability score 7.5 of 10 against a minimum of 5.7.  
   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-036 positions</sub>
 - **Health check** (0.00): "Minimum limit fixed income" means: Minimum limits interest rates  
@@ -3670,6 +3708,10 @@ Investor profile 5 · CHF 1.21m · ESG preference: yes
 
 - **Health check** (0.15): 1 of 2 orders from the proposal of 19 Aug 2026 were forwarded with a warning.  
   <sub>clients.json CASE-037: Transactions[ProposalId=24779].ForwardState = 2</sub>
+- **Health check** (0.00): Volatility in Pension (CASE-037-01) is 8.7%, within the 12.0% maximum of Investor profile 5.  
+  <sub>clients.json CASE-037: Portfolios[CASE-037-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
+- **Health check** (0.00): Volatility in Depository advisory (CASE-037-02) is 8.7%, within the 12.0% maximum of Investor profile 5.  
+  <sub>clients.json CASE-037: Portfolios[CASE-037-02].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Underweight in the equity region "North America"" means: Underweight (+/- 5% of the SAA target for the ‘North America’ equity region)  
   <sub>clients.json CASE-037: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Overweight in the equity region "Rest of Europe"" means: Overweight (+/- 5% of the benchmark’s SAA target) in the ‘Rest of Europe’ equity region  
@@ -3803,6 +3845,8 @@ Investor profile 6 · CHF 1.62m · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 11.4%, within the 15.0% maximum of Investor profile 6.  
+  <sub>clients.json CASE-038: Portfolios[CASE-038-02].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Foreign currency cluster risk EUR" means: For private customers, the EUR share should be < 9%.  
   <sub>clients.json CASE-038: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Cluster risk of a single financial instrument" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be single title share < x% (x varies with instrument type)  
@@ -3930,6 +3974,8 @@ Investor profile 5 · CHF 170k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 8.8%, within the 12.0% maximum of Investor profile 5.  
+  <sub>clients.json CASE-039: Portfolios[CASE-039-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Underweight in the equity region "Switzerland"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the ‘Switzerland’ equity region  
   <sub>clients.json CASE-039: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Underweight in the equity sector "Consumer Staples"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the Basic Consumer Goods equity sector  
@@ -4051,6 +4097,8 @@ Investor profile 6 · CHF 800k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 10.2%, within the 15.0% maximum of Investor profile 6.  
+  <sub>clients.json CASE-040: Portfolios[CASE-040-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Significant overweight in the equity sector "Utilities"" means: Significant overweight (+/- 10% of the benchmark’s SAA target) in the Utilities sector  
   <sub>clients.json CASE-040: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Underweight in the equity sector "Consumer Discretionary"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the non-basic consumer goods equity sector  
@@ -4162,6 +4210,8 @@ Investor profile 5 · CHF 608k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 9.8%, within the 12.0% maximum of Investor profile 5.  
+  <sub>clients.json CASE-041: Portfolios[CASE-041-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Significant underweight in the equity region "North America"" means: Significant underweight (+/- 10% of the SAA target for the ‘North America’ equity region)  
   <sub>clients.json CASE-041: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Foreign currency cluster risk EUR" means: For private customers, the EUR share should be < 9%.  
@@ -4396,6 +4446,8 @@ Investor profile 6 · CHF 891k · ESG preference: no
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 10.8%, within the 15.0% maximum of Investor profile 6.  
+  <sub>clients.json CASE-043: Portfolios[CASE-043-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Watch** (0.14): Industrials is 13.9% of the book (CHF 124k) after fund look-through, mostly via ABB Ltd and 2.875 % OC Oerlikon Corporation AG, Pfaeffikon 2023-02.06.26 Tranche 1.  
   <sub>clients.json CASE-043: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 - **Watch** (0.10): Note from 27 Nov 2025: "Wants a focus on high-dividend stocks for ongoing income generation."  
@@ -4511,6 +4563,8 @@ Investor profile 6 · CHF 172k · ESG preference: yes
 
 - **Health check** (0.00): ESG client: average sustainability score 7.6 of 10 against a minimum of 5.7; 1 holding below the per-position minimum (Meyer Burger Technology AG, 0.0% of the book); 29.3% of the book has no score.  
   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-044 positions</sub>
+- **Health check** (0.00): Volatility is 10.6%, within the 15.0% maximum of Investor profile 6.  
+  <sub>clients.json CASE-044: Portfolios[CASE-044-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Compliance with maximum volatility" means: For retail clients with financial services Comprehensive investment advisory or discretionary mandate must be PF Vola < max client profile Vola.  
   <sub>clients.json CASE-044: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Knowledge of portfolio funds and mixed funds" means: For retail clients with financial services, comprehensive investment advisory or trx-based investment advisory must be available from K&E.  
@@ -4628,6 +4682,8 @@ Investor profile 6 · CHF 340k · ESG preference: yes
 
 <details><summary>Other facts on the card</summary>
 
+- **Health check** (0.00): Volatility is 11.3%, within the 15.0% maximum of Investor profile 6.  
+  <sub>clients.json CASE-045: Portfolios[CASE-045-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): ESG client: average sustainability score 8.5 of 10 against a minimum of 5.7; 29.3% of the book has no score.  
   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-045 positions</sub>
 - **Watch** (0.29): Financials is 29.3% of the book (CHF 100k) after fund look-through, mostly via Cembra Money Bank AG.  
@@ -4796,6 +4852,10 @@ Investor profile 6 · CHF 762k · ESG preference: yes
 
 - **Health check** (0.13): ESG client: average sustainability score 7.4 of 10 against a minimum of 5.7; 2 holdings below the per-position minimum (iShares Core MSCI EM IMI UCITS ETF and 2.5 % Apple Inc 2015-9.2.25 Global, 6.3% of the book); 2.6% of the book has no score.  
   <sub>reference.json Securities.SustainabilityScore (0–10) vs EsgProfiles[1] MinimumLevel / MinimumPositionLevel; clients.json CASE-047 positions</sub>
+- **Health check** (0.00): Volatility in Pension (CASE-047-01) is 12.8%, within the 15.0% maximum of Investor profile 6.  
+  <sub>clients.json CASE-047: Portfolios[CASE-047-01].Volatility; reference.json RiskProfiles.MaxVola</sub>
+- **Health check** (0.00): Volatility in Depository advisory (CASE-047-02) is 11.1%, within the 15.0% maximum of Investor profile 6.  
+  <sub>clients.json CASE-047: Portfolios[CASE-047-02].Volatility; reference.json RiskProfiles.MaxVola</sub>
 - **Health check** (0.00): "Underweight in the equity sector "Consumer Discretionary"" means: Underweight (+/- 5% of the benchmark’s SAA target) in the non-basic consumer goods equity sector  
   <sub>clients.json CASE-047: SuitabilityViolations.RuleDescription, translated by Supertext (data/translations/rules-en.json)</sub>
 - **Health check** (0.00): "Overweight in the equity sector "Industrials"" means: Overweight (+/- 5% of the benchmark’s SAA target) in the ‘Industrials’ equity sector  

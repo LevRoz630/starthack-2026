@@ -66,7 +66,9 @@ AMOUNT_QUESTION = re.compile(r'\b(how much (?:did|have|has|is|was)|how bad|what 
 # breaches the profile, and what the book is actually concentrated in.
 RISK_FIT_QUESTION = re.compile(r'\b(too (?:cautious|careful|safe|conservative|risky|aggressive|exposed|concentrated)|'
                                r'right (?:risk|profile) for me|still (?:right|suitable)|how concentrated|'
-                               r'biggest (?:position|holding)|over[- ]?exposed)\b', re.IGNORECASE)
+                               r'biggest (?:position|holding)|over[- ]?exposed|'
+                               r'(?:within|inside|over|above|outside) (?:my )?(?:risk )?(?:profile|limits?)|risk limits?)\b',
+                               re.IGNORECASE)
 
 ADVICE_QUESTION = re.compile(r'\b(should i|shall i|do i need to|must i|sell|buy|get out|move (?:it|everything)|'
                              r'what (?:do|should) (?:i|we) do)\b', re.IGNORECASE)
@@ -104,12 +106,38 @@ def sayable(text):
     if m:
         return (f'Worth {m.group(4)} now: {m.group(1)} over the last 12 months, {m.group(2)} since {m.group(3)} '
                 f'(including deposits and withdrawals).')
+    m = re.match(r'^The last finalised proposal \((\d+ \w+ \d{4}), reason: [^)]*\) ordered to (.+)$', t)
+    if m:
+        return f'The last change was on {m.group(1)}: we agreed to {m.group(2)}'
+    m = re.match(r'^(\d+) suitability errors? and (\d+) warnings? open; most serious: ', t)
+    if m:
+        n = int(m.group(1)) + int(m.group(2))
+        return f'{n} open suitability point{"s" if n != 1 else ""} to review on the account (details on the dashboard).'
+    m = re.match(r'^(\d+) of (\d+) orders from the proposal of (\d+ \w+ \d{4}) were forwarded with a warning\.?$', t)
+    if m:
+        return (f'{m.group(1)} of {m.group(2)} orders from the {m.group(3)} change were flagged when sent to the bank; '
+                f'worth checking with operations.')
     t = t.replace(' after fund look-through', '')
     t = re.sub(r'\bof the book\b', 'of the portfolio', t)
     t = re.sub(r'^The book (is|moved)', r'The portfolio \1', t)
     t = re.sub(r'; value change including deposits and withdrawals\.$', ' (including deposits and withdrawals).', t)
     t = re.sub(r'^Risk engine for [^,]+, (\d+ \w+ \d{4}): ', r'Risk figures (\1): ', t)
     return re.sub(r'\s{2,}', ' ', t).strip()
+
+
+# The bank's own bookkeeping: order routing flags, suitability rule texts, the call's open
+# issue. True, and on the dashboard, but nothing an advisor can say to a client -- so they
+# never answer a client's question, except an explicit "any problems with my account?".
+INTERNAL = re.compile(r'^(?:health\.order_warnings|health\.violations|health\.rule|actions\.violation|issue)(?:\.|$)')
+
+
+def _client_facing(result, question):
+    if result.get('method') == 'problems' or PROBLEMS_QUESTION.search(question):
+        return result
+    kept = [a for a in result.get('answers') or [] if not INTERNAL.match(a.get('fact') or '')]
+    if kept or not result.get('answers'):
+        return {**result, 'answers': kept}
+    return {'answers': [], 'found': False, 'method': 'none'}
 
 
 def _say(result):
@@ -168,8 +196,14 @@ def by_type(facts, question):
         return _pick(facts, [('digest.total', 1), ('digest.industry', 1), ('digest.fx', 1),
                              ('digest.assetclass', 1)])
     if RISK_FIT_QUESTION.search(question):
-        return _pick(facts, [('health.prc', 1), ('watch.concentration', 1), ('health.violations', 1),
-                             ('health.saa', 1)])
+        # Concentration questions lead with the concentration; limit questions with the
+        # volatility against the profile's maximum, breached or not. Suitability rule
+        # texts are compliance language and never answer a client.
+        if re.search(r'concentrat\w*|one thing|single|all (?:my )?eggs', question, re.IGNORECASE):
+            return _pick(facts, [('watch.concentration', 1), ('watch.industry', 1), ('health.volok', 1),
+                                 ('health.vol', 1)])
+        return _pick(facts, [('health.vol', 1), ('health.volok', 1), ('watch.concentration', 1),
+                             ('health.prc', 1), ('health.saa', 1)])
     if ADVICE_QUESTION.search(question):
         # A client who asks "what do we do" is frightened by one day. The strongest
         # honest answer is the long record, then what is actually protecting them,
@@ -304,7 +338,7 @@ def answer(facts, question, use_llm=True, graph=None):
     market / did the changes" questions get a chain of facts first ('chain': True, and
     each step carries the link word to the previous one). Small talk gets nothing.
     """
-    return _say(_answer(facts, question, use_llm, graph))
+    return _say(_client_facing(_answer(facts, question, use_llm, graph), question))
 
 
 # Questions about what the client holds, answered from the holdings facts (facts.py,
@@ -334,6 +368,7 @@ SUBJECTS = [(r'\bbonds?\b', 'expo.asset.Bonds', 'bonds'),
             (r'\beuros?\b', 'expo.currency.Euro', 'euros')]
 RISK_QUESTION = re.compile(r"\b(?:biggest|main|largest|key) risks?\b|\bhow risky\b|\bvolatil\w*\b"
                            r"|\brisk(?:iness| level)? (?:of|in) my\b|\bmy risk\b", re.IGNORECASE)
+RISK_LIMIT = re.compile(r'\b(?:limit|profile|allowed|suitab\w*|within|over|above|exceed\w*)\b', re.IGNORECASE)
 PROBLEMS_QUESTION = re.compile(r"\b(?:problems?|issues?|anything wrong|wrong with|warnings?|compliance|violations?|"
                                r"red flags?)\b", re.IGNORECASE)
 DIVERSIFIED = re.compile(r'\bdiversif\w*\b', re.IGNORECASE)
@@ -371,7 +406,8 @@ def _answer(facts, question, use_llm=True, graph=None):
     held = _holdings_answer(facts, question)
     if held:
         return {'answers': held, 'found': True, 'method': 'holdings'}
-    if RISK_QUESTION.search(question):
+    # "Am I over my risk limit?" is about fit with the profile: by_type's risk-fit rule owns it.
+    if RISK_QUESTION.search(question) and not RISK_LIMIT.search(question) and not RISK_FIT_QUESTION.search(question):
         picked = _pick(facts, [('watch.risk', 1), ('watch.concentration', 1), ('watch.risk_engine', 1),
                                ('health.vol', 1)]) or _pick(facts, [('expo.largest', 1)])
         if picked:
