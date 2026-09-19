@@ -12,7 +12,8 @@ html, body {
   overflow-x: hidden;
 }
 
-.bar { padding: calc(env(safe-area-inset-top) + 12px) var(--gutter) 12px; }
+/* The same blue stripe the dashboard wears, plus the notch inset. */
+.bar { padding: calc(env(safe-area-inset-top) + 10px) var(--gutter) 10px; min-height: 44px; }
 
 main { max-width: 480px; margin: 0 auto; padding: var(--gutter); }
 /* Clears .actions.sticky, which is --tap + 2 gutters *plus* the safe-area inset:

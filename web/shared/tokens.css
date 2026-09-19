@@ -63,8 +63,10 @@ html, body {
   background: var(--uro-blue);
   color: var(--on-blue);
 }
-.brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; letter-spacing: 0.06em; font-size: 15px; }
-.brand svg { width: 18px; height: 18px; flex: none; }
+/* One word, as they set it: UNRISK in bold running straight into a lighter OMEGA.
+   The gap belongs after the mark, not between the halves of the name. */
+.brand { display: inline-flex; align-items: center; gap: 0; font-weight: 700; letter-spacing: 0.06em; font-size: 15px; }
+.brand svg { width: 18px; height: 18px; flex: none; margin-right: 8px; }
 .brand .light { font-weight: 400; }
 
 .conn { display: inline-flex; align-items: center; gap: 6px; font-size: var(--size-s); }
