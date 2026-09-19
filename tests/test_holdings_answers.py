@@ -86,3 +86,36 @@ def test_cash_needs_get_cash_on_hand_and_what_could_be_freed(ask_market, questio
     assert r['method'] == 'liquidity'
     assert r['answers'][0]['text'].startswith('Cash on hand')
     assert any('could be freed by selling' in a['text'] for a in r['answers'])
+
+
+def test_portfolio_today_is_the_clients_day_not_a_market_view():
+    facts, s, m, c, g = _waldo()
+    r = answer(facts, "Hey, how's my portfolio doing, anything interesting that happened in the market today?",
+               use_llm=False, graph=g, market=m, store=s, client=c)
+    assert r['method'] == 'portfolio_today'
+    assert 'today' in r['answers'][0]['text']
+
+
+def test_buying_a_market_shows_its_risk_and_what_to_ask_first():
+    facts, s, m, c, g = _waldo()
+    r = answer(facts, 'What do you think about buying gold?', use_llm=False, graph=g, market=m, store=s, client=c)
+    texts = [a['text'] for a in r['answers']]
+    assert any(t.startswith('Risk: gold products') and 'risk class' in t for t in texts)
+    assert any(t.startswith('Ask first:') for t in texts)
+
+
+def test_fact_bank_covers_every_market_once():
+    from backend.marketview import fact_bank
+    facts, s, m, c, g = _waldo()
+    bank = fact_bank(facts, m, s, c)
+    ids = [f.id for f in bank]
+    assert len(ids) == len(set(ids))
+    assert 'risk.product.copper' in ids and 'suggest.ask_first' in ids
+
+
+def _waldo():
+    s = load()
+    m = load_scenario('tech-selloff')
+    c = s.client('CASE-043')
+    facts = call_facts(c, s, m)[0] + [f for f in compute(c, s) if f.slot != 'who']
+    return facts, s, m, c, reasoning.build(c, s, m)

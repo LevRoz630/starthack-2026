@@ -65,6 +65,12 @@ def subject(question):
     return None
 
 
+def named_market(question):
+    """The specific market a question names, or None for 'the market' in general."""
+    found = subject(question)
+    return found if found and found[0] != 'equities' else None
+
+
 def _move_card(market, dim, bucket):
     move = market.moves.get((dim, bucket)) if market else None
     if not move:
@@ -101,7 +107,76 @@ def _view_card(tags, views, news, pattern, name):
     return None
 
 
-def view_cards(question, facts, market, views, news):
+BUY_INTENT = re.compile(r'\b(?:buy\w*|invest\w*|add(?:ing)?|get into|put (?:money|some) in|increase|more)\b', re.IGNORECASE)
+
+
+def risk_card(pattern, name, store, client):
+    """How risky products in this market are, from the bank's own product data, against
+    what the client's risk profile allows."""
+    if store is None:
+        return None
+    products = [s for s in store.securities.values()
+                if s.get('PRC') and re.search(pattern, ' '.join(str(s.get(k) or '') for k in
+                                                                ('Name', 'AssetClassName', 'IndustryName')), re.IGNORECASE)]
+    if not products:
+        return None
+    classes = sorted(s['PRC'] for s in products)
+    vols = sorted(s['Volatility'] for s in products if s.get('Volatility'))
+    span = f'{classes[0]}' if classes[0] == classes[-1] else f'{classes[0]}–{classes[-1]}'
+    vol = ''
+    if vols:
+        lo, hi = round(vols[0] * 100), round(vols[-1] * 100)
+        vol = f', volatility about {lo}%' + (f'–{hi}%' if hi != lo else '') + ' a year'
+    text = f'Risk: {name} products in the bank\'s data are risk class {span} of 7{vol}.'
+    profile = store.risk_profiles.get((client or {}).get('RiskProfileId'), {})
+    if profile.get('MaxPRC'):
+        from .facts import risk_profile
+        allowed = profile['MaxPRC']
+        verdict = ('within' if classes[-1] <= allowed else 'partly above' if classes[0] <= allowed else 'above')
+        text += f' {risk_profile(client)} allows up to class {allowed}: {verdict} it.'
+    return {'text': text, 'fact': 'risk.product', 'slot': 'risk',
+            'source': f'reference.json Securities.PRC, Volatility ({len(products)} products) × RiskProfiles.MaxPRC'}
+
+
+def ask_first_card(client):
+    """Before anything is bought: the suitability questions, as something to say."""
+    from .facts import risk_profile
+    profile = risk_profile(client) if client else 'their profile'
+    return {'text': f'Ask first: what the money is for and when they might need it, whether anything has changed in '
+                    f'their situation, and whether their risk appetite is still {profile}.',
+            'fact': 'suggest.ask_first', 'slot': 'suggest',
+            'source': 'suitability check before any recommendation (FIDLEG)'}
+
+
+_BANK = {}
+
+
+def fact_bank(facts, market, store, client):
+    """Every market's cards for this client as facts, computed once per client and market,
+    so the model can pick from all of them when no rule fits the question."""
+    from .facts import Fact, _outlook_sources
+    key = (client.get('Id') or client.get('ClientId') or id(client), getattr(market, 'name', id(market)))
+    if key in _BANK:
+        return _BANK[key]
+    news, views = _outlook_sources()
+    known = {f.id for f in facts}
+    out, seen = [], set()
+    for pattern, name, moves, holding_id, tags in MARKETS:
+        # "What do you think about X?" makes view_cards return X's full set of cards.
+        word = re.sub(r'\\b|\(\?:|\)|\?|\\w\*|\\w\+|s\?|\|.*', '', pattern).strip() or name
+        for c in view_cards(f'what do you think about {word}?', facts, market, views, news, store, client):
+            if c['fact'] in known or c['text'] in seen:
+                continue
+            seen.add(c['text'])
+            fid = c['fact'] if c['fact'] not in ('expo.none', 'risk.product') else f'{c["fact"]}.{name}'
+            out.append(Fact(fid, c['slot'], c['text'], c['source'], 0.0))
+    ask = ask_first_card(client)
+    out.append(Fact(ask['fact'], ask['slot'], ask['text'], ask['source'], 0.0))
+    _BANK[key] = out
+    return out
+
+
+def view_cards(question, facts, market, views, news, store=None, client=None):
     """Cards for 'what do you think about <market>?', or [] when no market is named."""
     if not VIEW_QUESTION.search(question):
         return []
@@ -120,4 +195,10 @@ def view_cards(question, facts, market, views, news):
     view = _view_card(tags, views, news, pattern, name)
     if view:
         cards.append(view)
+    if name not in ('equities', 'volatility', 'the dollar', 'the euro', 'the franc'):
+        risk = risk_card(pattern, name, store, client)
+        if risk:
+            cards.append(risk)
+    if BUY_INTENT.search(question):
+        cards.append(ask_first_card(client))
     return cards

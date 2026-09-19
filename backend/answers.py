@@ -331,14 +331,14 @@ def small_talk_only(text):
     return not re.search(r'[a-z]{3,}', re.sub(filler, ' ', rest.lower()))
 
 
-def answer(facts, question, use_llm=True, graph=None, market=None):
+def answer(facts, question, use_llm=True, graph=None, market=None, store=None, client=None):
     """{'answers': [{text, source, fact}], 'found': bool, 'method': ...}.
 
     With a fact graph (backend/reasoning.py), "why / where did it go / compared with the
     market / did the changes" questions get a chain of facts first ('chain': True, and
     each step carries the link word to the previous one). Small talk gets nothing.
     """
-    return _say(_client_facing(_answer(facts, question, use_llm, graph, market), question))
+    return _say(_client_facing(_answer(facts, question, use_llm, graph, market, store, client), question))
 
 
 # Questions about what the client holds, answered from the holdings facts (facts.py,
@@ -372,6 +372,9 @@ RISK_LIMIT = re.compile(r'\b(?:limit|profile|allowed|suitab\w*|within|over|above
 PROBLEMS_QUESTION = re.compile(r"\b(?:problems?|issues?|anything wrong|wrong with|warnings?|compliance|violations?|"
                                r"red flags?)\b", re.IGNORECASE)
 DIVERSIFIED = re.compile(r'\bdiversif\w*\b', re.IGNORECASE)
+PORTFOLIO_TODAY = re.compile(r"\bhow(?:'s| is| are) (?:my|the|our) (?:portfolio|investments?|money|account)\b"
+                             r"|\bhow am i doing\b|\banything (?:interesting|new|important|special)\b"
+                             r"|\bwhat happened (?:in|on|with) the markets?\b", re.IGNORECASE)
 # A coming need for cash, asked or announced: what is on hand, what could be freed
 # inside the target bands, and what matures soon.
 LIQUIDITY_NEED = re.compile(
@@ -401,16 +404,22 @@ def _holdings_answer(facts, question):
     return []
 
 
-def _answer(facts, question, use_llm=True, graph=None, market=None):
+def _answer(facts, question, use_llm=True, graph=None, market=None, store=None, client=None):
     if small_talk_only(question):
         return {'answers': [], 'found': False, 'method': 'small_talk'}
     if LOGISTICS.search(question):
         # Diary questions are the advisor's to answer; a card here would be noise.
         return {'answers': [], 'found': False, 'method': 'logistics'}
+    # Before the market views: "how's my portfolio doing, anything in the market today?"
+    # names "the market", but it asks about the client's own day.
+    if PORTFOLIO_TODAY.search(question) and not marketview.named_market(question):
+        picked = _pick(facts, [('digest.total', 1), ('digest.industry', 1), ('news', 1), ('development', 1)])
+        if picked:
+            return {'answers': [_card(f) for f in picked], 'found': True, 'method': 'portfolio_today'}
     if market is not None:
         from .facts import _outlook_sources
         news, views = _outlook_sources()
-        cards = marketview.view_cards(question, facts, market, views, news)
+        cards = marketview.view_cards(question, facts, market, views, news, store, client)
         if cards:
             return {'answers': cards, 'found': True, 'method': 'market_view'}
     if LIQUIDITY_NEED.search(question):
@@ -442,6 +451,10 @@ def _answer(facts, question, use_llm=True, graph=None, market=None):
         wanted = topics(question)
         if chained and (not wanted or any(t in c['text'].lower() for c in chained['answers'] for t in wanted)):
             return chained
+    if market is not None and store is not None and client is not None:
+        # Nothing matched a rule: let the model pick from everything we know about this
+        # client today, every market's move, holding, house view and product risk included.
+        facts = facts + marketview.fact_bank(facts, market, store, client)
     seen, unique = set(), []
     for f in facts:
         # The call's "Open issue: ..." repeats a health fact word for word; keep one of them.

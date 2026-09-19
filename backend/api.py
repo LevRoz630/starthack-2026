@@ -305,7 +305,8 @@ def answer(client, question):
     facts, _ = callmode.call_facts(client, state.store, state.market)
     facts += [f for f in compute(client, state.store) if f.slot != 'who']
     graph = reasoning.build(client, state.store, state.market)
-    return answers.answer(facts, question, use_llm=state.use_llm, graph=graph, market=state.market)
+    return answers.answer(facts, question, use_llm=state.use_llm, graph=graph, market=state.market,
+                          store=state.store, client=client)
 
 
 async def find_clients(request):
