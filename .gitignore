@@ -9,3 +9,4 @@ data/outbox/
 data/demo/runs/*-2*.json
 .venv/
 data/sessions/
+docs/demo/demo.mp4
