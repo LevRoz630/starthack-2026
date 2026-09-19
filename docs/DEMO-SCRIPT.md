@@ -1,12 +1,5 @@
 # The call — acting script for two
 
-Two people. **WALDO** is the client on the phone. **ADVISOR** holds the phone and reads
-the cards. Waldo's four lines are the ones in `data/demo/golf.json`, so they match what
-the system is set up to hear.
-
-The advisor's lines are suggestions. Every number in them is on the card that is on the
-screen at that moment — do not add one that is not.
-
 ---
 
 ## Before the phone rings
