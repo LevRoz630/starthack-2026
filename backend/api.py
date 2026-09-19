@@ -17,6 +17,8 @@ Endpoints (JSON unless noted):
                                        Pushes the call briefing to every /ws subscriber.
     POST /ask                          {"client": ref, "question": "..."}: the facts that answer it
     POST /transcribe                   multipart "file" (audio) [+ "client"]: text via ElevenLabs Scribe, plus answers
+    GET  /lookup?q=waldo               clients matching a typed name, company or number
+    GET  /prepare?q=waldo              the prepared briefing for that client (or the matches to pick from)
     GET  /profile/{ref}                the client's profile (temperament, wants, cash needs), each with its note
     GET  /call/{ref}/audio             the call briefing spoken (audio/mpeg, ElevenLabs Flash, cached)
     GET  /briefing/{ref}/audio         the 60-second briefing spoken
@@ -53,7 +55,7 @@ from starlette.routing import Mount, Route, WebSocketRoute
 from starlette.staticfiles import StaticFiles
 from starlette.websockets import WebSocketDisconnect
 
-from . import answers, briefing, callmode, demo, reasoning, excustody, listener, mailer, profiles, voice
+from . import answers, briefing, callmode, demo, lookup, reasoning, excustody, listener, mailer, profiles, voice
 from .data import ROOT, env, load
 from .facts import client_name, compute, risk_profile
 from .market import MarketState, load_scenario, scenarios
@@ -290,6 +292,40 @@ def answer(client, question):
     return answers.answer(facts, question, use_llm=state.use_llm, graph=graph)
 
 
+async def find_clients(request):
+    """GET /lookup?q=waldo: clients matching a name, part of one, a company or a number."""
+    matches = lookup.find(state.store, request.query_params.get('q', ''))
+    return JSONResponse({'query': request.query_params.get('q', ''), 'matches': matches,
+                         'best': lookup.best(matches)})
+
+
+async def prepare(request):
+    """GET /prepare?q=waldo: the prepared briefing for the client the advisor typed.
+
+    Returns the 60-second briefing (Apertus-phrased once ready), the briefing for a call
+    under the current market, and the profile — or just the matches when the name is
+    ambiguous, so the advisor can pick.
+    """
+    query = request.query_params.get('q', '')
+    matches = lookup.find(state.store, query)
+    ref = request.query_params.get('client') or lookup.best(matches)
+    if ref is None:
+        return JSONResponse({'query': query, 'matches': matches, 'client': None},
+                            status_code=200 if matches else 404)
+    client, err = client_or_404(ref)
+    if err:
+        return err
+    if ref in state.phrased:
+        brief = {**state.phrased[ref], 'phrasing': 'ready'}
+    else:
+        brief = {**briefing.build(state.store, ref, use_llm=False), 'phrasing': 'pending' if state.use_llm else 'off'}
+        if state.use_llm:
+            state.precompute([ref])
+    return JSONResponse({'query': query, 'matches': matches, 'client': ref, 'name': client_name(client),
+                         'briefing': brief, 'call': callmode.build_call(state.store, ref, state.market),
+                         'profile': profiles.get(client)})
+
+
 async def get_profile(request):
     client, err = client_or_404(request.path_params['ref'])
     return err or JSONResponse(profiles.get(client))
@@ -513,6 +549,8 @@ app = Starlette(
         Route('/ask', ask, methods=['POST']),
         Route('/transcribe', transcribe, methods=['POST']),
         Route('/profile/{ref}', get_profile),
+        Route('/lookup', find_clients),
+        Route('/prepare', prepare),
         Route('/call/{ref}/audio', call_audio),
         Route('/briefing/{ref}/audio', briefing_audio),
         WebSocketRoute('/ws', websocket),

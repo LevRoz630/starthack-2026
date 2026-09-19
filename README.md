@@ -36,6 +36,7 @@ DEMO_SCENARIO=tech-selloff uvicorn backend.api:app --port 8000
 | `GET /callers` | who the move hit hardest, with their likely reason to call |
 | `GET /call/{ref}` | the incoming-call briefing |
 | `POST /call/incoming` | `{"from": "+41..."}` (JSON or form) or `{"client": ref}` — pushes the briefing to `/ws` |
+| `GET /lookup?q=`, `GET /prepare?q=` | find a client by typed name, company or number; get their prepared briefing (60-second + if-they-call-now + profile) |
 | `POST /ask` | `{"client", "question"}` → the facts that answer it, with sources |
 | `WS /ws` | events: `hello`, `market`, `incoming_call`, `transcript`, `answer`, `listening`, `listening_stopped`, `listener_error` |
 

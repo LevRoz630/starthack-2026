@@ -40,6 +40,39 @@
         </details>
         <p class="demo-status" id="demo-status" hidden></p>
       </div>
+      <div class="card prep">
+        <p class="eyebrow">Prepare for a client</p>
+        <form id="prep-form" class="ask-form" autocomplete="off">
+          <input id="prep-input" type="search" placeholder="Name, company or number" aria-label="Client name, company or number" enterkeyhint="search">
+          <button class="btn primary" type="submit">Prepare</button>
+        </form>
+        <p class="demo-status" id="prep-status" hidden></p>
+        <ul class="matches" id="prep-matches"></ul>
+      </div>
+    </section>
+
+    <!-- 1b. Prepared briefing for a client the advisor looked up -->
+    <section class="screen" id="screen-prepared" data-screen="prepared" hidden>
+      <div class="caller">
+        <p class="eyebrow">Prepared briefing <span class="tag" id="prep-phrasing" hidden></span></p>
+        <h1 id="prep-name"></h1>
+        <p class="ref" id="prep-ref"></p>
+      </div>
+      <div class="actions">
+        <button class="btn secondary" id="prep-listen" type="button">Listen</button>
+        <button class="btn secondary" id="prep-call" type="button">Simulate their call</button>
+      </div>
+      <section class="card">
+        <h2>60-second briefing</h2>
+        <div id="prep-brief"></div>
+      </section>
+      <section class="card" id="prep-call-card" hidden>
+        <h2>If they call now <span class="tag sim" id="prep-sim" hidden>SIMULATED</span></h2>
+        <div class="brief" id="prep-call-brief"></div>
+      </section>
+      <div class="actions sticky">
+        <button class="btn primary wide" id="prep-back" type="button">Back</button>
+      </div>
     </section>
 
     <!-- 2. Ringing -->
@@ -132,6 +165,7 @@
 
   <audio id="ringtone" src="ringtone.mp3" loop preload="auto"></audio>
   <audio id="caller-voice" preload="auto"></audio>
+  <audio id="brief-voice" preload="none"></audio>
   <script type="module" src="app.js"></script>
 </body>
 </html>
