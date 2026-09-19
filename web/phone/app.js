@@ -55,13 +55,25 @@ function callerName(briefing) {
   return briefing.name || briefing.client;
 }
 
-function renderBrief(container, briefing, { withImpact }) {
+// What the advisor can actually take in while the phone is ringing: why they are
+// calling, what it cost, the two or three biggest pieces of that, and what held up.
+// Sources are dropped here and the digest is capped -- the full set with every source
+// is a tap away under "Full briefing", and on the dashboard.
+const RINGING_DIGEST = 3;
+
+// Which fund a loss came through is detail for during the call, not for the four seconds
+// before the advisor picks up. The number and the share stay; the attribution tail goes,
+// and the untrimmed sentence with its source is under "Full briefing" once the call starts.
+const shorten = (text) => text.replace(/,? mostly via .*$/, '.').replace(/\.\.$/, '.');
+
+function renderBrief(container, briefing, { withImpact, brief = false }) {
   container.replaceChildren();
   const groups = bySlot(briefing);
+  const opts = brief ? { sources: 'hidden' } : {};
   const card = el('div', 'card');
 
   // Keep the reason above the number: it is what the advisor needs first.
-  if (groups.reason) card.append(group('reason', groups.reason));
+  if (groups.reason) card.append(group('reason', groups.reason.slice(0, brief ? 1 : undefined), null, opts));
 
   if (withImpact && briefing.impact && briefing.impact.amount) {
     const box = el('div', 'impact');
@@ -73,17 +85,26 @@ function renderBrief(container, briefing, { withImpact }) {
   }
 
   for (const slot of ['digest', 'holding']) {
-    if (groups[slot]) card.append(group(slot, groups[slot]));
+    let lines = groups[slot];
+    if (!lines) continue;
+    if (brief && slot === 'digest') {
+      // "Behind the move" is a headline, not an exposure; one is context, two is noise.
+      const moves = lines.filter((l) => !/^Behind the move/.test(l.text));
+      const headline = lines.find((l) => /^Behind the move/.test(l.text));
+      lines = moves.slice(0, RINGING_DIGEST).concat(headline ? [headline] : []);
+    }
+    if (brief) lines = lines.map((l) => ({ ...l, text: shorten(l.text) }));
+    card.append(group(slot, lines, null, opts));
   }
   // Profile note from the caller slot, if any, goes last on the full briefing.
   const profile = (groups.caller || []).slice(1);
-  if (profile.length) card.append(group('caller', profile, 'Profile'));
+  if (!brief && profile.length) card.append(group('caller', profile, 'Profile'));
 
   if (card.childElementCount) container.append(card);
 }
 
-function group(slot, sentences, title) {
-  return renderGroup(slot, sentences, title || SLOT_TITLES[slot] || slot);
+function group(slot, sentences, title, opts) {
+  return renderGroup(slot, sentences, title || SLOT_TITLES[slot] || slot, opts);
 }
 
 function fillCaller(briefing) {
@@ -102,25 +123,9 @@ function ring(briefing) {
   state.approved = {};
   state.line = null;
   fillCaller(briefing);
-  renderRingMeta(briefing);
-  renderBrief($('#screen-ringing [data-brief]'), briefing, { withImpact: true });
+  renderBrief($('#screen-ringing [data-brief]'), briefing, { withImpact: true, brief: true });
   show('ringing');
   startRingtone();
-}
-
-// The pills the advisor can read at a glance while the phone is still ringing:
-// how long the brief takes to read, what it covers, and where the numbers came from.
-function renderRingMeta(briefing) {
-  const row = $('#ring-meta');
-  if (!row) return;
-  row.replaceChildren();
-  const groups = bySlot(briefing);
-  const slots = ['reason', 'digest', 'holding'];
-  const covered = slots.filter((slot) => groups[slot] && groups[slot].length).length;
-  const pills = [`~${Math.max(1, Math.round((briefing.words || 0) / 3.3))}s to read`,
-                 `${covered}/${slots.length} sections`];
-  if (briefing.market && briefing.market.scenario) pills.push(briefing.market.scenario);
-  for (const text of pills) row.append(el('span', 'pill', text));
 }
 
 function startRingtone() {

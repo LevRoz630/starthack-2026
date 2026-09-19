@@ -22,14 +22,17 @@ export const chf = new Intl.NumberFormat('de-CH', { maximumFractionDigits: 0 });
 // One briefing section: an accent-barred group with an uppercase heading and a
 // sentence per fact, each followed by the sources it was computed from. Both
 // front-ends render briefings this way, so the markup lives here.
-export function renderGroup(slot, sentences, title) {
+export function renderGroup(slot, sentences, title, { sources = 'shown' } = {}) {
   const box = el('section', `group ${slot}`);
   box.append(el('h3', null, title));
   const list = el('ul');
   for (const s of sentences) {
     const li = el('li', 'sentence');
     li.append(el('span', 'text', s.text));
-    for (const source of s.sources || []) li.append(el('span', 'source', source));
+    // The dashboard shows every source; the ringing phone does not. Nobody reads
+    // 'S5INFT Index CHG_PCT_1D x clients.json CASE-043 holdings' while a phone rings,
+    // and it doubles the text the advisor has to skip past to reach the number.
+    if (sources === 'shown') for (const source of s.sources || []) li.append(el('span', 'source', source));
     list.append(li);
   }
   box.append(list);
