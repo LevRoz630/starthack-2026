@@ -477,22 +477,61 @@ function forTheClient(answers) {
 
 const MAX_EMAIL_POINTS = 6;
 
+// Card sentences are written for the advisor ("of the book", "after fund look-through");
+// the client reads the same fact in their own terms. Numbers are never touched.
+function inClientWords(text) {
+  return text
+    .replace(/ after fund look-through/g, '')
+    .replace(/ of the book/g, ' of your portfolio')
+    .replace(/^The book is/, 'Your portfolio is')
+    .replace(/^(?:Combined portfolio value|Portfolio value)(?= [+−])/, 'Your portfolio moved')
+    .replace(/^(Combined portfolio value|Portfolio value)/, 'Your portfolio value')
+    .replace(/; value change including deposits and withdrawals\.$/, ' (this includes deposits and withdrawals).');
+}
+
+function partOfDay() {
+  const h = new Date().getHours();
+  return h < 12 ? 'this morning' : h < 18 ? 'this afternoon' : 'this evening';
+}
+
 function followUpEmail() {
   const b = state.briefing;
   const name = callerName(b);
-  const groups = bySlot(b);
-  const lines = [`Dear ${name},`, '', 'Thank you for your call today.'];
+  const heard = state.heard || [];
+  const answered = [...state.answers].reverse().flatMap((entry) => entry.answers);
+  // Only say what the call was about if the market actually came up in it.
+  const aboutMarket = answered.some((a) => /^(digest|topic|total|holding)/.test(a.fact || ''));
+  const lines = [`Dear ${name},`, '',
+    `Thank you for your call ${partOfDay()}${aboutMarket ? " about today's market move" : ''}.`];
 
-  if (state.answers.length) {
-    const points = forTheClient([...state.answers].reverse().flatMap((entry) => entry.answers));
-    if (points.length) {
-      lines.push('', 'As discussed:');
-      for (const text of points.slice(0, MAX_EMAIL_POINTS)) lines.push(`- ${text}`);
-    }
+  const points = forTheClient(answered).map(inClientWords);
+  if (points.length) {
+    lines.push('', 'Here is what we went through:');
+    for (const text of points.slice(0, MAX_EMAIL_POINTS)) lines.push(`- ${text}`);
   }
 
-  lines.push('', 'I will follow up with a short review of your positions and will call you to agree on ' +
-    'the next steps.', '', 'Kind regards,');
+  // What they asked for, in their own words, and what happens next. Nothing noted about
+  // their private life goes into an email; that stays in the call note.
+  const requests = heard.filter((h) => h.kind === 'request');
+  const open = heard.filter((h) => h.kind === 'follow_up');
+  if (requests.length || open.length) {
+    lines.push('', 'You also asked me to follow up on:');
+    for (const h of requests) lines.push(`- "${h.text}" I will take care of this.`);
+    for (const h of open) lines.push(`- "${h.text}" I will come back to you with an answer.`);
+  }
+
+  // An instruction heard on a call is never executed from the call alone.
+  const instructions = heard.filter((h) => h.kind === 'instruction');
+  if (instructions.length) {
+    lines.push('', 'You also gave me an instruction:');
+    for (const h of instructions) lines.push(`- "${h.text}"`);
+    lines.push('Nothing has been executed yet. I will send you a proposal to confirm in writing first.');
+  }
+
+  const next = instructions.length ? 'I will be in touch shortly.'
+    : (requests.length || open.length) ? 'I will get back to you on these points within the next working day.'
+      : 'I will call you next week to go through your positions together.';
+  lines.push('', next, '', 'Kind regards,');
   return lines.join('\n');
 }
 
