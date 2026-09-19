@@ -6,7 +6,6 @@ Case: **UNRISKOMEGA** — [github.com/START-Hack/unriskomega-2026](https://githu
 
 - [docs/HANDOFF.md](docs/HANDOFF.md) — **start here**: what is built, how to run it, what is left.
 - [docs/PLAN.md](docs/PLAN.md) — the case brief from the kickoff slides, and what we are building.
-- [docs/PITCH.md](docs/PITCH.md) — the 5-minute pitch: run of show, script, the numbers we may say, Q&A.
 - [docs/JUDGES.md](docs/JUDGES.md) — partner contacts from the kickoff.
 - [docs/screenshots.md](docs/screenshots.md) — what the URO Advisor UI screenshots show.
 - [docs/RULES.md](docs/RULES.md) — the official Hacker Guidebook, converted to markdown.

@@ -56,8 +56,8 @@ so Approve writes to `data/outbox/`. The server reads `.env` at start: restart a
 5. **Ringtone:** the user's "your phone linging" meme as `web/phone/ringtone.mp3` (not in repo).
 6. **Golf video** (hard deadline ~12:00 Sat): run "Play recorded call" on a real phone over
    a tunnel (`cloudflared tunnel --url http://localhost:8000`), screen-record, composite.
-8. Deck: content and script are written (`docs/PITCH.md`) — the slides themselves still
-   have to be built, and one rehearsal against a timer.
+8. Deck: `docs/deck/index.html` is built. The written pitch script was removed; it is in
+   git history (`git show 9f1e13a:docs/PITCH.md`) if it is wanted back.
 
 ## Rules the code keeps (keep them)
 
