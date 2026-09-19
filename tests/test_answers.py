@@ -29,10 +29,16 @@ def ids(result):
     "What's going on with my portfolio?", 'Can you explain this?',
     'what the fuck is going on', 'how bad is it?'])
 def test_open_questions_lead_with_what_it_cost_then_why(facts, question):
-    """The advisor is asked for a number first, and the reason after it."""
+    """The advisor is asked for a number first, and the reason after it.
+
+    The number is the book's own total, not the reason line. The reason line is a
+    guess at why the client rang, made before they spoke; once they have asked,
+    leading with "probably the market" hedges about something they just told us.
+    """
     r = answers.answer(facts, question, use_llm=False)
     assert r['method'] == 'type'
-    assert ids(r)[0].startswith('reason')
+    assert ids(r)[0] == 'digest.total'
+    assert not any(i.startswith('reason') for i in ids(r))
     assert any(i.startswith(('digest.', 'news.')) for i in ids(r)[1:])
 
 

@@ -25,6 +25,7 @@ LLM_TIMEOUT = 4.0
 SYNONYMS = {
     'tech': 'information technology', 'technology': 'information technology',
     'lost': 'about', 'lose': 'about', 'loss': 'about', 'losses': 'about', 'down': 'about',
+    'cost': 'about', 'lost?': 'about',
     'dollar': 'dollar', 'usd': 'dollar', 'euro': 'euro', 'franc': 'franc', 'currency': 'dollar',
     'gold': 'gold', 'bonds': 'bonds', 'bond': 'bonds', 'cash': 'cash', 'risk': 'volatility',
     'rules': 'suitability', 'compliance': 'suitability', 'hedged': 'hedged', 'hedge': 'hedged',
@@ -54,6 +55,19 @@ CHANGES_QUESTION = re.compile(r'\b(chang\w*|proposal|bought|sold|trades?|traded|
                               r'what did you do)\b', re.IGNORECASE)
 WITHDRAWAL_QUESTION = re.compile(r'\b(withdraw\w*|take (?:out|some|money)|pay ?out|cash out|'
                                  r'how much cash|liquidity|available cash)\b', re.IGNORECASE)
+# "How much did today cost me" is the single most common opening on a call: the number
+# first, then what it came from. Without this it fell through to keyword matching, which
+# has no idea that "lose", "cost" and "down" all mean the same request.
+AMOUNT_QUESTION = re.compile(r'\b(how much (?:did|have|has|is|was)|how bad|what (?:did|has) (?:it|today|this) cost|'
+                             r'how much (?:did|have) i (?:lose|lost)|what.{0,12}(?:lost|cost me))\b', re.IGNORECASE)
+
+# Whether the portfolio still fits the person. Risk is asked about from both directions --
+# "am I too exposed" and "am I being too careful" -- and both want the same facts: what
+# breaches the profile, and what the book is actually concentrated in.
+RISK_FIT_QUESTION = re.compile(r'\b(too (?:cautious|careful|safe|conservative|risky|aggressive|exposed|concentrated)|'
+                               r'right (?:risk|profile) for me|still (?:right|suitable)|how concentrated|'
+                               r'biggest (?:position|holding)|over[- ]?exposed)\b', re.IGNORECASE)
+
 ADVICE_QUESTION = re.compile(r'\b(should i|shall i|do i need to|must i|sell|buy|get out|move (?:it|everything)|'
                              r'what (?:do|should) (?:i|we) do)\b', re.IGNORECASE)
 
@@ -100,6 +114,15 @@ def by_llm(facts, question):
 
 
 def by_type(facts, question):
+    if AMOUNT_QUESTION.search(question) and not topics(question):
+        # Asked what it cost with no subject named: the book's number, then the two
+        # biggest things inside it. With a subject named, the subject's own line is the
+        # answer and by_keywords finds it.
+        return _pick(facts, [('digest.total', 1), ('digest.industry', 1), ('digest.fx', 1),
+                             ('digest.assetclass', 1)])
+    if RISK_FIT_QUESTION.search(question):
+        return _pick(facts, [('health.prc', 1), ('watch.concentration', 1), ('health.violations', 1),
+                             ('health.saa', 1)])
     if ADVICE_QUESTION.search(question):
         # A client who asks "what do we do" is frightened by one day. The strongest
         # honest answer is the long record, then what is actually protecting them,
@@ -110,7 +133,7 @@ def by_type(facts, question):
     if OPEN_QUESTION.search(question):
         # What it cost comes before why: the advisor is asked for a number first.
         # One headline only — two "Behind the move" cards say nothing twice.
-        return _pick(facts, [('reason', 1), ('digest.industry', 1), ('news', 1), ('holding.up', 1)])
+        return _pick(facts, [('digest.total', 1), ('digest.industry', 1), ('news', 1), ('holding.up', 1)])
     if CHANGES_QUESTION.search(question):
         return _pick(facts, [('watch.last_proposal', 1), ('actions.rejected', 1), ('health.order_warnings', 1)])
     if WITHDRAWAL_QUESTION.search(question):
@@ -130,25 +153,42 @@ def on_topic(chosen, question):
     return not wanted or any(t in f.text.lower() for f in chosen for t in wanted)
 
 
+NUMBER = re.compile(r"\d[\d.,'\u2019]*\s*%?")
+
+
+def _numbers(text):
+    """The figures a sentence actually carries, normalised enough to compare."""
+    return {n.replace(' ', '').rstrip('.').lstrip('0') or '0' for n in NUMBER.findall(text)}
+
+
 def presentable(chosen, question=''):
     """The cards as the advisor should see them, whichever layer chose them.
 
-    Rules the advisor's screen keeps no matter how the facts were picked. Two
-    headlines from the same feed restate one event twice. And the reason line
-    summarises the whole day, so it answers "what is going on" but not "how much
-    did I lose on tech": asked about a subject, the advisor wants that subject's
-    own number, not the total wearing the same percentages.
+    Rules the advisor's screen keeps no matter how the facts were picked.
+
+    The reason line never answers. It is a guess at why the client is ringing, made
+    before they said a word, and it is worth reading on the ringing screen. Once they
+    have asked an actual question, "probably the market" is a hedge about something
+    they have already told you.
+
+    Two headlines from the same feed restate one event twice.
+
+    And a card that carries no figure the advisor has not already read is a card
+    spent for nothing: "Deploy idle liquidity: 34.2% of the book (CHF 259k) is cash"
+    under "Cash on hand is CHF 259k, 34.2% of the book" is the same sentence twice.
     """
-    asked_about_a_subject = bool(topics(question))
-    out, headlines = [], 0
+    out, headlines, seen = [], 0, set()
     for f in chosen:
-        # The reason line is the whole day in one sentence: it leads, or it goes.
-        if f.slot == 'reason' and (out or asked_about_a_subject):
+        if f.slot == 'reason':
             continue
         if f.id.startswith('news'):
             headlines += 1
             if headlines > 1:
                 continue
+        figures = _numbers(f.text)
+        if figures and figures <= seen:
+            continue
+        seen |= figures
         out.append(f)
     return out
 

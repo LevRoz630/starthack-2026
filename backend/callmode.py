@@ -211,7 +211,17 @@ def call_facts(client, store, market, as_of=None):
                         f'data/profiles/profiles.json {ref} from clients.json ClientNotes', 0.8))
     why = reasons(client, store, hit, as_of, base)
     out += why
-    digest = list(_digest(client, hit, market)) + list(_headlines(hit, market))
+    # "How much did today cost me" is answered by the book's own number. Without this
+    # the only fact carrying it was the reason line, which is a guess at why they are
+    # ringing and reads as a hedge once they have actually asked.
+    digest = []
+    if hit['topics'] and hit['impact']:
+        ccy = client.get('ReportingCurrency') or 'CHF'
+        digest.append(Fact('digest.total', 'digest',
+                           f'About {signed_money(hit["impact"], ccy)} today, '
+                           f'{signed_pct(hit["impact"] / (hit["total"] or 1))} of the book.',
+                           f'impact of the market feed on clients.json {ref} holdings', 1.0))
+    digest += list(_digest(client, hit, market)) + list(_headlines(hit, market))
     holding = list(_holding(client, hit, market)) if digest else []
     out += digest + holding
     return relabel(out, client), hit
