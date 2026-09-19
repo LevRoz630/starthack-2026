@@ -3,7 +3,8 @@ import re
 
 import pytest
 
-from backend.callmode import PLAYBOOK, build_call, rank_callers
+from backend.callmode import build_call, rank_callers
+from backend.profiles import PLAYBOOK   # call mode no longer reads it; profiles still does
 from backend.data import load
 from backend.market import MarketState, impact, load_scenario, scenarios
 from backend.phrasing import BANNED
@@ -85,3 +86,13 @@ def test_hedging_to_chf_is_read_from_the_full_name(store):
     # "Anteile -A- Hedged CHF UBS (Irl) ... - MSCI ACWI SF UCITS ETF": the hedge is only in the prefix.
     hit = impact(store.client('CASE-043'), store, load_scenario('tech-selloff'))
     assert 'SPDR Bloomberg Global Aggregate Bond UCITS ETF' in hit['hedged_chf']
+
+
+def test_the_call_carries_no_playbook_lines_or_repeated_health_check(store):
+    """The advisor gets the client's own numbers, not a script telling them how to
+    speak, and not the dashboard's health check repeated on the phone."""
+    market = load_scenario('tech-selloff')
+    for ref in list(store.clients)[:12]:
+        slots = {s['slot'] for s in build_call(store, ref, market)['sentences']}
+        assert 'talk' not in slots, ref
+        assert 'issue' not in slots, ref

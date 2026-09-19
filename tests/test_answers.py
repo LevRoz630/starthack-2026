@@ -41,11 +41,11 @@ def test_open_questions_lead_with_what_it_cost_then_why(facts, question):
     'what should we do now?'])
 def test_advice_questions_answer_with_facts_not_a_script(facts, question):
     """"What do we do" is answered with this client's own record and holdings.
-    The playbook line is worth at most one card, and never the first."""
+    The playbook's talking points are gone: they told the advisor how to speak,
+    never anything they could say."""
     r = answers.answer(facts, question, use_llm=False)
     slots = [i.split('.')[0] for i in ids(r)]
-    assert slots[0] != 'talk', f'coaching led the answer: {ids(r)}'
-    assert slots.count('talk') <= 1, f'more than one coaching card: {ids(r)}'
+    assert 'talk' not in slots, f'coaching came back: {ids(r)}'
     assert 'development' in slots, f'the long record was not offered: {ids(r)}'
 
 

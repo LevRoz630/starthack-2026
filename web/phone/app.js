@@ -13,8 +13,6 @@ const SLOT_TITLES = {
   reason: 'Why they are calling',
   digest: 'What fell',
   holding: 'What held up',
-  talk: 'Talking points',
-  issue: 'Open issue',
 };
 
 const state = {
@@ -73,7 +71,7 @@ function renderBrief(container, briefing, { withImpact }) {
     card.append(box);
   }
 
-  for (const slot of ['digest', 'holding', 'talk', 'issue']) {
+  for (const slot of ['digest', 'holding']) {
     if (groups[slot]) card.append(group(slot, groups[slot]));
   }
   // Profile note from the caller slot, if any, goes last on the full briefing.
@@ -116,7 +114,7 @@ function renderRingMeta(briefing) {
   if (!row) return;
   row.replaceChildren();
   const groups = bySlot(briefing);
-  const slots = ['reason', 'digest', 'holding', 'talk', 'issue'];
+  const slots = ['reason', 'digest', 'holding'];
   const covered = slots.filter((slot) => groups[slot] && groups[slot].length).length;
   const pills = [`~${Math.max(1, Math.round((briefing.words || 0) / 3.3))}s to read`,
                  `${covered}/${slots.length} sections`];
@@ -204,16 +202,6 @@ function answerCard(entry) {
     return card;
   }
   for (const a of entry.answers) {
-    // A 'talk' fact is the playbook telling the advisor how to say it, not a
-    // number to read out. Mark it so the two never look like the same thing.
-    if (a.slot === 'talk') {
-      const coach = el('div', 'coach');
-      coach.append(el('span', 'coach-label', 'Say it like this'));
-      coach.append(el('p', 'a', a.text));
-      coach.append(el('p', 'src', a.source));
-      card.append(coach);
-      continue;
-    }
     card.append(el('p', 'a', a.text));
     card.append(el('p', 'src', a.source));
   }
@@ -376,7 +364,6 @@ function callNote(duration) {
       for (const a of entry.answers) lines.push(`  A: ${a.text}`);
     }
   }
-  if (groups.issue) lines.push('', `Open issue: ${groups.issue[0].text.replace(/^Open issue:\s*/, '')}`);
   return lines.join('\n');
 }
 
@@ -413,10 +400,6 @@ function followUpEmail() {
       lines.push('', 'As discussed:');
       for (const text of points.slice(0, MAX_EMAIL_POINTS)) lines.push(`- ${text}`);
     }
-  }
-
-  if (groups.issue) {
-    lines.push('', `One open item: ${groups.issue[0].text.replace(/^Open issue:\s*/, '')}`);
   }
 
   lines.push('', 'I will follow up with a short review of your positions and will call you to agree on ' +

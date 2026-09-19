@@ -1,8 +1,9 @@
 """The briefing for an incoming client call.
 
 Order: who is calling, why they are probably calling, what today's market did to
-their book (largest impact first), what held up, two talking points from the
-playbook, and one open issue. Everything is computed ahead of the call; at ring
+their book (largest impact first) and what held up. The advisor is given the
+client's own numbers to speak from, not a script and not a repeat of the
+dashboard's health check. Everything is computed ahead of the call; at ring
 time this is a lookup, so sentences are the facts' own text rather than LLM output.
 
     python -m backend.callmode CASE-019 --scenario tech-selloff
@@ -21,16 +22,13 @@ from .facts import (Fact, relabel, client_name, compute, day, fmt_day, money, pc
 from .market import MarketState, impact, label, load_scenario
 from . import profiles
 
-CALL_SLOTS = ('caller', 'reason', 'digest', 'holding', 'talk', 'issue')
-PLAYBOOK = ROOT / 'data' / 'playbook.json'
+CALL_SLOTS = ('caller', 'reason', 'digest', 'holding')
 
 TEMPERAMENT_WORDS = ('patient', 'nervous', 'anxious', 'worr', 'cautious', 'long view', 'unconcerned',
                      'simple', 'philosophical')
 # A coming need for cash, as opposed to a general preference for holding some.
 WITHDRAWAL_WORDS = ('property', 'house', 'tax payment', 'retire', 'inherit', 'withdraw', 'donation', 'purchase',
                     'liquidity need', 'needs approximately')
-ANXIOUS_WORDS = ('nervous', 'anxious', 'worr', 'cautious', 'uneasy')
-PATIENT_WORDS = ('patient', 'long view', 'long-term', 'unconcerned')
 
 MIN_SHARE = 0.005     # topics under 0.5% of the book are not worth a sentence
 MIN_CHANGE = 0.003    # nor moves under 0.3%
@@ -54,10 +52,6 @@ def signed_money(x, ccy):
 
 def _notes(client):
     return sorted(items(client, 'ClientNotes'), key=lambda n: n.get('CreatedByDateUTC') or '', reverse=True)
-
-
-def _has_note(client, words):
-    return any(any(w in (n.get('Note') or '').lower() for w in words) for n in items(client, 'ClientNotes'))
 
 
 def reasons(client, store, hit, as_of, base=None):
@@ -187,28 +181,6 @@ def _holding(client, hit, market):
                    f'{market.source("fx", "USD")}', 0.5)
 
 
-def _talk(client, hit, top_reason, held_up, profile, has_issue=False):
-    with open(PLAYBOOK, encoding='utf-8') as f:
-        angles = json.load(f)['angles']
-    market_hit = abs(hit['impact']) / (hit['total'] or 1) >= MARKET_REASON
-    temperament = profile.get('temperament')
-    conditions = {
-        'always': True,
-        'anxious': temperament == 'anxious' or _has_note(client, ANXIOUS_WORDS),
-        'withdrawal': bool(top_reason and 'withdrawal' in top_reason.text),
-        'held_up': held_up and market_hit,
-        'objection': has_issue,
-        'long_term': market_hit and (temperament in ('calm', 'patient') or 'long_term' in profile.get('angles', [])
-                                     or _has_note(client, PATIENT_WORDS)
-                                     or (client.get('RiskProfileName') or '').endswith(('5', '6', '7'))),
-        'market': market_hit,
-    }
-    chosen = [a for a in angles if conditions.get(a['when'])][:2]
-    for i, a in enumerate(chosen):
-        yield Fact(f'talk.{a["id"]}', 'talk', a['text'], f'data/playbook.json: {a["id"]} (when: {a["when"]})',
-                   1.0 - 0.1 * i)
-
-
 def call_facts(client, store, market, as_of=None):
     as_of = as_of or date.today()
     base = compute(client, store, as_of)
@@ -240,10 +212,6 @@ def call_facts(client, store, market, as_of=None):
     digest = list(_digest(client, hit, market)) + list(_headlines(hit, market))
     holding = list(_holding(client, hit, market)) if digest else []
     out += digest + holding
-    issues = sorted((f for f in base if f.slot == 'health'), key=lambda f: -f.weight)
-    out += _talk(client, hit, why[0] if why else None, bool(holding), profile, bool(issues))
-    if issues:
-        out.append(Fact('issue', 'issue', f'Open issue: {issues[0].text}', issues[0].source, issues[0].weight))
     return relabel(out, client), hit
 
 

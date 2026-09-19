@@ -95,8 +95,8 @@ p { margin: 0; }
 /* Slot colours. The dashboard's six briefing slots and the phone's call slots
    share one scale: blue = who is on the line, red = what went wrong,
    amber = needs attention, green = what is fine. */
-.group.who, .group.reason, .group.talk { border-left-color: var(--uro-blue); }
-.group.health, .group.issue { border-left-color: var(--amber); }
+.group.who, .group.reason { border-left-color: var(--uro-blue); }
+.group.health { border-left-color: var(--amber); }
 .group.watch, .group.digest { border-left-color: var(--red); }
 .group.actions, .group.holding { border-left-color: var(--green); }
 

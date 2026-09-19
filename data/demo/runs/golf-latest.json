@@ -2,7 +2,7 @@
  "script": "golf",
  "client": "CASE-043",
  "scenario": "tech-selloff",
- "saved_at": "2026-09-19T01:31:29",
+ "saved_at": "2026-09-19T03:09:26",
  "events": [
   {
    "t": 0.0,
@@ -14,7 +14,7 @@
    }
   },
   {
-   "t": 0.0,
+   "t": 0.001,
    "event": {
     "type": "market",
     "market": {
@@ -253,7 +253,7 @@
    }
   },
   {
-   "t": 0.007,
+   "t": 0.01,
    "event": {
     "type": "incoming_call",
     "briefing": {
@@ -270,7 +270,7 @@
       "share": -0.01362,
       "not_modelled_share": 0.0
      },
-     "words": 191,
+     "words": 218,
      "sentences": [
       {
        "slot": "caller",
@@ -323,6 +323,26 @@
        ]
       },
       {
+       "slot": "digest",
+       "text": "Behind the move: \"Simulated: Chip stocks slide after export-control headlines\"",
+       "facts": [
+        "news.0"
+       ],
+       "sources": [
+        "simulated feed \"tech-selloff\" headline"
+       ]
+      },
+      {
+       "slot": "digest",
+       "text": "Behind the move: \"Simulated: Dollar weakens as rate-cut bets rise\"",
+       "facts": [
+        "news.1"
+       ],
+       "sources": [
+        "simulated feed \"tech-selloff\" headline"
+       ]
+      },
+      {
        "slot": "holding",
        "text": "iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (14.8% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.",
        "facts": [
@@ -354,12 +374,12 @@
       },
       {
        "slot": "talk",
-       "text": "Frame today against the long-term plan, not the daily move.",
+       "text": "If they push back on the open rule, explain what it protects, not just that it applies.",
        "facts": [
-        "talk.long_term"
+        "talk.objection"
        ],
        "sources": [
-        "data/playbook.json: long_term (when: long_term)"
+        "data/playbook.json: objection (when: objection)"
        ]
       },
       {
@@ -410,6 +430,20 @@
        "weight": 0.0015174524119920007
       },
       {
+       "id": "news.0",
+       "slot": "digest",
+       "text": "Behind the move: \"Simulated: Chip stocks slide after export-control headlines\"",
+       "source": "simulated feed \"tech-selloff\" headline",
+       "weight": 0.001
+      },
+      {
+       "id": "news.1",
+       "slot": "digest",
+       "text": "Behind the move: \"Simulated: Dollar weakens as rate-cut bets rise\"",
+       "source": "simulated feed \"tech-selloff\" headline",
+       "weight": 0.001
+      },
+      {
        "id": "holding.hedged",
        "slot": "holding",
        "text": "iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (14.8% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.",
@@ -431,10 +465,10 @@
        "weight": 1.0
       },
       {
-       "id": "talk.long_term",
+       "id": "talk.objection",
        "slot": "talk",
-       "text": "Frame today against the long-term plan, not the daily move.",
-       "source": "data/playbook.json: long_term (when: long_term)",
+       "text": "If they push back on the open rule, explain what it protects, not just that it applies.",
+       "source": "data/playbook.json: objection (when: objection)",
        "weight": 0.9
       },
       {
@@ -450,23 +484,23 @@
    }
   },
   {
-   "t": 1.512,
+   "t": 1.058,
    "event": {
     "type": "_answered",
     "client": "CASE-043"
    }
   },
   {
-   "t": 1.722,
+   "t": 1.279,
    "event": {
     "client": "CASE-043",
-    "at": 1789774248.96,
+    "at": 1789780130.124,
     "type": "listening",
     "source": "recorded"
    }
   },
   {
-   "t": 2.817,
+   "t": 2.288,
    "event": {
     "type": "demo_audio",
     "client": "CASE-043",
@@ -475,89 +509,86 @@
    }
   },
   {
-   "t": 4.137,
+   "t": 3.539,
    "event": {
     "client": "CASE-043",
-    "at": 1789774251.375,
+    "at": 1789780132.384,
     "type": "transcript",
     "text": "Hi, it's Waldo.",
     "final": false
    }
   },
   {
-   "t": 5.147,
+   "t": 4.453,
    "event": {
     "client": "CASE-043",
-    "at": 1789774252.385,
+    "at": 1789780133.298,
     "type": "transcript",
-    "text": "Hi, it's Waldo. I just saw a-",
+    "text": "Hi, it's Waldo. I just saw a",
     "final": false
    }
   },
   {
-   "t": 6.154,
+   "t": 5.578,
    "event": {
     "client": "CASE-043",
-    "at": 1789774253.393,
+    "at": 1789780134.424,
     "type": "transcript",
-    "text": "Hi, it's Waldo. I just saw tech stocks are",
+    "text": "Hi, it's Waldo. I just saw tech stocks are crashing.",
     "final": false
    }
   },
   {
-   "t": 7.164,
+   "t": 6.496,
    "event": {
     "client": "CASE-043",
-    "at": 1789774254.402,
+    "at": 1789780135.341,
     "type": "transcript",
     "text": "Hi, it's Waldo. I just saw tech stocks are crashing. How much have I lost?",
     "final": false
    }
   },
   {
-   "t": 8.369,
+   "t": 7.502,
    "event": {
     "client": "CASE-043",
-    "at": 1789774255.608,
+    "at": 1789780136.347,
     "type": "transcript",
     "text": "Hi, it's Waldo. I just saw tech stocks are crashing. How much have I lost on tech?",
     "final": false
    }
   },
   {
-   "t": 8.696,
+   "t": 7.76,
    "event": {
     "client": "CASE-043",
-    "at": 1789774255.935,
+    "at": 1789780136.606,
     "type": "transcript",
     "text": "Hi, it's Waldo. I just saw tech stocks are crashing. How much have I lost on tech?",
     "final": true
    }
   },
   {
-   "t": 8.711,
+   "t": 8.26,
    "event": {
     "client": "CASE-043",
-    "at": 1789774255.95,
+    "at": 1789780137.105,
     "type": "answer",
     "question": "Hi, it's Waldo. I just saw tech stocks are crashing. How much have I lost on tech?",
     "answers": [
      {
       "text": "Information Technology −4.8% today: 9.6% of the book, about −CHF 4k, mostly via iShares NASDAQ 100 UCITS ETF and iShares Core S&P 500 UCITS ETF.",
       "source": "simulated feed \"tech-selloff\": S5INFT Index CHG_PCT_1D × clients.json CASE-043 holdings",
-      "fact": "digest.industry.Information Technology"
-     },
-     {
-      "text": "Probably the market move: Information Technology −4.8% today, 9.6% of the book; about −CHF 12k (−1.4%) overall.",
-      "source": "impact of the market feed on clients.json CASE-043 holdings",
-      "fact": "reason.0"
+      "fact": "digest.industry.Information Technology",
+      "slot": "digest"
      }
     ],
-    "found": true
+    "found": true,
+    "method": "llm"
    }
   },
   {
-   "t": 15.809,
+   "t": 14.19,
    "event": {
     "type": "demo_audio",
     "client": "CASE-043",
@@ -566,79 +597,72 @@
    }
   },
   {
-   "t": 16.74,
+   "t": 15.35,
    "event": {
     "client": "CASE-043",
-    "at": 1789774263.979,
+    "at": 1789780144.195,
     "type": "transcript",
     "text": "And my",
     "final": false
    }
   },
   {
-   "t": 18.047,
+   "t": 16.346,
    "event": {
     "client": "CASE-043",
-    "at": 1789774265.286,
+    "at": 1789780145.191,
     "type": "transcript",
-    "text": "And my world fund?",
+    "text": "And my world fund, is",
     "final": false
    }
   },
   {
-   "t": 18.951,
+   "t": 17.252,
    "event": {
     "client": "CASE-043",
-    "at": 1789774266.19,
+    "at": 1789780146.097,
     "type": "transcript",
-    "text": "And my world fund, is that hit by",
+    "text": "And my world fund, is that hit by the dollar",
     "final": false
    }
   },
   {
-   "t": 20.162,
+   "t": 18.008,
    "event": {
     "client": "CASE-043",
-    "at": 1789774267.401,
-    "type": "transcript",
-    "text": "And my world fund, is that hit by the dollar as well?",
-    "final": false
-   }
-  },
-  {
-   "t": 20.385,
-   "event": {
-    "client": "CASE-043",
-    "at": 1789774267.624,
+    "at": 1789780146.853,
     "type": "transcript",
     "text": "And my world fund, is that hit by the dollar as well?",
     "final": true
    }
   },
   {
-   "t": 20.405,
+   "t": 18.425,
    "event": {
     "client": "CASE-043",
-    "at": 1789774267.644,
+    "at": 1789780147.271,
     "type": "answer",
     "question": "And my world fund, is that hit by the dollar as well?",
     "answers": [
      {
-      "text": "iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (14.8% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.",
-      "source": "clients.json CASE-043: SecurityPositions.SecurityName (hedged share class); simulated feed \"tech-selloff\": USDCHF Curncy CHG_PCT_1D",
-      "fact": "holding.hedged"
+      "text": "The dollar −1.2% against the franc: 25.3% of the book is exposed, about −CHF 3k.",
+      "source": "simulated feed \"tech-selloff\": USDCHF Curncy CHG_PCT_1D × clients.json CASE-043 holdings",
+      "fact": "digest.fx.USD",
+      "slot": "digest"
      },
      {
-      "text": "Health Care is 18.1% of the book (CHF 161k) after fund look-through, mostly via SPDR MSCI World Health Care UCITS ETF and Lonza Group AG.",
-      "source": "clients.json CASE-043: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName",
-      "fact": "watch.industry.Health Care"
+      "text": "iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond UCITS ETF (14.8% of the book) are hedged to the franc, so the dollar move (−1.2%) does not reach them.",
+      "source": "clients.json CASE-043: SecurityPositions.SecurityName (hedged share class); simulated feed \"tech-selloff\": USDCHF Curncy CHG_PCT_1D",
+      "fact": "holding.hedged",
+      "slot": "holding"
      }
     ],
-    "found": true
+    "found": true,
+    "method": "llm"
    }
   },
   {
-   "t": 27.476,
+   "t": 24.492,
    "event": {
     "type": "demo_audio",
     "client": "CASE-043",
@@ -647,59 +671,56 @@
    }
   },
   {
-   "t": 28.659,
+   "t": 25.601,
    "event": {
     "client": "CASE-043",
-    "at": 1789774275.898,
+    "at": 1789780154.447,
     "type": "transcript",
     "text": "What about my",
     "final": false
    }
   },
   {
-   "t": 29.667,
+   "t": 26.407,
    "event": {
     "client": "CASE-043",
-    "at": 1789774276.906,
+    "at": 1789780155.252,
     "type": "transcript",
-    "text": "What about my bonds? Are they hit?",
+    "text": "What about my bonds? Are they",
     "final": false
    }
   },
   {
-   "t": 30.381,
+   "t": 27.337,
    "event": {
     "client": "CASE-043",
-    "at": 1789774277.619,
+    "at": 1789780156.182,
     "type": "transcript",
     "text": "What about my bonds? Are they holding up?",
     "final": true
    }
   },
   {
-   "t": 30.403,
+   "t": 27.625,
    "event": {
     "client": "CASE-043",
-    "at": 1789774277.642,
+    "at": 1789780156.471,
     "type": "answer",
     "question": "What about my bonds? Are they holding up?",
     "answers": [
      {
       "text": "Holding up today: Swiss franc bonds +0.2% (16.9% of the book); Consumer Staples +0.3% (8.4% of the book); foreign bonds +0.3% (5.6% of the book).",
       "source": "simulated feed \"tech-selloff\": SBR14T Index CHG_PCT_1D × clients.json CASE-043 holdings",
-      "fact": "holding.up"
-     },
-     {
-      "text": "Start with what held up, then walk through what fell.",
-      "source": "data/playbook.json: held_up (when: held_up)",
-      "fact": "talk.held_up"
+      "fact": "holding.up",
+      "slot": "holding"
      }
     ],
-    "found": true
+    "found": true,
+    "method": "llm"
    }
   },
   {
-   "t": 36.53,
+   "t": 32.86,
    "event": {
     "type": "demo_audio",
     "client": "CASE-043",
@@ -708,46 +729,46 @@
    }
   },
   {
-   "t": 37.716,
+   "t": 33.861,
    "event": {
     "client": "CASE-043",
-    "at": 1789774284.955,
+    "at": 1789780162.707,
     "type": "transcript",
-    "text": "Great. Thank you.",
+    "text": "Great. Thanks.",
     "final": false
    }
   },
   {
-   "t": 38.724,
+   "t": 34.869,
    "event": {
     "client": "CASE-043",
-    "at": 1789774285.963,
+    "at": 1789780163.714,
     "type": "transcript",
-    "text": "Great, thanks. Talk soon.",
+    "text": "Great. Thanks. Talk soon.",
     "final": false
    }
   },
   {
-   "t": 39.045,
+   "t": 34.954,
    "event": {
     "client": "CASE-043",
-    "at": 1789774286.284,
+    "at": 1789780163.799,
     "type": "transcript",
-    "text": "Great, thanks. Talk soon.",
+    "text": "Great. Thanks. Talk soon.",
     "final": true
    }
   },
   {
-   "t": 40.139,
+   "t": 35.985,
    "event": {
     "client": "CASE-043",
-    "at": 1789774287.378,
+    "at": 1789780164.83,
     "type": "listening_stopped",
     "source": "recorded"
    }
   },
   {
-   "t": 42.273,
+   "t": 38.107,
    "event": {
     "type": "call_ended",
     "client": "CASE-043",
@@ -755,7 +776,7 @@
    }
   },
   {
-   "t": 42.273,
+   "t": 38.107,
    "event": {
     "type": "demo_finished",
     "client": "CASE-043",

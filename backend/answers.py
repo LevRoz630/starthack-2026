@@ -68,8 +68,6 @@ Return JSON only: {"facts": [<numbers>]}"""
 
 
 def _card(f):
-    # 'slot' lets the phone tell a fact meant for the client apart from a 'talk'
-    # line, which is the playbook coaching the advisor on how to say it.
     return {'text': f.text, 'source': f.source, 'fact': f.id, 'slot': f.slot}
 
 
@@ -108,7 +106,7 @@ def by_type(facts, question):
         # then what was already decided and what is still open. Coaching comes last
         # and only once: the advisor needs facts to say, not a reminder to say them.
         return _pick(facts, [('development', 1), ('holding.up', 1), ('watch.last_proposal', 1),
-                             ('issue', 1), ('talk', 1)])
+                             ('health.order_warnings', 1)])
     if OPEN_QUESTION.search(question):
         # What it cost comes before why: the advisor is asked for a number first.
         # One headline only — two "Behind the move" cards say nothing twice.
@@ -135,21 +133,15 @@ def on_topic(chosen, question):
 def presentable(chosen, question=''):
     """The cards as the advisor should see them, whichever layer chose them.
 
-    Rules the advisor's screen keeps no matter how the facts were picked. A
-    'talk' fact is a reminder of how to speak, so it is worth at most one line
-    and never the first thing read — leading with it buries the numbers under
-    advice. Two headlines from the same feed restate one event twice. And the
-    reason line summarises the whole day, so it answers "what is going on" but
-    not "how much did I lose on tech": asked about a subject, the advisor wants
-    that subject's own number, not the total wearing the same percentages.
+    Rules the advisor's screen keeps no matter how the facts were picked. Two
+    headlines from the same feed restate one event twice. And the reason line
+    summarises the whole day, so it answers "what is going on" but not "how much
+    did I lose on tech": asked about a subject, the advisor wants that subject's
+    own number, not the total wearing the same percentages.
     """
     asked_about_a_subject = bool(topics(question))
-    out, coaching, headlines = [], [], 0
+    out, headlines = [], 0
     for f in chosen:
-        if f.slot == 'talk':
-            if not coaching:
-                coaching.append(f)
-            continue
         # The reason line is the whole day in one sentence: it leads, or it goes.
         if f.slot == 'reason' and (out or asked_about_a_subject):
             continue
@@ -158,7 +150,7 @@ def presentable(chosen, question=''):
             if headlines > 1:
                 continue
         out.append(f)
-    return (out + coaching) if out else coaching
+    return out
 
 
 def only_on_topic(chosen, question):
