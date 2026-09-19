@@ -303,7 +303,7 @@ function setListenButton(source) {
   if (source === 'recorded') btn.dataset.source = 'recorded'; else delete btn.dataset.source;
   // What the advisor needs to know is whether it can hear the client, not what tapping
   // does; the label is the state, and the dot pulses while audio is arriving.
-  $('#listen-label').textContent = source === 'mic' ? 'Hearing you'
+  $('#listen-label').textContent = source === 'mic' ? (state.speaker === 'me' ? 'Paused' : 'Hearing you')
     : source === 'recorded' ? 'On the line' : 'Not hearing';
   btn.disabled = source === 'recorded';
   btn.title = source === 'mic' ? 'Stop listening' : 'Start listening';
@@ -421,6 +421,12 @@ function setSpeaker(who) {
   btn.textContent = who === 'me' ? "You're talking" : 'Client talking';
   btn.setAttribute('aria-pressed', who === 'me' ? 'true' : 'false');
   btn.classList.toggle('me', who === 'me');
+  // While the advisor talks the microphone sends silence: say so, instead of "Hearing you".
+  const listen = $('#listen');
+  if (listen && listen.getAttribute('aria-pressed') === 'true') {
+    $('#listen-label').textContent = who === 'me' ? 'Paused' : 'Hearing you';
+    listen.classList.toggle('paused', who === 'me');
+  }
 }
 
 // --- after call ---------------------------------------------------------------

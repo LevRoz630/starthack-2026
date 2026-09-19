@@ -68,3 +68,23 @@ For Walter (CASE-045): *Novartis alone is 41% of the portfolio*, *no bonds*, *vo
 - Email goes to `data/outbox/` until the Gmail settings are in `.env`.
 - No ringtone file: the ring is silent unless `web/phone/ringtone.mp3` is added.
 - After the demo: `python -m backend.utterance review` shows what the last live call heard and did.
+
+## On a real phone (HTTPS, same Wi-Fi)
+
+A phone browser only allows the microphone over HTTPS. Run one server, over HTTPS, and open
+it from both the laptop and the phone, so they share the same call:
+
+```
+mkdir -p data/tls && openssl req -x509 -newkey rsa:2048 -nodes -days 7 -keyout data/tls/key.pem \
+  -out data/tls/cert.pem -subj "/CN=advisor-phone" -addext "subjectAltName=IP:<laptop IP>,DNS:localhost"
+DEMO_SCENARIO=tech-selloff python -m uvicorn backend.api:app --host 0.0.0.0 --port 8443 \
+  --ssl-keyfile data/tls/key.pem --ssl-certfile data/tls/cert.pem
+```
+
+Phone: `https://<laptop IP>:8443/phone/`. Accept the certificate warning once
+("Advanced → proceed"). `ipconfig` shows the laptop IP. `data/tls/` is gitignored.
+
+Who is talking: the button next to the microphone. **Client talking** means their words are
+transcribed and answered. Tap it to switch to **You're talking** while you answer: the
+microphone sends silence and the status shows **Paused**. It flips back to Client talking
+automatically when you answer the call. Key **M** does the same on the laptop.

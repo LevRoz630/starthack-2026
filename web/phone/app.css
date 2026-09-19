@@ -159,7 +159,13 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
   background: var(--page);
   box-shadow: 0 -8px 16px -8px rgba(0, 0, 0, 0.18);
 }
-.hearing-row { display: flex; align-items: center; gap: 10px; }
+.hearing-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+/* On a phone the transcript gets its own line under the buttons, not a squeezed "Li…". */
+@media (max-width: 520px) {
+  .hearing-row .live { order: 3; flex-basis: 100%; }
+  .hearing-row .speaker { flex: 1; }
+}
+.btn.listen.paused .dot { animation: none; opacity: .35; }
 .btn.icon { flex: none; min-width: var(--tap); padding: 0; background: var(--card);
             border: 1px solid var(--line); color: var(--uro-blue-dark); font-size: 20px; }
 .btn.icon[aria-expanded="true"] { background: var(--uro-blue); color: var(--on-blue); border-color: var(--uro-blue); }
