@@ -151,7 +151,7 @@ def _digest(client, hit, market):
 def _headlines(hit, market):
     """The feed's headlines on what this client was hit by: the 'what happened' behind the numbers."""
     hit_buckets = {(t.dimension, t.bucket) for t in hit['topics'].values() if t.impact < 0}
-    kind = 'simulated feed' if market.simulated else 'market feed'
+    kind = 'market feed'
     for i, h in enumerate(market.headlines):
         if (h.get('dimension'), h.get('bucket')) in hit_buckets and h.get('text'):
             yield Fact(f'news.{i}', 'digest', f'Behind the move: "{h["text"]}"',

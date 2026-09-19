@@ -116,8 +116,6 @@ function group(slot, sentences, title, opts) {
 function fillCaller(briefing) {
   for (const node of $$('[data-caller-name]')) node.textContent = callerName(briefing);
   for (const node of $$('[data-caller-ref]')) node.textContent = briefing.client;
-  const simulated = Boolean(briefing.market && briefing.market.simulated && briefing.market.scenario !== 'empty');
-  for (const node of $$('[data-sim]')) node.hidden = !simulated;
 }
 
 // --- ringing ----------------------------------------------------------------
@@ -161,7 +159,7 @@ function answer() {
   $('[data-impact-line]').textContent = b.impact && b.impact.amount
     ? `Today: ${signedMoney(b.impact.amount)} (${signedPct(b.impact.share)})` : '';
   $('[data-impact-line]').className = `impact-line ${b.impact && b.impact.amount < 0 ? 'loss' : ''}`;
-  renderBrief($('#screen-call [data-brief]'), b, { withImpact: false });
+  renderBrief($('#screen-call [data-brief]'), b, { withImpact: false, brief: true });
   $('#answers').replaceChildren();
   showLive('');
   $('#waiting').hidden = false;
@@ -324,7 +322,6 @@ function onListenerEvent(event) {
 
 function endCall() {
   stopListening();
-  $('#caller-voice').pause();
   clearInterval(state.timer);
   const duration = state.callStarted ? clock(Date.now() - state.callStarted) : '0:00';
   $('#note-body').textContent = callNote(duration);
@@ -487,7 +484,6 @@ function showPrepared(data) {
   const hasMarket = call && call.market && call.market.scenario && call.market.scenario !== 'empty';
   $('#prep-call-card').hidden = !hasMarket;
   if (hasMarket) {
-    $('#prep-sim').hidden = !call.market.simulated;
     renderBrief($('#prep-call-brief'), call, { withImpact: true });
   }
   show('prepared');
@@ -524,7 +520,6 @@ function setMarket(market) {
   if (!market) return;
   const active = market.scenario && market.scenario !== 'empty';
   $('#market-name').textContent = active ? market.scenario : 'no market move loaded';
-  $('#market-sim').hidden = !(active && market.simulated);
 }
 
 function setConn(stateName, label) {
@@ -551,15 +546,9 @@ function connect() {
     if (['transcript', 'answer', 'listening', 'listening_stopped', 'listener_error'].includes(event.type)) {
       onListenerEvent(event);
     }
-    if (event.type === 'demo_audio' && state.screen === 'call' && state.briefing && event.client === state.briefing.client) {
-      const voice = $('#caller-voice');
-      voice.src = `${API}${event.url}`;
-      voice.play().catch(() => {});
-    }
     if (event.type === 'call_ended' && state.screen === 'call' && state.briefing && event.client === state.briefing.client) {
       endCall();
     }
-    if (event.type === 'demo_started' || event.type === 'demo_finished') demoStatus(event);
   });
   ws.addEventListener('close', retry);
   ws.addEventListener('error', () => ws.close());
@@ -592,7 +581,9 @@ $('#ask-form').addEventListener('submit', (e) => {
 });
 for (const btn of $$('[data-approve]')) btn.addEventListener('click', () => approve(btn.dataset.approve));
 
-$('#demo-call').addEventListener('click', async () => {
+// Ring the advisor and push the briefing. Nothing is voiced -- a person speaks the
+// client's lines into the microphone, which starts itself when the call is answered.
+$('#demo-recorded').addEventListener('click', async () => {
   if (!DEMO_CLIENT) return;
   try {
     await fetch(`${API}/call/incoming`, {
@@ -603,7 +594,8 @@ $('#demo-call').addEventListener('click', async () => {
   } catch { setConn('closed', 'Offline'); }
 });
 
-// Who the scripted call rings as, and whether a saved run exists to replay offline.
+// Who the call rings as. The lines are spoken by a person, so nothing is voiced here
+// and there is no recorded run to replay -- the microphone hears the real voice.
 async function loadDemo() {
   let info;
   try {
@@ -612,41 +604,13 @@ async function loadDemo() {
     return;
   }
   DEMO_CLIENT = DEMO_CLIENT || (info.clients || {})[SCRIPT] || null;
-  const replayable = (info.replayable || {})[SCRIPT];
-  $('#demo-replay').disabled = !replayable;
-  $('#demo-replay').title = replayable ? '' : 'No saved call yet — run one first';
   const names = info.names || {};
   $('#demo-caller').textContent = DEMO_CLIENT
     ? `${names[DEMO_CLIENT] || DEMO_CLIENT} will call, during the market shown above.`
-    : 'No demo script found.';
+    : 'No client to call.';
   $('#demo-recorded').disabled = !DEMO_CLIENT;
 }
 
-function demoStatus(event) {
-  const status = $('#demo-status');
-  status.hidden = false;
-  status.textContent = event.type === 'demo_started' ? `Recorded call "${event.script}" running`
-    : `Recorded call finished (${event.result})`;
-}
-
-async function runDemo(mode) {
-  const status = $('#demo-status');
-  status.hidden = false;
-  status.textContent = mode === 'replay' ? 'Replaying the saved call…' : 'Preparing the recorded call…';
-  try {
-    const resp = await fetch(`${API}/demo/run`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ script: SCRIPT, mode }),
-    });
-    const result = await resp.json();
-    if (!resp.ok) status.textContent = result.error || 'Could not start';
-  } catch { status.textContent = 'Offline'; }
-}
-
-for (const [id, mode] of [['#demo-recorded', 'pipeline'], ['#demo-replay', 'replay']]) {
-  $(id).addEventListener('click', () => runDemo(mode));
-}
 loadDemo();
 
 fetch(`${API}/market/state`).then((r) => r.json()).then(setMarket).catch(() => {});

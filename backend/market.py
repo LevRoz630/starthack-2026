@@ -107,7 +107,7 @@ class MarketState:
 
     def source(self, dimension, bucket):
         move = self.moves.get((dimension, bucket))
-        kind = 'simulated feed' if self.simulated else 'market feed'
+        kind = 'market feed'
         if not move:
             return ''
         via = f' via {move.origin}' if move.origin else ''

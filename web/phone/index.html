@@ -27,17 +27,9 @@
         <h1>Waiting for calls</h1>
         <p class="market">
           Market: <span id="market-name">none</span>
-          <span class="tag sim" id="market-sim" hidden>SIMULATED</span>
         </p>
         <p class="demo-caller" id="demo-caller"></p>
         <button class="btn primary wide" id="demo-recorded" type="button">Start the call</button>
-        <details class="more">
-          <summary>Other ways to start it</summary>
-          <div class="more-actions">
-            <button class="btn secondary wide" id="demo-replay" type="button">Replay the last call offline</button>
-            <button class="btn secondary wide" id="demo-call" type="button">Ring only, then use the microphone</button>
-          </div>
-        </details>
         <p class="demo-status" id="demo-status" hidden></p>
       </div>
     </section>
@@ -58,7 +50,7 @@
         <div id="prep-brief"></div>
       </section>
       <section class="card" id="prep-call-card" hidden>
-        <h2>If they call now <span class="tag sim" id="prep-sim" hidden>SIMULATED</span></h2>
+        <h2>If they call now</h2>
         <div class="brief" id="prep-call-brief"></div>
       </section>
       <div class="actions sticky">
@@ -69,7 +61,7 @@
     <!-- 2. Ringing -->
     <section class="screen" id="screen-ringing" data-screen="ringing" hidden>
       <div class="caller">
-        <p class="eyebrow">Incoming call <span class="tag sim" data-sim hidden>SIMULATED</span></p>
+        <p class="eyebrow">Incoming call</p>
         <h1 data-caller-name></h1>
         <p class="ref" data-caller-ref></p>
       </div>
@@ -89,7 +81,7 @@
            on the ringing screen. -->
       <div class="caller compact">
         <h1 data-caller-name></h1>
-        <p class="ref"><span data-caller-ref></span> <span class="tag sim" data-sim hidden>SIMULATED</span></p>
+        <p class="ref"><span data-caller-ref></span></p>
         <span class="timer" id="timer">0:00</span>
       </div>
       <ol class="answers" id="answers" aria-live="polite"></ol>
@@ -154,7 +146,6 @@
   </main>
 
   <audio id="ringtone" src="ringtone.mp3" loop preload="auto"></audio>
-  <audio id="caller-voice" preload="auto"></audio>
   <audio id="brief-voice" preload="none"></audio>
   <script type="module" src="app.js"></script>
 </body>

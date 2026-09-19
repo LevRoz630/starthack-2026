@@ -1,297 +1,297 @@
 {
-  "name": "live-2026-09-18",
-  "description": "Real daily moves from Yahoo Finance, taken 2026-09-18 22:13 UTC. Sector moves are SPDR sector ETFs. Missing: none.",
-  "simulated": false,
-  "as_of": "2026-09-18T22:13:09+00:00",
-  "ticks": [
-    {
-      "ticker": "S5INFT Index",
-      "field": "CHG_PCT_1D",
-      "value": 0.819,
-      "origin": "Yahoo Finance XLK"
-    },
-    {
-      "ticker": "S5INFT Index",
-      "field": "PX_LAST",
-      "value": 189.6,
-      "origin": "Yahoo Finance XLK"
-    },
-    {
-      "ticker": "S5HLTH Index",
-      "field": "CHG_PCT_1D",
-      "value": -0.249,
-      "origin": "Yahoo Finance XLV"
-    },
-    {
-      "ticker": "S5HLTH Index",
-      "field": "PX_LAST",
-      "value": 168.39,
-      "origin": "Yahoo Finance XLV"
-    },
-    {
-      "ticker": "S5FINL Index",
-      "field": "CHG_PCT_1D",
-      "value": -0.036,
-      "origin": "Yahoo Finance XLF"
-    },
-    {
-      "ticker": "S5FINL Index",
-      "field": "PX_LAST",
-      "value": 55.86,
-      "origin": "Yahoo Finance XLF"
-    },
-    {
-      "ticker": "S5INDU Index",
-      "field": "CHG_PCT_1D",
-      "value": 0.438,
-      "origin": "Yahoo Finance XLI"
-    },
-    {
-      "ticker": "S5INDU Index",
-      "field": "PX_LAST",
-      "value": 169.75,
-      "origin": "Yahoo Finance XLI"
-    },
-    {
-      "ticker": "S5COND Index",
-      "field": "CHG_PCT_1D",
-      "value": -0.323,
-      "origin": "Yahoo Finance XLY"
-    },
-    {
-      "ticker": "S5COND Index",
-      "field": "PX_LAST",
-      "value": 111.03,
-      "origin": "Yahoo Finance XLY"
-    },
-    {
-      "ticker": "S5CONS Index",
-      "field": "CHG_PCT_1D",
-      "value": -0.826,
-      "origin": "Yahoo Finance XLP"
-    },
-    {
-      "ticker": "S5CONS Index",
-      "field": "PX_LAST",
-      "value": 82.8,
-      "origin": "Yahoo Finance XLP"
-    },
-    {
-      "ticker": "S5MATR Index",
-      "field": "CHG_PCT_1D",
-      "value": -1.42,
-      "origin": "Yahoo Finance XLB"
-    },
-    {
-      "ticker": "S5MATR Index",
-      "field": "PX_LAST",
-      "value": 49.99,
-      "origin": "Yahoo Finance XLB"
-    },
-    {
-      "ticker": "S5TELS Index",
-      "field": "CHG_PCT_1D",
-      "value": -1.371,
-      "origin": "Yahoo Finance XLC"
-    },
-    {
-      "ticker": "S5TELS Index",
-      "field": "PX_LAST",
-      "value": 110.81,
-      "origin": "Yahoo Finance XLC"
-    },
-    {
-      "ticker": "S5RLST Index",
-      "field": "CHG_PCT_1D",
-      "value": -0.955,
-      "origin": "Yahoo Finance XLRE"
-    },
-    {
-      "ticker": "S5RLST Index",
-      "field": "PX_LAST",
-      "value": 42.53,
-      "origin": "Yahoo Finance XLRE"
-    },
-    {
-      "ticker": "S5UTIL Index",
-      "field": "CHG_PCT_1D",
-      "value": -1.415,
-      "origin": "Yahoo Finance XLU"
-    },
-    {
-      "ticker": "S5UTIL Index",
-      "field": "PX_LAST",
-      "value": 41.1,
-      "origin": "Yahoo Finance XLU"
-    },
-    {
-      "ticker": "S5ENRS Index",
-      "field": "CHG_PCT_1D",
-      "value": -0.264,
-      "origin": "Yahoo Finance XLE"
-    },
-    {
-      "ticker": "S5ENRS Index",
-      "field": "PX_LAST",
-      "value": 64.31,
-      "origin": "Yahoo Finance XLE"
-    },
-    {
-      "ticker": "USDCHF Curncy",
-      "field": "CHG_PCT_1D",
-      "value": -0.267,
-      "origin": "Yahoo Finance USDCHF=X"
-    },
-    {
-      "ticker": "USDCHF Curncy",
-      "field": "PX_LAST",
-      "value": 0.8218,
-      "origin": "Yahoo Finance USDCHF=X"
-    },
-    {
-      "ticker": "EURCHF Curncy",
-      "field": "CHG_PCT_1D",
-      "value": -0.222,
-      "origin": "Yahoo Finance EURCHF=X"
-    },
-    {
-      "ticker": "EURCHF Curncy",
-      "field": "PX_LAST",
-      "value": 0.9436,
-      "origin": "Yahoo Finance EURCHF=X"
-    },
-    {
-      "ticker": "GBPCHF Curncy",
-      "field": "CHG_PCT_1D",
-      "value": 0.029,
-      "origin": "Yahoo Finance GBPCHF=X"
-    },
-    {
-      "ticker": "GBPCHF Curncy",
-      "field": "PX_LAST",
-      "value": 1.1006,
-      "origin": "Yahoo Finance GBPCHF=X"
-    },
-    {
-      "ticker": "XAU Curncy",
-      "field": "CHG_PCT_1D",
-      "value": 0.368,
-      "origin": "Yahoo Finance GC=F"
-    },
-    {
-      "ticker": "XAU Curncy",
-      "field": "PX_LAST",
-      "value": 4415.9,
-      "origin": "Yahoo Finance GC=F"
-    },
-    {
-      "ticker": "XAG Curncy",
-      "field": "CHG_PCT_1D",
-      "value": 1.044,
-      "origin": "Yahoo Finance SI=F"
-    },
-    {
-      "ticker": "XAG Curncy",
-      "field": "PX_LAST",
-      "value": 66.785,
-      "origin": "Yahoo Finance SI=F"
-    },
-    {
-      "ticker": "XPD Curncy",
-      "field": "CHG_PCT_1D",
-      "value": 0.875,
-      "origin": "Yahoo Finance PA=F"
-    },
-    {
-      "ticker": "XPD Curncy",
-      "field": "PX_LAST",
-      "value": 1314.5,
-      "origin": "Yahoo Finance PA=F"
-    },
-    {
-      "ticker": "XPT Curncy",
-      "field": "CHG_PCT_1D",
-      "value": 0.574,
-      "origin": "Yahoo Finance PL=F"
-    },
-    {
-      "ticker": "XPT Curncy",
-      "field": "PX_LAST",
-      "value": 1804.6,
-      "origin": "Yahoo Finance PL=F"
-    },
-    {
-      "ticker": "HG1 Comdty",
-      "field": "CHG_PCT_1D",
-      "value": 0.811,
-      "origin": "Yahoo Finance HG=F"
-    },
-    {
-      "ticker": "HG1 Comdty",
-      "field": "PX_LAST",
-      "value": 6.7155,
-      "origin": "Yahoo Finance HG=F"
-    },
-    {
-      "ticker": "XBTUSD Curncy",
-      "field": "CHG_PCT_1D",
-      "value": 6.397,
-      "origin": "Yahoo Finance BTC-USD"
-    },
-    {
-      "ticker": "XBTUSD Curncy",
-      "field": "PX_LAST",
-      "value": 81244.67,
-      "origin": "Yahoo Finance BTC-USD"
-    },
-    {
-      "ticker": "XETUSD Curncy",
-      "field": "CHG_PCT_1D",
-      "value": 7.549,
-      "origin": "Yahoo Finance ETH-USD"
-    },
-    {
-      "ticker": "XETUSD Curncy",
-      "field": "PX_LAST",
-      "value": 2628.48,
-      "origin": "Yahoo Finance ETH-USD"
-    },
-    {
-      "ticker": "VIX Index",
-      "field": "CHG_PCT_1D",
-      "value": -4.08,
-      "origin": "Yahoo Finance ^VIX"
-    },
-    {
-      "ticker": "VIX Index",
-      "field": "PX_LAST",
-      "value": 14.81,
-      "origin": "Yahoo Finance ^VIX"
-    },
-    {
-      "ticker": "SMI Index",
-      "field": "CHG_PCT_1D",
-      "value": -1.151,
-      "origin": "Yahoo Finance ^SSMI"
-    },
-    {
-      "ticker": "SMI Index",
-      "field": "PX_LAST",
-      "value": 13786.72,
-      "origin": "Yahoo Finance ^SSMI"
-    },
-    {
-      "ticker": "SPX Index",
-      "field": "CHG_PCT_1D",
-      "value": 0.167,
-      "origin": "Yahoo Finance ^GSPC"
-    },
-    {
-      "ticker": "SPX Index",
-      "field": "PX_LAST",
-      "value": 7650.5,
-      "origin": "Yahoo Finance ^GSPC"
-    }
-  ],
-  "headlines": []
+ "name": "live-2026-09-18",
+ "description": "Real daily moves from Yahoo Finance, taken 2026-09-18 22:13 UTC. Sector moves are SPDR sector ETFs. Missing: none.",
+ "simulated": false,
+ "as_of": "2026-09-18T22:13:09+00:00",
+ "ticks": [
+  {
+   "ticker": "S5INFT Index",
+   "field": "CHG_PCT_1D",
+   "value": 0.819,
+   "origin": "Yahoo Finance XLK"
+  },
+  {
+   "ticker": "S5INFT Index",
+   "field": "PX_LAST",
+   "value": 189.6,
+   "origin": "Yahoo Finance XLK"
+  },
+  {
+   "ticker": "S5HLTH Index",
+   "field": "CHG_PCT_1D",
+   "value": -0.249,
+   "origin": "Yahoo Finance XLV"
+  },
+  {
+   "ticker": "S5HLTH Index",
+   "field": "PX_LAST",
+   "value": 168.39,
+   "origin": "Yahoo Finance XLV"
+  },
+  {
+   "ticker": "S5FINL Index",
+   "field": "CHG_PCT_1D",
+   "value": -0.036,
+   "origin": "Yahoo Finance XLF"
+  },
+  {
+   "ticker": "S5FINL Index",
+   "field": "PX_LAST",
+   "value": 55.86,
+   "origin": "Yahoo Finance XLF"
+  },
+  {
+   "ticker": "S5INDU Index",
+   "field": "CHG_PCT_1D",
+   "value": 0.438,
+   "origin": "Yahoo Finance XLI"
+  },
+  {
+   "ticker": "S5INDU Index",
+   "field": "PX_LAST",
+   "value": 169.75,
+   "origin": "Yahoo Finance XLI"
+  },
+  {
+   "ticker": "S5COND Index",
+   "field": "CHG_PCT_1D",
+   "value": -0.323,
+   "origin": "Yahoo Finance XLY"
+  },
+  {
+   "ticker": "S5COND Index",
+   "field": "PX_LAST",
+   "value": 111.03,
+   "origin": "Yahoo Finance XLY"
+  },
+  {
+   "ticker": "S5CONS Index",
+   "field": "CHG_PCT_1D",
+   "value": -0.826,
+   "origin": "Yahoo Finance XLP"
+  },
+  {
+   "ticker": "S5CONS Index",
+   "field": "PX_LAST",
+   "value": 82.8,
+   "origin": "Yahoo Finance XLP"
+  },
+  {
+   "ticker": "S5MATR Index",
+   "field": "CHG_PCT_1D",
+   "value": -1.42,
+   "origin": "Yahoo Finance XLB"
+  },
+  {
+   "ticker": "S5MATR Index",
+   "field": "PX_LAST",
+   "value": 49.99,
+   "origin": "Yahoo Finance XLB"
+  },
+  {
+   "ticker": "S5TELS Index",
+   "field": "CHG_PCT_1D",
+   "value": -1.371,
+   "origin": "Yahoo Finance XLC"
+  },
+  {
+   "ticker": "S5TELS Index",
+   "field": "PX_LAST",
+   "value": 110.81,
+   "origin": "Yahoo Finance XLC"
+  },
+  {
+   "ticker": "S5RLST Index",
+   "field": "CHG_PCT_1D",
+   "value": -0.955,
+   "origin": "Yahoo Finance XLRE"
+  },
+  {
+   "ticker": "S5RLST Index",
+   "field": "PX_LAST",
+   "value": 42.53,
+   "origin": "Yahoo Finance XLRE"
+  },
+  {
+   "ticker": "S5UTIL Index",
+   "field": "CHG_PCT_1D",
+   "value": -1.415,
+   "origin": "Yahoo Finance XLU"
+  },
+  {
+   "ticker": "S5UTIL Index",
+   "field": "PX_LAST",
+   "value": 41.1,
+   "origin": "Yahoo Finance XLU"
+  },
+  {
+   "ticker": "S5ENRS Index",
+   "field": "CHG_PCT_1D",
+   "value": -0.264,
+   "origin": "Yahoo Finance XLE"
+  },
+  {
+   "ticker": "S5ENRS Index",
+   "field": "PX_LAST",
+   "value": 64.31,
+   "origin": "Yahoo Finance XLE"
+  },
+  {
+   "ticker": "USDCHF Curncy",
+   "field": "CHG_PCT_1D",
+   "value": -0.267,
+   "origin": "Yahoo Finance USDCHF=X"
+  },
+  {
+   "ticker": "USDCHF Curncy",
+   "field": "PX_LAST",
+   "value": 0.8218,
+   "origin": "Yahoo Finance USDCHF=X"
+  },
+  {
+   "ticker": "EURCHF Curncy",
+   "field": "CHG_PCT_1D",
+   "value": -0.222,
+   "origin": "Yahoo Finance EURCHF=X"
+  },
+  {
+   "ticker": "EURCHF Curncy",
+   "field": "PX_LAST",
+   "value": 0.9436,
+   "origin": "Yahoo Finance EURCHF=X"
+  },
+  {
+   "ticker": "GBPCHF Curncy",
+   "field": "CHG_PCT_1D",
+   "value": 0.029,
+   "origin": "Yahoo Finance GBPCHF=X"
+  },
+  {
+   "ticker": "GBPCHF Curncy",
+   "field": "PX_LAST",
+   "value": 1.1006,
+   "origin": "Yahoo Finance GBPCHF=X"
+  },
+  {
+   "ticker": "XAU Curncy",
+   "field": "CHG_PCT_1D",
+   "value": 0.368,
+   "origin": "Yahoo Finance GC=F"
+  },
+  {
+   "ticker": "XAU Curncy",
+   "field": "PX_LAST",
+   "value": 4415.9,
+   "origin": "Yahoo Finance GC=F"
+  },
+  {
+   "ticker": "XAG Curncy",
+   "field": "CHG_PCT_1D",
+   "value": 1.044,
+   "origin": "Yahoo Finance SI=F"
+  },
+  {
+   "ticker": "XAG Curncy",
+   "field": "PX_LAST",
+   "value": 66.785,
+   "origin": "Yahoo Finance SI=F"
+  },
+  {
+   "ticker": "XPD Curncy",
+   "field": "CHG_PCT_1D",
+   "value": 0.875,
+   "origin": "Yahoo Finance PA=F"
+  },
+  {
+   "ticker": "XPD Curncy",
+   "field": "PX_LAST",
+   "value": 1314.5,
+   "origin": "Yahoo Finance PA=F"
+  },
+  {
+   "ticker": "XPT Curncy",
+   "field": "CHG_PCT_1D",
+   "value": 0.574,
+   "origin": "Yahoo Finance PL=F"
+  },
+  {
+   "ticker": "XPT Curncy",
+   "field": "PX_LAST",
+   "value": 1804.6,
+   "origin": "Yahoo Finance PL=F"
+  },
+  {
+   "ticker": "HG1 Comdty",
+   "field": "CHG_PCT_1D",
+   "value": 0.811,
+   "origin": "Yahoo Finance HG=F"
+  },
+  {
+   "ticker": "HG1 Comdty",
+   "field": "PX_LAST",
+   "value": 6.7155,
+   "origin": "Yahoo Finance HG=F"
+  },
+  {
+   "ticker": "XBTUSD Curncy",
+   "field": "CHG_PCT_1D",
+   "value": 6.397,
+   "origin": "Yahoo Finance BTC-USD"
+  },
+  {
+   "ticker": "XBTUSD Curncy",
+   "field": "PX_LAST",
+   "value": 81244.67,
+   "origin": "Yahoo Finance BTC-USD"
+  },
+  {
+   "ticker": "XETUSD Curncy",
+   "field": "CHG_PCT_1D",
+   "value": 7.549,
+   "origin": "Yahoo Finance ETH-USD"
+  },
+  {
+   "ticker": "XETUSD Curncy",
+   "field": "PX_LAST",
+   "value": 2628.48,
+   "origin": "Yahoo Finance ETH-USD"
+  },
+  {
+   "ticker": "VIX Index",
+   "field": "CHG_PCT_1D",
+   "value": -4.08,
+   "origin": "Yahoo Finance ^VIX"
+  },
+  {
+   "ticker": "VIX Index",
+   "field": "PX_LAST",
+   "value": 14.81,
+   "origin": "Yahoo Finance ^VIX"
+  },
+  {
+   "ticker": "SMI Index",
+   "field": "CHG_PCT_1D",
+   "value": -1.151,
+   "origin": "Yahoo Finance ^SSMI"
+  },
+  {
+   "ticker": "SMI Index",
+   "field": "PX_LAST",
+   "value": 13786.72,
+   "origin": "Yahoo Finance ^SSMI"
+  },
+  {
+   "ticker": "SPX Index",
+   "field": "CHG_PCT_1D",
+   "value": 0.167,
+   "origin": "Yahoo Finance ^GSPC"
+  },
+  {
+   "ticker": "SPX Index",
+   "field": "PX_LAST",
+   "value": 7650.5,
+   "origin": "Yahoo Finance ^GSPC"
+  }
+ ],
+ "headlines": []
 }

@@ -1,15 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
-    "api/index.py": {
+    "app.py": {
       "maxDuration": 60,
-      "includeFiles": "{backend/**,web/**,data/core-case/**,data/outlook/**,data/profiles/**,data/translations/**,data/scenarios/**,data/playbook.json,data/excustody/**}"
+      "includeFiles": "{backend/**,web/**,data/core-case/portfolio-data/**,data/outlook/**,data/profiles/**,data/translations/**,data/scenarios/**,data/playbook.json,data/excustody/**,data/demo/*.json}"
     }
-  },
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/api/index"
-    }
-  ]
+  }
 }

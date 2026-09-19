@@ -116,7 +116,7 @@ def build(client, store, market, as_of=None):
     ccy = client.get('ReportingCurrency') or 'CHF'
     hit = impact(client, store, market)
     total = hit['total'] or 1
-    feed = f'{"simulated feed" if market.simulated else "market feed"} "{market.name}"'
+    feed = f'market feed "{market.name}"'
     if not market.moves:
         return g
     book = hit['impact']
