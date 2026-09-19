@@ -2,7 +2,7 @@
  "script": "superman",
  "client": "CASE-026",
  "scenario": "tech-selloff",
- "saved_at": "2026-09-19T12:58:24",
+ "saved_at": "2026-09-19T13:10:11",
  "events": [
   {
    "t": 0.0,
@@ -253,7 +253,7 @@
    }
   },
   {
-   "t": 0.024,
+   "t": 0.025,
    "event": {
     "type": "incoming_call",
     "briefing": {
@@ -270,7 +270,7 @@
       "share": -0.01271,
       "not_modelled_share": 0.01156
      },
-     "words": 139,
+     "words": 143,
      "sentences": [
       {
        "slot": "caller",
@@ -304,7 +304,7 @@
       },
       {
        "slot": "reason",
-       "text": "Probably the market move: Information Technology −4.8% today, 8.3% of the book; about −CHF 30k (−1.3%) overall.",
+       "text": "Probably the market: about −CHF 30k today, −1.3% of the book. Mostly Information Technology, −4.8% on 8.3% of it.",
        "facts": [
         "reason.0"
        ],
@@ -314,7 +314,7 @@
       },
       {
        "slot": "digest",
-       "text": "Information Technology −4.8% today: 8.3% of the book, about −CHF 9k, mostly via iShares NASDAQ 100 UCITS ETF and Logitech International SA.",
+       "text": "About −CHF 9k from Information Technology, −4.8% today on 8.3% of the book, mostly iShares NASDAQ 100 UCITS ETF and Logitech International SA.",
        "facts": [
         "digest.industry.Information Technology"
        ],
@@ -324,7 +324,7 @@
       },
       {
        "slot": "digest",
-       "text": "The dollar −1.2% against the franc: 15.7% of the book is exposed, about −CHF 4k.",
+       "text": "About −CHF 4k from the dollar, −1.2% against the franc on 15.7% of the book.",
        "facts": [
         "digest.fx.USD"
        ],
@@ -334,7 +334,7 @@
       },
       {
        "slot": "digest",
-       "text": "Financials −0.9% today: 16.8% of the book, about −CHF 4k, mostly via Zurich Insurance Group AG and Helvetia Holding AG.",
+       "text": "About −CHF 4k from Financials, −0.9% today on 16.8% of the book, mostly Zurich Insurance Group AG and Helvetia Holding AG.",
        "facts": [
         "digest.industry.Financials"
        ],
@@ -398,28 +398,28 @@
       {
        "id": "reason.0",
        "slot": "reason",
-       "text": "Probably the market move: Information Technology −4.8% today, 8.3% of the book; about −CHF 30k (−1.3%) overall.",
+       "text": "Probably the market: about −CHF 30k today, −1.3% of the book. Mostly Information Technology, −4.8% on 8.3% of it.",
        "source": "impact of the market feed on clients.json CASE-026 holdings",
        "weight": 1.2708678629772998
       },
       {
        "id": "digest.industry.Information Technology",
        "slot": "digest",
-       "text": "Information Technology −4.8% today: 8.3% of the book, about −CHF 9k, mostly via iShares NASDAQ 100 UCITS ETF and Logitech International SA.",
+       "text": "About −CHF 9k from Information Technology, −4.8% today on 8.3% of the book, mostly iShares NASDAQ 100 UCITS ETF and Logitech International SA.",
        "source": "market feed \"tech-selloff\": S5INFT Index CHG_PCT_1D × clients.json CASE-026 holdings",
        "weight": 0.003987884521151998
       },
       {
        "id": "digest.fx.USD",
        "slot": "digest",
-       "text": "The dollar −1.2% against the franc: 15.7% of the book is exposed, about −CHF 4k.",
+       "text": "About −CHF 4k from the dollar, −1.2% against the franc on 15.7% of the book.",
        "source": "market feed \"tech-selloff\": USDCHF Curncy CHG_PCT_1D × clients.json CASE-026 holdings",
        "weight": 0.0018830869334759994
       },
       {
        "id": "digest.industry.Financials",
        "slot": "digest",
-       "text": "Financials −0.9% today: 16.8% of the book, about −CHF 4k, mostly via Zurich Insurance Group AG and Helvetia Holding AG.",
+       "text": "About −CHF 4k from Financials, −0.9% today on 16.8% of the book, mostly Zurich Insurance Group AG and Helvetia Holding AG.",
        "source": "market feed \"tech-selloff\": S5FINL Index CHG_PCT_1D × clients.json CASE-026 holdings",
        "weight": 0.0015152060581829995
       },
@@ -450,23 +450,23 @@
    }
   },
   {
-   "t": 0.401,
+   "t": 0.088,
    "event": {
     "type": "_answered",
     "client": "CASE-026"
    }
   },
   {
-   "t": 0.676,
+   "t": 0.317,
    "event": {
     "client": "CASE-026",
-    "at": 1789815433.685,
+    "at": 1789816140.617,
     "type": "listening",
     "source": "recorded"
    }
   },
   {
-   "t": 1.686,
+   "t": 1.327,
    "event": {
     "type": "demo_audio",
     "client": "CASE-026",
@@ -475,79 +475,79 @@
    }
   },
   {
-   "t": 2.992,
+   "t": 2.632,
    "event": {
     "client": "CASE-026",
-    "at": 1789815436.001,
+    "at": 1789816142.931,
     "type": "transcript",
     "text": "Morning.",
     "final": false
    }
   },
   {
-   "t": 3.998,
+   "t": 3.539,
    "event": {
     "client": "CASE-026",
-    "at": 1789815437.007,
+    "at": 1789816143.838,
     "type": "transcript",
     "text": "Morning. I've just seen the-",
     "final": false
    }
   },
   {
-   "t": 4.907,
+   "t": 4.648,
    "event": {
     "client": "CASE-026",
-    "at": 1789815437.916,
+    "at": 1789816144.947,
     "type": "transcript",
     "text": "Morning. I've just seen the screens. How much-",
     "final": false
    }
   },
   {
-   "t": 5.76,
+   "t": 5.454,
    "event": {
     "client": "CASE-026",
-    "at": 1789815438.769,
+    "at": 1789816145.753,
     "type": "transcript",
     "text": "Morning. I've just seen the screens. How much did I lose today?",
     "final": false
    }
   },
   {
-   "t": 6.097,
+   "t": 5.977,
    "event": {
     "client": "CASE-026",
-    "at": 1789815439.106,
+    "at": 1789816146.276,
     "type": "transcript",
     "text": "Morning. I've just seen the screens. How much did I lose today?",
     "final": true
    }
   },
   {
-   "t": 6.617,
+   "t": 6.458,
    "event": {
     "client": "CASE-026",
-    "at": 1789815439.627,
+    "at": 1789816146.757,
     "type": "answer",
     "question": "Morning. I've just seen the screens. How much did I lose today?",
     "answers": [
      {
-      "text": "Probably the market move: Information Technology −4.8% today, 8.3% of the book; about −CHF 30k (−1.3%) overall.",
+      "text": "Probably the market: about −CHF 30k today, −1.3% of the book. Mostly Information Technology, −4.8% on 8.3% of it.",
       "source": "impact of the market feed on clients.json CASE-026 holdings",
       "fact": "reason.0",
       "slot": "reason"
      },
      {
-      "text": "The dollar −1.2% against the franc: 15.7% of the book is exposed, about −CHF 4k.",
-      "source": "market feed \"tech-selloff\": USDCHF Curncy CHG_PCT_1D × clients.json CASE-026 holdings",
-      "fact": "digest.fx.USD",
+      "text": "About −CHF 9k from Information Technology, −4.8% today on 8.3% of the book, mostly iShares NASDAQ 100 UCITS ETF and Logitech International SA.",
+      "source": "market feed \"tech-selloff\": S5INFT Index CHG_PCT_1D × clients.json CASE-026 holdings",
+      "fact": "digest.industry.Information Technology",
       "slot": "digest"
      },
      {
-      "text": "Financials −0.9% today: 16.8% of the book, about −CHF 4k, mostly via Zurich Insurance Group AG and Helvetia Holding AG.",
-      "source": "market feed \"tech-selloff\": S5FINL Index CHG_PCT_1D × clients.json CASE-026 holdings",
-      "fact": "digest.industry.Financials",
+      "text": "About −CHF 4k from the dollar, −1.2% against the franc on 15.7% of the book.",
+      "source": "market feed \"tech-selloff\": USDCHF Curncy CHG_PCT_1D × clients.json CASE-026 holdings",
+      "fact": "digest.fx.USD",
       "slot": "digest"
      }
     ],
@@ -556,7 +556,7 @@
    }
   },
   {
-   "t": 19.756,
+   "t": 19.386,
    "event": {
     "type": "demo_audio",
     "client": "CASE-026",
@@ -565,50 +565,50 @@
    }
   },
   {
-   "t": 20.461,
+   "t": 20.029,
    "event": {
     "client": "CASE-026",
-    "at": 1789815453.47,
+    "at": 1789816160.328,
     "type": "transcript",
     "text": "Right.",
     "final": false
    }
   },
   {
-   "t": 21.372,
+   "t": 21.034,
    "event": {
     "client": "CASE-026",
-    "at": 1789815454.381,
+    "at": 1789816161.333,
     "type": "transcript",
     "text": "Right, but why? What actually happened?",
     "final": false
    }
   },
   {
-   "t": 22.373,
+   "t": 22.055,
    "event": {
     "client": "CASE-026",
-    "at": 1789815455.382,
+    "at": 1789816162.354,
     "type": "transcript",
     "text": "Right, but why? What actually drove it?",
     "final": false
    }
   },
   {
-   "t": 22.832,
+   "t": 22.362,
    "event": {
     "client": "CASE-026",
-    "at": 1789815455.842,
+    "at": 1789816162.662,
     "type": "transcript",
     "text": "Right, but why? What actually drove it?",
     "final": true
    }
   },
   {
-   "t": 23.57,
+   "t": 23.145,
    "event": {
     "client": "CASE-026",
-    "at": 1789815456.579,
+    "at": 1789816163.445,
     "type": "answer",
     "question": "Right, but why? What actually drove it?",
     "answers": [
@@ -661,7 +661,7 @@
    }
   },
   {
-   "t": 36.292,
+   "t": 35.935,
    "event": {
     "type": "demo_audio",
     "client": "CASE-026",
@@ -670,50 +670,50 @@
    }
   },
   {
-   "t": 37.119,
+   "t": 36.719,
    "event": {
     "client": "CASE-026",
-    "at": 1789815470.128,
+    "at": 1789816177.019,
     "type": "transcript",
     "text": "And am",
     "final": false
    }
   },
   {
-   "t": 38.127,
+   "t": 37.726,
    "event": {
     "client": "CASE-026",
-    "at": 1789815471.136,
+    "at": 1789816178.025,
     "type": "transcript",
     "text": "And am I breaking any of your",
     "final": false
    }
   },
   {
-   "t": 39.167,
+   "t": 38.836,
    "event": {
     "client": "CASE-026",
-    "at": 1789815472.176,
+    "at": 1789816179.135,
     "type": "transcript",
     "text": "And am I breaking any of your rules at the moment?",
     "final": false
    }
   },
   {
-   "t": 39.32,
+   "t": 38.848,
    "event": {
     "client": "CASE-026",
-    "at": 1789815472.329,
+    "at": 1789816179.147,
     "type": "transcript",
     "text": "And am I breaking any of your rules at the moment?",
     "final": true
    }
   },
   {
-   "t": 39.818,
+   "t": 39.429,
    "event": {
     "client": "CASE-026",
-    "at": 1789815472.827,
+    "at": 1789816179.729,
     "type": "answer",
     "question": "And am I breaking any of your rules at the moment?",
     "answers": [
@@ -729,7 +729,7 @@
    }
   },
   {
-   "t": 51.819,
+   "t": 51.484,
    "event": {
     "type": "demo_audio",
     "client": "CASE-026",
@@ -738,40 +738,40 @@
    }
   },
   {
-   "t": 52.894,
+   "t": 52.325,
    "event": {
     "client": "CASE-026",
-    "at": 1789815485.904,
+    "at": 1789816192.624,
     "type": "transcript",
     "text": "Did any-",
     "final": false
    }
   },
   {
-   "t": 53.709,
+   "t": 53.331,
    "event": {
     "client": "CASE-026",
-    "at": 1789815486.718,
+    "at": 1789816193.63,
     "type": "transcript",
     "text": "Did anything at all hold up?",
     "final": false
    }
   },
   {
-   "t": 54.078,
+   "t": 53.704,
    "event": {
     "client": "CASE-026",
-    "at": 1789815487.087,
+    "at": 1789816194.003,
     "type": "transcript",
     "text": "Did anything at all hold up?",
     "final": true
    }
   },
   {
-   "t": 54.486,
+   "t": 54.141,
    "event": {
     "client": "CASE-026",
-    "at": 1789815487.495,
+    "at": 1789816194.441,
     "type": "answer",
     "question": "Did anything at all hold up?",
     "answers": [
@@ -787,7 +787,7 @@
    }
   },
   {
-   "t": 64.529,
+   "t": 64.194,
    "event": {
     "type": "demo_audio",
     "client": "CASE-026",
@@ -796,56 +796,56 @@
    }
   },
   {
-   "t": 65.408,
+   "t": 65.082,
    "event": {
     "client": "CASE-026",
-    "at": 1789815498.417,
+    "at": 1789816205.381,
     "type": "transcript",
     "text": "Fine.",
     "final": false
    }
   },
   {
-   "t": 66.418,
+   "t": 65.992,
    "event": {
     "client": "CASE-026",
-    "at": 1789815499.427,
+    "at": 1789816206.291,
     "type": "transcript",
     "text": "Fine. Send me the numbers",
     "final": false
    }
   },
   {
-   "t": 67.424,
+   "t": 67.003,
    "event": {
     "client": "CASE-026",
-    "at": 1789815500.433,
+    "at": 1789816207.303,
     "type": "transcript",
     "text": "Fine. Send me the numbers and we'll talk at the",
     "final": false
    }
   },
   {
-   "t": 68.175,
+   "t": 67.786,
    "event": {
     "client": "CASE-026",
-    "at": 1789815501.184,
+    "at": 1789816208.085,
     "type": "transcript",
     "text": "Fine. Send me the numbers and we'll talk at the review.",
     "final": true
    }
   },
   {
-   "t": 69.068,
+   "t": 68.728,
    "event": {
     "client": "CASE-026",
-    "at": 1789815502.077,
+    "at": 1789816209.027,
     "type": "listening_stopped",
     "source": "recorded"
    }
   },
   {
-   "t": 71.191,
+   "t": 70.852,
    "event": {
     "type": "call_ended",
     "client": "CASE-026",
@@ -853,7 +853,7 @@
    }
   },
   {
-   "t": 71.191,
+   "t": 70.852,
    "event": {
     "type": "demo_finished",
     "client": "CASE-026",

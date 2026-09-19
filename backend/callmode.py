@@ -71,9 +71,9 @@ def reasons(client, store, hit, as_of, base=None):
     if abs(book_move) >= MARKET_REASON and losers:
         t = losers[0]
         found.append((abs(book_move) * 100,
-                      f'the market move: {label(t.dimension, t.bucket)} {signed_pct(t.change)} today, '
-                      f'{pct(t.exposure / total)} of the book; about {signed_money(hit["impact"], ccy)} '
-                      f'({signed_pct(book_move)}) overall',
+                      f'the market: about {signed_money(hit["impact"], ccy)} today, {signed_pct(book_move)} of the book. '
+                      f'Mostly {label(t.dimension, t.bucket)}, {signed_pct(t.change)} on '
+                      f'{pct(t.exposure / total)} of it',
                       f'impact of the market feed on clients.json {ref} holdings'))
 
     cutoff = as_of - timedelta(days=548)
@@ -133,13 +133,15 @@ def _digest(client, hit, market):
     for t in falls[:3]:
         share = pct(t.exposure / total)
         via = sorted(t.positions.items(), key=lambda kv: -kv[1])[:2]
+        # Amount first, then what caused it: the advisor reads the number aloud and the
+        # cause only if the client asks again.
         if t.dimension == 'fx':
-            text = (f'{label(t.dimension, t.bucket).capitalize()} {signed_pct(t.change)} against the franc: '
-                    f'{share} of the book is exposed, about {signed_money(t.impact, ccy)}.')
+            text = (f'About {signed_money(t.impact, ccy)} from {label(t.dimension, t.bucket)}, '
+                    f'{signed_pct(t.change)} against the franc on {share} of the book.')
         else:
-            names = f', mostly via {" and ".join(n for n, _ in via)}' if t.dimension == 'industry' else ''
-            text = (f'{label(t.dimension, t.bucket)} {signed_pct(t.change)} today: {share} of the book, '
-                    f'about {signed_money(t.impact, ccy)}{names}.')
+            names = f', mostly {" and ".join(n for n, _ in via)}' if t.dimension == 'industry' else ''
+            text = (f'About {signed_money(t.impact, ccy)} from {label(t.dimension, t.bucket)}, '
+                    f'{signed_pct(t.change)} today on {share} of the book{names}.')
         yield Fact(f'digest.{t.dimension}.{t.bucket}', 'digest', text,
                    f'{market.source(t.dimension, t.bucket)} × clients.json {ref} holdings', -t.impact / total)
     if falls and hit['not_modelled'] / total >= 0.05:

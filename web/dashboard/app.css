@@ -43,7 +43,7 @@ main {
   overflow-y: auto;
   background: var(--card);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
 }
 .client-list li + li { border-top: 1px solid var(--line); }
 .client-list button {
@@ -60,7 +60,7 @@ main {
   gap: 2px;
 }
 .client-list button:hover { background: var(--page); }
-.client-list button[aria-current="true"] { background: var(--uro-blue); color: var(--on-blue); }
+.client-list button[aria-current="true"] { background: var(--uro-blue-dark); color: var(--on-blue); }
 .client-list button[aria-current="true"] .client-sub { color: var(--on-blue); opacity: 0.85; }
 .client-name { font-weight: 500; }
 .client-sub { font-size: var(--size-xs); color: var(--muted); }
@@ -76,7 +76,7 @@ main {
 .empty {
   background: var(--card);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
   padding: 40px var(--gutter);
   text-align: center;
   display: flex;
@@ -98,10 +98,12 @@ main {
   border: 0;
   border-radius: var(--radius);
   font: inherit;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
+  background: var(--uro-blue-dark);
+  color: var(--on-blue);
 }
-.btn.secondary { background: var(--card); color: var(--uro-blue-dark); border: 1px solid var(--line); }
+.btn.secondary { background: var(--card); color: var(--navy); border: 1px solid #C3CFD9; }
 .btn.wide { width: 100%; display: flex; justify-content: center; align-items: center; }
 
 /* --- who to call first --- */
@@ -109,7 +111,7 @@ main {
 .callfirst {
   background: var(--card);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
   padding: 12px;
   display: flex;
   flex-direction: column;
@@ -119,7 +121,7 @@ main {
 .tag {
   display: inline-block;
   padding: 1px 6px;
-  border-radius: 4px;
+  border-radius: 0;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -127,7 +129,7 @@ main {
 }
 .tag.sim { background: var(--amber); color: var(--ink); }
 .tag.ext { background: var(--page); color: var(--muted); margin-left: 6px; }
-.client-list button[aria-current="true"] .tag.ext { background: var(--uro-blue-dark); color: var(--on-blue); }
+.client-list button[aria-current="true"] .tag.ext { background: var(--navy); color: var(--on-blue); }
 
 .caller-list { list-style: none; margin: 0; padding: 0; counter-reset: caller; }
 .caller-list li + li { border-top: 1px solid var(--line); }

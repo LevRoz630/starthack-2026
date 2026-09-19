@@ -2,7 +2,7 @@
  "script": "holden",
  "client": "CASE-021",
  "scenario": "tech-selloff",
- "saved_at": "2026-09-19T13:00:02",
+ "saved_at": "2026-09-19T13:11:45",
  "events": [
   {
    "t": 0.0,
@@ -14,7 +14,7 @@
    }
   },
   {
-   "t": 0.001,
+   "t": 0.0,
    "event": {
     "type": "market",
     "market": {
@@ -253,7 +253,7 @@
    }
   },
   {
-   "t": 0.006,
+   "t": 0.005,
    "event": {
     "type": "incoming_call",
     "briefing": {
@@ -270,7 +270,7 @@
       "share": -0.00593,
       "not_modelled_share": 0.0
      },
-     "words": 75,
+     "words": 78,
      "sentences": [
       {
        "slot": "caller",
@@ -304,7 +304,7 @@
       },
       {
        "slot": "reason",
-       "text": "Possibly the market move: Financials −0.9% today, 65.8% of the book; about −CHF 4k (−0.6%) overall.",
+       "text": "Possibly the market: about −CHF 4k today, −0.6% of the book. Mostly Financials, −0.9% on 65.8% of it.",
        "facts": [
         "reason.1"
        ],
@@ -314,7 +314,7 @@
       },
       {
        "slot": "digest",
-       "text": "Financials −0.9% today: 65.8% of the book, about −CHF 4k, mostly via VZ Holding AG.",
+       "text": "About −CHF 4k from Financials, −0.9% today on 65.8% of the book, mostly VZ Holding AG.",
        "facts": [
         "digest.industry.Financials"
        ],
@@ -348,14 +348,14 @@
       {
        "id": "reason.1",
        "slot": "reason",
-       "text": "Possibly the market move: Financials −0.9% today, 65.8% of the book; about −CHF 4k (−0.6%) overall.",
+       "text": "Possibly the market: about −CHF 4k today, −0.6% of the book. Mostly Financials, −0.9% on 65.8% of it.",
        "source": "impact of the market feed on clients.json CASE-021 holdings",
        "weight": 0.5925598993435525
       },
       {
        "id": "digest.industry.Financials",
        "slot": "digest",
-       "text": "Financials −0.9% today: 65.8% of the book, about −CHF 4k, mostly via VZ Holding AG.",
+       "text": "About −CHF 4k from Financials, −0.9% today on 65.8% of the book, mostly VZ Holding AG.",
        "source": "market feed \"tech-selloff\": S5FINL Index CHG_PCT_1D × clients.json CASE-021 holdings",
        "weight": 0.005925598993435525
       }
@@ -365,23 +365,23 @@
    }
   },
   {
-   "t": 0.318,
+   "t": 0.078,
    "event": {
     "type": "_answered",
     "client": "CASE-021"
    }
   },
   {
-   "t": 0.55,
+   "t": 0.304,
    "event": {
     "client": "CASE-021",
-    "at": 1789815510.629,
+    "at": 1789816213.776,
     "type": "listening",
     "source": "recorded"
    }
   },
   {
-   "t": 1.56,
+   "t": 1.313,
    "event": {
     "type": "demo_audio",
     "client": "CASE-021",
@@ -390,68 +390,74 @@
    }
   },
   {
-   "t": 2.765,
+   "t": 2.62,
    "event": {
     "client": "CASE-021",
-    "at": 1789815512.844,
+    "at": 1789816216.092,
     "type": "transcript",
     "text": "Hello, it's H",
     "final": false
    }
   },
   {
-   "t": 3.873,
+   "t": 3.528,
    "event": {
     "client": "CASE-021",
-    "at": 1789815513.951,
+    "at": 1789816217.0,
     "type": "transcript",
     "text": "Hello, it's Holden. I saw the news.",
     "final": false
    }
   },
   {
-   "t": 4.78,
+   "t": 4.535,
    "event": {
     "client": "CASE-021",
-    "at": 1789815514.858,
+    "at": 1789816218.006,
     "type": "transcript",
     "text": "Hello, it's Holden. I saw the news this morning. How much do you-",
     "final": false
    }
   },
   {
-   "t": 5.587,
+   "t": 5.338,
    "event": {
     "client": "CASE-021",
-    "at": 1789815515.665,
+    "at": 1789816218.81,
     "type": "transcript",
     "text": "Hello, it's Holden. I saw the news this morning. How much did today cost",
     "final": false
    }
   },
   {
-   "t": 6.146,
+   "t": 5.979,
    "event": {
     "client": "CASE-021",
-    "at": 1789815516.225,
+    "at": 1789816219.45,
     "type": "transcript",
     "text": "Hello, it's Holden. I saw the news this morning. How much did today cost me?",
     "final": true
    }
   },
   {
-   "t": 6.671,
+   "t": 6.359,
    "event": {
     "client": "CASE-021",
-    "at": 1789815516.75,
+    "at": 1789816219.831,
     "type": "answer",
     "question": "Hello, it's Holden. I saw the news this morning. How much did today cost me?",
     "answers": [
      {
-      "text": "Possibly the market move: Financials −0.9% today, 65.8% of the book; about −CHF 4k (−0.6%) overall.",
+      "text": "Possibly the market: about −CHF 4k today, −0.6% of the book. Mostly Financials, −0.9% on 65.8% of it.",
       "source": "impact of the market feed on clients.json CASE-021 holdings",
       "fact": "reason.1",
       "slot": "reason"
+     },
+     {
+      "text": "About −CHF 4k from Financials, −0.9% today on 65.8% of the book, mostly VZ Holding AG.",
+      "source": "market feed \"tech-selloff\": S5FINL Index CHG_PCT_1D × clients.json CASE-021 holdings",
+      "fact": "digest.industry.Financials",
+      "slot": "digest"
      }
     ],
     "found": true,
@@ -459,7 +465,7 @@
    }
   },
   {
-   "t": 18.799,
+   "t": 18.567,
    "event": {
     "type": "demo_audio",
     "client": "CASE-021",
@@ -468,50 +474,50 @@
    }
   },
   {
-   "t": 19.508,
+   "t": 19.273,
    "event": {
     "client": "CASE-021",
-    "at": 1789815529.587,
+    "at": 1789816232.744,
     "type": "transcript",
     "text": "That's fine.",
     "final": false
    }
   },
   {
-   "t": 20.565,
+   "t": 20.28,
    "event": {
     "client": "CASE-021",
-    "at": 1789815530.644,
+    "at": 1789816233.751,
     "type": "transcript",
     "text": "That's less than I feel.",
     "final": false
    }
   },
   {
-   "t": 21.568,
+   "t": 21.285,
    "event": {
     "client": "CASE-021",
-    "at": 1789815531.646,
+    "at": 1789816234.757,
     "type": "transcript",
     "text": "That's less than I feared. Why did it barely",
     "final": false
    }
   },
   {
-   "t": 22.546,
+   "t": 22.224,
    "event": {
     "client": "CASE-021",
-    "at": 1789815532.624,
+    "at": 1789816235.696,
     "type": "transcript",
     "text": "That's less than I feared. Why did it barely move?",
     "final": true
    }
   },
   {
-   "t": 23.003,
+   "t": 22.711,
    "event": {
     "client": "CASE-021",
-    "at": 1789815533.081,
+    "at": 1789816236.183,
     "type": "answer",
     "question": "That's less than I feared. Why did it barely move?",
     "answers": [
@@ -540,7 +546,7 @@
    }
   },
   {
-   "t": 35.944,
+   "t": 35.711,
    "event": {
     "type": "demo_audio",
     "client": "CASE-021",
@@ -549,50 +555,50 @@
    }
   },
   {
-   "t": 36.72,
+   "t": 36.421,
    "event": {
     "client": "CASE-021",
-    "at": 1789815546.798,
+    "at": 1789816249.893,
     "type": "transcript",
     "text": "And",
     "final": false
    }
   },
   {
-   "t": 37.728,
+   "t": 37.427,
    "event": {
     "client": "CASE-021",
-    "at": 1789815547.806,
+    "at": 1789816250.898,
     "type": "transcript",
     "text": "And how much of it is just",
     "final": false
    }
   },
   {
-   "t": 38.738,
+   "t": 38.435,
    "event": {
     "client": "CASE-021",
-    "at": 1789815548.816,
+    "at": 1789816251.906,
     "type": "transcript",
     "text": "And how much of it is just sitting in cash doing",
     "final": false
    }
   },
   {
-   "t": 39.686,
+   "t": 39.459,
    "event": {
     "client": "CASE-021",
-    "at": 1789815549.764,
+    "at": 1789816252.931,
     "type": "transcript",
     "text": "And how much of it is just sitting in cash doing nothing?",
     "final": true
    }
   },
   {
-   "t": 40.128,
+   "t": 39.896,
    "event": {
     "client": "CASE-021",
-    "at": 1789815550.207,
+    "at": 1789816253.367,
     "type": "answer",
     "question": "And how much of it is just sitting in cash doing nothing?",
     "answers": [
@@ -614,7 +620,7 @@
    }
   },
   {
-   "t": 53.194,
+   "t": 52.966,
    "event": {
     "type": "demo_audio",
     "client": "CASE-021",
@@ -623,53 +629,59 @@
    }
   },
   {
-   "t": 53.813,
+   "t": 53.842,
    "event": {
     "client": "CASE-021",
-    "at": 1789815563.892,
+    "at": 1789816267.314,
     "type": "transcript",
     "text": "So",
     "final": false
    }
   },
   {
-   "t": 54.919,
+   "t": 54.743,
    "event": {
     "client": "CASE-021",
-    "at": 1789815564.997,
+    "at": 1789816268.215,
     "type": "transcript",
     "text": "So is my portfolio",
     "final": false
    }
   },
   {
-   "t": 55.926,
+   "t": 55.757,
    "event": {
     "client": "CASE-021",
-    "at": 1789815566.004,
+    "at": 1789816269.228,
     "type": "transcript",
     "text": "So is my portfolio too cautious, then?",
     "final": false
    }
   },
   {
-   "t": 56.388,
+   "t": 56.316,
    "event": {
     "client": "CASE-021",
-    "at": 1789815566.466,
+    "at": 1789816269.788,
     "type": "transcript",
     "text": "So is my portfolio too cautious then?",
     "final": true
    }
   },
   {
-   "t": 56.85,
+   "t": 56.771,
    "event": {
     "client": "CASE-021",
-    "at": 1789815566.928,
+    "at": 1789816270.242,
     "type": "answer",
     "question": "So is my portfolio too cautious then?",
     "answers": [
+     {
+      "text": "Possibly the market: about −CHF 4k today, −0.6% of the book. Mostly Financials, −0.9% on 65.8% of it.",
+      "source": "impact of the market feed on clients.json CASE-021 holdings",
+      "fact": "reason.1",
+      "slot": "reason"
+     },
      {
       "text": "1 holding above the product risk class limit of Investor profile 3 (maximum 4): VZ Holding AG, 65.8% of the book.",
       "source": "reference.json Securities.PRC vs RiskProfiles.MaxPRC; clients.json CASE-021 positions",
@@ -681,12 +693,6 @@
       "source": "clients.json CASE-021: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName",
       "fact": "watch.industry.Financials",
       "slot": "watch"
-     },
-     {
-      "text": "VZ Holding AG drives 100.0% of the volatility of Account / Custody (CASE-021-01).",
-      "source": "clients.json CASE-021: Portfolios[CASE-021-01].SecurityPositions.ContributionVolatility",
-      "fact": "watch.risk.CASE-021-01",
-      "slot": "watch"
      }
     ],
     "found": true,
@@ -694,7 +700,7 @@
    }
   },
   {
-   "t": 71.042,
+   "t": 70.822,
    "event": {
     "type": "demo_audio",
     "client": "CASE-021",
@@ -703,60 +709,60 @@
    }
   },
   {
-   "t": 71.74,
+   "t": 71.576,
    "event": {
     "client": "CASE-021",
-    "at": 1789815581.819,
+    "at": 1789816285.048,
     "type": "transcript",
     "text": "I've",
     "final": false
    }
   },
   {
-   "t": 72.829,
+   "t": 72.484,
    "event": {
     "client": "CASE-021",
-    "at": 1789815582.907,
+    "at": 1789816285.956,
     "type": "transcript",
     "text": "I've been thinking about Swiss",
     "final": false
    }
   },
   {
-   "t": 73.735,
+   "t": 73.49,
    "event": {
     "client": "CASE-021",
-    "at": 1789815583.813,
+    "at": 1789816286.962,
     "type": "transcript",
     "text": "I've been thinking about Swiss small caps.",
     "final": false
    }
   },
   {
-   "t": 74.839,
+   "t": 74.496,
    "event": {
     "client": "CASE-021",
-    "at": 1789815584.918,
+    "at": 1789816287.968,
     "type": "transcript",
     "text": "I've been thinking about Swiss small caps. What about those?",
     "final": false
    }
   },
   {
-   "t": 74.935,
+   "t": 74.748,
    "event": {
     "client": "CASE-021",
-    "at": 1789815585.014,
+    "at": 1789816288.219,
     "type": "transcript",
     "text": "I've been thinking about Swiss small caps. What about those?",
     "final": true
    }
   },
   {
-   "t": 75.413,
+   "t": 75.22,
    "event": {
     "client": "CASE-021",
-    "at": 1789815585.492,
+    "at": 1789816288.692,
     "type": "answer",
     "question": "I've been thinking about Swiss small caps. What about those?",
     "answers": [
@@ -784,7 +790,7 @@
    }
   },
   {
-   "t": 86.472,
+   "t": 86.256,
    "event": {
     "type": "demo_audio",
     "client": "CASE-021",
@@ -793,46 +799,46 @@
    }
   },
   {
-   "t": 87.212,
+   "t": 87.148,
    "event": {
     "client": "CASE-021",
-    "at": 1789815597.291,
+    "at": 1789816300.619,
     "type": "transcript",
     "text": "Right.",
     "final": false
    }
   },
   {
-   "t": 88.219,
+   "t": 88.154,
    "event": {
     "client": "CASE-021",
-    "at": 1789815598.298,
+    "at": 1789816301.626,
     "type": "transcript",
     "text": "Right. Call me before you",
     "final": false
    }
   },
   {
-   "t": 89.342,
+   "t": 89.088,
    "event": {
     "client": "CASE-021",
-    "at": 1789815599.42,
+    "at": 1789816302.56,
     "type": "transcript",
     "text": "Right. Call me before you change anything.",
     "final": true
    }
   },
   {
-   "t": 90.303,
+   "t": 90.09,
    "event": {
     "client": "CASE-021",
-    "at": 1789815600.381,
+    "at": 1789816303.561,
     "type": "listening_stopped",
     "source": "recorded"
    }
   },
   {
-   "t": 92.464,
+   "t": 92.213,
    "event": {
     "type": "call_ended",
     "client": "CASE-021",
@@ -840,7 +846,7 @@
    }
   },
   {
-   "t": 92.464,
+   "t": 92.213,
    "event": {
     "type": "demo_finished",
     "client": "CASE-021",
