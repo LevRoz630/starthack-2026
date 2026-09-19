@@ -204,6 +204,16 @@ function answerCard(entry) {
     return card;
   }
   for (const a of entry.answers) {
+    // A 'talk' fact is the playbook telling the advisor how to say it, not a
+    // number to read out. Mark it so the two never look like the same thing.
+    if (a.slot === 'talk') {
+      const coach = el('div', 'coach');
+      coach.append(el('span', 'coach-label', 'Say it like this'));
+      coach.append(el('p', 'a', a.text));
+      coach.append(el('p', 'src', a.source));
+      card.append(coach);
+      continue;
+    }
     card.append(el('p', 'a', a.text));
     card.append(el('p', 'src', a.source));
   }

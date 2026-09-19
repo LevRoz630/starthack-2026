@@ -80,6 +80,20 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 .answer-card .src { font-size: var(--size-xs); color: var(--muted); margin-top: 4px; overflow-wrap: anywhere; }
 .answer-card.none { border-left-color: var(--amber); }
 
+/* Coaching for the advisor, not a number for the client: set back on the page
+   grey with its own label so it never reads as something to say verbatim. */
+.coach { margin-top: 10px; padding: 8px 10px; border-radius: 6px; background: var(--page); }
+.coach .coach-label {
+  display: block;
+  font-size: var(--size-xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.coach .a { font-weight: 500; font-style: italic; }
+
 .more summary { cursor: pointer; font-weight: 600; min-height: var(--tap); display: flex; align-items: center; }
 .more .brief { margin-top: var(--gap); }
 .more .card { box-shadow: none; padding: 0; border-radius: 0; }

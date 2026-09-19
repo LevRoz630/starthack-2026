@@ -57,7 +57,9 @@ Return JSON only: {"facts": [<numbers>]}"""
 
 
 def _card(f):
-    return {'text': f.text, 'source': f.source, 'fact': f.id}
+    # 'slot' lets the phone tell a fact meant for the client apart from a 'talk'
+    # line, which is the playbook coaching the advisor on how to say it.
+    return {'text': f.text, 'source': f.source, 'fact': f.id, 'slot': f.slot}
 
 
 def _pick(facts, plan):
@@ -110,6 +112,22 @@ def on_topic(chosen, question):
     return not wanted or any(t in f.text.lower() for f in chosen for t in wanted)
 
 
+def only_on_topic(chosen, question):
+    """The chosen facts that actually mention what was asked about.
+
+    on_topic() judges the set, so one matching fact used to carry unrelated ones
+    onto the screen with it — "is my world fund hit by the dollar?" answered with
+    the hedged share classes *and* a Health Care exposure. A card the client did
+    not ask for reads as a non-sequitur during a call, so drop it: one right
+    answer beats a right one next to a wrong one.
+    """
+    wanted = topics(question)
+    if not wanted:
+        return chosen
+    kept = [f for f in chosen if any(t in f.text.lower() for t in wanted)]
+    return kept or chosen
+
+
 def by_keywords(facts, question):
     terms = {SYNONYMS.get(w, w) for w in WORD.findall(question.lower()) if w not in STOP and len(w) > 2}
     scored = []
@@ -141,7 +159,7 @@ def answer(facts, question, use_llm=True, graph=None):
     for f in facts:
         # The call's "Open issue: ..." repeats a health fact word for word; keep one of them.
         key = re.sub(r'^Open issue:\s*', '', f.text)
-        if f.id not in seen and key not in seen and f.slot != 'caller':
+        if f.id not in seen and key not in seen and f.slot not in ('caller', 'reason'):
             seen.update((f.id, key))
             unique.append(f)
     for method, finder in (('type', by_type), ('llm', by_llm if use_llm else None), ('keywords', by_keywords)):
@@ -149,5 +167,7 @@ def answer(facts, question, use_llm=True, graph=None):
             continue
         chosen = finder(unique, question)
         if chosen and (method == 'type' or on_topic(chosen, question)):
+            if method != 'type':
+                chosen = only_on_topic(chosen, question)
             return {'answers': [_card(f) for f in chosen], 'found': True, 'method': method}
     return {'answers': [], 'found': False, 'method': 'none'}
