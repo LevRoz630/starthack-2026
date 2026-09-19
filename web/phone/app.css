@@ -1,74 +1,24 @@
-/* All visual choices live in these tokens; restyle here first. URO companion look. */
+/* Shared tokens, base reset, .bar/.brand/.conn/.eyebrow/.ref/h1/p live in
+   web/shared/tokens.css (linked before this file). Page-specific tokens and
+   overrides only below. */
 :root {
-  --uro-blue: #5499E4;
-  --uro-blue-dark: #3F7FC8;
-  --page: #E9E9E9;
-  --card: #FFFFFF;
-  --ink: #2A292F;
-  --muted: #6B6A72;
-  --line: #D9D9DE;
-  --red: #E85A54;
-  --amber: #F2E06D;
-  --green: #3BA776;
-  --on-blue: #FFFFFF;
-
-  --font: "Fira Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --size-xs: 12px;
-  --size-s: 14px;
-  --size-m: 16px;
-  --size-l: 20px;
-  --size-xl: 28px;
   --size-hero: 40px;
-
   --gutter: 16px;
-  --gap: 12px;
-  --radius: 10px;
   --tap: 48px;
-  --shadow: 0 1px 2px rgba(42, 41, 47, 0.08), 0 2px 8px rgba(42, 41, 47, 0.06);
 }
 
-* { box-sizing: border-box; }
-
 html, body {
-  margin: 0;
-  background: var(--page);
-  color: var(--ink);
-  font-family: var(--font);
-  font-size: var(--size-m);
-  line-height: 1.4;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
 }
 
-.bar {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--gap);
-  padding: calc(env(safe-area-inset-top) + 12px) var(--gutter) 12px;
-  background: var(--uro-blue);
-  color: var(--on-blue);
-}
-.brand { font-weight: 700; letter-spacing: 0.04em; }
-
-.conn { display: inline-flex; align-items: center; gap: 6px; font-size: var(--size-s); }
-.conn .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--amber); }
-.conn[data-state="open"] .dot { background: var(--green); }
-.conn[data-state="closed"] .dot { background: var(--red); }
+.bar { padding: calc(env(safe-area-inset-top) + 12px) var(--gutter) 12px; }
 
 main { max-width: 480px; margin: 0 auto; padding: var(--gutter); }
 .screen { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: calc(var(--tap) + 2 * var(--gutter)); }
 .screen[hidden] { display: none; }
 
-h1 { margin: 0; font-size: var(--size-xl); font-weight: 600; overflow-wrap: anywhere; }
 h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
-p { margin: 0; }
-
-.eyebrow { font-size: var(--size-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-.ref { color: var(--muted); font-size: var(--size-s); }
 
 .card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: var(--gutter); }
 .idle { display: flex; flex-direction: column; gap: var(--gap); }

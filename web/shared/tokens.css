@@ -1,0 +1,62 @@
+/* Design tokens and base rules shared by web/phone and web/dashboard.
+   Each page links this first, then its own app.css layers page-specific
+   tokens (e.g. --gutter, --tap) and page-only rules on top. */
+:root {
+  --uro-blue: #5499E4;
+  --uro-blue-dark: #3F7FC8;
+  --page: #E9E9E9;
+  --card: #FFFFFF;
+  --ink: #2A292F;
+  --muted: #6B6A72;
+  --line: #D9D9DE;
+  --red: #E85A54;
+  --amber: #F2E06D;
+  --green: #3BA776;
+  --on-blue: #FFFFFF;
+
+  --font: "Fira Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --size-xs: 12px;
+  --size-s: 14px;
+  --size-m: 16px;
+  --size-l: 20px;
+  --size-xl: 28px;
+
+  --gap: 12px;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(42, 41, 47, 0.08), 0 2px 8px rgba(42, 41, 47, 0.06);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--size-m);
+  line-height: 1.4;
+}
+
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+  background: var(--uro-blue);
+  color: var(--on-blue);
+}
+.brand { font-weight: 700; letter-spacing: 0.04em; }
+
+.conn { display: inline-flex; align-items: center; gap: 6px; font-size: var(--size-s); }
+.conn .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--amber); }
+.conn[data-state="open"] .dot { background: var(--green); }
+.conn[data-state="closed"] .dot { background: var(--red); }
+
+h1 { margin: 0; font-size: var(--size-xl); font-weight: 600; overflow-wrap: anywhere; }
+p { margin: 0; }
+.muted { color: var(--muted); }
+.eyebrow { font-size: var(--size-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.ref { color: var(--muted); font-size: var(--size-s); }

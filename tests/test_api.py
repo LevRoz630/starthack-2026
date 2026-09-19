@@ -73,6 +73,14 @@ def test_phone_app_is_served(client):
     assert client.get('/phone/app.js').status_code == 200
 
 
+def test_dashboard_and_shared_assets_are_served(client):
+    r = client.get('/dashboard/')
+    assert r.status_code == 200 and 'app.js' in r.text
+    assert client.get('/dashboard/app.js').status_code == 200
+    assert client.get('/shared/tokens.css').status_code == 200
+    assert client.get('/shared/dom.js').status_code == 200
+
+
 def test_external_custody_clients_are_loaded(client):
     refs = {r['client'] for r in client.get('/clients').json()}
     assert {'EXT-01', 'EXT-10'} <= refs

@@ -39,9 +39,11 @@ DEMO_SCENARIO=tech-selloff uvicorn backend.api:app --port 8000
 | `WS /ws` | events: `hello`, `market`, `incoming_call`, `transcript`, `answer`, `listening`, `listening_stopped`, `listener_error` |
 
 Also: `POST /transcribe` (audio → text → answers, ElevenLabs Scribe), `GET /profile/{ref}`,
-`GET /call/{ref}/audio` and `GET /briefing/{ref}/audio` (spoken, ElevenLabs Flash). The real-time
-call listener, Twilio webhook and demo pipelines are documented in `backend/listener.py` and
-under [Demo pipelines](#demo-pipelines) below.
+`GET /call/{ref}/audio` and `GET /briefing/{ref}/audio` (spoken, ElevenLabs Flash),
+`POST /call/answered` and `POST /followup/send` (call note / email, see below),
+`GET /demo/scripts`, `POST /demo/run`, `POST /demo/stop`, `GET /demo/audio/{name}`. The
+real-time call listener, Twilio webhook and demo pipelines are documented in
+`backend/listener.py` and under [Demo pipelines](#demo-pipelines) below.
 
 `GET /dashboard/` — the one-click 60-second briefing (`web/dashboard/`): pick a client, see the
 briefing with every sentence's source, word count and reading-time estimate, section-coverage

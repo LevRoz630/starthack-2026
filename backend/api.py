@@ -32,6 +32,7 @@ Endpoints (JSON unless noted):
     WS   /listen?client=REF            browser microphone (16 kHz PCM16 frames) -> live transcript + answers on /ws
     GET  /phone/                       the advisor phone app (web/phone)
     GET  /dashboard/                   the one-click 60-second briefing dashboard (web/dashboard)
+    GET  /shared/*                     CSS tokens and DOM helpers shared by both web apps (web/shared)
 
 External custody clients EXT-01..EXT-10 (from the side-challenge PDFs) are loaded at startup.
 Environment: DEMO_SCENARIO preloads a scenario; BRIEFING_LLM=0 turns off Apertus phrasing.
@@ -63,6 +64,7 @@ from .market import MarketState, load_scenario, scenarios
 PHONEBOOK = ROOT / 'data' / 'phonebook.json'
 PHONE_APP = ROOT / 'web' / 'phone'
 DASHBOARD_APP = ROOT / 'web' / 'dashboard'
+SHARED_APP = ROOT / 'web' / 'shared'
 
 
 class State:
@@ -555,6 +557,7 @@ app = Starlette(
         Route('/demo/audio/{name}', demo_audio),
         Mount('/phone', StaticFiles(directory=PHONE_APP, html=True), name='phone'),
         Mount('/dashboard', StaticFiles(directory=DASHBOARD_APP, html=True), name='dashboard'),
+        Mount('/shared', StaticFiles(directory=SHARED_APP), name='shared'),
     ],
     middleware=[Middleware(CORSMiddleware, allow_origins=['*'], allow_methods=['*'], allow_headers=['*'])],
     lifespan=lifespan,

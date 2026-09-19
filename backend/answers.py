@@ -15,17 +15,12 @@ Four layers, first one that finds something wins (the first needs a fact graph):
 3. Keywords, with everyday words mapped to the words the facts use.
 """
 
-import json
 import re
-from concurrent.futures import ThreadPoolExecutor
-from concurrent.futures import TimeoutError as FutureTimeout
 
 from . import reasoning
-from .llm import LLMUnavailable, chat
 
 MAX_ANSWERS = 3
 LLM_TIMEOUT = 4.0
-_POOL = ThreadPoolExecutor(max_workers=2)
 
 SYNONYMS = {
     'tech': 'information technology', 'technology': 'information technology',
@@ -79,10 +74,8 @@ def by_llm(facts, question):
     listing = '\n'.join(f'{i}. [{f.slot}] {f.text}' for i, f in enumerate(facts, 1))
     messages = [{'role': 'system', 'content': SYSTEM},
                 {'role': 'user', 'content': f'Question: {question}\n\nFacts:\n{listing}'}]
-    try:
-        raw, _ = _POOL.submit(chat, messages, 0.0, 60).result(timeout=LLM_TIMEOUT)
-        picked = json.loads(raw[raw.find('{'):raw.rfind('}') + 1])['facts']
-    except (FutureTimeout, LLMUnavailable, ValueError, KeyError, TypeError):
+    picked = reasoning.llm_json(messages, 'facts', LLM_TIMEOUT, max_tokens=60)
+    if picked is None:
         return []
     out = []
     for n in picked if isinstance(picked, list) else []:

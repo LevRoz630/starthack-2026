@@ -1,6 +1,8 @@
 // Advisor dashboard: pick a client, one click, the 60-second briefing.
 // All API text is rendered with textContent, never as HTML.
 
+import { $, $$, el, bySlot, chf } from '/shared/dom.js';
+
 const params = new URLSearchParams(location.search);
 const API = (params.get('api') || location.origin).replace(/\/$/, '');
 
@@ -11,18 +13,6 @@ const SLOT_TITLES = {
 const SLOT_ORDER = Object.keys(SLOT_TITLES);
 
 const state = { clients: [], filter: '', selected: null, poll: null };
-
-const $ = (sel, root = document) => root.querySelector(sel);
-const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
-
-function el(tag, className, text) {
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  if (text !== undefined) node.textContent = text;
-  return node;
-}
-
-const chf = new Intl.NumberFormat('de-CH', { maximumFractionDigits: 0 });
 
 // --- client list --------------------------------------------------------------
 
@@ -104,12 +94,6 @@ function renderError(ref, e) {
   $('#b-coverage').textContent = '';
   $('#b-provider').textContent = '';
   $('#rejected-box').hidden = true;
-}
-
-function bySlot(b) {
-  const groups = {};
-  for (const s of b.sentences || []) (groups[s.slot] ||= []).push(s);
-  return groups;
 }
 
 function renderBriefing(b) {

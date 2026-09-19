@@ -45,8 +45,10 @@ so Approve writes to `data/outbox/`. The server reads `.env` at start: restart a
 
 ## Open items, in priority order
 
-1. **Dashboard web page** (laptop, the rubric: one-click 60-second briefing, "who to call
-   first" from `GET /callers`, test-client upload via `POST /clients`). Only its API exists.
+1. **Dashboard web page** (`web/dashboard/`, the rubric): one-click 60-second briefing with
+   per-sentence sources, word count, reading-time estimate, section coverage, claim-checker
+   rejections, a Listen button, and test-client upload (`POST /clients`) are built. Still
+   missing: "who to call first" from `GET /callers` — the dashboard doesn't call it yet.
 2. **Real browser click-through of the phone app** (never clicked through; only API-tested):
    ringing, Answer, recorded call audio, answer cards incl. chain rendering, Approve.
 3. **Phone styling** to the user's Nano Banana mockups (tokens are CSS variables in `app.css`).

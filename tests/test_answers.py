@@ -1,6 +1,6 @@
 import pytest
 
-from backend import answers
+from backend import answers, reasoning
 from backend.callmode import call_facts
 from backend.data import load
 from backend.facts import compute
@@ -45,7 +45,7 @@ def test_the_open_issue_copy_is_not_answered_twice(facts):
 
 
 def test_llm_may_only_pick_listed_facts(facts, monkeypatch):
-    monkeypatch.setattr(answers, 'chat', lambda *a, **kw: ('{"facts": [999, "x", 3]}', 'apertus'))
+    monkeypatch.setattr(reasoning, 'chat', lambda *a, **kw: ('{"facts": [999, "x", 3]}', 'apertus'))
     chosen = answers.by_llm([f for f in facts if f.slot != 'caller'], 'How much have I lost on tech?')
     assert len(chosen) == 1
 
@@ -53,14 +53,14 @@ def test_llm_may_only_pick_listed_facts(facts, monkeypatch):
 def test_off_topic_llm_picks_are_dropped(facts, monkeypatch):
     # Apertus picks the portfolio value for an ESG question: nothing about ESG, so no answer.
     development = next(i for i, f in enumerate([f for f in facts if f.slot != 'caller'], 1) if f.slot == 'development')
-    monkeypatch.setattr(answers, 'chat', lambda *a, **kw: (f'{{"facts": [{development}]}}', 'apertus'))
+    monkeypatch.setattr(reasoning, 'chat', lambda *a, **kw: (f'{{"facts": [{development}]}}', 'apertus'))
     r = answers.answer(facts, 'Is my portfolio sustainable enough?', use_llm=True)
     assert r == {'answers': [], 'found': False, 'method': 'none'}
 
 
 def test_llm_failure_falls_back_to_keywords(facts, monkeypatch):
     def down(*a, **kw):
-        raise answers.LLMUnavailable('no key')
-    monkeypatch.setattr(answers, 'chat', down)
+        raise reasoning.LLMUnavailable('no key')
+    monkeypatch.setattr(reasoning, 'chat', down)
     r = answers.answer(facts, 'How much have I lost on tech?', use_llm=True)
     assert r['method'] == 'keywords' and 'Information Technology' in r['answers'][0]['text']

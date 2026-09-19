@@ -1,6 +1,8 @@
 // Advisor phone: idle -> ringing -> in call -> after call.
 // All API text is rendered with textContent, never as HTML.
 
+import { $, $$, el, bySlot, chf } from '/shared/dom.js';
+
 const params = new URLSearchParams(location.search);
 const API = (params.get('api') || location.origin).replace(/\/$/, '');
 const WS_BASE = API.replace(/^http/, 'ws');
@@ -25,19 +27,7 @@ const state = {
   line: null,         // 'twilio' while the phone line is being transcribed
 };
 
-const $ = (sel, root = document) => root.querySelector(sel);
-const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
-
-function el(tag, className, text) {
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  if (text !== undefined) node.textContent = text;
-  return node;
-}
-
 // --- formatting -------------------------------------------------------------
-
-const chf = new Intl.NumberFormat('de-CH', { maximumFractionDigits: 0 });
 
 function signedMoney(amount, ccy = 'CHF') {
   const sign = amount < 0 ? '−' : '+';
@@ -60,12 +50,6 @@ function show(screen) {
   state.screen = screen;
   for (const section of $$('.screen')) section.hidden = section.dataset.screen !== screen;
   window.scrollTo(0, 0);
-}
-
-function bySlot(briefing) {
-  const groups = {};
-  for (const s of briefing.sentences || []) (groups[s.slot] ||= []).push(s);
-  return groups;
 }
 
 function callerName(briefing) {

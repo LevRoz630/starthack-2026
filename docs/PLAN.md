@@ -383,6 +383,10 @@ German and French.
 10. Stretch, pick at most two: more scenarios (new deposit, risk-tolerance change,
     maturity), earbud whisper, spoken summary before pickup, suitability objection,
     German/French or Swiss German, ex-custody PDF import, more public sources.
+    (Update: more than two ended up built — new deposit, maturity, suitability
+    objection, Swiss German and ex-custody import are all in; see docs/HANDOFF.md
+    for current status. Risk-tolerance change was dropped: the data has no
+    per-client risk-profile history, only the current value plus `ProfilingDateUtc`.)
 
 If Twilio fights us, the fallback for the video is the call on a second device next
 to the advisor's phone, listening through our web app — same backend, same cards.
@@ -412,7 +416,8 @@ Say so if asked; the production path is the telephony route.
 - [ ] Film only teammates; a quiet spot with a putting green or park.
 - [ ] Say on stage that the market move is simulated and the scene is acted.
 - [ ] Sector-level moves approximate each security's move — say so if asked.
-- [ ] Have a native speaker judge the Swiss German TTS sample (only if we do that stretch).
+- [ ] Have a native speaker judge the Swiss German TTS sample — built (`backend/voice.py
+      --dialect`), untested by ear.
 - [ ] No cloned voices of real people.
 - [ ] The ElevenLabs account has an unrelated agent ("CallKeep – Thames Valley
       Plumbing") — leave it alone.

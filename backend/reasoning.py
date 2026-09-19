@@ -35,6 +35,17 @@ LLM_TIMEOUT = 5.0
 _POOL = ThreadPoolExecutor(max_workers=2)
 MIN_SHARE = 0.001          # impacts under 0.1% of the book are folded into "everything else"
 
+
+def llm_json(messages, key, timeout, max_tokens=600):
+    """chat(), bounded by a wall-clock timeout, parsed as {key: ...} from the first
+    {...} in the reply. None on any failure (timeout, no key, bad JSON) — every
+    caller (here and backend/answers.py) falls back to its own rule-based answer."""
+    try:
+        raw, _ = _POOL.submit(chat, messages, 0.0, max_tokens).result(timeout=timeout)
+        return json.loads(raw[raw.find('{'):raw.rfind('}') + 1])[key]
+    except (FutureTimeout, LLMUnavailable, ValueError, KeyError, TypeError):
+        return None
+
 # How to read an edge between consecutive steps: (relation, previous step is the edge's source).
 LINK_WORDS = {
     ('part_of', True): 'adding up to', ('part_of', False): 'made up of',
@@ -356,10 +367,8 @@ def by_llm(g, question):
     edges = '\n'.join(f'{s} -[{r}]-> {d}' for s, d, r in sorted(g.edges))
     messages = [{'role': 'system', 'content': SYSTEM},
                 {'role': 'user', 'content': f'Question: {question}\n\nFacts:\n{nodes}\n\nEdges:\n{edges}'}]
-    try:
-        raw, _ = _POOL.submit(chat, messages, 0.0, 120).result(timeout=LLM_TIMEOUT)
-        path = json.loads(raw[raw.find('{'):raw.rfind('}') + 1])['path']
-    except (FutureTimeout, LLMUnavailable, ValueError, KeyError, TypeError):
+    path = llm_json(messages, 'path', LLM_TIMEOUT, max_tokens=120)
+    if path is None:
         return []
     if not isinstance(path, list) or not 2 <= len(path) <= 5 or len(set(map(str, path))) != len(path):
         return []
