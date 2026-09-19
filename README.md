@@ -4,6 +4,7 @@ Team **Look Mom I am Quant** — START Hack Tour St. Gallen 2026.
 
 Case: **UNRISKOMEGA** — [github.com/START-Hack/unriskomega-2026](https://github.com/START-Hack/unriskomega-2026).
 
+- [docs/DEMO-RUNBOOK.md](docs/DEMO-RUNBOOK.md) — **for the stage**: setup, which buttons, what the judges will see, what to do when something fails. Run `python -m backend.preflight` first.
 - [docs/HANDOFF.md](docs/HANDOFF.md) — **start here**: what is built, how to run it, what is left.
 - [docs/PLAN.md](docs/PLAN.md) — the case brief from the kickoff slides, and what we are building.
 - [docs/JUDGES.md](docs/JUDGES.md) — partner contacts from the kickoff.
