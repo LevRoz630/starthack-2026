@@ -52,7 +52,9 @@ connect_stt = websockets.connect
 FILLER = {'yes', 'yeah', 'no', 'okay', 'ok', 'hello', 'hi', 'thanks', 'thank you', 'bye', 'goodbye', 'right',
           'sure', 'mhm', 'uh', 'um', 'hmm', 'alright', 'good', 'great', 'fine'}
 QUESTION_WORDS = ('how', 'what', 'why', 'when', 'where', 'which', 'who', 'is', 'are', 'did', 'do', 'does', 'can',
-                  'could', 'should', 'will', 'would', 'have', 'has', 'tell', 'explain', 'show')
+                  'could', 'should', 'will', 'would', 'have', 'has')
+# Not questions, but the client is still asking to be told something.
+REQUEST_WORDS = ('tell', 'explain', 'show')
 
 
 # --- mu-law (G.711), since Python 3.13 removed audioop ---------------------------
@@ -91,12 +93,19 @@ def pcm16_to_ulaw(data):
 # --- what to answer ---------------------------------------------------------------
 
 def is_question(text):
-    """Worth answering: a question, or a request of at least three words that is not filler."""
+    """Worth answering: a question mark, a question word, or a request to be told something.
+
+    A plain statement is not worth answering. The advisor reads these cards mid-call, so a
+    card they did not ask for costs them the seconds they have. The recorded golf call shows
+    the STT punctuates: every real question ended in '?' and the sign-off did not.
+    """
     clean = re.sub(r'[^\w\s?]', '', (text or '').lower()).strip()
     if not clean or clean.rstrip('?').strip() in FILLER:
         return False
+    if clean.endswith('?'):
+        return True
     words = clean.rstrip('?').split()
-    return clean.endswith('?') or (len(words) >= 3 and words[0] in QUESTION_WORDS) or len(words) >= 5
+    return len(words) >= 3 and words[0] in QUESTION_WORDS + REQUEST_WORDS
 
 
 # --- Twilio -------------------------------------------------------------------------

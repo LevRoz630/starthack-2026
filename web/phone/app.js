@@ -1,7 +1,7 @@
 // Advisor phone: idle -> ringing -> in call -> after call.
 // All API text is rendered with textContent, never as HTML.
 
-import { $, $$, el, bySlot, chf, renderGroup } from '/shared/dom.js';
+import { $, $$, el, answerCard, askAbout, bySlot, chf, renderGroup } from '/shared/dom.js';
 
 const params = new URLSearchParams(location.search);
 const API = (params.get('api') || location.origin).replace(/\/$/, '');
@@ -162,50 +162,12 @@ function answer() {
 }
 
 async function ask(question) {
-  question = (question || '').trim();
-  if (!question || !state.briefing) return null;
-  let result;
-  try {
-    const resp = await fetch(`${API}/ask`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ client: state.briefing.client, question }),
-    });
-    result = resp.ok ? await resp.json() : { answers: [], error: `HTTP ${resp.status}` };
-  } catch (e) {
-    result = { answers: [], error: 'No connection' };
-  }
-  const entry = { question, answers: result.answers || [], error: result.error, chain: !!result.chain };
+  if (!state.briefing) return null;
+  const entry = await askAbout(API, state.briefing.client, question);
+  if (!entry) return null;
   state.answers.unshift(entry);
   $('#answers').prepend(answerCard(entry));
   return entry;
-}
-
-function answerCard(entry) {
-  const card = el('li', `answer-card${entry.answers.length ? '' : ' none'}`);
-  card.append(el('p', 'q', `“${entry.question}”`));
-  if (!entry.answers.length) {
-    card.append(el('p', 'a', entry.error ? `Could not answer: ${entry.error}` : 'Nothing in the data answers this.'));
-  }
-  if (entry.chain) {
-    // A chain of facts: numbered steps, each with the link to the step before it.
-    card.classList.add('chain');
-    const steps = el('ol', 'steps');
-    for (const a of entry.answers) {
-      const step = el('li', 'step');
-      if (a.link) step.append(el('span', 'link', a.link));
-      step.append(el('p', 'a', a.text));
-      step.append(el('p', 'src', a.source));
-      steps.append(step);
-    }
-    card.append(steps);
-    return card;
-  }
-  for (const a of entry.answers) {
-    card.append(el('p', 'a', a.text));
-    card.append(el('p', 'src', a.source));
-  }
-  return card;
 }
 
 // For the Twilio listener: inject a question heard on the line.

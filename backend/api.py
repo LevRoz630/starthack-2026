@@ -57,7 +57,7 @@ from starlette.staticfiles import StaticFiles
 from starlette.websockets import WebSocketDisconnect
 
 from . import answers, briefing, callmode, demo, reasoning, excustody, listener, mailer, profiles, voice
-from .data import ROOT, load
+from .data import ROOT, env, load
 from .facts import client_name, compute, risk_profile
 from .market import MarketState, load_scenario, scenarios
 
@@ -455,7 +455,7 @@ async def twilio_voice(request):
     data = await body(request) or {}
     number = normalise_number(data.get('From') or data.get('from'))
     ref = data.get('client') or state.phonebook.get(number)
-    advisor = os.getenv('ADVISOR_NUMBER')
+    advisor = env('ADVISOR_NUMBER')  # env() strips quotes; a quoted number would break <Dial>
     if ref in state.store.clients:
         b = callmode.build_call(state.store, ref, state.market)
         await state.broadcast({'type': 'incoming_call', 'from': number, 'call_sid': data.get('CallSid'),

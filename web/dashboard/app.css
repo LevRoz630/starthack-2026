@@ -149,3 +149,27 @@ main {
 .caller-impact { font-size: var(--size-xs); font-weight: 600; white-space: nowrap; }
 .caller-impact.loss { color: var(--red); }
 .caller-impact.gain { color: var(--green); }
+
+/* Follow-up questions: the same POST /ask the phone uses on a live call. */
+.ask-box { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 16px; }
+.ask-box .eyebrow { margin-bottom: 8px; }
+.ask { display: flex; flex-direction: column; gap: 6px; }
+.ask-row { display: flex; gap: 8px; }
+.ask input {
+  flex: 1;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font: inherit;
+  background: var(--card);
+  color: var(--ink);
+}
+.ask input:focus { outline: 2px solid var(--uro-blue); outline-offset: 1px; }
+.answers { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.answer-card.pending { opacity: 0.6; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
