@@ -24,6 +24,7 @@ W=1080
 H=1920
 LEAD=0.4          # a question ends this long before its card appears
 ADVISOR_END=174   # the take carries on into the room afterwards; that is not the film
+BROLL_END=4.6     # he has the phone up by 3.4s; the film moves on once he has it
 FIRST_ANSWER=5.0  # nobody speaks before the advisor has answered
 
 # Walter's eight lines: start and end in walter-voice.m4a, from silencedetect.
@@ -54,7 +55,7 @@ for i in "${!SEGS[@]}"; do
 done
 
 # --- part one: the advisor answers ---------------------------------------------
-ffmpeg -v error -y -i "$MEDIA/advisor-broll.mp4" \
+ffmpeg -v error -y -t "$BROLL_END" -i "$MEDIA/advisor-broll.mp4" \
   -filter_complex "[0:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},boxblur=22:2[bg];
                    [0:v]scale=${W}:-2[fg];
                    [bg][fg]overlay=(W-w)/2:(H-h)/2,fps=30,format=yuv420p[v]" \
