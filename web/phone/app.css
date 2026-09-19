@@ -198,7 +198,7 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 .live.final { color: var(--ink); font-style: normal; font-weight: 500; }
 .live.error { color: var(--red-ink); font-style: normal; }
 
-.tag.error { background: var(--red); color: #fff; }
+.tag.error { background: var(--red-ink); color: #fff; }
 .demo-status { margin: 8px 0 0; font-size: 14px; color: var(--muted, #6b6b73); }
 
 /* The newest answer is the one being read aloud from; everything older is reference.

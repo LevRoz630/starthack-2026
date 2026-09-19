@@ -11,31 +11,31 @@
    "text": "Hello. I saw the launch got pushed again. How much did I lose today?"
   },
   {
-   "pause_before": 13.0,
+   "pause_before": 10.0,
    "text": "Why did it drop?"
   },
   {
-   "pause_before": 15.0,
+   "pause_before": 10.0,
    "text": "And how much space exposure do I actually have?"
   },
   {
-   "pause_before": 14.0,
+   "pause_before": 10.0,
    "text": "Am I too concentrated?"
   },
   {
-   "pause_before": 15.0,
+   "pause_before": 10.0,
    "text": "How has it done over the year though?"
   },
   {
-   "pause_before": 14.0,
+   "pause_before": 10.0,
    "text": "What's my sustainability score like?"
   },
   {
-   "pause_before": 14.0,
+   "pause_before": 10.0,
    "text": "And am I over my risk limit?"
   },
   {
-   "pause_before": 13.0,
+   "pause_before": 10.0,
    "text": "Understood. I'd still rather be early than safe. Talk soon."
   }
  ]

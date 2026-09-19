@@ -12,7 +12,7 @@ come, say the thing without the number.
 
 **Who.** A former chemistry teacher. His file says he runs a small family car-wash business on the side and occasionally asks about reinvesting its proceeds, prefers to settle smaller amounts in cash where possible, and values discretion -- minimal written correspondence about portfolio specifics. Recent health concerns have prompted a review of estate and succession planning. He is 63% health care through Novartis and BB Biotech, and Novartis alone is 41% of his book.
 
-**Market.** tech-selloff.  **Length.** 128 seconds, 7 answered questions.
+**Market.** tech-selloff.  **Length.** 101 seconds, 7 answered questions.
 
 ### 1
 
@@ -71,7 +71,7 @@ come, say the thing without the number.
 
 **Who.** Very enthusiastic about space travel; his file records that he follows private spaceflight companies with great interest and has asked for more detail on how that exposure could be expanded further. He prefers forward-looking, high-conviction positions over defensive ones. He is 97.9% industrials, SpaceX alone is 68.5% of his book, and his volatility is running above the ceiling for his profile.
 
-**Market.** tech-selloff.  **Length.** 123 seconds, 7 answered questions.
+**Market.** tech-selloff.  **Length.** 94 seconds, 7 answered questions.
 
 ### 1
 
@@ -103,7 +103,7 @@ come, say the thing without the number.
 
 ### 5
 
-**BUZZ:** How is it done over the year, though?
+**BUZZ:** How has it done over the year, though?
 
 > Portfolio value +22.8% over the 12 months to Jul 2026 and +78.2% since Oct 2021, now CHF 170k; value change including deposits and withdrawals.
 

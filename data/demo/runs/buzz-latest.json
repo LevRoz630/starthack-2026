@@ -2,7 +2,7 @@
  "script": "buzz",
  "client": "CASE-027",
  "scenario": "tech-selloff",
- "saved_at": "2026-09-19T13:48:12",
+ "saved_at": "2026-09-19T13:53:44",
  "events": [
   {
    "t": 0.0,
@@ -399,23 +399,23 @@
    }
   },
   {
-   "t": 0.39,
+   "t": 0.08,
    "event": {
     "type": "_answered",
     "client": "CASE-027"
    }
   },
   {
-   "t": 0.617,
+   "t": 0.266,
    "event": {
     "client": "CASE-027",
-    "at": 1789818370.281,
+    "at": 1789818730.566,
     "type": "listening",
     "source": "recorded"
    }
   },
   {
-   "t": 1.625,
+   "t": 1.273,
    "event": {
     "type": "demo_audio",
     "client": "CASE-027",
@@ -424,50 +424,50 @@
    }
   },
   {
-   "t": 3.04,
+   "t": 2.581,
    "event": {
     "client": "CASE-027",
-    "at": 1789818372.704,
+    "at": 1789818732.881,
     "type": "transcript",
     "text": "Hello. I saw",
     "final": false
    }
   },
   {
-   "t": 3.949,
+   "t": 3.483,
    "event": {
     "client": "CASE-027",
-    "at": 1789818373.613,
+    "at": 1789818733.783,
     "type": "transcript",
     "text": "Hello. I saw the launch got pushed",
     "final": false
    }
   },
   {
-   "t": 4.986,
+   "t": 4.488,
    "event": {
     "client": "CASE-027",
-    "at": 1789818374.65,
+    "at": 1789818734.788,
     "type": "transcript",
     "text": "Hello. I saw the launch got pushed again. How much did I lose?",
     "final": false
    }
   },
   {
-   "t": 5.725,
+   "t": 5.483,
    "event": {
     "client": "CASE-027",
-    "at": 1789818375.389,
+    "at": 1789818735.783,
     "type": "transcript",
     "text": "Hello, I saw the launch got pushed again. How much did I lose today?",
     "final": true
    }
   },
   {
-   "t": 5.727,
+   "t": 5.486,
    "event": {
     "client": "CASE-027",
-    "at": 1789818375.391,
+    "at": 1789818735.786,
     "type": "answer",
     "question": "Hello, I saw the launch got pushed again. How much did I lose today?",
     "answers": [
@@ -495,7 +495,7 @@
    }
   },
   {
-   "t": 18.349,
+   "t": 14.986,
    "event": {
     "type": "demo_audio",
     "client": "CASE-027",
@@ -504,30 +504,30 @@
    }
   },
   {
-   "t": 19.199,
+   "t": 15.817,
    "event": {
     "client": "CASE-027",
-    "at": 1789818388.863,
+    "at": 1789818746.117,
     "type": "transcript",
-    "text": "Why",
+    "text": "Why did",
     "final": false
    }
   },
   {
-   "t": 20.114,
+   "t": 16.767,
    "event": {
     "client": "CASE-027",
-    "at": 1789818389.778,
+    "at": 1789818747.067,
     "type": "transcript",
     "text": "Why did it drop?",
     "final": true
    }
   },
   {
-   "t": 20.601,
+   "t": 17.287,
    "event": {
     "client": "CASE-027",
-    "at": 1789818390.265,
+    "at": 1789818747.587,
     "type": "answer",
     "question": "Why did it drop?",
     "answers": [
@@ -556,7 +556,7 @@
    }
   },
   {
-   "t": 34.665,
+   "t": 26.283,
    "event": {
     "type": "demo_audio",
     "client": "CASE-027",
@@ -565,40 +565,50 @@
    }
   },
   {
-   "t": 36.349,
+   "t": 27.151,
    "event": {
     "client": "CASE-027",
-    "at": 1789818406.013,
+    "at": 1789818757.451,
     "type": "transcript",
-    "text": "And how much SpaceX-",
+    "text": "And how",
     "final": false
    }
   },
   {
-   "t": 37.355,
+   "t": 28.16,
    "event": {
     "client": "CASE-027",
-    "at": 1789818407.019,
+    "at": 1789818758.46,
+    "type": "transcript",
+    "text": "And how much space Expor",
+    "final": false
+   }
+  },
+  {
+   "t": 28.992,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789818759.292,
     "type": "transcript",
     "text": "And how much space exposure do I actually",
     "final": false
    }
   },
   {
-   "t": 38.26,
+   "t": 29.865,
    "event": {
     "client": "CASE-027",
-    "at": 1789818407.924,
+    "at": 1789818760.165,
     "type": "transcript",
     "text": "And how much space exposure do I actually have?",
     "final": true
    }
   },
   {
-   "t": 38.586,
+   "t": 30.212,
    "event": {
     "client": "CASE-027",
-    "at": 1789818408.25,
+    "at": 1789818760.512,
     "type": "answer",
     "question": "And how much space exposure do I actually have?",
     "answers": [
@@ -614,7 +624,7 @@
    }
   },
   {
-   "t": 51.804,
+   "t": 39.385,
    "event": {
     "type": "demo_audio",
     "client": "CASE-027",
@@ -623,40 +633,40 @@
    }
   },
   {
-   "t": 52.446,
+   "t": 40.397,
    "event": {
     "client": "CASE-027",
-    "at": 1789818422.11,
+    "at": 1789818770.697,
     "type": "transcript",
-    "text": "Am I",
+    "text": "Am I too",
     "final": false
    }
   },
   {
-   "t": 53.753,
+   "t": 41.402,
    "event": {
     "client": "CASE-027",
-    "at": 1789818423.417,
+    "at": 1789818771.702,
     "type": "transcript",
     "text": "Am I too concentrated?",
     "final": false
    }
   },
   {
-   "t": 53.932,
+   "t": 41.531,
    "event": {
     "client": "CASE-027",
-    "at": 1789818423.596,
+    "at": 1789818771.831,
     "type": "transcript",
     "text": "Am I too concentrated?",
     "final": true
    }
   },
   {
-   "t": 53.935,
+   "t": 41.535,
    "event": {
     "client": "CASE-027",
-    "at": 1789818423.599,
+    "at": 1789818771.835,
     "type": "answer",
     "question": "Am I too concentrated?",
     "answers": [
@@ -672,7 +682,7 @@
    }
   },
   {
-   "t": 68.441,
+   "t": 50.978,
    "event": {
     "type": "demo_audio",
     "client": "CASE-027",
@@ -681,42 +691,42 @@
    }
   },
   {
-   "t": 69.426,
+   "t": 51.81,
    "event": {
     "client": "CASE-027",
-    "at": 1789818439.09,
+    "at": 1789818782.11,
     "type": "transcript",
-    "text": "How",
+    "text": "How is it",
     "final": false
    }
   },
   {
-   "t": 70.26,
+   "t": 52.765,
    "event": {
     "client": "CASE-027",
-    "at": 1789818439.924,
+    "at": 1789818783.065,
     "type": "transcript",
-    "text": "How is it done over the year?",
+    "text": "How has it done over the year, though?",
     "final": false
    }
   },
   {
-   "t": 70.88,
+   "t": 53.352,
    "event": {
     "client": "CASE-027",
-    "at": 1789818440.544,
+    "at": 1789818783.652,
     "type": "transcript",
-    "text": "How is it done over the year, though?",
+    "text": "How has it done over the year, though?",
     "final": true
    }
   },
   {
-   "t": 71.245,
+   "t": 53.746,
    "event": {
     "client": "CASE-027",
-    "at": 1789818440.909,
+    "at": 1789818784.045,
     "type": "answer",
-    "question": "How is it done over the year, though?",
+    "question": "How has it done over the year, though?",
     "answers": [
      {
       "text": "Portfolio value +22.8% over the 12 months to Jul 2026 and +78.2% since Oct 2021, now CHF 170k; value change including deposits and withdrawals.",
@@ -730,7 +740,7 @@
    }
   },
   {
-   "t": 84.363,
+   "t": 62.881,
    "event": {
     "type": "demo_audio",
     "client": "CASE-027",
@@ -739,50 +749,40 @@
    }
   },
   {
-   "t": 85.085,
+   "t": 63.877,
    "event": {
     "client": "CASE-027",
-    "at": 1789818454.749,
+    "at": 1789818794.177,
     "type": "transcript",
-    "text": "What's",
+    "text": "What's my",
     "final": false
    }
   },
   {
-   "t": 86.09,
+   "t": 64.682,
    "event": {
     "client": "CASE-027",
-    "at": 1789818455.754,
+    "at": 1789818794.982,
     "type": "transcript",
     "text": "What's my sustainability",
     "final": false
    }
   },
   {
-   "t": 87.198,
+   "t": 65.595,
    "event": {
     "client": "CASE-027",
-    "at": 1789818456.862,
-    "type": "transcript",
-    "text": "What's my sustainability score like?",
-    "final": false
-   }
-  },
-  {
-   "t": 87.319,
-   "event": {
-    "client": "CASE-027",
-    "at": 1789818456.984,
+    "at": 1789818795.895,
     "type": "transcript",
     "text": "What's my sustainability score like?",
     "final": true
    }
   },
   {
-   "t": 87.646,
+   "t": 65.903,
    "event": {
     "client": "CASE-027",
-    "at": 1789818457.31,
+    "at": 1789818796.203,
     "type": "answer",
     "question": "What's my sustainability score like?",
     "answers": [
@@ -798,7 +798,7 @@
    }
   },
   {
-   "t": 100.691,
+   "t": 75.182,
    "event": {
     "type": "demo_audio",
     "client": "CASE-027",
@@ -807,40 +807,40 @@
    }
   },
   {
-   "t": 101.591,
+   "t": 76.084,
    "event": {
     "client": "CASE-027",
-    "at": 1789818471.255,
+    "at": 1789818806.384,
     "type": "transcript",
     "text": "And am I",
     "final": false
    }
   },
   {
-   "t": 102.6,
+   "t": 77.092,
    "event": {
     "client": "CASE-027",
-    "at": 1789818472.264,
+    "at": 1789818807.392,
     "type": "transcript",
     "text": "And am I over my risk limit?",
     "final": false
    }
   },
   {
-   "t": 103.181,
+   "t": 77.676,
    "event": {
     "client": "CASE-027",
-    "at": 1789818472.845,
+    "at": 1789818807.976,
     "type": "transcript",
     "text": "And am I over my risk limit?",
     "final": true
    }
   },
   {
-   "t": 103.582,
+   "t": 77.997,
    "event": {
     "client": "CASE-027",
-    "at": 1789818473.246,
+    "at": 1789818808.296,
     "type": "answer",
     "question": "And am I over my risk limit?",
     "answers": [
@@ -856,7 +856,7 @@
    }
   },
   {
-   "t": 115.581,
+   "t": 87.092,
    "event": {
     "type": "demo_audio",
     "client": "CASE-027",
@@ -865,66 +865,56 @@
    }
   },
   {
-   "t": 116.392,
+   "t": 87.96,
    "event": {
     "client": "CASE-027",
-    "at": 1789818486.056,
+    "at": 1789818818.259,
     "type": "transcript",
-    "text": "Under",
+    "text": "Understood.",
     "final": false
    }
   },
   {
-   "t": 117.399,
+   "t": 88.966,
    "event": {
     "client": "CASE-027",
-    "at": 1789818487.063,
+    "at": 1789818819.266,
     "type": "transcript",
-    "text": "Understood. I'd still rather-",
+    "text": "Understood. I'd still rather",
     "final": false
    }
   },
   {
-   "t": 118.414,
+   "t": 89.975,
    "event": {
     "client": "CASE-027",
-    "at": 1789818488.078,
+    "at": 1789818820.275,
     "type": "transcript",
-    "text": "Understood. I'd still rather be early than safe.",
+    "text": "Understood. I'd still rather be early than safe,",
     "final": false
    }
   },
   {
-   "t": 119.424,
+   "t": 91.091,
    "event": {
     "client": "CASE-027",
-    "at": 1789818489.088,
-    "type": "transcript",
-    "text": "Understood. I'd still rather be early than safe. Talk soon.",
-    "final": false
-   }
-  },
-  {
-   "t": 119.567,
-   "event": {
-    "client": "CASE-027",
-    "at": 1789818489.231,
+    "at": 1789818821.391,
     "type": "transcript",
     "text": "Understood. I'd still rather be early than safe. Talk soon.",
     "final": true
    }
   },
   {
-   "t": 120.415,
+   "t": 91.925,
    "event": {
     "client": "CASE-027",
-    "at": 1789818490.079,
+    "at": 1789818822.225,
     "type": "listening_stopped",
     "source": "recorded"
    }
   },
   {
-   "t": 122.562,
+   "t": 94.046,
    "event": {
     "type": "call_ended",
     "client": "CASE-027",
@@ -932,7 +922,7 @@
    }
   },
   {
-   "t": 122.562,
+   "t": 94.046,
    "event": {
     "type": "demo_finished",
     "client": "CASE-027",
