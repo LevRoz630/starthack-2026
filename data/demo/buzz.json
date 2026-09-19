@@ -1,0 +1,30 @@
+{
+ "_about": "Buzz Lightyear (CASE-027). Follows private spaceflight closely and has asked to expand that exposure; his file says he prefers forward-looking, high-conviction positions over defensive ones. He is 97.9% industrials and 68.5% SpaceX alone.",
+ "client": "CASE-027",
+ "scenario": "tech-selloff",
+ "client_voice": "CwhRBWXzGAHq8TQ4Fs17",
+ "ring_timeout": 45,
+ "hangup_after": 2.0,
+ "lines": [
+  {
+   "pause_before": 1.0,
+   "text": "Hello. I saw the launch got pushed again. How much did I lose today?"
+  },
+  {
+   "pause_before": 13.0,
+   "text": "Why did it drop?"
+  },
+  {
+   "pause_before": 15.0,
+   "text": "And how much space exposure do I actually have?"
+  },
+  {
+   "pause_before": 14.0,
+   "text": "Am I too concentrated?"
+  },
+  {
+   "pause_before": 12.0,
+   "text": "Understood. I'd still rather be early than safe. Talk soon."
+  }
+ ]
+}

@@ -1,0 +1,759 @@
+{
+ "script": "buzz",
+ "client": "CASE-027",
+ "scenario": "tech-selloff",
+ "saved_at": "2026-09-19T13:30:14",
+ "events": [
+  {
+   "t": 0.0,
+   "event": {
+    "type": "demo_started",
+    "script": "buzz",
+    "client": "CASE-027",
+    "mode": "pipeline"
+   }
+  },
+  {
+   "t": 0.001,
+   "event": {
+    "type": "market",
+    "market": {
+     "scenario": "tech-selloff",
+     "description": "US tech sell-off; the dollar weakens against the franc, gold is bid.",
+     "simulated": true,
+     "as_of": "2026-09-19T15:30:00+02:00",
+     "moves": [
+      {
+       "dimension": "industry",
+       "bucket": "Information Technology",
+       "change": -0.048,
+       "level": null,
+       "ticker": "S5INFT Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Communication Services",
+       "change": -0.031,
+       "level": null,
+       "ticker": "S5TELS Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Consumer Discretionary",
+       "change": -0.022000000000000002,
+       "level": null,
+       "ticker": "S5COND Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Industrials",
+       "change": -0.011000000000000001,
+       "level": null,
+       "ticker": "S5INDU Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Financials",
+       "change": -0.009000000000000001,
+       "level": null,
+       "ticker": "S5FINL Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Raw materials",
+       "change": -0.006,
+       "level": null,
+       "ticker": "S5MATR Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Health Care",
+       "change": -0.004,
+       "level": null,
+       "ticker": "S5HLTH Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Energy",
+       "change": -0.003,
+       "level": null,
+       "ticker": "S5ENRS Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Real Estate",
+       "change": -0.002,
+       "level": null,
+       "ticker": "S5RLST Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Consumer Staples",
+       "change": 0.003,
+       "level": null,
+       "ticker": "S5CONS Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Utilities",
+       "change": 0.005,
+       "level": null,
+       "ticker": "S5UTIL Index",
+       "origin": ""
+      },
+      {
+       "dimension": "fx",
+       "bucket": "USD",
+       "change": -0.012,
+       "level": null,
+       "ticker": "USDCHF Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "fx",
+       "bucket": "EUR",
+       "change": -0.003,
+       "level": null,
+       "ticker": "EURCHF Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "fx",
+       "bucket": "GBP",
+       "change": -0.004,
+       "level": null,
+       "ticker": "GBPCHF Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "commodity",
+       "bucket": "Gold",
+       "change": 0.013999999999999999,
+       "level": null,
+       "ticker": "XAU Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "commodity",
+       "bucket": "Silver",
+       "change": 0.008,
+       "level": null,
+       "ticker": "XAG Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "commodity",
+       "bucket": "Palladium",
+       "change": -0.005,
+       "level": null,
+       "ticker": "XPD Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "commodity",
+       "bucket": "Copper",
+       "change": -0.019,
+       "level": null,
+       "ticker": "HG1 Comdty",
+       "origin": ""
+      },
+      {
+       "dimension": "bonds",
+       "bucket": "CHF",
+       "change": 0.002,
+       "level": null,
+       "ticker": "SBR14T Index",
+       "origin": ""
+      },
+      {
+       "dimension": "bonds",
+       "bucket": "Global",
+       "change": 0.003,
+       "level": null,
+       "ticker": "LEGATRUU Index",
+       "origin": ""
+      },
+      {
+       "dimension": "crypto",
+       "bucket": "BTC",
+       "change": -0.065,
+       "level": null,
+       "ticker": "XBTUSD Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "crypto",
+       "bucket": "ETH",
+       "change": -0.081,
+       "level": null,
+       "ticker": "XETUSD Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "volatility",
+       "bucket": "VIX",
+       "change": 0.38,
+       "level": 27.4,
+       "ticker": "VIX Index",
+       "origin": ""
+      },
+      {
+       "dimension": "volatility",
+       "bucket": "VSMI",
+       "change": 0.0,
+       "level": 21.0,
+       "ticker": "VSMI Index",
+       "origin": ""
+      },
+      {
+       "dimension": "index",
+       "bucket": "SMI",
+       "change": -0.013000000000000001,
+       "level": null,
+       "ticker": "SMI Index",
+       "origin": ""
+      },
+      {
+       "dimension": "index",
+       "bucket": "S&P 500",
+       "change": -0.032,
+       "level": null,
+       "ticker": "SPX Index",
+       "origin": ""
+      }
+     ],
+     "headlines": [
+      {
+       "text": "Chip stocks slide after export-control headlines",
+       "dimension": "industry",
+       "bucket": "Information Technology"
+      },
+      {
+       "text": "Dollar weakens as rate-cut bets rise",
+       "dimension": "fx",
+       "bucket": "USD"
+      },
+      {
+       "text": "Gold climbs on safe-haven demand",
+       "dimension": "commodity",
+       "bucket": "Gold"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "t": 0.003,
+   "event": {
+    "type": "incoming_call",
+    "briefing": {
+     "client": "CASE-027",
+     "name": "Buzz Lightyear",
+     "as_of": "2026-09-19",
+     "market": {
+      "scenario": "tech-selloff",
+      "simulated": true,
+      "description": "US tech sell-off; the dollar weakens against the franc, gold is bid."
+     },
+     "impact": {
+      "amount": -3866.47,
+      "share": -0.02252,
+      "not_modelled_share": 0.0
+     },
+     "words": 107,
+     "sentences": [
+      {
+       "slot": "caller",
+       "text": "Buzz Lightyear is calling: Investor profile 5, ESG preference, CHF 172k across 1 portfolio.",
+       "facts": [
+        "caller"
+       ],
+       "sources": [
+        "clients.json CASE-027: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency"
+       ]
+      },
+      {
+       "slot": "caller",
+       "text": "Profile: calm temperament, wants it detailed. From the notes: \"Comfortable with a long time horizon; not concerned by short-term volatility in thematic growth positions.\"",
+       "facts": [
+        "caller.profile"
+       ],
+       "sources": [
+        "data/profiles/profiles.json CASE-027 (apertus) from clients.json ClientNotes"
+       ]
+      },
+      {
+       "slot": "reason",
+       "text": "Probably the market: about −CHF 4k today, −2.3% of the book. Mostly the dollar, −1.2% on 97.9% of it.",
+       "facts": [
+        "reason.0"
+       ],
+       "sources": [
+        "impact of the market feed on clients.json CASE-027 holdings"
+       ]
+      },
+      {
+       "slot": "digest",
+       "text": "About −CHF 4k today, −2.3% of the book.",
+       "facts": [
+        "digest.total"
+       ],
+       "sources": [
+        "impact of the market feed on clients.json CASE-027 holdings"
+       ]
+      },
+      {
+       "slot": "digest",
+       "text": "About −CHF 2k from the dollar, −1.2% against the franc on 97.9% of the book.",
+       "facts": [
+        "digest.fx.USD"
+       ],
+       "sources": [
+        "market feed \"tech-selloff\": USDCHF Curncy CHG_PCT_1D × clients.json CASE-027 holdings"
+       ]
+      },
+      {
+       "slot": "digest",
+       "text": "About −CHF 2k from Industrials, −1.1% today on 97.9% of the book, mostly SpaceX and Union Pacific Corp.",
+       "facts": [
+        "digest.industry.Industrials"
+       ],
+       "sources": [
+        "market feed \"tech-selloff\": S5INDU Index CHG_PCT_1D × clients.json CASE-027 holdings"
+       ]
+      },
+      {
+       "slot": "digest",
+       "text": "Behind the move: \"Dollar weakens as rate-cut bets rise\"",
+       "facts": [
+        "news.1"
+       ],
+       "sources": [
+        "market feed \"tech-selloff\" headline"
+       ]
+      }
+     ],
+     "facts": [
+      {
+       "id": "caller",
+       "slot": "caller",
+       "text": "Buzz Lightyear is calling: Investor profile 5, ESG preference, CHF 172k across 1 portfolio.",
+       "source": "clients.json CASE-027: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency",
+       "weight": 1.0
+      },
+      {
+       "id": "caller.profile",
+       "slot": "caller",
+       "text": "Profile: calm temperament, wants it detailed. From the notes: \"Comfortable with a long time horizon; not concerned by short-term volatility in thematic growth positions.\"",
+       "source": "data/profiles/profiles.json CASE-027 (apertus) from clients.json ClientNotes",
+       "weight": 0.9
+      },
+      {
+       "id": "reason.0",
+       "slot": "reason",
+       "text": "Probably the market: about −CHF 4k today, −2.3% of the book. Mostly the dollar, −1.2% on 97.9% of it.",
+       "source": "impact of the market feed on clients.json CASE-027 holdings",
+       "weight": 2.2517
+      },
+      {
+       "id": "digest.total",
+       "slot": "digest",
+       "text": "About −CHF 4k today, −2.3% of the book.",
+       "source": "impact of the market feed on clients.json CASE-027 holdings",
+       "weight": 1.0
+      },
+      {
+       "id": "digest.fx.USD",
+       "slot": "digest",
+       "text": "About −CHF 2k from the dollar, −1.2% against the franc on 97.9% of the book.",
+       "source": "market feed \"tech-selloff\": USDCHF Curncy CHG_PCT_1D × clients.json CASE-027 holdings",
+       "weight": 0.011748
+      },
+      {
+       "id": "digest.industry.Industrials",
+       "slot": "digest",
+       "text": "About −CHF 2k from Industrials, −1.1% today on 97.9% of the book, mostly SpaceX and Union Pacific Corp.",
+       "source": "market feed \"tech-selloff\": S5INDU Index CHG_PCT_1D × clients.json CASE-027 holdings",
+       "weight": 0.010769
+      },
+      {
+       "id": "news.1",
+       "slot": "digest",
+       "text": "Behind the move: \"Dollar weakens as rate-cut bets rise\"",
+       "source": "market feed \"tech-selloff\" headline",
+       "weight": 0.001
+      }
+     ]
+    },
+    "demo": "buzz"
+   }
+  },
+  {
+   "t": 0.358,
+   "event": {
+    "type": "_answered",
+    "client": "CASE-027"
+   }
+  },
+  {
+   "t": 0.696,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817342.211,
+    "type": "listening",
+    "source": "recorded"
+   }
+  },
+  {
+   "t": 1.705,
+   "event": {
+    "type": "demo_audio",
+    "client": "CASE-027",
+    "url": "/demo/audio/21c803bc7931cfdf1048.mp3",
+    "text": "Hello. I saw the launch got pushed again. How much did I lose today?"
+   }
+  },
+  {
+   "t": 3.01,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817344.526,
+    "type": "transcript",
+    "text": "Hello. I saw",
+    "final": false
+   }
+  },
+  {
+   "t": 3.914,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817345.43,
+    "type": "transcript",
+    "text": "Hello. I saw the launch got pushed",
+    "final": false
+   }
+  },
+  {
+   "t": 4.921,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817346.437,
+    "type": "transcript",
+    "text": "Hello. I saw the launch got pushed again. How much did I lose?",
+    "final": false
+   }
+  },
+  {
+   "t": 5.896,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817347.412,
+    "type": "transcript",
+    "text": "Hello, I saw the launch got pushed again. How much did I lose today?",
+    "final": true
+   }
+  },
+  {
+   "t": 5.9,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817347.415,
+    "type": "answer",
+    "question": "Hello, I saw the launch got pushed again. How much did I lose today?",
+    "answers": [
+     {
+      "text": "About −CHF 4k today, −2.3% of the book.",
+      "source": "impact of the market feed on clients.json CASE-027 holdings",
+      "fact": "digest.total",
+      "slot": "digest"
+     },
+     {
+      "text": "About −CHF 2k from Industrials, −1.1% today on 97.9% of the book, mostly SpaceX and Union Pacific Corp.",
+      "source": "market feed \"tech-selloff\": S5INDU Index CHG_PCT_1D × clients.json CASE-027 holdings",
+      "fact": "digest.industry.Industrials",
+      "slot": "digest"
+     },
+     {
+      "text": "About −CHF 2k from the dollar, −1.2% against the franc on 97.9% of the book.",
+      "source": "market feed \"tech-selloff\": USDCHF Curncy CHG_PCT_1D × clients.json CASE-027 holdings",
+      "fact": "digest.fx.USD",
+      "slot": "digest"
+     }
+    ],
+    "found": true,
+    "method": "type"
+   }
+  },
+  {
+   "t": 18.456,
+   "event": {
+    "type": "demo_audio",
+    "client": "CASE-027",
+    "url": "/demo/audio/a1d40ee9cc7f05d0b7bc.mp3",
+    "text": "Why did it drop?"
+   }
+  },
+  {
+   "t": 19.224,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817360.74,
+    "type": "transcript",
+    "text": "Why",
+    "final": false
+   }
+  },
+  {
+   "t": 20.195,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817361.711,
+    "type": "transcript",
+    "text": "Why did it drop?",
+    "final": true
+   }
+  },
+  {
+   "t": 20.76,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817362.275,
+    "type": "answer",
+    "question": "Why did it drop?",
+    "answers": [
+     {
+      "text": "Behind the move: \"Dollar weakens as rate-cut bets rise\"",
+      "source": "market feed \"tech-selloff\" headline",
+      "fact": "news.1",
+      "link": null
+     },
+     {
+      "text": "The dollar −1.2% against the franc, on 97.9% of the book: about −CHF 2.0k.",
+      "source": "market feed \"tech-selloff\": USDCHF Curncy CHG_PCT_1D × clients.json CASE-027 holdings",
+      "fact": "topic.fx.USD",
+      "link": "which hit"
+     },
+     {
+      "text": "The book is about −CHF 3.9k today (−2.3%) on CHF 172k.",
+      "source": "market feed \"tech-selloff\" × clients.json CASE-027 holdings",
+      "fact": "total",
+      "link": "adding up to"
+     }
+    ],
+    "found": true,
+    "method": "chain:llm",
+    "chain": true
+   }
+  },
+  {
+   "t": 34.789,
+   "event": {
+    "type": "demo_audio",
+    "client": "CASE-027",
+    "url": "/demo/audio/6600f4f4e399aac6191c.mp3",
+    "text": "And how much space exposure do I actually have?"
+   }
+  },
+  {
+   "t": 36.367,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817377.882,
+    "type": "transcript",
+    "text": "And how much SpaceX-",
+    "final": false
+   }
+  },
+  {
+   "t": 37.379,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817378.894,
+    "type": "transcript",
+    "text": "And how much space exposure do I actually",
+    "final": false
+   }
+  },
+  {
+   "t": 38.344,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817379.859,
+    "type": "transcript",
+    "text": "And how much space exposure do I actually have?",
+    "final": true
+   }
+  },
+  {
+   "t": 38.734,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817380.249,
+    "type": "answer",
+    "question": "And how much space exposure do I actually have?",
+    "answers": [
+     {
+      "text": "About −CHF 2k from Industrials, −1.1% today on 97.9% of the book, mostly SpaceX and Union Pacific Corp.",
+      "source": "market feed \"tech-selloff\": S5INDU Index CHG_PCT_1D × clients.json CASE-027 holdings",
+      "fact": "digest.industry.Industrials",
+      "slot": "digest"
+     }
+    ],
+    "found": true,
+    "method": "llm"
+   }
+  },
+  {
+   "t": 51.936,
+   "event": {
+    "type": "demo_audio",
+    "client": "CASE-027",
+    "url": "/demo/audio/60b971750ea34e1fa59e.mp3",
+    "text": "Am I too concentrated?"
+   }
+  },
+  {
+   "t": 52.68,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817394.195,
+    "type": "transcript",
+    "text": "Am I",
+    "final": false
+   }
+  },
+  {
+   "t": 53.988,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817395.504,
+    "type": "transcript",
+    "text": "Am I too concentrated?",
+    "final": false
+   }
+  },
+  {
+   "t": 54.03,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817395.546,
+    "type": "transcript",
+    "text": "Am I too concentrated?",
+    "final": true
+   }
+  },
+  {
+   "t": 54.035,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817395.551,
+    "type": "answer",
+    "question": "Am I too concentrated?",
+    "answers": [
+     {
+      "text": "SpaceX alone is 68.5% of the book.",
+      "source": "clients.json CASE-027: Portfolios[CASE-027-01].SecurityPositions",
+      "fact": "watch.concentration.-900001",
+      "slot": "watch"
+     }
+    ],
+    "found": true,
+    "method": "type"
+   }
+  },
+  {
+   "t": 65.549,
+   "event": {
+    "type": "demo_audio",
+    "client": "CASE-027",
+    "url": "/demo/audio/f65e092529c9ac4269b0.mp3",
+    "text": "Understood. I'd still rather be early than safe. Talk soon."
+   }
+  },
+  {
+   "t": 66.369,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817407.885,
+    "type": "transcript",
+    "text": "Under",
+    "final": false
+   }
+  },
+  {
+   "t": 67.279,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817408.795,
+    "type": "transcript",
+    "text": "Understood. I'd still rather-",
+    "final": false
+   }
+  },
+  {
+   "t": 68.285,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817409.8,
+    "type": "transcript",
+    "text": "Understood. I'd still rather be early than say",
+    "final": false
+   }
+  },
+  {
+   "t": 69.393,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817410.908,
+    "type": "transcript",
+    "text": "Understood. I'd still rather be early than safe. Talk soon.",
+    "final": false
+   }
+  },
+  {
+   "t": 69.48,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817410.995,
+    "type": "transcript",
+    "text": "Understood. I'd still rather be early than safe. Talk soon.",
+    "final": true
+   }
+  },
+  {
+   "t": 70.392,
+   "event": {
+    "client": "CASE-027",
+    "at": 1789817411.908,
+    "type": "listening_stopped",
+    "source": "recorded"
+   }
+  },
+  {
+   "t": 72.637,
+   "event": {
+    "type": "call_ended",
+    "client": "CASE-027",
+    "demo": "buzz"
+   }
+  },
+  {
+   "t": 72.637,
+   "event": {
+    "type": "demo_finished",
+    "client": "CASE-027",
+    "result": "done"
+   }
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "_about": "Walter White (CASE-045). A former chemistry teacher who runs a car wash on the side, settles what he can in cash and prefers as little in writing as possible. His book is 63% health care and 41% Novartis alone. Every question was checked against POST /ask first.",
+ "client": "CASE-045",
+ "scenario": "tech-selloff",
+ "client_voice": "CwhRBWXzGAHq8TQ4Fs17",
+ "ring_timeout": 45,
+ "hangup_after": 2.0,
+ "lines": [
+  {
+   "pause_before": 1.0,
+   "text": "Morning, it's Walter. Quick one before my first lesson. How much did today cost me?"
+  },
+  {
+   "pause_before": 13.0,
+   "text": "Chemistry was my subject, so pharma's the bit I follow. How much of my portfolio is in pharma?"
+  },
+  {
+   "pause_before": 14.0,
+   "text": "Hm. Am I too concentrated in one thing?"
+  },
+  {
+   "pause_before": 14.0,
+   "text": "Right. And how much cash do I have with you?"
+  },
+  {
+   "pause_before": 12.0,
+   "text": "Good. Keep it off paper where you can. I'll call you."
+  }
+ ]
+}

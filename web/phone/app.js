@@ -11,8 +11,8 @@ const WS_URL = `${WS_BASE}/ws`;
 // timing, nothing spoken, no network -- which is what the video is filmed against.
 // VOICED runs a different client and scenario through ElevenLabs and the live
 // speech-to-text, so the cards are produced rather than replayed. ?script= overrides.
-const SILENT_SCRIPT = params.get('script') || 'superman';
-const VOICED_SCRIPT = params.get('voiced') || 'holden';
+const SILENT_SCRIPT = params.get('script') || 'walter';
+const VOICED_SCRIPT = params.get('voiced') || 'buzz';
 let DEMO_CLIENT = params.get('demo') || null;   // filled from the script by loadDemo()
 
 const SLOT_TITLES = {
