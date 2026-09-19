@@ -153,9 +153,10 @@ function renderBriefing(b) {
 
   const slotsBox = $('#slots');
   slotsBox.replaceChildren();
+  const weights = Object.fromEntries((b.facts || []).map((f) => [f.id, f.weight || 0]));
   for (const slot of SLOT_ORDER) {
     if (!groups[slot] || !groups[slot].length) continue;
-    slotsBox.append(renderGroup(slot, groups[slot], SLOT_TITLES[slot]));
+    slotsBox.append(renderGroup(slot, groups[slot], SLOT_TITLES[slot], { weights }));
   }
 
   const rejected = b.rejected || [];

@@ -80,7 +80,9 @@ const shorten = (text) => text.replace(/,? mostly via .*$/, '.').replace(/\.\.$/
 function renderBrief(container, briefing, { withImpact, brief = false }) {
   container.replaceChildren();
   const groups = bySlot(briefing);
-  const opts = brief ? { sources: 'hidden' } : {};
+  // id -> weight, so each line can be drawn at the size of what it actually cost.
+  const weights = Object.fromEntries((briefing.facts || []).map((f) => [f.id, f.weight || 0]));
+  const opts = { weights, ...(brief ? { sources: 'hidden' } : {}) };
   const card = el('div', 'card');
 
   // Keep the reason above the number: it is what the advisor needs first.
