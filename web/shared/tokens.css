@@ -79,8 +79,8 @@ p { margin: 0; }
 /* --- briefing vocabulary, shared by both front-ends -------------------------
    A .card is the white surface; .group sections sit inside one, each marked by
    a colour-coded accent bar; a .sentence is one computed fact above the
-   sources it came from; .pill is a small meta chip. Page-specific sizing
-   (--gutter, --tap) still comes from each page's own app.css. */
+   sources it came from. Page-specific sizing (--gutter, --tap) still comes
+   from each page's own app.css. */
 
 .card {
   background: var(--card);
@@ -128,19 +128,6 @@ p { margin: 0; }
 .sentence { display: flex; flex-direction: column; gap: 2px; }
 .sentence .text { font-weight: 600; line-height: 1.4; font-variant-numeric: tabular-nums; }
 .sentence .source { font-size: var(--size-xs); color: var(--muted); overflow-wrap: anywhere; }
-
-.pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: var(--size-xs);
-  font-weight: 600;
-  background: var(--page);
-  color: var(--muted);
-}
-.pill.provider { background: transparent; border: 1px dashed var(--line); }
-.meta-row { display: flex; flex-wrap: wrap; gap: 8px; }
 
 /* The answer card: one question the client asked, and the facts that answer it. Shared,
    because the phone shows it during the call and the dashboard shows it as a follow-up. */

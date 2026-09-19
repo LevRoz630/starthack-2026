@@ -1,7 +1,4 @@
-// Advisor dashboard: pick a client, one click, the 60-second briefing.
-// All API text is rendered with textContent, never as HTML.
-
-import { $, $$, el, answerCard, askAbout, bySlot, chf, renderGroup } from '/shared/dom.js';
+import { $, el, answerCard, askAbout, bySlot, chf, renderGroup } from '/shared/dom.js';
 
 const params = new URLSearchParams(location.search);
 const API = (params.get('api') || location.origin).replace(/\/$/, '');
@@ -67,7 +64,6 @@ async function loadCallers() {
   const active = market && market.scenario && market.scenario !== 'empty';
   $('#callfirst').hidden = !(active && rows.length);
   if (!active || !rows.length) return;
-  $('#market-name').textContent = market.description || market.scenario;
 
   const list = $('#caller-list');
   list.replaceChildren();
@@ -96,7 +92,7 @@ async function selectClient(ref) {
   $('#empty').hidden = true;
   $('#card').hidden = false;
   $('#audio').removeAttribute('src');
-  $('#answers').replaceChildren();   // the last client's answers are not about this one
+  $('#answers').replaceChildren();
   await fetchBriefing(ref);
 }
 
@@ -110,7 +106,7 @@ async function fetchBriefing(ref) {
     renderError(ref, e);
     return;
   }
-  if (ref !== state.selected) return; // a later click won a race
+  if (ref !== state.selected) return;
   renderBriefing(b);
   if (b.phrasing === 'pending') {
     let tries = 0;
@@ -130,42 +126,19 @@ function renderError(ref, e) {
   $('#b-name').textContent = ref;
   $('#b-ref').textContent = 'Could not load this briefing.';
   $('#slots').replaceChildren(el('p', 'muted', String(e.message || e)));
-  $('#b-words').textContent = '';
-  $('#b-read').textContent = '';
-  $('#b-coverage').textContent = '';
-  $('#b-provider').textContent = '';
-  $('#rejected-box').hidden = true;
 }
 
 function renderBriefing(b) {
   $('#b-name').textContent = b.name || b.client;
   $('#b-ref').textContent = `${b.client} · as of ${b.as_of}`;
-  $('#b-words').textContent = `${b.words} words`;
-  $('#b-read').textContent = `~${Math.max(1, Math.round(b.words / 3.3))}s to read`;
 
   const groups = bySlot(b);
-  const populated = SLOT_ORDER.filter((slot) => groups[slot] && groups[slot].length);
-  $('#b-coverage').textContent = `${populated.length}/${SLOT_ORDER.length} sections have data`;
-
-  const providerLabel = { apertus: 'Phrased by Apertus', openai: 'Phrased by OpenAI', template: 'Fact text',
-                          pending: 'Phrasing…' }[b.provider] || b.provider;
-  $('#b-provider').textContent = b.phrasing === 'pending' ? 'Phrasing…' : providerLabel;
-
   const slotsBox = $('#slots');
   slotsBox.replaceChildren();
   const weights = Object.fromEntries((b.facts || []).map((f) => [f.id, f.weight || 0]));
   for (const slot of SLOT_ORDER) {
     if (!groups[slot] || !groups[slot].length) continue;
-    slotsBox.append(renderGroup(slot, groups[slot], SLOT_TITLES[slot], { weights }));
-  }
-
-  const rejected = b.rejected || [];
-  $('#rejected-box').hidden = rejected.length === 0;
-  $('#rejected-count').textContent = `(${rejected.length})`;
-  const rlist = $('#rejected-list');
-  rlist.replaceChildren();
-  for (const r of rejected) {
-    rlist.append(el('li', null, `"${r.text}" — ${r.reason}`));
+    slotsBox.append(renderGroup(slot, groups[slot], SLOT_TITLES[slot], { weights, sources: 'hidden' }));
   }
 }
 
@@ -217,8 +190,6 @@ async function uploadFile(file) {
 }
 
 // --- follow-up questions -------------------------------------------------------
-// The same POST /ask the phone uses during a live call, so the advisor can keep asking
-// after the 60 seconds are up. Answers are facts with their sources, never new text.
 
 async function askQuestion(question) {
   const ref = state.selected;
@@ -228,13 +199,13 @@ async function askQuestion(question) {
   input.value = '';
   send.disabled = true;
   const pending = el('li', 'answer-card pending');
-  pending.append(el('p', 'q', `\u201C${question.trim()}\u201D`));
-  pending.append(el('p', 'a', 'Looking\u2026'));
+  pending.append(el('p', 'q', `“${question.trim()}”`));
+  pending.append(el('p', 'a', 'Looking…'));
   $('#answers').prepend(pending);
   const entry = await askAbout(API, ref, question);
   send.disabled = false;
-  if (ref !== state.selected) { pending.remove(); return; }  // they switched client mid-question
-  pending.replaceWith(answerCard(entry));
+  if (ref !== state.selected) { pending.remove(); return; }
+  pending.replaceWith(answerCard(entry, { sources: 'collapsed' }));
   input.focus();
 }
 
@@ -260,7 +231,6 @@ loadClients();
 loadCallers();
 setInterval(() => { loadClients(); loadCallers(); }, 30000);
 
-// The market can move while the page is open (POST /market/events): re-rank at once.
 try {
   const ws = new WebSocket(`${API.replace(/^http/, 'ws')}/ws`);
   ws.addEventListener('message', (msg) => {
