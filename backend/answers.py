@@ -224,13 +224,41 @@ def by_keywords(facts, question):
     return out[:2]
 
 
+# Pleasantries a call is full of. Stripped before deciding whether anything was asked, so
+# "Morning, it's Walter. How much did today cost me?" is still answered, and "How are you?"
+# gets no card at all.
+SMALL_TALK = re.compile(
+    r"\b(?:hi|hello|hey|morning|good (?:morning|afternoon|evening)|afternoon|evening)\b"
+    r"|\bit'?s \w+(?: here| calling)?\b"
+    r"|\bhow (?:are|r) (?:you|things|u)(?: doing)?(?: today)?\b"
+    r"|\bhow(?:'s| is) (?:it going|life|the family|your (?:day|game|round|family)|the weather|the golf|golf|business)\b"
+    r"|\bhow (?:have|'ve) you been\b|\bhow was your (?:weekend|day|holiday)\b"
+    r"|\b(?:is this|is now) a (?:good|bad) time\b|\bdo you have a (?:minute|second|moment)\b"
+    r"|\bcan you hear me\b|\bare you there\b"
+    r"|\bhow can i help(?: you)?(?: today)?\b|\bwhat can i do for you\b"
+    r"|\bnice (?:to (?:hear from|meet|talk to) you|weather)\b"
+    r"|\b(?:thanks?|thank you)(?: (?:so|very) much)?\b|\bcheers\b"
+    r"|\b(?:have a )?(?:good|nice|great) (?:day|weekend|one|evening)\b"
+    r"|\btalk (?:soon|later)\b|\b(?:bye|goodbye|see you)\b|\bquick one\b",
+    re.IGNORECASE)
+
+
+def small_talk_only(text):
+    """True when nothing is left to answer once the pleasantries are taken out."""
+    rest = SMALL_TALK.sub(' ', text or '')
+    filler = r'\b(?:and|so|well|okay|ok|right|yes|yeah|oh|um|uh|just|you|i|today|there|again)\b'
+    return not re.search(r'[a-z]{3,}', re.sub(filler, ' ', rest.lower()))
+
+
 def answer(facts, question, use_llm=True, graph=None):
     """{'answers': [{text, source, fact}], 'found': bool, 'method': ...}.
 
     With a fact graph (backend/reasoning.py), "why / where did it go / compared with the
     market / did the changes" questions get a chain of facts first ('chain': True, and
-    each step carries the link word to the previous one).
+    each step carries the link word to the previous one). Small talk gets nothing.
     """
+    if small_talk_only(question):
+        return {'answers': [], 'found': False, 'method': 'small_talk'}
     if graph is not None:
         chained = reasoning.chain_answer(graph, question, use_llm=use_llm)
         # A chain that never mentions what was asked about ("what happened to my gold?")

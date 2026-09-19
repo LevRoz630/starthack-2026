@@ -24,6 +24,7 @@ import time
 
 import websockets
 
+from .answers import small_talk_only
 from .data import env
 
 STT_URL = ('wss://api.elevenlabs.io/v1/speech-to-text/realtime?model_id=scribe_v2_realtime'
@@ -55,7 +56,7 @@ def is_question(text):
     the STT punctuates: every real question ended in '?' and the sign-off did not.
     """
     clean = re.sub(r'[^\w\s?]', '', (text or '').lower()).strip()
-    if not clean or clean.rstrip('?').strip() in FILLER:
+    if not clean or clean.rstrip('?').strip() in FILLER or small_talk_only(text):
         return False
     if clean.endswith('?'):
         return True

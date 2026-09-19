@@ -123,7 +123,14 @@ async def _silence(session, seconds, stop):
     await _stream(session, bytes(int(PCM_BYTES_PER_SECOND * seconds) & ~1), stop)
 
 
-async def run(name, *, broadcast, ring, make_session, set_market, answered, stop, audio_url):
+async def _silence_until(session, done, max_seconds, stop):
+    """Keep the line open (silence) until done() is true, max_seconds pass, or the call stops."""
+    deadline = time.monotonic() + max_seconds   # the clock, not a count of sleeps: Windows sleeps in ~15 ms steps
+    while not done() and time.monotonic() < deadline and not stop.is_set():
+        await _stream(session, bytes(int(PCM_BYTES_PER_SECOND * CHUNK_SECONDS) & ~1), stop)
+
+
+async def run(name, *, broadcast, ring, make_session, set_market, answered, stop, audio_url, next_turn=None):
     """One recorded call through the real pipeline. Returns the path of the saved run.
 
     ring(ref) -> call briefing (pushed as incoming_call); make_session(ref, on_event) ->
@@ -150,8 +157,22 @@ async def run(name, *, broadcast, ring, make_session, set_market, answered, stop
     session = make_session(ref, rec)
     await session.start()
     try:
-        for line in lines:
-            await _silence(session, line.get('pause_before', 1.0), stop)
+        for i, line in enumerate(lines):
+            if i == 0 or next_turn is None:
+                await _silence(session, line.get('pause_before', 1.0), stop)
+            else:
+                # Turn-taking: the client speaks again only once the advisor has answered.
+                # First the card for the last line (or a few seconds if it asked nothing),
+                # then the advisor's turn, which the phone ends when they stop talking.
+                asked_at = len(rec.events)
+                await _silence_until(session, lambda: any(e['event'].get('type') == 'answer'
+                                                          for e in rec.events[asked_at - 1:]),
+                                     script.get('answer_wait', 5.0), stop)
+                next_turn.clear()
+                await rec({'type': 'demo_turn', 'client': ref})
+                await rec({'type': '_turn', 'client': ref})
+                await _silence_until(session, next_turn.is_set, script.get('turn_timeout', 60), stop)
+                await _silence(session, 0.4, stop)
             if stop.is_set():
                 break
             await rec({'type': 'demo_audio', 'client': ref, 'url': audio_url(line['mp3']), 'text': line['text']})
@@ -159,15 +180,17 @@ async def run(name, *, broadcast, ring, make_session, set_market, answered, stop
         await _silence(session, 1.5, stop)
     finally:
         await session.close()
-    await asyncio.sleep(script.get('hangup_after', 2.0))
+    if not stop.is_set():
+        await asyncio.sleep(script.get('hangup_after', 2.0))
     await rec({'type': 'call_ended', 'client': ref, 'demo': name})
     await rec({'type': 'demo_finished', 'client': ref, 'result': 'stopped' if stop.is_set() else 'done'})
     return rec.save(name, {'script': name, 'client': ref, 'scenario': script.get('scenario')},
                     complete=not stop.is_set())
 
 
-async def replay(name, *, broadcast, answered, stop, answer_timeout=120):
-    """Push a saved run again with its original timing; waits for Answer where the run did."""
+async def replay(name, *, broadcast, answered, stop, answer_timeout=120, next_turn=None, turn_timeout=60):
+    """Push a saved run again with its original timing; waits for Answer, and for the advisor's
+    turn, where the run did, then carries on at the recorded pace from that point."""
     path = RUNS_DIR / f'{name}-latest.json'
     if not path.is_file():
         raise KeyError(f'no saved run for {name!r}; run the pipeline once first')
@@ -183,14 +206,23 @@ async def replay(name, *, broadcast, answered, stop, answer_timeout=120):
         event = item['event']
         if event.get('type') == 'incoming_call':
             answered.clear()
+        if event.get('type') == 'demo_turn' and next_turn is not None:
+            next_turn.clear()
         if event.get('type') == '_answered':
             # The recorded run waited for the advisor here; so does the replay.
-            began = time.monotonic()
             try:
                 await asyncio.wait_for(answered.wait(), answer_timeout)
             except asyncio.TimeoutError:
                 return
-            base += time.monotonic() - began
+            base = time.monotonic() - item['t']   # the rest keeps its pace from this point
+            continue
+        if event.get('type') == '_turn':
+            if next_turn is not None:
+                try:
+                    await asyncio.wait_for(next_turn.wait(), turn_timeout)
+                except asyncio.TimeoutError:
+                    pass
+            base = time.monotonic() - item['t']
             continue
         await broadcast({**event, 'replayed': True})
 

@@ -12,7 +12,7 @@ const WS_URL = `${WS_BASE}/ws`;
 // VOICED runs a different client and scenario through ElevenLabs and the live
 // speech-to-text, so the cards are produced rather than replayed. ?script= overrides.
 const SILENT_SCRIPT = params.get('script') || 'walter';
-const VOICED_SCRIPT = params.get('voiced') || 'buzz';
+const VOICED_SCRIPT = params.get('voiced') || 'walter';
 let DEMO_CLIENT = params.get('demo') || null;   // filled from the script by loadDemo()
 
 const SLOT_TITLES = {
@@ -35,6 +35,7 @@ const state = {
   timer: null,
   approved: {},
   line: null,         // 'recorded' while the call's own audio is being transcribed
+  demoRunning: false, // a recorded demo call is running on the server
 };
 
 // --- formatting -------------------------------------------------------------
@@ -306,7 +307,11 @@ function showLive(text, kind) {
 // Events from the listener (either source) for the client on the line.
 function onListenerEvent(event) {
   if (!state.briefing || event.client !== state.briefing.client) return;
-  if (event.type === 'listening' && event.source !== 'browser') { state.line = 'recorded'; setListenButton('recorded'); }
+  if (event.type === 'listening' && event.source !== 'browser') {
+    if (mic.ws) stopListening();   // the recorded line is the client; the phone mic would hear the advisor too
+    state.line = 'recorded';
+    setListenButton('recorded');
+  }
   if (event.type === 'listening_stopped' && event.source !== 'browser') { state.line = null; setListenButton(mic.ws ? 'mic' : null); }
   if (event.type === 'listener_error') showLive(`Listener: ${event.error}`, 'error');
   if (state.screen !== 'call') return;
@@ -321,10 +326,88 @@ function onListenerEvent(event) {
   }
 }
 
+// --- the advisor's turn in a recorded call -----------------------------------------
+// The recorded client asks, the card arrives, then it waits: the phone listens to the
+// advisor (locally, nothing is sent) and tells the server once they stop talking.
+// Continue does the same by hand, for a noisy room or a mic that is not allowed.
+
+const turn = { stream: null, ctx: null, timer: null, arming: null };
+
+function beginTurn() {
+  stopTurn();
+  const box = $('#turn');
+  box.hidden = false;
+  box.dataset.level = 'waiting';
+  $('#turn-label').textContent = 'Your turn. The client waits until you finish.';
+  // Start listening once the client's own voice has finished playing from the speaker.
+  const voice = $('#caller-voice');
+  const left = voice && !voice.paused && !voice.ended && isFinite(voice.duration)
+    ? (voice.duration - voice.currentTime) * 1000 : 0;
+  turn.arming = setTimeout(startTurnDetector, Math.max(300, left + 300));
+}
+
+async function startTurnDetector() {
+  try {
+    turn.stream = await navigator.mediaDevices.getUserMedia({
+      audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true },
+    });
+  } catch {
+    $('#turn-label').textContent = 'Your turn. Tap Continue when you are done.';
+    return;
+  }
+  turn.ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const analyser = turn.ctx.createAnalyser();
+  analyser.fftSize = 1024;
+  turn.ctx.createMediaStreamSource(turn.stream).connect(analyser);
+  const buf = new Float32Array(analyser.fftSize);
+  const started = Date.now();
+  let noise = 0;
+  let loud = 0;
+  let quiet = 0;
+  let heard = false;
+  turn.timer = setInterval(() => {
+    analyser.getFloatTimeDomainData(buf);
+    let sum = 0;
+    for (const v of buf) sum += v * v;
+    const rms = Math.sqrt(sum / buf.length);
+    if (Date.now() - started < 600) { noise = Math.max(noise, rms); return; }   // room level first
+    const speaking = rms > Math.max(0.015, noise * 2.5);
+    if (speaking) { loud += 50; quiet = 0; if (loud >= 300) heard = true; }
+    else { quiet += 50; if (!heard) loud = 0; }
+    $('#turn').dataset.level = !heard ? 'waiting' : speaking ? 'speaking' : 'finishing';
+    if (heard && quiet >= 1300) endTurn();    // spoke, then 1.3 s of quiet: done
+  }, 50);
+}
+
+function stopTurn() {
+  clearTimeout(turn.arming);
+  clearInterval(turn.timer);
+  if (turn.stream) for (const t of turn.stream.getTracks()) t.stop();
+  if (turn.ctx) turn.ctx.close().catch(() => {});
+  Object.assign(turn, { stream: null, ctx: null, timer: null, arming: null });
+  const box = $('#turn');
+  if (box) box.hidden = true;
+}
+
+function endTurn() {
+  stopTurn();
+  fetch(`${API}/demo/next`, { method: 'POST' }).catch(() => {});
+}
+
 // --- after call ---------------------------------------------------------------
+
+// A recorded demo call keeps running on the server until told otherwise. Stopping it from
+// End call / Decline lets the next "Start the call" begin straight away. A call the server
+// ends itself is not stopped: that run finished and becomes the saved replay.
+function stopDemo() {
+  if (!state.demoRunning) return;
+  state.demoRunning = false;
+  fetch(`${API}/demo/stop`, { method: 'POST' }).catch(() => {});
+}
 
 function endCall() {
   $('#caller-voice').pause();
+  stopTurn();
   stopListening();
   clearInterval(state.timer);
   const duration = state.callStarted ? clock(Date.now() - state.callStarted) : '0:00';
@@ -560,6 +643,11 @@ function connect() {
     if (event.type === 'call_ended' && state.screen === 'call' && state.briefing && event.client === state.briefing.client) {
       endCall();
     }
+    if (event.type === 'demo_started') state.demoRunning = true;
+    if (event.type === 'demo_finished') { state.demoRunning = false; stopTurn(); }
+    if (event.type === 'demo_turn' && state.screen === 'call' && state.briefing && event.client === state.briefing.client) {
+      beginTurn();
+    }
     if (event.type === 'demo_started' || event.type === 'demo_finished') demoStatus(event);
   });
   ws.addEventListener('close', retry);
@@ -575,8 +663,9 @@ function connect() {
 // --- wiring -------------------------------------------------------------------
 
 $('#answer').addEventListener('click', answer);
-$('#decline').addEventListener('click', () => { stopRingtone(); stopListening(); show('idle'); });
-$('#end-call').addEventListener('click', endCall);
+$('#decline').addEventListener('click', () => { stopDemo(); stopRingtone(); stopListening(); show('idle'); });
+$('#end-call').addEventListener('click', () => { stopDemo(); endCall(); });
+$('#turn-continue').addEventListener('click', endTurn);
 $('#listen').addEventListener('click', () => (mic.ws ? stopListening() : startListening()));
 $('#type-toggle').addEventListener('click', () => {
   const form = $('#ask-form');

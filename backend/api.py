@@ -25,7 +25,8 @@ Endpoints (JSON unless noted):
     POST /followup/send                {"client", "kind": "email"|"note", "body"}: send the approved draft (Gmail)
     POST /call/answered                the phone's Answer button (lets a recorded demo call proceed)
     GET  /demo/scripts                 recorded demo scripts, whether a saved run exists, email mode
-    POST /demo/run                     {"script": "golf", "mode": "pipeline"|"replay"}; POST /demo/stop
+    POST /demo/run                     {"script": "walter", "mode": "pipeline"|"replay"}; POST /demo/stop (End call)
+    POST /demo/next                    the advisor finished their turn: the recorded client may speak again
     WS   /ws                           pushes {"type": "incoming_call" | "market" | "transcript" | "answer" |
                                        "listening" | "listening_stopped" | "listener_error", ...} events
     WS   /listen?client=REF            browser microphone (16 kHz PCM16 frames) -> live transcript + answers on /ws
@@ -76,6 +77,7 @@ class State:
         self.demo_task = None       # the recorded demo call in progress, if any
         self.demo_answered = asyncio.Event()
         self.demo_stop = asyncio.Event()
+        self.demo_next = asyncio.Event()   # the advisor has finished their turn
         self.sockets = set()
         self.use_llm = os.getenv('BRIEFING_LLM', '1') != '0'
         self.pool = ThreadPoolExecutor(max_workers=4)
@@ -439,7 +441,13 @@ async def demo_run(request):
     if mode == 'replay' and not (demo.RUNS_DIR / f'{name}-latest.json').is_file():
         return error(409, 'no saved run yet: run the pipeline once first')
     if _demo_running():
-        return error(409, 'a demo call is already running; POST /demo/stop first')
+        if not state.demo_stop.is_set():
+            return error(409, 'a demo call is already running; POST /demo/stop first')
+        # End call was just pressed: let the old call finish closing, then start the retry.
+        try:
+            await asyncio.wait_for(asyncio.shield(state.demo_task), 8)
+        except (asyncio.TimeoutError, Exception):
+            pass
     state.demo_stop.clear()
     if mode == 'pipeline':
         coro = demo.run(
@@ -448,7 +456,7 @@ async def demo_run(request):
             make_session=lambda ref, on_event: listener.Session(
                 ref, on_event, lambda text: answer(state.store.clients[ref], text), fmt='pcm_16000', source='recorded'),
             set_market=_set_market, answered=state.demo_answered, stop=state.demo_stop,
-            audio_url=lambda path: f'/demo/audio/{path.name}')
+            audio_url=lambda path: f'/demo/audio/{path.name}', next_turn=state.demo_next)
     else:
         # A replay pushes the saved events, which carry their own market; without this the
         # server would still hold whatever scenario was loaded before, so a question typed
@@ -456,7 +464,8 @@ async def demo_run(request):
         scenario = (demo.load_script(name) or {}).get('scenario')
         if scenario:
             _set_market(scenario)
-        coro = demo.replay(name, broadcast=state.broadcast, answered=state.demo_answered, stop=state.demo_stop)
+        coro = demo.replay(name, broadcast=state.broadcast, answered=state.demo_answered, stop=state.demo_stop,
+                           next_turn=state.demo_next)
     state.demo_task = asyncio.create_task(coro)
     return JSONResponse({'started': name, 'mode': mode})
 
@@ -467,9 +476,17 @@ async def home(request):
     return RedirectResponse('/dashboard/')
 
 
+async def demo_next(request):
+    """The advisor finished speaking (or pressed Continue): the client may talk again."""
+    state.demo_next.set()
+    return JSONResponse({'ok': True})
+
+
 async def demo_stop(request):
+    """End call on the phone: stop the demo call now, so it can be run again."""
     state.demo_stop.set()
     state.demo_answered.set()   # release a run still waiting for Answer
+    state.demo_next.set()       # or waiting for the advisor's turn
     return JSONResponse({'stopping': _demo_running()})
 
 
@@ -566,6 +583,7 @@ app = Starlette(
         Route('/demo/scripts', demo_scripts),
         Route('/demo/run', demo_run, methods=['POST']),
         Route('/demo/stop', demo_stop, methods=['POST']),
+        Route('/demo/next', demo_next, methods=['POST']),
         Route('/demo/audio/{name}', demo_audio),
         Mount('/phone', StaticFiles(directory=PHONE_APP, html=True), name='phone'),
         Mount('/dashboard', StaticFiles(directory=DASHBOARD_APP, html=True), name='dashboard'),
