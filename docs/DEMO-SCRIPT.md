@@ -1,164 +1,140 @@
 # The two demo calls
 
-Two clients with different risk appetites, ringing for different reasons. Every question
-below was run through `POST /ask` first, and every number in the advisor's replies is on
-the card that is on screen at that moment. Nothing here is invented. If a card does not
-come, say the thing without the number rather than filling the gap.
+Generated from the recorded runs in `data/demo/runs/`, so this is what actually happens on
+the phone rather than what was intended. The client's lines are in `data/demo/*.json`; the
+cards below are what the fact engine returned through the real speech-to-text.
+
+Every number an advisor says out loud must be on the card above it. If a card does not
+come, say the thing without the number.
 
 ---
 
-## Call 1 — Superman (CASE-026)
+## Call 1 — the silent one, for filming: Walter White (CASE-045)
 
-**Who.** Investor profile 6, CHF 2.38m, CHF 115k cash. His file says he is comfortable
-with higher volatility given a long time horizon, wants no defence or tobacco, asked for
-a benchmark comparison at the next review, and prefers phone contact twice a year with
-no unannounced visits. He does not panic. He rings because the number is big, not
-because he is frightened.
+**Who.** A former chemistry teacher. His file says he runs a small family car-wash business on the side and occasionally asks about reinvesting its proceeds, prefers to settle smaller amounts in cash where possible, and values discretion -- minimal written correspondence about portfolio specifics. Recent health concerns have prompted a review of estate and succession planning. He is 63% health care through Novartis and BB Biotech, and Novartis alone is 41% of his book.
 
-**Market.** tech-selloff.
+**Market.** tech-selloff.  **Length.** 76 seconds.
 
 ### 1
 
-**SUPERMAN:** Morning. I've just seen the screens, how much did I lose today?
+**WALTER:** Morning. It's Walter. Quick one before my first lesson. How much did today cost me?
 
-*Card: Probably the market move: Information Technology −4.8% today, 8.3% of the book;
-about −CHF 30k (−1.3%) overall. — The dollar −1.2% against the franc: 15.7% of the book
-is exposed, about −CHF 4k. — Financials −0.9% today: 16.8% of the book, about −CHF 4k,
-mostly via Zurich Insurance Group AG and Helvetia Holding AG.*
+> About −CHF 2k today, −0.7% of the book.
+>
+> <sub>impact of the market feed on clients.json CASE-045 holdings</sub>
 
-**ADVISOR:** About thirty thousand. One point three percent. Tech took most of it, down
-four point eight on the day. The dollar's another four, and your insurers about the
-same.
+> About −CHF 896 from Financials, −0.9% today on 29.3% of the book, mostly Cembra Money Bank AG.
+>
+> <sub>market feed "tech-selloff": S5FINL Index CHG_PCT_1D × clients.json CASE-045 holdings</sub>
 
 ### 2
 
-**SUPERMAN:** Right, but why? What actually drove it?
+**WALTER:** I still follow the chemistry side. How much of my portfolio is in pharma?
 
-*Chain: Behind the move: "Chip stocks slide after export-control headlines" — the book is
-about −CHF 30.2k today (−1.3%) on CHF 2.38m — Information Technology −4.8% on 8.3% after
-look-through: about −CHF 9.5k — iShares NASDAQ 100 UCITS ETF: CHF 47k of that exposure,
-about −CHF 2.3k of it — the dollar −1.2% on 15.7%: about −CHF 4.5k — Financials −0.9% on
-16.8%: about −CHF 3.6k — everything else together (12 smaller moves): about −CHF 12.7k.*
-
-**ADVISOR:** Chip stocks sold off. Export-control headlines. Nine and a half of it is
-tech, and two and a half of that is the NASDAQ fund on its own. Dollar, four and a half.
-Insurers, three and a half. The rest is twelve smaller moves adding up.
+> Health Care is 63.0% of the book (CHF 214k) after fund look-through, mostly via Novartis AG and BB Biotech AG.
+>
+> <sub>clients.json CASE-045: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName</sub>
 
 ### 3
 
-**SUPERMAN:** And am I breaking any of your rules at the moment?
+**WALTER:** Hmm. Am I too concentrated in one thing?
 
-*Card: 5 suitability errors and 4 warnings open; most serious: "Volatility range
-undershot (portfolio risk too low)".*
+> Novartis AG alone is 41.0% of the book.
+>
+> <sub>clients.json CASE-045: Portfolios[CASE-045-01].SecurityPositions</sub>
 
-**ADVISOR:** Five errors, four warnings. The top one will amuse you. Your portfolio is
-too *low* risk for your own profile. You told us you can sit through volatility, and
-we've got you below it.
+> 0 suitability errors and 1 warning open; most serious: "Share is not part of the investment universe for individual shares and therefore not monitored.".
+>
+> <sub>clients.json CASE-045: SuitabilityViolations</sub>
 
 ### 4
 
-**SUPERMAN:** Did anything at all hold up?
+**WALTER:** Right. And how much cash do I have with you?
 
-*Card: Holding up today: Consumer Staples +0.3% (8.6% of the book).*
+> Cash on hand is CHF 1k, 0.4% of the book.
+>
+> <sub>clients.json CASE-045: LiquidityInDefaultCurrency</sub>
 
-**ADVISOR:** Staples. Up a fraction. Eight point six percent of the book. Nothing else
-much was green.
+### Sign-off
 
-### 5
+**WALTER:** Good. Keep it off paper where you can. I'll call you.
 
-**SUPERMAN:** Fine. Send me the numbers and we'll talk at the review.
-
-**ADVISOR:** Will do. We'll speak then.
-
-*No card here — it isn't a question, and the system knows it.*
+*No card. It is not a question, and the system knows that.*
 
 ---
 
-## Call 2 — Holden Caulfield (CASE-021)
+## Call 2 — the voiced one: Buzz Lightyear (CASE-027)
 
-**Who.** Investor profile 3, the only conservative client in the book, CHF 759k, and CHF
-259k of that, a third, sitting in cash. No open violations. His file says he wants to go
-into Swiss small caps, wants a call before anything changes on the standing order, and
-is working out a charitable donation from the portfolio.
+**Who.** Very enthusiastic about space travel; his file records that he follows private spaceflight companies with great interest and has asked for more detail on how that exposure could be expanded further. He prefers forward-looking, high-conviction positions over defensive ones and is not concerned by short-term volatility in thematic growth positions. He is 97.9% industrials, and SpaceX alone is 68.5% of his book.
 
-What he does not know is that one holding, VZ Holding AG, is 65.8% of his book and
-drives all of its volatility, and that it sits above the product risk limit for a
-profile 3 client. This call is not about a market drop. It is the call the product is
-actually for.
-
-**Market.** tech-selloff.
+**Market.** tech-selloff.  **Length.** 73 seconds.
 
 ### 1
 
-**HOLDEN:** Hello, it's Holden. I saw the news this morning, how much did today cost me?
+**BUZZ:** Hello, I saw the launch got pushed again. How much did I lose today?
 
-*Card: Possibly the market move: Financials −0.9% today, 65.8% of the book; about −CHF 4k
-(−0.6%) overall.*
+> About −CHF 4k today, −2.3% of the book.
+>
+> <sub>impact of the market feed on clients.json CASE-027 holdings</sub>
 
-**ADVISOR:** About four thousand. Six tenths of a percent. It's the financials, down
-under one percent today.
+> About −CHF 2k from Industrials, −1.1% today on 97.9% of the book, mostly SpaceX and Union Pacific Corp.
+>
+> <sub>market feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-027 holdings</sub>
+
+> About −CHF 2k from the dollar, −1.2% against the franc on 97.9% of the book.
+>
+> <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-027 holdings</sub>
 
 ### 2
 
-**HOLDEN:** That's less than I feared. Why did it barely move?
+**BUZZ:** Why did it drop?
 
-*Chain: the book is about −CHF 4.5k today (−0.6%) on CHF 759k — the book moved less than
-the SMI: −0.6% against −1.3% — the SMI moved −1.3% today.*
+> Behind the move: "Dollar weakens as rate-cut bets rise"
+>
+> <sub>market feed "tech-selloff" headline</sub>
 
-**ADVISOR:** The cash, mostly. Swiss market was down one point three. You were down six
-tenths. So about half of it.
+> The dollar −1.2% against the franc, on 97.9% of the book: about −CHF 2.0k.
+>
+> <sub>market feed "tech-selloff": USDCHF Curncy CHG_PCT_1D × clients.json CASE-027 holdings</sub>
+
+> The book is about −CHF 3.9k today (−2.3%) on CHF 172k.
+>
+> <sub>market feed "tech-selloff" × clients.json CASE-027 holdings</sub>
 
 ### 3
 
-**HOLDEN:** And how much of it is just sitting in cash doing nothing?
+**BUZZ:** And how much space exposure do I actually have?
 
-*Card: Cash on hand is CHF 259k, 34.2% of the book. — Deploy idle liquidity: 34.2% of
-the book (CHF 259k) is cash.*
-
-**ADVISOR:** Two hundred and fifty-nine thousand. A third of what you hold with us. It
-kept you out of trouble today. The rest of the time it's doing nothing.
+> About −CHF 2k from Industrials, −1.1% today on 97.9% of the book, mostly SpaceX and Union Pacific Corp.
+>
+> <sub>market feed "tech-selloff": S5INDU Index CHG_PCT_1D × clients.json CASE-027 holdings</sub>
 
 ### 4
 
-**HOLDEN:** So is my portfolio too cautious, then?
+**BUZZ:** Am I too concentrated?
 
-*Card: 1 holding above the product risk class limit of Investor profile 3 (maximum 4):
-VZ Holding AG, 65.8% of the book. — VZ Holding AG drives 100.0% of the volatility of
-Account / Custody (CASE-021-01).*
+> SpaceX alone is 68.5% of the book.
+>
+> <sub>clients.json CASE-027: Portfolios[CASE-027-01].SecurityPositions</sub>
 
-**ADVISOR:** No. If anything it's the other way round. A third is in cash and nearly all
-the rest is one share. VZ Holding, sixty-five point eight percent of the book. All of
-the movement you see comes from that. And it sits above the risk limit for your profile.
+### Sign-off
 
-### 5
+**BUZZ:** Understood. I'd still rather be early than safe. Talk soon.
 
-**HOLDEN:** I've been thinking about Swiss small caps. What about those?
-
-*Card: Note from 22 Nov 2025: "Wants to invest more heavily in Swiss small caps going
-forward."*
-
-**ADVISOR:** You raised that in November. It's on the file. I'd want to deal with the
-concentration first. There's enough cash to do both.
-
-### 6
-
-**HOLDEN:** Right. Call me before you change anything.
-
-**ADVISOR:** That's on your file too. Nothing moves without a call.
-
-*No card — not a question.*
+*No card. It is not a question, and the system knows that.*
 
 ---
 
 ## For whoever plays the client
 
-- Say the lines as written; the system is listening for these questions.
-- Leave the gap. The advisor is talking in it, and rushing makes it look like a chatbot
-  instead of a phone call.
-- The last line in each call is a sign-off, not a question. Do not turn it into one.
+- Say the lines as written. The speech-to-text is listening for these words.
+- **End every line on the question.** A line that finishes with a statement is committed
+  as a statement and gets no card: Walter's pharma line first ended "that's the part I
+  actually follow" and produced nothing.
+- Leave the gap. The advisor is answering the client in it.
+- The last line is a sign-off, not a question. Do not turn it into one.
 
 ## For the advisor
 
 - Look at the card, then look up. Do not read it off the screen word for word.
 - Never say a number that is not on the card in front of you.
-- Earbuds, and step away from anyone else — that is the point of the scene.
