@@ -1,94 +1,164 @@
-# The call — acting script for two
+# The two demo calls
+
+Two clients with different risk appetites, ringing for different reasons. Every question
+below was run through `POST /ask` first, and every number in the advisor's replies is on
+the card that is on screen at that moment. Nothing here is invented. If a card does not
+come, say the thing without the number rather than filling the gap.
 
 ---
 
-## Before the phone rings
+## Call 1 — Superman (CASE-026)
 
-The advisor's screen already says:
+**Who.** Investor profile 6, CHF 2.38m, CHF 115k cash. His file says he is comfortable
+with higher volatility given a long time horizon, wants no defence or tobacco, asked for
+a benchmark comparison at the next review, and prefers phone contact twice a year with
+no unannounced visits. He does not panic. He rings because the number is big, not
+because he is frightened.
 
-> **Waldo** — Investor profile 6, CHF 891k across 1 portfolio
-> **Probably the market move:** Information Technology −4.8% today, 9.6% of the book;
-> about **−CHF 12k (−1.4%)** overall
-> Information Technology −4.8% today: 9.6% of the book, about −CHF 4k
-> The dollar −1.2% against the franc: 25.3% of the book is exposed, about −CHF 3k
-> Hedged: iShares MSCI World CHF Hedged and SPDR Global Aggregate (14.8% of the book)
-> Holding up: Swiss franc bonds +0.2%, Consumer Staples +0.3%, foreign bonds +0.3%
+**Market.** tech-selloff.
 
-**ADVISOR** reads that, steps away from the other client, puts earbuds in, then answers.
+### 1
 
----
+**SUPERMAN:** How much did I lose today?
 
-## 1
+*Card: Probably the market move: Information Technology −4.8% today, 8.3% of the book;
+about −CHF 30k (−1.3%) overall. — The dollar −1.2% against the franc: 15.7% of the book
+is exposed, about −CHF 4k. — Financials −0.9% today: 16.8% of the book, about −CHF 4k,
+mostly via Zurich Insurance Group AG and Helvetia Holding AG.*
 
-**WALDO:** Hi, it's Waldo. I just saw tech stocks are crashing. How much have I lost on tech?
+**ADVISOR:** About thirty thousand. One point three percent. Tech took most of it, down
+four point eight on the day. The dollar's another four, and your insurers about the
+same.
 
-*Card: Information Technology −4.8% today: 9.6% of the book, about −CHF 4k, mostly via
-iShares NASDAQ 100 UCITS ETF and iShares Core S&P 500 UCITS ETF.*
+### 2
 
-**ADVISOR:** Tech is down four point eight today, and it's about nine and a half percent
-of your book — so roughly four thousand francs on the tech side. It's mostly the two
-index funds, the NASDAQ 100 and the S&P 500.
+**SUPERMAN:** Why did it drop?
 
-*(7 seconds. Let it breathe — this is a phone call, not a demo.)*
+*Chain: Behind the move: "Chip stocks slide after export-control headlines" — the book is
+about −CHF 30.2k today (−1.3%) on CHF 2.38m — Information Technology −4.8% on 8.3% after
+look-through: about −CHF 9.5k — iShares NASDAQ 100 UCITS ETF: CHF 47k of that exposure,
+about −CHF 2.3k of it — the dollar −1.2% on 15.7%: about −CHF 4.5k — Financials −0.9% on
+16.8%: about −CHF 3.6k — everything else together (12 smaller moves): about −CHF 12.7k.*
 
----
+**ADVISOR:** Chip stocks sold off. Export-control headlines. Nine and a half of it is
+tech, and two and a half of that is the NASDAQ fund on its own. Dollar, four and a half.
+Insurers, three and a half. The rest is twelve smaller moves adding up.
 
-## 2
+### 3
 
-**WALDO:** And my world fund, is that hit by the dollar as well?
+**SUPERMAN:** Am I breaking any of your rules?
 
-*Cards: The dollar −1.2% against the franc: 25.3% of the book is exposed, about −CHF 3k.
-— iShares MSCI World CHF Hedged UCITS ETF (Acc) and SPDR Bloomberg Global Aggregate Bond
-UCITS ETF (14.8% of the book) are hedged to the franc, so the dollar move does not reach
-them.*
+*Card: 5 suitability errors and 4 warnings open; most serious: "Volatility range
+undershot (portfolio risk too low)".*
 
-**ADVISOR:** The dollar's down one point two against the franc, and about a quarter of
-your book is exposed to that — call it three thousand. But not the world fund. That one's
-the franc-hedged share class, so the dollar move doesn't reach it. Same for the global
-bond fund. Together that's about fifteen percent of your book sitting outside this.
+**ADVISOR:** Five errors, four warnings. The top one will amuse you. Your portfolio is
+too *low* risk for your own profile. You told us you can sit through volatility, and
+we've got you below it.
 
-*(7 seconds.)*
+### 4
 
----
+**SUPERMAN:** What held up?
 
-## 3
+*Card: Holding up today: Consumer Staples +0.3% (8.6% of the book).*
 
-**WALDO:** What about my bonds, are they holding up?
+**ADVISOR:** Staples. Up a fraction. Eight point six percent of the book. Nothing else
+much was green.
 
-*Card: Holding up today: Swiss franc bonds +0.2% (16.9% of the book); Consumer Staples
-+0.3% (8.4% of the book); foreign bonds +0.3% (5.6% of the book).*
+### 5
 
-**ADVISOR:** They are — your Swiss franc bonds are up a fraction, and that's nearly
-seventeen percent of the book. Foreign bonds up as well, and consumer staples. That's the
-part of the portfolio doing its job today.
+**SUPERMAN:** Fine. Send me the numbers and we'll talk at the review.
 
-*(6 seconds.)*
+**ADVISOR:** Will do. We'll speak then.
 
----
-
-## 4
-
-**WALDO:** Great, thanks. Talk soon.
-
-**ADVISOR:** I'll send you a short note with these numbers this afternoon. Speak soon.
-
-*No card appears here — it isn't a question, and the system knows that.*
-
-**ADVISOR** hangs up. The phone shows the call note and the draft follow-up email. One tap
-on Approve.
+*No card here — it isn't a question, and the system knows it.*
 
 ---
 
-## Notes for whoever plays Waldo
+## Call 2 — Holden Caulfield (CASE-021)
 
-- Say the lines as written. The system is listening for these questions.
-- Wait for the advisor to finish before starting the next line — the gaps are where the
-  advisor is talking, and if you rush it, it looks like a chatbot instead of a call.
-- Line 4 is a sign-off, not a question. Do not turn it into one.
+**Who.** Investor profile 3, the only conservative client in the book, CHF 759k, and CHF
+259k of that, a third, sitting in cash. No open violations. His file says he wants to go
+into Swiss small caps, wants a call before anything changes on the standing order, and
+is working out a charitable donation from the portfolio.
 
-## Notes for the advisor
+What he does not know is that one holding, VZ Holding AG, is 65.8% of his book and
+drives all of its volatility, and that it sits above the product risk limit for a
+profile 3 client. This call is not about a market drop. It is the call the product is
+actually for.
 
-- Look at the card, then look up. Do not read it word for word off the screen.
-- If a card does not come, say what you know from the ringing screen. Never invent a
-  number.
-- Earbuds, and step away from the other client — that is the point of the scene.
+**Market.** tech-selloff.
+
+### 1
+
+**HOLDEN:** How much did today cost me?
+
+*Card: Possibly the market move: Financials −0.9% today, 65.8% of the book; about −CHF 4k
+(−0.6%) overall.*
+
+**ADVISOR:** About four thousand. Six tenths of a percent. It's the financials, down
+under one percent today.
+
+### 2
+
+**HOLDEN:** Why did it barely move?
+
+*Chain: the book is about −CHF 4.5k today (−0.6%) on CHF 759k — the book moved less than
+the SMI: −0.6% against −1.3% — the SMI moved −1.3% today.*
+
+**ADVISOR:** The cash, mostly. Swiss market was down one point three. You were down six
+tenths. So about half of it.
+
+### 3
+
+**HOLDEN:** How much is just sitting in cash?
+
+*Card: Cash on hand is CHF 259k, 34.2% of the book. — Deploy idle liquidity: 34.2% of
+the book (CHF 259k) is cash.*
+
+**ADVISOR:** Two hundred and fifty-nine thousand. A third of what you hold with us. It
+kept you out of trouble today. The rest of the time it's doing nothing.
+
+### 4
+
+**HOLDEN:** Is my portfolio too cautious?
+
+*Card: 1 holding above the product risk class limit of Investor profile 3 (maximum 4):
+VZ Holding AG, 65.8% of the book. — VZ Holding AG drives 100.0% of the volatility of
+Account / Custody (CASE-021-01).*
+
+**ADVISOR:** No. If anything it's the other way round. A third is in cash and nearly all
+the rest is one share. VZ Holding, sixty-five point eight percent of the book. All of
+the movement you see comes from that. And it sits above the risk limit for your profile.
+
+### 5
+
+**HOLDEN:** What about Swiss small caps?
+
+*Card: Note from 22 Nov 2025: "Wants to invest more heavily in Swiss small caps going
+forward."*
+
+**ADVISOR:** You raised that in November. It's on the file. I'd want to deal with the
+concentration first. There's enough cash to do both.
+
+### 6
+
+**HOLDEN:** Right. Call me before you change anything.
+
+**ADVISOR:** That's on your file too. Nothing moves without a call.
+
+*No card — not a question.*
+
+---
+
+## For whoever plays the client
+
+- Say the lines as written; the system is listening for these questions.
+- Leave the gap. The advisor is talking in it, and rushing makes it look like a chatbot
+  instead of a phone call.
+- The last line in each call is a sign-off, not a question. Do not turn it into one.
+
+## For the advisor
+
+- Look at the card, then look up. Do not read it off the screen word for word.
+- Never say a number that is not on the card in front of you.
+- Earbuds, and step away from anyone else — that is the point of the scene.
