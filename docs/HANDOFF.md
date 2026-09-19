@@ -45,19 +45,20 @@ so Approve writes to `data/outbox/`. The server reads `.env` at start: restart a
 
 ## Open items, in priority order
 
-1. **Dashboard web page** (`web/dashboard/`, the rubric): one-click 60-second briefing with
-   per-sentence sources, word count, reading-time estimate, section coverage, claim-checker
-   rejections, a Listen button, and test-client upload (`POST /clients`) are built. Still
-   missing: "who to call first" from `GET /callers` — the dashboard doesn't call it yet.
-2. **Real browser click-through of the phone app** (never clicked through; only API-tested):
-   ringing, Answer, recorded call audio, answer cards incl. chain rendering, Approve.
+1. ~~Dashboard web page~~ **done**: one-click briefing with per-sentence sources, word count,
+   reading time, section coverage, claim-checker rejections, Listen, test-client upload, and
+   the **Call first** panel (`GET /callers`, re-ranks live on a `market` event).
+2. ~~Real browser click-through~~ **done** (headless Chromium, both apps): idle → ringing →
+   Answer → ask → chain card → End call → note + email → Approve, no console errors except
+   the missing `ringtone.mp3`. Screenshots were taken at 390x844 and 1440x900.
 3. **Phone styling** to the user's Nano Banana mockups (tokens are CSS variables in `app.css`).
 4. **Email:** once the user adds the Gmail settings, restart and send one test.
 5. **Ringtone:** the user's "your phone linging" meme as `web/phone/ringtone.mp3` (not in repo).
 6. **Golf video** (hard deadline ~12:00 Sat): run "Play recorded call" on a real phone over
    a tunnel (`cloudflared tunnel --url http://localhost:8000`), screen-record, composite.
 7. Twilio live test if someone buys a number (steps in `backend/listener.py` docstring).
-8. Deck + pitch prep (5 min; run of show in `docs/PLAN.md`).
+8. Deck: content and script are written (`docs/PITCH.md`) — the slides themselves still
+   have to be built, and one rehearsal against a timer.
 
 ## Rules the code keeps (keep them)
 
@@ -68,6 +69,25 @@ so Approve writes to `data/outbox/`. The server reads `.env` at start: restart a
   audio caches or the outbox.
 - Run `python -m pytest -q tests` and check **pytest's own exit code** before every push
   (a pipe to `tail` hides failures).
+
+## Changed on Sat 19 Sep, ~00:30 (all tested, 113 pass)
+
+- Every client now gets a **next best action**: a proposal whose orders were mostly
+  forwarded with a warning is one (fires for 19 of 57), and a client with nothing open
+  gets "Nothing open: no suitability violation, and every asset class is inside its band."
+  53 of 57 briefings now fill all six sections, the other 4 are short one on purpose.
+- **Cash on hand** is a fact for every client (`watch.liquidity`, weight 0), and
+  withdrawal questions are their own question type — "can I withdraw 50'000?" used to be
+  answered with the performance history.
+- **A question that names a subject is only answered about that subject**, in every
+  layer including the chain: "what happened to my gold?" on a client who holds no gold
+  now says nothing in the data answers it, instead of the generic explanation.
+- The **follow-up email is client-safe**: the reason we guessed, the playbook wording and
+  the (simulated) market headline are advisor-only and never reach the client's inbox;
+  near-duplicate lines are collapsed; at most six points.
+- `[hidden]` now beats a component's own `display` (the dashboard's "Pick a client" card
+  stayed on screen behind the briefing), the briefing carries the client's `name`, and
+  ex-custody clients are marked in the client list.
 
 ## Gotchas
 

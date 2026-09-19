@@ -28,6 +28,9 @@
 
 * { box-sizing: border-box; }
 
+/* Wins over any component's own display rule. */
+[hidden] { display: none !important; }
+
 html, body {
   margin: 0;
   background: var(--page);

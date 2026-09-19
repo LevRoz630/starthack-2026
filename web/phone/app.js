@@ -357,6 +357,27 @@ function callNote(duration) {
   return lines.join('\n');
 }
 
+// The client may only be sent statements about their own portfolio. The advisor's
+// side of the card — why we think they called, the playbook wording, and the market
+// headline (which is labelled simulated in the demo) — never goes into their inbox.
+const ADVISOR_ONLY = /^(reason|news|talk)\b/;
+
+function forTheClient(answers) {
+  const out = [];
+  for (const a of answers) {
+    if (ADVISOR_ONLY.test(a.fact || '')) continue;
+    if (/simulated/i.test(a.text)) continue;
+    // Two layers often state the same fact in slightly different words; the client
+    // should read it once. The opening clause is what identifies it.
+    const head = a.text.slice(0, 32).toLowerCase();
+    if (out.some((t) => t.slice(0, 32).toLowerCase() === head)) continue;
+    if (!out.includes(a.text)) out.push(a.text);
+  }
+  return out;
+}
+
+const MAX_EMAIL_POINTS = 6;
+
 function followUpEmail() {
   const b = state.briefing;
   const name = callerName(b);
@@ -364,13 +385,11 @@ function followUpEmail() {
   const lines = [`Dear ${name},`, '', 'Thank you for your call today.'];
 
   if (state.answers.length) {
-    const points = [...state.answers].reverse().flatMap((entry) => entry.answers.map((a) => a.text));
+    const points = forTheClient([...state.answers].reverse().flatMap((entry) => entry.answers));
     if (points.length) {
       lines.push('', 'As discussed:');
-      for (const text of points) lines.push(`- ${text}`);
+      for (const text of points.slice(0, MAX_EMAIL_POINTS)) lines.push(`- ${text}`);
     }
-  } else if (groups.reason) {
-    lines.push('', groups.reason[0].text);
   }
 
   if (groups.issue) {

@@ -1,0 +1,561 @@
+<title>Your Phone Is Ringing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fira+Sans+Condensed:wght@600;700&family=Fira+Mono:wght@400;700&display=swap">
+
+<style>
+  /* ---- tokens: light is the default, because projectors wash out dark grounds ---- */
+  :root {
+    --ink: #16161A;
+    --ink-soft: #55545E;
+    --muted: #84838D;
+    --page: #F1F2F5;
+    --card: #FFFFFF;
+    --line: #DCDCE3;
+    --blue: #2F6FBA;
+    --blue-bright: #5499E4;
+    --blue-wash: #E8F0FA;
+    --red: #C9433C;
+    --green: #2E8C62;
+    --amber: #B5860B;
+    --shadow: 0 1px 2px rgba(22, 22, 26, .06), 0 10px 30px rgba(22, 22, 26, .07);
+
+    --display: "Fira Sans Condensed", "Fira Sans", system-ui, sans-serif;
+    --body: "Fira Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "Fira Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+</style>
+
+<style>
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #F2F2F5;
+      --ink-soft: #B9B8C2;
+      --muted: #8B8A95;
+      --page: #121218;
+      --card: #1C1C24;
+      --line: #32323D;
+      --blue: #7FB4F0;
+      --blue-bright: #5499E4;
+      --blue-wash: #1B2635;
+      --red: #F0837C;
+      --green: #5FC294;
+      --amber: #E0B64A;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #F2F2F5;
+    --ink-soft: #B9B8C2;
+    --muted: #8B8A95;
+    --page: #121218;
+    --card: #1C1C24;
+    --line: #32323D;
+    --blue: #7FB4F0;
+    --blue-bright: #5499E4;
+    --blue-wash: #1B2635;
+    --red: #F0837C;
+    --green: #5FC294;
+    --amber: #E0B64A;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .35);
+  }
+
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+
+  html, body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: clamp(15px, 1.15vw, 20px);
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- deck frame ---- */
+  .deck { min-height: 100vh; display: flex; flex-direction: column; }
+
+  .slide {
+    flex: 1;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.6em;
+    padding: clamp(28px, 4.5vw, 72px) clamp(24px, 6vw, 96px) clamp(76px, 7vw, 96px);
+    max-width: 1500px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .slide[data-active] { display: flex; animation: rise .28s ease-out both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .slide[data-active] { animation: none; } }
+
+  /* ---- type ---- */
+  .eyebrow {
+    font-family: var(--body);
+    font-size: .72em;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2.6rem, 6.2vw, 5.2rem);
+    line-height: .97;
+    letter-spacing: -.015em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.9rem, 3.9vw, 3.3rem);
+    line-height: 1.02;
+    letter-spacing: -.012em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h3 {
+    font-family: var(--body);
+    font-size: .8em;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 .6em;
+  }
+  p { margin: 0; max-width: 62ch; }
+  .lede { font-size: clamp(1.05rem, 1.7vw, 1.6rem); color: var(--ink-soft); max-width: 46ch; }
+  strong { font-weight: 600; }
+  em.say { font-style: normal; border-bottom: 2px solid var(--blue-bright); padding-bottom: 1px; }
+
+  /* ---- reusable pieces ---- */
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: clamp(16px, 2vw, 32px); align-items: start; }
+  .cols.tight { grid-template-columns: 1.15fr .85fr; }
+  @media (max-width: 900px) { .cols.tight { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: clamp(16px, 1.6vw, 26px);
+  }
+
+  .stat { display: flex; flex-direction: column; gap: .15em; }
+  .stat .num {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: clamp(1.7rem, 3.4vw, 3rem);
+    letter-spacing: -.02em;
+    font-variant-numeric: tabular-nums;
+    color: var(--blue);
+    line-height: 1;
+  }
+  .stat .what { color: var(--ink-soft); font-size: .92em; max-width: 26ch; }
+
+  table { border-collapse: collapse; width: 100%; font-size: .95em; }
+  th, td { text-align: left; padding: .5em .8em .5em 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: .74em; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  td.num, th.num { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; padding-right: 0; white-space: nowrap; }
+  .scroll { overflow-x: auto; }
+
+  .bars { display: grid; gap: .55em; }
+  .bar { display: grid; grid-template-columns: 13em 1fr 3em; align-items: center; gap: .8em; font-size: .95em; }
+  .bar .track { display: block; background: var(--blue-wash); border-radius: 3px; height: 14px; overflow: hidden; }
+  .bar .fill { display: block; background: var(--blue-bright); height: 100%; border-radius: 3px; }
+  .bar.hot .fill { background: var(--red); }
+  .bar .n { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--ink-soft); text-align: right; }
+
+  ul.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: .7em; }
+  ul.checks li { display: grid; grid-template-columns: auto 1fr; gap: .7em; align-items: start; }
+  ul.checks .mark { color: var(--green); font-weight: 700; font-family: var(--mono); }
+
+  .quote {
+    border-left: 3px solid var(--blue-bright);
+    padding-left: 1em;
+    color: var(--ink-soft);
+    font-size: 1.05em;
+  }
+  .chip {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: .72em;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .25em .6em;
+    border-radius: 4px;
+    background: var(--blue-wash);
+    color: var(--blue);
+    font-weight: 700;
+  }
+  .chip.warn { background: color-mix(in srgb, var(--amber) 18%, transparent); color: var(--amber); }
+
+  /* ---- the flow diagram ---- */
+  .flow { display: grid; gap: .5em; font-size: .95em; }
+  .flow .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .5em; align-items: stretch; }
+  .node {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: .7em .85em;
+    background: var(--card);
+    display: flex; flex-direction: column; gap: .2em;
+  }
+  .node .t { font-weight: 600; }
+  .node .d { color: var(--muted); font-size: .84em; }
+  .node.accent { border-color: var(--blue-bright); background: var(--blue-wash); }
+  .node.accent .d { color: var(--blue); }
+  .arrow { text-align: center; color: var(--muted); font-family: var(--mono); letter-spacing: .1em; }
+
+  /* ---- cover ---- */
+  .cover { background: var(--ink); color: var(--page); }
+  .cover h1 { color: var(--page); font-size: clamp(3rem, 8vw, 6.4rem); }
+  .cover .eyebrow { color: color-mix(in srgb, var(--page) 55%, transparent); }
+  .cover .lede { color: color-mix(in srgb, var(--page) 78%, transparent); }
+  .cover .cue {
+    font-family: var(--mono);
+    font-size: .85em;
+    color: var(--blue-bright);
+    border: 1px dashed color-mix(in srgb, var(--blue-bright) 55%, transparent);
+    border-radius: 8px;
+    padding: .8em 1em;
+    max-width: 44ch;
+  }
+
+  /* ---- chrome ---- */
+  .chrome {
+    position: fixed; inset: auto 0 0 0;
+    display: flex; align-items: center; gap: clamp(10px, 1.6vw, 20px);
+    padding: 10px clamp(16px, 3vw, 40px);
+    background: color-mix(in srgb, var(--page) 88%, transparent);
+    border-top: 1px solid var(--line);
+    backdrop-filter: blur(8px);
+    font-size: .8rem;
+    z-index: 5;
+  }
+  .chrome .name { font-weight: 600; letter-spacing: .02em; }
+  .chrome .spacer { flex: 1; }
+  .chrome button {
+    font: inherit; font-family: var(--mono); font-size: .78rem;
+    background: transparent; color: var(--ink-soft);
+    border: 1px solid var(--line); border-radius: 6px;
+    padding: .25em .6em; cursor: pointer;
+  }
+  .chrome button:hover { color: var(--ink); border-color: var(--muted); }
+  .chrome button:focus-visible, .deck:focus-visible { outline: 2px solid var(--blue-bright); outline-offset: 2px; }
+  #clock { font-family: var(--mono); font-variant-numeric: tabular-nums; font-weight: 700; font-size: .95rem; }
+  #clock[data-state="warn"] { color: var(--amber); }
+  #clock[data-state="over"] { color: var(--red); }
+  #pos { font-family: var(--mono); color: var(--muted); }
+
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--blue-bright); transition: width .28s ease; z-index: 6; }
+
+  /* ---- presenter notes ---- */
+  .notes {
+    position: fixed; inset: auto 0 41px 0;
+    max-height: 42vh; overflow-y: auto;
+    background: var(--card);
+    border-top: 1px solid var(--line);
+    padding: 16px clamp(16px, 3vw, 40px);
+    font-size: .92rem;
+    z-index: 4;
+    box-shadow: 0 -10px 30px rgba(0,0,0,.08);
+  }
+  .notes h3 { margin-bottom: .4em; }
+  .notes p + p { margin-top: .5em; }
+  .notes .say { color: var(--ink); }
+  .notes .do { color: var(--blue); font-family: var(--mono); font-size: .88em; }
+
+  @media print { .chrome, .notes, .progress { display: none !important; } .slide { display: flex !important; page-break-after: always; min-height: 100vh; } }
+</style>
+
+<div class="progress" id="progress" style="width:0"></div>
+
+<div class="deck" id="deck" tabindex="-1">
+
+  <!-- 0 -->
+  <section class="slide cover" data-notes="cover">
+    <p class="eyebrow">Look Mom I am Quant &middot; UNRISKOMEGA &middot; START Hack 2026</p>
+    <h1>Your phone<br>is ringing.</h1>
+    <p class="lede">The briefing arrives while the phone is still ringing. The answers arrive while the client is still asking.</p>
+    <p class="cue">CUE &rarr; play the golf video now, sound up. Say nothing until it ends (1:45).</p>
+  </section>
+
+  <!-- 1 -->
+  <section class="slide" data-notes="problem">
+    <p class="eyebrow">The call you cannot prepare for</p>
+    <h2>Sixty seconds before you pick up, you need to know their whole book.</h2>
+    <div class="cols tight">
+      <div>
+        <h3>Why 206 clients actually called</h3>
+        <div class="bars">
+          <div class="bar"><span>Follow-up from a meeting</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="n">26</span></div>
+          <div class="bar"><span>Withdrawal request</span><span class="track"><span class="fill" style="width:73%"></span></span><span class="n">19</span></div>
+          <div class="bar"><span>Change of risk tolerance</span><span class="track"><span class="fill" style="width:69%"></span></span><span class="n">18</span></div>
+          <div class="bar"><span>New deposit received</span><span class="track"><span class="fill" style="width:65%"></span></span><span class="n">17</span></div>
+          <div class="bar"><span>Strategy change</span><span class="track"><span class="fill" style="width:58%"></span></span><span class="n">15</span></div>
+          <div class="bar hot"><span>Market volatility</span><span class="track"><span class="fill" style="width:42%"></span></span><span class="n">11</span></div>
+          <div class="bar hot"><span>&ldquo;Client called&rdquo;</span><span class="track"><span class="fill" style="width:42%"></span></span><span class="n">11</span></div>
+        </div>
+        <p style="margin-top:1em; color:var(--muted); font-size:.88em">Source: <span class="chip">clients.json</span> Proposals[].Reason, all 206 consultations in the case data.</p>
+      </div>
+      <div class="card">
+        <h3>So we did not build a panic button</h3>
+        <p>A market-shock assistant covers one call in twenty. We built the sixty seconds before <em class="say">any</em> call: who is on the line, what their book did, what is open, and what to do next.</p>
+        <p style="margin-top:1em">The market shock is simply the loudest version of it &mdash; and the one that makes a good video.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="slide" data-notes="how">
+    <p class="eyebrow">How it works</p>
+    <h2>Everything slow happens before the call.</h2>
+    <div class="flow">
+      <div class="row">
+        <div class="node"><span class="t">Any clients.json</span><span class="d">the file you hand us, uploaded live</span></div>
+        <div class="node"><span class="t">Fact engine</span><span class="d">fund look-through, drift, violations, hedges &mdash; each fact keeps its row</span></div>
+        <div class="node"><span class="t">Market state</span><span class="d">Bloomberg-shaped ticks; Yahoo snapshots in the same shape</span></div>
+        <div class="node accent"><span class="t">Briefing cache</span><span class="d">ranked by CHF impact, phrased, claim-checked</span></div>
+      </div>
+      <div class="arrow">&darr; &nbsp; the same cache, two screens &nbsp; &darr;</div>
+      <div class="row">
+        <div class="node accent"><span class="t">Laptop dashboard</span><span class="d">one click, the 60-second briefing &mdash; and who to call first</span></div>
+        <div class="node"><span class="t">Caller ID, before it rings</span><span class="d">the client dials a number routed through us; the call forwards to the advisor's mobile</span></div>
+        <div class="node accent"><span class="t">The advisor's phone</span><span class="d">briefing while ringing, answer cards during the call, note + email after</span></div>
+        <div class="node"><span class="t">Live transcript</span><span class="d">a copy of the audio &rarr; speech to text &rarr; the same facts</span></div>
+      </div>
+    </div>
+    <div class="cols">
+      <div class="stat"><span class="num">2 ms</span><span class="what">to build a briefing. It is cached before the phone rings.</span></div>
+      <div class="stat"><span class="num">0.85 s</span><span class="what">from the end of the client's question to the answer card.</span></div>
+      <div class="stat"><span class="num">30 ms</span><span class="what">to choose the answer out of the client's fact set.</span></div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="slide" data-notes="live">
+    <p class="eyebrow">Live, on this laptop</p>
+    <h1>Your test client,<br>one click.</h1>
+    <p class="lede">Switch to the dashboard. Upload the file the jury just handed over, and read the briefing off the screen.</p>
+    <p class="chip warn">this slide is a cue &mdash; the projector should be showing the dashboard</p>
+  </section>
+
+  <!-- 4 -->
+  <section class="slide" data-notes="real">
+    <p class="eyebrow">Why this is real, not a demo</p>
+    <h2>Every sentence is computed, sourced, and checked before anyone sees it.</h2>
+    <div class="cols">
+      <div class="card">
+        <h3>Nothing is invented</h3>
+        <p><strong>465 briefing sentences across 57 clients. None without a source.</strong> The model rephrases facts we computed; a claim checker rejects any sentence that adds a number, a cause or a severity word &mdash; and the dashboard shows what it rejected.</p>
+      </div>
+      <div class="card">
+        <h3>It says nothing rather than guess</h3>
+        <p>Four of 57 briefings are short a section, because we had nothing real to put there. Ask the phone about gold a client does not hold and it answers <em class="say">&ldquo;nothing in the data answers this&rdquo;</em>.</p>
+      </div>
+      <div class="card">
+        <h3>It can run in a Swiss bank</h3>
+        <p>The briefing is written by <strong>Apertus, hosted by Swisscom in Switzerland</strong>. Client data never leaves the country. Turn the model off entirely and the briefing still works, in fact text.</p>
+      </div>
+      <div class="card">
+        <h3>It leaves the record behind</h3>
+        <p>The call note and the follow-up email are drafted from the facts that were actually on screen during the call. The advisor approves them; nothing advisor-only reaches the client.</p>
+      </div>
+    </div>
+    <p class="quote">Said before anyone asks: the market move is simulated and labelled simulated everywhere, including in the source lines. Sector moves stand in for each security's own move. We have no bond duration, so we never claim a bond price move.</p>
+  </section>
+
+  <!-- 5 -->
+  <section class="slide" data-notes="pilot">
+    <p class="eyebrow">What happens on Monday</p>
+    <h1>Three RMs.<br>One routed number.<br>Two weeks.</h1>
+    <div class="cols tight">
+      <div>
+        <ul class="checks">
+          <li><span class="mark">&#10003;</span><span>It already runs on the file you gave us, unchanged &mdash; and on the ten German custody PDFs from the side challenge, read into the same shape as ten more clients.</span></li>
+          <li><span class="mark">&#10003;</span><span>Two things to measure: how often the briefing is open when the call starts, and how often the advisor still has to look something up mid-call.</span></li>
+          <li><span class="mark">&#10003;</span><span>The telephony route is how bank advisor lines are already routed and recorded &mdash; consent announcement included.</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Team</h3>
+        <p><strong>Look Mom I am Quant</strong></p>
+        <p style="margin-top:.6em; color:var(--ink-soft)">START Hack Tour St.&nbsp;Gallen 2026 &mdash; UNRISKOMEGA, <em class="say">From Ping to Pitch in 60 Seconds</em>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 : appendix -->
+  <section class="slide" data-notes="appendix">
+    <p class="eyebrow">Appendix &mdash; the numbers we may say</p>
+    <h2>Measured on this build.</h2>
+    <div class="cols">
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Number</th><th class="num">Value</th></tr></thead>
+          <tbody>
+            <tr><td>Clients (case file + ex-custody PDFs)</td><td class="num">47 + 10</td></tr>
+            <tr><td>Briefing sentences, unsourced</td><td class="num">465 / 0</td></tr>
+            <tr><td>Briefing length (words, median)</td><td class="num">128</td></tr>
+            <tr><td>Reading time, min&ndash;max</td><td class="num">26&ndash;54 s</td></tr>
+            <tr><td>Briefings with all six sections</td><td class="num">53 / 57</td></tr>
+            <tr><td>Fund look-through rows</td><td class="num">48 101</td></tr>
+            <tr><td>Suitability rules / open violations</td><td class="num">54 / 180</td></tr>
+            <tr><td>Headlines / verbatim house-view lines</td><td class="num">311 / 16</td></tr>
+            <tr><td>Tests passing</td><td class="num">113</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Latency</th><th class="num">Measured</th></tr></thead>
+          <tbody>
+            <tr><td>Build a briefing (median)</td><td class="num">2 ms</td></tr>
+            <tr><td>Choose an answer</td><td class="num">30 ms</td></tr>
+            <tr><td>Question &rarr; answer card</td><td class="num">0.85 s</td></tr>
+            <tr><td>Apertus phrasing (background)</td><td class="num">1.6 s</td></tr>
+            <tr><td>Spoken briefing, first audio</td><td class="num">0.17 s</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:1em; color:var(--muted); font-size:.88em">Never say a forecast, a guarantee, &ldquo;don't worry&rdquo;, &ldquo;you're safe&rdquo;, or a number that is not on this slide or on the screen.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<aside class="notes" id="notes" hidden></aside>
+
+<div class="chrome">
+  <span class="name">Your phone is ringing</span>
+  <span id="pos">1 / 7</span>
+  <span class="spacer"></span>
+  <span id="clock" data-state="idle">5:00</span>
+  <button type="button" id="timer-btn">start timer</button>
+  <button type="button" id="notes-btn" aria-pressed="false">notes (N)</button>
+  <button type="button" id="full-btn">full screen (F)</button>
+</div>
+
+<script>
+  const NOTES = {
+    cover: {
+      say: 'Nothing. Let the video run to the end. The last frame carries the disclaimer: simulated market data, acted scene, the system is real.',
+      do: 'sound up · video file is local, never streamed · advance only after the last frame',
+    },
+    problem: {
+      say: 'That call arrives a couple of hundred times a year and there is never time to prepare for it. In the data you gave us, only 11 of 206 consultations were about market volatility. Withdrawals, follow-ups, new money — that is the real inbox. So we built the sixty seconds before any call, not a panic button.',
+      do: '30 s · point at the two red bars · do not read the whole list out loud',
+    },
+    how: {
+      say: 'One file in, any file of the same shape. The fact engine takes each position through fund look-through, drift, violations, hedges — and every fact keeps the row it came from. The market state ranks what matters for this client in francs. All of that happens before the phone rings. When it does ring, we do a lookup. Two ways in: the laptop, or the advisor is on a golf course and it is their phone.',
+      do: '40 s · finger on the three numbers, say them slowly · if asked how a phone hears a call: the number is routed through us, the call forwards to their mobile, we get a copy of the audio — that is how bank lines already work',
+    },
+    live: {
+      say: 'This is the part the case asks for. One click, sixty seconds. — Upload their file. Pick the client. Read one line, then point at the grey line underneath it: that is the row in your file it came from. Then the left panel: who this morning hit hardest, ranked, each with the reason they are likely to call.',
+      do: '55 s · B drives, A narrates · if the upload fails: click any client, say "we will do the test client in the Q&A", do not debug on stage',
+    },
+    real: {
+      say: 'Four hundred and sixty-five sentences across fifty-seven clients, and not one of them without a source. The model never introduces a number or a cause — the claim checker rejects the sentence if it tries, and we show you what it rejected. It is Apertus on Swisscom, so the client data stays in Switzerland. And the call note the advisor approves is the advice record.',
+      do: '35 s · say the simulated-data disclaimer yourself, before they ask',
+    },
+    pilot: {
+      say: 'Everything you have seen runs on the file you gave us, unchanged. Point it at another file and it works — we proved it on the ten German custody PDFs from the side challenge. A pilot is three relationship managers, their real book, one number routed through us, two weeks. We are Look Mom I am Quant. Thank you.',
+      do: '35 s · stop talking · take questions',
+    },
+    appendix: {
+      say: 'Only if asked. Every number here is measured on this build.',
+      do: 'press A from any slide to jump here',
+    },
+  };
+
+  const slides = [...document.querySelectorAll('.slide')];
+  const notesBox = document.getElementById('notes');
+  const progress = document.getElementById('progress');
+  const clock = document.getElementById('clock');
+  let index = 0;
+  let notesOn = false;
+
+  function render() {
+    slides.forEach((s, i) => s.toggleAttribute('data-active', i === index));
+    document.getElementById('pos').textContent = `${index + 1} / ${slides.length}`;
+    progress.style.width = `${((index + 1) / slides.length) * 100}%`;
+    renderNotes();
+    window.scrollTo(0, 0);
+  }
+
+  function renderNotes() {
+    notesBox.hidden = !notesOn;
+    if (!notesOn) return;
+    const key = slides[index].dataset.notes;
+    const note = NOTES[key] || { say: '', do: '' };
+    notesBox.replaceChildren();
+    const h = document.createElement('h3');
+    h.textContent = 'Presenter notes';
+    const say = document.createElement('p');
+    say.className = 'say';
+    say.textContent = note.say;
+    const todo = document.createElement('p');
+    todo.className = 'do';
+    todo.textContent = note.do;
+    notesBox.append(h, say, todo);
+  }
+
+  function go(n) { index = Math.max(0, Math.min(slides.length - 1, n)); render(); }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); go(index + 1); }
+    else if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); go(index - 1); }
+    else if (e.key === 'Home') go(0);
+    else if (e.key === 'End') go(slides.length - 1);
+    else if (e.key.toLowerCase() === 'n') { notesOn = !notesOn; document.getElementById('notes-btn').setAttribute('aria-pressed', String(notesOn)); renderNotes(); }
+    else if (e.key.toLowerCase() === 'a') go(slides.length - 1);
+    else if (e.key.toLowerCase() === 'f') toggleFull();
+    else if (e.key.toLowerCase() === 't') toggleTimer();
+    else if (/^[1-7]$/.test(e.key)) go(Number(e.key) - 1);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.chrome, .notes, a, button')) return;
+    go(index + 1);
+  });
+
+  // --- the five-minute clock ---------------------------------------------------
+  const LIMIT = 300;
+  let left = LIMIT;
+  let ticking = null;
+
+  function paint() {
+    const m = Math.floor(Math.abs(left) / 60);
+    const s = String(Math.abs(left) % 60).padStart(2, '0');
+    clock.textContent = `${left < 0 ? '−' : ''}${m}:${s}`;
+    clock.dataset.state = left < 0 ? 'over' : left <= 60 ? 'warn' : 'idle';
+  }
+
+  function toggleTimer() {
+    const btn = document.getElementById('timer-btn');
+    if (ticking) { clearInterval(ticking); ticking = null; btn.textContent = 'resume'; return; }
+    ticking = setInterval(() => { left -= 1; paint(); }, 1000);
+    btn.textContent = 'pause timer';
+  }
+
+  function toggleFull() {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else document.documentElement.requestFullscreen().catch(() => {});
+  }
+
+  document.getElementById('timer-btn').addEventListener('click', toggleTimer);
+  document.getElementById('full-btn').addEventListener('click', toggleFull);
+  document.getElementById('notes-btn').addEventListener('click', () => {
+    notesOn = !notesOn;
+    document.getElementById('notes-btn').setAttribute('aria-pressed', String(notesOn));
+    renderNotes();
+  });
+
+  paint();
+  render();
+</script>

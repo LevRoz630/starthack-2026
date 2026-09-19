@@ -37,7 +37,9 @@ function renderClientList() {
     const btn = el('button');
     btn.type = 'button';
     btn.setAttribute('aria-current', String(c.client === state.selected));
-    btn.append(el('span', 'client-name', c.name || c.client));
+    const nameRow = el('span', 'client-name', c.name || c.client);
+    if (c.external) nameRow.append(el('span', 'tag ext', 'ex-custody'));
+    btn.append(nameRow);
     const sub = c.aum ? `${c.client} · ${c.currency || 'CHF'} ${chf.format(c.aum)}` : c.client;
     btn.append(el('span', 'client-sub', sub));
     btn.addEventListener('click', () => selectClient(c.client));
@@ -45,6 +47,46 @@ function renderClientList() {
     list.append(li);
   }
   if (!rows.length) list.append(el('li', 'client-sub', 'No matching clients.'));
+}
+
+// --- who to call first ---------------------------------------------------------
+
+const signedMoney = (amount) => `${amount < 0 ? '−' : '+'}CHF ${chf.format(Math.abs(amount))}`;
+const signedPct = (share) => `${share < 0 ? '−' : '+'}${Math.abs(share * 100).toFixed(1)}%`;
+
+async function loadCallers() {
+  let market, rows;
+  try {
+    [market, rows] = await Promise.all([
+      fetch(`${API}/market/state`).then((r) => r.json()),
+      fetch(`${API}/callers?limit=5`).then((r) => r.json()),
+    ]);
+  } catch {
+    return;
+  }
+  const active = market && market.scenario && market.scenario !== 'empty';
+  $('#callfirst').hidden = !(active && rows.length);
+  if (!active || !rows.length) return;
+  // The SIMULATED tag next to it already says so; don't say it twice.
+  $('#market-name').textContent = (market.description || market.scenario).replace(/^SIMULATED[.:]?\s*/, '');
+  $('#market-sim').hidden = !market.simulated;
+
+  const list = $('#caller-list');
+  list.replaceChildren();
+  for (const row of rows) {
+    const li = el('li');
+    const btn = el('button');
+    btn.type = 'button';
+    const head = el('span', 'caller-head');
+    head.append(el('span', 'client-name', row.name || row.client));
+    head.append(el('span', `caller-impact ${row.impact < 0 ? 'loss' : 'gain'}`,
+                   `${signedMoney(row.impact)} (${signedPct(row.share)})`));
+    btn.append(head);
+    btn.append(el('span', 'client-sub', row.reason));
+    btn.addEventListener('click', () => selectClient(row.client));
+    li.append(btn);
+    list.append(li);
+  }
 }
 
 // --- briefing ------------------------------------------------------------------
@@ -202,4 +244,15 @@ $('#upload-file').addEventListener('change', (e) => {
 });
 
 loadClients();
-setInterval(loadClients, 30000);
+loadCallers();
+setInterval(() => { loadClients(); loadCallers(); }, 30000);
+
+// The market can move while the page is open (POST /market/events): re-rank at once.
+try {
+  const ws = new WebSocket(`${API.replace(/^http/, 'ws')}/ws`);
+  ws.addEventListener('message', (msg) => {
+    let event;
+    try { event = JSON.parse(msg.data); } catch { return; }
+    if (event.type === 'market') loadCallers();
+  });
+} catch { /* the dashboard works without live updates */ }

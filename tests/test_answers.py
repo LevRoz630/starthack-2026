@@ -8,6 +8,11 @@ from backend.market import load_scenario
 
 
 @pytest.fixture(scope='module')
+def store():
+    return load()
+
+
+@pytest.fixture(scope='module')
 def facts():
     store = load()
     client = store.client('CASE-043')
@@ -64,3 +69,25 @@ def test_llm_failure_falls_back_to_keywords(facts, monkeypatch):
     monkeypatch.setattr(reasoning, 'chat', down)
     r = answers.answer(facts, 'How much have I lost on tech?', use_llm=True)
     assert r['method'] == 'keywords' and 'Information Technology' in r['answers'][0]['text']
+
+
+@pytest.mark.parametrize('question', [
+    'Can I withdraw 50000?', 'How much cash do I have?', 'I want to take some money out.'])
+def test_withdrawal_questions_get_the_cash_on_hand(facts, question):
+    # Withdrawals are the second most common reason clients call; before this the
+    # question fell through to the keyword layer and answered with performance.
+    r = answers.answer(facts, question, use_llm=False)
+    assert ids(r)[0] == 'watch.liquidity'
+
+
+def test_a_named_subject_drops_the_cards_that_miss_it(facts):
+    # CASE-043 holds no gold: better to say so than to answer with the generic
+    # what-happened chain, which is what the subject-less layers would have returned.
+    r = answers.answer(facts, 'What happened to my gold?', use_llm=False)
+    assert r['found'] is False
+
+
+def test_a_named_subject_is_answered_about_that_subject(facts, store):
+    graph = reasoning.build(store.client('CASE-043'), store, load_scenario('tech-selloff'))
+    r = answers.answer(facts, 'What about my health care funds?', use_llm=False, graph=graph)
+    assert 'health care' in r['answers'][0]['text'].lower()

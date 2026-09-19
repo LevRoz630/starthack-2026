@@ -560,6 +560,15 @@ def _watch(client, store, exp, ccy):
                    f'Currency-hedged holdings: {", ".join(hedged)} ({pct(sum(hedged.values()) / total)} of the book).',
                    f'clients.json {ref}: SecurityPositions.SecurityName', 0.05)
 
+    # Cash on hand: the answer to "can I take money out", the second most common
+    # reason clients call. Weight 0, so it only reaches the briefing if nothing else
+    # fills the slot — but it is always there for the call.
+    cash = client.get('LiquidityInDefaultCurrency') or 0
+    if cash:
+        yield Fact('watch.liquidity', 'watch',
+                   f'Cash on hand is {money(cash, ccy)}, {pct(cash / total)} of the book.',
+                   f'clients.json {ref}: LiquidityInDefaultCurrency', 0.0)
+
     notes = sorted(items(client, 'ClientNotes'), key=lambda n: n.get('CreatedByDateUTC') or '', reverse=True)
     for i, note in enumerate(notes[:2]):
         text = (note.get('Note') or '').strip()
@@ -598,6 +607,21 @@ def _actions(client, as_of, ccy):
         yield Fact('actions.review', 'actions', 'Book a review: no finalised proposal on record.',
                    f'clients.json {ref}: Proposals', 0.4)
 
+    # Orders the bank forwarded with a warning are only an action when most of a
+    # proposal carries them: a stray warned order is normal in this data.
+    submitted = [p for p in proposals if p.get('ProposalStatusName') == 'Final' and p.get('TransactionsSubmittedDateUTC')]
+    if submitted:
+        latest = max(submitted, key=lambda p: p['TransactionsSubmittedDateUTC'])
+        orders, _, _ = _trades(client, latest)
+        warned = [t for t in orders if t.get('ForwardState') == 2]
+        if len(orders) >= 2 and len(warned) / len(orders) >= 0.5:
+            yield Fact('actions.order_warnings', 'actions',
+                       # The health check already states the count; the action says what to do with it.
+                       f'Clear the warnings on the {len(warned)} flagged orders from the proposal of '
+                       f'{fmt_day(day(latest["TransactionsSubmittedDateUTC"]))}.',
+                       f'clients.json {ref}: Transactions[ProposalId={latest.get("ProposalId")}].ForwardState = 2',
+                       0.25 * len(warned) / len(orders))
+
     rejected = [p for p in proposals if p.get('ProposalStatusName') == 'Abgelehnt' and p.get('ProposedDateUTC')
                 and 0 <= (as_of - day(p['ProposedDateUTC'])).days <= 90]
     if rejected:
@@ -615,6 +639,14 @@ def compute(client, store, as_of=None):
     as_of = as_of or date.today()
     ccy = client.get('ReportingCurrency') or 'CHF'
     exp = exposures(client, store)
-    return relabel([*_who(client, store, ccy), *_development(client), *_health(client, store, as_of),
-                    *_rule_explanations(client), *_watch(client, store, exp, ccy), *_watch_extra(client, store),
-                    *_outlook(exp), *_actions(client, as_of, ccy), *_candidates(client, store)], client)
+    facts = [*_who(client, store, ccy), *_development(client), *_health(client, store, as_of),
+             *_rule_explanations(client), *_watch(client, store, exp, ccy), *_watch_extra(client, store),
+             *_outlook(exp), *_actions(client, as_of, ccy), *_candidates(client, store)]
+    if not any(f.slot == 'health' for f in facts):
+        # A silent health check reads like missing data. Saying "nothing is open" is a
+        # fact about this client, not padding, and it is only said when it is true.
+        facts.append(Fact('health.clear', 'health',
+                          'Nothing open: no suitability violation, and every asset class is inside its band.',
+                          f'clients.json {client["ClientRef"]}: SuitabilityViolations (none open); '
+                          f'reference.json StrategicAssetAllocations bands', 0.2))
+    return relabel(facts, client)

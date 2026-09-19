@@ -13,7 +13,7 @@ from dataclasses import asdict
 from datetime import date
 
 from .data import DATA_DIR, load
-from .facts import compute
+from .facts import client_name, compute
 from .phrasing import phrase, select
 
 
@@ -26,6 +26,7 @@ def build(store, ref, as_of=None, use_llm=True):
     by_id = {f.id: f for f in facts}
     return {
         'client': ref,
+        'name': client_name(client),
         'as_of': (as_of or date.today()).isoformat(),
         'provider': provider,
         'phrasing_seconds': round(time.perf_counter() - started, 2),

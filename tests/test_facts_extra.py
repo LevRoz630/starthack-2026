@@ -75,3 +75,16 @@ def test_rule_explanations_are_card_only_and_english():
     store = load()
     rules = [f for f in compute(store.client('CASE-038'), store) if f.id.startswith('health.rule.')]
     assert rules and all(f.weight == 0 and 'means:' in f.text for f in rules)
+
+
+def test_every_client_gets_a_next_best_action(all_facts):
+    # "Next best actions" is one of the four sections the case asks for: it may never
+    # be padded, but with 54 rules and 47 clients it should also never be empty.
+    without = sorted(ref for ref, facts in all_facts.items() if not any(f.slot == 'actions' for f in facts))
+    assert without == []
+
+
+def test_order_warning_actions_only_fire_on_a_mostly_warned_proposal(all_facts):
+    warned = [f for facts in all_facts.values() for f in facts if f.id == 'actions.order_warnings']
+    assert warned and len(warned) < len(all_facts) / 2
+    assert all('Clear the warnings on' in f.text and 'ForwardState = 2' in f.source for f in warned)

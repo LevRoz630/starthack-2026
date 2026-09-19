@@ -31,6 +31,9 @@ SYNONYMS = {
     'safe': 'holding', 'held': 'holding', 'performance': 'value', 'year': '12 months',
     'pharma': 'health care', 'health': 'health care', 'banks': 'financials', 'crypto': 'bitcoin',
     'proposal': 'proposal', 'orders': 'orders', 'esg': 'esg', 'sustainable': 'esg',
+    # Withdrawals are the second most common reason clients call, after a follow-up.
+    'withdraw': 'cash', 'withdrawal': 'cash', 'take': 'cash', 'money': 'cash',
+    'liquidity': 'cash', 'available': 'cash', 'pay': 'cash',
 }
 STOP = {'the', 'a', 'an', 'my', 'i', 'is', 'are', 'was', 'were', 'what', 'how', 'did', 'do', 'does', 'on', 'in',
         'of', 'to', 'have', 'has', 'me', 'we', 'you', 'and', 'or', 'about', 'today', 'with', 'for', "it's", 'it',
@@ -43,6 +46,8 @@ OPEN_QUESTION = re.compile(r"\b(what(?:'s| is| has)? (?:happen|going on)|why|exp
                            r"tell me more|more detail|what'?s behind|what caused|what happened)", re.IGNORECASE)
 CHANGES_QUESTION = re.compile(r'\b(chang\w*|proposal|bought|sold|trades?|traded|orders?|rebalanc\w*|last week|'
                               r'what did you do)\b', re.IGNORECASE)
+WITHDRAWAL_QUESTION = re.compile(r'\b(withdraw\w*|take (?:out|some|money)|pay ?out|cash out|'
+                                 r'how much cash|liquidity|available cash)\b', re.IGNORECASE)
 ADVICE_QUESTION = re.compile(r'\b(should i|shall i|do i need to|must i|sell|buy|get out|move (?:it|everything)|'
                              r'what (?:do|should) (?:i|we) do)\b', re.IGNORECASE)
 
@@ -96,6 +101,9 @@ def by_type(facts, question):
         return _pick(facts, [('watch.last_proposal', 1), ('actions.rejected', 1), ('health.order_warnings', 1)])
     if ADVICE_QUESTION.search(question):
         return _pick(facts, [('talk', 2), ('holding', 1)])
+    if WITHDRAWAL_QUESTION.search(question):
+        # Cash first, then what a sale would have to respect.
+        return _pick(facts, [('watch.liquidity', 1), ('actions.cash', 1), ('health.violation', 1)])
     return []
 
 
@@ -108,6 +116,18 @@ def on_topic(chosen, question):
     """False when the question names a subject and none of the chosen facts mention it."""
     wanted = topics(question)
     return not wanted or any(t in f.text.lower() for f in chosen for t in wanted)
+
+
+def only_on_topic(chosen, question):
+    """Drop the facts that miss a named subject: a card about something else is noise.
+
+    Empty when nothing matches, so the caller falls through to the next layer — asking
+    "what happened to my gold?" should find gold, not the generic what-happened answer.
+    """
+    wanted = topics(question)
+    if not wanted:
+        return chosen
+    return [f for f in chosen if any(t in f.text.lower() for t in wanted)]
 
 
 def by_keywords(facts, question):
@@ -135,7 +155,10 @@ def answer(facts, question, use_llm=True, graph=None):
     """
     if graph is not None:
         chained = reasoning.chain_answer(graph, question, use_llm=use_llm)
-        if chained:
+        # A chain that never mentions what was asked about ("what happened to my gold?")
+        # is the generic explanation: let the later layers look for the subject instead.
+        wanted = topics(question)
+        if chained and (not wanted or any(t in c['text'].lower() for c in chained['answers'] for t in wanted)):
             return chained
     seen, unique = set(), []
     for f in facts:
@@ -147,7 +170,7 @@ def answer(facts, question, use_llm=True, graph=None):
     for method, finder in (('type', by_type), ('llm', by_llm if use_llm else None), ('keywords', by_keywords)):
         if finder is None:
             continue
-        chosen = finder(unique, question)
+        chosen = only_on_topic(finder(unique, question), question)
         if chosen and (method == 'type' or on_topic(chosen, question)):
             return {'answers': [_card(f) for f in chosen], 'found': True, 'method': method}
     return {'answers': [], 'found': False, 'method': 'none'}

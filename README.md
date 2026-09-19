@@ -6,6 +6,7 @@ Case: **UNRISKOMEGA** — [github.com/START-Hack/unriskomega-2026](https://githu
 
 - [docs/HANDOFF.md](docs/HANDOFF.md) — **start here**: what is built, how to run it, what is left.
 - [docs/PLAN.md](docs/PLAN.md) — the case brief from the kickoff slides, and what we are building.
+- [docs/PITCH.md](docs/PITCH.md) — the 5-minute pitch: run of show, script, the numbers we may say, Q&A.
 - [docs/JUDGES.md](docs/JUDGES.md) — partner contacts from the kickoff.
 - [docs/screenshots.md](docs/screenshots.md) — what the URO Advisor UI screenshots show.
 - [docs/RULES.md](docs/RULES.md) — the official Hacker Guidebook, converted to markdown.
@@ -47,8 +48,9 @@ real-time call listener, Twilio webhook and demo pipelines are documented in
 
 `GET /dashboard/` — the one-click 60-second briefing (`web/dashboard/`): pick a client, see the
 briefing with every sentence's source, word count and reading-time estimate, section-coverage
-("5/6 have data"), what the claim checker rejected, and a Listen button. Also uploads the jury's
-test client (`POST /clients`).
+("5/6 have data"), what the claim checker rejected, and a Listen button. **Call first** ranks
+who today's move hit hardest (`GET /callers`) and re-ranks when the market moves. Ex-custody
+clients are marked in the list. Also uploads the jury's test client (`POST /clients`).
 
 More modules:
 

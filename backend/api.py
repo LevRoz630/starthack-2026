@@ -152,7 +152,9 @@ async def health(request):
 
 async def list_clients(request):
     rows = [{'client': ref, 'name': client_name(c), 'aum': c.get('AssetsUnderManagementInDefaultCurrency'),
-             'currency': c.get('ReportingCurrency'), 'risk_profile': risk_profile(c)}
+             'currency': c.get('ReportingCurrency'), 'risk_profile': risk_profile(c),
+             # Ex-custody clients came from a PDF statement, not from clients.json.
+             'external': (c.get('ExternalSource') or {}).get('bank')}
             for ref, c in sorted(state.store.clients.items())]
     return JSONResponse(rows)
 
