@@ -240,3 +240,7 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 .heard li { font-size: var(--size-xs); color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .heard .kind { font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 6px; }
 .heard li[data-kind="instruction"] .kind { color: var(--red); }
+
+/* Who is talking: amber while the advisor speaks, so it is obvious the client is not being heard. */
+.speaker { white-space: nowrap; }
+.speaker.me { background: var(--amber); color: var(--ink); border-color: var(--amber); }

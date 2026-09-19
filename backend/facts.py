@@ -659,8 +659,57 @@ def compute(client, store, as_of=None):
     return relabel(facts, client)
 
 
+def _liquidity_facts(client, store, ccy, total, src):
+    """For "can we get more cash?" / "I want to buy a house": how much could be freed while
+    every asset class stays inside its target band, and what matures soon. Card-only."""
+    ref = client['ClientRef']
+    best_total, best_label = 0.0, None
+    for p in portfolios(client):
+        aum = p.get('AssetsUnderManagementInDefaultCurrency') or 0
+        _, bands = _bands(p, store)
+        held = {m['Category']: share * aum for m, share in bands}
+        best, label = 0.0, None
+        # Selling s from one class and paying it out shrinks the portfolio: that class must
+        # stay above its minimum, (x - s) / (T - s) >= min, and every other class, now a
+        # bigger share of a smaller portfolio, below its maximum, y / (T - s) <= max.
+        for m, _ in bands:
+            cat, lo = m['Category'], m['MinPercentage']
+            x = held[cat]
+            if cat == 'Liquidity' or x <= 0 or lo >= 1:
+                continue
+            s = min(x, (x - lo * aum) / (1 - lo))
+            for other, _ in bands:
+                hi = other['MaxPercentage']
+                if other['Category'] != cat and hi and hi > 0:
+                    s = min(s, aum - held[other['Category']] / hi)
+            if s > best:
+                best, label = s, asset_class_label(cat).lower()
+        best_total += best
+        best_label = best_label or label
+    out = []
+    if best_total >= 1000 and best_label:
+        out.append(Fact('liquidity.room', 'watch',
+                        f'Up to {money(best_total, ccy)} could be freed by selling {best_label}, with every asset class '
+                        f'still inside its target band.',
+                        f'clients.json {ref} positions × reference.json StrategicAssetAllocations bands', 0.0))
+    today = date.today()
+    maturing = []
+    for sp, sec, amount in _holdings(client, store):
+        m = sec.get('MaturityDateUtc')
+        if m and 0 <= (day(m) - today).days <= 365:
+            maturing.append((day(m), short_name(sp.get('SecurityName')), amount))
+    if maturing:
+        first = min(maturing)
+        out.append(Fact('liquidity.maturing', 'watch',
+                        f'Maturing in the next 12 months: {money(sum(a for _, _, a in maturing), ccy)}; '
+                        f'the first is {first[1]} on {fmt_day(first[0])}.',
+                        f'clients.json {ref} positions × reference.json Securities.MaturityDateUtc', 0.0))
+    return out
+
+
 # Words a client uses for a precious metal or crypto, matched in security and account names.
 HOLDING_WORDS = {'Gold': ('gold',), 'Silver': ('silver',), 'Palladium': ('palladium',), 'Platinum': ('platinum',),
+                 'Copper': ('copper',),
                  'Crypto': ('bitcoin', 'ether', 'crypto', 'btc', 'eth', 'solana', 'polkadot', 'shib')}
 
 
@@ -707,6 +756,7 @@ def _holdings_facts(client, store, exp, ccy):
     for label, amount in metals.items():
         out.append(Fact(f'expo.holding.{label}', 'watch', f'{label}: {money(amount, ccy)}, '
                                                           f'{pct(amount / total)} of the portfolio.', src, 0.0))
+    out += _liquidity_facts(client, store, ccy, total, src)
     top = sorted(held.items(), key=lambda kv: -kv[1])
     if top:
         name, amount = top[0]

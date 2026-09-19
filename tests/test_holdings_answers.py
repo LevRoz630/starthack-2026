@@ -54,3 +54,35 @@ def test_client_questions_get_sayable_answers(ask, ref, question, expected):
     assert r['answers'][0]['text'].startswith(expected), r['answers'][:1]
     # the bank's bookkeeping never answers a client's question
     assert not any('forwarded with a warning' in a['text'] or 'suitability error' in a['text'] for a in r['answers'])
+
+
+@pytest.fixture(scope='module')
+def ask_market():
+    store = load()
+    market = load_scenario('tech-selloff')
+    client = store.client('CASE-043')
+    facts = call_facts(client, store, market)[0] + [f for f in compute(client, store) if f.slot != 'who']
+    graph = reasoning.build(client, store, market)
+    return lambda q: answer(facts, q, use_llm=False, graph=graph, market=market)
+
+
+@pytest.mark.parametrize('question, first', [
+    ('What do you think about the copper market?', 'Copper −1.9% today.'),
+    ('What do you think about gold?', 'Gold +1.4% today.'),
+    ('How is oil doing?', 'Energy −0.3% today.'),
+    ("How's the dollar doing?", 'The dollar −1.2% against the franc today.'),
+    ('What do you think about crypto?', 'Bitcoin −6.5% today.'),
+])
+def test_market_views_are_ready_for_every_market(ask_market, question, first):
+    r = ask_market(question)
+    assert r['method'] == 'market_view' and r['answers'][0]['text'] == first
+    assert all(a['source'] for a in r['answers'])
+
+
+@pytest.mark.parametrize('question', ['Is there any way we can get more cash?', 'I want to buy a new house',
+                                      'Can I take out 50000 francs?'])
+def test_cash_needs_get_cash_on_hand_and_what_could_be_freed(ask_market, question):
+    r = ask_market(question)
+    assert r['method'] == 'liquidity'
+    assert r['answers'][0]['text'].startswith('Cash on hand')
+    assert any('could be freed by selling' in a['text'] for a in r['answers'])

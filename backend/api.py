@@ -287,8 +287,13 @@ async def ask(request):
     # information is a line for the call note, not an empty card.
     kind = utterance.classify(question)
     if kind in ('instruction', 'request', 'info'):
+        heard = {'kind': kind, 'label': utterance.LABELS[kind], 'text': question}
+        if kind == 'info' and answers.LIQUIDITY_NEED.search(question):
+            # "I want to buy a house": noted, and answered with what cash there is.
+            return JSONResponse({'client': data['client'], 'question': question,
+                                 **answer(client, question), 'heard': heard})
         return JSONResponse({'client': data['client'], 'question': question, 'answers': [], 'found': False,
-                             'method': kind, 'heard': {'kind': kind, 'label': utterance.LABELS[kind], 'text': question}})
+                             'method': kind, 'heard': heard})
     result = answer(client, question)
     if not result.get('found') and result.get('method') not in ('small_talk', 'logistics'):
         result['heard'] = {'kind': 'follow_up', 'label': utterance.LABELS['follow_up'], 'text': question}
@@ -300,7 +305,7 @@ def answer(client, question):
     facts, _ = callmode.call_facts(client, state.store, state.market)
     facts += [f for f in compute(client, state.store) if f.slot != 'who']
     graph = reasoning.build(client, state.store, state.market)
-    return answers.answer(facts, question, use_llm=state.use_llm, graph=graph)
+    return answers.answer(facts, question, use_llm=state.use_llm, graph=graph, market=state.market)
 
 
 async def find_clients(request):

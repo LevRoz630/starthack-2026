@@ -175,6 +175,7 @@ function answer() {
   // Nothing is dialled on a simulated call, so the microphone is the only way the client
   // can be heard. Answer is a user gesture, which is what getUserMedia requires.
   if (!state.line) startListening();
+  setSpeaker('client');
   state.callStarted = Date.now();
   $('#timer').textContent = '0:00';
   clearInterval(state.timer);
@@ -192,7 +193,7 @@ async function ask(question) {
   if (entry.heard) {                 // a request, instruction or unanswered question: a quiet line
     addHeard(entry.heard);
     $('#waiting').hidden = true;
-    return entry;
+    if (!entry.answers.length) return entry;   // "I want to buy a house" also gets its cash card
   }
   state.answers.unshift(entry);
   $('#answers').prepend(answerCard(entry, { sources: 'collapsed' }));
@@ -238,6 +239,9 @@ function toPcm16(frame, inRate) {
 }
 
 function queueAudio(samples) {
+  // While the advisor talks, send silence: the line stays open, but their words are not
+  // transcribed or answered.
+  if (state.speaker === 'me') samples = new Int16Array(samples.length);
   for (const s of samples) mic.pending.push(s);
   while (mic.pending.length >= LISTEN_BATCH && mic.ws && mic.ws.readyState === WebSocket.OPEN) {
     mic.ws.send(Int16Array.from(mic.pending.splice(0, LISTEN_BATCH)).buffer);
@@ -406,6 +410,17 @@ function addHeard(h) {
   item.dataset.kind = h.kind;
   item.append(el('span', 'kind', h.label), document.createTextNode(h.text));
   $('#heard').prepend(item);
+}
+
+// Who is talking: one microphone hears both people, and the transcriber cannot tell them
+// apart, so the advisor flips this while they speak.
+function setSpeaker(who) {
+  state.speaker = who;
+  const btn = $('#speaker');
+  if (!btn) return;
+  btn.textContent = who === 'me' ? "You're talking" : 'Client talking';
+  btn.setAttribute('aria-pressed', who === 'me' ? 'true' : 'false');
+  btn.classList.toggle('me', who === 'me');
 }
 
 // --- after call ---------------------------------------------------------------
@@ -739,6 +754,13 @@ function connect() {
 $('#answer').addEventListener('click', answer);
 $('#decline').addEventListener('click', () => { stopDemo(); stopRingtone(); stopListening(); show('idle'); });
 $('#end-call').addEventListener('click', () => { stopDemo(); endCall(); });
+$('#speaker').addEventListener('click', () => setSpeaker(state.speaker === 'me' ? 'client' : 'me'));
+document.addEventListener('keydown', (e) => {
+  const typing = ['INPUT', 'TEXTAREA'].includes((document.activeElement || {}).tagName);
+  if (!typing && state.screen === 'call' && (e.key === 'm' || e.key === 'M')) {
+    setSpeaker(state.speaker === 'me' ? 'client' : 'me');
+  }
+});
 $('#timer').addEventListener('dblclick', endTurn);
 document.addEventListener('keydown', (e) => {
   if (e.code === 'Space' && turn.active && document.activeElement === document.body) { e.preventDefault(); endTurn(); }

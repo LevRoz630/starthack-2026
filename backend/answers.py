@@ -17,7 +17,7 @@ Four layers, first one that finds something wins (the first needs a fact graph):
 
 import re
 
-from . import reasoning
+from . import marketview, reasoning
 
 MAX_ANSWERS = 3
 LLM_TIMEOUT = 4.0
@@ -331,14 +331,14 @@ def small_talk_only(text):
     return not re.search(r'[a-z]{3,}', re.sub(filler, ' ', rest.lower()))
 
 
-def answer(facts, question, use_llm=True, graph=None):
+def answer(facts, question, use_llm=True, graph=None, market=None):
     """{'answers': [{text, source, fact}], 'found': bool, 'method': ...}.
 
     With a fact graph (backend/reasoning.py), "why / where did it go / compared with the
     market / did the changes" questions get a chain of facts first ('chain': True, and
     each step carries the link word to the previous one). Small talk gets nothing.
     """
-    return _say(_client_facing(_answer(facts, question, use_llm, graph), question))
+    return _say(_client_facing(_answer(facts, question, use_llm, graph, market), question))
 
 
 # Questions about what the client holds, answered from the holdings facts (facts.py,
@@ -372,6 +372,14 @@ RISK_LIMIT = re.compile(r'\b(?:limit|profile|allowed|suitab\w*|within|over|above
 PROBLEMS_QUESTION = re.compile(r"\b(?:problems?|issues?|anything wrong|wrong with|warnings?|compliance|violations?|"
                                r"red flags?)\b", re.IGNORECASE)
 DIVERSIFIED = re.compile(r'\bdiversif\w*\b', re.IGNORECASE)
+# A coming need for cash, asked or announced: what is on hand, what could be freed
+# inside the target bands, and what matures soon.
+LIQUIDITY_NEED = re.compile(
+    r"\b(?:more|extra|some|get|raise|free up|need|access|release|unlock) (?:some |more )?(?:cash|money|liquidity)\b"
+    r"|\bhow (?:can|could) (?:i|we) (?:get|raise|free)\b"
+    r"|\b(?:buy|buying|purchase|purchasing|pay for|afford) (?:a |an |the |my )?(?:new )?"
+    r"(?:house|home|flat|apartment|property|holiday home|chalet|car|boat)\b"
+    r"|\bwithdraw\w*\b|\btake (?:some |more )?(?:money|cash) out\b|\btake out\b|\bcash out\b", re.IGNORECASE)
 LOGISTICS = re.compile(r"\bwhen (?:should|shall|can|could) we (?:meet|talk|speak)\b"
                        r"|\b(?:appointment|lunch|coffee|schedule a)\b|\bnext meeting\b", re.IGNORECASE)
 
@@ -393,12 +401,22 @@ def _holdings_answer(facts, question):
     return []
 
 
-def _answer(facts, question, use_llm=True, graph=None):
+def _answer(facts, question, use_llm=True, graph=None, market=None):
     if small_talk_only(question):
         return {'answers': [], 'found': False, 'method': 'small_talk'}
     if LOGISTICS.search(question):
         # Diary questions are the advisor's to answer; a card here would be noise.
         return {'answers': [], 'found': False, 'method': 'logistics'}
+    if market is not None:
+        from .facts import _outlook_sources
+        news, views = _outlook_sources()
+        cards = marketview.view_cards(question, facts, market, views, news)
+        if cards:
+            return {'answers': cards, 'found': True, 'method': 'market_view'}
+    if LIQUIDITY_NEED.search(question):
+        picked = _pick(facts, [('watch.liquidity', 1), ('liquidity.room', 1), ('liquidity.maturing', 1)])
+        if picked:
+            return {'answers': [_card(f) for f in picked], 'found': True, 'method': 'liquidity'}
     if OVERVIEW_QUESTION.search(question) or DIVERSIFIED.search(question):
         cards = overview(facts, graph)
         if cards:

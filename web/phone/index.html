@@ -125,6 +125,10 @@
           <button class="btn listen" id="listen" type="button" aria-pressed="false">
             <span class="dot" aria-hidden="true"></span><span id="listen-label">Listening</span>
           </button>
+          <!-- One microphone hears both people. Flip to "You're talking" while the advisor
+               speaks, so only the client's words are transcribed and answered (key: M). -->
+          <button class="btn secondary speaker" id="speaker" type="button" aria-pressed="false"
+                  title="Who is talking (M)">Client talking</button>
           <p class="live" id="live-transcript" aria-live="polite"></p>
           <button class="btn icon" id="type-toggle" type="button" aria-expanded="false"
                   aria-controls="ask-form" title="Type a question instead">&#9000;</button>
