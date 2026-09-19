@@ -7,3 +7,4 @@ data/voice-cache/
 data/demo/audio/
 data/outbox/
 data/demo/runs/*-2*.json
+.venv/

@@ -16,11 +16,9 @@ html, body {
 
 main { max-width: 480px; margin: 0 auto; padding: var(--gutter); }
 .screen { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: calc(var(--tap) + 2 * var(--gutter)); }
-.screen[hidden] { display: none; }
 
 h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 
-.card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: var(--gutter); }
 .idle { display: flex; flex-direction: column; gap: var(--gap); }
 .market { color: var(--muted); }
 
@@ -35,26 +33,22 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
   vertical-align: middle;
 }
 .tag.sim { background: var(--amber); color: var(--ink); }
-.tag[hidden] { display: none; }
 
 .caller { display: flex; flex-direction: column; gap: 4px; }
 .caller.compact { flex-direction: row; justify-content: space-between; align-items: flex-start; }
 .timer { font-variant-numeric: tabular-nums; font-size: var(--size-l); font-weight: 600; color: var(--uro-blue-dark); }
 
 .brief { display: flex; flex-direction: column; gap: var(--gap); }
-.group { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: var(--gutter); }
-.group h3 { margin: 0 0 8px; font-size: var(--size-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-.group ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
-.group li { position: relative; padding-left: 18px; }
-.group li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
-.group.digest li::before { background: var(--red); }
-.group.holding li::before { background: var(--green); }
-.group.issue li::before { background: var(--amber); }
-.group.reason { border-left: 4px solid var(--uro-blue); }
-.group.reason li { padding-left: 0; font-size: var(--size-l); font-weight: 500; }
-.group.reason li::before { display: none; }
+/* The reason is the one line the advisor reads before picking up, so it stays
+   larger than the rest of the brief. Everything else is tokens.css's .group. */
+.group.reason .text { font-size: var(--size-l); }
+.group.caller { border-left-color: var(--line); }
 
-.impact { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: var(--gutter); }
+/* The phone's pills sit on the grey page, not inside a white card as the
+   dashboard's do, so they need the opposite fill to read as chips. */
+.meta-row .pill { background: var(--card); }
+
+.impact { border-left: 4px solid var(--ink); padding-left: 14px; }
 .impact .amount { font-size: var(--size-hero); font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; }
 .impact .share { font-variant-numeric: tabular-nums; color: var(--muted); }
 .loss { color: var(--red); }
@@ -86,9 +80,23 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 .answer-card .src { font-size: var(--size-xs); color: var(--muted); margin-top: 4px; overflow-wrap: anywhere; }
 .answer-card.none { border-left-color: var(--amber); }
 
+/* Coaching for the advisor, not a number for the client: set back on the page
+   grey with its own label so it never reads as something to say verbatim. */
+.coach { margin-top: 10px; padding: 8px 10px; border-radius: 6px; background: var(--page); }
+.coach .coach-label {
+  display: block;
+  font-size: var(--size-xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.coach .a { font-weight: 500; font-style: italic; }
+
 .more summary { cursor: pointer; font-weight: 600; min-height: var(--tap); display: flex; align-items: center; }
 .more .brief { margin-top: var(--gap); }
-.more .group { box-shadow: none; padding: 0; }
+.more .card { box-shadow: none; padding: 0; border-radius: 0; }
 
 .draft { display: flex; flex-direction: column; gap: var(--gap); }
 .draft-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
@@ -145,7 +153,6 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 
 .tag.error { background: var(--red); color: #fff; }
 .demo-status { margin: 8px 0 0; font-size: 14px; color: var(--muted, #6b6b73); }
-.demo-status[hidden] { display: none; }
 
 .answer-card.chain { border-left-color: var(--ink); }
 .answer-card .steps { margin: 0; padding-left: 20px; }

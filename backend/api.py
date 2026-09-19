@@ -51,7 +51,7 @@ from starlette.applications import Starlette
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 from starlette.concurrency import run_in_threadpool
-from starlette.responses import FileResponse, JSONResponse, Response
+from starlette.responses import FileResponse, JSONResponse, RedirectResponse, Response
 from starlette.routing import Mount, Route, WebSocketRoute
 from starlette.staticfiles import StaticFiles
 from starlette.websockets import WebSocketDisconnect
@@ -411,6 +411,12 @@ async def demo_run(request):
     return JSONResponse({'started': name, 'mode': mode})
 
 
+async def home(request):
+    """The bare host is what someone types on the day; send them to the dashboard
+    rather than a 404."""
+    return RedirectResponse('/dashboard/')
+
+
 async def demo_stop(request):
     state.demo_stop.set()
     state.demo_answered.set()   # release a run still waiting for Answer
@@ -532,6 +538,7 @@ async def lifespan(app):
 
 app = Starlette(
     routes=[
+        Route('/', home),
         Route('/health', health),
         Route('/clients', list_clients, methods=['GET']),
         Route('/clients', upload_clients, methods=['POST']),

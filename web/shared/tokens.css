@@ -28,7 +28,8 @@
 
 * { box-sizing: border-box; }
 
-/* Wins over any component's own display rule. */
+/* A `display` rule beats the hidden attribute's UA `display: none`, and both
+   .card and .empty set display: flex. Keep [hidden] winning everywhere. */
 [hidden] { display: none !important; }
 
 html, body {
@@ -63,3 +64,55 @@ p { margin: 0; }
 .muted { color: var(--muted); }
 .eyebrow { font-size: var(--size-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .ref { color: var(--muted); font-size: var(--size-s); }
+
+/* --- briefing vocabulary, shared by both front-ends -------------------------
+   A .card is the white surface; .group sections sit inside one, each marked by
+   a colour-coded accent bar; a .sentence is one computed fact above the
+   sources it came from; .pill is a small meta chip. Page-specific sizing
+   (--gutter, --tap) still comes from each page's own app.css. */
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.group { border-left: 4px solid var(--line); padding-left: 14px; }
+.group h3 {
+  margin: 0 0 6px;
+  font-size: var(--size-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.group ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+/* Slot colours. The dashboard's six briefing slots and the phone's call slots
+   share one scale: blue = who is on the line, red = what went wrong,
+   amber = needs attention, green = what is fine. */
+.group.who, .group.reason, .group.talk { border-left-color: var(--uro-blue); }
+.group.health, .group.issue { border-left-color: var(--amber); }
+.group.watch, .group.digest { border-left-color: var(--red); }
+.group.actions, .group.holding { border-left-color: var(--green); }
+
+.sentence { display: flex; flex-direction: column; gap: 2px; }
+.sentence .text { font-weight: 500; font-variant-numeric: tabular-nums; }
+.sentence .source { font-size: var(--size-xs); color: var(--muted); overflow-wrap: anywhere; }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: var(--size-xs);
+  font-weight: 600;
+  background: var(--page);
+  color: var(--muted);
+}
+.pill.provider { background: transparent; border: 1px dashed var(--line); }
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; }

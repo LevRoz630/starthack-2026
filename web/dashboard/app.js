@@ -1,7 +1,7 @@
 // Advisor dashboard: pick a client, one click, the 60-second briefing.
 // All API text is rendered with textContent, never as HTML.
 
-import { $, $$, el, bySlot, chf } from '/shared/dom.js';
+import { $, $$, el, bySlot, chf, renderGroup } from '/shared/dom.js';
 
 const params = new URLSearchParams(location.search);
 const API = (params.get('api') || location.origin).replace(/\/$/, '');
@@ -156,17 +156,7 @@ function renderBriefing(b) {
   slotsBox.replaceChildren();
   for (const slot of SLOT_ORDER) {
     if (!groups[slot] || !groups[slot].length) continue;
-    const box = el('section', `group ${slot}`);
-    box.append(el('h3', null, SLOT_TITLES[slot]));
-    const ul = el('ul');
-    for (const s of groups[slot]) {
-      const li = el('li', 'sentence');
-      li.append(el('span', 'text', s.text));
-      for (const source of s.sources || []) li.append(el('span', 'source', source));
-      ul.append(li);
-    }
-    box.append(ul);
-    slotsBox.append(box);
+    slotsBox.append(renderGroup(slot, groups[slot], SLOT_TITLES[slot]));
   }
 
   const rejected = b.rejected || [];

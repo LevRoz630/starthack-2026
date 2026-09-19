@@ -1,7 +1,7 @@
 // Advisor phone: idle -> ringing -> in call -> after call.
 // All API text is rendered with textContent, never as HTML.
 
-import { $, $$, el, bySlot, chf } from '/shared/dom.js';
+import { $, $$, el, bySlot, chf, renderGroup } from '/shared/dom.js';
 
 const params = new URLSearchParams(location.search);
 const API = (params.get('api') || location.origin).replace(/\/$/, '');
@@ -59,6 +59,10 @@ function callerName(briefing) {
 function renderBrief(container, briefing, { withImpact }) {
   container.replaceChildren();
   const groups = bySlot(briefing);
+  const card = el('div', 'card');
+
+  // Keep the reason above the number: it is what the advisor needs first.
+  if (groups.reason) card.append(group('reason', groups.reason));
 
   if (withImpact && briefing.impact && briefing.impact.amount) {
     const box = el('div', 'impact');
@@ -66,28 +70,21 @@ function renderBrief(container, briefing, { withImpact }) {
     const cls = briefing.impact.amount < 0 ? 'loss' : 'gain';
     box.append(el('p', `amount ${cls}`, signedMoney(briefing.impact.amount)));
     box.append(el('p', 'share', signedPct(briefing.impact.share)));
-    // Keep the reason above the number: it is what the advisor needs first.
-    if (groups.reason) container.append(group('reason', groups.reason));
-    container.append(box);
-  } else if (groups.reason) {
-    container.append(group('reason', groups.reason));
+    card.append(box);
   }
 
   for (const slot of ['digest', 'holding', 'talk', 'issue']) {
-    if (groups[slot]) container.append(group(slot, groups[slot]));
+    if (groups[slot]) card.append(group(slot, groups[slot]));
   }
   // Profile note from the caller slot, if any, goes last on the full briefing.
   const profile = (groups.caller || []).slice(1);
-  if (profile.length) container.append(group('caller', profile, 'Profile'));
+  if (profile.length) card.append(group('caller', profile, 'Profile'));
+
+  if (card.childElementCount) container.append(card);
 }
 
 function group(slot, sentences, title) {
-  const box = el('section', `group ${slot}`);
-  box.append(el('h3', null, title || SLOT_TITLES[slot] || slot));
-  const list = el('ul');
-  for (const s of sentences) list.append(el('li', null, s.text));
-  box.append(list);
-  return box;
+  return renderGroup(slot, sentences, title || SLOT_TITLES[slot] || slot);
 }
 
 function fillCaller(briefing) {
@@ -106,9 +103,25 @@ function ring(briefing) {
   state.approved = {};
   state.line = null;
   fillCaller(briefing);
+  renderRingMeta(briefing);
   renderBrief($('#screen-ringing [data-brief]'), briefing, { withImpact: true });
   show('ringing');
   startRingtone();
+}
+
+// The pills the advisor can read at a glance while the phone is still ringing:
+// how long the brief takes to read, what it covers, and where the numbers came from.
+function renderRingMeta(briefing) {
+  const row = $('#ring-meta');
+  if (!row) return;
+  row.replaceChildren();
+  const groups = bySlot(briefing);
+  const slots = ['reason', 'digest', 'holding', 'talk', 'issue'];
+  const covered = slots.filter((slot) => groups[slot] && groups[slot].length).length;
+  const pills = [`~${Math.max(1, Math.round((briefing.words || 0) / 3.3))}s to read`,
+                 `${covered}/${slots.length} sections`];
+  if (briefing.market && briefing.market.scenario) pills.push(briefing.market.scenario);
+  for (const text of pills) row.append(el('span', 'pill', text));
 }
 
 function startRingtone() {
@@ -191,6 +204,16 @@ function answerCard(entry) {
     return card;
   }
   for (const a of entry.answers) {
+    // A 'talk' fact is the playbook telling the advisor how to say it, not a
+    // number to read out. Mark it so the two never look like the same thing.
+    if (a.slot === 'talk') {
+      const coach = el('div', 'coach');
+      coach.append(el('span', 'coach-label', 'Say it like this'));
+      coach.append(el('p', 'a', a.text));
+      coach.append(el('p', 'src', a.source));
+      card.append(coach);
+      continue;
+    }
     card.append(el('p', 'a', a.text));
     card.append(el('p', 'src', a.source));
   }

@@ -32,8 +32,12 @@ SYNONYMS = {
     'pharma': 'health care', 'health': 'health care', 'banks': 'financials', 'crypto': 'bitcoin',
     'proposal': 'proposal', 'orders': 'orders', 'esg': 'esg', 'sustainable': 'esg',
     # Withdrawals are the second most common reason clients call, after a follow-up.
-    'withdraw': 'cash', 'withdrawal': 'cash', 'take': 'cash', 'money': 'cash',
-    'liquidity': 'cash', 'available': 'cash', 'pay': 'cash',
+    # 'take', 'money', 'pay' and 'available' are deliberately left out: WITHDRAWAL_QUESTION
+    # already classifies by phrase below, and these words are common enough in an
+    # unrelated question (e.g. an advice question that just mentions "losing money") that
+    # mapping them to 'cash' made only_on_topic() wrongly treat the question as being
+    # about cash and drop a correct answer that never says the word.
+    'withdraw': 'cash', 'withdrawal': 'cash', 'liquidity': 'cash',
 }
 STOP = {'the', 'a', 'an', 'my', 'i', 'is', 'are', 'was', 'were', 'what', 'how', 'did', 'do', 'does', 'on', 'in',
         'of', 'to', 'have', 'has', 'me', 'we', 'you', 'and', 'or', 'about', 'today', 'with', 'for', "it's", 'it',
@@ -42,8 +46,10 @@ STOP = {'the', 'a', 'an', 'my', 'i', 'is', 'are', 'was', 'were', 'what', 'how', 
         'why', 'so', 'just', 'really', 'also', 'well', 'as', 'at', 'its', 'our', 'your', 'get', 'got'}
 WORD = re.compile(r"[a-z][a-z'-]*")
 
-OPEN_QUESTION = re.compile(r"\b(what(?:'s| is| has)? (?:happen|going on)|why|explain|explanation|in[- ]depth|"
-                           r"tell me more|more detail|what'?s behind|what caused|what happened)", re.IGNORECASE)
+# Deliberately loose: a worried client swears, abbreviates and mistypes, and
+# "what the fuck is going on" must land on the same answer as "what happened?".
+OPEN_QUESTION = re.compile(r"\b(going on|goin on|happening|happened|what'?s up|why|explain|explanation|in[- ]depth|"
+                           r"tell me more|more detail|what'?s behind|what caused|how bad|what now)", re.IGNORECASE)
 CHANGES_QUESTION = re.compile(r'\b(chang\w*|proposal|bought|sold|trades?|traded|orders?|rebalanc\w*|last week|'
                               r'what did you do)\b', re.IGNORECASE)
 WITHDRAWAL_QUESTION = re.compile(r'\b(withdraw\w*|take (?:out|some|money)|pay ?out|cash out|'
@@ -62,7 +68,9 @@ Return JSON only: {"facts": [<numbers>]}"""
 
 
 def _card(f):
-    return {'text': f.text, 'source': f.source, 'fact': f.id}
+    # 'slot' lets the phone tell a fact meant for the client apart from a 'talk'
+    # line, which is the playbook coaching the advisor on how to say it.
+    return {'text': f.text, 'source': f.source, 'fact': f.id, 'slot': f.slot}
 
 
 def _pick(facts, plan):
@@ -94,13 +102,19 @@ def by_llm(facts, question):
 
 
 def by_type(facts, question):
+    if ADVICE_QUESTION.search(question):
+        # A client who asks "what do we do" is frightened by one day. The strongest
+        # honest answer is the long record, then what is actually protecting them,
+        # then what was already decided and what is still open. Coaching comes last
+        # and only once: the advisor needs facts to say, not a reminder to say them.
+        return _pick(facts, [('development', 1), ('holding.up', 1), ('watch.last_proposal', 1),
+                             ('issue', 1), ('talk', 1)])
     if OPEN_QUESTION.search(question):
-        # The headline first: it is the only fact that says what happened, not just what it did.
-        return _pick(facts, [('news', 1), ('digest', 1), ('holding', 1)]) or _pick(facts, [('reason', 1)])
+        # What it cost comes before why: the advisor is asked for a number first.
+        # One headline only — two "Behind the move" cards say nothing twice.
+        return _pick(facts, [('reason', 1), ('digest.industry', 1), ('news', 1), ('holding.up', 1)])
     if CHANGES_QUESTION.search(question):
         return _pick(facts, [('watch.last_proposal', 1), ('actions.rejected', 1), ('health.order_warnings', 1)])
-    if ADVICE_QUESTION.search(question):
-        return _pick(facts, [('talk', 2), ('holding', 1)])
     if WITHDRAWAL_QUESTION.search(question):
         # Cash first, then what a sale would have to respect.
         return _pick(facts, [('watch.liquidity', 1), ('actions.cash', 1), ('health.violation', 1)])
@@ -118,11 +132,43 @@ def on_topic(chosen, question):
     return not wanted or any(t in f.text.lower() for f in chosen for t in wanted)
 
 
-def only_on_topic(chosen, question):
-    """Drop the facts that miss a named subject: a card about something else is noise.
+def presentable(chosen, question=''):
+    """The cards as the advisor should see them, whichever layer chose them.
 
-    Empty when nothing matches, so the caller falls through to the next layer — asking
-    "what happened to my gold?" should find gold, not the generic what-happened answer.
+    Rules the advisor's screen keeps no matter how the facts were picked. A
+    'talk' fact is a reminder of how to speak, so it is worth at most one line
+    and never the first thing read — leading with it buries the numbers under
+    advice. Two headlines from the same feed restate one event twice. And the
+    reason line summarises the whole day, so it answers "what is going on" but
+    not "how much did I lose on tech": asked about a subject, the advisor wants
+    that subject's own number, not the total wearing the same percentages.
+    """
+    asked_about_a_subject = bool(topics(question))
+    out, coaching, headlines = [], [], 0
+    for f in chosen:
+        if f.slot == 'talk':
+            if not coaching:
+                coaching.append(f)
+            continue
+        # The reason line is the whole day in one sentence: it leads, or it goes.
+        if f.slot == 'reason' and (out or asked_about_a_subject):
+            continue
+        if f.id.startswith('news'):
+            headlines += 1
+            if headlines > 1:
+                continue
+        out.append(f)
+    return (out + coaching) if out else coaching
+
+
+def only_on_topic(chosen, question):
+    """The chosen facts that actually mention what was asked about.
+
+    on_topic() judges the set, so one matching fact used to carry unrelated ones
+    onto the screen with it — "is my world fund hit by the dollar?" answered with
+    the hedged share classes *and* a Health Care exposure. A card the client did
+    not ask for reads as a non-sequitur during a call, so drop it: one right
+    answer beats a right one next to a wrong one.
     """
     wanted = topics(question)
     if not wanted:
@@ -172,5 +218,8 @@ def answer(facts, question, use_llm=True, graph=None):
             continue
         chosen = only_on_topic(finder(unique, question), question)
         if chosen and (method == 'type' or on_topic(chosen, question)):
+            if method != 'type':
+                chosen = only_on_topic(chosen, question)
+            chosen = presentable(chosen, question)
             return {'answers': [_card(f) for f in chosen], 'found': True, 'method': method}
     return {'answers': [], 'found': False, 'method': 'none'}
