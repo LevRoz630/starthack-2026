@@ -224,3 +224,8 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 .demo-caller { margin: 0; color: var(--muted); font-size: var(--size-s); }
 .more-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
 .idle .more summary { font-size: var(--size-s); color: var(--uro-blue-dark); }
+
+.card.prep { margin-top: 12px; }
+.matches { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; }
+#prep-brief .group li + li { margin-top: 8px; }
+#prep-brief .src { font-size: var(--size-xs); color: var(--muted); margin-top: 2px; overflow-wrap: anywhere; }

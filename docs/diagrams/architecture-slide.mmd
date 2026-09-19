@@ -1,0 +1,31 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#EEF4FC", "primaryBorderColor": "#5499E4", "primaryTextColor": "#2A292F", "lineColor": "#5499E4", "clusterBkg": "#FFFFFF", "clusterBorder": "#5499E4", "edgeLabelBackground": "#FFFFFF", "fontFamily": "Arial, Helvetica, sans-serif", "fontSize": "15px"}}}%%
+flowchart LR
+    subgraph IN["Inputs"]
+        D["URO client data<br/>+ reference data"]
+        P["Other banks'<br/>custody PDFs"]
+        M["Market feed<br/>+ news & house views"]
+    end
+    subgraph PRE["Before the call · precomputed"]
+        F["Facts engine<br/>every fact sourced"]
+        G["Reasoning graph<br/>facts + real dependencies"]
+        C[("Briefing cache<br/>per client")]
+    end
+    subgraph LIVE["During the call · live"]
+        A["Call audio"] --> S["Live speech-to-text<br/>ElevenLabs"]
+        S --> Q["Answer engine<br/>facts & chains only"]
+    end
+    subgraph OUT["Advisor"]
+        PH["Phone<br/>ring briefing · answers · note & email"]
+        DB["Desk dashboard<br/>60-second briefing"]
+    end
+    D --> F
+    P --> F
+    M --> F
+    F --> G --> C
+    C -- "0.23 s on ring" --> PH
+    C --> DB
+    G --> Q
+    Q -- "≈0.9 s per question" --> PH
+
+    classDef phone fill:#5499E4,stroke:#2A292F,color:#FFFFFF,font-weight:bold
+    class PH phone

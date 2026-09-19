@@ -11,6 +11,12 @@ const SCRIPT = params.get('script') || 'golf';
 let DEMO_CLIENT = params.get('demo') || null;   // filled from the script by loadDemo()
 
 const SLOT_TITLES = {
+  who: 'Client',
+  development: 'Development',
+  health: 'Health check',
+  watch: 'Watch',
+  outlook: 'Outlook',
+  actions: 'Next best actions',
   reason: 'Why they are calling',
   digest: 'What fell',
   holding: 'What held up',
@@ -413,6 +419,99 @@ async function approve(kind) {
     btn.disabled = false;
   }
 }
+
+// --- prepare for a client -------------------------------------------------------
+// Type a name, company or number; get the briefing that is already prepared for them.
+
+async function prepareClient(query, ref) {
+  const status = $('#prep-status');
+  const list = $('#prep-matches');
+  list.replaceChildren();
+  status.hidden = false;
+  status.textContent = 'Looking up…';
+  let data;
+  try {
+    const params = new URLSearchParams({ q: query || '' });
+    if (ref) params.set('client', ref);
+    const resp = await fetch(`${API}/prepare?${params}`);
+    data = await resp.json();
+  } catch {
+    status.textContent = 'Offline';
+    return;
+  }
+  if (!data.client) {
+    if (!data.matches || !data.matches.length) {
+      status.textContent = `No client matches "${query}".`;
+      return;
+    }
+    status.textContent = 'Which one?';
+    for (const m of data.matches) {
+      const btn = el('button', 'btn secondary wide', `${m.name} · ${m.client}`);
+      btn.type = 'button';
+      btn.addEventListener('click', () => prepareClient(query, m.client));
+      const item = el('li');
+      item.append(btn);
+      list.append(item);
+    }
+    return;
+  }
+  status.hidden = true;
+  showPrepared(data);
+}
+
+function showPrepared(data) {
+  state.prepared = data;
+  $('#prep-name').textContent = data.name;
+  $('#prep-ref').textContent = data.client;
+  const phrasing = $('#prep-phrasing');
+  phrasing.hidden = data.briefing.phrasing !== 'ready';
+  phrasing.textContent = 'Apertus';
+  const brief = $('#prep-brief');
+  brief.replaceChildren();
+  for (const slot of ['who', 'development', 'health', 'watch', 'outlook', 'actions']) {
+    const sentences = data.briefing.sentences.filter((s) => s.slot === slot);
+    if (!sentences.length) continue;
+    const box = el('section', `group ${slot}`);
+    box.append(el('h3', null, SLOT_TITLES[slot]));
+    const list = el('ul');
+    for (const s of sentences) {
+      const item = el('li');
+      item.append(el('p', 'a', s.text));
+      for (const src of s.sources || []) item.append(el('p', 'src', src));
+      list.append(item);
+    }
+    box.append(list);
+    brief.append(box);
+  }
+  const call = data.call;
+  const hasMarket = call && call.market && call.market.scenario && call.market.scenario !== 'empty';
+  $('#prep-call-card').hidden = !hasMarket;
+  if (hasMarket) {
+    $('#prep-sim').hidden = !call.market.simulated;
+    renderBrief($('#prep-call-brief'), call, { withImpact: true });
+  }
+  show('prepared');
+}
+
+$('#prep-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  prepareClient($('#prep-input').value.trim());
+});
+$('#prep-back').addEventListener('click', () => { $('#brief-voice').pause(); show('idle'); });
+$('#prep-listen').addEventListener('click', () => {
+  const voice = $('#brief-voice');
+  if (!state.prepared) return;
+  voice.src = `${API}/briefing/${encodeURIComponent(state.prepared.client)}/audio`;
+  voice.play().catch(() => {});
+});
+$('#prep-call').addEventListener('click', () => {
+  if (!state.prepared) return;
+  fetch(`${API}/call/incoming`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ client: state.prepared.client }),
+  }).catch(() => {});
+});
 
 // --- market + connection ------------------------------------------------------
 
