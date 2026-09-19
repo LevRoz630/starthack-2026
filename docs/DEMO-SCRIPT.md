@@ -19,7 +19,7 @@ because he is frightened.
 
 ### 1
 
-**SUPERMAN:** How much did I lose today?
+**SUPERMAN:** Morning. I've just seen the screens, how much did I lose today?
 
 *Card: Probably the market move: Information Technology −4.8% today, 8.3% of the book;
 about −CHF 30k (−1.3%) overall. — The dollar −1.2% against the franc: 15.7% of the book
@@ -32,7 +32,7 @@ same.
 
 ### 2
 
-**SUPERMAN:** Why did it drop?
+**SUPERMAN:** Right, but why? What actually drove it?
 
 *Chain: Behind the move: "Chip stocks slide after export-control headlines" — the book is
 about −CHF 30.2k today (−1.3%) on CHF 2.38m — Information Technology −4.8% on 8.3% after
@@ -46,7 +46,7 @@ Insurers, three and a half. The rest is twelve smaller moves adding up.
 
 ### 3
 
-**SUPERMAN:** Am I breaking any of your rules?
+**SUPERMAN:** And am I breaking any of your rules at the moment?
 
 *Card: 5 suitability errors and 4 warnings open; most serious: "Volatility range
 undershot (portfolio risk too low)".*
@@ -57,7 +57,7 @@ we've got you below it.
 
 ### 4
 
-**SUPERMAN:** What held up?
+**SUPERMAN:** Did anything at all hold up?
 
 *Card: Holding up today: Consumer Staples +0.3% (8.6% of the book).*
 
@@ -90,7 +90,7 @@ actually for.
 
 ### 1
 
-**HOLDEN:** How much did today cost me?
+**HOLDEN:** Hello, it's Holden. I saw the news this morning, how much did today cost me?
 
 *Card: Possibly the market move: Financials −0.9% today, 65.8% of the book; about −CHF 4k
 (−0.6%) overall.*
@@ -100,7 +100,7 @@ under one percent today.
 
 ### 2
 
-**HOLDEN:** Why did it barely move?
+**HOLDEN:** That's less than I feared. Why did it barely move?
 
 *Chain: the book is about −CHF 4.5k today (−0.6%) on CHF 759k — the book moved less than
 the SMI: −0.6% against −1.3% — the SMI moved −1.3% today.*
@@ -110,7 +110,7 @@ tenths. So about half of it.
 
 ### 3
 
-**HOLDEN:** How much is just sitting in cash?
+**HOLDEN:** And how much of it is just sitting in cash doing nothing?
 
 *Card: Cash on hand is CHF 259k, 34.2% of the book. — Deploy idle liquidity: 34.2% of
 the book (CHF 259k) is cash.*
@@ -120,7 +120,7 @@ kept you out of trouble today. The rest of the time it's doing nothing.
 
 ### 4
 
-**HOLDEN:** Is my portfolio too cautious?
+**HOLDEN:** So is my portfolio too cautious, then?
 
 *Card: 1 holding above the product risk class limit of Investor profile 3 (maximum 4):
 VZ Holding AG, 65.8% of the book. — VZ Holding AG drives 100.0% of the volatility of
@@ -132,7 +132,7 @@ the movement you see comes from that. And it sits above the risk limit for your 
 
 ### 5
 
-**HOLDEN:** What about Swiss small caps?
+**HOLDEN:** I've been thinking about Swiss small caps. What about those?
 
 *Card: Note from 22 Nov 2025: "Wants to invest more heavily in Swiss small caps going
 forward."*

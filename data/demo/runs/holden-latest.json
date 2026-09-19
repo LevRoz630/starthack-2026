@@ -1,0 +1,851 @@
+{
+ "script": "holden",
+ "client": "CASE-021",
+ "scenario": "tech-selloff",
+ "saved_at": "2026-09-19T13:00:02",
+ "events": [
+  {
+   "t": 0.0,
+   "event": {
+    "type": "demo_started",
+    "script": "holden",
+    "client": "CASE-021",
+    "mode": "pipeline"
+   }
+  },
+  {
+   "t": 0.001,
+   "event": {
+    "type": "market",
+    "market": {
+     "scenario": "tech-selloff",
+     "description": "US tech sell-off; the dollar weakens against the franc, gold is bid.",
+     "simulated": true,
+     "as_of": "2026-09-19T15:30:00+02:00",
+     "moves": [
+      {
+       "dimension": "industry",
+       "bucket": "Information Technology",
+       "change": -0.048,
+       "level": null,
+       "ticker": "S5INFT Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Communication Services",
+       "change": -0.031,
+       "level": null,
+       "ticker": "S5TELS Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Consumer Discretionary",
+       "change": -0.022000000000000002,
+       "level": null,
+       "ticker": "S5COND Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Industrials",
+       "change": -0.011000000000000001,
+       "level": null,
+       "ticker": "S5INDU Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Financials",
+       "change": -0.009000000000000001,
+       "level": null,
+       "ticker": "S5FINL Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Raw materials",
+       "change": -0.006,
+       "level": null,
+       "ticker": "S5MATR Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Health Care",
+       "change": -0.004,
+       "level": null,
+       "ticker": "S5HLTH Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Energy",
+       "change": -0.003,
+       "level": null,
+       "ticker": "S5ENRS Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Real Estate",
+       "change": -0.002,
+       "level": null,
+       "ticker": "S5RLST Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Consumer Staples",
+       "change": 0.003,
+       "level": null,
+       "ticker": "S5CONS Index",
+       "origin": ""
+      },
+      {
+       "dimension": "industry",
+       "bucket": "Utilities",
+       "change": 0.005,
+       "level": null,
+       "ticker": "S5UTIL Index",
+       "origin": ""
+      },
+      {
+       "dimension": "fx",
+       "bucket": "USD",
+       "change": -0.012,
+       "level": null,
+       "ticker": "USDCHF Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "fx",
+       "bucket": "EUR",
+       "change": -0.003,
+       "level": null,
+       "ticker": "EURCHF Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "fx",
+       "bucket": "GBP",
+       "change": -0.004,
+       "level": null,
+       "ticker": "GBPCHF Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "commodity",
+       "bucket": "Gold",
+       "change": 0.013999999999999999,
+       "level": null,
+       "ticker": "XAU Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "commodity",
+       "bucket": "Silver",
+       "change": 0.008,
+       "level": null,
+       "ticker": "XAG Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "commodity",
+       "bucket": "Palladium",
+       "change": -0.005,
+       "level": null,
+       "ticker": "XPD Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "commodity",
+       "bucket": "Copper",
+       "change": -0.019,
+       "level": null,
+       "ticker": "HG1 Comdty",
+       "origin": ""
+      },
+      {
+       "dimension": "bonds",
+       "bucket": "CHF",
+       "change": 0.002,
+       "level": null,
+       "ticker": "SBR14T Index",
+       "origin": ""
+      },
+      {
+       "dimension": "bonds",
+       "bucket": "Global",
+       "change": 0.003,
+       "level": null,
+       "ticker": "LEGATRUU Index",
+       "origin": ""
+      },
+      {
+       "dimension": "crypto",
+       "bucket": "BTC",
+       "change": -0.065,
+       "level": null,
+       "ticker": "XBTUSD Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "crypto",
+       "bucket": "ETH",
+       "change": -0.081,
+       "level": null,
+       "ticker": "XETUSD Curncy",
+       "origin": ""
+      },
+      {
+       "dimension": "volatility",
+       "bucket": "VIX",
+       "change": 0.38,
+       "level": 27.4,
+       "ticker": "VIX Index",
+       "origin": ""
+      },
+      {
+       "dimension": "volatility",
+       "bucket": "VSMI",
+       "change": 0.0,
+       "level": 21.0,
+       "ticker": "VSMI Index",
+       "origin": ""
+      },
+      {
+       "dimension": "index",
+       "bucket": "SMI",
+       "change": -0.013000000000000001,
+       "level": null,
+       "ticker": "SMI Index",
+       "origin": ""
+      },
+      {
+       "dimension": "index",
+       "bucket": "S&P 500",
+       "change": -0.032,
+       "level": null,
+       "ticker": "SPX Index",
+       "origin": ""
+      }
+     ],
+     "headlines": [
+      {
+       "text": "Chip stocks slide after export-control headlines",
+       "dimension": "industry",
+       "bucket": "Information Technology"
+      },
+      {
+       "text": "Dollar weakens as rate-cut bets rise",
+       "dimension": "fx",
+       "bucket": "USD"
+      },
+      {
+       "text": "Gold climbs on safe-haven demand",
+       "dimension": "commodity",
+       "bucket": "Gold"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "t": 0.006,
+   "event": {
+    "type": "incoming_call",
+    "briefing": {
+     "client": "CASE-021",
+     "name": "Holden Caulfield",
+     "as_of": "2026-09-19",
+     "market": {
+      "scenario": "tech-selloff",
+      "simulated": true,
+      "description": "US tech sell-off; the dollar weakens against the franc, gold is bid."
+     },
+     "impact": {
+      "amount": -4499.6,
+      "share": -0.00593,
+      "not_modelled_share": 0.0
+     },
+     "words": 75,
+     "sentences": [
+      {
+       "slot": "caller",
+       "text": "Holden Caulfield is calling: Investor profile 3, CHF 759k across 2 portfolios.",
+       "facts": [
+        "caller"
+       ],
+       "sources": [
+        "clients.json CASE-021: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency"
+       ]
+      },
+      {
+       "slot": "caller",
+       "text": "Contact preference: \"Would like a follow-up call before any changes to the standing order\"",
+       "facts": [
+        "caller.contact.0"
+       ],
+       "sources": [
+        "data/profiles/profiles.json CASE-021 from clients.json ClientNotes"
+       ]
+      },
+      {
+       "slot": "reason",
+       "text": "Probably a withdrawal: note from 2 Nov 2025: \"Considering a charitable donation from the portfolio, details being clarified.\"",
+       "facts": [
+        "reason.0"
+       ],
+       "sources": [
+        "clients.json CASE-021: ClientNotes"
+       ]
+      },
+      {
+       "slot": "reason",
+       "text": "Possibly the market move: Financials −0.9% today, 65.8% of the book; about −CHF 4k (−0.6%) overall.",
+       "facts": [
+        "reason.1"
+       ],
+       "sources": [
+        "impact of the market feed on clients.json CASE-021 holdings"
+       ]
+      },
+      {
+       "slot": "digest",
+       "text": "Financials −0.9% today: 65.8% of the book, about −CHF 4k, mostly via VZ Holding AG.",
+       "facts": [
+        "digest.industry.Financials"
+       ],
+       "sources": [
+        "market feed \"tech-selloff\": S5FINL Index CHG_PCT_1D × clients.json CASE-021 holdings"
+       ]
+      }
+     ],
+     "facts": [
+      {
+       "id": "caller",
+       "slot": "caller",
+       "text": "Holden Caulfield is calling: Investor profile 3, CHF 759k across 2 portfolios.",
+       "source": "clients.json CASE-021: RiskProfileName, EsgProfileName, AssetsUnderManagementInDefaultCurrency",
+       "weight": 1.0
+      },
+      {
+       "id": "caller.contact.0",
+       "slot": "caller",
+       "text": "Contact preference: \"Would like a follow-up call before any changes to the standing order\"",
+       "source": "data/profiles/profiles.json CASE-021 from clients.json ClientNotes",
+       "weight": 0.8
+      },
+      {
+       "id": "reason.0",
+       "slot": "reason",
+       "text": "Probably a withdrawal: note from 2 Nov 2025: \"Considering a charitable donation from the portfolio, details being clarified.\"",
+       "source": "clients.json CASE-021: ClientNotes",
+       "weight": 1.2
+      },
+      {
+       "id": "reason.1",
+       "slot": "reason",
+       "text": "Possibly the market move: Financials −0.9% today, 65.8% of the book; about −CHF 4k (−0.6%) overall.",
+       "source": "impact of the market feed on clients.json CASE-021 holdings",
+       "weight": 0.5925598993435525
+      },
+      {
+       "id": "digest.industry.Financials",
+       "slot": "digest",
+       "text": "Financials −0.9% today: 65.8% of the book, about −CHF 4k, mostly via VZ Holding AG.",
+       "source": "market feed \"tech-selloff\": S5FINL Index CHG_PCT_1D × clients.json CASE-021 holdings",
+       "weight": 0.005925598993435525
+      }
+     ]
+    },
+    "demo": "holden"
+   }
+  },
+  {
+   "t": 0.318,
+   "event": {
+    "type": "_answered",
+    "client": "CASE-021"
+   }
+  },
+  {
+   "t": 0.55,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815510.629,
+    "type": "listening",
+    "source": "recorded"
+   }
+  },
+  {
+   "t": 1.56,
+   "event": {
+    "type": "demo_audio",
+    "client": "CASE-021",
+    "url": "/demo/audio/fc6bed5bcde83e6bc7e5.mp3",
+    "text": "Hello, it's Holden. I saw the news this morning, how much did today cost me?"
+   }
+  },
+  {
+   "t": 2.765,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815512.844,
+    "type": "transcript",
+    "text": "Hello, it's H",
+    "final": false
+   }
+  },
+  {
+   "t": 3.873,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815513.951,
+    "type": "transcript",
+    "text": "Hello, it's Holden. I saw the news.",
+    "final": false
+   }
+  },
+  {
+   "t": 4.78,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815514.858,
+    "type": "transcript",
+    "text": "Hello, it's Holden. I saw the news this morning. How much do you-",
+    "final": false
+   }
+  },
+  {
+   "t": 5.587,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815515.665,
+    "type": "transcript",
+    "text": "Hello, it's Holden. I saw the news this morning. How much did today cost",
+    "final": false
+   }
+  },
+  {
+   "t": 6.146,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815516.225,
+    "type": "transcript",
+    "text": "Hello, it's Holden. I saw the news this morning. How much did today cost me?",
+    "final": true
+   }
+  },
+  {
+   "t": 6.671,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815516.75,
+    "type": "answer",
+    "question": "Hello, it's Holden. I saw the news this morning. How much did today cost me?",
+    "answers": [
+     {
+      "text": "Possibly the market move: Financials −0.9% today, 65.8% of the book; about −CHF 4k (−0.6%) overall.",
+      "source": "impact of the market feed on clients.json CASE-021 holdings",
+      "fact": "reason.1",
+      "slot": "reason"
+     }
+    ],
+    "found": true,
+    "method": "llm"
+   }
+  },
+  {
+   "t": 18.799,
+   "event": {
+    "type": "demo_audio",
+    "client": "CASE-021",
+    "url": "/demo/audio/446b91027ce46250e873.mp3",
+    "text": "That's less than I feared. Why did it barely move?"
+   }
+  },
+  {
+   "t": 19.508,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815529.587,
+    "type": "transcript",
+    "text": "That's fine.",
+    "final": false
+   }
+  },
+  {
+   "t": 20.565,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815530.644,
+    "type": "transcript",
+    "text": "That's less than I feel.",
+    "final": false
+   }
+  },
+  {
+   "t": 21.568,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815531.646,
+    "type": "transcript",
+    "text": "That's less than I feared. Why did it barely",
+    "final": false
+   }
+  },
+  {
+   "t": 22.546,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815532.624,
+    "type": "transcript",
+    "text": "That's less than I feared. Why did it barely move?",
+    "final": true
+   }
+  },
+  {
+   "t": 23.003,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815533.081,
+    "type": "answer",
+    "question": "That's less than I feared. Why did it barely move?",
+    "answers": [
+     {
+      "text": "The book is about −CHF 4.5k today (−0.6%) on CHF 759k.",
+      "source": "market feed \"tech-selloff\" × clients.json CASE-021 holdings",
+      "fact": "total",
+      "link": null
+     },
+     {
+      "text": "The book moved less than the SMI: −0.6% against −1.3%.",
+      "source": "market feed \"tech-selloff\": SMI Index CHG_PCT_1D × clients.json CASE-021 holdings",
+      "fact": "compare.SMI",
+      "link": "so"
+     },
+     {
+      "text": "The SMI moved −1.3% today.",
+      "source": "market feed \"tech-selloff\": SMI Index CHG_PCT_1D",
+      "fact": "index.SMI",
+      "link": "compared with"
+     }
+    ],
+    "found": true,
+    "method": "chain:llm",
+    "chain": true
+   }
+  },
+  {
+   "t": 35.944,
+   "event": {
+    "type": "demo_audio",
+    "client": "CASE-021",
+    "url": "/demo/audio/9ecedd8a94c2b968de19.mp3",
+    "text": "And how much of it is just sitting in cash doing nothing?"
+   }
+  },
+  {
+   "t": 36.72,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815546.798,
+    "type": "transcript",
+    "text": "And",
+    "final": false
+   }
+  },
+  {
+   "t": 37.728,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815547.806,
+    "type": "transcript",
+    "text": "And how much of it is just",
+    "final": false
+   }
+  },
+  {
+   "t": 38.738,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815548.816,
+    "type": "transcript",
+    "text": "And how much of it is just sitting in cash doing",
+    "final": false
+   }
+  },
+  {
+   "t": 39.686,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815549.764,
+    "type": "transcript",
+    "text": "And how much of it is just sitting in cash doing nothing?",
+    "final": true
+   }
+  },
+  {
+   "t": 40.128,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815550.207,
+    "type": "answer",
+    "question": "And how much of it is just sitting in cash doing nothing?",
+    "answers": [
+     {
+      "text": "Cash on hand is CHF 259k, 34.2% of the book.",
+      "source": "clients.json CASE-021: LiquidityInDefaultCurrency",
+      "fact": "watch.liquidity",
+      "slot": "watch"
+     },
+     {
+      "text": "Deploy idle liquidity: 34.2% of the book (CHF 259k) is cash.",
+      "source": "clients.json CASE-021: LiquidityInDefaultCurrency",
+      "fact": "actions.cash",
+      "slot": "actions"
+     }
+    ],
+    "found": true,
+    "method": "llm"
+   }
+  },
+  {
+   "t": 53.194,
+   "event": {
+    "type": "demo_audio",
+    "client": "CASE-021",
+    "url": "/demo/audio/4a63750aed204004466e.mp3",
+    "text": "So is my portfolio too cautious, then?"
+   }
+  },
+  {
+   "t": 53.813,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815563.892,
+    "type": "transcript",
+    "text": "So",
+    "final": false
+   }
+  },
+  {
+   "t": 54.919,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815564.997,
+    "type": "transcript",
+    "text": "So is my portfolio",
+    "final": false
+   }
+  },
+  {
+   "t": 55.926,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815566.004,
+    "type": "transcript",
+    "text": "So is my portfolio too cautious, then?",
+    "final": false
+   }
+  },
+  {
+   "t": 56.388,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815566.466,
+    "type": "transcript",
+    "text": "So is my portfolio too cautious then?",
+    "final": true
+   }
+  },
+  {
+   "t": 56.85,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815566.928,
+    "type": "answer",
+    "question": "So is my portfolio too cautious then?",
+    "answers": [
+     {
+      "text": "1 holding above the product risk class limit of Investor profile 3 (maximum 4): VZ Holding AG, 65.8% of the book.",
+      "source": "reference.json Securities.PRC vs RiskProfiles.MaxPRC; clients.json CASE-021 positions",
+      "fact": "health.prc",
+      "slot": "health"
+     },
+     {
+      "text": "Financials is 65.8% of the book (CHF 500k) after fund look-through, mostly via VZ Holding AG.",
+      "source": "clients.json CASE-021: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName",
+      "fact": "watch.industry.Financials",
+      "slot": "watch"
+     },
+     {
+      "text": "VZ Holding AG drives 100.0% of the volatility of Account / Custody (CASE-021-01).",
+      "source": "clients.json CASE-021: Portfolios[CASE-021-01].SecurityPositions.ContributionVolatility",
+      "fact": "watch.risk.CASE-021-01",
+      "slot": "watch"
+     }
+    ],
+    "found": true,
+    "method": "llm"
+   }
+  },
+  {
+   "t": 71.042,
+   "event": {
+    "type": "demo_audio",
+    "client": "CASE-021",
+    "url": "/demo/audio/108c0e3b29f4c54fc789.mp3",
+    "text": "I've been thinking about Swiss small caps. What about those?"
+   }
+  },
+  {
+   "t": 71.74,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815581.819,
+    "type": "transcript",
+    "text": "I've",
+    "final": false
+   }
+  },
+  {
+   "t": 72.829,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815582.907,
+    "type": "transcript",
+    "text": "I've been thinking about Swiss",
+    "final": false
+   }
+  },
+  {
+   "t": 73.735,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815583.813,
+    "type": "transcript",
+    "text": "I've been thinking about Swiss small caps.",
+    "final": false
+   }
+  },
+  {
+   "t": 74.839,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815584.918,
+    "type": "transcript",
+    "text": "I've been thinking about Swiss small caps. What about those?",
+    "final": false
+   }
+  },
+  {
+   "t": 74.935,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815585.014,
+    "type": "transcript",
+    "text": "I've been thinking about Swiss small caps. What about those?",
+    "final": true
+   }
+  },
+  {
+   "t": 75.413,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815585.492,
+    "type": "answer",
+    "question": "I've been thinking about Swiss small caps. What about those?",
+    "answers": [
+     {
+      "text": "Note from 22 Nov 2025: \"Wants to invest more heavily in Swiss small caps going forward.\"",
+      "source": "clients.json CASE-021: ClientNotes",
+      "fact": "watch.note.0",
+      "slot": "watch"
+     },
+     {
+      "text": "Financials is 65.8% of the book (CHF 500k) after fund look-through, mostly via VZ Holding AG.",
+      "source": "clients.json CASE-021: SecurityPositions × reference.json FundUnbundlingMappings, Securities.SAA_IndustryName",
+      "fact": "watch.industry.Financials",
+      "slot": "watch"
+     },
+     {
+      "text": "VZ Holding AG alone is 65.8% of the book.",
+      "source": "clients.json CASE-021: Portfolios[CASE-021-01].SecurityPositions",
+      "fact": "watch.concentration.18477",
+      "slot": "watch"
+     }
+    ],
+    "found": true,
+    "method": "llm"
+   }
+  },
+  {
+   "t": 86.472,
+   "event": {
+    "type": "demo_audio",
+    "client": "CASE-021",
+    "url": "/demo/audio/c52989fd05ce63d86fe5.mp3",
+    "text": "Right. Call me before you change anything."
+   }
+  },
+  {
+   "t": 87.212,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815597.291,
+    "type": "transcript",
+    "text": "Right.",
+    "final": false
+   }
+  },
+  {
+   "t": 88.219,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815598.298,
+    "type": "transcript",
+    "text": "Right. Call me before you",
+    "final": false
+   }
+  },
+  {
+   "t": 89.342,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815599.42,
+    "type": "transcript",
+    "text": "Right. Call me before you change anything.",
+    "final": true
+   }
+  },
+  {
+   "t": 90.303,
+   "event": {
+    "client": "CASE-021",
+    "at": 1789815600.381,
+    "type": "listening_stopped",
+    "source": "recorded"
+   }
+  },
+  {
+   "t": 92.464,
+   "event": {
+    "type": "call_ended",
+    "client": "CASE-021",
+    "demo": "holden"
+   }
+  },
+  {
+   "t": 92.464,
+   "event": {
+    "type": "demo_finished",
+    "client": "CASE-021",
+    "result": "done"
+   }
+  }
+ ]
+}
