@@ -493,10 +493,15 @@ function showPrepared(data) {
   show('prepared');
 }
 
-$('#prep-form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  prepareClient($('#prep-input').value.trim());
-});
+// The Prepare box is off the idle screen; prepareClient() and the prepared screen stay,
+// so putting the form back in index.html is all it takes to bring the flow back.
+const prepForm = $('#prep-form');
+if (prepForm) {
+  prepForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    prepareClient($('#prep-input').value.trim());
+  });
+}
 $('#prep-back').addEventListener('click', () => { $('#brief-voice').pause(); show('idle'); });
 $('#prep-listen').addEventListener('click', () => {
   const voice = $('#brief-voice');
