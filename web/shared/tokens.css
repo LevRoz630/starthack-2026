@@ -14,6 +14,14 @@
   --green: #3BA776;
   --on-blue: #FFFFFF;
 
+  /* The hues above are fills and large type, where 3:1 is the bar. Small text and
+     hairline accents need 4.5:1, which none of them reach on white (--amber is
+     1.34:1 — an amber accent bar is invisible). These are their readable twins. */
+  --red-ink: #B3312B;      /* 6.19:1 on card, 5.10:1 on page */
+  --green-ink: #0F6B46;    /* 6.54:1 on card, 5.39:1 on page */
+  --blue-ink: #2C64A6;     /* 6.03:1 on card, 4.97:1 on page */
+  --amber-bar: #C8A23A;    /* the attention hue at a weight you can actually see */
+
   --font: "Fira Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --size-xs: 12px;
   --size-s: 14px;
@@ -96,8 +104,10 @@ p { margin: 0; }
    share one scale: blue = who is on the line, red = what went wrong,
    amber = needs attention, green = what is fine. */
 .group.who, .group.reason { border-left-color: var(--uro-blue); }
-.group.health { border-left-color: var(--amber); }
+.group.development { border-left-color: var(--uro-blue-dark); }
+.group.health { border-left-color: var(--amber-bar); }
 .group.watch, .group.digest { border-left-color: var(--red); }
+.group.outlook { border-left-color: var(--muted); }
 .group.actions, .group.holding { border-left-color: var(--green); }
 
 .sentence { display: flex; flex-direction: column; gap: 2px; }
@@ -124,7 +134,26 @@ p { margin: 0; }
 .answer-card .a { font-weight: 500; font-variant-numeric: tabular-nums; }
 .answer-card .a + .a { margin-top: 8px; }
 .answer-card .src { font-size: var(--size-xs); color: var(--muted); margin-top: 4px; overflow-wrap: anywhere; }
-.answer-card.none { border-left-color: var(--amber); }
+.answer-card.none { border-left-color: var(--amber-bar); }
+
+/* A freshly prepended card animates on its own — no JS. Short and small on
+   purpose: it should read as settling, not as something demanding attention
+   while the advisor is mid-sentence. */
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+.answer-card { animation: card-in 180ms cubic-bezier(0.2, 0, 0, 1) both; }
+
+/* The newest answer carries the weight; older ones stay legible but recede. */
+.answers > .answer-card:first-child {
+  box-shadow: 0 2px 4px rgba(42, 41, 47, 0.10), 0 6px 16px rgba(42, 41, 47, 0.08);
+}
+.answers > .answer-card:not(:first-child) { opacity: 0.72; }
+
+@media (prefers-reduced-motion: reduce) {
+  .answer-card { animation-duration: 1ms; }
+}
 .answer-card.chain { border-left-color: var(--ink); }
 .answer-card .steps { margin: 0; padding-left: 20px; }
 .answer-card .step + .step { margin-top: 10px; }

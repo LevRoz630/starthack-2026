@@ -158,7 +158,9 @@ function answer() {
   clearInterval(state.timer);
   state.timer = setInterval(() => { $('#timer').textContent = clock(Date.now() - state.callStarted); }, 1000);
   show('call');
-  $('#ask-input').focus();
+  // Deliberately no focus() on the ask input: the listener is already running and
+  // answers arrive over the socket, so focusing here would only raise the software
+  // keyboard over the briefing at the moment the advisor picks up.
 }
 
 async function ask(question) {
@@ -289,7 +291,8 @@ function onListenerEvent(event) {
     const entry = { question: event.question, answers: event.answers || [], chain: !!event.chain };
     state.answers.unshift(entry);
     $('#answers').prepend(answerCard(entry));
-    showLive('');
+    // The final question stays under the header: it is what the new card answers,
+    // and clearing it here used to collapse the strip just as the card arrived.
   }
 }
 

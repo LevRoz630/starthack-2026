@@ -53,33 +53,39 @@
 
     <!-- 3. In call -->
     <section class="screen" id="screen-call" data-screen="call" hidden>
+      <!-- Order matters: the advisor glances down mid-sentence, so the answer is
+           the first thing under the header. The ask box and Listen toggle are the
+           manual fallback for when the listener is not running, so they sit at the
+           bottom; the reason and the running total are context they already read
+           on the ringing screen. -->
       <div class="caller compact">
-        <div>
-          <h1 data-caller-name></h1>
-          <p class="ref"><span data-caller-ref></span> <span class="tag sim" data-sim hidden>SIMULATED</span></p>
-        </div>
+        <h1 data-caller-name></h1>
+        <p class="ref"><span data-caller-ref></span> <span class="tag sim" data-sim hidden>SIMULATED</span></p>
         <span class="timer" id="timer">0:00</span>
       </div>
-      <p class="reason-line" data-reason-line></p>
-      <p class="impact-line" data-impact-line></p>
-
-      <form class="ask" id="ask-form" autocomplete="off">
-        <label for="ask-input" class="eyebrow">Client asks</label>
-        <div class="ask-row">
-          <input id="ask-input" name="question" type="text" placeholder="e.g. How much did I lose on tech?" required>
-          <button class="btn primary" type="submit">Ask</button>
-        </div>
-      </form>
-      <div class="listen-row">
-        <button class="btn listen" id="listen" type="button" aria-pressed="false">Listen</button>
-        <p class="live" id="live-transcript" aria-live="polite"></p>
-      </div>
+      <p class="live" id="live-transcript" aria-live="polite"></p>
       <ol class="answers" id="answers" aria-live="polite"></ol>
+
+      <div class="context">
+        <p class="reason-line" data-reason-line></p>
+        <p class="impact-line" data-impact-line></p>
+      </div>
 
       <details class="card more">
         <summary>Full briefing</summary>
         <div class="brief" data-brief></div>
       </details>
+
+      <div class="listen-row">
+        <button class="btn listen" id="listen" type="button" aria-pressed="false">Listen</button>
+        <form class="ask" id="ask-form" autocomplete="off">
+          <div class="ask-row">
+            <label for="ask-input" class="visually-hidden">Type the client's question</label>
+            <input id="ask-input" name="question" type="text" placeholder="Type a question…" required>
+            <button class="btn secondary" type="submit">Ask</button>
+          </div>
+        </form>
+      </div>
 
       <div class="actions sticky">
         <button class="btn decline wide" id="end-call" type="button">End call</button>

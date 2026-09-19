@@ -15,7 +15,10 @@ html, body {
 .bar { padding: calc(env(safe-area-inset-top) + 12px) var(--gutter) 12px; }
 
 main { max-width: 480px; margin: 0 auto; padding: var(--gutter); }
-.screen { display: flex; flex-direction: column; gap: var(--gap); padding-bottom: calc(var(--tap) + 2 * var(--gutter)); }
+/* Clears .actions.sticky, which is --tap + 2 gutters *plus* the safe-area inset:
+   without the inset here the last card sits under the bar on a notched phone. */
+.screen { display: flex; flex-direction: column; gap: var(--gap);
+          padding-bottom: calc(var(--tap) + 2 * var(--gutter) + env(safe-area-inset-bottom)); }
 
 h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 
@@ -35,7 +38,12 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 .tag.sim { background: var(--amber); color: var(--ink); }
 
 .caller { display: flex; flex-direction: column; gap: 4px; }
-.caller.compact { flex-direction: row; justify-content: space-between; align-items: flex-start; }
+/* One line during the call: every pixel above the first answer is a pixel the
+   advisor has to skip past while someone is talking to them. */
+.caller.compact { flex-direction: row; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.caller.compact h1 { font-size: var(--size-l); }
+.caller.compact .ref { flex: 1; min-width: 0; }
+.caller.compact .timer { margin-left: auto; }
 .timer { font-variant-numeric: tabular-nums; font-size: var(--size-l); font-weight: 600; color: var(--uro-blue-dark); }
 
 .brief { display: flex; flex-direction: column; gap: var(--gap); }
@@ -51,11 +59,21 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 .impact { border-left: 4px solid var(--ink); padding-left: 14px; }
 .impact .amount { font-size: var(--size-hero); font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; }
 .impact .share { font-variant-numeric: tabular-nums; color: var(--muted); }
-.loss { color: var(--red); }
-.gain { color: var(--green); }
+/* The 40px hero passes on --red as large text, but .impact-line is 16px and
+   would not, so both use the ink twins: one loss colour, readable at any size. */
+.loss { color: var(--red-ink); }
+.gain { color: var(--green-ink); }
 
-.reason-line { font-weight: 500; }
-.impact-line { font-variant-numeric: tabular-nums; font-weight: 600; }
+/* Context, not headline: the advisor read both of these on the ringing screen. */
+.context { display: flex; flex-direction: column; gap: 4px; }
+.reason-line { font-size: var(--size-s); color: var(--muted); }
+.impact-line { font-size: var(--size-s); font-variant-numeric: tabular-nums; font-weight: 600; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip-path: inset(50%); overflow: hidden; white-space: nowrap;
+}
 
 .ask { display: flex; flex-direction: column; gap: 6px; }
 .ask-row { display: flex; gap: 8px; }
@@ -124,12 +142,32 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 
 /* Live listening: the client's words as they are heard, and the toggle. */
 .listen-row { display: flex; align-items: center; gap: var(--gap); }
+.listen-row .ask { flex: 1; min-width: 0; }
 .btn.listen { flex: none; min-width: 112px; }
 .btn.listen[aria-pressed="true"] { background: var(--red); border-color: var(--red); color: var(--on-blue); }
 .btn.listen[data-source="twilio"] { background: var(--green); border-color: var(--green); color: var(--on-blue); }
-.live { margin: 0; flex: 1; min-width: 0; color: var(--muted); font-style: italic; font-size: var(--size-s); overflow-wrap: anywhere; }
-.live.final { color: var(--ink); font-style: normal; }
-.live.error { color: var(--red); font-style: normal; }
+/* Reserved height, always. The transcript grows word by word as the client
+   speaks; if the box grew with it, every answer below it would be pushed down
+   mid-sentence. Two lines at 14px is ~44 characters a line, which holds the
+   longest question in the recorded call. Interim text is grey, final is ink —
+   the convention live-caption interfaces settled on. */
+.live {
+  margin: 0;
+  min-width: 0;
+  color: var(--muted);
+  font-style: italic;
+  font-size: var(--size-s);
+  line-height: 1.45;
+  min-height: calc(2 * 1.45em);
+  max-height: calc(2 * 1.45em);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow-wrap: anywhere;
+}
+.live.final { color: var(--ink); font-style: normal; font-weight: 500; }
+.live.error { color: var(--red-ink); font-style: normal; }
 
 .tag.error { background: var(--red); color: #fff; }
 .demo-status { margin: 8px 0 0; font-size: 14px; color: var(--muted, #6b6b73); }
