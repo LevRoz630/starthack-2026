@@ -340,7 +340,7 @@ function callNote(duration) {
     `Call: ${when}, ${duration}`,
   ];
   if (b.market && b.market.scenario && b.market.scenario !== 'empty') {
-    lines.push(`Market context: ${b.market.scenario}${b.market.simulated ? ' (simulated)' : ''}`);
+    lines.push(`Market context: ${b.market.scenario}`);
   }
   if (groups.reason) lines.push(`Likely reason: ${groups.reason[0].text}`);
   if (state.answers.length) {
@@ -353,16 +353,15 @@ function callNote(duration) {
   return lines.join('\n');
 }
 
-// The client may only be sent statements about their own portfolio. The advisor's
-// side of the card — why we think they called, the playbook wording, and the market
-// headline (which is labelled simulated in the demo) — never goes into their inbox.
+// The client may only be sent statements about their own portfolio. The advisor's side
+// of the card — why we think they called, the playbook wording, and the market headline
+// — never goes into their inbox. Headline facts are id'd news.*, so this catches them.
 const ADVISOR_ONLY = /^(reason|news|talk)\b/;
 
 function forTheClient(answers) {
   const out = [];
   for (const a of answers) {
     if (ADVISOR_ONLY.test(a.fact || '')) continue;
-    if (/simulated/i.test(a.text)) continue;
     // Two layers often state the same fact in slightly different words; the client
     // should read it once. The opening clause is what identifies it.
     const head = a.text.slice(0, 32).toLowerCase();

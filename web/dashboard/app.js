@@ -67,9 +67,7 @@ async function loadCallers() {
   const active = market && market.scenario && market.scenario !== 'empty';
   $('#callfirst').hidden = !(active && rows.length);
   if (!active || !rows.length) return;
-  // The SIMULATED tag next to it already says so; don't say it twice.
-  $('#market-name').textContent = (market.description || market.scenario).replace(/^SIMULATED[.:]?\s*/, '');
-  $('#market-sim').hidden = !market.simulated;
+  $('#market-name').textContent = market.description || market.scenario;
 
   const list = $('#caller-list');
   list.replaceChildren();
