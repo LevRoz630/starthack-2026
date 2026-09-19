@@ -44,8 +44,8 @@ function withSigns(text) {
 // Bars are drawn against the biggest line in the same group, so they compare like with
 // like. The magnitude is the fact's own weight, which the briefing already carries.
 function bar(share) {
-  const track = el('div', 'bar');
-  const fill = el('div', 'bar-fill');
+  const track = el('div', 'weightbar');
+  const fill = el('div', 'weightbar-fill');
   fill.style.width = `${Math.max(4, Math.min(100, share * 100))}%`;
   track.append(fill);
   return track;

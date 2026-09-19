@@ -9,7 +9,7 @@ const SLOT_TITLES = {
 };
 const SLOT_ORDER = Object.keys(SLOT_TITLES);
 
-const state = { clients: [], filter: '', selected: null, poll: null };
+const state = { clients: [], filter: '', tab: 'all', impact: {}, selected: null, poll: null };
 
 // --- client list --------------------------------------------------------------
 
@@ -24,17 +24,29 @@ async function loadClients() {
   renderClientList();
 }
 
+function matchesTab(c) {
+  if (state.tab === 'ext') return !!c.external;
+  if (state.tab === 'hit') return Math.abs(shareOf(c.client)) >= 0.01;
+  return true;
+}
+
 function renderClientList() {
   const list = $('#client-list');
   list.replaceChildren();
   const q = state.filter.trim().toLowerCase();
-  const rows = state.clients.filter((c) => !q || c.client.toLowerCase().includes(q) || (c.name || '').toLowerCase().includes(q));
+  const matchesQuery = (c) => !q || c.client.toLowerCase().includes(q) || (c.name || '').toLowerCase().includes(q);
+  $('#count-all').textContent = state.clients.length;
+  $('#count-hit').textContent = state.clients.filter((c) => Math.abs(shareOf(c.client)) >= 0.01).length;
+  $('#count-ext').textContent = state.clients.filter((c) => c.external).length;
+  const rows = state.clients.filter((c) => matchesQuery(c) && matchesTab(c));
   for (const c of rows) {
     const li = el('li');
     const btn = el('button');
     btn.type = 'button';
     btn.setAttribute('aria-current', String(c.client === state.selected));
-    const nameRow = el('span', 'client-name', c.name || c.client);
+    const nameRow = el('span', 'client-name');
+    nameRow.append(statusDot(c.client));
+    nameRow.append(el('span', null, c.name || c.client));
     if (c.external) nameRow.append(el('span', 'tag ext', 'ex-custody'));
     btn.append(nameRow);
     const sub = c.aum ? `${c.client} · ${c.currency || 'CHF'} ${chf.format(c.aum)}` : c.client;
@@ -44,6 +56,21 @@ function renderClientList() {
     list.append(li);
   }
   if (!rows.length) list.append(el('li', 'client-sub', 'No matching clients.'));
+}
+
+const shareOf = (ref) => (state.impact[ref] ? state.impact[ref].share : 0);
+
+// Their triage dot: red where today cost more than 2% of the book, amber for a loss
+// worth a look, green for a gain, and a hollow ring for the clients today barely
+// touched -- a dot on every row would mark nothing.
+function statusDot(ref) {
+  const share = shareOf(ref);
+  const dot = el('span', 'status');
+  if (share <= -0.02) dot.classList.add('bad');
+  else if (share <= -0.005) dot.classList.add('warn');
+  else if (share >= 0.005) dot.classList.add('ok');
+  else dot.classList.add('none');
+  return dot;
 }
 
 // --- who to call first ---------------------------------------------------------
@@ -56,23 +83,31 @@ async function loadCallers() {
   try {
     [market, rows] = await Promise.all([
       fetch(`${API}/market/state`).then((r) => r.json()),
-      fetch(`${API}/callers?limit=5`).then((r) => r.json()),
+      fetch(`${API}/callers?limit=500`).then((r) => r.json()),
     ]);
   } catch {
     return;
   }
   const active = market && market.scenario && market.scenario !== 'empty';
+  state.impact = active ? Object.fromEntries(rows.map((r) => [r.client, r])) : {};
+  renderClientList();
+  if (state.selected) fillStrip(state.selected);
   $('#callfirst').hidden = !(active && rows.length);
   if (!active || !rows.length) return;
 
+  const top = rows.slice(0, 5);
+  $('#caller-count').textContent = `(${top.length})`;
   const list = $('#caller-list');
   list.replaceChildren();
-  for (const row of rows) {
+  for (const row of top) {
     const li = el('li');
     const btn = el('button');
     btn.type = 'button';
     const head = el('span', 'caller-head');
-    head.append(el('span', 'client-name', row.name || row.client));
+    const who = el('span', 'client-name');
+    who.append(statusDot(row.client));
+    who.append(el('span', null, row.name || row.client));
+    head.append(who);
     head.append(el('span', `caller-impact ${row.impact < 0 ? 'loss' : 'gain'}`,
                    `${signedMoney(row.impact)} (${signedPct(row.share)})`));
     btn.append(head);
@@ -85,10 +120,39 @@ async function loadCallers() {
 
 // --- briefing ------------------------------------------------------------------
 
+function clientMeta(ref) {
+  return state.clients.find((c) => c.client === ref) || {};
+}
+
+// The grey band under the context bar: the numbers that matter for this client, in
+// the label-over-value pairs their own portfolio screen uses, with the money right.
+function fillStrip(ref, asOf) {
+  const c = clientMeta(ref);
+  const hit = state.impact[ref];
+  const today = $('#f-today');
+  today.className = 'fact-value';
+  if (hit) {
+    today.classList.add(hit.impact < 0 ? 'loss' : 'gain');
+    today.textContent = `${signedMoney(hit.impact)} (${signedPct(hit.share)})`;
+  } else {
+    today.classList.add('flat');
+    today.textContent = 'no material move';
+  }
+  if (asOf) $('#f-asof').textContent = asOf;
+  $('#f-custody-box').hidden = !c.external;
+  $('#f-custody').textContent = 'held at another bank';
+  $('#f-aum').textContent = c.aum ? `${c.currency || 'CHF'} ${chf.format(c.aum)}` : '';
+  $('#factstrip').hidden = false;
+}
+
 async function selectClient(ref) {
   state.selected = ref;
   renderClientList();
   clearInterval(state.poll);
+  const c = clientMeta(ref);
+  $('#context-title').textContent = `${c.name || ref} (${ref})`;
+  $('#play').hidden = false;
+  fillStrip(ref);
   $('#empty').hidden = true;
   $('#card').hidden = false;
   $('#audio').removeAttribute('src');
@@ -123,14 +187,12 @@ async function fetchBriefing(ref) {
 }
 
 function renderError(ref, e) {
-  $('#b-name').textContent = ref;
-  $('#b-ref').textContent = 'Could not load this briefing.';
-  $('#slots').replaceChildren(el('p', 'muted', String(e.message || e)));
+  $('#slots').replaceChildren(el('p', 'muted', `Could not load this briefing: ${e.message || e}`));
 }
 
 function renderBriefing(b) {
-  $('#b-name').textContent = b.name || b.client;
-  $('#b-ref').textContent = `${b.client} · as of ${b.as_of}`;
+  $('#context-title').textContent = `${b.name || b.client} (${b.client})`;
+  fillStrip(b.client, b.as_of);
 
   const groups = bySlot(b);
   const slotsBox = $('#slots');
@@ -218,6 +280,15 @@ function setConn(ok) {
 
 // --- wiring -------------------------------------------------------------------
 
+for (const tab of document.querySelectorAll('.tab')) {
+  tab.addEventListener('click', () => {
+    state.tab = tab.dataset.tab;
+    for (const other of document.querySelectorAll('.tab')) {
+      other.setAttribute('aria-pressed', String(other === tab));
+    }
+    renderClientList();
+  });
+}
 $('#search').addEventListener('input', (e) => { state.filter = e.target.value; renderClientList(); });
 $('#play').addEventListener('click', playBriefing);
 $('#ask-form').addEventListener('submit', (e) => { e.preventDefault(); askQuestion($('#ask-input').value); });

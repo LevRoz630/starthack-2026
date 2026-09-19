@@ -46,11 +46,13 @@ Also: `POST /transcribe` (audio → text → answers, ElevenLabs Scribe), `GET /
 real-time call listener and the demo pipelines are documented in
 `backend/listener.py` and under [Demo pipelines](#demo-pipelines) below.
 
-`GET /dashboard/` — the one-click 60-second briefing (`web/dashboard/`): pick a client, see the
-briefing with every sentence's source, word count and reading-time estimate, section-coverage
-("5/6 have data"), what the claim checker rejected, and a Listen button. **Call first** ranks
-who today's move hit hardest (`GET /callers`) and re-ranks when the market moves. Ex-custody
-clients are marked in the list. Also uploads the jury's test client (`POST /clients`).
+`GET /dashboard/` — the one-click 60-second briefing (`web/dashboard/`), dressed as a screen
+inside UNRISKOMEGA: their blue band with the search in it, a context bar naming the client, and
+a grey strip carrying today's move and the book's value. Pick a client, read the briefing, press
+Listen. **Call first** ranks who today's move hit hardest (`GET /callers`) and re-ranks when the
+market moves; every client row carries their triage dot — red past 2% of the book, amber past
+0.5%. The list filters to All / Hit today / Ex-custody, and uploads the jury's test client
+(`POST /clients`).
 
 More modules:
 

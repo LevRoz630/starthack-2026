@@ -13,21 +13,65 @@
 </head>
 <body>
   <header class="bar">
-    <span class="brand">UNRISKOMEGA</span>
-    <span class="conn" id="conn" data-state="connecting" aria-live="polite">
-      <span class="dot" aria-hidden="true"></span><span id="conn-label">Connecting</span>
+    <span class="brand">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"></circle>
+        <circle cx="12" cy="12" r="3.5" fill="currentColor"></circle>
+      </svg>
+      UNRISK<span class="light">OMEGA</span>
     </span>
+    <div class="bar-right">
+      <div class="bar-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"></circle>
+          <line x1="15.5" y1="15.5" x2="21" y2="21" stroke="currentColor" stroke-width="2"></line>
+        </svg>
+        <input id="search" type="search" placeholder="Search clients&hellip;" aria-label="Search clients">
+      </div>
+      <span class="conn" id="conn" data-state="connecting" aria-live="polite">
+        <span class="dot" aria-hidden="true"></span><span id="conn-label">Connecting</span>
+      </span>
+    </div>
   </header>
+
+  <div class="contextbar">
+    <h1 class="context-title" id="context-title">Advisor dashboard</h1>
+    <div class="context-actions">
+      <button class="btn secondary" id="play" type="button" hidden>&#9658; Listen</button>
+    </div>
+  </div>
+
+  <div class="factstrip" id="factstrip" hidden>
+    <div class="facts">
+      <div class="fact">
+        <span class="fact-label">Today</span>
+        <span class="fact-value" id="f-today"></span>
+      </div>
+      <div class="fact">
+        <span class="fact-label">As of</span>
+        <span class="fact-value" id="f-asof"></span>
+      </div>
+      <div class="fact" id="f-custody-box" hidden>
+        <span class="fact-label">Custody</span>
+        <span class="fact-value" id="f-custody"></span>
+      </div>
+    </div>
+    <p class="total" id="f-aum"></p>
+  </div>
 
   <main>
     <aside class="clients">
       <section class="callfirst" id="callfirst" hidden>
-        <h2 class="eyebrow">Call first</h2>
+        <h2 class="eyebrow">Call first <span class="count" id="caller-count"></span></h2>
         <ol class="caller-list" id="caller-list"></ol>
       </section>
-      <div class="search-row">
-        <input id="search" type="search" placeholder="Search clients&hellip;" aria-label="Search clients">
+
+      <div class="tabs" id="tabs" role="group" aria-label="Filter clients">
+        <button class="tab" type="button" data-tab="all" aria-pressed="true">All <span class="count" id="count-all"></span></button>
+        <button class="tab" type="button" data-tab="hit" aria-pressed="false">Hit today <span class="count" id="count-hit"></span></button>
+        <button class="tab" type="button" data-tab="ext" aria-pressed="false">Ex-custody <span class="count" id="count-ext"></span></button>
       </div>
+
       <ul id="client-list" class="client-list" aria-label="Clients"></ul>
       <form id="upload-form" class="upload">
         <label for="upload-file" class="btn secondary wide">Upload test client&hellip;</label>
@@ -38,20 +82,10 @@
 
     <section class="briefing">
       <div id="empty" class="empty">
-        <h1>Pick a client</h1>
+        <h2>Pick a client</h2>
       </div>
 
       <div id="card" class="card" hidden>
-        <div class="card-head">
-          <div>
-            <h1 id="b-name"></h1>
-            <p class="ref" id="b-ref"></p>
-          </div>
-          <div class="head-actions">
-            <button class="btn secondary" id="play" type="button">&#9658; Listen</button>
-          </div>
-        </div>
-
         <div id="slots" class="slots"></div>
 
         <section class="ask-box">

@@ -165,9 +165,9 @@ p { margin: 0; }
   letter-spacing: 0.05em; color: var(--uro-blue); margin-bottom: 2px; }
 
 /* How much each line actually cost, drawn against the heaviest line beside it. */
-.bar { height: 5px; margin-top: 8px; background: var(--line); }
-.bar-fill { height: 5px; background: var(--navy); }
-.group.holding .bar-fill, .group.actions .bar-fill { background: var(--green); }
+.weightbar { height: 5px; margin-top: 8px; background: var(--line); }
+.weightbar-fill { height: 5px; background: var(--navy); }
+.group.holding .weightbar-fill, .group.actions .weightbar-fill { background: var(--green); }
 
 /* A fall and a rise, separable without reading. */
 .delta { font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 700; }
