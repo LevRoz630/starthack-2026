@@ -71,6 +71,19 @@
           <ul id="rejected-list"></ul>
         </details>
 
+        <section class="ask-box">
+          <h3 class="eyebrow">Follow-up question</h3>
+          <form class="ask" id="ask-form" autocomplete="off">
+            <div class="ask-row">
+              <label for="ask-input" class="sr-only">Ask about this client</label>
+              <input id="ask-input" name="question" type="text" required
+                     placeholder="e.g. How much did tech cost today?">
+              <button class="btn" id="ask-send" type="submit">Ask</button>
+            </div>
+          </form>
+          <ul id="answers" class="answers"></ul>
+        </section>
+
         <audio id="audio" preload="none"></audio>
       </div>
     </section>

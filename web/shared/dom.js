@@ -35,3 +35,51 @@ export function renderGroup(slot, sentences, title) {
   box.append(list);
   return box;
 }
+
+// One answer card: the question as asked, then the facts that answer it, each with its
+// source. A chain answer renders as numbered steps with the link between them. Both
+// front-ends show answers this way, so the markup lives here.
+export function answerCard(entry) {
+  const card = el('li', `answer-card${entry.answers.length ? '' : ' none'}`);
+  card.append(el('p', 'q', `“${entry.question}”`));
+  if (!entry.answers.length) {
+    card.append(el('p', 'a', entry.error ? `Could not answer: ${entry.error}` : 'Nothing in the data answers this.'));
+  }
+  if (entry.chain) {
+    card.classList.add('chain');
+    const steps = el('ol', 'steps');
+    for (const a of entry.answers) {
+      const step = el('li', 'step');
+      if (a.link) step.append(el('span', 'link', a.link));
+      step.append(el('p', 'a', a.text));
+      step.append(el('p', 'src', a.source));
+      steps.append(step);
+    }
+    card.append(steps);
+    return card;
+  }
+  for (const a of entry.answers) {
+    card.append(el('p', 'a', a.text));
+    card.append(el('p', 'src', a.source));
+  }
+  return card;
+}
+
+// Asks POST /ask about one client. Returns the entry rendered by answerCard; never throws,
+// because a question that cannot be answered is itself an answer card.
+export async function askAbout(api, client, question) {
+  question = (question || '').trim();
+  if (!question || !client) return null;
+  let result;
+  try {
+    const resp = await fetch(`${api}/ask`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ client, question }),
+    });
+    result = resp.ok ? await resp.json() : { answers: [], error: `HTTP ${resp.status}` };
+  } catch (e) {
+    result = { answers: [], error: 'No connection' };
+  }
+  return { question, answers: result.answers || [], error: result.error, chain: !!result.chain };
+}

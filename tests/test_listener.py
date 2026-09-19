@@ -76,10 +76,18 @@ def test_pcm_survives_ulaw_within_quantisation():
 # --- what to answer -------------------------------------------------------------------
 
 @pytest.mark.parametrize('text,expected', [
+    # A question mark is the strongest signal, and the recorded golf call shows the STT
+    # punctuates reliably: all three real questions ended in '?', the sign-off did not.
     ('How much have I lost on tech?', True),
+    ('And my world fund, is that hit by the dollar as well?', True),
+    ('What about my bonds? Are they holding up?', True),
+    # No question mark: a question word or a request to be told something still counts.
     ('is my world fund hit by the dollar', True),
     ('Tell me about the bonds', True),
-    ('I am quite worried about all of this today', True),
+    # A statement is not a question. This one used to fire on the old five-word rule and
+    # spent one of the advisor's cards mid-call saying nothing they had asked for.
+    ('I am quite worried about all of this today', False),
+    ('Great. Thanks. Talk soon.', False),
     ('okay', False), ('Thank you.', False), ('yes?', False), ('', False), ('Hmm, right', False),
 ])
 def test_is_question(text, expected):

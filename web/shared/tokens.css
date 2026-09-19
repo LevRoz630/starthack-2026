@@ -116,3 +116,17 @@ p { margin: 0; }
 }
 .pill.provider { background: transparent; border: 1px dashed var(--line); }
 .meta-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* The answer card: one question the client asked, and the facts that answer it. Shared,
+   because the phone shows it during the call and the dashboard shows it as a follow-up. */
+.answer-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: var(--gutter); border-left: 4px solid var(--uro-blue); }
+.answer-card .q { font-size: var(--size-s); color: var(--muted); margin-bottom: 6px; }
+.answer-card .a { font-weight: 500; font-variant-numeric: tabular-nums; }
+.answer-card .a + .a { margin-top: 8px; }
+.answer-card .src { font-size: var(--size-xs); color: var(--muted); margin-top: 4px; overflow-wrap: anywhere; }
+.answer-card.none { border-left-color: var(--amber); }
+.answer-card.chain { border-left-color: var(--ink); }
+.answer-card .steps { margin: 0; padding-left: 20px; }
+.answer-card .step + .step { margin-top: 10px; }
+.answer-card .step .link { display: block; font-size: var(--size-xs); font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--uro-blue); margin-bottom: 2px; }

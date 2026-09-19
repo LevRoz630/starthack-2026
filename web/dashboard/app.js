@@ -1,7 +1,7 @@
 // Advisor dashboard: pick a client, one click, the 60-second briefing.
 // All API text is rendered with textContent, never as HTML.
 
-import { $, $$, el, bySlot, chf, renderGroup } from '/shared/dom.js';
+import { $, $$, el, answerCard, askAbout, bySlot, chf, renderGroup } from '/shared/dom.js';
 
 const params = new URLSearchParams(location.search);
 const API = (params.get('api') || location.origin).replace(/\/$/, '');
@@ -98,6 +98,7 @@ async function selectClient(ref) {
   $('#empty').hidden = true;
   $('#card').hidden = false;
   $('#audio').removeAttribute('src');
+  $('#answers').replaceChildren();   // the last client's answers are not about this one
   await fetchBriefing(ref);
 }
 
@@ -216,6 +217,28 @@ async function uploadFile(file) {
   }
 }
 
+// --- follow-up questions -------------------------------------------------------
+// The same POST /ask the phone uses during a live call, so the advisor can keep asking
+// after the 60 seconds are up. Answers are facts with their sources, never new text.
+
+async function askQuestion(question) {
+  const ref = state.selected;
+  if (!ref || !question.trim()) return;
+  const input = $('#ask-input');
+  const send = $('#ask-send');
+  input.value = '';
+  send.disabled = true;
+  const pending = el('li', 'answer-card pending');
+  pending.append(el('p', 'q', `\u201C${question.trim()}\u201D`));
+  pending.append(el('p', 'a', 'Looking\u2026'));
+  $('#answers').prepend(pending);
+  const entry = await askAbout(API, ref, question);
+  send.disabled = false;
+  if (ref !== state.selected) { pending.remove(); return; }  // they switched client mid-question
+  pending.replaceWith(answerCard(entry));
+  input.focus();
+}
+
 // --- connection ----------------------------------------------------------------
 
 function setConn(ok) {
@@ -227,6 +250,7 @@ function setConn(ok) {
 
 $('#search').addEventListener('input', (e) => { state.filter = e.target.value; renderClientList(); });
 $('#play').addEventListener('click', playBriefing);
+$('#ask-form').addEventListener('submit', (e) => { e.preventDefault(); askQuestion($('#ask-input').value); });
 $('#upload-file').addEventListener('change', (e) => {
   const file = e.target.files && e.target.files[0];
   if (file) uploadFile(file);
