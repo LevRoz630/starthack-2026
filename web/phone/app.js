@@ -647,13 +647,22 @@ $('#prep-listen').addEventListener('click', () => {
   voice.src = `${API}/briefing/${encodeURIComponent(state.prepared.client)}/audio`;
   voice.play().catch(() => {});
 });
-$('#prep-call').addEventListener('click', () => {
+// Ring as the client looked up: a live call, answered with the microphone. Any recorded
+// demo still running is stopped first, or its Answer would start that call too. The
+// client also becomes the one "Ring only" uses.
+$('#prep-call').addEventListener('click', async () => {
   if (!state.prepared) return;
-  fetch(`${API}/call/incoming`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ client: state.prepared.client }),
-  }).catch(() => {});
+  DEMO_CLIENT = state.prepared.client;
+  $('#demo-caller').textContent = `${state.prepared.name} is ready to call.`;
+  $('#brief-voice').pause();
+  try {
+    await fetch(`${API}/demo/stop`, { method: 'POST' });
+    await fetch(`${API}/call/incoming`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ client: state.prepared.client }),
+    });
+  } catch { setConn('closed', 'Offline'); }
 });
 
 // --- market + connection ------------------------------------------------------
