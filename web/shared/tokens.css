@@ -2,36 +2,39 @@
    Each page links this first, then its own app.css layers page-specific
    tokens (e.g. --gutter, --tap) and page-only rules on top. */
 :root {
-  --uro-blue: #5499E4;
-  --uro-blue-dark: #3F7FC8;
-  --page: #E9E9E9;
+  --uro-blue: #5299E2;       /* the header band */
+  --uro-blue-dark: #2F7BB8;  /* primary actions, the active accent */
+  --navy: #1F4E79;           /* the number that matters, and losses */
+  --sky: #5BBDE8;            /* the third accent, and the live dot */
+  --page: #F4F4F4;
   --card: #FFFFFF;
-  --ink: #2A292F;
-  --muted: #6B6A72;
-  --line: #D9D9DE;
-  --red: #E85A54;
-  --amber: #F2E06D;
-  --green: #3BA776;
+  --zebra: #FBFBFB;          /* every other row in a list */
+  --ink: #333333;
+  --muted: #4A4A4A;
+  --line: #E8E8E8;
+  --red: #1F4E79;            /* a loss is navy here, not alarm red */
+  --amber: #C8A23A;
+  --green: #0E7C86;          /* teal: what held up */
   --on-blue: #FFFFFF;
 
   /* The hues above are fills and large type, where 3:1 is the bar. Small text and
      hairline accents need 4.5:1, which none of them reach on white (--amber is
      1.34:1 — an amber accent bar is invisible). These are their readable twins. */
-  --red-ink: #B3312B;      /* 6.19:1 on card, 5.10:1 on page */
-  --green-ink: #0F6B46;    /* 6.54:1 on card, 5.39:1 on page */
-  --blue-ink: #2C64A6;     /* 6.03:1 on card, 4.97:1 on page */
-  --amber-bar: #C8A23A;    /* the attention hue at a weight you can actually see */
+  --red-ink: #1F4E79;      /* 8.59:1 on card */
+  --green-ink: #0E7C86;    /* 4.83:1 on card */
+  --blue-ink: #2F7BB8;     /* 4.52:1 on card */
+  --amber-bar: #C8A23A;
 
-  --font: "Fira Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --size-xs: 12px;
   --size-s: 14px;
   --size-m: 16px;
   --size-l: 20px;
   --size-xl: 28px;
 
-  --gap: 12px;
-  --radius: 10px;
-  --shadow: 0 1px 2px rgba(42, 41, 47, 0.08), 0 2px 8px rgba(42, 41, 47, 0.06);
+  --gap: 10px;
+  --radius: 0;               /* square. the mockup has no rounded corners anywhere */
+  --shadow: none;
 }
 
 * { box-sizing: border-box; }
@@ -60,11 +63,11 @@ html, body {
   background: var(--uro-blue);
   color: var(--on-blue);
 }
-.brand { font-weight: 700; letter-spacing: 0.04em; }
+.brand { font-weight: 700; letter-spacing: 0.06em; font-size: 15px; }
 
 .conn { display: inline-flex; align-items: center; gap: 6px; font-size: var(--size-s); }
-.conn .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--amber); }
-.conn[data-state="open"] .dot { background: var(--green); }
+.conn .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
+.conn[data-state="open"] .dot { background: var(--sky); }
 .conn[data-state="closed"] .dot { background: var(--red); }
 
 h1 { margin: 0; font-size: var(--size-xl); font-weight: 600; overflow-wrap: anywhere; }
@@ -81,37 +84,49 @@ p { margin: 0; }
 
 .card {
   background: var(--card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
   padding: var(--gutter);
   display: flex;
   flex-direction: column;
   gap: var(--gap);
 }
 
-.group { border-left: 4px solid var(--line); padding-left: 14px; }
+/* Inside a card the groups are already panels of their own, so the card stops
+   being a second box around them and just spaces them out. */
+.card:has(> .group) { background: none; border: 0; padding: 0; }
+
+.group {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--line);
+}
 .group h3 {
-  margin: 0 0 6px;
-  font-size: var(--size-xs);
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  margin: 0;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
 }
-.group ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.group ul { margin: 0; padding: 0; list-style: none; }
+.group li { padding: 12px; }
+.group li + li { border-top: 1px solid var(--line); }
+.group li:nth-child(even) { background: var(--zebra); }
 
 /* Slot colours. The dashboard's six briefing slots and the phone's call slots
    share one scale: blue = who is on the line, red = what went wrong,
    amber = needs attention, green = what is fine. */
-.group.who, .group.reason { border-left-color: var(--uro-blue); }
-.group.development { border-left-color: var(--uro-blue-dark); }
+.group.who, .group.reason { border-left-color: var(--uro-blue-dark); }
+.group.development { border-left-color: var(--sky); }
 .group.health { border-left-color: var(--amber-bar); }
-.group.watch, .group.digest { border-left-color: var(--red); }
+.group.watch, .group.digest { border-left-color: var(--navy); }
 .group.outlook { border-left-color: var(--muted); }
-.group.actions, .group.holding { border-left-color: var(--green); }
+.group.actions, .group.holding { border-left-color: var(--sky); }
 
 .sentence { display: flex; flex-direction: column; gap: 2px; }
-.sentence .text { font-weight: 500; font-variant-numeric: tabular-nums; }
+.sentence .text { font-weight: 600; line-height: 1.4; font-variant-numeric: tabular-nums; }
 .sentence .source { font-size: var(--size-xs); color: var(--muted); overflow-wrap: anywhere; }
 
 .pill {

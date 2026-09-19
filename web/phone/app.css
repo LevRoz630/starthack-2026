@@ -2,7 +2,7 @@
    web/shared/tokens.css (linked before this file). Page-specific tokens and
    overrides only below. */
 :root {
-  --size-hero: 40px;
+  --size-hero: 36px;
   --gutter: 16px;
   --tap: 48px;
 }
@@ -58,9 +58,20 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
    dashboard's do, so they need the opposite fill to read as chips. */
 .meta-row .pill { background: var(--card); }
 
-.impact { border-left: 4px solid var(--ink); padding-left: 14px; }
-.impact .amount { font-size: var(--size-hero); font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; }
-.impact .share { font-variant-numeric: tabular-nums; color: var(--muted); }
+/* The one number the advisor reads first: label on its own rule, then the amount with
+   the percentage badge sitting on its baseline. */
+.impact {
+  background: var(--card);
+  border: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+}
+.impact .eyebrow { grid-column: 1 / -1; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+.impact .amount { padding: 13px 12px 12px; font-size: 36px; font-weight: 700; color: var(--navy);
+                  font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+.impact .share { margin: 0 12px 15px; padding: 3px 8px; background: var(--navy); color: var(--on-blue);
+                 font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
 /* The ink twins: one loss colour and one gain colour that stay readable at any size,
    including the 40px hero, where plain --red would not pass on its own. */
 .loss { color: var(--red-ink); }
@@ -116,10 +127,10 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
   font-weight: 600;
   cursor: pointer;
 }
-.btn.primary { background: var(--uro-blue); color: var(--on-blue); }
-.btn.secondary { background: var(--card); color: var(--uro-blue-dark); border: 1px solid var(--line); }
-.btn.answer { background: var(--green); color: var(--on-blue); }
-.btn.decline { background: var(--red); color: var(--on-blue); }
+.btn.primary { background: var(--uro-blue-dark); color: var(--on-blue); }
+.btn.secondary { background: var(--card); color: var(--navy); border: 1px solid #C3CFD9; }
+.btn.answer { background: var(--uro-blue-dark); color: var(--on-blue); }
+.btn.decline { background: var(--card); color: var(--navy); border: 1px solid #C3CFD9; }
 .btn.wide { width: 100%; }
 .btn:disabled { opacity: 0.5; cursor: default; }
 
