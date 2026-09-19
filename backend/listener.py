@@ -28,7 +28,7 @@ import os
 from datetime import datetime
 
 from . import utterance
-from .answers import LIQUIDITY_NEED, small_talk_only
+from .answers import small_talk_only, worth_a_card
 from .data import env
 
 STT_URL = ('wss://api.elevenlabs.io/v1/speech-to-text/realtime?model_id=scribe_v2_realtime'
@@ -188,13 +188,14 @@ class Session:
                 # Not a card: a line for the call note. Nothing is ever acted on.
                 await self.emit({'type': 'heard', 'kind': said, 'label': utterance.LABELS[said], 'text': text})
                 self._log(text, said, 'noted')
-                if said == 'info' and LIQUIDITY_NEED.search(text) and text != self.last_answered:
+                if said in ('info', 'request') and worth_a_card(text) and text != self.last_answered:
                     # "I want to buy a house" is noted and answered: what cash there is.
                     self.last_answered = text
                     task = asyncio.create_task(self._answer(text))
                     self.answer_tasks.add(task)
                     task.add_done_callback(self.answer_tasks.discard)
-            elif said == 'question' and is_question(text) and text != self.last_answered:
+            elif ((said == 'question' and is_question(text)) or (said == 'other' and worth_a_card(text))) \
+                    and text != self.last_answered:
                 self.last_answered = text
                 task = asyncio.create_task(self._answer(text))
                 self.answer_tasks.add(task)

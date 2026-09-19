@@ -7,7 +7,7 @@
    "label": "Barometer, Sep 2026",
    "ok": true,
    "doc": "075804045d97",
-   "count": 6
+   "count": 12
   },
   {
    "name": "Vontobel",
@@ -23,7 +23,7 @@
    "label": "2026 outlook, Q4 update",
    "ok": true,
    "doc": "9e45b3a1a304",
-   "count": 2
+   "count": 5
   },
   {
    "name": "Standard Chartered",
@@ -31,7 +31,7 @@
    "label": "Global Market Outlook, Sep 2026",
    "ok": true,
    "doc": "bbdc4d11dacb",
-   "count": 6
+   "count": 25
   }
  ],
  "items": [
@@ -44,7 +44,32 @@
    "text": "The main argument for maintaining our overweight stance on stocks comes down to corporate profitability.",
    "tags": [
     "Equities"
-   ]
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "9263cc537375",
+   "source": "Pictet Asset Management",
+   "url": "https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook",
+   "label": "Barometer, Sep 2026",
+   "doc": "075804045d97",
+   "text": "Also in stocks’ favour are economic conditions.",
+   "tags": [
+    "Equities"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "19e7c8dda8d9",
+   "source": "Pictet Asset Management",
+   "url": "https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook",
+   "label": "Barometer, Sep 2026",
+   "doc": "075804045d97",
+   "text": "With corporate earnings growth set to be the main driver of equity outperformance, we favour the sectors and regions that are best placed to deliver those profits.",
+   "tags": [
+    "Equities"
+   ],
+   "stance": "overweight"
   },
   {
    "id": "777938bd697c",
@@ -54,8 +79,10 @@
    "doc": "075804045d97",
    "text": "That means maintaining an overweight position in technology stocks.",
    "tags": [
-    "Information Technology"
-   ]
+    "Information Technology",
+    "Equities"
+   ],
+   "stance": "overweight"
   },
   {
    "id": "cb5b8326c0ba",
@@ -66,7 +93,8 @@
    "text": "The AI-driven capex boom, and the need for infrastructure to support it, should support the outlook for industrials, another sector on which we have an overweight stance.",
    "tags": [
     "Industrials"
-   ]
+   ],
+   "stance": "overweight"
   },
   {
    "id": "e3f7c2dd0dd7",
@@ -77,7 +105,8 @@
    "text": "Although the sector retains defensive characteristics, higher long-term yields mean utilities’ status as a bond proxy and their reliable dividend payments are less attractive.",
    "tags": [
     "Bonds"
-   ]
+   ],
+   "stance": null
   },
   {
    "id": "b36c54b31a44",
@@ -88,7 +117,8 @@
    "text": "We therefore downgrade utilities to neutral.",
    "tags": [
     "Utilities"
-   ]
+   ],
+   "stance": "neutral"
   },
   {
    "id": "bf9c3fafbb7d",
@@ -98,8 +128,58 @@
    "doc": "075804045d97",
    "text": "Regionally, our preference is for emerging-market stocks (excluding China), which continue to benefit from strong global trade flows, elevated commodity prices, favourable growth dynamics, and extensive exposure to the AI theme.",
    "tags": [
+    "Equities",
     "Emerging markets"
-   ]
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "e6e28e10cf70",
+   "source": "Pictet Asset Management",
+   "url": "https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook",
+   "label": "Barometer, Sep 2026",
+   "doc": "075804045d97",
+   "text": "Latin American stocks trade at especially attractive valuations, ranking as the cheapest region globally in our model.",
+   "tags": [
+    "Equities"
+   ],
+   "stance": null
+  },
+  {
+   "id": "1d6c2df4af5e",
+   "source": "Pictet Asset Management",
+   "url": "https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook",
+   "label": "Barometer, Sep 2026",
+   "doc": "075804045d97",
+   "text": "Although the move has improved valuations for government bonds, we retain our neutral stance on both Treasuries and eurozone sovereign debt.",
+   "tags": [
+    "Bonds"
+   ],
+   "stance": "neutral"
+  },
+  {
+   "id": "8a592fdf64ae",
+   "source": "Pictet Asset Management",
+   "url": "https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook",
+   "label": "Barometer, Sep 2026",
+   "doc": "075804045d97",
+   "text": "We also favour emerging-market local-currency debt outside China.",
+   "tags": [
+    "Emerging markets"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "ad1b4ea08b8c",
+   "source": "Pictet Asset Management",
+   "url": "https://am.pictet.com/ch/en/investment-views/multi-asset/2026/september-barometer-of-financial-markets-outlook",
+   "label": "Barometer, Sep 2026",
+   "doc": "075804045d97",
+   "text": "We remain neutral on bonds and underweight cash.",
+   "tags": [
+    "Bonds"
+   ],
+   "stance": "neutral"
   },
   {
    "id": "986eaa5be357",
@@ -111,7 +191,8 @@
    "tags": [
     "Equities",
     "Emerging markets"
-   ]
+   ],
+   "stance": "overweight"
   },
   {
    "id": "b115e67dd7f0",
@@ -122,7 +203,8 @@
    "text": "This is one of the reasons why we’ve upgraded gold to overweight.",
    "tags": [
     "Gold"
-   ]
+   ],
+   "stance": "overweight"
   },
   {
    "id": "7cf80c6f9f46",
@@ -134,7 +216,8 @@
    "tags": [
     "Information Technology",
     "Bonds"
-   ]
+   ],
+   "stance": "overweight"
   },
   {
    "id": "f4db56ec67fd",
@@ -146,7 +229,44 @@
    "tags": [
     "Equities",
     "Emerging markets"
-   ]
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "f686041039f4",
+   "source": "BlackRock Investment Institute",
+   "url": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/outlook",
+   "label": "2026 outlook, Q4 update",
+   "doc": "9e45b3a1a304",
+   "text": "We prefer short-term bonds over long-term bonds with high sensitivity to interest rates.",
+   "tags": [
+    "Bonds"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "0f381473ab75",
+   "source": "BlackRock Investment Institute",
+   "url": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/outlook",
+   "label": "2026 outlook, Q4 update",
+   "doc": "9e45b3a1a304",
+   "text": "We remain constructive on AI, while focusing on bottlenecks and infrastructure as financing needs and capital intensity rise.",
+   "tags": [
+    "Information Technology"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "6f4351ed7cd3",
+   "source": "BlackRock Investment Institute",
+   "url": "https://www.blackrock.com/corporate/insights/blackrock-investment-institute/outlook",
+   "label": "2026 outlook, Q4 update",
+   "doc": "9e45b3a1a304",
+   "text": "We prefer short-term bonds to long-term government bonds, where heavy issuance and term-premium risk can amplify volatility.",
+   "tags": [
+    "Bonds"
+   ],
+   "stance": "overweight"
   },
   {
    "id": "ed4332e6adc8",
@@ -158,7 +278,8 @@
    "tags": [
     "Information Technology",
     "Equities"
-   ]
+   ],
+   "stance": "overweight"
   },
   {
    "id": "18973767769e",
@@ -170,7 +291,8 @@
    "tags": [
     "Gold",
     "USD"
-   ]
+   ],
+   "stance": "overweight"
   },
   {
    "id": "95a50c0c5a0e",
@@ -181,7 +303,34 @@
    "text": "Continue to favour corporate and EM bonds over G3 government bonds.",
    "tags": [
     "Bonds"
-   ]
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "efe5ee6fd2f9",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "We remain Overweight EM USD government bonds due to fiscal fundamentals, but see most corporate and EM bonds as attractive sources of yield.",
+   "tags": [
+    "Bonds",
+    "USD"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "0e265320d5ca",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "Softening yield concerns positive for equities A pricing out of Fed rate hike expectations would be supportive for equities; we stay Overweight.",
+   "tags": [
+    "Equities",
+    "USD"
+   ],
+   "stance": "overweight"
   },
   {
    "id": "32794df2ee16",
@@ -192,7 +341,180 @@
    "text": "Financial sector an attractive route to broadening exposure.",
    "tags": [
     "Financials"
-   ]
+   ],
+   "stance": null
+  },
+  {
+   "id": "4cefc1d9e7fc",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "Financials remain a preferred sector across the US, Euro area and Japan markets.",
+   "tags": [
+    "Financials"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "3db5cf769ed8",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "Notwithstanding our preference for broadening exposure, positive momentum in the technology and AI sectors is expected to resume after around two months of underperformance relative to value -style sectors.",
+   "tags": [
+    "Information Technology"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "90808345c1c7",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "The combination of our bond yield and sector views supports our Overweight views on US and AxJ equities, as well as Core holding views on Japan and the Euro area.",
+   "tags": [
+    "Equities",
+    "Bonds"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "5b0932168d70",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "Our Overweight view on China equities remains in place, given increasingly undemanding valuations.",
+   "tags": [
+    "Equities"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "abfe5aafcba5",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "Reinstating gold Overweight as USD weakens We reinstate our Overweight stance on gold .",
+   "tags": [
+    "Gold",
+    "USD"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "c9979afbd7dc",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "Together, this argues for reinstating our Overweight gold view.",
+   "tags": [
+    "Gold"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "e765c0a484a5",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "Statistical revisions to the way some professional services and computer software inflation is measured, due end-September, should retroactively lower the Fed’s preferred core PCE inflation for the past five years , reinforcing the path towards 2% by 2027.",
+   "tags": [
+    "USD"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "736f0c9eaaf2",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "Within the asset class, we maintain an Overweight stance on EM USD government bonds and an Underweight stance on DM government bonds.",
+   "tags": [
+    "Bonds",
+    "USD"
+   ],
+   "stance": "underweight"
+  },
+  {
+   "id": "4adf70a0ec93",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "We , therefore, favour the 3-5-year part of the curve and credit over duration.",
+   "tags": [
+    "Bonds"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "6997e2dd1268",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "In EM, we continue to favour EM USD over LCY government bonds.",
+   "tags": [
+    "Bonds"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "d93a91dac773",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "We are Overweight US equities, with fundamental earnings strength and reasonable valuations.",
+   "tags": [
+    "Equities"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "c7cf700c8808",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "We remain Overweight AxJ equities – a key beneficiary of AI capex, which shows no signs of slowing down.",
+   "tags": [
+    "Information Technology",
+    "Equities"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "dc03808da608",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "Within AxJ, we continue to remain Overweight Taiwan, with good visibility on AI-driven growth, and Overweight China for its valuation re-rating potential.",
+   "tags": [
+    "Information Technology"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "169201953df6",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "We are positive on the long-term agreements driving the memory chip industry, giving greater visibility to future earnings growth.",
+   "tags": [
+    "Information Technology"
+   ],
+   "stance": "overweight"
   },
   {
    "id": "6b3646a052c7",
@@ -202,8 +524,46 @@
    "doc": "bbdc4d11dacb",
    "text": "Fiscal expansion is lifting domestic demand and benefiting the industrial sector, while higher-for-longer rates favour the banking sector.",
    "tags": [
+    "Financials",
     "Industrials"
-   ]
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "5533b887e7f2",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "Sector views: Continue to broaden & diversify We are Overweight US technology and communication services, which are expected to be the primary drivers of US earnings growth, supported by structural AI tailwinds and broadening AI monetisation.",
+   "tags": [
+    "Information Technology"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "b1b5f0f3b2b6",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "Beyond tech, we retain a broad Overweight in financials across the US, Europe ex -UK and Japan, whose stable earnings growth profile s underpin our view amid buoyant markets, elevated rates and reasonable valuations.",
+   "tags": [
+    "Financials"
+   ],
+   "stance": "overweight"
+  },
+  {
+   "id": "c6af01600493",
+   "source": "Standard Chartered",
+   "url": "https://www.sc.com/en/uploads/sites/66/content/docs/wm-global-market-outlook-its-all-about-the-yield-28-august-2026.pdf",
+   "label": "Global Market Outlook, Sep 2026",
+   "doc": "bbdc4d11dacb",
+   "text": "In addition, we remain Overweight Europe ex-UK industrials, given EU fiscal stimulus, bolstered by Germany's new infrastructure acceleration legislation.",
+   "tags": [
+    "Industrials"
+   ],
+   "stance": "overweight"
   },
   {
    "id": "838834ab18f5",
@@ -215,7 +575,8 @@
    "tags": [
     "Consumer Staples",
     "Real Estate"
-   ]
+   ],
+   "stance": "underweight"
   }
  ]
 }

@@ -288,7 +288,7 @@ async def ask(request):
     kind = utterance.classify(question)
     if kind in ('instruction', 'request', 'info'):
         heard = {'kind': kind, 'label': utterance.LABELS[kind], 'text': question}
-        if kind == 'info' and answers.LIQUIDITY_NEED.search(question):
+        if kind in ('info', 'request') and answers.worth_a_card(question):
             # "I want to buy a house": noted, and answered with what cash there is.
             return JSONResponse({'client': data['client'], 'question': question,
                                  **answer(client, question), 'heard': heard})

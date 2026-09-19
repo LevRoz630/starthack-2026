@@ -372,6 +372,14 @@ RISK_LIMIT = re.compile(r'\b(?:limit|profile|allowed|suitab\w*|within|over|above
 PROBLEMS_QUESTION = re.compile(r"\b(?:problems?|issues?|anything wrong|wrong with|warnings?|compliance|violations?|"
                                r"red flags?)\b", re.IGNORECASE)
 DIVERSIFIED = re.compile(r'\bdiversif\w*\b', re.IGNORECASE)
+def worth_a_card(text):
+    """A statement or request that still wants a card mid-call: 'I want to buy a house',
+    'give me the house view', 'how is my portfolio doing', 'I'm thinking about buying gold'."""
+    return bool(LIQUIDITY_NEED.search(text) or PORTFOLIO_TODAY.search(text) or marketview.HOUSE_VIEW.search(text)
+                or (marketview.subject(text) and (marketview.VIEW_QUESTION.search(text)
+                                                  or marketview.INTEREST.search(text))))
+
+
 PORTFOLIO_TODAY = re.compile(r"\bhow(?:'s| is| are) (?:my|the|our) (?:portfolio|investments?|money|account)\b"
                              r"|\bhow am i doing\b|\banything (?:interesting|new|important|special)\b"
                              r"|\bwhat happened (?:in|on|with) the markets?\b", re.IGNORECASE)
@@ -410,6 +418,10 @@ def _answer(facts, question, use_llm=True, graph=None, market=None, store=None, 
     if LOGISTICS.search(question):
         # Diary questions are the advisor's to answer; a card here would be noise.
         return {'answers': [], 'found': False, 'method': 'logistics'}
+    from .facts import _outlook_sources
+    house = marketview.house_view_cards(question, facts, _outlook_sources()[1], client)
+    if house:
+        return {'answers': house, 'found': True, 'method': 'house_view'}
     # Before the market views: "how's my portfolio doing, anything in the market today?"
     # names "the market", but it asks about the client's own day.
     if PORTFOLIO_TODAY.search(question) and not marketview.named_market(question):

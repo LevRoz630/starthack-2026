@@ -231,25 +231,60 @@ def _document_text(url):
 SENTENCE = re.compile(r'(?<=[.!?])\s+(?=[A-Z“"‘])')
 
 
-def extract_views(text, per_source=12):
+def stance(text):
+    """'overweight', 'neutral' or 'underweight' when the sentence states a position, else None."""
+    if re.search(r'\b(?:to|at|on|remain|retain|a|our) neutral\b|\bneutral (?:stance|view|position|allocation|on)\b',
+                 text, _CI):
+        return 'neutral'
+    if re.search(r'\b(?:underweight|downgrad\w*|cautious|negative on)\b', text, _CI):
+        return 'underweight'
+    if re.search(r'\b(?:overweight|upgrad\w*|prefer\w*|favou?r(?:s|ing|ed)?|positive on|constructive)\b', text, _CI):
+        return 'overweight'
+    return None
+
+
+def extract_views(text, per_source=40, per_tag=6):
     """Sentences stating a view (overweight, upgrade, prefer ...) about something we tag.
-    One per tag, first occurrence wins; copied verbatim."""
-    views, used = [], set()
+    Up to per_tag per label, in document order; copied verbatim."""
+    views, used, seen = [], {}, set()
     for sentence in SENTENCE.split(text):
         s = sentence.strip()
-        if not 40 <= len(s) <= 280 or not VIEW.search(s):
+        if not 40 <= len(s) <= 280 or not VIEW.search(s) or s in seen:
             continue
-        if re.search(r'cookie|privacy|subscribe|javascript|©', s, _CI):
+        # Cookie banners, markup, figure captions and bullet run-ons are not views.
+        if re.search(r'cookie|privacy|subscribe|javascript|©|[{}<>]|\bFig\. ?\d|•|\bSource:|^To become', s, _CI):
             continue
         views_at = [m.start() for m in VIEW.finditer(s)]
-        tags = [t for t in tag(s, near=views_at) if t not in used]
+        tags = [t for t in tag(s, near=views_at) if used.get(t, 0) < per_tag]
         if not tags:
             continue
-        used.update(tags)
-        views.append({'text': s, 'tags': tags})
+        for t in tags:
+            used[t] = used.get(t, 0) + 1
+        seen.add(s)
+        views.append({'text': s, 'tags': tags, 'stance': stance(s)})
         if len(views) >= per_source:
             break
     return views
+
+
+def rebuild_cio():
+    """Re-extract the house views from the documents already fetched (no network)."""
+    old = cio()
+    items = []
+    for src in old.get('sources', []):
+        if not src.get('ok'):
+            continue
+        text = (DOCS / f'{src["doc"]}.txt').read_text(encoding='utf-8')
+        views = extract_views(text)
+        src['count'] = len(views)
+        for v in views:
+            items.append({'id': _id(src['url'], v['text']), 'source': src['name'], 'url': src['url'],
+                          'label': src['label'], 'doc': src['doc'], 'text': v['text'], 'tags': v['tags'],
+                          'stance': v['stance']})
+    old['items'] = items
+    with open(CIO, 'w', encoding='utf-8') as f:
+        json.dump(old, f, ensure_ascii=False, indent=1)
+    return old
 
 
 def fetch_cio():
@@ -269,7 +304,7 @@ def fetch_cio():
         for v in views:
             assert v['text'] in text
             items.append({'id': _id(url, v['text']), 'source': name, 'url': url, 'label': label, 'doc': doc,
-                          'text': v['text'], 'tags': v['tags']})
+                          'text': v['text'], 'tags': v['tags'], 'stance': v['stance']})
     return {'fetched_at': fetched_at, 'sources': sources, 'items': items}
 
 

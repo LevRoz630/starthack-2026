@@ -50,7 +50,11 @@ MARKETS = [
     (r'\b(?:crypto\w*|bitcoin|ether\w*)\b', 'crypto', [('crypto', 'BTC'), ('crypto', 'ETH')], 'expo.holding.Crypto', []),
     (r'\bemerging markets?\b', 'emerging markets', [], None, ['Emerging markets']),
     (r'\b(?:swiss (?:market|stocks|shares|equities)|smi)\b', 'the Swiss market', [('index', 'SMI')], None, ['Equities']),
-    (r'\b(?:s ?& ?p|us (?:market|stocks|equities)|wall street|american (?:market|stocks))\b', 'the US market',
+    (r'\bchina\b|\bchinese (?:market|stocks|equities)\b', 'China', [], None, ['Equities']),
+    (r'\b(?:asia\w*|taiwan|japan\w*)\b|\baxj\b', 'Asia', [], None, ['Equities', 'Emerging markets']),
+    (r'\b(?:europe\w*|uk|british|germany|german)\b(?! (?:bonds?|rates))', 'Europe', [], None, ['Equities', 'Industrials']),
+    (r'\b(?:s ?& ?p|u\.?s\.? (?:market|stocks|equities|technology)|wall street|(?<!latin )american (?:market|stocks|companies))\b',
+     'the US market',
      [('index', 'S&P 500')], 'expo.currency.US-Dollar', ['Equities']),
     (r'\b(?:volatility|vix|fear index)\b', 'volatility', [('volatility', 'VIX'), ('volatility', 'VSMI')], None, []),
     (r'\b(?:stock ?market|equit\w+|stocks|shares|the markets?|markets)\b', 'equities',
@@ -89,14 +93,9 @@ def _move_card(market, dim, bucket):
 
 def _view_card(tags, views, news, pattern, name):
     """A house view on this market (one whose text names it first), else a headline that names it."""
-    tagged = [v for v in (views or {}).get('items', []) if set(v.get('tags', [])) & set(tags)]
-    stem = name.split()[-1][:4].lower()
-    tagged.sort(key=lambda v: (stem not in v['text'].lower(),
-                               -len(re.findall(pattern, v['text'], re.IGNORECASE))))
-    if tagged:
-        v = tagged[0]
-        return {'text': f'{v["source"]} ({v["label"]}): "{v["text"]}"', 'source': v['url'],
-                'fact': f'view.{v["id"]}', 'slot': 'outlook'}
+    best = _market_views(views, tags, pattern, name, limit=1)
+    if best:
+        return best[0]
     # A headline only counts if it names the market: a raw-materials story about a trader's
     # staff is not an answer about copper.
     items = [n for n in (news or {}).get('items', []) if re.search(pattern, n.get('title', ''), re.IGNORECASE)]
@@ -107,6 +106,9 @@ def _view_card(tags, views, news, pattern, name):
     return None
 
 
+# "I'm thinking about buying gold" is a question without a question mark.
+INTEREST = re.compile(r'\b(?:thinking (?:about|of)|considering|interested in|looking at|want to (?:buy|invest)'
+                      r'|would like to (?:buy|invest)|(?:should|could|can) (?:i|we) (?:buy|invest|add))\b', re.IGNORECASE)
 BUY_INTENT = re.compile(r'\b(?:buy\w*|invest\w*|add(?:ing)?|get into|put (?:money|some) in|increase|more)\b', re.IGNORECASE)
 
 
@@ -148,6 +150,137 @@ def ask_first_card(client):
             'source': 'suitability check before any recommendation (FIDLEG)'}
 
 
+HOUSE_VIEW = re.compile(
+    r"\bhouse views?\b|\b(?:cio|strategists?|analysts?|experts?|economists?|research)\b"
+    r"|\bwhat (?:do|are|is) (?:the )?(?:other |big |major )?banks?\b"
+    r"|\b(?:banks?|bank's|banks'|your|the bank) (?:views?|outlook|positioning|position|recommend\w*|strategy|stance|calls?"
+    r"|think\w*|say\w*)\b|\bwhat (?:do|would) you recommend\b|\b(?:overweight|underweight|bullish|bearish)\b"
+    r"|\bwhere (?:should|would|do) (?:i|we|you) (?:invest|put)\b|\bwhat (?:is|are) (?:the )?(?:professionals|smart money)\b",
+    re.IGNORECASE)
+
+# What a view's tag is called when said out loud. Currency tags are too mixed to summarise.
+PLAIN = {'Information Technology': 'tech', 'Emerging markets': 'emerging markets', 'Equities': 'equities',
+         'Bonds': 'bonds', 'Gold': 'gold', 'Financials': 'financials', 'Industrials': 'industrials',
+         'Utilities': 'utilities', 'Real Estate': 'real estate', 'Consumer Staples': 'consumer staples',
+         'Consumer Discretionary': 'consumer stocks', 'Health Care': 'health care', 'Energy': 'energy',
+         'Raw materials': 'raw materials', 'Communication Services': 'communication services'}
+
+
+def _short(source):
+    return source.replace(' Asset Management', '').replace(' Investment Institute', '')
+
+
+def positions(views):
+    """{tag: {bank: 'overweight' | 'neutral' | 'underweight' | 'mixed'}} from the views' stated stances."""
+    seen = {}
+    for v in (views or {}).get('items', []):
+        if not v.get('stance'):
+            continue
+        for t in v['tags']:
+            if t in PLAIN:
+                seen.setdefault(t, {}).setdefault(_short(v['source']), set()).add(v['stance'])
+    return {t: {b: (s.pop() if len(s) == 1 else 'mixed') for b, s in banks.items()} for t, banks in seen.items()}
+
+
+def _names(banks):
+    banks = sorted(banks)
+    return banks[0] if len(banks) == 1 else ', '.join(banks[:-1]) + ' and ' + banks[-1]
+
+
+def positioning_cards(views):
+    """Where the banks lean, in two lines: what they favour, and what they are neutral or cautious on."""
+    pos = positions(views)
+    sources = ', '.join(f'{s["name"]} ({s["label"]})' for s in (views or {}).get('sources', []) if s.get('ok'))
+    over = sorted(((t, [b for b, s in banks.items() if s == 'overweight']) for t, banks in pos.items()),
+                  key=lambda tb: -len(tb[1]))
+    over = [f'{PLAIN[t]} ({_names(b)})' for t, b in over if b]
+    cards = []
+    if over:
+        cards.append({'text': 'The banks favour ' + ', '.join(over[:5]) + '.', 'slot': 'outlook',
+                      'fact': 'view.positioning.over', 'source': f'house views: {sources}'})
+    rest = [f'{PLAIN[t]} ({", ".join(f"{b} {s}" for b, s in sorted(banks.items()) if s != "overweight")})'
+            for t, banks in pos.items() if any(s != 'overweight' for s in banks.values())]
+    if rest:
+        cards.append({'text': 'More careful on ' + '; '.join(rest[:4]) + '.', 'slot': 'outlook',
+                      'fact': 'view.positioning.careful', 'source': f'house views: {sources}'})
+    return cards
+
+
+def _market_views(views, tags, pattern, name, limit=3):
+    """Views on one market, the ones naming it first, one per bank."""
+    items = [v for v in (views or {}).get('items', []) if set(v.get('tags', [])) & set(tags)]
+    # Views whose own words name the market, the shortest (clean single sentences) first;
+    # the rest of the tag only when none names it.
+    named = [v for v in items if re.search(pattern, v['text'], re.IGNORECASE)]
+    items = sorted(named or items, key=lambda v: len(v['text']))
+    out, banks = [], set()
+    for v in items:
+        if v['source'] in banks:
+            continue
+        banks.add(v['source'])
+        out.append({'text': f'{_short(v["source"])} ({v["label"]}): "{v["text"]}"', 'source': v['url'],
+                    'fact': f'view.{v["id"]}', 'slot': 'outlook'})
+        if len(out) == limit:
+            break
+    return out
+
+
+RECOMMEND = re.compile(r'\brecommend\w*\b|\bwhere (?:should|would|do) (?:i|we|you) (?:invest|put)\b'
+                       r'|\bshould (?:i|we)\b', re.IGNORECASE)
+# "the banks think", "the bank's view": the banks as the speaker, not the banking sector.
+BANK_SPEAKER = re.compile(r"\b(?:the |your |other |big |major )?banks?(?:'s|')?(?= (?:house |own )?(?:views?|think\w*|"
+                          r"say\w*|outlook|positioning|position|stance|recommend\w*|strategy|calls?|are|is|bullish|"
+                          r"bearish)\b)", re.IGNORECASE)
+
+
+def house_view_cards(question, facts, views, client=None):
+    """'What's the bank's view on gold?' / 'What are the banks saying?': quoted house views,
+    or the banks' positioning when no market is named. [] when it is not a house-view question."""
+    if not HOUSE_VIEW.search(question):
+        return []
+    cards = _house_view_cards(BANK_SPEAKER.sub(' ', question), facts, views)
+    if cards and RECOMMEND.search(question):
+        cards.append(ask_first_card(client))
+    return cards
+
+
+def _house_view_cards(question, facts, views):
+    found = subject(question)
+    if found:
+        name, _, holding_id, tags, pattern = found
+        pos = positions(views)
+        # Stances from the views that name this market; the whole tag only when none does.
+        named = [v for v in (views or {}).get('items', []) if v.get('stance') and set(v['tags']) & set(tags)
+                 and re.search(pattern, v['text'], re.IGNORECASE)]
+        if named:
+            stances = {}
+            for v in named:
+                stances.setdefault(_short(v['source']), set()).add(v['stance'])
+            stances = {b: (s.pop() if len(s) == 1 else 'mixed') for b, s in stances.items()}
+        else:
+            stances = {b: s for t in tags for b, s in pos.get(t, {}).items()}
+        cards = []
+        if stances:
+            by = {}
+            for b, s in stances.items():
+                by.setdefault(s, []).append(b)
+            text = '; '.join(f'{s} at {_names(b)}' for s, b in sorted(by.items(), key=lambda sb: -len(sb[1])))
+            cards.append({'text': f'House views on {name}: {text}.', 'slot': 'outlook',
+                          'fact': f'view.stance.{name}', 'source': 'house views, stated positions'})
+        cards += _market_views(views, tags, pattern, name, limit=2 if cards else 3)
+        by_id = {f.id: f for f in facts}
+        if cards and holding_id in by_id:
+            f = by_id[holding_id]
+            cards.append({'text': f.text, 'source': f.source, 'fact': f.id, 'slot': f.slot})
+        return cards
+    cards = positioning_cards(views)
+    # And the one view that touches this client's largest exposure, as the briefing picked it.
+    mine = next((f for f in facts if f.id.startswith('outlook.cio.')), None)
+    if mine:
+        cards.append({'text': mine.text, 'source': mine.source, 'fact': mine.id, 'slot': mine.slot})
+    return cards
+
+
 _BANK = {}
 
 
@@ -170,6 +303,14 @@ def fact_bank(facts, market, store, client):
             seen.add(c['text'])
             fid = c['fact'] if c['fact'] not in ('expo.none', 'risk.product') else f'{c["fact"]}.{name}'
             out.append(Fact(fid, c['slot'], c['text'], c['source'], 0.0))
+    # Every house view, quoted, and where the banks lean overall.
+    for c in positioning_cards(views):
+        out.append(Fact(c['fact'], c['slot'], c['text'], c['source'], 0.0))
+    for v in (views or {}).get('items', []):
+        text = f'{_short(v["source"])} ({v["label"]}): "{v["text"]}"'
+        if f'view.{v["id"]}' not in known and text not in seen:
+            seen.add(text)
+            out.append(Fact(f'view.{v["id"]}', 'outlook', text, v['url'], 0.0))
     ask = ask_first_card(client)
     out.append(Fact(ask['fact'], ask['slot'], ask['text'], ask['source'], 0.0))
     _BANK[key] = out
@@ -178,7 +319,7 @@ def fact_bank(facts, market, store, client):
 
 def view_cards(question, facts, market, views, news, store=None, client=None):
     """Cards for 'what do you think about <market>?', or [] when no market is named."""
-    if not VIEW_QUESTION.search(question):
+    if not (VIEW_QUESTION.search(question) or INTEREST.search(question)):
         return []
     found = subject(question)
     if not found:
