@@ -85,6 +85,53 @@ def _card(f):
     return {'text': f.text, 'source': f.source, 'fact': f.id, 'slot': f.slot}
 
 
+# "What's my whole portfolio?" -- the client wants the picture, not today's move.
+OVERVIEW_QUESTION = re.compile(
+    r"\b(?:entire|whole|overall|full|total) (?:portfolio|book|picture|position|holdings?|wealth)\b"
+    r"|\bwhat(?:'s| is| do i have) in my (?:portfolio|account)\b|\bwhat do i (?:own|hold|have with you)\b"
+    r"|\b(?:overview|summary|summari[sz]e|big picture)\b|\bmy portfolio (?:look like|in general)\b",
+    re.IGNORECASE)
+
+FUND_NOISE = re.compile(r' UCITS ETF(?: \((?:Acc|Dist)\))?| \((?:Acc|Dist)\)|,? A/S| AG\b| SA\b| Inc\.?\b| PLC\b', re.I)
+
+
+def sayable(text):
+    """The card as the advisor would say it: the client's words, short fund names, the
+    same numbers. The full sentence stays available as 'detail'."""
+    t = FUND_NOISE.sub('', text)
+    m = re.match(r'^(?:Combined )?[Pp]ortfolio value ([+−][\d.]+%) over the 12 months to \w+ \d{4} and '
+                 r'([+−][\d.]+%) since (\w+ \d{4}), now (CHF [\d.,]+[km]?)', t)
+    if m:
+        return (f'Worth {m.group(4)} now: {m.group(1)} over the last 12 months, {m.group(2)} since {m.group(3)} '
+                f'(including deposits and withdrawals).')
+    t = t.replace(' after fund look-through', '')
+    t = re.sub(r'\bof the book\b', 'of the portfolio', t)
+    t = re.sub(r'^The book (is|moved)', r'The portfolio \1', t)
+    t = re.sub(r'; value change including deposits and withdrawals\.$', ' (including deposits and withdrawals).', t)
+    t = re.sub(r'^Risk engine for [^,]+, (\d+ \w+ \d{4}): ', r'Risk figures (\1): ', t)
+    return re.sub(r'\s{2,}', ' ', t).strip()
+
+
+def _say(result):
+    for a in result.get('answers') or []:
+        if a.get('text'):
+            a['detail'] = a['text']
+            a['text'] = sayable(a['text'])
+    return result
+
+
+def overview(facts, graph=None):
+    """The whole portfolio in four lines: value and record, what it is made of, the
+    biggest exposure, and the cash on hand."""
+    cards = [_card(f) for f in _pick(facts, [('development', 1)])]
+    if graph is not None and 'mix' in graph.nodes:
+        mix = graph.nodes['mix']
+        cards.append({'text': mix.text, 'source': mix.source, 'fact': 'mix', 'slot': 'watch'})
+    cards += [_card(f) for f in _pick(facts, [('watch.concentration', 1)]) or _pick(facts, [('watch.industry', 1)])]
+    cards += [_card(f) for f in _pick(facts, [('watch.liquidity', 1)])]
+    return cards
+
+
 def _pick(facts, plan):
     """plan: [(slot or id prefix, how many)] -> the highest-weight facts of each, in plan order."""
     out = []
@@ -257,8 +304,16 @@ def answer(facts, question, use_llm=True, graph=None):
     market / did the changes" questions get a chain of facts first ('chain': True, and
     each step carries the link word to the previous one). Small talk gets nothing.
     """
+    return _say(_answer(facts, question, use_llm, graph))
+
+
+def _answer(facts, question, use_llm=True, graph=None):
     if small_talk_only(question):
         return {'answers': [], 'found': False, 'method': 'small_talk'}
+    if OVERVIEW_QUESTION.search(question):
+        cards = overview(facts, graph)
+        if cards:
+            return {'answers': cards, 'found': True, 'method': 'overview'}
     if graph is not None:
         chained = reasoning.chain_answer(graph, question, use_llm=use_llm)
         # A chain that never mentions what was asked about ("what happened to my gold?")
