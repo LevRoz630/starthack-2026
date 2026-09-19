@@ -204,6 +204,14 @@ likely reason, ranked from signals we already compute, each naming its signal:
 noted in March."* If the advisor says "she wants to withdraw", the agent switches to
 that scenario's briefing.
 
+> **Update (Sat 19 Sep, 10:30).** The Twilio integration was removed. A trial account
+> needs every number on the call verified and the minimum top-up was £20 for a demo
+> worth pennies, so the live-call code, its routes and its tests are gone. The demo is
+> the scripted call (`data/demo/golf.json`) plus the phone's own microphone, both
+> through the same listener. Telephony stays in the pitch as the production path —
+> stated as a design, never as something built. Everything below about Twilio is the
+> plan as it stood, kept for the record.
+
 ## Architecture
 
 ```

@@ -17,7 +17,7 @@ Every event of a run is saved to data/demo/runs/<name>-latest.json. `replay` pus
 saved run again with its original timing and no network at all: the fallback if the
 venue network fails during the pitch.
 
-The live pipeline is the same listener fed by Twilio or the phone microphone; see
+The live pipeline is the same listener fed by the phone microphone; see
 backend/listener.py.
 
     python -m backend.demo prepare golf        # voice the lines (needs ELEVENLABS_KEY)

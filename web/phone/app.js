@@ -7,7 +7,8 @@ const params = new URLSearchParams(location.search);
 const API = (params.get('api') || location.origin).replace(/\/$/, '');
 const WS_BASE = API.replace(/^http/, 'ws');
 const WS_URL = `${WS_BASE}/ws`;
-const DEMO_CLIENT = params.get('demo');
+const SCRIPT = params.get('script') || 'golf';
+let DEMO_CLIENT = params.get('demo') || null;   // filled from the script by loadDemo()
 
 const SLOT_TITLES = {
   reason: 'Why they are calling',
@@ -22,7 +23,7 @@ const state = {
   callStarted: null,
   timer: null,
   approved: {},
-  line: null,         // 'twilio' while the phone line is being transcribed
+  line: null,         // 'recorded' while the call's own audio is being transcribed
 };
 
 // --- formatting -------------------------------------------------------------
@@ -179,12 +180,12 @@ async function ask(question) {
   return entry;
 }
 
-// For the Twilio listener: inject a question heard on the line.
+// Inject a question heard on the line (used by the recorded-call pipeline).
 window.pushAnswer = (question) => ask(question);
 
 // --- live listening -------------------------------------------------------------
 // The client's voice reaches /listen (this phone's microphone, 16 kHz PCM16) or
-// /twilio/media (the phone line); either way transcripts and answers come back on /ws.
+// or the recorded call's own audio; either way transcripts and answers come back on /ws.
 
 const LISTEN_RATE = 16000;
 const LISTEN_BATCH = LISTEN_RATE / 10;   // send 100 ms per message
@@ -275,12 +276,12 @@ function stopListening() {
 function setListenButton(source) {
   const btn = $('#listen');
   btn.setAttribute('aria-pressed', source === 'mic' ? 'true' : 'false');
-  if (source === 'twilio') btn.dataset.source = 'twilio'; else delete btn.dataset.source;
+  if (source === 'recorded') btn.dataset.source = 'recorded'; else delete btn.dataset.source;
   // What the advisor needs to know is whether it can hear the client, not what tapping
   // does; the label is the state, and the dot pulses while audio is arriving.
   $('#listen-label').textContent = source === 'mic' ? 'Hearing you'
-    : source === 'twilio' ? 'On the line' : 'Not hearing';
-  btn.disabled = source === 'twilio';
+    : source === 'recorded' ? 'On the line' : 'Not hearing';
+  btn.disabled = source === 'recorded';
   btn.title = source === 'mic' ? 'Stop listening' : 'Start listening';
 }
 
@@ -293,7 +294,7 @@ function showLive(text, kind) {
 // Events from the listener (either source) for the client on the line.
 function onListenerEvent(event) {
   if (!state.briefing || event.client !== state.briefing.client) return;
-  if (event.type === 'listening' && event.source !== 'browser') { state.line = 'twilio'; setListenButton('twilio'); }
+  if (event.type === 'listening' && event.source !== 'browser') { state.line = 'recorded'; setListenButton('recorded'); }
   if (event.type === 'listening_stopped' && event.source !== 'browser') { state.line = null; setListenButton(mic.ws ? 'mic' : null); }
   if (event.type === 'listener_error') showLive(`Listener: ${event.error}`, 'error');
   if (state.screen !== 'call') return;
@@ -482,18 +483,34 @@ $('#ask-form').addEventListener('submit', (e) => {
 });
 for (const btn of $$('[data-approve]')) btn.addEventListener('click', () => approve(btn.dataset.approve));
 
-if (DEMO_CLIENT) {
-  const btn = $('#demo-call');
-  btn.hidden = false;
-  btn.addEventListener('click', async () => {
-    try {
-      await fetch(`${API}/call/incoming`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ client: DEMO_CLIENT }),
-      });
-    } catch { setConn('closed', 'Offline'); }
-  });
+$('#demo-call').addEventListener('click', async () => {
+  if (!DEMO_CLIENT) return;
+  try {
+    await fetch(`${API}/call/incoming`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ client: DEMO_CLIENT }),
+    });
+  } catch { setConn('closed', 'Offline'); }
+});
+
+// Who the scripted call rings as, and whether a saved run exists to replay offline.
+async function loadDemo() {
+  let info;
+  try {
+    info = await fetch(`${API}/demo/scripts`).then((r) => r.json());
+  } catch {
+    return;
+  }
+  DEMO_CLIENT = DEMO_CLIENT || (info.clients || {})[SCRIPT] || null;
+  const replayable = (info.replayable || {})[SCRIPT];
+  $('#demo-replay').disabled = !replayable;
+  $('#demo-replay').title = replayable ? '' : 'No saved call yet — run one first';
+  const names = info.names || {};
+  $('#demo-caller').textContent = DEMO_CLIENT
+    ? `${names[DEMO_CLIENT] || DEMO_CLIENT} will call, during the market shown above.`
+    : 'No demo script found.';
+  $('#demo-recorded').disabled = !DEMO_CLIENT;
 }
 
 function demoStatus(event) {
@@ -511,20 +528,17 @@ async function runDemo(mode) {
     const resp = await fetch(`${API}/demo/run`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ script: params.get('script') || 'golf', mode }),
+      body: JSON.stringify({ script: SCRIPT, mode }),
     });
     const result = await resp.json();
     if (!resp.ok) status.textContent = result.error || 'Could not start';
   } catch { status.textContent = 'Offline'; }
 }
 
-if (DEMO_CLIENT) {
-  for (const [id, mode] of [['#demo-recorded', 'pipeline'], ['#demo-replay', 'replay']]) {
-    const b = $(id);
-    b.hidden = false;
-    b.addEventListener('click', () => runDemo(mode));
-  }
+for (const [id, mode] of [['#demo-recorded', 'pipeline'], ['#demo-replay', 'replay']]) {
+  $(id).addEventListener('click', () => runDemo(mode));
 }
+loadDemo();
 
 fetch(`${API}/market/state`).then((r) => r.json()).then(setMarket).catch(() => {});
 connect();

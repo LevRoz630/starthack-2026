@@ -170,8 +170,8 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 .btn.listen[aria-pressed="false"]:not([data-source]) { color: var(--ink); border-color: var(--amber); }
 .btn.listen[aria-pressed="true"] { color: var(--green-ink); border-color: var(--green); }
 .btn.listen[aria-pressed="true"] .dot { background: var(--green); animation: pulse 1.6s ease-in-out infinite; }
-.btn.listen[data-source="twilio"] { color: var(--green-ink); border-color: var(--green); opacity: 1; }
-.btn.listen[data-source="twilio"] .dot { background: var(--green); animation: pulse 1.6s ease-in-out infinite; }
+.btn.listen[data-source="recorded"] { color: var(--green-ink); border-color: var(--green); opacity: 1; }
+.btn.listen[data-source="recorded"] .dot { background: var(--green); animation: pulse 1.6s ease-in-out infinite; }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
 @media (prefers-reduced-motion: reduce) { .btn.listen .dot { animation: none; } }
 /* Reserved height, always. The transcript grows word by word as the client
@@ -219,3 +219,8 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
    a line to tap rather than an empty white card. */
 .card.more { background: transparent; box-shadow: none; padding: 0; }
 .card.more summary { color: var(--uro-blue-dark); }
+
+/* The idle screen is now the demo's front door: one clear way in, the rest folded away. */
+.demo-caller { margin: 0; color: var(--muted); font-size: var(--size-s); }
+.more-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+.idle .more summary { font-size: var(--size-s); color: var(--uro-blue-dark); }

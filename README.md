@@ -35,7 +35,7 @@ DEMO_SCENARIO=tech-selloff uvicorn backend.api:app --port 8000
 | `POST /market/events` | `{"scenario": "tech-selloff"}` or `{"ticks": [...]}` — re-ranks and pushes to `/ws` |
 | `GET /callers` | who the move hit hardest, with their likely reason to call |
 | `GET /call/{ref}` | the incoming-call briefing |
-| `POST /call/incoming` | `{"from": "+41..."}` (JSON or Twilio form) or `{"client": ref}` — pushes the briefing to `/ws` |
+| `POST /call/incoming` | `{"from": "+41..."}` (JSON or form) or `{"client": ref}` — pushes the briefing to `/ws` |
 | `POST /ask` | `{"client", "question"}` → the facts that answer it, with sources |
 | `WS /ws` | events: `hello`, `market`, `incoming_call`, `transcript`, `answer`, `listening`, `listening_stopped`, `listener_error` |
 
@@ -43,7 +43,7 @@ Also: `POST /transcribe` (audio → text → answers, ElevenLabs Scribe), `GET /
 `GET /call/{ref}/audio` and `GET /briefing/{ref}/audio` (spoken, ElevenLabs Flash),
 `POST /call/answered` and `POST /followup/send` (call note / email, see below),
 `GET /demo/scripts`, `POST /demo/run`, `POST /demo/stop`, `GET /demo/audio/{name}`. The
-real-time call listener, Twilio webhook and demo pipelines are documented in
+real-time call listener and the demo pipelines are documented in
 `backend/listener.py` and under [Demo pipelines](#demo-pipelines) below.
 
 `GET /dashboard/` — the one-click 60-second briefing (`web/dashboard/`): pick a client, see the
@@ -101,7 +101,7 @@ Three further client-data files arrive later for the live presentation, so the s
 
 Both run through the same listener (speech-to-text → answer cards on the phone).
 
-- **Live:** a real call via Twilio (`/twilio/voice`, `/twilio/media`; setup steps in `backend/listener.py`) or the phone's microphone (Listen button in the call screen, `/listen`).
+- **Live:** the phone's microphone (the call screen starts listening when you answer, `/listen`).
 - **Recorded:** `data/demo/golf.json` scripts the client's side of the golf-video call. Its lines are voiced by ElevenLabs once (`python -m backend.demo prepare golf`) and replayed in real time through the real speech-to-text. On the phone (`/phone/?demo=CASE-043`): **Play recorded call**, then tap Answer. Every run is saved to `data/demo/runs/golf-latest.json`.
 - **Replay offline:** pushes the saved run again with its original timing and no network — the fallback if the venue network fails.
 

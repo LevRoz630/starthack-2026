@@ -29,9 +29,15 @@
           Market: <span id="market-name">none</span>
           <span class="tag sim" id="market-sim" hidden>SIMULATED</span>
         </p>
-        <button class="btn secondary" id="demo-call" type="button" hidden>Simulate call</button>
-        <button class="btn secondary" id="demo-recorded" type="button" hidden>Play recorded call</button>
-        <button class="btn secondary" id="demo-replay" type="button" hidden>Replay offline</button>
+        <p class="demo-caller" id="demo-caller"></p>
+        <button class="btn primary wide" id="demo-recorded" type="button">Start the call</button>
+        <details class="more">
+          <summary>Other ways to start it</summary>
+          <div class="more-actions">
+            <button class="btn secondary wide" id="demo-replay" type="button">Replay the last call offline</button>
+            <button class="btn secondary wide" id="demo-call" type="button">Ring only, then use the microphone</button>
+          </div>
+        </details>
         <p class="demo-status" id="demo-status" hidden></p>
       </div>
     </section>

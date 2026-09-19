@@ -43,7 +43,9 @@ def test_market_event_reranks_and_pushes_to_the_phone(client):
     assert client.post('/market/events', json={}).status_code == 400
 
 
-def test_twilio_form_post_with_unknown_number(client):
+def test_incoming_call_form_post_with_unknown_number(client):
+    # /call/incoming still takes a form post with a caller number, which is what a telephony
+    # webhook would send in production; an unknown number is a phonebook miss, not a crash.
     r = client.post('/call/incoming', data={'From': '+41 79 999 99 99', 'CallSid': 'CA123'})
     assert r.status_code == 404 and 'phonebook' in r.json()['error']
 
