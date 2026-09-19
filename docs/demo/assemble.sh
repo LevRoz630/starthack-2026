@@ -25,6 +25,10 @@ H=1920
 LEAD=0.4          # a question ends this long before its card appears
 ADVISOR_END=174   # the take carries on into the room afterwards; that is not the film
 BROLL_END=4.6     # he has the phone up by 3.4s; the film moves on once he has it
+KEEP=0.5          # a pause longer than this is trimmed back to it, picture and all
+HUSH=-33dB        # quieter than this counts as a pause; the room is never silent
+HUSH_MIN=0.6      # and it has to last this long to be one
+PROTECT=176       # past here is the call note and the email: silent on purpose
 FIRST_ANSWER=5.0  # nobody speaks before the advisor has answered
 
 # Walter's eight lines: start and end in walter-voice.m4a, from silencedetect.
@@ -50,7 +54,7 @@ for i in "${!SEGS[@]}"; do
   dur=$(awk -v a="$from" -v b="$to" 'BEGIN{printf "%.3f", b-a}')
   at=$(awk -v c="${CARDS[$i]}" -v d="$dur" -v l="$LEAD" -v f="$FIRST_ANSWER" \
        'BEGIN{t=c-l-d; if (t<f) t=f; printf "%.0f", t*1000}')
-  filters+="[2:a]atrim=start=${from}:end=${to},asetpts=PTS-STARTPTS,adelay=${at}|${at}[w$i];"
+  filters+="[1:a]atrim=start=${from}:end=${to},asetpts=PTS-STARTPTS,adelay=${at}|${at}[w$i];"
   mixes+="[w$i]"
 done
 
@@ -63,18 +67,31 @@ ffmpeg -v error -y -t "$BROLL_END" -i "$MEDIA/advisor-broll.mp4" \
   -c:v libx264 -preset veryfast -crf 20 -c:a aac -ar 48000 -ac 2 part-a.mp4 || exit 1
 
 # --- part two: the call on screen, both voices over it -------------------------
-ffmpeg -v error -y -i "$MEDIA/phone-screen.mp4" -i "$MEDIA/advisor-voice.m4a" \
-       -i "$MEDIA/walter-voice.m4a" \
-  -filter_complex "[0:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},boxblur=22:2[bg];
-                   [0:v]scale=-2:${H}[fg];
-                   [bg][fg]overlay=(W-w)/2:0,fps=30,format=yuv420p[v];
-                   ${filters}
+# The mix is built first on its own, because where it falls silent is where both it
+# and the picture get shortened -- cutting only the sound would walk the cards out of
+# step with the voices.
+ffmpeg -v error -y -i "$MEDIA/advisor-voice.m4a" -i "$MEDIA/walter-voice.m4a" \
+  -filter_complex "${filters}
                    ${mixes}amix=inputs=${#SEGS[@]}:normalize=0,aresample=48000,asplit=2[wa][wb];
-                   [1:a]atrim=end=${ADVISOR_END},asetpts=PTS-STARTPTS,aresample=48000[adv];
+                   [0:a]atrim=end=${ADVISOR_END},asetpts=PTS-STARTPTS,aresample=48000[adv];
                    [adv][wb]sidechaincompress=threshold=0.03:ratio=9:attack=30:release=500[duck];
                    [duck][wa]amix=inputs=2:normalize=0,loudnorm=I=-18[a]" \
+  -map "[a]" -c:a pcm_s16le mix.wav || exit 1
+
+CALL=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$MEDIA/phone-screen.mp4")
+KEEPS=$(ffmpeg -hide_banner -i mix.wav -af "silencedetect=noise=${HUSH}:d=${HUSH_MIN}" -f null /dev/null 2>&1 \
+        | python3 gaps.py "$CALL" "$KEEP" "$PROTECT")
+[ -n "$KEEPS" ] || exit 1
+
+ffmpeg -v error -y -i "$MEDIA/phone-screen.mp4" -i mix.wav \
+  -filter_complex "[0:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},boxblur=22:2[bg];
+                   [0:v]scale=-2:${H}[fg];
+                   [bg][fg]overlay=(W-w)/2:0[full];
+                   [full]select='${KEEPS}',setpts=N/FRAME_RATE/TB,fps=30,format=yuv420p[v];
+                   [1:a]aselect='${KEEPS}',asetpts=N/SR/TB[a]" \
   -map "[v]" -map "[a]" \
   -c:v libx264 -preset veryfast -crf 20 -c:a aac -ar 48000 -ac 2 part-b.mp4 || exit 1
+rm -f mix.wav
 
 # --- one film ------------------------------------------------------------------
 printf "file 'part-a.mp4'\nfile 'part-b.mp4'\n" > parts.txt

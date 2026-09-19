@@ -26,6 +26,16 @@ before the card it produces. The advisor answered straight through without leavi
 gaps his questions fit into, so the advisor's track ducks under Walter's wherever
 they meet.
 
+## The pauses
+
+The advisor recorded his answers at his own pace, which left long gaps between the
+phrases. `gaps.py` reads where the finished mix falls quiet and trims every pause
+back to `KEEP`, half a second — enough to breathe, not enough to wait. The picture is
+cut at exactly the same places, or the cards would walk out of step with the voices.
+`HUSH` and `HUSH_MIN` are what counts as a pause (the room is never truly silent),
+and nothing after `PROTECT` is touched: that is the call note and the follow-up
+email, which are silent on purpose.
+
 ## Re-cutting it
 
 ```
