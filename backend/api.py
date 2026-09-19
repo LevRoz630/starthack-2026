@@ -56,7 +56,7 @@ from starlette.routing import Mount, Route, WebSocketRoute
 from starlette.staticfiles import StaticFiles
 from starlette.websockets import WebSocketDisconnect
 
-from . import answers, briefing, callmode, demo, lookup, reasoning, excustody, listener, mailer, profiles, voice
+from . import answers, briefing, callmode, demo, lookup, reasoning, excustody, listener, mailer, profiles, utterance, voice
 from .data import ROOT, env, load
 from .facts import client_name, compute, risk_profile
 from .market import MarketState, load_scenario, scenarios
@@ -282,8 +282,17 @@ async def ask(request):
     client, err = client_or_404(data['client'])
     if err:
         return err
-    return JSONResponse({'client': data['client'], 'question': data['question'],
-                         **answer(client, data['question'])})
+    question = data['question']
+    # A typed sentence is sorted like a spoken one: a request, instruction or piece of
+    # information is a line for the call note, not an empty card.
+    kind = utterance.classify(question)
+    if kind in ('instruction', 'request', 'info'):
+        return JSONResponse({'client': data['client'], 'question': question, 'answers': [], 'found': False,
+                             'method': kind, 'heard': {'kind': kind, 'label': utterance.LABELS[kind], 'text': question}})
+    result = answer(client, question)
+    if not result.get('found') and result.get('method') not in ('small_talk', 'logistics'):
+        result['heard'] = {'kind': 'follow_up', 'label': utterance.LABELS['follow_up'], 'text': question}
+    return JSONResponse({'client': data['client'], 'question': question, **result})
 
 
 def answer(client, question):

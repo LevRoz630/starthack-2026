@@ -189,6 +189,11 @@ async function ask(question) {
   if (!state.briefing) return null;
   const entry = await askAbout(API, state.briefing.client, question);
   if (!entry) return null;
+  if (entry.heard) {                 // a request, instruction or unanswered question: a quiet line
+    addHeard(entry.heard);
+    $('#waiting').hidden = true;
+    return entry;
+  }
   state.answers.unshift(entry);
   $('#answers').prepend(answerCard(entry, { sources: 'collapsed' }));
   $('#waiting').hidden = true;
@@ -318,15 +323,7 @@ function onListenerEvent(event) {
   if (event.type === 'listener_error') showLive(`Listener: ${event.error}`, 'error');
   if (state.screen !== 'call') return;
   if (event.type === 'transcript') showLive(event.text, event.final ? 'final' : '');
-  if (event.type === 'heard') {
-    // Not a card: a quiet line now, and a line in the call note later.
-    state.heard = state.heard || [];
-    state.heard.push({ kind: event.kind, label: event.label, text: event.text });
-    const item = el('li');
-    item.dataset.kind = event.kind;
-    item.append(el('span', 'kind', event.label), document.createTextNode(event.text));
-    $('#heard').prepend(item);
-  }
+  if (event.type === 'heard') addHeard(event);
   if (event.type === 'answer') {
     const entry = { question: event.question, answers: event.answers || [], chain: !!event.chain };
     state.answers.unshift(entry);
@@ -401,6 +398,16 @@ function endTurn() {
   fetch(`${API}/demo/next`, { method: 'POST' }).catch(() => {});
 }
 
+// Not a card: a quiet line now, and a line in the call note later.
+function addHeard(h) {
+  state.heard = state.heard || [];
+  state.heard.push({ kind: h.kind, label: h.label, text: h.text });
+  const item = el('li');
+  item.dataset.kind = h.kind;
+  item.append(el('span', 'kind', h.label), document.createTextNode(h.text));
+  $('#heard').prepend(item);
+}
+
 // --- after call ---------------------------------------------------------------
 
 // A recorded demo call keeps running on the server until told otherwise. Stopping it from
@@ -410,6 +417,8 @@ function stopDemo() {
   // Always tell the server, even if this page missed the demo starting (reloaded mid-call):
   // stopping when nothing runs is harmless, a call left running is not.
   state.demoRunning = false;
+  const status = $('#demo-status');
+  if (status && !status.hidden) status.textContent = 'Call ended';
   fetch(`${API}/demo/stop`, { method: 'POST' }).catch(() => {});
 }
 

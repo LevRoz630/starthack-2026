@@ -133,5 +133,6 @@ export async function askAbout(api, client, question) {
   } catch (e) {
     result = { answers: [], error: 'No connection' };
   }
-  return { question, answers: result.answers || [], error: result.error, chain: !!result.chain };
+  return { question, answers: result.answers || [], error: result.error, chain: !!result.chain,
+           heard: result.heard || null };
 }
