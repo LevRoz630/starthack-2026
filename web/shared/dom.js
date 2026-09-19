@@ -39,7 +39,17 @@ export function renderGroup(slot, sentences, title) {
 // One answer card: the question as asked, then the facts that answer it, each with its
 // source. A chain answer renders as numbered steps with the link between them. Both
 // front-ends show answers this way, so the markup lives here.
-export function answerCard(entry) {
+export function answerCard(entry, { sources = 'shown' } = {}) {
+  // On the laptop a source is the point: the judge is checking the number came from
+  // somewhere. On the phone mid-call it is noise between the advisor and the answer, so
+  // it collapses to one tap and the answer gets the room.
+  const source = (text) => {
+    if (sources !== 'collapsed') return el('p', 'src', text);
+    const box = el('details', 'src-toggle');
+    box.append(el('summary', null, 'source'));
+    box.append(el('p', 'src', text));
+    return box;
+  };
   const card = el('li', `answer-card${entry.answers.length ? '' : ' none'}`);
   card.append(el('p', 'q', `“${entry.question}”`));
   if (!entry.answers.length) {
@@ -52,7 +62,7 @@ export function answerCard(entry) {
       const step = el('li', 'step');
       if (a.link) step.append(el('span', 'link', a.link));
       step.append(el('p', 'a', a.text));
-      step.append(el('p', 'src', a.source));
+      step.append(source(a.source));
       steps.append(step);
     }
     card.append(steps);
@@ -60,7 +70,7 @@ export function answerCard(entry) {
   }
   for (const a of entry.answers) {
     card.append(el('p', 'a', a.text));
-    card.append(el('p', 'src', a.source));
+    card.append(source(a.source));
   }
   return card;
 }

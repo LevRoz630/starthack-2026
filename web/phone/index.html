@@ -63,8 +63,9 @@
         <p class="ref"><span data-caller-ref></span> <span class="tag sim" data-sim hidden>SIMULATED</span></p>
         <span class="timer" id="timer">0:00</span>
       </div>
-      <p class="live" id="live-transcript" aria-live="polite"></p>
       <ol class="answers" id="answers" aria-live="polite"></ol>
+
+      <p class="waiting" id="waiting">Listening for the client's first question.</p>
 
       <div class="context">
         <p class="reason-line" data-reason-line></p>
@@ -76,18 +77,25 @@
         <div class="brief" data-brief></div>
       </details>
 
-      <div class="listen-row">
-        <button class="btn listen" id="listen" type="button" aria-pressed="false">Listen</button>
-        <form class="ask" id="ask-form" autocomplete="off">
+      <!-- Everything the advisor does not read while the client talks: whether we are
+           hearing them, the words as they arrive, and the manual fallbacks. Pinned to the
+           bottom so the answer above it owns the screen. -->
+      <div class="callbar">
+        <div class="hearing-row">
+          <button class="btn listen" id="listen" type="button" aria-pressed="false">
+            <span class="dot" aria-hidden="true"></span><span id="listen-label">Listening</span>
+          </button>
+          <p class="live" id="live-transcript" aria-live="polite"></p>
+          <button class="btn icon" id="type-toggle" type="button" aria-expanded="false"
+                  aria-controls="ask-form" title="Type a question instead">&#9000;</button>
+        </div>
+        <form class="ask" id="ask-form" autocomplete="off" hidden>
           <div class="ask-row">
             <label for="ask-input" class="visually-hidden">Type the client's question</label>
             <input id="ask-input" name="question" type="text" placeholder="Type a question…" required>
             <button class="btn secondary" type="submit">Ask</button>
           </div>
         </form>
-      </div>
-
-      <div class="actions sticky">
         <button class="btn decline wide" id="end-call" type="button">End call</button>
       </div>
     </section>

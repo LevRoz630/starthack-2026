@@ -152,7 +152,13 @@ function answer() {
   renderBrief($('#screen-call [data-brief]'), b, { withImpact: false });
   $('#answers').replaceChildren();
   showLive('');
+  $('#waiting').hidden = false;
+  $('#ask-form').hidden = true;
+  $('#type-toggle').setAttribute('aria-expanded', 'false');
   setListenButton(state.line);
+  // Nothing is dialled on a simulated call, so the microphone is the only way the client
+  // can be heard. Answer is a user gesture, which is what getUserMedia requires.
+  if (!state.line) startListening();
   state.callStarted = Date.now();
   $('#timer').textContent = '0:00';
   clearInterval(state.timer);
@@ -168,7 +174,8 @@ async function ask(question) {
   const entry = await askAbout(API, state.briefing.client, question);
   if (!entry) return null;
   state.answers.unshift(entry);
-  $('#answers').prepend(answerCard(entry));
+  $('#answers').prepend(answerCard(entry, { sources: 'collapsed' }));
+  $('#waiting').hidden = true;
   return entry;
 }
 
@@ -269,8 +276,12 @@ function setListenButton(source) {
   const btn = $('#listen');
   btn.setAttribute('aria-pressed', source === 'mic' ? 'true' : 'false');
   if (source === 'twilio') btn.dataset.source = 'twilio'; else delete btn.dataset.source;
-  btn.textContent = source === 'mic' ? 'Stop' : source === 'twilio' ? 'On the line' : 'Listen';
+  // What the advisor needs to know is whether it can hear the client, not what tapping
+  // does; the label is the state, and the dot pulses while audio is arriving.
+  $('#listen-label').textContent = source === 'mic' ? 'Hearing you'
+    : source === 'twilio' ? 'On the line' : 'Not hearing';
   btn.disabled = source === 'twilio';
+  btn.title = source === 'mic' ? 'Stop listening' : 'Start listening';
 }
 
 function showLive(text, kind) {
@@ -290,7 +301,8 @@ function onListenerEvent(event) {
   if (event.type === 'answer') {
     const entry = { question: event.question, answers: event.answers || [], chain: !!event.chain };
     state.answers.unshift(entry);
-    $('#answers').prepend(answerCard(entry));
+    $('#answers').prepend(answerCard(entry, { sources: 'collapsed' }));
+  $('#waiting').hidden = true;
     // The final question stays under the header: it is what the new card answers,
     // and clearing it here used to collapse the strip just as the card arrived.
   }
@@ -455,6 +467,12 @@ $('#answer').addEventListener('click', answer);
 $('#decline').addEventListener('click', () => { stopRingtone(); stopListening(); show('idle'); });
 $('#end-call').addEventListener('click', endCall);
 $('#listen').addEventListener('click', () => (mic.ws ? stopListening() : startListening()));
+$('#type-toggle').addEventListener('click', () => {
+  const form = $('#ask-form');
+  form.hidden = !form.hidden;
+  $('#type-toggle').setAttribute('aria-expanded', String(!form.hidden));
+  if (!form.hidden) $('#ask-input').focus();
+});
 $('#done').addEventListener('click', () => show('idle'));
 $('#ask-form').addEventListener('submit', (e) => {
   e.preventDefault();

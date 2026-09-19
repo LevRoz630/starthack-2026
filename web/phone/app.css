@@ -19,6 +19,8 @@ main { max-width: 480px; margin: 0 auto; padding: var(--gutter); }
    without the inset here the last card sits under the bar on a notched phone. */
 .screen { display: flex; flex-direction: column; gap: var(--gap);
           padding-bottom: calc(var(--tap) + 2 * var(--gutter) + env(safe-area-inset-bottom)); }
+/* The call screen clears the call bar instead: hearing row + End call + padding. */
+#screen-call { padding-bottom: calc(2 * var(--tap) + 3 * var(--gutter) + env(safe-area-inset-bottom)); }
 
 h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
 
@@ -140,12 +142,38 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
   margin: 0 auto;
 }
 
-/* Live listening: the client's words as they are heard, and the toggle. */
-.listen-row { display: flex; align-items: center; gap: var(--gap); }
-.listen-row .ask { flex: 1; min-width: 0; }
-.btn.listen { flex: none; min-width: 112px; }
-.btn.listen[aria-pressed="true"] { background: var(--red); border-color: var(--red); color: var(--on-blue); }
-.btn.listen[data-source="twilio"] { background: var(--green); border-color: var(--green); color: var(--on-blue); }
+/* The call bar: pinned to the bottom, holding everything that is not the answer. */
+.callbar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 10px var(--gutter) calc(env(safe-area-inset-bottom) + var(--gutter));
+  background: var(--page);
+  box-shadow: 0 -8px 16px -8px rgba(0, 0, 0, 0.18);
+}
+.hearing-row { display: flex; align-items: center; gap: 10px; }
+.btn.icon { flex: none; min-width: var(--tap); padding: 0; background: var(--card);
+            border: 1px solid var(--line); color: var(--uro-blue-dark); font-size: 20px; }
+.btn.icon[aria-expanded="true"] { background: var(--uro-blue); color: var(--on-blue); border-color: var(--uro-blue); }
+.callbar .ask { margin: 0; }
+
+/* Is it hearing me? The one question the advisor has mid-call that the screen has to
+   answer without being asked. The dot pulses only while audio is actually arriving. */
+.btn.listen { flex: none; min-width: 0; padding: 0 14px; display: flex; align-items: center; gap: 8px;
+              background: var(--card); border: 1px solid var(--line); color: var(--muted); font-size: var(--size-s); }
+.btn.listen .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--amber); flex: none; }
+.btn.listen[aria-pressed="false"]:not([data-source]) { color: var(--ink); border-color: var(--amber); }
+.btn.listen[aria-pressed="true"] { color: var(--green-ink); border-color: var(--green); }
+.btn.listen[aria-pressed="true"] .dot { background: var(--green); animation: pulse 1.6s ease-in-out infinite; }
+.btn.listen[data-source="twilio"] { color: var(--green-ink); border-color: var(--green); opacity: 1; }
+.btn.listen[data-source="twilio"] .dot { background: var(--green); animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+@media (prefers-reduced-motion: reduce) { .btn.listen .dot { animation: none; } }
 /* Reserved height, always. The transcript grows word by word as the client
    speaks; if the box grew with it, every answer below it would be pushed down
    mid-sentence. Two lines at 14px is ~44 characters a line, which holds the
@@ -153,21 +181,41 @@ h2 { margin: 0; font-size: var(--size-l); font-weight: 600; }
    the convention live-caption interfaces settled on. */
 .live {
   margin: 0;
+  flex: 1;
   min-width: 0;
   color: var(--muted);
   font-style: italic;
   font-size: var(--size-s);
   line-height: 1.45;
-  min-height: calc(2 * 1.45em);
-  max-height: calc(2 * 1.45em);
+  /* One line. It sits beside the hearing pill, so it must not change height as words
+     arrive, or the whole bar would jump while the client is mid-sentence. */
+  white-space: nowrap;
   overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow-wrap: anywhere;
+  text-overflow: ellipsis;
 }
 .live.final { color: var(--ink); font-style: normal; font-weight: 500; }
 .live.error { color: var(--red-ink); font-style: normal; }
 
 .tag.error { background: var(--red); color: #fff; }
 .demo-status { margin: 8px 0 0; font-size: 14px; color: var(--muted, #6b6b73); }
+
+/* The newest answer is the one being read aloud from; everything older is reference.
+   Sizing says which is which faster than position alone. */
+#answers li:first-child .a { font-size: var(--size-l); line-height: 1.35; }
+#answers li:not(:first-child) { opacity: 0.72; }
+#answers li:not(:first-child) .a { font-size: var(--size-s); }
+
+/* A source the advisor can reach in one tap and otherwise never sees. */
+.src-toggle { margin-top: 4px; }
+.src-toggle summary { cursor: pointer; font-size: var(--size-xs); color: var(--muted);
+                      text-transform: uppercase; letter-spacing: 0.05em; }
+.src-toggle .src { margin-top: 4px; }
+
+/* Before the first question there is nothing to show, and an empty screen reads as
+   broken. Say what the phone is doing instead. */
+.waiting { margin: 0; color: var(--muted); font-size: var(--size-s); }
+
+/* The briefing is already on the ringing screen; here it is a fallback, so it reads as
+   a line to tap rather than an empty white card. */
+.card.more { background: transparent; box-shadow: none; padding: 0; }
+.card.more summary { color: var(--uro-blue-dark); }
